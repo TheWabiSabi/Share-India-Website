@@ -1,36 +1,178 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Share India Insurance - Modern Website (Next.js + Tailwind + TypeScript)
 
-## Getting Started
+This is the official frontend codebase for rebuilding the [Share India Insurance](https://shareindiainsurance.com/home/index.html) website using modern web technologies — **Next.js (App Router)**, **Tailwind CSS**, and **TypeScript**. The site is designed to be fully responsive, maintainable, SEO-friendly, and scalable.
 
-First, run the development server:
+---
+
+## 🧩 Project Scope
+
+### 🚀 Home Page
+- Catchy Short Intro
+- Featured Insights
+- Featured Impact Stories
+- Target Audience
+
+### 🧠 Insights Section
+- Topic-Based Filters
+- News
+- Articles & Blogs (SIIB’s Opinions)
+
+### 🧬 About Section
+- Journey of SIIB
+- Impact of SIIB
+- Testimonials
+- Leaders and Team
+
+### 👔 Careers
+
+### 📞 Contact Us
+- Appointment Booking
+- Meeting Scheduler (with Mobile 2FA)
+
+### 🛠️ Services
+- Life Insurance
+- Health Insurance
+- Term Insurance
+- Vehicle Insurance
+- Business Insurance
+- Travel Insurance
+
+### 🤖 AI Chatbot (Bottom-Right Floating Assistant)
+
+---
+
+## 🏗️ Project Structure (Hybrid Component Pattern)
+
+```
+app/  
+├── page.tsx # Home Page  
+├── about/  
+│ ├── page.tsx  
+│ └── _components/ # About-specific UI blocks  
+├── insights/  
+│ ├── page.tsx  
+│ └── _components/  
+├── services/  
+│ └── life/page.tsx  
+├── contact/  
+│ └── page.tsx  
+components/  
+├── layout/ # Navbar, Footer, etc.  
+├── ui/ # Buttons, Inputs, Cards, etc.  
+public/ # Static Assets  
+styles/ # Tailwind + Global Styles  
+types/ # Shared TypeScript types  
+lib/ # Utilities (SEO, fetchers, etc.)
+```
+
+---
+
+## 🧑‍💻 Getting Started
+
+First, install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
 # or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npx next dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 in your browser to see the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+You can begin by editing app/page.tsx for the homepage. The app uses the Next.js App Router, so every route corresponds to a folder inside app/.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Scripts
 
-## Learn More
+```
+npm run dev           # Start development server
+npm run build         # Create production build
+npm run lint          # Run ESLint checks
+npm run format        # Run Prettier formatting
+```
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# 📁 Folder Structure & Component Conventions
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project follows a hybrid folder structure for organizing components, optimized for clarity, modularity, and maintainability.
 
-## Deploy on Vercel
+## ✅ Component Convention
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+We divide components into two main categories:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 1. Global Components (`/components`)
+
+Reusable, shareable components used across multiple pages:
+
+```
+components/
+├── layout/        # Navbar, Footer, PageWrapper, etc.
+├── ui/            # Button, Input, Card, etc.
+├── common/        # Reusable visual components
+```
+
+- These components should be **generic and flexible**.
+- Use TypeScript props and clear naming conventions.
+- If a component is reused in more than one route, **it belongs here**.
+
+---
+
+## 2. Route-Specific Components (`_components/` inside route folder)
+
+Scoped components that belong only to a specific page or route:
+
+```
+app/
+├── about/
+│   ├── page.tsx
+│   └── _components/
+│       ├── Journey.tsx
+│       ├── Team.tsx
+```
+
+- Components here are **not reused** outside their parent route.
+- The `_components` prefix ensures **Next.js does not treat them as routes**.
+- Keeps the codebase clean and self-contained.
+
+> 📌 **Note:** Never import from another route’s `_components` folder. If a component needs to be shared, move it to the global `/components` directory.
+
+---
+
+## 🚦 Rule of Thumb
+
+| Where to put it?                | Rule |
+|-------------------------------|------|
+| `/components/ui/Button.tsx`   | Reusable anywhere |
+| `app/about/_components/Team.tsx` | Only used in the `About` page |
+| Imported by multiple pages     | Move to `/components` |
+
+---
+
+## 📦 Example Folder Structure
+
+```
+app/
+├── about/
+│   ├── page.tsx
+│   └── _components/
+│       └── Journey.tsx
+components/
+├── layout/
+│   └── Navbar.tsx
+├── ui/
+│   └── Button.tsx
+```
+
+---
+
+This convention ensures a **clean separation of concerns**, prevents cross-page coupling, and maintains long-term scalability.
+
