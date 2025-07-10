@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { FaSearch, FaLinkedin, FaTwitter, FaChevronDown } from "react-icons/fa";
+import { FaChevronDown } from "react-icons/fa";
 import Image from "next/image"; // Import the Image component from next/image
 
 const menuItems = [
@@ -57,9 +57,7 @@ export default function Navbar() {
 
   return (
     // Navbar Component
-    <nav
-      className="left-0 w-screen bg-white text-black shadow-md z-50 flex items-center pr-[2vw] font-serif h-[13vh]"
-    >
+    <nav className="left-0 w-screen bg-white text-black shadow-md z-50 flex items-center pr-[2vw] font-serif h-[13vh]">
       <style jsx>{`
         .buttonStyle {
           position: relative;
