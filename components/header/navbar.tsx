@@ -14,22 +14,6 @@ const menuItems = [
     title: 'People',
     links: ['Core Faculty', 'Associate Faculty', 'Students', 'Alumni', 'Staff'],
   },
-  {
-    title: 'Academics',
-    links: [
-      'Overview',
-      'Doctor of Philosophy',
-      'MS by Research',
-      'IDDDP',
-      'Minor in AI & DS',
-      'Courses',
-      'e-PG Diploma',
-    ],
-  },
-  {
-    title: 'Research',
-    links: ['Overview', 'Applied AI', 'Computer Vision', 'NLP', 'ML Foundations', 'Publications'],
-  },
   { title: 'Seminars', links: [] },
   {
     title: 'News & Events',
