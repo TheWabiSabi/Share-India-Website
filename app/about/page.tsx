@@ -6,16 +6,16 @@ export default function AboutPage() {
         <h1>About Page</h1>
         <ul>
             <li>
-                <Link href={"./journey"}>Journey of SIIB</Link>
+                <Link href={"about/journey"}>Journey of SIIB</Link>
             </li>
             <li>
-                <Link href={"./impact"}>Impact of SIIB</Link>
+                <Link href={"about/impact"}>Impact of SIIB</Link>
             </li>
             <li>
-                <Link href={"./leaders-and-team"}>Leaders and Team</Link>
+                <Link href={"about/leaders-and-team"}>Leaders and Team</Link>
             </li>
             <li>
-                <Link href={"./testimonials"}>Testimonials</Link>
+                <Link href={"about/testimonials"}>Testimonials</Link>
             </li>
         </ul>
     </div>
