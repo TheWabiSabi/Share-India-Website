@@ -1,50 +1,43 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import Link from "next/link";
-import { FaChevronDown } from "react-icons/fa";
-import Image from "next/image"; // Import the Image component from next/image
+import { useState } from 'react';
+import Link from 'next/link';
+import { FaChevronDown } from 'react-icons/fa';
+import Image from 'next/image'; // Import the Image component from next/image
 
 const menuItems = [
   {
-    title: "About",
-    links: ["Overview", "Founders and Donors", "Reports", "Recruitment"],
+    title: 'About',
+    links: ['Overview', 'Founders and Donors', 'Reports', 'Recruitment'],
   },
   {
-    title: "People",
-    links: ["Core Faculty", "Associate Faculty", "Students", "Alumni", "Staff"],
+    title: 'People',
+    links: ['Core Faculty', 'Associate Faculty', 'Students', 'Alumni', 'Staff'],
   },
   {
-    title: "Academics",
+    title: 'Academics',
     links: [
-      "Overview",
-      "Doctor of Philosophy",
-      "MS by Research",
-      "IDDDP",
-      "Minor in AI & DS",
-      "Courses",
-      "e-PG Diploma",
+      'Overview',
+      'Doctor of Philosophy',
+      'MS by Research',
+      'IDDDP',
+      'Minor in AI & DS',
+      'Courses',
+      'e-PG Diploma',
     ],
   },
   {
-    title: "Research",
-    links: [
-      "Overview",
-      "Applied AI",
-      "Computer Vision",
-      "NLP",
-      "ML Foundations",
-      "Publications",
-    ],
+    title: 'Research',
+    links: ['Overview', 'Applied AI', 'Computer Vision', 'NLP', 'ML Foundations', 'Publications'],
   },
-  { title: "Seminars", links: [] },
+  { title: 'Seminars', links: [] },
   {
-    title: "News & Events",
-    links: ["News", "Updates", "Events", "Newsletter"],
+    title: 'News & Events',
+    links: ['News', 'Updates', 'Events', 'Newsletter'],
   },
   {
-    title: "Collaboration",
-    links: ["Overview", "SBI Technology Hub", "Honda Cars India"],
+    title: 'Collaboration',
+    links: ['Overview', 'SBI Technology Hub', 'Honda Cars India'],
   },
 ];
 
@@ -57,7 +50,7 @@ export default function Navbar() {
 
   return (
     // Navbar Component
-    <nav className="left-0 w-screen bg-white text-black shadow-md z-50 flex items-center pr-[2vw] font-serif h-[13vh]">
+    <nav className="left-0 z-50 flex h-[13vh] w-screen items-center bg-white pr-[2vw] font-serif text-black shadow-md">
       <style jsx>{`
         .buttonStyle {
           position: relative;
@@ -70,7 +63,7 @@ export default function Navbar() {
           height: 2px;
           background: #222;
           display: block;
-          content: "";
+          content: '';
           transition: width 0.5s ease-in-out;
         }
         .hoverMTop:hover:after {
@@ -84,7 +77,7 @@ export default function Navbar() {
           height: 4px;
           background: #222;
           display: block;
-          content: "";
+          content: '';
           transition: width 0.35s ease-in-out;
         }
         .hoverMebottom:hover:after {
@@ -98,7 +91,7 @@ export default function Navbar() {
           height: 0;
           background: #222;
           display: block;
-          content: "";
+          content: '';
           transition: height 0.5s ease-in-out;
         }
         .hoverMeleft:hover:after {
@@ -112,7 +105,7 @@ export default function Navbar() {
           height: 0;
           background: #222;
           display: block;
-          content: "";
+          content: '';
           transition: height 0.5s ease-in-out;
         }
         .hoverMeRight:hover:after {
@@ -121,13 +114,13 @@ export default function Navbar() {
       `}</style>
 
       {/* Logo Section on the Very Left */}
-      <div className="flex items-center h-full pl-[3vw]">
+      <div className="flex h-full items-center pl-[3vw]">
         <div
           style={{
-            position: "relative",
-            height: "150px",
-            width: "150px",
-            marginRight: "2vw",
+            position: 'relative',
+            height: '150px',
+            width: '150px',
+            marginRight: '2vw',
           }}
         >
           <Image src="/logo.png" alt="Logo" layout="fill" objectFit="contain" />
@@ -138,7 +131,7 @@ export default function Navbar() {
       </div>
 
       {/* Navigation and Other Elements on the Right */}
-      <div className="flex-grow flex flex-col justify-between">
+      <div className="flex flex-grow flex-col justify-between">
         {/* First Row (Search, Main Links, Social Media) */}
         {/* <div className="h-[6.5vh] flex  gap-[1vw] justify-end items-center bg-white ">
           <button>
@@ -191,32 +184,28 @@ export default function Navbar() {
         </div> */}
 
         {/* Second Row (Main Navigation) */}
-        <div className="h-[6vh] flex justify-end items-end gap-[2vw] text-[2vh] text- tracking-wide hoverMebottom">
+        <div className="text- hoverMebottom flex h-[6vh] items-end justify-end gap-[2vw] text-[2vh] tracking-wide">
           {menuItems.map((menu) => (
-            <div key={menu.title} className="relative group">
+            <div key={menu.title} className="group relative">
               {/* Main Dropdown Button */}
               <button
-                className="flex h-[5vh] items-center gap-[0.5vw] hover:text-blue-500 transition-all duration-300 hoverMebottom"
+                className="hoverMebottom flex h-[5vh] items-center gap-[0.5vw] transition-all duration-300 hover:text-blue-500"
                 onClick={() => toggleDropdown(menu.title)}
               >
                 {menu.title}
-                {menu.links.length > 0 && (
-                  <FaChevronDown className="text-[1.5vh]" />
-                )}
+                {menu.links.length > 0 && <FaChevronDown className="text-[1.5vh]" />}
               </button>
 
               {/* Dropdown Menu */}
               {menu.links.length > 0 && dropdownOpen === menu.title && (
-                <div className="absolute left-0 top-full mt-[1vh] bg-white shadow-xl rounded-md p-[1vh] w-[18vw] animate-pulse">
+                <div className="absolute top-full left-0 mt-[1vh] w-[18vw] animate-pulse rounded-md bg-white p-[1vh] shadow-xl">
                   {menu.links.map((link) => (
                     <Link
                       key={link}
-                      href={`/${menu.title
+                      href={`/${menu.title.toLowerCase().replace(/ /g, '-')}/${link
                         .toLowerCase()
-                        .replace(/ /g, "-")}/${link
-                        .toLowerCase()
-                        .replace(/ /g, "-")}`}
-                      className="block text-[1.8vh] py-[0.8vh] px-[1.2vw] hover:bg-gray-100 transition-all rounded-md  hover:text-blue-500 duration-300"
+                        .replace(/ /g, '-')}`}
+                      className="block rounded-md px-[1.2vw] py-[0.8vh] text-[1.8vh] transition-all duration-300 hover:bg-gray-100 hover:text-blue-500"
                     >
                       {link}
                     </Link>
