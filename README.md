@@ -7,17 +7,20 @@ This is the official frontend codebase for rebuilding the [Share India Insurance
 ## 🧩 Project Scope
 
 ### 🚀 Home Page
+
 - Catchy Short Intro
 - Featured Insights
 - Featured Impact Stories
 - Target Audience
 
 ### 🧠 Insights Section
+
 - Topic-Based Filters
 - News
 - Articles & Blogs (SIIB’s Opinions)
 
 ### 🧬 About Section
+
 - Journey of SIIB
 - Impact of SIIB
 - Testimonials
@@ -26,10 +29,12 @@ This is the official frontend codebase for rebuilding the [Share India Insurance
 ### 👔 Careers
 
 ### 📞 Contact Us
+
 - Appointment Booking
 - Meeting Scheduler (with Mobile 2FA)
 
 ### 🛠️ Services
+
 - Life Insurance
 - Health Insurance
 - Term Insurance
@@ -44,24 +49,24 @@ This is the official frontend codebase for rebuilding the [Share India Insurance
 ## 🏗️ Project Structure (Hybrid Component Pattern)
 
 ```
-app/  
-├── page.tsx # Home Page  
-├── about/  
-│ ├── page.tsx  
-│ └── _components/ # About-specific UI blocks  
-├── insights/  
-│ ├── page.tsx  
-│ └── _components/  
-├── services/  
-│ └── life/page.tsx  
-├── contact/  
-│ └── page.tsx  
-components/  
-├── layout/ # Navbar, Footer, etc.  
-├── ui/ # Buttons, Inputs, Cards, etc.  
-public/ # Static Assets  
-styles/ # Tailwind + Global Styles  
-types/ # Shared TypeScript types  
+app/
+├── page.tsx # Home Page
+├── about/
+│ ├── page.tsx
+│ └── _components/ # About-specific UI blocks
+├── insights/
+│ ├── page.tsx
+│ └── _components/
+├── services/
+│ └── life/page.tsx
+├── contact/
+│ └── page.tsx
+components/
+├── layout/ # Navbar, Footer, etc.
+├── ui/ # Buttons, Inputs, Cards, etc.
+public/ # Static Assets
+styles/ # Tailwind + Global Styles
+types/ # Shared TypeScript types
 lib/ # Utilities (SEO, fetchers, etc.)
 ```
 
@@ -97,7 +102,6 @@ npm run build         # Create production build
 npm run lint          # Run ESLint checks
 npm run format        # Run Prettier formatting
 ```
-
 
 # 📁 Folder Structure & Component Conventions
 
@@ -149,11 +153,11 @@ app/
 
 ## 🚦 Rule of Thumb
 
-| Where to put it?                | Rule |
-|-------------------------------|------|
-| `/components/ui/Button.tsx`   | Reusable anywhere |
+| Where to put it?                 | Rule                          |
+| -------------------------------- | ----------------------------- |
+| `/components/ui/Button.tsx`      | Reusable anywhere             |
 | `app/about/_components/Team.tsx` | Only used in the `About` page |
-| Imported by multiple pages     | Move to `/components` |
+| Imported by multiple pages       | Move to `/components`         |
 
 ---
 
@@ -175,4 +179,3 @@ components/
 ---
 
 This convention ensures a **clean separation of concerns**, prevents cross-page coupling, and maintains long-term scalability.
-

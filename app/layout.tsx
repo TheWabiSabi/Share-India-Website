@@ -1,22 +1,22 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import Header from "@/components/header/header";
-import Footer from "@/components/footer/footer";
+import type { Metadata } from 'next';
+import { Geist, Geist_Mono } from 'next/font/google';
+import './globals.css';
+import Header from '@/components/header/header';
+import Footer from '@/components/footer/footer';
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+  variable: '--font-geist-sans',
+  subsets: ['latin'],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
 });
 
 export const metadata: Metadata = {
-  title: "Share India Brokers",
-  description: "Created by team WabiSabi",
+  title: 'Share India Brokers',
+  description: 'Created by team WabiSabi',
 };
 
 export default function RootLayout({
@@ -26,13 +26,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Header />
-        <div className="mt-[19vh] min-h-[81vh]">
-          {children}
-        </div>
+        <div className="mt-[19vh] min-h-[81vh]">{children}</div>
         <Footer />
       </body>
     </html>
