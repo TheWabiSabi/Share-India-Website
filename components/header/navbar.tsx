@@ -34,7 +34,7 @@ export default function Navbar() {
 
   return (
     // Navbar Component
-    <nav className="left-0 z-50 flex h-[13vh] w-screen items-center bg-white pr-[2vw] font-serif text-black shadow-md">
+    <nav className="bg-si-offwhite left-0 z-50 flex h-[13vh] w-screen items-center pr-[2vw] font-serif text-si-dark shadow-md">
       <style jsx>{`
         .buttonStyle {
           position: relative;
@@ -45,7 +45,7 @@ export default function Navbar() {
           left: 0;
           width: 0;
           height: 2px;
-          background: #222;
+          background: #395b64;
           display: block;
           content: '';
           transition: width 0.5s ease-in-out;
@@ -59,7 +59,7 @@ export default function Navbar() {
           left: 0%;
           width: 0;
           height: 4px;
-          background: #222;
+          background: #395b64;
           display: block;
           content: '';
           transition: width 0.35s ease-in-out;
@@ -73,7 +73,7 @@ export default function Navbar() {
           left: 100%;
           width: 2px;
           height: 0;
-          background: #222;
+          background: #395b64;
           display: block;
           content: '';
           transition: height 0.5s ease-in-out;
@@ -87,7 +87,7 @@ export default function Navbar() {
           right: 100%;
           width: 2px;
           height: 0;
-          background: #222;
+          background: #395b64;
           display: block;
           content: '';
           transition: height 0.5s ease-in-out;
@@ -182,7 +182,7 @@ export default function Navbar() {
 
               {/* Dropdown Menu */}
               {menu.links.length > 0 && dropdownOpen === menu.title && (
-                <div className="absolute top-full left-0 mt-[1vh] w-[18vw] animate-pulse rounded-md bg-white p-[1vh] shadow-xl">
+                <div className="absolute top-full left-0 mt-[1vh] w-[18vw] animate-pulse rounded-md bg-si-offwhite p-[1vh] shadow-xl">
                   {menu.links.map((link) => (
                     <Link
                       key={link}
