@@ -23,7 +23,7 @@ export default function Card({
 }: CardProps) {
   return (
     <div
-      className={`overflow-hidden rounded-lg bg-si-slate/30 transition-shadow duration-300 hover:shadow-lg ${className}`}
+      className={`overflow-hidden rounded-lg bg-si-white transition-shadow duration-300 hover:shadow-lg ${className}`}
     >
       {/* Image Section */}
       <div className="h-64 w-full overflow-hidden rounded-lg">
