@@ -166,7 +166,7 @@ const Footer: React.FC = () => {
           {/* Footer Links Sections */}
           {footerSections.map((section) => (
             <div key={section.title} className="lg:col-span-1">
-              <h3 className="mb-4 font-semibold text-si-offwhite">{section.title}</h3>
+              <h3 className="text-si-offwhite mb-4 font-semibold">{section.title}</h3>
               <ul className="space-y-2">
                 {section.links.map((link) => (
                   <li key={link.label}>
@@ -209,7 +209,7 @@ const Footer: React.FC = () => {
       </div> */}
 
       {/* Bottom Footer */}
-      <div className="border-t border-si-bluegreen bg-si-dark">
+      <div className="border-si-bluegreen bg-si-dark border-t">
         <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center justify-between text-sm text-gray-400 md:flex-row">
             <div className="mb-4 text-center md:mb-0 md:text-left">

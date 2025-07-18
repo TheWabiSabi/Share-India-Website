@@ -34,7 +34,7 @@ export default function Navbar() {
 
   return (
     // Navbar Component
-    <nav className="bg-si-offwhite left-0 z-50 flex h-[13vh] w-screen items-center pr-[2vw] font-serif text-si-dark shadow-md">
+    <nav className="bg-si-offwhite text-si-dark left-0 z-50 flex h-[13vh] w-screen items-center pr-[2vw] font-serif shadow-md">
       <style jsx>{`
         .buttonStyle {
           position: relative;
@@ -182,7 +182,7 @@ export default function Navbar() {
 
               {/* Dropdown Menu */}
               {menu.links.length > 0 && dropdownOpen === menu.title && (
-                <div className="absolute top-full left-0 mt-[1vh] w-[18vw] animate-pulse rounded-md bg-si-offwhite p-[1vh] shadow-xl">
+                <div className="bg-si-offwhite absolute top-full left-0 mt-[1vh] w-[18vw] animate-pulse rounded-md p-[1vh] shadow-xl">
                   {menu.links.map((link) => (
                     <Link
                       key={link}
