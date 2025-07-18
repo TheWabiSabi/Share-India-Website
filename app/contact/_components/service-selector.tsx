@@ -52,10 +52,10 @@ export default function ServicesSelector() {
           <div key={service.id} className="flex w-full justify-center">
             <button
               onClick={() => handleServiceClick(service)}
-              className={`w-full max-w-[95vw] rounded-full border-2 px-5 py-3 transition-all duration-200 hover:shadow-md focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none sm:max-w-md sm:px-8 sm:py-4 ${
+              className={`focus:ring-si-bluegreen w-full max-w-[95vw] rounded-full border-2 px-5 py-3 transition-all duration-200 hover:shadow-md focus:ring-2 focus:ring-offset-2 focus:outline-none sm:max-w-md sm:px-8 sm:py-4 ${
                 selectedService === service.id
-                  ? 'border-blue-500 bg-blue-100 text-blue-700'
-                  : 'border-blue-400 bg-white text-blue-600 hover:bg-blue-50'
+                  ? 'border-si-bluegreen text-si-dark bg-si-slate/30'
+                  : 'border-si-bluegreen bg-si-offwhite text-si-dark hover:bg-si-slate/30'
               }`}
             >
               <span className="text-base font-medium sm:text-lg">{service.label}</span>
@@ -66,12 +66,12 @@ export default function ServicesSelector() {
 
       {/* Action Buttons */}
       <div className="mt-6 flex flex-col justify-center gap-3 sm:mt-8 sm:flex-row sm:gap-4">
-        <button className="rounded-lg bg-blue-600 px-6 py-3 font-medium text-white transition-colors duration-200 hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none sm:px-8 sm:py-3">
+        <button className="rounded-lg bg-si-bluegreen px-6 py-3 font-medium text-si-offwhite transition-colors duration-200 hover:bg-si-dark/90 focus:ring-2 focus:ring-si-bluegreen focus:ring-offset-2 focus:outline-none sm:px-8 sm:py-3">
           Get Started
         </button>
         <Link
           href="/contact"
-          className="rounded-lg border-2 border-blue-600 bg-white px-6 py-3 text-center font-medium text-blue-600 transition-colors duration-200 hover:bg-blue-50 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none sm:px-8 sm:py-3"
+          className="rounded-lg border-2 border-si-bluegreen bg-si-slate/30 px-6 py-3 text-center font-medium text-si-dark transition-colors duration-200 hover:bg-si-offwhite focus:ring-2 focus:ring-si-bluegreen focus:ring-offset-2 focus:outline-none sm:px-8 sm:py-3"
         >
           Contact Us
         </Link>
@@ -79,11 +79,11 @@ export default function ServicesSelector() {
 
       {/* Selected Service Display */}
       {selectedService && (
-        <div className="mt-6 rounded-lg border border-blue-200 bg-blue-50 p-3 sm:mt-8 sm:p-4">
-          <p className="text-center text-sm text-blue-800 sm:text-base">
+        <div className="mt-6 rounded-lg border border-si-slate bg-si-slate/30 p-3 sm:mt-8 sm:p-4">
+          <p className="text-center text-sm text-si-dark sm:text-base">
             You selected: <strong>{services.find((s) => s.id === selectedService)?.label}</strong>
           </p>
-          <p className="mt-2 text-center text-xs text-blue-600 sm:text-sm">
+          <p className="mt-2 text-center text-xs text-si-dark/90 sm:text-sm">
             {services.find((s) => s.id === selectedService)?.description}
           </p>
         </div>
