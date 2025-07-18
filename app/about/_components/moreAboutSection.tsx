@@ -2,7 +2,7 @@ import Card from '@/components/Card';
 
 export default function MoreAboutSection() {
   return (
-    <section className="bg -z-10 bg-gray-300 px-4 sm:px-6 lg:px-8">
+    <section className="px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto">
         <h1 className="px-4 py-8 text-3xl font-bold text-gray-900 sm:px-6 sm:text-4xl lg:px-8 lg:text-5xl">
           More About Us

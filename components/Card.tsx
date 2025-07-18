@@ -23,7 +23,7 @@ export default function Card({
 }: CardProps) {
   return (
     <div
-      className={`overflow-hidden rounded-lg bg-gray-50 transition-shadow duration-300 hover:shadow-lg ${className}`}
+      className={`overflow-hidden rounded-lg bg-si-slate/30 transition-shadow duration-300 hover:shadow-lg ${className}`}
     >
       {/* Image Section */}
       <div className="h-64 w-full overflow-hidden rounded-lg">
@@ -38,7 +38,7 @@ export default function Card({
       <div className="p-6">
         {/* Category Label */}
         <div className="mb-4">
-          <span className="inline-block text-sm font-medium tracking-wider text-teal-600 uppercase">
+          <span className="inline-block text-sm font-medium tracking-wider text-si-bluegreen uppercase">
             {category}
           </span>
         </div>
@@ -52,9 +52,9 @@ export default function Card({
         {/* Link */}
         <Link
           href={link}
-          className="group inline-flex items-center gap-2 font-semibold text-teal-600 transition-colors duration-200 hover:text-teal-700"
+          className="group inline-flex items-center gap-2 font-semibold text-si-bluegreen transition-colors duration-200 hover:text-si-bluegreen/70"
         >
-          <span className="border-b-2 border-teal-600 pb-1 group-hover:border-teal-700">
+          <span className="border-b-2 border-si-bluegreen pb-1 group-hover:border-si-bluegreen/50">
             {linkText}
           </span>
           <svg

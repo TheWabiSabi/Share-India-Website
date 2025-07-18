@@ -45,18 +45,17 @@ export default function AboutPage() {
         {/* Semi-transparent grey overlay - responsive width */}
         <div className="absolute inset-0">
           <div
-            className="bg-opacity-75 background-filter h-full w-full backdrop-blur-sm sm:w-4/5 md:w-3/5"
-            style={{ background: 'rgba(38, 40, 54, .6)' }}
+            className="bg-opacity-75 background-filter bg-si-dark/60 h-full w-full backdrop-blur-sm sm:w-4/5 md:w-3/5"
           >
             {/* Content container */}
             <div className="flex h-full flex-col justify-center px-4 sm:px-8 md:px-16 lg:px-24">
               {/* Small heading */}
-              <h1 className="mb-4 text-xl leading-tight text-white sm:mb-6 sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl">
+              <h1 className="mb-4 text-xl leading-tight text-si-offwhite sm:mb-6 sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl">
                 About Us
               </h1>
 
               {/* Small description */}
-              <p className="max-w-2xl text-base leading-relaxed font-bold text-gray-200 sm:text-lg md:text-xl lg:max-w-3xl lg:text-2xl xl:text-3xl 2xl:text-4xl">
+              <p className="max-w-2xl text-base leading-relaxed font-bold text-si-offwhite sm:text-lg md:text-xl lg:max-w-3xl lg:text-2xl xl:text-3xl 2xl:text-4xl">
                 We are passionate about creating exceptional digital experiences that inspire and
                 connect people. Our journey began with a simple vision: to transform ideas into
                 meaningful solutions that make a difference.
@@ -66,12 +65,12 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <section className="bg-gray-100 py-12 sm:py-16 md:py-20 lg:py-24">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex max-w-7xl items-start">
             {/* Red vertical line */}
             <div
-              className="mr-4 w-1 flex-shrink-0 bg-red-500 sm:mr-6 sm:w-2 lg:mr-8"
+              className="mr-4 w-1 flex-shrink-0 bg-si-bluegreen sm:mr-6 sm:w-2 lg:mr-8"
               style={{
                 height: '180px',
                 //  '@media (min-width: 640px)': { height: '200px' },
@@ -80,7 +79,7 @@ export default function AboutPage() {
             ></div>
 
             {/* Main heading */}
-            <h2 className="text-2xl leading-tight font-bold text-gray-800 sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
+            <h2 className="text-2xl leading-tight font-bold text-si-dark sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
               At Aon, we exist to shape decisions for the better — to protect and enrich the lives
               of people around the world.
             </h2>
@@ -89,16 +88,16 @@ export default function AboutPage() {
       </section>
 
       {/* Our Story Section */}
-      <section className="bg-white py-12 sm:py-16 md:py-20 lg:py-24">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex max-w-7xl flex-col gap-8 lg:flex-row lg:justify-between lg:gap-12">
             {/* Main Content */}
             <div className="max-w-3xl flex-1">
-              <h2 className="mb-6 text-3xl font-bold text-gray-900 sm:mb-8 sm:text-4xl md:text-5xl lg:text-6xl">
+              <h2 className="mb-6 text-3xl font-bold text-si-dark sm:mb-8 sm:text-4xl md:text-5xl lg:text-6xl">
                 Our Story
               </h2>
 
-              <div className="space-y-4 text-base leading-relaxed text-gray-600 sm:space-y-6 sm:text-lg">
+              <div className="space-y-4 text-base leading-relaxed text-si-dark/90 sm:space-y-6 sm:text-lg">
                 <p>
                   Our world has become more volatile — economically, socially and geopolitically —
                   than ever before. In an interconnected and interdependent world, organizations and
@@ -116,7 +115,7 @@ export default function AboutPage() {
                     <span className="flex-shrink-0 text-lg font-bold text-red-500 sm:text-xl">
                       1
                     </span>
-                    <p className="text-base font-semibold text-gray-900 sm:text-lg">
+                    <p className="text-base font-semibold text-si-dark sm:text-lg">
                       How do I protect against risk and volatility?
                     </p>
                   </div>
@@ -154,41 +153,41 @@ export default function AboutPage() {
 
             {/* Navigation Sidebar */}
             <div className="w-full flex-shrink-0 lg:w-80">
-              <div className="rounded-lg bg-gray-50 p-4 sm:p-6 lg:bg-transparent">
-                <h3 className="mb-4 text-2xl font-semibold text-gray-900 sm:mb-6 sm:text-3xl">
+              <div className="rounded-lg bg-si-offwhite p-4 sm:p-6 lg:bg-transparent">
+                <h3 className="mb-4 text-2xl font-semibold text-si-dark sm:mb-6 sm:text-3xl">
                   Jump to Section
                 </h3>
 
                 <nav className="space-y-3 sm:space-y-4">
                   <button
                     onClick={() => scrollToSection('what-we-do')}
-                    className="flex w-full items-center gap-3 text-left text-gray-700 transition-colors hover:text-red-500"
+                    className="flex w-full items-center gap-3 text-left text-si-dark transition-colors hover:text-si-slate"
                   >
-                    <span className="flex-shrink-0 font-bold text-red-500">01</span>
+                    <span className="flex-shrink-0 font-bold text-si-bluegreen">01</span>
                     <span className="border-gray-300 pb-1">What We Do</span>
                   </button>
 
                   <button
                     onClick={() => scrollToSection('our-impact')}
-                    className="flex w-full items-center gap-3 text-left text-gray-700 transition-colors hover:text-red-500"
+                    className="flex w-full items-center gap-3 text-left text-si-dark transition-colors hover:text-si-slate"
                   >
-                    <span className="flex-shrink-0 font-bold text-red-500">02</span>
+                    <span className="flex-shrink-0 font-bold text-si-bluegreen">02</span>
                     <span>Our Impact</span>
                   </button>
 
                   <button
                     onClick={() => scrollToSection('our-values')}
-                    className="flex w-full items-center gap-3 text-left text-gray-700 transition-colors hover:text-red-500"
+                    className="flex w-full items-center gap-3 text-left text-si-dark transition-colors hover:text-si-slate"
                   >
-                    <span className="flex-shrink-0 font-bold text-red-500">03</span>
+                    <span className="flex-shrink-0 font-bold text-si-bluegreen">03</span>
                     <span>Our Values</span>
                   </button>
 
                   <button
                     onClick={() => scrollToSection('leadership')}
-                    className="flex w-full items-center gap-3 text-left text-gray-700 transition-colors hover:text-red-500"
+                    className="flex w-full items-center gap-3 text-left text-si-dark transition-colors hover:text-si-slate"
                   >
-                    <span className="flex-shrink-0 font-bold text-red-500">04</span>
+                    <span className="flex-shrink-0 font-bold text-si-bluegreen">04</span>
                     <span>Leadership</span>
                   </button>
                 </nav>
@@ -201,13 +200,13 @@ export default function AboutPage() {
       {/* What We Do Section with Horizontal Scroll */}
       <section
         id="what-we-do"
-        className="relative z-10 overflow-hidden bg-gray-50 py-8 md:py-10 lg:py-12"
+        className="relative z-10 overflow-hidden bg-si-slate py-8 md:py-10 lg:py-12"
       >
         {/* Scrolling Background Text */}
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
           <div
             ref={scrollTextRef}
-            className="horizontal-scroll-text font-bold whitespace-nowrap text-gray-200 select-none"
+            className="horizontal-scroll-text font-bold whitespace-nowrap text-si-offwhite/30 select-none"
           >
             What We Do What We Do What We Do What We Do What We Do What We Do What We Do What We Do
           </div>
@@ -217,18 +216,18 @@ export default function AboutPage() {
           <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:gap-12">
             {/* Main Content */}
             <div className="max-w-xl flex-1">
-              <p className="mb-4 text-2xl font-bold text-gray-500 sm:text-3xl lg:text-4xl">
+              <p className="mb-4 text-2xl font-bold text-si-bluegreen sm:text-3xl lg:text-4xl">
                 What We Do
               </p>
 
-              <h2 className="mb-6 text-3xl leading-tight font-bold text-gray-900 sm:mb-8 sm:text-4xl md:text-5xl lg:text-6xl">
+              <h2 className="mb-6 text-3xl leading-tight font-bold text-si-dark sm:mb-8 sm:text-4xl md:text-5xl lg:text-6xl">
                 Expertise Across Today's Risk and People Issues
               </h2>
             </div>
 
             {/* Description */}
             <div className="mt-0 max-w-2xl flex-shrink-0 lg:mt-16 lg:max-w-md xl:max-w-lg">
-              <p className="text-lg leading-relaxed text-gray-600 sm:text-xl">
+              <p className="text-lg leading-relaxed text-si-dark/90 sm:text-xl">
                 At Aon, we've been on a decade-plus journey to connect our global capabilities so we
                 can address our clients' top priorities more effectively. Through our global
                 expertise across two key areas of need — Risk Capital and Human Capital — our
@@ -267,7 +266,7 @@ export default function AboutPage() {
 
       <section className="z-10 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto">
-          <h1 className="px-4 py-4 text-3xl font-bold text-gray-900 sm:px-6 sm:text-4xl lg:px-8 lg:text-5xl">
+          <h1 className="px-4 py-4 text-3xl font-bold text-si-dark sm:px-6 sm:text-4xl lg:px-8 lg:text-5xl">
             Our Capabilities
           </h1>
           <div className="flex flex-col justify-center gap-4 p-4 sm:flex-row sm:gap-6 sm:p-6">
