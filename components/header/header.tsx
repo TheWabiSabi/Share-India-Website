@@ -3,7 +3,7 @@ import Navbar from './navbar';
 
 export default function Header() {
   return (
-    <div className="fixed top-0">
+    <div className="fixed z-50 top-0">
       <HeaderInfo />
       <Navbar />
     </div>
