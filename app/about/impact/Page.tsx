@@ -18,14 +18,14 @@ export default function ImpactPage() {
       <div className="relative h-screen w-full overflow-hidden">
         {/* Full-width background image */}
         <div
-          className="absolute inset-0 -z-40 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: "url('/Scenery.jpg')",
           }}
         />
 
         {/* Semi-transparent grey overlay - responsive width */}
-        <div className="absolute inset-0 -z-40">
+        <div className="absolute inset-0">
           <div
             className="bg-opacity-75 background-filter h-full w-full backdrop-blur-sm sm:w-4/5 md:w-3/5"
             style={{ background: 'rgba(38, 40, 54, .6)' }}

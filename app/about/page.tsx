@@ -36,14 +36,14 @@ export default function AboutPage() {
       <div className="relative h-screen w-full overflow-hidden">
         {/* Full-width background image */}
         <div
-          className="absolute inset-0 -z-40 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: "url('Scenery.jpg')",
           }}
         />
 
         {/* Semi-transparent grey overlay - responsive width */}
-        <div className="absolute inset-0 -z-40">
+        <div className="absolute inset-0">
           <div
             className="bg-opacity-75 background-filter h-full w-full backdrop-blur-sm sm:w-4/5 md:w-3/5"
             style={{ background: 'rgba(38, 40, 54, .6)' }}
@@ -201,7 +201,7 @@ export default function AboutPage() {
       {/* What We Do Section with Horizontal Scroll */}
       <section
         id="what-we-do"
-        className="relative -z-10 overflow-hidden bg-gray-50 py-8 md:py-10 lg:py-12"
+        className="relative z-10 overflow-hidden bg-gray-50 py-8 md:py-10 lg:py-12"
       >
         {/* Scrolling Background Text */}
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
@@ -213,7 +213,7 @@ export default function AboutPage() {
           </div>
         </div>
 
-        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:gap-12">
             {/* Main Content */}
             <div className="max-w-xl flex-1">
@@ -265,7 +265,7 @@ export default function AboutPage() {
         `}</style>
       </section>
 
-      <section className="-z-10 px-4 sm:px-6 lg:px-8">
+      <section className="z-10 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto">
           <h1 className="px-4 py-4 text-3xl font-bold text-gray-900 sm:px-6 sm:text-4xl lg:px-8 lg:text-5xl">
             Our Capabilities

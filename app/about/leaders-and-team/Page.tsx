@@ -15,7 +15,7 @@ export default function TeamPage() {
   };
   return (
     <div>
-      <div className="relative -z-40">
+      <div className="relative">
         {/* Grey Section - Top Half */}
         <div className="bg-gray-500 py-16 sm:py-20 md:py-24 lg:py-32">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
