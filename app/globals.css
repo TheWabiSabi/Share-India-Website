@@ -6,6 +6,7 @@
 }
 
 @theme {
+  --color-si-white: #f3fffe;
   --color-si-offwhite: #e7f6f2;
   --color-si-slate: #a5c9ca;
   --color-si-bluegreen: #395b64;

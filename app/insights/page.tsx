@@ -1,17 +1,24 @@
-import FeaturedBlogCard from './_components/featured-cards';
+import FeaturedCarousel from './_components/featured-section/featured-caraousel';
+// import FeaturedBlogCard from './_components/featured-cards';
+import InsightsFilterBar from './_components/insights-filter';
 
 export default function InsightsPage() {
   return (
-    <div className="p-5">
-      <h1 className="pb-5">Insights</h1>
-      <FeaturedBlogCard
-        title="How India's Market Structure Impacts Retail Investors"
-        author="Rohit Sharma"
-        date="July 18, 2025"
-        description="A deep dive into market reforms and what they mean for everyday investors, featuring key insights from the latest SEBI updates."
-        category="Market Insights"
-        imageUrl="/insights-img/demoimg.png"
-      />
+    <div className="w-[100vw] p-5">
+      <div className="flex flex-row justify-between">
+        <div className="flex w-[30vw] flex-col items-center pt-10 pl-4">
+          <h1 className="text-si-dark w-full text-justify text-6xl font-semibold">
+            Featured Insights
+          </h1>
+          <p className="text-si-dark/70 pt-10 text-lg font-medium">
+            Explore expert-led articles and blogs from Share India Brokers featuring actionable
+            insights on market trends, trading strategies, and the evolving Indian financial
+            landscape.
+          </p>
+        </div>
+        <FeaturedCarousel />
+      </div>
+      <InsightsFilterBar />
     </div>
   );
 }

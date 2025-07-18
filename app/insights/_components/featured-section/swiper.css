@@ -1,0 +1,38 @@
+/* Navigation arrows (prev/next) */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #395b64;           /* Use your primary (si-bluegreen) or any palette color */
+  background: #e7f6f2;      /* Example: si-offwhite for a subtle background */
+  border-radius: 9999px;
+  width: 44px;
+  height: 44px;
+  box-shadow: 0 2px 10px #0001;
+  transition: background 0.2s, color 0.2s;
+}
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 1.6rem;
+}
+
+/* On hover, change arrow color */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: #a5c9ca;           /* si-slate or your highlight color */
+  background: #395b64;      /* arrow on bluegreen */
+}
+
+.swiper-pagination-bullet {
+  background-color: #a5c9ca !important;   /* si-slate for inactive */
+  opacity: 0.7;
+  width: 12px;
+  height: 12px;
+  margin: 0 4px !important;
+  transition: background-color 0.3s, opacity 0.3s;
+  border: 2px solid #e7f6f2;             /* border matches carousel bg */
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #395b64 !important;   /* si-bluegreen for active */
+  border-color: #e7f6f2;                  /* optional: accentuate active bullet */
+  opacity: 1;
+}
