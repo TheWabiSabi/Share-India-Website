@@ -1,18 +1,7 @@
-'use client';
 import Card from '@/components/Card';
 import MoreAboutSection from '../_components/moreAboutSection';
 
 export default function TeamPage() {
-  // Smooth scroll function
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
-    }
-  };
   return (
     <div>
       <div className="relative">
@@ -73,7 +62,6 @@ export default function TeamPage() {
               <h2 className="text-si-dark mb-6 text-3xl font-bold sm:mb-8 sm:text-4xl md:text-5xl lg:text-6xl">
                 Our Story
               </h2>
-
               <div className="text-si-dark/85 space-y-4 text-base leading-relaxed sm:space-y-6 sm:text-lg">
                 <p>
                   Our world has become more volatile — economically, socially and geopolitically —
@@ -81,12 +69,10 @@ export default function TeamPage() {
                   individuals are under constant pressure to make complex business decisions,
                   sometimes without all the necessary facts — and almost always at speed.
                 </p>
-
                 <p>
                   In this challenging economic and social environment, organizations are asking
                   themselves two fundamental questions:
                 </p>
-
                 <div className="my-6 space-y-4 sm:my-8">
                   <div className="flex items-start gap-3 sm:gap-4">
                     <span className="text-si-bluegreen flex-shrink-0 text-lg font-bold sm:text-xl">
@@ -96,7 +82,6 @@ export default function TeamPage() {
                       How do I protect against risk and volatility?
                     </p>
                   </div>
-
                   <div className="flex items-start gap-3 sm:gap-4">
                     <span className="text-si-bluegreen flex-shrink-0 text-lg font-bold sm:text-xl">
                       2
@@ -106,14 +91,12 @@ export default function TeamPage() {
                     </p>
                   </div>
                 </div>
-
                 <p>
                   At Aon, we've been on a decade-plus journey to connect our global capabilities, so
                   we can address our clients' top priorities more effectively. Through our global
                   expertise across two key areas of need — Risk Capital and Human Capital — our
                   clients are better advised within, and across, their risk and people strategies.
                 </p>
-
                 <p>
                   United as one firm, we help our clients{' '}
                   <strong>shape business decisions for the better</strong>. We believe that
@@ -136,37 +119,34 @@ export default function TeamPage() {
                 </h3>
 
                 <nav className="space-y-3 sm:space-y-4">
-                  <button
-                    onClick={() => scrollToSection('what-we-do')}
+                  <a
+                    href="#what-we-do"
                     className="text-si-dark/85 hover:text-si-dark/60 flex w-full items-center gap-3 text-left transition-colors"
                   >
                     <span className="text-si-bluegreen flex-shrink-0 font-bold">01</span>
                     <span className="border-gray-300 pb-1">What We Do</span>
-                  </button>
-
-                  <button
-                    onClick={() => scrollToSection('our-impact')}
+                  </a>
+                  <a
+                    href="#our-impact"
                     className="text-si-dark/85 hover:text-si-dark/60 flex w-full items-center gap-3 text-left transition-colors"
                   >
                     <span className="text-si-bluegreen flex-shrink-0 font-bold">02</span>
                     <span>Our Impact</span>
-                  </button>
-
-                  <button
-                    onClick={() => scrollToSection('our-values')}
+                  </a>
+                  <a
+                    href="#our-values"
                     className="text-si-dark/85 hover:text-si-dark/60 flex w-full items-center gap-3 text-left transition-colors"
                   >
                     <span className="text-si-bluegreen flex-shrink-0 font-bold">03</span>
                     <span>Our Values</span>
-                  </button>
-
-                  <button
-                    onClick={() => scrollToSection('leadership')}
+                  </a>
+                  <a
+                    href="#leadership"
                     className="text-si-dark/85 hover:text-si-dark/60 flex w-full items-center gap-3 text-left transition-colors"
                   >
                     <span className="text-si-bluegreen flex-shrink-0 font-bold">04</span>
                     <span>Leadership</span>
-                  </button>
+                  </a>
                 </nav>
               </div>
             </div>
@@ -176,74 +156,32 @@ export default function TeamPage() {
 
       <section className="px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto">
-          <h1 className="px-4 py-8 text-3xl font-bold text-si-dark sm:px-6 sm:text-4xl lg:px-8 lg:text-5xl">
+          <h1 className="text-si-dark px-4 py-8 text-3xl font-bold sm:px-6 sm:text-4xl lg:px-8 lg:text-5xl">
             Our Executive Committee
           </h1>
           <div className="grid grid-cols-1 gap-4 p-4 sm:grid-cols-2 sm:gap-6 sm:p-6 lg:grid-cols-3 xl:grid-cols-4">
-            <Card
-              image="/Scenery.jpg"
-              imageAlt="Aerial view of golf course"
-              category="Case Study"
-              title="The LPGA Unlocks Talent Potential with Data"
-              description="The LPGA shares how data technology has helped to pinpoint the personality traits of top players, leading to success on and off the golf course."
-              link="/about/journey"
-              linkText="Find Out More"
-            />
-            <Card
-              image="/Scenery.jpg"
-              imageAlt="Aerial view of golf course"
-              category="Case Study"
-              title="The LPGA Unlocks Talent Potential with Data"
-              description="The LPGA shares how data technology has helped to pinpoint the personality traits of top players, leading to success on and off the golf course."
-              link="/about/journey"
-              linkText="Find Out More"
-            />
-            <Card
-              image="/Scenery.jpg"
-              imageAlt="Aerial view of golf course"
-              category="Case Study"
-              title="The LPGA Unlocks Talent Potential with Data"
-              description="The LPGA shares how data technology has helped to pinpoint the personality traits of top players, leading to success on and off the golf course."
-              link="/about/journey"
-              linkText="Find Out More"
-            />
-            <Card
-              image="/Scenery.jpg"
-              imageAlt="Aerial view of golf course"
-              category="Case Study"
-              title="The LPGA Unlocks Talent Potential with Data"
-              description="The LPGA shares how data technology has helped to pinpoint the personality traits of top players, leading to success on and off the golf course."
-              link="/about/journey"
-              linkText="Find Out More"
-            />
-            <Card
-              image="/Scenery.jpg"
-              imageAlt="Aerial view of golf course"
-              category="Case Study"
-              title="The LPGA Unlocks Talent Potential with Data"
-              description="The LPGA shares how data technology has helped to pinpoint the personality traits of top players, leading to success on and off the golf course."
-              link="/about/journey"
-              linkText="Find Out More"
-            />
-            <Card
-              image="/Scenery.jpg"
-              imageAlt="Aerial view of golf course"
-              category="Case Study"
-              title="The LPGA Unlocks Talent Potential with Data"
-              description="The LPGA shares how data technology has helped to pinpoint the personality traits of top players, leading to success on and off the golf course."
-              link="/about/journey"
-              linkText="Find Out More"
-            />
+            {Array.from({ length: 6 }).map((_, i) => (
+              <Card
+                key={i}
+                image="/Scenery.jpg"
+                imageAlt="Aerial view of golf course"
+                category="Case Study"
+                title="The LPGA Unlocks Talent Potential with Data"
+                description="The LPGA shares how data technology has helped to pinpoint the personality traits of top players, leading to success on and off the golf course."
+                link="/about/journey"
+                linkText="Find Out More"
+              />
+            ))}
           </div>
         </div>
       </section>
 
-      <div className="bg-si-bluegreen px-8 py-16 text-si-offwhite md:px-16">
+      <div className="bg-si-bluegreen text-si-offwhite px-8 py-16 md:px-16">
         <div className="mx-auto max-w-4xl">
           {/* Quote mark */}
           <div className="mb-8">
             <svg
-              className="h-12 w-12 text-si-offwhite opacity-90"
+              className="text-si-offwhite h-12 w-12 opacity-90"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -278,64 +216,22 @@ export default function TeamPage() {
 
       <section className="px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto">
-          <h1 className="px-4 py-8 text-3xl font-bold text-si-dark sm:px-6 sm:text-4xl lg:px-8 lg:text-5xl">
+          <h1 className="text-si-dark px-4 py-8 text-3xl font-bold sm:px-6 sm:text-4xl lg:px-8 lg:text-5xl">
             Board of Directors
           </h1>
           <div className="grid grid-cols-1 gap-4 p-4 sm:grid-cols-2 sm:gap-6 sm:p-6 lg:grid-cols-3 xl:grid-cols-4">
-            <Card
-              image="/Scenery.jpg"
-              imageAlt="Aerial view of golf course"
-              category="Case Study"
-              title="The LPGA Unlocks Talent Potential with Data"
-              description="The LPGA shares how data technology has helped to pinpoint the personality traits of top players, leading to success on and off the golf course."
-              link="/about/journey"
-              linkText="Find Out More"
-            />
-            <Card
-              image="/Scenery.jpg"
-              imageAlt="Aerial view of golf course"
-              category="Case Study"
-              title="The LPGA Unlocks Talent Potential with Data"
-              description="The LPGA shares how data technology has helped to pinpoint the personality traits of top players, leading to success on and off the golf course."
-              link="/about/journey"
-              linkText="Find Out More"
-            />
-            <Card
-              image="/Scenery.jpg"
-              imageAlt="Aerial view of golf course"
-              category="Case Study"
-              title="The LPGA Unlocks Talent Potential with Data"
-              description="The LPGA shares how data technology has helped to pinpoint the personality traits of top players, leading to success on and off the golf course."
-              link="/about/journey"
-              linkText="Find Out More"
-            />
-            <Card
-              image="/Scenery.jpg"
-              imageAlt="Aerial view of golf course"
-              category="Case Study"
-              title="The LPGA Unlocks Talent Potential with Data"
-              description="The LPGA shares how data technology has helped to pinpoint the personality traits of top players, leading to success on and off the golf course."
-              link="/about/journey"
-              linkText="Find Out More"
-            />
-            <Card
-              image="/Scenery.jpg"
-              imageAlt="Aerial view of golf course"
-              category="Case Study"
-              title="The LPGA Unlocks Talent Potential with Data"
-              description="The LPGA shares how data technology has helped to pinpoint the personality traits of top players, leading to success on and off the golf course."
-              link="/about/journey"
-              linkText="Find Out More"
-            />
-            <Card
-              image="/Scenery.jpg"
-              imageAlt="Aerial view of golf course"
-              category="Case Study"
-              title="The LPGA Unlocks Talent Potential with Data"
-              description="The LPGA shares how data technology has helped to pinpoint the personality traits of top players, leading to success on and off the golf course."
-              link="/about/journey"
-              linkText="Find Out More"
-            />
+            {Array.from({ length: 6 }).map((_, i) => (
+              <Card
+                key={i}
+                image="/Scenery.jpg"
+                imageAlt="Aerial view of golf course"
+                category="Case Study"
+                title="The LPGA Unlocks Talent Potential with Data"
+                description="The LPGA shares how data technology has helped to pinpoint the personality traits of top players, leading to success on and off the golf course."
+                link="/about/journey"
+                linkText="Find Out More"
+              />
+            ))}
           </div>
         </div>
       </section>
@@ -346,16 +242,16 @@ export default function TeamPage() {
           <div className="flex max-w-7xl flex-col items-center gap-8 lg:flex-row lg:gap-16">
             {/* Content */}
             <div className="w-full lg:w-1/2">
-              <h2 className="mb-6 text-4xl font-bold text-si-offwhite sm:mb-8 sm:text-5xl md:text-6xl lg:text-7xl">
+              <h2 className="text-si-offwhite mb-6 text-4xl font-bold sm:mb-8 sm:text-5xl md:text-6xl lg:text-7xl">
                 Investor Relations
               </h2>
 
-              <p className="mb-8 text-lg leading-relaxed text-si-offwhite/85 sm:mb-12 sm:text-xl md:text-2xl lg:text-xl">
+              <p className="text-si-offwhite/85 mb-8 text-lg leading-relaxed sm:mb-12 sm:text-xl md:text-2xl lg:text-xl">
                 Visit our investor relations site for financial reports, regulatory disclosures and
                 stock information.
               </p>
 
-              <button className="group flex items-center gap-3 bg-si-slate px-8 py-4 text-lg font-semibold text-si-dark transition-all duration-300 hover:bg-si-offwhite sm:px-10 sm:py-5 sm:text-xl">
+              <button className="group bg-si-slate text-si-dark hover:bg-si-offwhite flex items-center gap-3 px-8 py-4 text-lg font-semibold transition-all duration-300 sm:px-10 sm:py-5 sm:text-xl">
                 <span>Find Out More</span>
                 <svg
                   className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 sm:h-6 sm:w-6"

@@ -21,7 +21,7 @@ export default function HorizontalCarousal() {
     <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
       <div
         ref={scrollTextRef}
-        className="horizontal-scroll-text font-bold whitespace-nowrap text-gray-200 select-none"
+        className="horizontal-scroll-text font-bold whitespace-nowrap text-left text-si-offwhite/40 text-8xl select-none"
       >
         What We Do What We Do What We Do What We Do What We Do What We Do What We Do What We Do
       </div>

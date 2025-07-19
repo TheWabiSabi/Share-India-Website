@@ -1,4 +1,3 @@
-'use client';
 import MoreAboutSection from '../_components/moreAboutSection';
 
 export default function JourneyPage() {
@@ -106,8 +105,8 @@ export default function JourneyPage() {
                     <span className="bg-si-offwhite text-si-bluegreen mb-2 inline-block rounded-full px-3 py-1 text-sm font-semibold">
                       2010
                     </span>
-                    <h3 className="mb-3 text-xl font-bold text-gray-900">Foundation</h3>
-                    <p className="text-gray-600">
+                    <h3 className="text-si-dark mb-3 text-xl font-bold">Foundation</h3>
+                    <p className="text-si-dark/70">
                       Our journey began with a vision to transform the industry through innovation
                       and dedication to excellence.
                     </p>
@@ -195,46 +194,43 @@ export default function JourneyPage() {
             </div>
           </div>
         </div>
-
-        <style jsx>{`
+        {/* You can remove below style block unless you implement the horizontal scroll text */}
+        {/* <style jsx>{`
           .horizontal-scroll-text {
             font-size: 6rem;
             line-height: 1;
             transition: transform 0.1s ease-out;
           }
-
           @media (min-width: 640px) {
             .horizontal-scroll-text {
               font-size: 8rem;
             }
           }
-
           @media (min-width: 1024px) {
             .horizontal-scroll-text {
               font-size: 10rem;
             }
           }
-
           @media (min-width: 1280px) {
             .horizontal-scroll-text {
               font-size: 12rem;
             }
           }
-        `}</style>
+        `}</style> */}
       </section>
 
       {/* Call to Action Section */}
       <section className="bg-si-white py-16 sm:py-20 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="mb-6 text-3xl font-bold text-si-dark sm:text-4xl md:text-5xl">
+            <h2 className="text-si-dark mb-6 text-3xl font-bold sm:text-4xl md:text-5xl">
               Ready to Begin Your Journey?
             </h2>
-            <p className="mx-auto mb-8 max-w-2xl text-lg leading-relaxed text-si-dark/80 sm:text-xl">
+            <p className="text-si-dark/80 mx-auto mb-8 max-w-2xl text-lg leading-relaxed sm:text-xl">
               Join us as we continue to push boundaries, innovate, and create meaningful impact in
               everything we do.
             </p>
-            <button className="rounded-lg bg-si-bluegreen px-8 py-4 font-semibold text-si-offwhite transition-colors hover:bg-si-bluegreen/80 focus:ring-2 focus:ring-si-bluegreen focus:ring-offset-2 focus:outline-none">
+            <button className="bg-si-bluegreen text-si-offwhite hover:bg-si-bluegreen/80 focus:ring-si-bluegreen rounded-lg px-8 py-4 font-semibold transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none">
               Get Started
             </button>
           </div>
