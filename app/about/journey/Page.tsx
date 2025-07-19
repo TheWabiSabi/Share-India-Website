@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import MoreAboutSection from '../_components/moreAboutSection';
 
 export default function JourneyPage() {
@@ -37,7 +38,8 @@ export default function JourneyPage() {
 
         {/* Overlapping Image - Positioned absolutely */}
         <div className="absolute top-8 right-8 bottom-8 z-0 hidden w-full lg:block lg:w-2/5 xl:w-1/3">
-          <img
+          <Image
+            fill
             src="/Scenery.jpg"
             alt="Our Journey"
             className="h-full w-full rounded-lg object-cover"
@@ -45,8 +47,9 @@ export default function JourneyPage() {
         </div>
 
         {/* Mobile Image - Only visible on mobile */}
-        <div className="bg-si-offwhite block px-4 py-8 lg:hidden">
-          <img
+        <div className="justify-centerx bg-si-offwhite relative mx-[5vw] flex h-[40vh] w-[90vw] items-center px-4 py-8 lg:hidden">
+          <Image
+            fill
             src="/Scenery.jpg"
             alt="Our Journey"
             className="object-cove h-64 w-full rounded-lg"

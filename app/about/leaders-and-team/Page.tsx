@@ -1,5 +1,6 @@
 import Card from '@/components/Card';
 import MoreAboutSection from '../_components/moreAboutSection';
+import Image from 'next/image';
 
 export default function TeamPage() {
   return (
@@ -37,7 +38,8 @@ export default function TeamPage() {
 
         {/* Overlapping Image - Positioned absolutely */}
         <div className="absolute top-8 right-8 bottom-8 hidden w-full lg:block lg:w-2/5 xl:w-1/3">
-          <img
+          <Image
+            fill
             src="/Scenery.jpg"
             alt="Our Journey"
             className="h-full w-full rounded-lg object-cover"
@@ -45,11 +47,12 @@ export default function TeamPage() {
         </div>
 
         {/* Mobile Image - Only visible on mobile */}
-        <div className="block px-4 py-8 lg:hidden">
-          <img
+        <div className="justify-centerx bg-si-offwhite relative mx-[5vw] flex h-[40vh] w-[90vw] items-center px-4 py-8 lg:hidden">
+          <Image
+            fill
             src="/Scenery.jpg"
             alt="Our Journey"
-            className="h-64 w-full rounded-lg object-cover"
+            className="object-cove h-64 w-full rounded-lg"
           />
         </div>
       </div>
@@ -92,10 +95,11 @@ export default function TeamPage() {
                   </div>
                 </div>
                 <p>
-                  At Aon, we've been on a decade-plus journey to connect our global capabilities, so
-                  we can address our clients' top priorities more effectively. Through our global
-                  expertise across two key areas of need — Risk Capital and Human Capital — our
-                  clients are better advised within, and across, their risk and people strategies.
+                  At Aon, we&#39;ve been on a decade-plus journey to connect our global
+                  capabilities, so we can address our clients&#39; top priorities more effectively.
+                  Through our global expertise across two key areas of need — Risk Capital and Human
+                  Capital — our clients are better advised within, and across, their risk and people
+                  strategies.
                 </p>
                 <p>
                   United as one firm, we help our clients{' '}
@@ -199,9 +203,10 @@ export default function TeamPage() {
 
           {/* Profile section */}
           <div className="flex items-center">
-            <div className="mr-4 h-16 w-16 flex-shrink-0 overflow-hidden rounded-full">
-              <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
+            <div className="relative mr-4 h-16 w-16 flex-shrink-0 overflow-hidden rounded-full">
+              <Image
+                fill
+                src="/about-img/ceo.png"
                 alt="Greg Case"
                 className="h-full w-full object-cover"
               />
@@ -271,9 +276,10 @@ export default function TeamPage() {
 
             {/* Image */}
             <div className="w-full max-w-2xl flex-shrink-0 lg:w-1/2">
-              <div className="aspect-[16/9] overflow-hidden rounded-lg">
-                <img
-                  src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=450&fit=crop&crop=center"
+              <div className="relative aspect-[16/9] overflow-hidden rounded-lg">
+                <Image
+                  fill
+                  src="/about-img/buildings.png"
                   alt="City skyline with modern buildings representing financial district"
                   className="h-full w-full object-cover"
                 />

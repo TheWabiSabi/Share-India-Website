@@ -66,12 +66,12 @@ export default function ServicesSelector() {
 
       {/* Action Buttons */}
       <div className="mt-6 flex flex-col justify-center gap-3 sm:mt-8 sm:flex-row sm:gap-4">
-        <button className="rounded-lg bg-si-bluegreen px-6 py-3 font-medium text-si-offwhite transition-colors duration-200 hover:bg-si-dark/90 focus:ring-2 focus:ring-si-bluegreen focus:ring-offset-2 focus:outline-none sm:px-8 sm:py-3">
+        <button className="bg-si-bluegreen text-si-offwhite hover:bg-si-dark/90 focus:ring-si-bluegreen rounded-lg px-6 py-3 font-medium transition-colors duration-200 focus:ring-2 focus:ring-offset-2 focus:outline-none sm:px-8 sm:py-3">
           Get Started
         </button>
         <Link
           href="/contact"
-          className="rounded-lg border-2 border-si-bluegreen bg-si-slate/30 px-6 py-3 text-center font-medium text-si-dark transition-colors duration-200 hover:bg-si-offwhite focus:ring-2 focus:ring-si-bluegreen focus:ring-offset-2 focus:outline-none sm:px-8 sm:py-3"
+          className="border-si-bluegreen bg-si-slate/30 text-si-dark hover:bg-si-offwhite focus:ring-si-bluegreen rounded-lg border-2 px-6 py-3 text-center font-medium transition-colors duration-200 focus:ring-2 focus:ring-offset-2 focus:outline-none sm:px-8 sm:py-3"
         >
           Contact Us
         </Link>
@@ -79,11 +79,11 @@ export default function ServicesSelector() {
 
       {/* Selected Service Display */}
       {selectedService && (
-        <div className="mt-6 rounded-lg border border-si-slate bg-si-slate/30 p-3 sm:mt-8 sm:p-4">
-          <p className="text-center text-sm text-si-dark sm:text-base">
+        <div className="border-si-slate bg-si-slate/30 mt-6 rounded-lg border p-3 sm:mt-8 sm:p-4">
+          <p className="text-si-dark text-center text-sm sm:text-base">
             You selected: <strong>{services.find((s) => s.id === selectedService)?.label}</strong>
           </p>
-          <p className="mt-2 text-center text-xs text-si-dark/90 sm:text-sm">
+          <p className="text-si-dark/90 mt-2 text-center text-xs sm:text-sm">
             {services.find((s) => s.id === selectedService)?.description}
           </p>
         </div>

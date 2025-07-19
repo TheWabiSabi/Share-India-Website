@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import MoreAboutSection from '../_components/moreAboutSection';
 
 export default function ImpactPage() {
@@ -80,10 +81,11 @@ export default function ImpactPage() {
                   </div>
                 </div>
                 <p>
-                  At Aon, we've been on a decade-plus journey to connect our global capabilities, so
-                  we can address our clients' top priorities more effectively. Through our global
-                  expertise across two key areas of need — Risk Capital and Human Capital — our
-                  clients are better advised within, and across, their risk and people strategies.
+                  At Aon, we&#39;ve been on a decade-plus journey to connect our global
+                  capabilities, so we can address our clients&#39; top priorities more effectively.
+                  Through our global expertise across two key areas of need — Risk Capital and Human
+                  Capital — our clients are better advised within, and across, their risk and people
+                  strategies.
                 </p>
                 <p>
                   United as one firm, we help our clients{' '}
@@ -146,9 +148,10 @@ export default function ImpactPage() {
           <div className="flex max-w-7xl flex-col items-center gap-8 lg:flex-row lg:gap-16">
             {/* CEO Image */}
             <div className="w-full max-w-md flex-shrink-0 lg:w-1/2">
-              <div className="aspect-square overflow-hidden rounded-lg">
-                <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=600&fit=crop&crop=face"
+              <div className="relative aspect-square overflow-hidden rounded-lg">
+                <Image
+                  fill
+                  src="/about-img/ceo.png"
                   alt="Greg Case, CEO"
                   className="h-full w-full object-cover"
                 />
@@ -160,8 +163,8 @@ export default function ImpactPage() {
                 A Message From Our CEO
               </h2>
               <p className="text-si-offwhite/80 mb-8 text-lg leading-relaxed sm:mb-12 sm:text-xl md:text-2xl lg:text-xl">
-                Greg Case, Aon's chief executive officer, shares his perspective on the important
-                role ESG plays in our operations and client engagements.
+                Greg Case, Aon&#39;s chief executive officer, shares his perspective on the
+                important role ESG plays in our operations and client engagements.
               </p>
               <button className="group bg-si-dark text-si-offwhite hover:bg-si-dark/70 flex items-center gap-3 px-8 py-4 text-lg font-semibold transition-all duration-300 sm:px-10 sm:py-5 sm:text-xl">
                 <span>Read More</span>
@@ -206,9 +209,10 @@ export default function ImpactPage() {
           </div>
           {/* Profile */}
           <div className="flex items-center">
-            <div className="mr-4 h-16 w-16 flex-shrink-0 overflow-hidden rounded-full">
-              <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
+            <div className="relative mr-4 h-16 w-16 flex-shrink-0 overflow-hidden rounded-full">
+              <Image
+                fill
+                src="/about-img/ceo.png"
                 alt="Greg Case"
                 className="h-full w-full object-cover"
               />
@@ -230,9 +234,9 @@ export default function ImpactPage() {
                 Environmental Impact
               </h2>
               <p className="text-si-dark/80 mb-8 text-lg leading-relaxed sm:mb-12 sm:text-xl md:text-2xl lg:text-xl">
-                We're focused on three areas of environmental impact: our own decarbonization and
-                sustainability efforts, working to accelerate clients' climate resiliency and
-                response, and convening leaders and organizations to collaborate and scale our
+                We&#39;re focused on three areas of environmental impact: our own decarbonization
+                and sustainability efforts, working to accelerate clients&#39; climate resiliency
+                and response, and convening leaders and organizations to collaborate and scale our
                 ambitions.
               </p>
               <button className="group bg-si-bluegreen text-si-offwhite hover:bg-si-dark flex items-center gap-3 px-8 py-4 text-lg font-semibold transition-all duration-300 sm:px-10 sm:py-5 sm:text-xl">
@@ -253,9 +257,10 @@ export default function ImpactPage() {
               </button>
             </div>
             <div className="w-full max-w-2xl flex-shrink-0 lg:w-1/2">
-              <div className="aspect-[16/9] overflow-hidden rounded-lg">
-                <img
-                  src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=450&fit=crop&crop=center"
+              <div className="relative aspect-[16/9] overflow-hidden rounded-lg">
+                <Image
+                  fill
+                  src="/about-img/trees.png"
                   alt="Environmental Impact - Aerial view of renewable energy and nature"
                   className="h-full w-full object-cover"
                 />
@@ -296,9 +301,10 @@ export default function ImpactPage() {
               </button>
             </div>
             <div className="w-full max-w-2xl flex-shrink-0 lg:w-1/2">
-              <div className="aspect-[16/9] overflow-hidden rounded-lg">
-                <img
-                  src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&h=450&fit=crop&crop=center"
+              <div className="relative aspect-[16/9] overflow-hidden rounded-lg">
+                <Image
+                  fill
+                  src="/about-img/meeting.png"
                   alt="Social Impact - Diverse team collaborating in workplace"
                   className="h-full w-full object-cover"
                 />
@@ -317,9 +323,9 @@ export default function ImpactPage() {
                 Environmental Impact
               </h2>
               <p className="text-si-dark/85 mb-8 text-lg leading-relaxed sm:mb-12 sm:text-xl md:text-2xl lg:text-xl">
-                We're focused on three areas of environmental impact: our own decarbonization and
-                sustainability efforts, working to accelerate clients' climate resiliency and
-                response, and convening leaders and organizations to collaborate and scale our
+                We&#39;re focused on three areas of environmental impact: our own decarbonization
+                and sustainability efforts, working to accelerate clients&#39; climate resiliency
+                and response, and convening leaders and organizations to collaborate and scale our
                 ambitions.
               </p>
               <button className="group bg-si-bluegreen text-si-offwhite hover:bg-si-dark flex items-center gap-3 px-8 py-4 text-lg font-semibold transition-all duration-300 sm:px-10 sm:py-5 sm:text-xl">
@@ -340,9 +346,10 @@ export default function ImpactPage() {
               </button>
             </div>
             <div className="w-full max-w-2xl flex-shrink-0 lg:w-1/2">
-              <div className="aspect-[16/9] overflow-hidden rounded-lg">
-                <img
-                  src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=450&fit=crop&crop=center"
+              <div className="relative aspect-[16/9] overflow-hidden rounded-lg">
+                <Image
+                  fill
+                  src="/about-img/trees.png"
                   alt="Environmental Impact - Aerial view of renewable energy and nature"
                   className="h-full w-full object-cover"
                 />

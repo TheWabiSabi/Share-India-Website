@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 // Sample blog posts data - in a real app, this would come from a CMS or database
@@ -89,11 +90,11 @@ export default function BlogPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-si-slate to-si-bluegreen py-20 text-si-offwhite">
+      <div className="from-si-slate to-si-bluegreen text-si-offwhite bg-gradient-to-r py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="mb-6 text-4xl font-bold md:text-6xl">Share India Blog</h1>
-            <p className="mx-auto max-w-3xl text-xl text-si-offwhite/85 md:text-2xl">
+            <p className="text-si-offwhite/85 mx-auto max-w-3xl text-xl md:text-2xl">
               Stay updated with the latest insights, market analysis, and trading strategies from
               our expert team.
             </p>
@@ -107,7 +108,7 @@ export default function BlogPage() {
           {categories.map((category) => (
             <button
               key={category}
-              className="rounded-full border border-si-bluegreen bg-si-white px-4 py-2 text-si-dark transition-colors duration-200 hover:border-si-dark hover:bg-si-bluegreen hover:text-si-offwhite"
+              className="border-si-bluegreen bg-si-white text-si-dark hover:border-si-dark hover:bg-si-bluegreen hover:text-si-offwhite rounded-full border px-4 py-2 transition-colors duration-200"
             >
               {category}
             </button>
@@ -121,23 +122,24 @@ export default function BlogPage() {
           {blogPosts.map((post) => (
             <article
               key={post.id}
-              className="relative z-10 overflow-hidden rounded-lg bg-si-white shadow-md transition-shadow duration-300 hover:shadow-lg"
+              className="bg-si-white relative z-10 overflow-hidden rounded-lg shadow-md transition-shadow duration-300 hover:shadow-lg"
             >
-              <div className="relative flex h-48 items-center justify-center bg-gradient-to-r from-si-bluegreen to-si-slate">
-                <img
+              <div className="from-si-bluegreen to-si-slate relative flex h-48 items-center justify-center bg-gradient-to-r">
+                <Image
+                  fill
                   src={post.image}
                   alt={post.title}
                   className="h-16 w-16 object-contain opacity-50"
                 />
                 <div className="absolute top-4 left-4">
-                  <span className="rounded-full bg-si-slate px-3 py-1 text-sm text-si-dark">
+                  <span className="bg-si-slate text-si-dark rounded-full px-3 py-1 text-sm">
                     {post.category}
                   </span>
                 </div>
               </div>
 
               <div className="p-6">
-                <div className="mb-3 flex items-center text-sm text-si-bluegreen">
+                <div className="text-si-bluegreen mb-3 flex items-center text-sm">
                   <span>{post.author}</span>
                   <span className="mx-2">•</span>
                   <span>{new Date(post.date).toLocaleDateString()}</span>
@@ -145,15 +147,15 @@ export default function BlogPage() {
                   <span>{post.readTime}</span>
                 </div>
 
-                <h2 className="mb-3 text-xl font-bold text-si-dark transition-colors hover:text-si-slate">
+                <h2 className="text-si-dark hover:text-si-slate mb-3 text-xl font-bold transition-colors">
                   <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                 </h2>
 
-                <p className="mb-4 text-si-dark/80">{post.excerpt}</p>
+                <p className="text-si-dark/80 mb-4">{post.excerpt}</p>
 
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="inline-flex items-center font-medium text-si-bluegreen transition-colors hover:text-si-bluegreen/80"
+                  className="text-si-bluegreen hover:text-si-bluegreen/80 inline-flex items-center font-medium transition-colors"
                 >
                   Read More
                   <svg
@@ -177,19 +179,19 @@ export default function BlogPage() {
       </div>
 
       {/* Newsletter Signup */}
-      <div className="bg-si-bluegreen py-16 text-si-offwhite">
+      <div className="bg-si-bluegreen text-si-offwhite py-16">
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
           <h2 className="mb-4 text-3xl font-bold">Stay in the Loop</h2>
-          <p className="mb-8 text-xl text-si-offwhite/80">
+          <p className="text-si-offwhite/80 mb-8 text-xl">
             Get the latest market insights and trading tips delivered to your inbox.
           </p>
           <div className="mx-auto flex max-w-md flex-col justify-center gap-4 sm:flex-row">
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 rounded-lg border border-si-slate px-4 py-3 text-si-offwhite focus:ring-2 focus:ring-si-slate focus:outline-none"
+              className="border-si-slate text-si-offwhite focus:ring-si-slate flex-1 rounded-lg border px-4 py-3 focus:ring-2 focus:outline-none"
             />
-            <button className="rounded-lg bg-si-slate px-6 py-3 font-medium text-si-dark transition-colors hover:bg-si-offwhite">
+            <button className="bg-si-slate text-si-dark hover:bg-si-offwhite rounded-lg px-6 py-3 font-medium transition-colors">
               Subscribe
             </button>
           </div>

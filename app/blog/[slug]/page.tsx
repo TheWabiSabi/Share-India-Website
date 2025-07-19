@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
@@ -207,8 +208,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <h3 className="mb-8 text-2xl font-bold text-gray-900">Related Articles</h3>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <article className="bg-si-white overflow-hidden rounded-lg shadow-sm transition-shadow hover:shadow-lg">
-            <div className="from-si-bluegreen/20 to-si-slate flex h-40 items-center justify-center bg-gradient-to-r">
-              <img src="/file.svg" alt="Trading strategies" className="h-12 w-12 opacity-50" />
+            <div className="from-si-bluegreen/20 to-si-slate relative flex h-40 items-center justify-center bg-gradient-to-r">
+              <Image
+                fill
+                src="/file.svg"
+                alt="Trading strategies"
+                className="h-12 w-12 opacity-50"
+              />
             </div>
             <div className="p-6">
               <span className="bg-si-bluegreen text-si-offwhite rounded-full px-2 py-1 text-xs">
@@ -230,8 +236,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </article>
 
           <article className="bg-si-white overflow-hidden rounded-lg shadow-sm transition-shadow hover:shadow-lg">
-            <div className="from-si-bluegreen/20 to-si-slate flex h-40 items-center justify-center bg-gradient-to-r">
-              <img src="/next.svg" alt="Portfolio building" className="h-12 w-12 opacity-50" />
+            <div className="from-si-bluegreen/20 to-si-slate relative flex h-40 items-center justify-center bg-gradient-to-r">
+              <Image
+                fill
+                src="/next.svg"
+                alt="Portfolio building"
+                className="h-12 w-12 opacity-50"
+              />
             </div>
             <div className="p-6">
               <span className="bg-si-bluegreen text-si-offwhite rounded-full px-2 py-1 text-xs">

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 interface CardProps {
@@ -23,11 +24,12 @@ export default function Card({
 }: CardProps) {
   return (
     <div
-      className={`overflow-hidden rounded-lg bg-si-white transition-shadow duration-300 hover:shadow-lg ${className}`}
+      className={`bg-si-white overflow-hidden rounded-lg transition-shadow duration-300 hover:shadow-lg ${className}`}
     >
       {/* Image Section */}
-      <div className="h-64 w-full overflow-hidden rounded-lg">
-        <img
+      <div className="relative h-64 w-full overflow-hidden rounded-lg">
+        <Image
+          fill
           src={image}
           alt={imageAlt}
           className="h-full w-full object-cover transition-transform duration-300"
@@ -38,7 +40,7 @@ export default function Card({
       <div className="p-6">
         {/* Category Label */}
         <div className="mb-4">
-          <span className="inline-block text-sm font-medium tracking-wider text-si-bluegreen uppercase">
+          <span className="text-si-bluegreen inline-block text-sm font-medium tracking-wider uppercase">
             {category}
           </span>
         </div>
@@ -52,9 +54,9 @@ export default function Card({
         {/* Link */}
         <Link
           href={link}
-          className="group inline-flex items-center gap-2 font-semibold text-si-bluegreen transition-colors duration-200 hover:text-si-bluegreen/70"
+          className="group text-si-bluegreen hover:text-si-bluegreen/70 inline-flex items-center gap-2 font-semibold transition-colors duration-200"
         >
-          <span className="border-b-2 border-si-bluegreen pb-1 group-hover:border-si-bluegreen/50">
+          <span className="border-si-bluegreen group-hover:border-si-bluegreen/50 border-b-2 pb-1">
             {linkText}
           </span>
           <svg

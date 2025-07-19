@@ -84,10 +84,11 @@ export default function AboutPage() {
                   </div>
                 </div>
                 <p>
-                  At Share India, we've been on a decade-plus journey to connect our industry
-                  expertise, so we can address our clients' top priorities more effectively. Through
-                  our teams across capital markets, digital platforms, and wealth management, our
-                  clients are better advised within, and across, their investment strategies.
+                  At Share India, we&#39;ve been on a decade-plus journey to connect our industry
+                  expertise, so we can address our clients&#39; top priorities more effectively.
+                  Through our teams across capital markets, digital platforms, and wealth
+                  management, our clients are better advised within, and across, their investment
+                  strategies.
                 </p>
                 <p>
                   United as one firm, we help our clients{' '}
@@ -166,14 +167,14 @@ export default function AboutPage() {
                 What We Do
               </p>
               <h2 className="text-si-dark mb-6 text-3xl leading-tight font-bold sm:mb-8 sm:text-4xl md:text-5xl lg:text-6xl">
-                Expertise Across Today's Risk and People Issues
+                Expertise Across Today&#39;s Risk and People Issues
               </h2>
             </div>
             <div className="mt-0 max-w-2xl flex-shrink-0 lg:mt-16 lg:max-w-md xl:max-w-lg">
               <p className="text-si-dark/90 text-lg leading-relaxed sm:text-xl">
-                At Share India, we've spent years developing insight and technology to help clients
-                face today’s market challenges—connecting capital, advice, and solutions for better
-                financial confidence.
+                At Share India, we&#39;ve spent years developing insight and technology to help
+                clients face today&#39;s market challenges—connecting capital, advice, and solutions
+                for better financial confidence.
               </p>
             </div>
           </div>
@@ -188,7 +189,7 @@ export default function AboutPage() {
           </h1>
           <div className="flex flex-col justify-center gap-4 p-4 sm:flex-row sm:gap-6 sm:p-6">
             <Card
-              image="Scenery.jpg"
+              image="/Scenery.jpg"
               imageAlt="Aerial view of golf course"
               category="Case Study"
               title="The LPGA Unlocks Talent Potential with Data"
@@ -197,7 +198,7 @@ export default function AboutPage() {
               linkText="Find Out More"
             />
             <Card
-              image="Scenery.jpg"
+              image="/Scenery.jpg"
               imageAlt="Aerial view of golf course"
               category="Case Study"
               title="The LPGA Unlocks Talent Potential with Data"
