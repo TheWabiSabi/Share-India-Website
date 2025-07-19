@@ -26,19 +26,16 @@ export default function ImpactPage() {
 
         {/* Semi-transparent grey overlay - responsive width */}
         <div className="absolute inset-0">
-          <div
-            className="bg-opacity-75 background-filter h-full w-full backdrop-blur-sm sm:w-4/5 md:w-3/5"
-            style={{ background: 'rgba(38, 40, 54, .6)' }}
-          >
+          <div className="bg-opacity-75 bg-si-dark/60 background-filter h-full w-full backdrop-blur-sm sm:w-4/5 md:w-3/5">
             {/* Content container */}
             <div className="flex h-full flex-col justify-end px-4 sm:px-8 md:px-16 lg:px-24">
               {/* Small heading */}
-              <h1 className="mb-4 text-xl leading-tight text-white sm:mb-6 sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl">
+              <h1 className="text-si-offwhite mb-4 text-xl leading-tight sm:mb-6 sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl">
                 Impact Report
               </h1>
 
               {/* Small description */}
-              <p className="max-w-2xl text-base leading-relaxed font-bold text-gray-200 sm:text-lg md:text-xl lg:max-w-3xl lg:text-2xl xl:text-3xl 2xl:text-4xl">
+              <p className="text-si-offwhite/90 max-w-2xl text-base leading-relaxed font-bold sm:text-lg md:text-xl lg:max-w-3xl lg:text-2xl xl:text-3xl 2xl:text-4xl">
                 Testing Testing Testing Testing Testing Testing Testing Testing Testing
               </p>
               {/* <button className="hoverMebottom group relative mt-8 mb-16 w-1/2 overflow-hidden rounded bg-white px-4 py-2 text-xl font-semibold text-gray-800 shadow transition-all duration-300 hover:text-white">
@@ -48,7 +45,7 @@ export default function ImpactPage() {
               {/* <button className="mt-8 mb-12 w-1/2 rounded-xl bg-white px-4 py-2 text-xl font-semibold text-gray-800 shadow transition-all duration-300 hover:bg-gray-800 hover:text-white lg:mt-12 lg:mb-20">
                 Download Report
               </button> */}
-              <button className="group mt-18 mb-12 flex w-1/2 items-center gap-3 bg-red-600 px-8 py-4 text-lg font-semibold text-white transition-all duration-300 hover:bg-red-700 sm:px-10 sm:py-5 sm:text-xl">
+              <button className="group bg-si-bluegreen text-si-offwhite hover:bg-si-slate/60 mt-18 mb-12 flex w-1/2 items-center gap-3 px-8 py-4 text-lg font-semibold transition-all duration-300 sm:px-10 sm:py-5 sm:text-xl">
                 <span>Read More</span>
                 <svg
                   className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 sm:h-6 sm:w-6"
@@ -70,16 +67,16 @@ export default function ImpactPage() {
       </div>
 
       {/* Our Story Section */}
-      <section className="bg-white py-12 sm:py-16 md:py-20 lg:py-24">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex max-w-7xl flex-col gap-8 lg:flex-row lg:justify-between lg:gap-12">
             {/* Main Content */}
             <div className="max-w-3xl flex-1">
-              <h2 className="mb-6 text-3xl font-bold text-gray-900 sm:mb-8 sm:text-4xl md:text-5xl lg:text-6xl">
+              <h2 className="text-si-dark mb-6 text-3xl font-bold sm:mb-8 sm:text-4xl md:text-5xl lg:text-6xl">
                 Our Story
               </h2>
 
-              <div className="space-y-4 text-base leading-relaxed text-gray-600 sm:space-y-6 sm:text-lg">
+              <div className="text-si-dark/80 space-y-4 text-base leading-relaxed sm:space-y-6 sm:text-lg">
                 <p>
                   Our world has become more volatile — economically, socially and geopolitically —
                   than ever before. In an interconnected and interdependent world, organizations and
@@ -94,19 +91,19 @@ export default function ImpactPage() {
 
                 <div className="my-6 space-y-4 sm:my-8">
                   <div className="flex items-start gap-3 sm:gap-4">
-                    <span className="flex-shrink-0 text-lg font-bold text-red-500 sm:text-xl">
+                    <span className="text-si-bluegreen flex-shrink-0 text-lg font-bold sm:text-xl">
                       1
                     </span>
-                    <p className="text-base font-semibold text-gray-900 sm:text-lg">
+                    <p className="text-si-dark/90 text-base font-semibold sm:text-lg">
                       How do I protect against risk and volatility?
                     </p>
                   </div>
 
                   <div className="flex items-start gap-3 sm:gap-4">
-                    <span className="flex-shrink-0 text-lg font-bold text-red-500 sm:text-xl">
+                    <span className="text-si-bluegreen flex-shrink-0 text-lg font-bold sm:text-xl">
                       2
                     </span>
-                    <p className="text-base font-semibold text-gray-900 sm:text-lg">
+                    <p className="text-si-dark/90 text-base font-semibold sm:text-lg">
                       How do I grow my organization and realize the potential of my workforce?
                     </p>
                   </div>
@@ -135,41 +132,41 @@ export default function ImpactPage() {
 
             {/* Navigation Sidebar */}
             <div className="w-full flex-shrink-0 lg:w-80">
-              <div className="rounded-lg bg-gray-50 p-4 sm:p-6 lg:bg-transparent">
-                <h3 className="mb-4 text-2xl font-semibold text-gray-900 sm:mb-6 sm:text-3xl">
+              <div className="rounded-lg p-4 sm:p-6 lg:bg-transparent">
+                <h3 className="text-si-dark mb-4 text-2xl font-semibold sm:mb-6 sm:text-3xl">
                   Jump to Section
                 </h3>
 
                 <nav className="space-y-3 sm:space-y-4">
                   <button
                     onClick={() => scrollToSection('what-we-do')}
-                    className="flex w-full items-center gap-3 text-left text-gray-700 transition-colors hover:text-red-500"
+                    className="text-si-dark/80 hover:text-si-dark/60 flex w-full items-center gap-3 text-left transition-colors"
                   >
-                    <span className="flex-shrink-0 font-bold text-red-500">01</span>
-                    <span className="border-gray-300 pb-1">What We Do</span>
+                    <span className="text-si-bluegreen flex-shrink-0 font-bold">01</span>
+                    <span className="pb-1">What We Do</span>
                   </button>
 
                   <button
                     onClick={() => scrollToSection('our-impact')}
-                    className="flex w-full items-center gap-3 text-left text-gray-700 transition-colors hover:text-red-500"
+                    className="text-si-dark/80 hover:text-si-dark/60 flex w-full items-center gap-3 text-left transition-colors"
                   >
-                    <span className="flex-shrink-0 font-bold text-red-500">02</span>
+                    <span className="text-si-bluegreen flex-shrink-0 font-bold">02</span>
                     <span>Our Impact</span>
                   </button>
 
                   <button
                     onClick={() => scrollToSection('our-values')}
-                    className="flex w-full items-center gap-3 text-left text-gray-700 transition-colors hover:text-red-500"
+                    className="text-si-dark/80 hover:text-si-dark/60 flex w-full items-center gap-3 text-left transition-colors"
                   >
-                    <span className="flex-shrink-0 font-bold text-red-500">03</span>
+                    <span className="text-si-bluegreen flex-shrink-0 font-bold">03</span>
                     <span>Our Values</span>
                   </button>
 
                   <button
                     onClick={() => scrollToSection('leadership')}
-                    className="flex w-full items-center gap-3 text-left text-gray-700 transition-colors hover:text-red-500"
+                    className="text-si-dark/80 hover:text-si-dark/60 flex w-full items-center gap-3 text-left transition-colors"
                   >
-                    <span className="flex-shrink-0 font-bold text-red-500">04</span>
+                    <span className="text-si-bluegreen flex-shrink-0 font-bold">04</span>
                     <span>Leadership</span>
                   </button>
                 </nav>
@@ -180,7 +177,7 @@ export default function ImpactPage() {
       </section>
 
       {/* A Message From Our CEO Section */}
-      <section className="bg-gray-900 py-16 sm:py-20 md:py-24 lg:py-32">
+      <section className="bg-si-bluegreen py-16 sm:py-20 md:py-24 lg:py-32">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex max-w-7xl flex-col items-center gap-8 lg:flex-row lg:gap-16">
             {/* CEO Image */}
@@ -196,16 +193,16 @@ export default function ImpactPage() {
 
             {/* Content */}
             <div className="w-full lg:w-1/2">
-              <h2 className="mb-6 text-4xl font-bold text-white sm:mb-8 sm:text-5xl md:text-6xl lg:text-7xl">
+              <h2 className="mb-6 text-4xl font-bold text-si-offwhite sm:mb-8 sm:text-5xl md:text-6xl lg:text-7xl">
                 A Message From Our CEO
               </h2>
 
-              <p className="mb-8 text-lg leading-relaxed text-gray-300 sm:mb-12 sm:text-xl md:text-2xl lg:text-xl">
+              <p className="mb-8 text-lg leading-relaxed text-si-offwhite/80 sm:mb-12 sm:text-xl md:text-2xl lg:text-xl">
                 Greg Case, Aon's chief executive officer, shares his perspective on the important
                 role ESG plays in our operations and client engagements.
               </p>
 
-              <button className="group flex items-center gap-3 bg-red-600 px-8 py-4 text-lg font-semibold text-white transition-all duration-300 hover:bg-red-700 sm:px-10 sm:py-5 sm:text-xl">
+              <button className="group flex items-center gap-3 bg-si-dark px-8 py-4 text-lg font-semibold text-si-offwhite transition-all duration-300 hover:bg-si-dark/70 sm:px-10 sm:py-5 sm:text-xl">
                 <span>Read More</span>
                 <svg
                   className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 sm:h-6 sm:w-6"
@@ -226,12 +223,12 @@ export default function ImpactPage() {
         </div>
       </section>
 
-      <div className="bg-red-500 px-8 py-16 text-white md:px-16">
+      <div className="bg-si-slate px-8 py-16 text-si-dark md:px-16">
         <div className="mx-auto max-w-4xl">
           {/* Quote mark */}
           <div className="mb-8">
             <svg
-              className="h-12 w-12 text-white opacity-90"
+              className="h-12 w-12 text-si-dark opacity-90"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
@@ -265,23 +262,23 @@ export default function ImpactPage() {
       </div>
 
       {/* Environmental Impact Section */}
-      <section className="bg-gray-50 py-16 sm:py-20 md:py-24 lg:py-32">
+      <section className="py-16 sm:py-20 md:py-24 lg:py-32">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex max-w-7xl flex-col items-center gap-8 lg:flex-row lg:gap-16">
             {/* Content */}
             <div className="w-full lg:w-1/2">
-              <h2 className="mb-6 text-4xl font-bold text-gray-900 sm:mb-8 sm:text-5xl md:text-6xl lg:text-7xl">
+              <h2 className="mb-6 text-4xl font-bold text-si-dark sm:mb-8 sm:text-5xl md:text-6xl lg:text-7xl">
                 Environmental Impact
               </h2>
 
-              <p className="mb-8 text-lg leading-relaxed text-gray-600 sm:mb-12 sm:text-xl md:text-2xl lg:text-xl">
+              <p className="mb-8 text-lg leading-relaxed text-si-dark/80 sm:mb-12 sm:text-xl md:text-2xl lg:text-xl">
                 We're focused on three areas of environmental impact: our own decarbonization and
                 sustainability efforts, working to accelerate clients' climate resiliency and
                 response, and convening leaders and organizations to collaborate and scale our
                 ambitions.
               </p>
 
-              <button className="group flex items-center gap-3 bg-red-600 px-8 py-4 text-lg font-semibold text-white transition-all duration-300 hover:bg-red-700 sm:px-10 sm:py-5 sm:text-xl">
+              <button className="group flex items-center gap-3 bg-si-bluegreen px-8 py-4 text-lg font-semibold text-si-offwhite transition-all duration-300 hover:bg-si-dark sm:px-10 sm:py-5 sm:text-xl">
                 <span>Learn More</span>
                 <svg
                   className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 sm:h-6 sm:w-6"
@@ -314,22 +311,22 @@ export default function ImpactPage() {
       </section>
 
       {/* Social Impact Section */}
-      <section className="bg-white py-16 sm:py-20 md:py-24 lg:py-32">
+      <section className="py-16 sm:py-20 md:py-24 lg:py-32">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex max-w-7xl flex-col items-center gap-8 lg:flex-row-reverse lg:gap-16">
             {/* Content */}
             <div className="w-full lg:w-1/2">
-              <h2 className="mb-6 text-4xl font-bold text-gray-900 sm:mb-8 sm:text-5xl md:text-6xl lg:text-7xl">
+              <h2 className="mb-6 text-4xl font-bold text-si-dark sm:mb-8 sm:text-5xl md:text-6xl lg:text-7xl">
                 Social Impact
               </h2>
 
-              <p className="mb-8 text-lg leading-relaxed text-gray-600 sm:mb-12 sm:text-xl md:text-2xl lg:text-xl">
+              <p className="mb-8 text-lg leading-relaxed text-si-dark/85 sm:mb-12 sm:text-xl md:text-2xl lg:text-xl">
                 We continue to build on actions and programs that support inclusion, workforce
                 wellbeing and civic outreach to build an equitable culture within our organization
                 and beyond.
               </p>
 
-              <button className="group flex items-center gap-3 bg-red-600 px-8 py-4 text-lg font-semibold text-white transition-all duration-300 hover:bg-red-700 sm:px-10 sm:py-5 sm:text-xl">
+              <button className="group flex items-center gap-3 bg-si-bluegreen px-8 py-4 text-lg font-semibold text-si-offwhite transition-all duration-300 hover:bg-si-dark sm:px-10 sm:py-5 sm:text-xl">
                 <span>Learn More</span>
                 <svg
                   className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 sm:h-6 sm:w-6"
@@ -362,23 +359,23 @@ export default function ImpactPage() {
       </section>
 
       {/* Environmental Impact Section */}
-      <section className="bg-gray-50 py-16 sm:py-20 md:py-24 lg:py-32">
+      <section className="py-16 sm:py-20 md:py-24 lg:py-32">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex max-w-7xl flex-col items-center gap-8 lg:flex-row lg:gap-16">
             {/* Content */}
             <div className="w-full lg:w-1/2">
-              <h2 className="mb-6 text-4xl font-bold text-gray-900 sm:mb-8 sm:text-5xl md:text-6xl lg:text-7xl">
+              <h2 className="mb-6 text-4xl font-bold text-si-dark sm:mb-8 sm:text-5xl md:text-6xl lg:text-7xl">
                 Environmental Impact
               </h2>
 
-              <p className="mb-8 text-lg leading-relaxed text-gray-600 sm:mb-12 sm:text-xl md:text-2xl lg:text-xl">
+              <p className="mb-8 text-lg leading-relaxed text-si-dark/85 sm:mb-12 sm:text-xl md:text-2xl lg:text-xl">
                 We're focused on three areas of environmental impact: our own decarbonization and
                 sustainability efforts, working to accelerate clients' climate resiliency and
                 response, and convening leaders and organizations to collaborate and scale our
                 ambitions.
               </p>
 
-              <button className="group flex items-center gap-3 bg-red-600 px-8 py-4 text-lg font-semibold text-white transition-all duration-300 hover:bg-red-700 sm:px-10 sm:py-5 sm:text-xl">
+              <button className="group flex items-center gap-3 bg-si-bluegreen px-8 py-4 text-lg font-semibold text-si-offwhite transition-all duration-300 hover:bg-si-dark sm:px-10 sm:py-5 sm:text-xl">
                 <span>Learn More</span>
                 <svg
                   className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 sm:h-6 sm:w-6"
