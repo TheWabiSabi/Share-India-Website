@@ -1,4 +1,5 @@
 import ServicesSelector from './_components/service-selector'; // client component
+import FAQ from './_components/faq'; // <-- Add this import
 
 const ServicesPage = ({
   title = 'What services are you interested in?',
@@ -30,6 +31,9 @@ const ServicesPage = ({
               </p>
             </div>
           </div>
+
+          {/* FAQ Section */}
+          <FAQ />
         </div>
       </div>
     </div>
