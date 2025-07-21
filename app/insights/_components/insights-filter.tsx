@@ -2,11 +2,11 @@ import { FaChevronDown } from 'react-icons/fa';
 
 export default function InsightsFilterBar() {
   return (
-    <div className="mt-5 w-full rounded-md bg-si-white p-6">
+    <div className="bg-si-white mt-5 w-full rounded-md p-6">
       <div className="flex w-full flex-col items-center justify-center gap-6 md:flex-row md:items-center md:gap-0">
         {/* Side Label */}
         <div className="flex min-w-[175px] flex-shrink-0 items-center justify-center pr-8 md:justify-end md:text-right">
-          <span className="text-si-dark block text-xl text-left leading-tight font-bold">
+          <span className="text-si-dark block text-left text-xl leading-tight font-bold">
             Explore
             <br />
             Insights By:

@@ -69,7 +69,7 @@ const featuredData = [
 
 export default function FeaturedCarousel() {
   return (
-    <div className="relative max-w-[100vw] lg:max-w-[70vw] px-8 py-6">
+    <div className="relative max-w-[100vw] px-8 py-6 lg:max-w-[70vw]">
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         spaceBetween={20}
