@@ -34,8 +34,6 @@ const ServicesPage = ({
 
           {/* FAQ Section */}
           <FAQ />
-
-          
         </div>
       </div>
     </div>
