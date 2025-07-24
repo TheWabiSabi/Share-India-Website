@@ -4,7 +4,7 @@ import HorizontalCarousal from './_components/horizontalCarousal';
 
 export default function AboutPage() {
   return (
-    <div>
+    <div className="bg-white">
       {/* Hero Section */}
       <div className="relative h-screen w-full overflow-hidden">
         <div
@@ -14,12 +14,12 @@ export default function AboutPage() {
           }}
         />
         <div className="absolute inset-0">
-          <div className="bg-opacity-75 background-filter bg-si-dark/60 h-full w-full backdrop-blur-sm sm:w-4/5 md:w-3/5">
-            <div className="flex h-full flex-col justify-center px-4 sm:px-8 md:px-16 lg:px-24">
-              <h1 className="text-si-offwhite mb-4 text-xl leading-tight sm:mb-6 sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl">
+          <div className="bg-opacity-75 background-filter bg-si-dark/60 h-full w-[100vw] backdrop-blur-sm sm:w-4/5 md:w-3/5">
+            <div className="flex h-full flex-col justify-center px-10 sm:px-4 md:px-8 lg:px-20">
+              <h1 className="text-si-offwhite mb-4 text-xl leading-tight font-bold sm:mb-6 sm:text-lg md:text-2xl lg:text-3xl xl:text-5xl">
                 About Us
               </h1>
-              <p className="text-si-offwhite max-w-2xl text-base leading-relaxed font-bold sm:text-lg md:text-xl lg:max-w-3xl lg:text-2xl xl:text-3xl 2xl:text-4xl">
+              <p className="text-si-offwhite md:text-md text-justify text-sm leading-relaxed sm:text-sm lg:text-lg xl:text-xl 2xl:text-2xl">
                 We are passionate about creating exceptional digital experiences that inspire and
                 connect people. Our journey began with a simple vision: to transform ideas into
                 meaningful solutions that make a difference.
@@ -29,7 +29,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <section className="py-12 sm:py-16 md:py-20 lg:py-24">
+      <section className="bg-white py-12 sm:py-16 md:py-20 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex max-w-7xl items-start">
             {/* Timeline vertical indicator */}
@@ -37,7 +37,7 @@ export default function AboutPage() {
               className="bg-si-bluegreen mr-4 w-1 flex-shrink-0 sm:mr-6 sm:w-2 lg:mr-8"
               style={{ height: '180px' }}
             ></div>
-            <h2 className="text-si-dark text-2xl leading-tight font-bold sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
+            <h2 className="text-si-dark text-2xl leading-tight sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
               At Share India, we exist to shape decisions for the better — to protect and enrich the
               lives of people across India.
             </h2>
@@ -50,7 +50,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex max-w-7xl flex-col gap-8 lg:flex-row lg:justify-between lg:gap-12">
             {/* Main Content */}
-            <div className="max-w-3xl flex-1">
+            <div className="bg-si-offwhite max-w-3xl flex-1 rounded-lg p-4">
               <h2 className="text-si-dark mb-6 text-3xl font-bold sm:mb-8 sm:text-4xl md:text-5xl lg:text-6xl">
                 Our Story
               </h2>
@@ -106,7 +106,7 @@ export default function AboutPage() {
 
             {/* Navigation Sidebar (no smooth scroll, just anchors) */}
             <div className="w-full flex-shrink-0 lg:w-80">
-              <div className="bg-si-offwhite rounded-lg p-4 sm:p-6 lg:bg-transparent">
+              <div className="rounded-lg p-4 sm:p-6">
                 <h3 className="text-si-dark mb-4 text-2xl font-semibold sm:mb-6 sm:text-3xl">
                   Jump to Section
                 </h3>
