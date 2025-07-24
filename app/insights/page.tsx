@@ -1,3 +1,5 @@
+import Card from '@/components/Card';
+import MoreAboutSection from '../about/_components/moreAboutSection';
 import FeaturedCarousel from './_components/featured-section/featured-caraousel';
 // import FeaturedBlogCard from './_components/featured-cards';
 import InsightsFilterBar from './_components/insights-filter';
@@ -20,8 +22,37 @@ export default function InsightsPage() {
         {/* Carousel */}
         <FeaturedCarousel />
       </div>
-      <div className="mt-10">
+      <div className="mt-10 mb-10">
         <InsightsFilterBar />
+      </div>
+      <div className="-z-10 flex flex-col justify-center gap-4 p-4 sm:flex-row sm:gap-6 sm:p-6">
+        <Card
+          image="/Scenery.jpg"
+          imageAlt="Aerial view of golf course"
+          category="Case Study"
+          title="The LPGA Unlocks Talent Potential with Data"
+          description="The LPGA shares how data technology has helped to pinpoint the personality traits of top players, leading to success on and off the golf course."
+          link="/about/journey"
+          linkText="Find Out More"
+        />
+        <Card
+          image="/Scenery.jpg"
+          imageAlt="Aerial view of golf course"
+          category="Case Study"
+          title="The LPGA Unlocks Talent Potential with Data"
+          description="The LPGA shares how data technology has helped to pinpoint the personality traits of top players, leading to success on and off the golf course."
+          link="/about/journey"
+          linkText="Find Out More"
+        />
+        <Card
+          image="/Scenery.jpg"
+          imageAlt="Aerial view of golf course"
+          category="Case Study"
+          title="The LPGA Unlocks Talent Potential with Data"
+          description="The LPGA shares how data technology has helped to pinpoint the personality traits of top players, leading to success on and off the golf course."
+          link="/about/journey"
+          linkText="Find Out More"
+        />
       </div>
     </div>
   );
