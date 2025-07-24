@@ -10,20 +10,16 @@ import { FaXTwitter } from 'react-icons/fa6';
 const menuItems = [
   {
     title: 'About',
-    links: ['Overview', 'Founders and Donors', 'Reports', 'Recruitment'],
+    links: ['Journey', 'Impact', 'Leaders and Team', 'Testimonials'],
   },
   {
-    title: 'People',
-    links: ['Core Faculty', 'Associate Faculty', 'Students', 'Alumni', 'Staff'],
+    title: 'Insights',
+    links: [],
   },
-  { title: 'Seminars', links: [] },
+  { title: 'Blog', links: [] },
   {
-    title: 'News & Events',
-    links: ['News', 'Updates', 'Events', 'Newsletter'],
-  },
-  {
-    title: 'Collaboration',
-    links: ['Overview', 'SBI Technology Hub', 'Honda Cars India'],
+    title: 'Contact',
+    links: [],
   },
 ];
 
@@ -42,13 +38,32 @@ export default function Navbar() {
     setDropdownOpen(dropdownOpen === menu ? null : menu);
   };
 
+  const handleMouseLeave = () => {
+    setDropdownOpen(null);
+  };
+
+  const handleMouseEnter = (menu: string) => {
+    if (menuItems.find((item) => item.title === menu)!.links.length > 0) {
+      setDropdownOpen(menu);
+    }
+  };
+
+  const handleClick = (menu: string) => {
+    // Navigate to the main page for the menu item
+    window.location.href = `/${menu.toLowerCase().replace(/ /g, '-')}`;
+    // setDropdownOpen(null);
+  };
+
   return (
     <nav className="bg-si-offwhite text-si-dark relative left-0 z-50 flex h-[13vh] w-[100vw] items-center pr-[2vw] font-serif shadow-md">
       {/* Logo */}
       <div className="flex h-full items-center pt-3 pl-[3vw] lg:pt-0">
-        <div style={{ position: 'relative', height: '120px', width: '120px', marginRight: '2vw' }}>
+        <Link
+          href={'/'}
+          style={{ position: 'relative', height: '120px', width: '120px', marginRight: '2vw' }}
+        >
           <Image src="/logo.png" alt="Logo" fill style={{ objectFit: 'contain' }} />
-        </div>
+        </Link>
       </div>
 
       {/* Hamburger (Mobile) */}
@@ -124,32 +139,34 @@ export default function Navbar() {
           }
         `}</style>
 
-        <div className="hoverMebottom flex h-[6vh] items-end justify-end gap-[2vw] text-[2vh] tracking-wide">
+        <div className="text- hoverMebottom flex h-[6vh] items-end justify-end gap-[2vw] text-[2vh] tracking-wide">
           {menuItems.map((menu) => (
-            <div key={menu.title} className="group relative">
+            <div
+              key={menu.title}
+              className="group relative"
+              onMouseEnter={() => handleMouseEnter(menu.title)}
+              onMouseLeave={handleMouseLeave}
+            >
+              {/* Main Dropdown Button */}
               <button
-                className="hoverMebottom flex h-[5vh] items-center gap-[0.5vw] font-medium transition-all duration-300 hover:text-blue-500"
-                onClick={() => toggleDropdown(menu.title)}
-                onMouseEnter={() => setDropdownOpen(menu.title)}
-                onMouseLeave={() => setDropdownOpen(null)}
-                type="button"
+                className="hoverMebottom hover:text-si-bluegreen/80 flex h-[5vh] items-center gap-[0.5vw] transition-all duration-300"
+                onClick={() => handleClick(menu.title)}
               >
                 {menu.title}
-                {menu.links.length > 0 && <FaChevronDown className="ml-1 text-[1.5vh]" />}
+                {menu.links.length > 0 && <FaChevronDown className="text-[1.5vh]" />}
               </button>
+
+              {/* Dropdown Menu */}
               {menu.links.length > 0 && dropdownOpen === menu.title && (
-                <div
-                  className="bg-si-offwhite absolute top-full left-0 z-[60] mt-2 w-max min-w-[180px] animate-pulse rounded-md p-2 shadow-xl"
-                  onMouseEnter={() => setDropdownOpen(menu.title)}
-                  onMouseLeave={() => setDropdownOpen(null)}
-                >
+                <div className="bg-si-offwhite absolute top-full left-0 z-60 mt-[1vh] w-[18vw] rounded-md p-[1vh] shadow-xl">
                   {menu.links.map((link) => (
                     <Link
                       key={link}
+                      onClick={() => setDropdownOpen(null)}
                       href={`/${menu.title.toLowerCase().replace(/ /g, '-')}/${link
                         .toLowerCase()
                         .replace(/ /g, '-')}`}
-                      className="block rounded-md px-4 py-2 text-[1.8vh] transition-all duration-300 hover:bg-gray-100 hover:text-blue-500"
+                      className="hover:bg-si-slate hover:text-si-bluegreen block rounded-md px-[1.2vw] py-[0.8vh] text-[1.8vh] transition-all duration-300"
                     >
                       {link}
                     </Link>
@@ -194,20 +211,33 @@ export default function Navbar() {
           <div className="flex flex-col gap-3">
             {menuItems.map((menu) => (
               <div key={menu.title} className="relative">
-                <button
-                  className="flex w-full items-center py-2 text-left text-lg font-medium hover:text-blue-500"
-                  onClick={() => toggleDropdown(menu.title)}
-                >
-                  {menu.title}
-                  {menu.links.length > 0 && (
-                    <FaChevronDown
-                      className="ml-2 text-base transition-transform"
-                      style={{
-                        transform: dropdownOpen === menu.title ? 'rotate(180deg)' : '',
-                      }}
-                    />
-                  )}
-                </button>
+                {menu.title == 'About' ? (
+                  <button
+                    className="flex w-full items-center py-2 text-left text-lg font-medium hover:text-blue-500"
+                    onClick={() => toggleDropdown(menu.title)}
+                  >
+                    {menu.title}
+                    {menu.links.length > 0 && (
+                      <FaChevronDown
+                        className="ml-2 text-base transition-transform"
+                        style={{
+                          transform: dropdownOpen === menu.title ? 'rotate(180deg)' : '',
+                        }}
+                      />
+                    )}
+                  </button>
+                ) : (
+                  <Link
+                    className="flex w-full items-center py-2 text-left text-lg font-medium hover:text-blue-500"
+                    onClick={() => {
+                      setMobileMenu(false);
+                    }}
+                    href={`/${menu.title.toLowerCase()}`}
+                  >
+                    {menu.title}
+                  </Link>
+                )}
+
                 {menu.links.length > 0 && dropdownOpen === menu.title && (
                   <div className="mt-1 ml-5 flex flex-col">
                     {menu.links.map((link) => (
