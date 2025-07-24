@@ -1,5 +1,4 @@
 import Card from '@/components/Card';
-import MoreAboutSection from '../about/_components/moreAboutSection';
 import FeaturedCarousel from './_components/featured-section/featured-caraousel';
 // import FeaturedBlogCard from './_components/featured-cards';
 import InsightsFilterBar from './_components/insights-filter';

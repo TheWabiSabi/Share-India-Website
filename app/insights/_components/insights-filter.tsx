@@ -32,7 +32,7 @@ function CustomDropdown({ label }: { label: string }) {
         className="border-si-bluegreen/60 text-si-dark focus:border-si-bluegreen hover:border-si-bluegreen flex w-full items-center justify-between border-0 border-b-2 bg-transparent px-0 py-2 text-base font-normal transition-colors outline-none"
       >
         <span className="opacity-80">{label}</span>
-        <FaChevronDown className="ml-2 text-si-bluegreen" />
+        <FaChevronDown className="text-si-bluegreen ml-2" />
       </button>
     </div>
   );
