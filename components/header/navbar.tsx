@@ -148,13 +148,14 @@ export default function Navbar() {
               onMouseLeave={handleMouseLeave}
             >
               {/* Main Dropdown Button */}
-              <button
+              <Link
                 className="hoverMebottom hover:text-si-bluegreen/80 flex h-[5vh] items-center gap-[0.5vw] transition-all duration-300"
                 onClick={() => handleClick(menu.title)}
+                href={`/${menu.title.toLowerCase()}`}
               >
                 {menu.title}
                 {menu.links.length > 0 && <FaChevronDown className="text-[1.5vh]" />}
-              </button>
+              </Link>
 
               {/* Dropdown Menu */}
               {menu.links.length > 0 && dropdownOpen === menu.title && (
@@ -211,32 +212,24 @@ export default function Navbar() {
           <div className="flex flex-col gap-3">
             {menuItems.map((menu) => (
               <div key={menu.title} className="relative">
-                {menu.title == 'About' ? (
-                  <button
-                    className="flex w-full items-center py-2 text-left text-lg font-medium hover:text-blue-500"
-                    onClick={() => toggleDropdown(menu.title)}
-                  >
-                    {menu.title}
-                    {menu.links.length > 0 && (
-                      <FaChevronDown
-                        className="ml-2 text-base transition-transform"
-                        style={{
-                          transform: dropdownOpen === menu.title ? 'rotate(180deg)' : '',
-                        }}
-                      />
-                    )}
-                  </button>
-                ) : (
-                  <Link
-                    className="flex w-full items-center py-2 text-left text-lg font-medium hover:text-blue-500"
-                    onClick={() => {
-                      setMobileMenu(false);
-                    }}
-                    href={`/${menu.title.toLowerCase()}`}
-                  >
-                    {menu.title}
-                  </Link>
-                )}
+                <Link
+                  className="flex w-full items-center py-2 text-left text-lg font-medium hover:text-blue-500"
+                  onClick={() => {
+                    setMobileMenu(false);
+                    toggleDropdown(menu.title);
+                  }}
+                  href={`/${menu.title.toLowerCase()}`}
+                >
+                  {menu.title}
+                  {menu.links.length > 0 && (
+                    <FaChevronDown
+                      className="ml-2 text-base transition-transform"
+                      style={{
+                        transform: dropdownOpen === menu.title ? 'rotate(180deg)' : '',
+                      }}
+                    />
+                  )}
+                </Link>
 
                 {menu.links.length > 0 && dropdownOpen === menu.title && (
                   <div className="mt-1 ml-5 flex flex-col">
