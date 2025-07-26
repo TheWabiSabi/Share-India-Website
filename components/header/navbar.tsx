@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaChevronDown, FaBars, FaTimes } from 'react-icons/fa';
+import { FaChevronDown, FaBars, FaTimes, FaSearch } from 'react-icons/fa';
 import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 
@@ -17,10 +17,6 @@ const menuItems = [
     links: [],
   },
   { title: 'Blog', links: [] },
-  {
-    title: 'Contact',
-    links: [],
-  },
 ];
 
 const socialLinks = {
@@ -51,11 +47,11 @@ export default function Navbar() {
   const handleClick = (menu: string) => {
     // Navigate to the main page for the menu item
     window.location.href = `/${menu.toLowerCase().replace(/ /g, '-')}`;
-    // setDropdownOpen(null);
+    // setDropdownOpen(null); // optional
   };
 
   return (
-    <nav className="text-si-dark relative left-0 z-50 flex h-[13vh] w-[100vw] items-center bg-white pr-[2vw] font-serif shadow-md">
+    <nav className="text-si-dark relative left-0 z-50 flex h-[13vh] w-[100vw] items-center bg-white pr-[2vw] shadow-md">
       {/* Logo */}
       <div className="flex h-full items-center pt-3 pl-[3vw] lg:pt-0">
         <Link
@@ -81,20 +77,6 @@ export default function Navbar() {
           .buttonStyle {
             position: relative;
           }
-          .hoverMTop:after {
-            position: absolute;
-            bottom: 100%;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #395b64;
-            display: block;
-            content: '';
-            transition: width 0.5s ease-in-out;
-          }
-          .hoverMTop:hover:after {
-            width: 100%;
-          }
           .hoverMebottom:after {
             position: absolute;
             top: 100%;
@@ -109,80 +91,69 @@ export default function Navbar() {
           .hoverMebottom:hover:after {
             width: 100%;
           }
-          .hoverMeleft:after {
-            position: absolute;
-            top: 0%;
-            left: 100%;
-            width: 2px;
-            height: 0;
-            background: #395b64;
-            display: block;
-            content: '';
-            transition: height 0.5s ease-in-out;
-          }
-          .hoverMeleft:hover:after {
-            height: 100%;
-          }
-          .hoverMeRight:after {
-            position: absolute;
-            top: 0%;
-            right: 100%;
-            width: 2px;
-            height: 0;
-            background: #395b64;
-            display: block;
-            content: '';
-            transition: height 0.5s ease-in-out;
-          }
-          .hoverMeRight:hover:after {
-            height: 100%;
-          }
         `}</style>
 
-        <div className="text- hoverMebottom flex h-[6vh] items-end justify-end gap-[2vw] text-[2vh] tracking-wide">
-          {menuItems.map((menu) => (
-            <div
-              key={menu.title}
-              className="group relative"
-              onMouseEnter={() => handleMouseEnter(menu.title)}
-              onMouseLeave={handleMouseLeave}
-            >
-              {/* Main Dropdown Button */}
-              <Link
-                className="hoverMebottom hover:text-si-bluegreen/80 flex h-[5vh] items-center gap-[0.5vw] transition-all duration-300"
-                onClick={() => handleClick(menu.title)}
-                href={`/${menu.title.toLowerCase()}`}
-              >
-                {menu.title}
-                {menu.links.length > 0 && <FaChevronDown className="text-[1.5vh]" />}
+        <div className="flex h-[10vh] flex-grow flex-col items-end gap-[2vw] text-[2vh] tracking-wide">
+          <div className="flex h-[6.5vh] items-center justify-end gap-[1vw] bg-white">
+            {/* Search Button */}
+            <button>
+              <FaSearch />
+            </button>
+            <button className="hoverMebottom buttonStyle text-[1.8vh] transition-all duration-300 hover:text-blue-600">
+              Search
+            </button>
+            |{/* Main Links */}
+            <div className="flex gap-[1vw] text-[1.8vh] font-medium">
+              <Link href="/contact" className="transition-all duration-300 hover:text-blue-600">
+                <button className="hoverMebottom buttonStyle">Contact Us</button>
               </Link>
-
-              {/* Dropdown Menu */}
-              {menu.links.length > 0 && dropdownOpen === menu.title && (
-                <div className="bg-si-offwhite absolute top-full left-0 z-60 mt-[1vh] w-[18vw] animate-pulse rounded-md p-[1vh] shadow-xl">
-                  {menu.links.map((link) => (
-                    <Link
-                      key={link}
-                      onClick={() => setDropdownOpen(null)}
-                      href={`/${menu.title.toLowerCase().replace(/ /g, '-')}/${link
-                        .toLowerCase()
-                        .replace(/ /g, '-')}`}
-                      className="hover:bg-si-slate hover:text-si-bluegreen block rounded-md px-[1.2vw] py-[0.8vh] text-[1.8vh] transition-all duration-300"
-                    >
-                      {link}
-                    </Link>
-                  ))}
-                </div>
-              )}
+              |
             </div>
-          ))}
+            {/* Social Media Icons could go here if needed */}
+          </div>
+          <div className="-my-3 flex items-end justify-end gap-[2vw] text-[2vh] tracking-wide">
+            {menuItems.map((menu) => (
+              // FIX: wrapper contains label+dropdown; events handled on wrapper (no gap!)
+              <div
+                key={menu.title}
+                className="group hoverMebottom relative"
+                onMouseEnter={() => handleMouseEnter(menu.title)}
+                onMouseLeave={handleMouseLeave}
+                style={{ display: 'inline-block' }} // makes sure dropdown touches menu item!
+              >
+                <Link
+                  className="hoverMebottom hover:text-si-bluegreen/80 flex h-[5vh] items-center gap-[0.5vw] transition-all duration-300"
+                  onClick={() => handleClick(menu.title)}
+                  href={`/${menu.title.toLowerCase()}`}
+                >
+                  {menu.title}
+                  {menu.links.length > 0 && <FaChevronDown className="text-[1.5vh]" />}
+                </Link>
+
+                {menu.links.length > 0 && dropdownOpen === menu.title && (
+                  <div
+                    className="bg-white absolute top-full left-0 z-60 mt-[1vh] w-[18vw] rounded-md p-[1vh] shadow-xl"
+                    style={{ minWidth: 180 }}
+                  >
+                    {menu.links.map((link) => (
+                      <Link
+                        key={link}
+                        onClick={() => setDropdownOpen(null)}
+                        href={`/${menu.title.toLowerCase().replace(/ /g, '-')}/${link.toLowerCase().replace(/ /g, '-')}`}
+                        className="hover:bg-si-slate hover:text-si-bluegreen block rounded-md px-[1.2vw] py-[0.8vh] text-[1.8vh] transition-all duration-300"
+                      >
+                        {link}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
       {/* Mobile Drawer */}
-      {/* Overlay */}
-      {/* Mobile Drawer - Always rendered but controlled by state */}
-      {/* Mobile Drawer - Always mounted, animate in/out */}
       <div className="pointer-events-none fixed top-0 left-0 z-50 h-screen w-screen lg:hidden">
         {/* Backdrop overlay */}
         <div
