@@ -94,17 +94,20 @@ export default function Navbar() {
         `}</style>
 
         <div className="flex h-[10vh] flex-grow flex-col items-end gap-[2vw] text-[2vh] tracking-wide">
-          <div className="flex h-[6.5vh] items-center justify-end gap-[1vw] bg-white">
+          <div className="text-si-dark flex h-[6.5vh] items-center justify-end gap-[1vw] bg-white">
             {/* Search Button */}
             <button>
               <FaSearch />
             </button>
-            <button className="hoverMebottom buttonStyle text-[1.8vh] transition-all duration-300 hover:text-blue-600">
+            <button className="hoverMebottom buttonStyle hover:text-si-bluegreen/80 text-[1.8vh] transition-all duration-300">
               Search
             </button>
             |{/* Main Links */}
             <div className="flex gap-[1vw] text-[1.8vh] font-medium">
-              <Link href="/contact" className="transition-all duration-300 hover:text-blue-600">
+              <Link
+                href="/contact"
+                className="hover:text-si-bluegreen/80 transition-all duration-300"
+              >
                 <button className="hoverMebottom buttonStyle">Contact Us</button>
               </Link>
               |
@@ -132,7 +135,7 @@ export default function Navbar() {
 
                 {menu.links.length > 0 && dropdownOpen === menu.title && (
                   <div
-                    className="bg-white absolute top-full left-0 z-60 mt-[1vh] w-[18vw] rounded-md p-[1vh] shadow-xl"
+                    className="absolute top-full left-0 z-60 mt-[1vh] w-[18vw] rounded-md bg-white p-[1vh] shadow-xl"
                     style={{ minWidth: 180 }}
                   >
                     {menu.links.map((link) => (
