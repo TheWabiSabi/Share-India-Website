@@ -1,11 +1,14 @@
 import ServicesSelector from './_components/service-selector'; // client component
 import FAQ from './_components/faq'; // <-- Add this import
 
-const ServicesPage = ({
-  title = 'What services are you interested in?',
-  subtitle = '',
-  privacyText = "We take your privacy seriously, and we don't sell lists, phone numbers, or email addresses.",
-}) => {
+// Define the page component without custom props
+const ContactPage = () => {
+  // Move your default values inside the component
+  const title = 'What services are you interested in?';
+  const subtitle = '';
+  const privacyText =
+    "We take your privacy seriously, and we don't sell lists, phone numbers, or email addresses.";
+
   return (
     <div className="flex min-h-screen flex-col">
       {/* Header + Selector */}
@@ -40,4 +43,4 @@ const ServicesPage = ({
   );
 };
 
-export default ServicesPage;
+export default ContactPage;

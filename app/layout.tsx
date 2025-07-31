@@ -7,11 +7,17 @@ import Footer from '@/components/footer/footer';
 const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
+  preload: false,
+  display: 'swap',
+  adjustFontFallback: false
 });
 
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
+  preload: false,
+  display: 'swap',
+  adjustFontFallback: false,
 });
 
 export const metadata: Metadata = {
