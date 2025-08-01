@@ -7,11 +7,17 @@ import Footer from '@/components/footer/footer';
 const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
+  preload: false,
+  display: 'swap',
+  adjustFontFallback: false,
 });
 
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
+  preload: false,
+  display: 'swap',
+  adjustFontFallback: false,
 });
 
 export const metadata: Metadata = {
@@ -28,7 +34,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Header />
-        <div className="mt-[19vh] min-h-[81vh]">{children}</div>
+        <div className="bg-si-offwhite text-si-dark mt-[10vh] min-h-[81vh] font-sans lg:mt-[14vh]">
+          {children}
+        </div>
         <Footer />
       </body>
     </html>

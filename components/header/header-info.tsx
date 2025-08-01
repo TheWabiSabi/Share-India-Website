@@ -17,25 +17,25 @@ const links = {
 
 export default function HeaderInfo() {
   return (
-    <div className="flex h-[6vh] w-[100vw] flex-row items-center justify-between bg-slate-900 font-serif text-sm text-white">
+    <div className="bg-si-dark text-si-offwhite hidden h-[4vh] w-[100vw] flex-row items-center justify-between px-10 font-serif text-sm lg:flex">
       <div className="flex w-[50vw] flex-row justify-around">
-        <p className="flex">
+        <p className="flex items-center gap-1">
           <PiPhoneCallLight /> {details.phone}
         </p>
         <p>{details.email}</p>
         <p>{details.timing}</p>
       </div>
       <div className="flex w-[10vw] flex-row justify-around">
-        <a href={links.fb}>
+        <a href={links.fb} aria-label="Facebook" target="_blank" rel="noopener noreferrer">
           <FaFacebook />
         </a>
-        <a href={links.x}>
+        <a href={links.x} aria-label="X (Twitter)" target="_blank" rel="noopener noreferrer">
           <FaXTwitter />
         </a>
-        <a href={links.linkedIn}>
+        <a href={links.linkedIn} aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
           <FaLinkedin />
         </a>
-        <a href={links.insta}>
+        <a href={links.insta} aria-label="Instagram" target="_blank" rel="noopener noreferrer">
           <FaInstagram />
         </a>
       </div>
