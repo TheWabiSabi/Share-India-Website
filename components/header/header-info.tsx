@@ -17,7 +17,7 @@ const links = {
 
 export default function HeaderInfo() {
   return (
-    <div className="bg-si-dark text-si-offwhite hidden h-[6vh] w-[100vw] flex-row items-center justify-between font-serif text-sm lg:flex">
+    <div className="bg-si-dark text-si-offwhite hidden h-[4vh] w-[100vw] flex-row items-center justify-between px-10 font-serif text-sm lg:flex">
       <div className="flex w-[50vw] flex-row justify-around">
         <p className="flex items-center gap-1">
           <PiPhoneCallLight /> {details.phone}

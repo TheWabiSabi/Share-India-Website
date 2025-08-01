@@ -55,12 +55,12 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="text-si-dark relative left-0 z-50 flex h-[13vh] w-[100vw] items-center bg-white pr-[2vw] font-serif shadow-md">
+    <nav className="text-si-dark relative left-0 z-50 flex h-[10vh] w-[100vw] items-center bg-white px-[4vw] font-serif shadow-md">
       {/* Logo */}
-      <div className="flex h-full items-center pt-3 pl-[3vw] lg:pt-0">
+      <div className="flex h-full items-center pt-3 lg:pt-0">
         <Link
           href={'/'}
-          style={{ position: 'relative', height: '120px', width: '120px', marginRight: '2vw' }}
+          style={{ position: 'relative', height: '140px', width: '140px', marginRight: '2vw' }}
         >
           <Image src="/logo.png" alt="Logo" fill style={{ objectFit: 'contain' }} />
         </Link>
@@ -159,7 +159,7 @@ export default function Navbar() {
 
               {/* Dropdown Menu */}
               {menu.links.length > 0 && dropdownOpen === menu.title && (
-                <div className="bg-si-offwhite absolute top-full left-0 z-60 mt-[1vh] w-[18vw] animate-pulse rounded-md p-[1vh] shadow-xl">
+                <div className="bg-si-offwhite absolute top-full left-0 z-60 mt-[1vh] w-[18vw] rounded-md p-[1vh] shadow-xl">
                   {menu.links.map((link) => (
                     <Link
                       key={link}
