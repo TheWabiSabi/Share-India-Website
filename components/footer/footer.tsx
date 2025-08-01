@@ -140,18 +140,21 @@ const Footer: React.FC = () => {
             </div>
 
             {/* Contact Information */}
-            <div className="space-y-2 text-sm">
-              <div className="flex items-start">
+            <div className="w-[60vw] items-start space-y-3 text-sm md:flex md:flex-row md:space-y-0">
+              <div className="flex">
                 <span className="mr-2">📍</span>
                 <span className="text-gray-400">{contactInfo.address}</span>
               </div>
-              <div className="flex items-center">
+              <div className="flex md:flex-row md:px-10">
                 <span className="mr-2">📞</span>
-                <Link href={`tel:${contactInfo.phone}`} className="text-gray-400 hover:text-white">
+                <Link
+                  href={`tel:${contactInfo.phone}`}
+                  className="text-nowrap text-gray-400 hover:text-white"
+                >
                   {contactInfo.phone}
                 </Link>
               </div>
-              <div className="flex items-center">
+              <div className="flex">
                 <span className="mr-2">✉️</span>
                 <Link
                   href={`mailto:${contactInfo.email}`}
