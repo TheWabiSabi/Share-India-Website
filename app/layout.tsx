@@ -9,7 +9,7 @@ const geistSans = Geist({
   subsets: ['latin'],
   preload: false,
   display: 'swap',
-  adjustFontFallback: false
+  adjustFontFallback: false,
 });
 
 const geistMono = Geist_Mono({
