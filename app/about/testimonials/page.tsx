@@ -1,38 +1,40 @@
-"use client";
+/* eslint-disable @next/next/no-img-element */
 
-import { useState } from "react";
+'use client';
+
+import { useState } from 'react';
 
 const testimonials = [
   {
-    name: "Amit Sharma",
-    role: "Business Owner",
-    text: "Share India helped me secure the right insurance for my business. Their team is knowledgeable and responsive!",
-    image: "https://ui-avatars.com/api/?name=Amit+Sharma&background=6bb7b7&color=fff",
+    name: 'Amit Sharma',
+    role: 'Business Owner',
+    text: 'Share India helped me secure the right insurance for my business. Their team is knowledgeable and responsive!',
+    image: 'https://ui-avatars.com/api/?name=Amit+Sharma&background=6bb7b7&color=fff',
     rating: 5,
   },
   {
-    name: "Priya Verma",
-    role: "HR Manager",
-    text: "The employee benefits solutions have made a real difference for our staff. Highly recommended!",
-    image: "https://ui-avatars.com/api/?name=Priya+Verma&background=6bb7b7&color=fff",
+    name: 'Priya Verma',
+    role: 'HR Manager',
+    text: 'The employee benefits solutions have made a real difference for our staff. Highly recommended!',
+    image: 'https://ui-avatars.com/api/?name=Priya+Verma&background=6bb7b7&color=fff',
     rating: 4,
   },
   {
-    name: "Rahul Singh",
-    role: "Individual Client",
-    text: "I found the perfect personal insurance plan thanks to their expert guidance.",
-    image: "https://ui-avatars.com/api/?name=Rahul+Singh&background=6bb7b7&color=fff",
+    name: 'Rahul Singh',
+    role: 'Individual Client',
+    text: 'I found the perfect personal insurance plan thanks to their expert guidance.',
+    image: 'https://ui-avatars.com/api/?name=Rahul+Singh&background=6bb7b7&color=fff',
     rating: 5,
   },
 ];
 
 function StarRating({ count }: { count: number }) {
   return (
-    <div className="flex gap-1 mb-2">
+    <div className="mb-2 flex gap-1">
       {[...Array(5)].map((_, i) => (
         <svg
           key={i}
-          className={`w-5 h-5 ${i < count ? "text-si-bluegreen" : "text-si-slate/50"}`}
+          className={`h-5 w-5 ${i < count ? 'text-si-bluegreen' : 'text-si-slate/50'}`}
           fill="currentColor"
           viewBox="0 0 20 20"
         >
@@ -52,27 +54,25 @@ export default function TestimonialsPage() {
   const t = testimonials[idx];
 
   return (
-    <div className="bg-si-slate/80 min-h-screen flex flex-col items-center justify-center py-12 px-4">
-      <h1 className="text-si-bluegreen text-3xl font-bold mb-10 mt-8 text-center">
-        Testimonials
-      </h1>
-      <div className="relative w-full max-w-md flex flex-col items-center">
+    <div className="bg-si-slate/80 flex min-h-screen flex-col items-center justify-center px-4 py-12">
+      <h1 className="text-si-bluegreen mb-20 -mt-10 text-center text-3xl font-bold">Testimonials</h1>
+      <div className="relative flex w-full max-w-md flex-col items-center">
         {/* Card */}
-        <div className="bg-si-offwhite rounded-2xl shadow-xl border border-si-bluegreen/20 px-8 pt-16 pb-10 flex flex-col items-center transition-all duration-500 ease-in-out animate-fade-in">
+        <div className="bg-si-offwhite border-si-bluegreen/20 animate-fade-in flex flex-col items-center rounded-2xl border px-8 pt-16 pb-10 shadow-xl transition-all duration-500 ease-in-out">
           {/* Profile Image */}
           <img
             src={t.image}
             alt={t.name}
-            className="w-24 h-24 rounded-full border-4 border-si-bluegreen shadow-lg absolute -top-12 left-1/2 -translate-x-1/2 bg-si-offwhite"
-            style={{ objectFit: "cover" }}
+            className="border-si-bluegreen bg-si-offwhite absolute -top-12 left-1/2 h-24 w-24 -translate-x-1/2 rounded-full border-4 shadow-lg"
+            style={{ objectFit: 'cover' }}
           />
           {/* Stars */}
           <StarRating count={t.rating} />
           {/* Text */}
-          <p className="text-si-dark text-lg mb-6 text-center font-medium">&quot;{t.text}&quot;</p>
+          <p className="text-si-dark mb-6 text-center text-lg font-medium">&quot;{t.text}&quot;</p>
           {/* Name & Role */}
           <div className="flex flex-col items-center">
-            <span className="text-si-bluegreen font-semibold text-lg">{t.name}</span>
+            <span className="text-si-bluegreen text-lg font-semibold">{t.name}</span>
             <span className="text-si-slate text-sm">{t.role}</span>
           </div>
         </div>
@@ -80,29 +80,41 @@ export default function TestimonialsPage() {
         <button
           aria-label="Previous"
           onClick={prev}
-          className="absolute left-0 top-1/2 -translate-y-1/2 bg-si-white/80 hover:bg-si-bluegreen/20 text-si-bluegreen rounded-full shadow p-2 transition-colors"
+          className="bg-si-white/80 hover:bg-si-bluegreen/20 text-si-bluegreen absolute top-1/2 left-0 -translate-y-1/2 rounded-full p-2 shadow transition-colors"
         >
           <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-            <path d="M15 19l-7-7 7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <path
+              d="M15 19l-7-7 7-7"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
           </svg>
         </button>
         <button
           aria-label="Next"
           onClick={next}
-          className="absolute right-0 top-1/2 -translate-y-1/2 bg-si-white/80 hover:bg-si-bluegreen/20 text-si-bluegreen rounded-full shadow p-2 transition-colors"
+          className="bg-si-white/80 hover:bg-si-bluegreen/20 text-si-bluegreen absolute top-1/2 right-0 -translate-y-1/2 rounded-full p-2 shadow transition-colors"
         >
           <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-            <path d="M9 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <path
+              d="M9 5l7 7-7 7"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
           </svg>
         </button>
         {/* Dots */}
-        <div className="flex gap-2 mt-6">
+        <div className="mt-6 flex gap-2">
           {testimonials.map((_, i) => (
             <button
               key={i}
               onClick={() => setIdx(i)}
-              className={`w-3 h-3 rounded-full transition-all ${
-                i === idx ? "bg-si-bluegreen" : "bg-si-slate/40"
+              className={`h-3 w-3 rounded-full transition-all ${
+                i === idx ? 'bg-si-bluegreen' : 'bg-si-slate/40'
               }`}
               aria-label={`Go to testimonial ${i + 1}`}
             />
