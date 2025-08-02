@@ -55,7 +55,9 @@ export default function TestimonialsPage() {
 
   return (
     <div className="bg-si-slate/80 flex min-h-screen flex-col items-center justify-center px-4 py-12">
-      <h1 className="text-si-bluegreen mb-20 -mt-10 text-center text-3xl font-bold">Testimonials</h1>
+      <h1 className="text-si-bluegreen -mt-10 mb-20 text-center text-3xl font-bold">
+        Testimonials
+      </h1>
       <div className="relative flex w-full max-w-md flex-col items-center">
         {/* Card */}
         <div className="bg-si-offwhite border-si-bluegreen/20 animate-fade-in flex flex-col items-center rounded-2xl border px-8 pt-16 pb-10 shadow-xl transition-all duration-500 ease-in-out">
