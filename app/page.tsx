@@ -1,13 +1,12 @@
-'use client';
 import Link from 'next/link';
-import { FaChevronDown } from 'react-icons/fa';
 import HorizontalCarousal from './about/_components/horizontalCarousal';
 import Image from 'next/image';
+import './style.css';
 
 export default function HomePage() {
   return (
     <div>
-      <style jsx>{`
+      {/* <style jsx>{`
         .buttonStyle {
           position: relative;
         }
@@ -25,7 +24,7 @@ export default function HomePage() {
         .hoverMebottom:hover:after {
           width: 100%;
         }
-      `}</style>
+      `}</style> */}
 
       {/* Hero Section */}
       <div className="relative h-screen w-full overflow-hidden">
@@ -136,18 +135,18 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="relative h-screen w-full overflow-hidden">
-        {/* Background Image */}
-        <div
+      {/* <div className="relative h-screen w-full overflow-hidden"> */}
+      {/* Background Image */}
+      {/* <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: "url('/Scenery.jpg')" }}
-        />
-        {/* Overlay */}
-        <div className="absolute inset-0">
+        /> */}
+      {/* Overlay */}
+      {/* <div className="absolute inset-0">
           <div className="container mx-auto flex h-full w-full px-4 py-4 sm:px-6 sm:py-6 lg:px-8 lg:py-8">
             <div className="flex w-full items-center justify-start">
               <div className="mx-4 my-4 w-full max-w-md px-6 py-6 sm:mx-6 sm:my-6 sm:px-8 sm:py-8 md:mx-8 md:my-8 md:w-3/4 md:max-w-lg md:px-10 md:py-10 lg:mx-12 lg:my-12 lg:w-1/2 lg:max-w-xl lg:px-12 lg:py-12 xl:w-2/5 xl:max-w-2xl">
-                <h2 className="text-2xl font-bold text-black sm:text-3xl md:text-4xl lg:text-5xl">
+                <h2 className="text-2xl font-bold text-si-slate sm:text-3xl md:text-4xl lg:text-5xl">
                   Social Impact
                 </h2>
                 <h3 className="mb-4 text-lg text-black sm:mb-6 sm:text-xl md:text-2xl lg:text-3xl">
@@ -161,8 +160,8 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </div> */}
+      {/* </div> */}
 
       {/* What We Do Section */}
       <section
@@ -430,7 +429,7 @@ export default function HomePage() {
           <div className="mx-auto max-w-4xl text-center">
             <div className="mb-8 sm:mb-12">
               <h2 className="text-si-dark mb-6 text-3xl font-bold sm:text-4xl md:text-5xl lg:text-6xl">
-                Let's Connect
+                Let&#39;s Connect
               </h2>
               <p className="text-si-dark/80 mx-auto max-w-2xl text-lg leading-relaxed sm:text-xl lg:text-2xl">
                 Ready to take the next step? Our team of experts is here to help you navigate your

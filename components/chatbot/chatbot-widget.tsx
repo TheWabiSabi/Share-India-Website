@@ -103,7 +103,7 @@ export default function ChatbotWidget() {
               <div className="mb-4">
                 <div className="bg-si-slate/30 max-w-xs rounded-2xl rounded-bl-sm px-4 py-3">
                   <p className="text-si-dark text-sm">
-                    Hello! 👋 I'm your Share India assistant. How can I help you today?
+                    Hello! 👋 I&#39;m your Share India assistant. How can I help you today?
                   </p>
                 </div>
               </div>
