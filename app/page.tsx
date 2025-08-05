@@ -6,73 +6,62 @@ import './style.css';
 export default function HomePage() {
   return (
     <div>
-      {/* <style jsx>{`
-        .buttonStyle {
-          position: relative;
-        }
-        .hoverMebottom:after {
-          position: absolute;
-          top: 100%;
-          left: 0%;
-          width: 0;
-          height: 2px;
-          background: white;
-          display: block;
-          content: '';
-          transition: width 0.35s ease-in-out;
-        }
-        .hoverMebottom:hover:after {
-          width: 100%;
-        }
-      `}</style> */}
-
       {/* Hero Section */}
       <div className="relative h-screen w-full overflow-hidden">
         {/* Background Image */}
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="animate-zoomSlow absolute inset-0 scale-105 transform bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: "url('/Scenery.jpg')" }}
         />
+
         {/* Overlay */}
-        <div className="absolute inset-0">
-          <div className="bg-opacity-75 bg-si-dark/60 background-filter flex h-full w-full backdrop-blur-sm sm:w-4/5 md:w-4/5">
-            <div className="bg-opacity-75 bg-si-dark/20 background-filter h-full w-full backdrop-blur-sm sm:w-3/5 md:w-3/5">
-              <div className="flex h-full flex-col justify-center px-4 sm:px-8 md:px-16 lg:px-24">
-                <h1 className="text-si-offwhite mb-4 text-xl leading-tight sm:mb-6 sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl">
-                  Impact Report
-                </h1>
-                <p className="text-si-offwhite/90 max-w-2xl text-base leading-relaxed font-bold sm:text-lg md:text-xl lg:max-w-3xl lg:text-2xl xl:text-3xl 2xl:text-4xl">
-                  Testing Testing Testing Testing Testing Testing Testing Testing Testing
-                </p>
-                <button className="group bg-si-bluegreen text-si-offwhite hover:bg-si-slate/60 mt-18 mb-12 flex w-1/2 items-center gap-3 px-4 py-2 text-lg font-semibold transition-all duration-300 sm:px-6 sm:py-3 sm:text-xl">
-                  <span>Read More</span>
-                  <svg
-                    className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 sm:h-6 sm:w-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
-                </button>
-              </div>
+        <div className="to-si-dark/60 absolute inset-0 bg-gradient-to-br from-black/60 backdrop-blur-md">
+          <div className="container mx-auto flex h-full items-center justify-between px-6 sm:px-12 md:px-20">
+            {/* Left Text Column */}
+            <div className="animate-fadeInUp max-w-2xl space-y-6 text-left">
+              <h1 className="text-si-offwhite text-3xl leading-tight font-extrabold drop-shadow-xl sm:text-5xl md:text-6xl lg:text-7xl">
+                Impact Report 2025
+              </h1>
+              <p className="text-si-offwhite/90 max-w-xl text-lg leading-relaxed font-medium sm:text-xl md:text-2xl lg:text-3xl">
+                Discover how we're transforming lives through innovation, sustainability, and social
+                responsibility.
+              </p>
+              <Link
+                href="#what-we-do"
+                className="bg-si-bluegreen hover:bg-si-slate/60 inline-flex items-center gap-3 rounded-full px-6 py-3 text-lg font-semibold text-white shadow-md transition-all duration-300 hover:scale-105"
+              >
+                Read More
+                <svg
+                  className="h-6 w-6 transition-transform duration-300 group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </Link>
             </div>
-            <div className="flex h-full w-2/5 flex-col items-start justify-center gap-2 px-8 text-white sm:px-12 md:px-16 lg:px-24">
-              <p>I want to...</p>
-              <div className="group hoverMebottom relative">
+
+            {/* Right Navigation Column */}
+            <div className="animate-fadeInRight hidden flex-col space-y-6 text-white lg:flex">
+              {[
+                { label: 'Browse Capabilities', href: '#' },
+                { label: 'Explore Insights', href: '/insights' },
+                { label: 'Discover Our Story', href: '/about' },
+              ].map((item, idx) => (
                 <Link
-                  className="hoverMebottom flex h-[5vh] items-center gap-[0.5vw] text-lg transition-all duration-300"
-                  href={`#`}
+                  key={idx}
+                  href={item.href}
+                  className="group hover:text-si-bluegreen flex items-center gap-2 text-lg font-medium transition-all duration-300"
                 >
-                  {' '}
-                  Browse Capabilities
+                  {item.label}
                   <svg
-                    className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 sm:h-6 sm:w-6"
+                    className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -85,51 +74,7 @@ export default function HomePage() {
                     />
                   </svg>
                 </Link>
-              </div>
-              <div className="group hoverMebottom relative">
-                <Link
-                  className="hoverMebottom flex h-[5vh] items-center gap-[0.5vw] text-lg transition-all duration-300"
-                  href={`/insights`}
-                >
-                  {' '}
-                  Explore Insights
-                  <svg
-                    className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 sm:h-6 sm:w-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
-                </Link>
-              </div>
-              <div className="group hoverMebottom relative">
-                <Link
-                  className="hoverMebottom flex h-[5vh] items-center gap-[0.5vw] text-lg transition-all duration-300"
-                  href={`/about`}
-                >
-                  {' '}
-                  Discover Our Story
-                  <svg
-                    className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1 sm:h-6 sm:w-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
-                </Link>
-              </div>
+              ))}
             </div>
           </div>
         </div>
@@ -162,11 +107,10 @@ export default function HomePage() {
           </div>
         </div> */}
       {/* </div> */}
-
       {/* What We Do Section */}
       <section
         id="what-we-do"
-        className="bg-si-slate relative z-10 overflow-hidden py-8 md:py-10 lg:py-12"
+        className="relative z-10 overflow-hidden bg-white py-8 md:py-10 lg:py-12"
       >
         {/* <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
                 <div
@@ -197,7 +141,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* Environmental Impact Section */}
       <section id="environmental-impact" className="py-16 sm:py-20 md:py-24 lg:py-32">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -246,7 +189,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* Social Impact Section */}
       <section id="social-impact" className="py-16 sm:py-20 md:py-24 lg:py-32">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -294,7 +236,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       <section
         id="what-we-do"
         className="bg-si-dark relative z-10 overflow-hidden py-8 md:py-10 lg:py-12"
@@ -328,7 +269,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* Industry Experience matters */}
       <div className="relative h-screen w-full overflow-hidden">
         {/* Background Image */}
@@ -373,7 +313,6 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-
       {/* Quick Facts Section */}
       <section className="bg-si-dark text-si-offwhite py-16 sm:py-20 md:py-24 lg:py-32">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -422,9 +361,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* Let's Connect Section */}
-      <section className="bg-si-offwhite py-16 sm:py-20 md:py-24 lg:py-32">
+      <section className="bg-white py-16 sm:py-20 md:py-24 lg:py-32">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
             <div className="mb-8 sm:mb-12">
