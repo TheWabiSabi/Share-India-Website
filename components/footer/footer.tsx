@@ -63,10 +63,10 @@ const Footer: React.FC = () => {
 
   // Company contact information
   const contactInfo = {
-    address:
-      'Unit No- 1, D Wing, Ground Floor, Gundecha Onclave, Kherani Rd, Next to Post Office, Saki Naka, Andheri (E), Mumbai - 400072',
-    phone: '1800 210 2022',
-    email: 'contact.ins@shareindia.co.in',
+    // address:
+    //   'Unit No- 1, D Wing, Ground Floor, Gundecha Onclave, Kherani Rd, Next to Post Office, Saki Naka, Andheri (E), Mumbai - 400072',
+    // phone: '1800 210 2022',
+    // email: 'contact.ins@shareindia.co.in',
   };
 
   // Social media links
@@ -140,7 +140,7 @@ const Footer: React.FC = () => {
             </div>
 
             {/* Contact Information */}
-            <div className="w-[60vw] items-start space-y-3 text-sm md:flex md:flex-row md:space-y-0">
+            {/* <div className="w-[60vw] items-start space-y-3 text-sm md:flex md:flex-row md:space-y-0">
               <div className="flex">
                 <span className="mr-2">📍</span>
                 <span className="text-gray-400">{contactInfo.address}</span>
@@ -163,7 +163,7 @@ const Footer: React.FC = () => {
                   {contactInfo.email}
                 </Link>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Footer Links Sections */}
