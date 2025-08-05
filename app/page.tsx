@@ -23,8 +23,8 @@ export default function HomePage() {
                 Impact Report 2025
               </h1>
               <p className="text-si-offwhite/90 max-w-xl text-lg leading-relaxed font-medium sm:text-xl md:text-2xl lg:text-3xl">
-                Discover how we're transforming lives through innovation, sustainability, and social
-                responsibility.
+                Discover how we&#39;re transforming lives through innovation, sustainability, and
+                social responsibility.
               </p>
               <Link
                 href="#what-we-do"

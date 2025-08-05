@@ -61,14 +61,6 @@ const Footer: React.FC = () => {
     },
   ];
 
-  // Company contact information
-  const contactInfo = {
-    // address:
-    //   'Unit No- 1, D Wing, Ground Floor, Gundecha Onclave, Kherani Rd, Next to Post Office, Saki Naka, Andheri (E), Mumbai - 400072',
-    // phone: '1800 210 2022',
-    // email: 'contact.ins@shareindia.co.in',
-  };
-
   // Social media links
   const socialLinks = [
     {
