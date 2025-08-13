@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/header/header';
 import Footer from '@/components/footer/footer';
+import ChatbotWidget from '@/components/chatbot/chatbot-widget';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -34,10 +35,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Header />
-        <div className="bg-si-offwhite text-si-dark mt-[10vh] min-h-[81vh] font-sans lg:mt-[14vh]">
-          {children}
-        </div>
+        <div className="text-si-dark bg-white font-sans">{children}</div>
         <Footer />
+        <ChatbotWidget />
       </body>
     </html>
   );

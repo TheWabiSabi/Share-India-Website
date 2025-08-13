@@ -1,0 +1,86 @@
+.buttonStyle {
+  position: relative;
+}
+
+.hoverMebottom {
+  position: relative;
+}
+
+.hoverMebottom::after {
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  width: 0;
+  height: 2px;
+  background: white;
+  display: block;
+  content: '';
+  transition: width 0.35s ease-in-out;
+}
+
+.hoverMebottom:hover::after {
+  width: 100%;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes zoomSlow {
+  from {
+    transform: scale(1.05);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.animate-fadeInRight {
+  animation: fadeInRight 1s ease-out forwards;
+}
+
+.animate-zoomSlow {
+  animation: zoomSlow 20s ease-in-out infinite alternate;
+}
+
+.nav-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background-color: #395b64;
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-underline:hover::after {
+  width: 100%;
+}
