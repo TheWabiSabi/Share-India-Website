@@ -3,8 +3,8 @@ name: Deployment Notifications
 on:
   workflow_run:
     workflows:
-      - "Production Deployment"
-      - "Emergency Rollback"
+      - 'Production Deployment'
+      - 'Emergency Rollback'
     types:
       - completed
 
@@ -23,7 +23,7 @@ jobs:
           server_port: ${{ secrets.SMTP_PORT }}
           username: ${{ secrets.SMTP_USERNAME }}
           password: ${{ secrets.SMTP_PASSWORD }}
-          subject: "✅ Production Deployment Successful - ${{ github.repository }}"
+          subject: '✅ Production Deployment Successful - ${{ github.repository }}'
           body: |
             Production deployment completed successfully!
 
@@ -52,7 +52,7 @@ jobs:
           server_port: ${{ secrets.SMTP_PORT }}
           username: ${{ secrets.SMTP_USERNAME }}
           password: ${{ secrets.SMTP_PASSWORD }}
-          subject: "🚨 URGENT: Production Deployment Failed - ${{ github.repository }}"
+          subject: '🚨 URGENT: Production Deployment Failed - ${{ github.repository }}'
           body: |
             🚨 Production deployment has failed!
 
@@ -91,8 +91,8 @@ jobs:
 
             [View Deployment Logs](${{ github.event.workflow_run.html_url }})
           color: ${{ github.event.workflow_run.conclusion == 'success' && '0x00ff00' || '0xff0000' }}
-          username: "GitHub Actions"
-          avatar_url: "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+          username: 'GitHub Actions'
+          avatar_url: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png'
 
     outputs:
       deployment_status: ${{ github.event.workflow_run.conclusion }}
@@ -147,5 +147,5 @@ jobs:
 
             [View Rollback Logs](${{ github.event.workflow_run.html_url }})
           color: ${{ github.event.workflow_run.conclusion == 'success' && '0xffa500' || '0xff0000' }}
-          username: "GitHub Actions - Emergency"
-          avatar_url: "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+          username: 'GitHub Actions - Emergency'
+          avatar_url: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png'

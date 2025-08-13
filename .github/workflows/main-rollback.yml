@@ -2,7 +2,7 @@ name: Emergency Rollback
 
 on:
   workflow_run:
-    workflows: ["Production Deployment"]
+    workflows: ['Production Deployment']
     types:
       - completed
     branches:
@@ -10,9 +10,9 @@ on:
   workflow_dispatch:
     inputs:
       reason:
-        description: "Reason for manual rollback"
+        description: 'Reason for manual rollback'
         required: true
-        default: "Manual rollback requested"
+        default: 'Manual rollback requested'
 
 env:
   DEPLOYMENT_PATH: /home/ubuntu/projects/wabisabi/Share-India-Website
