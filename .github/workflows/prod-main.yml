@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       rollback_to_commit:
-        description: "Specific commit to rollback to (optional)"
+        description: 'Specific commit to rollback to (optional)'
         type: string
         required: false
 
