@@ -1,0 +1,104 @@
+name: Complete CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      rollback_to_commit:
+        description: "Specific commit to rollback to (optional)"
+        type: string
+        required: false
+
+jobs:
+  # Job 1: Node.js Testing
+  nodejs-testing:
+    name: Node.js Tests
+    uses: TheWabiSabi/action-workflows/.github/workflows/test-node.yml@main
+
+  # Job 2: Docker Testing (runs after Node.js tests pass)
+  docker-testing:
+    name: Docker Build Tests
+    needs: nodejs-testing
+    uses: TheWabiSabi/action-workflows/.github/workflows/test-docker.yml@main
+    with:
+      PORT: 3000
+  # Job 3: Production Deployment (runs after Docker tests pass)
+  production-deployment:
+    name: Production Deployment
+    needs: docker-testing
+    uses: TheWabiSabi/action-workflows/.github/workflows/deploy-vps-docker.yml@main
+    with:
+      DEPLOYMENT_PATH: /home/ubuntu/projects/wabisabi/Share-India-Website
+      DEPLOY_URL: https://shareindia.internal.wabisabitech.in
+      RUN_ID: ${{ github.run_id }}
+      AUTHOR: ${{ github.actor }}
+      BRANCH: ${{github.ref_name}}
+    secrets:
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+      REMOTE_USER: ${{ secrets.REMOTE_USER }}
+
+  # Job 4: Emergency Rollback (runs if deployment fails)
+  emergency-rollback:
+    name: Emergency Rollback
+    needs: production-deployment
+    if: ${{ always() && needs.production-deployment.outputs.deployment_status == 'false' }}
+    uses: TheWabiSabi/action-workflows/.github/workflows/rollback-docker.yml@main
+    with:
+      DEPLOYMENT_PATH: /home/ubuntu/projects/wabisabi/Share-India-Website
+      PROD_STATUS: ${{ fromJson(needs.production-deployment.outputs.deployment_status) }}
+      DEPLOY_ID: ${{ github.run_id }}
+      DEPLOY_URL: https://shareindia.internal.wabisabitech.in
+      ROLLBACK_TO_COMMIT: ${{ inputs.rollback_to_commit || '' }}
+    secrets:
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+      REMOTE_USER: ${{ secrets.REMOTE_USER }}
+
+  # Job 5: Notifications (runs after all other jobs complete)
+  notifications-deploy:
+    name: Send Notifications
+    needs: [production-deployment]
+    if: always()
+    uses: TheWabiSabi/action-workflows/.github/workflows/notify-deploy.yml@main
+    with:
+      PROD_STATUS: ${{ fromJson(needs.production-deployment.outputs.deployment_status || 'false') }}
+      CALLER_REPO: ${{ github.repository }}
+      CALLER_BRANCH: ${{ github.ref_name }}
+      CALLER_COMMIT_SHA: ${{ github.sha }}
+      AUTHOR: ${{ github.actor }}
+      RUN_ID: ${{ github.run_id }}
+      LOGS_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+      TIMESTAMP: ${{ github.event.head_commit.timestamp }}
+    secrets:
+      SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
+      SMTP_PORT: ${{ secrets.SMTP_PORT }}
+      SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
+      SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+      NOTIFICATION_EMAIL: ${{ secrets.NOTIFICATION_EMAIL }}
+      SMTP_FROM_EMAIL: ${{ secrets.SMTP_FROM_EMAIL }}
+      DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+  notifications-rollback:
+    name: Send Notifications
+    needs: [emergency-rollback]
+    if: ${{always() && needs.production-deployment.outputs.deployment_status == 'false'}}
+    uses: TheWabiSabi/action-workflows/.github/workflows/notify-rollback.yml@main
+    with:
+      ROLLBACK_STATUS: ${{ fromJson(needs.emergency-rollback.outputs.rollback_status || 'false') }}
+      CALLER_REPO: ${{ github.repository }}
+      CALLER_BRANCH: ${{ github.ref_name }}
+      CALLER_COMMIT_SHA: ${{ github.sha }}
+      AUTHOR: ${{ github.actor }}
+      RUN_ID: ${{ github.run_id }}
+      LOGS_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+      TIMESTAMP: ${{ github.event.head_commit.timestamp }}
+    secrets:
+      SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
+      SMTP_PORT: ${{ secrets.SMTP_PORT }}
+      SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
+      SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+      NOTIFICATION_EMAIL: ${{ secrets.NOTIFICATION_EMAIL }}
+      SMTP_FROM_EMAIL: ${{ secrets.SMTP_FROM_EMAIL }}
+      DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
