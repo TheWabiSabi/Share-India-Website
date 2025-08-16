@@ -10,6 +10,15 @@ services:
       - 'traefik.http.routers.shareindia.entrypoints=https'
       - 'traefik.http.routers.shareindia.tls=true'
       - 'traefik.http.services.shareindia.loadbalancer.server.port=3000'
+    logging:
+      driver: loki
+      options:
+        loki-url: https://${LOKI_USER}:${LOKI_PASSWORD}@loki.internal.wabisabitech.in/loki/api/v1/push
+        loki-retries: 2
+        loki-max-backoff: 800ms
+        loki-timeout: 1ms
+        keep-file: 'true'
+        mode: 'non-blocking'
     restart: unless-stopped
     container_name: share-india-website
     environment:
