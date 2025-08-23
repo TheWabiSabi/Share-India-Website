@@ -1,24 +1,23 @@
+// app/layout.tsx
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
+
 import Header from '@/components/header/header';
 import Footer from '@/components/footer/footer';
 import ChatbotWidget from '@/components/chatbot/chatbot-widget';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+import { Inter, Geist_Mono } from 'next/font/google';
+
+const inter = Inter({
   subsets: ['latin'],
-  preload: false,
   display: 'swap',
-  adjustFontFallback: false,
+  variable: '--font-inter',
 });
 
 const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
   subsets: ['latin'],
-  preload: false,
   display: 'swap',
-  adjustFontFallback: false,
+  variable: '--font-geist-mono',
 });
 
 export const metadata: Metadata = {
@@ -26,16 +25,12 @@ export const metadata: Metadata = {
   description: 'Created by team WabiSabi',
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+    <html lang="en" className={`${inter.variable} ${geistMono.variable}`} suppressHydrationWarning>
+      <body className="font-sans antialiased">
         <Header />
-        <div className="text-si-dark bg-white font-sans">{children}</div>
+        <main className="text-si-dark bg-white">{children}</main>
         <Footer />
         <ChatbotWidget />
       </body>
