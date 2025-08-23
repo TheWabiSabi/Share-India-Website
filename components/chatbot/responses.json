@@ -1,0 +1,539 @@
+{
+  "chatbot_flows": {
+    "welcome": {
+      "message": "Hello! I'm here to help you navigate our website. What would you like to explore today?",
+      "buttons": [
+        {
+          "text": "About Our Company",
+          "action": "about_menu",
+          "type": "navigation"
+        },
+        {
+          "text": "Industries We Serve",
+          "action": "industries_menu",
+          "type": "navigation"
+        },
+        {
+          "text": "Insurance Solutions",
+          "action": "insurance_menu",
+          "type": "navigation"
+        },
+        {
+          "text": "Insights & Resources",
+          "action": "insights_menu",
+          "type": "navigation"
+        },
+        {
+          "text": "Contact & Support",
+          "action": "contact_menu",
+          "type": "navigation"
+        }
+      ]
+    },
+
+    "about_menu": {
+      "message": "What would you like to know about our company?",
+      "buttons": [
+        {
+          "text": "Our Journey",
+          "action": "about_journey",
+          "type": "info"
+        },
+        {
+          "text": "Our Impact",
+          "action": "about_impact",
+          "type": "info"
+        },
+        {
+          "text": "Leadership Team",
+          "action": "about_leaders",
+          "type": "info"
+        },
+        {
+          "text": "Customer Testimonials",
+          "action": "about_testimonials",
+          "type": "info"
+        },
+        {
+          "text": "← Back to Main Menu",
+          "action": "welcome",
+          "type": "navigation"
+        }
+      ]
+    },
+
+    "about_journey": {
+      "message": "Learn about our company's journey and evolution over the years.",
+      "answer": "Our company has been transforming the insurance landscape with innovative solutions and customer-centric approaches.",
+      "url": "/about/journey",
+      "buttons": [
+        {
+          "text": "Visit Journey Page",
+          "action": "redirect",
+          "url": "/about/journey",
+          "type": "redirect"
+        },
+        {
+          "text": "More About Us",
+          "action": "about_menu",
+          "type": "navigation"
+        },
+        {
+          "text": "← Main Menu",
+          "action": "welcome",
+          "type": "navigation"
+        }
+      ]
+    },
+
+    "about_impact": {
+      "message": "Discover how we're making a difference in the insurance industry.",
+      "answer": "We've helped thousands of businesses and individuals secure their future with comprehensive insurance solutions.",
+      "url": "/about/impact",
+      "buttons": [
+        {
+          "text": "View Our Impact",
+          "action": "redirect",
+          "url": "/about/impact",
+          "type": "redirect"
+        },
+        {
+          "text": "More About Us",
+          "action": "about_menu",
+          "type": "navigation"
+        },
+        {
+          "text": "← Main Menu",
+          "action": "welcome",
+          "type": "navigation"
+        }
+      ]
+    },
+
+    "about_leaders": {
+      "message": "Meet the experienced leaders driving our company forward.",
+      "answer": "Our leadership team brings decades of insurance industry expertise and innovative thinking.",
+      "url": "/about/leaders-and-team",
+      "buttons": [
+        {
+          "text": "Meet Our Leaders",
+          "action": "redirect",
+          "url": "/about/leaders-and-team",
+          "type": "redirect"
+        },
+        {
+          "text": "More About Us",
+          "action": "about_menu",
+          "type": "navigation"
+        },
+        {
+          "text": "← Main Menu",
+          "action": "welcome",
+          "type": "navigation"
+        }
+      ]
+    },
+
+    "about_testimonials": {
+      "message": "Read what our satisfied customers have to say about our services.",
+      "answer": "Our clients consistently rate us highly for our responsive service and comprehensive coverage options.",
+      "url": "/about/testimonials",
+      "buttons": [
+        {
+          "text": "Read Testimonials",
+          "action": "redirect",
+          "url": "/about/testimonials",
+          "type": "redirect"
+        },
+        {
+          "text": "More About Us",
+          "action": "about_menu",
+          "type": "navigation"
+        },
+        {
+          "text": "← Main Menu",
+          "action": "welcome",
+          "type": "navigation"
+        }
+      ]
+    },
+
+    "industries_menu": {
+      "message": "Which industry would you like to explore?",
+      "buttons": [
+        {
+          "text": "Healthcare",
+          "action": "industry_healthcare",
+          "type": "info"
+        },
+        {
+          "text": "Manufacturing",
+          "action": "industry_manufacturing",
+          "type": "info"
+        },
+        {
+          "text": "Technology",
+          "action": "industry_technology",
+          "type": "info"
+        },
+        {
+          "text": "Financial Services",
+          "action": "industry_financial",
+          "type": "info"
+        },
+        {
+          "text": "View All Industries",
+          "action": "all_industries",
+          "type": "redirect"
+        },
+        {
+          "text": "← Back to Main Menu",
+          "action": "welcome",
+          "type": "navigation"
+        }
+      ]
+    },
+
+    "industry_healthcare": {
+      "message": "Specialized insurance solutions for healthcare providers and organizations.",
+      "answer": "We provide comprehensive malpractice, liability, and operational insurance coverage tailored for healthcare facilities.",
+      "url": "/industries/healthcare",
+      "buttons": [
+        {
+          "text": "Healthcare Solutions",
+          "action": "redirect",
+          "url": "/industries/healthcare",
+          "type": "redirect"
+        },
+        {
+          "text": "Other Industries",
+          "action": "industries_menu",
+          "type": "navigation"
+        },
+        {
+          "text": "← Main Menu",
+          "action": "welcome",
+          "type": "navigation"
+        }
+      ]
+    },
+
+    "industry_manufacturing": {
+      "message": "Protect your manufacturing operations with our specialized coverage.",
+      "answer": "Our manufacturing insurance covers equipment, liability, workers compensation, and supply chain risks.",
+      "url": "/industries/manufacturing",
+      "buttons": [
+        {
+          "text": "Manufacturing Solutions",
+          "action": "redirect",
+          "url": "/industries/manufacturing",
+          "type": "redirect"
+        },
+        {
+          "text": "Other Industries",
+          "action": "industries_menu",
+          "type": "navigation"
+        },
+        {
+          "text": "← Main Menu",
+          "action": "welcome",
+          "type": "navigation"
+        }
+      ]
+    },
+
+    "insurance_menu": {
+      "message": "What type of insurance coverage are you looking for?",
+      "buttons": [
+        {
+          "text": "Corporate Insurance",
+          "action": "corporate_insurance_menu",
+          "type": "navigation"
+        },
+        {
+          "text": "Retail Insurance",
+          "action": "retail_insurance",
+          "type": "info"
+        },
+        {
+          "text": "Get a Quote",
+          "action": "get_quote",
+          "type": "info"
+        },
+        {
+          "text": "← Back to Main Menu",
+          "action": "welcome",
+          "type": "navigation"
+        }
+      ]
+    },
+
+    "corporate_insurance_menu": {
+      "message": "Explore our corporate insurance solutions:",
+      "buttons": [
+        {
+          "text": "General Liability",
+          "action": "corporate_liability",
+          "type": "info"
+        },
+        {
+          "text": "Property Insurance",
+          "action": "corporate_property",
+          "type": "info"
+        },
+        {
+          "text": "Workers Compensation",
+          "action": "corporate_workers_comp",
+          "type": "info"
+        },
+        {
+          "text": "Cyber Insurance",
+          "action": "corporate_cyber",
+          "type": "info"
+        },
+        {
+          "text": "Directors & Officers",
+          "action": "corporate_do",
+          "type": "info"
+        },
+        {
+          "text": "← Back to Insurance Menu",
+          "action": "insurance_menu",
+          "type": "navigation"
+        }
+      ]
+    },
+
+    "corporate_liability": {
+      "message": "General liability insurance protects your business from third-party claims.",
+      "answer": "Our comprehensive general liability coverage protects against bodily injury, property damage, and advertising injury claims.",
+      "url": "/insurance/corporate/general-liability",
+      "buttons": [
+        {
+          "text": "Learn More",
+          "action": "redirect",
+          "url": "/insurance/corporate/general-liability",
+          "type": "redirect"
+        },
+        {
+          "text": "Other Corporate Insurance",
+          "action": "corporate_insurance_menu",
+          "type": "navigation"
+        },
+        {
+          "text": "Get a Quote",
+          "action": "get_quote",
+          "type": "info"
+        }
+      ]
+    },
+
+    "retail_insurance": {
+      "message": "Personal insurance solutions for individuals and families.",
+      "answer": "We offer auto, home, life, and personal umbrella insurance with competitive rates and excellent service.",
+      "url": "/insurance/retail",
+      "buttons": [
+        {
+          "text": "Explore Retail Options",
+          "action": "redirect",
+          "url": "/insurance/retail",
+          "type": "redirect"
+        },
+        {
+          "text": "Corporate Insurance",
+          "action": "corporate_insurance_menu",
+          "type": "navigation"
+        },
+        {
+          "text": "← Main Menu",
+          "action": "welcome",
+          "type": "navigation"
+        }
+      ]
+    },
+
+    "insights_menu": {
+      "message": "What insights and resources interest you?",
+      "buttons": [
+        {
+          "text": "Latest Blog Posts",
+          "action": "blog_posts",
+          "type": "info"
+        },
+        {
+          "text": "Industry Reports",
+          "action": "industry_reports",
+          "type": "info"
+        },
+        {
+          "text": "Risk Management Tips",
+          "action": "risk_management",
+          "type": "info"
+        },
+        {
+          "text": "Insurance Guides",
+          "action": "insurance_guides",
+          "type": "info"
+        },
+        {
+          "text": "← Back to Main Menu",
+          "action": "welcome",
+          "type": "navigation"
+        }
+      ]
+    },
+
+    "blog_posts": {
+      "message": "Stay updated with our latest insights and industry news.",
+      "answer": "Our blog features expert analysis on insurance trends, risk management strategies, and industry updates.",
+      "url": "/insights/blogs",
+      "buttons": [
+        {
+          "text": "Read Our Blog",
+          "action": "redirect",
+          "url": "/insights/blogs",
+          "type": "redirect"
+        },
+        {
+          "text": "Other Resources",
+          "action": "insights_menu",
+          "type": "navigation"
+        },
+        {
+          "text": "← Main Menu",
+          "action": "welcome",
+          "type": "navigation"
+        }
+      ]
+    },
+
+    "contact_menu": {
+      "message": "How can we help you get in touch?",
+      "buttons": [
+        {
+          "text": "Contact Information",
+          "action": "contact_info",
+          "type": "info"
+        },
+        {
+          "text": "Career Opportunities",
+          "action": "careers",
+          "type": "info"
+        },
+        {
+          "text": "Investor Relations",
+          "action": "investors",
+          "type": "info"
+        },
+        {
+          "text": "Latest News",
+          "action": "news",
+          "type": "info"
+        },
+        {
+          "text": "← Back to Main Menu",
+          "action": "welcome",
+          "type": "navigation"
+        }
+      ]
+    },
+
+    "contact_info": {
+      "message": "Get in touch with our team for personalized assistance.",
+      "answer": "Contact us via phone, email, or visit our office. Our experts are ready to help with your insurance needs.",
+      "url": "/contact",
+      "buttons": [
+        {
+          "text": "View Contact Details",
+          "action": "redirect",
+          "url": "/contact",
+          "type": "redirect"
+        },
+        {
+          "text": "Schedule a Consultation",
+          "action": "schedule_consultation",
+          "type": "info"
+        },
+        {
+          "text": "← Main Menu",
+          "action": "welcome",
+          "type": "navigation"
+        }
+      ]
+    },
+
+    "careers": {
+      "message": "Join our team and build a rewarding career in insurance.",
+      "answer": "We offer competitive benefits, professional development opportunities, and a collaborative work environment.",
+      "url": "/careers",
+      "buttons": [
+        {
+          "text": "View Open Positions",
+          "action": "redirect",
+          "url": "/careers",
+          "type": "redirect"
+        },
+        {
+          "text": "Company Culture",
+          "action": "about_menu",
+          "type": "navigation"
+        },
+        {
+          "text": "← Main Menu",
+          "action": "welcome",
+          "type": "navigation"
+        }
+      ]
+    },
+
+    "get_quote": {
+      "message": "Ready to get a personalized insurance quote?",
+      "answer": "Our quotes are fast, accurate, and tailored to your specific needs. No obligation required.",
+      "url": "/quote",
+      "buttons": [
+        {
+          "text": "Start Quote Process",
+          "action": "redirect",
+          "url": "/quote",
+          "type": "redirect"
+        },
+        {
+          "text": "Learn About Coverage",
+          "action": "insurance_menu",
+          "type": "navigation"
+        },
+        {
+          "text": "Contact an Agent",
+          "action": "contact_info",
+          "type": "navigation"
+        }
+      ]
+    }
+  },
+
+  "fallback_responses": {
+    "default": {
+      "message": "I work best with the button options provided. Please select from the choices below:",
+      "action": "welcome"
+    },
+    "error": {
+      "message": "Something went wrong. Let me take you back to the main menu.",
+      "action": "welcome"
+    }
+  },
+
+  "quick_actions": [
+    {
+      "text": "Get Quote",
+      "action": "get_quote"
+    },
+    {
+      "text": "Contact Us",
+      "action": "contact_info"
+    },
+    {
+      "text": "Main Menu",
+      "action": "welcome"
+    }
+  ]
+}
