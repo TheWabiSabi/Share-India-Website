@@ -101,9 +101,9 @@ export default function FeaturedCarousel() {
         }}
         onInit={(swiper) => {
           // Wire navigation after refs exist
-          // @ts-expect-error
+          // @ts-expect-error – Swiper tyes are a bit strict here
           swiper.params.navigation.prevEl = prevRef.current;
-          // @ts-expect-error
+          // @ts-expect-error – Swiper tyes are a bit strict here
           swiper.params.navigation.nextEl = nextRef.current;
           swiper.navigation.init();
           swiper.navigation.update();
