@@ -1,42 +1,70 @@
 /* Navigation arrows (prev/next) */
 .swiper-button-next,
 .swiper-button-prev {
-  color: #395b64; /* Use your primary (si-bluegreen) or any palette color */
-  background: #e7f6f2; /* Example: si-offwhite for a subtle background */
+  color: #2da9ff; /* si-primary */
+  background: #ffffff; /* white surface */
   border-radius: 9999px;
   width: 44px;
   height: 44px;
-  box-shadow: 0 2px 10px #0001;
+  box-shadow: 0 2px 10px rgba(17, 24, 39, 0.08);
   transition:
     background 0.2s,
     color 0.2s;
 }
+
 .swiper-button-next:after,
 .swiper-button-prev:after {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
 
-/* On hover, change arrow color */
+/* Hover state */
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
-  color: #a5c9ca; /* si-slate or your highlight color */
-  background: #395b64; /* arrow on bluegreen */
+  color: #ffffff;
+  background: #2da9ff; /* solid light-blue accent */
 }
 
+.swiper-button-disabled {
+  opacity: 0.35 !important;
+}
+
+/* Pagination bullets */
 .swiper-pagination-bullet {
-  background-color: #a5c9ca !important; /* si-slate for inactive */
-  opacity: 0.7;
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
+  background: #d1e9ff; /* pale si-primary */
+  opacity: 0.8;
   margin: 0 4px !important;
+  border-radius: 9999px;
+  border: 2px solid #ffffff; /* white border to blend on light bg */
   transition:
     background-color 0.3s,
     opacity 0.3s;
-  border: 2px solid #e7f6f2; /* border matches carousel bg */
 }
 
 .swiper-pagination-bullet-active {
-  background-color: #395b64 !important; /* si-bluegreen for active */
-  border-color: #e7f6f2; /* optional: accentuate active bullet */
+  background: #2da9ff !important; /* si-primary for active */
+  border-color: #ffffff;
   opacity: 1;
+}
+
+/* Scrollbar */
+.swiper-scrollbar {
+  background: #eef5fb; /* soft muted bg */
+  height: 6px;
+  border-radius: 999px;
+}
+.swiper-scrollbar-drag {
+  background: #2da9ff; /* si-primary */
+}
+
+/* Card hover lift */
+.swiper-slide > div {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.swiper-slide:hover > div {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(17, 24, 39, 0.08);
 }

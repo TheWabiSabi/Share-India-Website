@@ -32,3 +32,12 @@ body {
   color: var(--foreground);
   font-family: var(--font-inter, ui-sans-serif, system-ui, sans-serif);
 }
+
+/* Hide horizontal scrollbar for the news track (keeps it scrollable) */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
