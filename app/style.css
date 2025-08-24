@@ -84,3 +84,123 @@
 .nav-underline:hover::after {
   width: 100%;
 }
+
+/* Subtle grid + radial glow for hero background */
+.hero-grid {
+  background-image:
+    radial-gradient(1200px 600px at 70% 20%, rgba(45, 169, 255, 0.18), transparent 60%),
+    radial-gradient(1000px 600px at 10% 80%, rgba(255, 255, 255, 0.75), transparent 55%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.4)),
+    url("data:image/svg+xml;utf8,\
+      <svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'>\
+        <path d='M0 31.5H32 M31.5 0V32' stroke='%23DCE7F3' stroke-width='1'/>\
+      </svg>");
+  background-size:
+    cover,
+    cover,
+    cover,
+    32px 32px;
+  backdrop-filter: blur(1px);
+}
+.badge-chip {
+  color: rgba(30, 41, 59, 0.8); /* Replace with your si-ink/80 color */
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  border: 1px solid #e2e8f0; /* Replace with your slate-200 color */
+  background-color: rgba(255, 255, 255, 0.7);
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  font-size: 0.875rem;
+}
+.btn-primary {
+  background-color: #2da9ff; /* Replace with your si-primary color */
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.375rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  font-weight: 600;
+  color: #fff;
+  transition: background-color 0.2s;
+}
+.btn-primary:hover {
+  background-color: #1c7ec5; /* Replace with your si-primary-600 color */
+}
+.btn-ghost {
+  color: #1e293b; /* Replace with your si-ink color */
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.375rem;
+  border: 1px solid #e2e8f0; /* slate-200 */
+  background-color: #fff;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+.btn-ghost:hover {
+  background-color: #f8fafc; /* slate-50 */
+}
+
+/* Section background presets (on-brand) */
+.section-spot {
+  background:
+    radial-gradient(800px 300px at 8% 12%, rgba(45, 169, 255, 0.12), transparent 60%),
+    radial-gradient(700px 260px at 90% 20%, rgba(229, 57, 53, 0.06), transparent 60%);
+}
+.section-spot-alt {
+  background:
+    radial-gradient(900px 320px at 12% 80%, rgba(45, 169, 255, 0.1), transparent 60%),
+    radial-gradient(800px 300px at 88% 70%, rgba(17, 19, 36, 0.05), transparent 60%);
+}
+
+/* Soft diagonal separators */
+.section-divider-top {
+  position: relative;
+  isolation: isolate;
+}
+.section-divider-top::before {
+  content: '';
+  position: absolute;
+  inset: -40px 0 auto 0;
+  height: 80px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.06), transparent);
+  mask-image: radial-gradient(60% 100% at 50% 0%, #000 60%, transparent 61%);
+  pointer-events: none;
+}
+.section-divider-bottom {
+  position: relative;
+  isolation: isolate;
+}
+.section-divider-bottom::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 -40px 0;
+  height: 80px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), transparent);
+  mask-image: radial-gradient(60% 100% at 50% 100%, #000 60%, transparent 61%);
+  pointer-events: none;
+}
+
+/* Gentle float for badges/chips */
+.float-slow {
+  animation: float 8s ease-in-out infinite;
+}
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}

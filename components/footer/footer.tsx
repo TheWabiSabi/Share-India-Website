@@ -2,7 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
-// Types for better type safety
 interface FooterLink {
   label: string;
   href: string;
@@ -14,7 +13,6 @@ interface FooterSection {
 }
 
 const Footer: React.FC = () => {
-  // Footer sections data - easily configurable
   const footerSections: FooterSection[] = [
     {
       title: 'Products',
@@ -61,7 +59,6 @@ const Footer: React.FC = () => {
     },
   ];
 
-  // Social media links
   const socialLinks = [
     {
       name: 'Twitter',
@@ -79,7 +76,7 @@ const Footer: React.FC = () => {
       name: 'Instagram',
       href: '#',
       svgPath:
-        'M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z', // Add YouTube SVG path here if available
+        'M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z',
     },
     {
       name: 'LinkedIn',
@@ -88,144 +85,129 @@ const Footer: React.FC = () => {
         'M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z',
     },
   ];
+
   return (
-    <footer className="bg-si-dark text-si-slate font-sans">
-      {/* Main Footer Content */}
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-7">
-          {/* Company Info Section */}
-          <div className="lg:col-span-2">
-            <div className="mb-7">
-              <Image
-                src="/logo.png"
-                alt="Share India Insurance"
-                width={200}
-                height={60}
-                className="mb-4"
-              />
-              <p className="text-sm leading-relaxed text-gray-400">
-                Your trusted partner for comprehensive insurance solutions.
-              </p>
-            </div>
+    <footer className="text-si-ink/80 font-sans">
+      {/* Duotone top wash */}
+      <div className="relative isolate bg-[#F5FAFF]">
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#F5FAFF]/80 via-[#F5FAFF]/30 to-transparent" />
+        <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-7">
+            {/* Brand / About */}
+            <div className="lg:col-span-2">
+              <div className="mb-6">
+                <Image
+                  src="/logo.png"
+                  alt="Share India Insurance"
+                  width={200}
+                  height={60}
+                  className="mb-4 h-auto w-auto"
+                />
+                <p className="text-si-dark/80 text-sm leading-relaxed">
+                  Your trusted partner for comprehensive insurance solutions across health, motor,
+                  life, and enterprise risks.
+                </p>
+              </div>
 
-            {/* Social Media Links */}
-            <div className="mb-6 flex space-x-4">
-              {socialLinks.map((social) => (
-                <Link
-                  key={social.name}
-                  href={social.href}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-700 transition-colors duration-200 hover:bg-slate-600"
-                  aria-label={social.name}
-                >
-                  <svg
-                    width={24}
-                    height={24}
-                    viewBox="0 0 512 512"
-                    fill="currentColor"
-                    aria-hidden="true"
-                    className="object-contain"
+              {/* Trust badges (IRDAI) */}
+              <div className="text-si-dark/70 mt-4 grid grid-cols-2 gap-3 text-xs sm:max-w-xs">
+                <div className="rounded-lg border border-slate-200 bg-white px-3 py-2">
+                  <div className="text-si-dark/50 text-[10px] tracking-wide uppercase">
+                    IRDAI Broker Code
+                  </div>
+                  <div className="text-si-dark font-semibold">IRDA/DB 692</div>
+                </div>
+                <div className="rounded-lg border border-slate-200 bg-white px-3 py-2">
+                  <div className="text-si-dark/50 text-[10px] tracking-wide uppercase">
+                    Category
+                  </div>
+                  <div className="text-si-dark font-semibold">Direct—Life &amp; General</div>
+                </div>
+              </div>
+
+              {/* Social */}
+              <div className="mt-6 flex gap-3">
+                {socialLinks.map((s) => (
+                  <Link
+                    key={s.name}
+                    href={s.href}
+                    aria-label={s.name}
+                    className="group inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
                   >
-                    <path d={social.svgPath} />
-                  </svg>
-                </Link>
-              ))}
-            </div>
-
-            {/* Contact Information */}
-            {/* <div className="w-[60vw] items-start space-y-3 text-sm md:flex md:flex-row md:space-y-0">
-              <div className="flex">
-                <span className="mr-2">📍</span>
-                <span className="text-gray-400">{contactInfo.address}</span>
-              </div>
-              <div className="flex md:flex-row md:px-10">
-                <span className="mr-2">📞</span>
-                <Link
-                  href={`tel:${contactInfo.phone}`}
-                  className="text-nowrap text-gray-400 hover:text-white"
-                >
-                  {contactInfo.phone}
-                </Link>
-              </div>
-              <div className="flex">
-                <span className="mr-2">✉️</span>
-                <Link
-                  href={`mailto:${contactInfo.email}`}
-                  className="text-gray-400 hover:text-white"
-                >
-                  {contactInfo.email}
-                </Link>
-              </div>
-            </div> */}
-          </div>
-
-          {/* Footer Links Sections */}
-          {footerSections.map((section) => (
-            <div key={section.title} className="lg:col-span-1">
-              <h3 className="text-si-offwhite mb-4 font-semibold">{section.title}</h3>
-              <ul className="space-y-2">
-                {section.links.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-gray-400 transition-colors duration-200 hover:text-white"
+                    <svg
+                      width={20}
+                      height={20}
+                      viewBox="0 0 512 512"
+                      fill="currentColor"
+                      className="text-si-dark/70 group-hover:text-si-primary transition"
                     >
-                      {link.label}
-                    </Link>
-                  </li>
+                      <path d={s.svgPath} />
+                    </svg>
+                  </Link>
                 ))}
-              </ul>
+              </div>
             </div>
-          ))}
+
+            {/* Link columns */}
+            {footerSections.map((section) => (
+              <div key={section.title} className="lg:col-span-1">
+                <h3 className="text-si-dark mb-3 text-sm font-semibold tracking-wide uppercase">
+                  {section.title}
+                </h3>
+                <ul className="space-y-2">
+                  {section.links.map((link) => (
+                    <li key={link.label}>
+                      <Link
+                        href={link.href}
+                        className="text-si-dark/70 hover:text-si-primary inline-flex items-center text-sm transition"
+                        {...(link.href.startsWith('http')
+                          ? { target: '_blank', rel: 'noopener noreferrer' }
+                          : {})}
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Newsletter Subscription
-      <div className="border-t border-slate-700">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="mb-4 md:mb-0">
-              <h4 className="text-white font-semibold mb-2">Stay Updated</h4>
-              <p className="text-gray-400 text-sm">
-                Subscribe to our newsletter for insurance tips, updates, and exclusive offers.
+      {/* Bottom bar (dark for contrast) */}
+      <div className="bg-black text-gray-300">
+        <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-center justify-between gap-4 text-xs sm:text-sm md:flex-row">
+            <div className="text-center md:text-left">
+              <p className="text-white/90">© Share India Insurance Brokers Private Limited</p>
+              <p className="text-white/70">
+                CIN: U66000DL2018PTC337469 • IRDA Direct Broker Code: IRDA/DB 692
+              </p>
+              <p className="text-white/70">
+                Licensed by IRDAI • Category — Direct Life &amp; General
+              </p>
+              <p className="text-white/60">
+                Copyright © 2024 ShareIndiaInsurance.com. All Rights Reserved.
               </p>
             </div>
-            <div className="flex w-full md:w-auto max-w-md">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-2 bg-slate-700 border border-slate-600 rounded-l-md text-white placeholder-gray-400 focus:outline-none focus:border-blue-500"
-              />
-              <button className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-r-md transition-colors duration-200">
-                Subscribe
-              </button>
-            </div>
-          </div>
-        </div>
-      </div> */}
-
-      {/* Bottom Footer */}
-      <div className="border-si-bluegreen bg-si-dark border-t">
-        <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center justify-between text-sm text-gray-400 md:flex-row">
-            <div className="mb-4 text-center md:mb-0 md:text-left">
-              <p>© Share India Insurance Brokers Private Limited</p>
-              <p>CIN: U66000DL2018PTC337469 | IRDA Direct Broker Code: IRDA/DB 692</p>
-              <p>Licensed by IRDAI | Category - Direct Life & General</p>
-              <p>Copyright © 2024 ShareIndiaInsurance.com. All Rights Reserved</p>
-            </div>
-            <div className="flex space-x-6">
-              <Link href="/sitemap" className="transition-colors hover:text-white">
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <Link href="/sitemap" className="transition hover:text-white">
                 Site Map
               </Link>
-              <Link href="/privacy-statement" className="transition-colors hover:text-white">
+              <span className="text-white/30">•</span>
+              <Link href="/privacy-statement" className="transition hover:text-white">
                 Privacy Statement
               </Link>
-              <Link href="/legal-notice" className="transition-colors hover:text-white">
+              <span className="text-white/30">•</span>
+              <Link href="/legal-notice" className="transition hover:text-white">
                 Legal Notice
               </Link>
             </div>
           </div>
         </div>
+        {/* subtle top border in brand blue */}
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-[#CFE6FF] to-transparent" />
       </div>
     </footer>
   );
