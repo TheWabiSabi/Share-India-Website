@@ -41,3 +41,14 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* Keeps hover “alive” when moving from the button to the panel */
+.dropdown-guard::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 12px; /* the invisible buffer */
+  /* pointer-events default is fine; we WANT it to count as hover area */
+}

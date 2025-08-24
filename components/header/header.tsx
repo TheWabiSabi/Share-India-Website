@@ -1,10 +1,11 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { FaBars, FaTimes, FaChevronDown } from 'react-icons/fa';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const INDUSTRIES = [
   'Infrastructure Industry',
@@ -50,10 +51,43 @@ export default function Header() {
   const [openMobileAccordion, setOpenMobileAccordion] = useState<string | null>(null);
   const pathname = usePathname();
 
-  // Modern, professional link base styles
+  // Fonts & focus rings match homepage (black text on white/light-blue)
   const baseLinkCls =
-    'transition-colors hover:text-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500/40';
+    'transition-colors hover:text-black focus:outline-none focus-visible:ring-2 focus-visible:ring-black/10';
 
+  /* ========= Scroll-aware visibility (fade out on down, fade in on up) ========= */
+  const [visible, setVisible] = useState(true);
+  const lastYRef = useRef(0);
+  const tickingRef = useRef(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      if (tickingRef.current) return;
+      tickingRef.current = true;
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        const lastY = lastYRef.current;
+
+        if (y <= 8) {
+          setVisible(true);
+        } else {
+          const goingDown = y > lastY + 4;
+          const goingUp = y < lastY - 4;
+          if (goingDown) setVisible(false);
+          if (goingUp) setVisible(true);
+        }
+
+        lastYRef.current = y;
+        tickingRef.current = false;
+      });
+    };
+
+    lastYRef.current = window.scrollY;
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  /* ========= Body scroll lock for mobile drawer ========= */
   useEffect(() => {
     if (!mobileMenu) return;
     const prev = document.body.style.overflow;
@@ -63,6 +97,7 @@ export default function Header() {
     };
   }, [mobileMenu]);
 
+  /* ========= Data ========= */
   const primaryLinks: NavItem[] = [
     { title: 'Retail', href: '/retail' },
     {
@@ -94,23 +129,48 @@ export default function Header() {
 
   const toggleDesktop = (key: string) =>
     setOpenDesktopDropdown((prev) => (prev === key ? null : key));
-  const closeDesktop = () => setOpenDesktopDropdown(null);
   const toggleMobileAccordion = (key: string) =>
     setOpenMobileAccordion((prev) => (prev === key ? null : key));
+  const activeCls = (href: string) => (pathname === href ? 'text-black' : 'text-black/80');
+
+  /* ========= Hover-exit delay + gap guard for desktop dropdown ========= */
+  const hoverTimer = useRef<number | null>(null);
+  const openNow = (key: string) => {
+    if (hoverTimer.current) window.clearTimeout(hoverTimer.current);
+    setOpenDesktopDropdown(key);
+  };
+  const scheduleClose = (delay = 140) => {
+    if (hoverTimer.current) window.clearTimeout(hoverTimer.current);
+    hoverTimer.current = window.setTimeout(() => {
+      setOpenDesktopDropdown(null);
+      hoverTimer.current = null;
+    }, delay);
+  };
+  const cancelClose = () => {
+    if (hoverTimer.current) {
+      window.clearTimeout(hoverTimer.current);
+      hoverTimer.current = null;
+    }
+  };
 
   return (
-    <header className="relative z-50 w-full bg-white font-sans shadow-sm">
+    <header
+      className={[
+        'fixed inset-x-0 top-0 z-50 w-full border-b border-slate-100 bg-white font-sans shadow-sm',
+        'transition-all duration-300 will-change-transform',
+        visible ? 'translate-y-0 opacity-100' : 'pointer-events-none -translate-y-4 opacity-0',
+      ].join(' ')}
+    >
       {/* DESKTOP NAVBAR */}
       <div className="hidden w-full items-center justify-between px-10 py-4 lg:flex">
         {/* Left: Logo + Primary */}
         <div className="flex items-center gap-8">
-          <Link href="/" className="relative h-10 w-36">
+          <Link href="/" className="relative h-10 w-36" aria-label="Share India Insurance - Home">
             <Image src="/logo.png" alt="Logo" fill className="object-contain" />
           </Link>
 
-          <nav className="flex items-center gap-6 text-[15px] font-medium text-gray-800">
+          <nav className="flex items-center gap-6 text-[15px] font-medium">
             {primaryLinks.map((link) => {
-              const active = pathname === link.href;
               const hasChildren = !!link.children?.length;
 
               if (!hasChildren) {
@@ -118,7 +178,7 @@ export default function Header() {
                   <Link
                     key={link.title}
                     href={link.href}
-                    className={`${baseLinkCls} ${active ? 'text-red-600' : ''}`}
+                    className={`${baseLinkCls} ${activeCls(link.href)}`}
                   >
                     {link.title}
                   </Link>
@@ -128,16 +188,14 @@ export default function Header() {
               return (
                 <div
                   key={link.title}
-                  className="relative"
-                  onMouseEnter={() => setOpenDesktopDropdown(link.title)}
-                  onMouseLeave={closeDesktop}
+                  className="dropdown-guard relative"
+                  onMouseEnter={() => openNow(link.title)}
+                  onMouseLeave={() => scheduleClose(150)}
                 >
                   <button
                     type="button"
                     onClick={() => toggleDesktop(link.title)}
-                    className={`${baseLinkCls} flex items-center gap-1 ${
-                      active ? 'text-red-600' : ''
-                    }`}
+                    className={`${baseLinkCls} flex items-center gap-1 ${activeCls(link.href)}`}
                     aria-haspopup="menu"
                     aria-expanded={openDesktopDropdown === link.title}
                   >
@@ -149,39 +207,48 @@ export default function Header() {
                     />
                   </button>
 
-                  {openDesktopDropdown === link.title && (
-                    <div className="absolute top-full left-0 mt-3 w-[34rem] rounded-md bg-white p-4 shadow-xl ring-1 ring-black/5">
-                      <div
-                        className={`grid gap-1 ${
-                          link.children!.length > 8 ? 'grid-cols-2' : 'grid-cols-1'
-                        }`}
+                  <AnimatePresence>
+                    {openDesktopDropdown === link.title && (
+                      <motion.div
+                        key={link.title}
+                        initial={{ opacity: 0, y: -6 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -6 }}
+                        transition={{ duration: 0.18, ease: 'easeOut' }}
+                        className="absolute top-full left-0 z-20 mt-3 w-[34rem] rounded-md border border-slate-200 bg-white p-4 shadow-xl"
+                        onMouseEnter={cancelClose}
+                        onMouseLeave={() => scheduleClose(120)}
+                        role="menu"
                       >
-                        {link.children!.map((child) => (
-                          <Link
-                            key={child.label}
-                            href={child.href}
-                            className="rounded px-3 py-2 text-[14px] font-normal text-gray-700 transition-colors hover:bg-gray-100 hover:text-red-600"
-                          >
-                            {child.label}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  )}
+                        <div
+                          className={`grid gap-1 ${
+                            link.children!.length > 8 ? 'grid-cols-2' : 'grid-cols-1'
+                          }`}
+                        >
+                          {link.children!.map((child) => (
+                            <Link
+                              key={child.label}
+                              href={child.href}
+                              className="rounded px-3 py-2 text-[14px] text-black/80 transition-colors hover:bg-[#F2F7FF] hover:text-black"
+                              role="menuitem"
+                            >
+                              {child.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               );
             })}
           </nav>
         </div>
 
-        {/* Right: Utility (same font, slightly smaller) */}
-        <div className="flex items-center gap-6 text-[14px] font-normal text-gray-700">
+        {/* Right: Utility */}
+        <div className="flex items-center gap-6 text-[14px] font-normal text-black/80">
           {secondaryLinks.map((link) => (
-            <Link
-              key={link.title}
-              href={link.href}
-              className={`${baseLinkCls} hover:text-gray-900`}
-            >
+            <Link key={link.title} href={link.href} className={baseLinkCls}>
               {link.title}
             </Link>
           ))}
@@ -190,14 +257,14 @@ export default function Header() {
 
       {/* MOBILE NAVBAR */}
       <div className="flex w-full items-center justify-between bg-white px-4 py-3 shadow-sm lg:hidden">
-        <Link href="/" className="relative h-8 w-24">
+        <Link href="/" className="relative h-8 w-24" aria-label="Share India Insurance - Home">
           <Image src="/logo.png" alt="Logo" fill className="object-contain" />
         </Link>
         <button
           onClick={() => setMobileMenu(true)}
           aria-label="Open menu"
           type="button"
-          className="text-xl text-gray-800"
+          className="text-xl text-black"
         >
           <FaBars />
         </button>
@@ -229,7 +296,7 @@ export default function Header() {
             </Link>
             <button
               onClick={() => setMobileMenu(false)}
-              className="text-2xl text-gray-800"
+              className="text-2xl text-black"
               aria-label="Close menu"
               type="button"
             >
@@ -239,7 +306,7 @@ export default function Header() {
 
           <div className="flex-1 overflow-y-auto px-6 py-6">
             {/* Primary */}
-            <nav className="flex flex-col gap-2 text-[16px] font-medium text-gray-900">
+            <nav className="flex flex-col gap-2 text-[16px] font-medium text-black">
               {primaryLinks.map((link) => {
                 const hasChildren = !!link.children?.length;
 
@@ -249,7 +316,7 @@ export default function Header() {
                       key={link.title}
                       href={link.href}
                       onClick={() => setMobileMenu(false)}
-                      className="rounded px-1 py-2 transition-colors hover:text-red-600"
+                      className="rounded px-1 py-2 transition-colors hover:text-black"
                     >
                       {link.title}
                     </Link>
@@ -284,7 +351,7 @@ export default function Header() {
                             key={child.label}
                             href={child.href}
                             onClick={() => setMobileMenu(false)}
-                            className="py-2 text-[14px] font-normal text-gray-700 transition-colors hover:text-red-600"
+                            className="py-2 text-[14px] font-normal text-black/80 transition-colors hover:text-black"
                           >
                             {child.label}
                           </Link>
@@ -297,13 +364,13 @@ export default function Header() {
             </nav>
 
             {/* Secondary */}
-            <div className="mt-8 flex flex-col gap-3 border-t pt-6 text-[14px] font-normal text-gray-600">
+            <div className="mt-8 flex flex-col gap-3 border-t pt-6 text-[14px] font-normal text-black/80">
               {secondaryLinks.map((link) => (
                 <Link
                   key={link.title}
                   href={link.href}
                   onClick={() => setMobileMenu(false)}
-                  className="transition-colors hover:text-gray-900"
+                  className="transition-colors hover:text-black"
                 >
                   {link.title}
                 </Link>
