@@ -1,66 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import listOfBlogs from '../list_of_blogs.json';
+import { compileMDX } from 'next-mdx-remote/rsc';
+import path from 'path';
+import { readFile, access } from 'fs/promises';
 import { notFound } from 'next/navigation';
-
-// Sample blog post data - in a real app, this would come from a CMS or database
-const blogPost = {
-  id: 1,
-  title: 'Understanding Stock Market Fundamentals',
-  content: `
-    <p>The stock market can seem intimidating to new investors, but understanding its fundamentals is the first step toward making informed investment decisions. In this comprehensive guide, we'll break down the essential concepts every investor should know.</p>
-    
-    <h2>What is the Stock Market?</h2>
-    <p>The stock market is a collection of exchanges where investors buy and sell shares of publicly traded companies. Think of it as a giant marketplace where ownership stakes in companies are traded between investors.</p>
-    
-    <h2>Key Players in the Market</h2>
-    <p>Several key players make the stock market function:</p>
-    <ul>
-      <li><strong>Individual Investors:</strong> People like you and me who buy and sell stocks</li>
-      <li><strong>Institutional Investors:</strong> Large organizations like mutual funds, pension funds, and insurance companies</li>
-      <li><strong>Market Makers:</strong> Firms that provide liquidity by buying and selling stocks</li>
-      <li><strong>Brokers:</strong> Companies that facilitate trades between buyers and sellers</li>
-    </ul>
-    
-    <h2>How Stock Prices Are Determined</h2>
-    <p>Stock prices are determined by supply and demand. When more people want to buy a stock than sell it, the price goes up. When more people want to sell than buy, the price goes down. Several factors influence this supply and demand:</p>
-    <ul>
-      <li>Company performance and earnings</li>
-      <li>Economic conditions</li>
-      <li>Industry trends</li>
-      <li>Market sentiment</li>
-      <li>News and events</li>
-    </ul>
-    
-    <h2>Types of Stock Analysis</h2>
-    <p>There are two main approaches to analyzing stocks:</p>
-    
-    <h3>Fundamental Analysis</h3>
-    <p>This involves studying a company's financial health, including its revenue, profits, debt, and growth prospects. Fundamental analysts look at financial statements, management quality, and competitive position.</p>
-    
-    <h3>Technical Analysis</h3>
-    <p>This focuses on price patterns and trading volume to predict future price movements. Technical analysts use charts and indicators to identify trends and trading opportunities.</p>
-    
-    <h2>Getting Started</h2>
-    <p>If you're new to investing, here are some steps to get started:</p>
-    <ol>
-      <li>Educate yourself about the basics</li>
-      <li>Open a brokerage account</li>
-      <li>Start with a small amount you can afford to lose</li>
-      <li>Diversify your investments</li>
-      <li>Stay informed about market news</li>
-      <li>Be patient and think long-term</li>
-    </ol>
-    
-    <h2>Conclusion</h2>
-    <p>Understanding stock market fundamentals is crucial for anyone looking to invest successfully. Remember that investing involves risk, and it's important to do your research and consider your financial situation before making any investment decisions.</p>
-  `,
-  author: 'Share India Team',
-  date: '2025-01-15',
-  readTime: '5 min read',
-  category: 'Education',
-  image: '/globe.svg',
-  slug: 'understanding-stock-market-fundamentals',
-};
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -68,16 +12,42 @@ interface BlogPostPageProps {
   }>;
 }
 
+const POSTS_FOLDER = path.join(process.cwd(), 'markdowns');
+
+async function readPostFile(slug: string) {
+  const filePath = path.resolve(path.join(POSTS_FOLDER, `${slug}.mdx`));
+
+  try {
+    await access(filePath);
+  } catch (err) {
+    return null;
+  }
+
+  const fileContent = await readFile(filePath, { encoding: 'utf8' });
+  return fileContent;
+}
+
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   // In a real app, you would fetch the blog post based on the slug
   const { slug } = await params;
+  const blogPost = listOfBlogs.find((post) => post.slug === slug);
+  const markdown = await readPostFile(slug);
 
-  if (slug !== blogPost.slug) {
+  if (!blogPost || !markdown) {
     notFound();
   }
 
+  const { content } = await compileMDX<{
+    title: string;
+    author: string;
+    date: string;
+  }>({
+    source: markdown,
+    options: { parseFrontmatter: true },
+  });
+
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pt-[8vh]">
       {/* Breadcrumb */}
       <div className="border-b">
         <div className="mx-auto max-w-4xl px-4 py-4 sm:px-6 lg:px-8">
@@ -168,11 +138,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       {/* Article Content */}
       <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
         <article className="bg-si-white rounded-lg p-8 shadow-sm md:p-12">
-          <div
-            className="prose prose-lg prose-headings:text-gray-900 prose-h2:text-2xl prose-h3:text-xl prose-p:text-gray-700 prose-ul:text-gray-700 prose-ol:text-gray-700 prose-li:text-gray-700 prose-strong:text-gray-900 max-w-none"
-            dangerouslySetInnerHTML={{ __html: blogPost.content }}
-          />
-
+          <div className="prose prose-lg prose-slate prose-headings:text-si-dark prose-p:text-si-dark/80 prose-strong:text-si-bluegreen prose-a:text-si-bluegreen prose-table:border-si-bluegreen/20 max-w-none">
+            {content}
+          </div>
           {/* Share Section */}
           <div className="border-si-bluegreen/30 mt-12 border-t pt-8">
             <h3 className="text-si-dark mb-4 text-lg font-semibold">Share this article</h3>

@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "61118630-62e8-47bd-96c1-761d79dded3a",
+    "topic": "infrastructure_industry",
+    "industry": "corporate",
+    "type": "claims_story",
+    "title": "Infrastructure Claims Rising: Key Risk Patterns Transforming the Industry",
+    "author": "Risk Analytics Team",
+    "date": "2025-08-27",
+    "readTime": "8 min read",
+    "category": "Claims Analysis",
+    "image": "/globe.svg"
+  },
+  {
+    "slug": "a16e6560-450a-4233-9c09-f7f03f1b4123",
+    "topic": "media",
+    "industry": "corporate",
+    "type": "claims_story",
+    "title": "Entertainment Industry Faces Rising Cyber Security Claims Amid Digital Transformation",
+    "author": "Digital Risk Advisory Team",
+    "date": "2025-08-28",
+    "readTime": "6 min read",
+    "category": "News Analysis",
+    "image": "/entertainment-cyber.svg"
+  }
+]

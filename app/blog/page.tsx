@@ -88,7 +88,7 @@ const categories = [
 
 export default function BlogPage() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pt-[8vh]">
       {/* Hero Section */}
       <div className="from-si-slate to-si-bluegreen text-si-offwhite bg-gradient-to-r py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
