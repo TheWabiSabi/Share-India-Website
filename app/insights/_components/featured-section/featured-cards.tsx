@@ -21,7 +21,7 @@ const FeaturedBlogCard: React.FC<FeaturedBlogCardProps> = ({
   imageUrl,
   href,
 }) => (
-  <article className="group focus-within:ring-si-primary/30 flex h-full w-full min-w-0 flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition duration-300 focus-within:ring-2 hover:-translate-y-1 hover:shadow-md sm:w-80 md:w-[40vw] lg:max-w-[22vw]">
+  <article className="group focus-within:ring-si-primary/30 flex h-full w-full min-w-0 flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition duration-300 focus-within:ring-2 hover:-translate-y-1 hover:shadow-md sm:w-80 md:w-[40vw] lg:max-w-[20vw] xl:w-[18vw]">
     {/* media */}
     <div className="relative h-40 w-full overflow-hidden sm:h-52 md:h-[30vh]">
       <Image

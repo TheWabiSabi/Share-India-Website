@@ -52,7 +52,7 @@ export default function FeaturedCarousel() {
   return (
     <div className="relative w-full">
       {/* Branded arrows */}
-      <div className="pointer-events-none absolute -top-12 right-0 z-10 hidden gap-3 sm:flex">
+      <div className="pointer-events-none absolute -top-12 right-0 z-10 hidden gap-2 sm:flex">
         <button
           ref={prevRef}
           aria-label="Previous insight"
@@ -80,7 +80,7 @@ export default function FeaturedCarousel() {
 
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
-        spaceBetween={20}
+        spaceBetween={8}
         slidesPerView={1}
         centeredSlides={false}
         watchOverflow
@@ -112,7 +112,7 @@ export default function FeaturedCarousel() {
           640: { slidesPerView: 1, spaceBetween: 20 },
           768: { slidesPerView: 2, spaceBetween: 24 },
           1024: { slidesPerView: 3, spaceBetween: 28 },
-          1280: { slidesPerView: 3, spaceBetween: 32 },
+          1280: { slidesPerView: 3, spaceBetween: '2vw' },
         }}
         className="!pb-12"
       >
