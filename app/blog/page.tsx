@@ -157,7 +157,7 @@ export default function BlogPage() {
               </svg>
               <h3 className="text-si-dark mb-2 text-lg font-medium">No articles found</h3>
               <p className="text-si-dark/60 text-sm">
-                There are no articles in the "{selectedCategory}" category yet.
+                There are no articles in the &#34;{selectedCategory}&#34; category yet.
               </p>
               <button
                 onClick={() => setSelectedCategory('All')}

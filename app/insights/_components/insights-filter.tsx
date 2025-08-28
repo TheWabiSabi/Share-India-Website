@@ -1,6 +1,6 @@
 'use client';
 
-import { Dispatch, SetStateAction, useState } from 'react';
+import { useState } from 'react';
 import { FaChevronDown } from 'react-icons/fa';
 
 const industryTopics = [
@@ -94,19 +94,16 @@ export default function InsightsFilterBar({
         {/* Filter Selectors */}
         <div className="flex w-full flex-1 flex-col items-center justify-center gap-6 md:flex-row md:gap-8">
           <CustomDropdown
-            label="Topic"
             selectedOption={selectedTopic}
             options={getTopicOptions()}
             onSelect={(value) => handleFilterChange('topic', value)}
           />
           <CustomDropdown
-            label="Content Type"
             selectedOption={selectedType}
             options={['All Types', 'Blog', 'News', 'Claims Story']}
             onSelect={(value) => handleFilterChange('type', value)}
           />
           <CustomDropdown
-            label="Industry"
             selectedOption={selectedIndustry}
             options={['All Industries', 'Retail', 'Corporate', 'Others']}
             onSelect={(value) => handleFilterChange('industry', value)}
@@ -119,12 +116,10 @@ export default function InsightsFilterBar({
 
 // Enhanced Dropdown with subsections
 function CustomDropdown({
-  label,
   selectedOption,
   options,
   onSelect,
 }: {
-  label: string;
   selectedOption: string;
   options: string[];
   onSelect: (option: string) => void;

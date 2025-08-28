@@ -20,7 +20,7 @@ async function readPostFile(slug: string) {
   try {
     await access(filePath);
   } catch (err) {
-    return null;
+    return err;
   }
 
   const fileContent = await readFile(filePath, { encoding: 'utf8' });
@@ -64,7 +64,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     author: string;
     date: string;
   }>({
-    source: markdown,
+    source: typeof markdown === 'string' ? markdown : '',
     options: { parseFrontmatter: true },
   });
 
