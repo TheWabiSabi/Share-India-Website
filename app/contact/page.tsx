@@ -10,7 +10,7 @@ const ContactPage = () => {
     "We take your privacy seriously, and we don't sell lists, phone numbers, or email addresses.";
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="my-[8vh] flex min-h-screen flex-col">
       {/* Header + Selector */}
       <div className="flex flex-1 items-center justify-center px-2 py-6 sm:px-4 sm:py-12 md:px-6 lg:px-8">
         <div className="w-full max-w-xl space-y-8 sm:max-w-2xl">
