@@ -1,39 +1,208 @@
+'use client';
 import React from 'react';
 import {
   FaChevronRight,
   FaShieldAlt,
+  FaCube,
+  FaRecycle,
   FaIndustry,
-  FaBoxes,
-  FaBoxOpen,
-  FaWarehouse,
+  FaLeaf,
   FaFire,
   FaWater,
   FaWind,
-  FaSnowflake,
-  FaRegClipboard,
-  FaRecycle,
-  FaLeaf,
-  FaBug,
-  FaGlobe,
-  FaUsers,
-  FaHandHoldingUsd,
-  FaMicroscope,
-  FaTools,
-  FaPlug,
-  FaLaptopCode,
-  FaLock,
-  FaExclamationTriangle,
-  FaHeadset,
+  FaWarehouse,
+  FaTruckMoving,
+  FaUserShield,
+  FaFileContract,
   FaPhoneAlt,
   FaEnvelope,
-  FaChartLine,
-  FaFileContract,
-  FaClipboardCheck,
-  FaBox,
-  FaCog,
+  FaHeadset,
+  FaTools,
+  FaPlug,
+  FaLock,
+  FaExclamationTriangle,
+  FaCheckCircle,
+  FaRupeeSign,
+  FaCertificate,
+  FaFlask,
+  FaThermometerHalf,
 } from 'react-icons/fa';
+import ClaimStories from '../../../components/industries/ClaimStories';
+import RelevantArticles from '../../../components/industries/RelevantArticles';
+import KnowledgeQuestionnaire from '../../../components/industries/KnowledgeQuestionnaire';
 
-const PlasticIndustryInsurancePage = () => {
+const PlasticInsurancePage = () => {
+  // Sample data for components
+  const claimStories = [
+    {
+      id: '1',
+      title: 'Injection Molding Machine Fire',
+      description:
+        'Electrical fault in injection molding machine caused fire, damaging equipment and disrupting production for automotive components.',
+      claimAmount: '₹18 Crores',
+      settlementTime: '7 months',
+      riskType: 'Equipment Fire',
+      outcome: 'settled' as const,
+      lessons: [
+        'Regular electrical maintenance prevents equipment fires',
+        'Fire suppression systems in production areas are essential',
+        'Business interruption coverage protects against production losses',
+      ],
+    },
+    {
+      id: '2',
+      title: 'Product Liability - Defective Packaging',
+      description:
+        'Defective plastic packaging caused food contamination, leading to consumer health issues and liability claims.',
+      claimAmount: '₹22 Crores',
+      settlementTime: '14 months',
+      riskType: 'Product Liability',
+      outcome: 'settled' as const,
+      lessons: [
+        'Quality control in food-grade plastics is critical',
+        'Product liability insurance protects against consumer claims',
+        'Traceability systems help identify defective batches quickly',
+      ],
+    },
+    {
+      id: '3',
+      title: 'Environmental Pollution Incident',
+      description:
+        'Plastic waste discharge into water body led to environmental contamination and regulatory penalties.',
+      claimAmount: '₹8 Crores',
+      settlementTime: '10 months',
+      riskType: 'Environmental',
+      outcome: 'settled' as const,
+      lessons: [
+        'Waste management systems must comply with regulations',
+        'Environmental liability insurance covers cleanup costs',
+        'Sustainable practices reduce environmental risks',
+      ],
+    },
+    {
+      id: '4',
+      title: 'Raw Material Contamination',
+      description:
+        'Contaminated polymer resin caused entire production batch to be rejected, resulting in significant losses.',
+      claimAmount: '₹5 Crores',
+      settlementTime: '4 months',
+      riskType: 'Quality Control',
+      outcome: 'settled' as const,
+      lessons: [
+        'Incoming material inspection prevents contamination',
+        'Product recall insurance covers batch rejection costs',
+        'Supplier quality agreements reduce risks',
+      ],
+    },
+  ];
+
+  const articles = [
+    {
+      id: '1',
+      title: 'Sustainable Plastics Manufacturing: Insurance Implications 2024',
+      excerpt:
+        'How the shift towards sustainable and biodegradable plastics is changing industry risk profiles.',
+      author: 'Dr. Ramesh Gupta',
+      publishDate: 'Apr 8, 2024',
+      readTime: '9 min read',
+      category: 'Sustainability',
+      url: '#',
+      featured: true,
+    },
+    {
+      id: '2',
+      title: 'Fire Safety in Plastic Manufacturing: Prevention and Protection',
+      excerpt:
+        'Comprehensive guide to fire prevention strategies and insurance coverage for plastic manufacturing facilities.',
+      author: 'Sanjay Patel',
+      publishDate: 'Mar 25, 2024',
+      readTime: '7 min read',
+      category: 'Safety',
+      url: '#',
+    },
+    {
+      id: '3',
+      title: 'Product Liability Trends in Plastic Packaging Industry',
+      excerpt:
+        'Analysis of recent product liability claims and emerging risks in plastic packaging applications.',
+      author: 'Neha Sharma',
+      publishDate: 'Mar 18, 2024',
+      readTime: '6 min read',
+      category: 'Product Liability',
+      url: '#',
+    },
+  ];
+
+  const quizQuestions = [
+    {
+      id: '1',
+      question: 'What is the most common cause of fire in plastic manufacturing facilities?',
+      options: [
+        'Chemical reactions',
+        'Electrical faults in machinery',
+        'Static electricity',
+        'Hot work operations',
+      ],
+      correctAnswer: 1,
+      explanation:
+        'Electrical faults in injection molding machines, extruders, and other equipment are the leading cause of fires in plastic manufacturing.',
+      difficulty: 'easy' as const,
+    },
+    {
+      id: '2',
+      question:
+        'Which environmental regulation is most relevant for plastic manufacturers in India?',
+      options: [
+        'Water Act only',
+        'Air Act only',
+        'Plastic Waste Management Rules',
+        'Noise Pollution Rules',
+      ],
+      correctAnswer: 2,
+      explanation:
+        'Plastic Waste Management Rules 2016 (amended 2018) specifically regulate plastic manufacturing, use, and disposal in India.',
+      difficulty: 'medium' as const,
+    },
+    {
+      id: '3',
+      question: 'What does "FDA approved" mean for plastic packaging materials?',
+      options: [
+        'Fire Department Approved',
+        'Food and Drug Administration approved for food contact',
+        'Factory Design Approved',
+        'Fully Degradable Approved',
+      ],
+      correctAnswer: 1,
+      explanation:
+        'FDA approval means the plastic material is safe for food contact and meets regulatory standards for food packaging.',
+      difficulty: 'medium' as const,
+    },
+    {
+      id: '4',
+      question: 'Which type of plastic manufacturing has the highest fire risk?',
+      options: [
+        'Injection molding',
+        'Blow molding',
+        'Thermoforming',
+        'Extrusion with high-temperature processing',
+      ],
+      correctAnswer: 3,
+      explanation:
+        'Extrusion processes involving high temperatures and flammable materials pose the highest fire risk in plastic manufacturing.',
+      difficulty: 'hard' as const,
+    },
+    {
+      id: '5',
+      question:
+        'What is the typical business interruption period for plastic manufacturing equipment replacement?',
+      options: ['1-3 months', '3-6 months', '6-12 months', '12+ months'],
+      correctAnswer: 2,
+      explanation:
+        '6-12 months is typical for specialized plastic manufacturing equipment replacement, including delivery and installation time.',
+      difficulty: 'medium' as const,
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-white pt-[8vh] text-gray-900">
       {/* Hero */}
@@ -44,9 +213,8 @@ const PlasticIndustryInsurancePage = () => {
               Plastic Industry Insurance Solutions
             </h1>
             <p className="mt-6 text-lg text-gray-700 md:text-xl">
-              Holistic risk protection for plastic manufacturers, processors, and converters across
-              injection molding, extrusion, blow molding, thermoforming, compounding, and recycling
-              value chains.
+              Comprehensive coverage for plastic manufacturing, processing, and recycling—protecting
+              operations from fire, environmental, and product liability risks.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <button className="inline-flex items-center justify-center rounded-lg bg-blue-100 px-6 py-3 font-semibold text-blue-800 hover:bg-blue-200">
@@ -63,8 +231,82 @@ const PlasticIndustryInsurancePage = () => {
               </button>
             </div>
             <div className="mt-4 text-sm text-gray-600">
-              SIIB brokerage with manufacturing-focused placement and claims support for end-to-end
-              operational resilience.
+              Specialized coverage for injection molding, extrusion, and recycling operations with
+              environmental liability protection.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Industry Explanation */}
+      <section className="w-full border-b border-gray-100 bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold md:text-3xl">
+            Understanding Plastic Industry Insurance
+          </h2>
+          <p className="mt-3 text-gray-700">
+            The plastic industry is a vital manufacturing sector producing diverse products from
+            packaging to automotive components. This industry faces unique risks related to fire
+            hazards, environmental compliance, and product liability.
+          </p>
+
+          <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2">
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900">Industry Overview</h3>
+              <p className="mt-3 text-gray-700">
+                Plastic manufacturing involves high-temperature processes, flammable materials, and
+                complex machinery. The industry serves diverse sectors including packaging,
+                automotive, construction, and consumer goods. With increasing environmental
+                regulations and sustainability concerns, plastic manufacturers face evolving risks
+                requiring comprehensive insurance coverage for operational, environmental, and
+                product liability exposures.
+              </p>
+              <ul className="mt-4 space-y-2 text-sm text-gray-700">
+                <li className="flex items-start">
+                  <FaChevronRight className="mt-1 mr-2 text-blue-400" />
+                  High fire risk due to flammable materials and hot processes
+                </li>
+                <li className="flex items-start">
+                  <FaChevronRight className="mt-1 mr-2 text-blue-400" />
+                  Environmental liability from waste and emissions
+                </li>
+                <li className="flex items-start">
+                  <FaChevronRight className="mt-1 mr-2 text-blue-400" />
+                  Product liability risks in food-contact and consumer applications
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900">Key Manufacturing Processes</h3>
+              <div className="mt-3 space-y-3">
+                <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
+                  <FaCube className="text-blue-500" />
+                  <div>
+                    <div className="font-medium">Injection Molding</div>
+                    <div className="text-sm text-gray-600">
+                      Automotive, consumer goods, and packaging
+                    </div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
+                  <FaIndustry className="text-blue-500" />
+                  <div>
+                    <div className="font-medium">Extrusion & Film</div>
+                    <div className="text-sm text-gray-600">
+                      Pipes, profiles, and flexible packaging
+                    </div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
+                  <FaRecycle className="text-blue-500" />
+                  <div>
+                    <div className="font-medium">Recycling & Processing</div>
+                    <div className="text-sm text-gray-600">
+                      Waste plastic processing and reprocessing
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -75,438 +317,215 @@ const PlasticIndustryInsurancePage = () => {
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold md:text-3xl">Who We Serve</h2>
           <p className="mt-3 text-gray-700">
-            Tailored programs for diverse plastic industry segments and supply-chain stakeholders.
+            Tailored insurance solutions for every segment of the plastic manufacturing ecosystem.
           </p>
+
           <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <Tile icon={<FaIndustry />} title="Manufacturers">
-              Injection, extrusion, blow molding, thermoforming, rotational molding, compounding.
+            <Tile icon={<FaCube />} title="Injection Molding Units">
+              Automotive components, consumer products, and precision molding operations.
             </Tile>
-            <Tile icon={<FaBoxes />} title="Converters & Packers">
-              Film, sheet, piping, profiles, closures, caps, bottles, packaging lines.
+            <Tile icon={<FaIndustry />} title="Extrusion Companies">
+              Pipe manufacturers, film producers, and profile extrusion facilities.
             </Tile>
-            <Tile icon={<FaRecycle />} title="Recyclers">
-              Mechanical/chemical recycling, pelletizers, sorters, MRF and wash-line operators.
+            <Tile icon={<FaRecycle />} title="Recycling Plants">
+              Plastic waste processing, reprocessing, and sustainable manufacturing units.
             </Tile>
-            <Tile icon={<FaGlobe />} title="Exporters & OEM Supply">
-              Automotive, FMCG, pharma, electronics, medical components, global distribution.
+            <Tile icon={<FaFlask />} title="Compounding Units">
+              Polymer compounding, masterbatch production, and specialty plastic manufacturers.
             </Tile>
           </div>
         </div>
       </section>
 
-      {/* Core Coverages */}
+      {/* Sample Risks */}
+      <section className="w-full border-b border-gray-100 bg-gray-50">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold md:text-3xl">Common Risks in Plastic Industry</h2>
+          <p className="mt-3 text-gray-700">
+            Understanding key risks helps in selecting appropriate insurance coverage for your
+            plastic manufacturing operations.
+          </p>
+
+          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <RiskCard
+              icon={<FaFire />}
+              title="Fire & Explosion"
+              description="High fire risk from flammable materials, hot processes, and electrical equipment in manufacturing."
+              severity="High"
+              frequency="Medium"
+            />
+            <RiskCard
+              icon={<FaLeaf />}
+              title="Environmental Pollution"
+              description="Plastic waste, emissions, and chemical discharge affecting environment and regulatory compliance."
+              severity="High"
+              frequency="Medium"
+            />
+            <RiskCard
+              icon={<FaUserShield />}
+              title="Product Liability"
+              description="Defective products, contamination, and safety issues in food-contact and consumer applications."
+              severity="Medium"
+              frequency="Low"
+            />
+            <RiskCard
+              icon={<FaTools />}
+              title="Machinery Breakdown"
+              description="Failure of injection molding machines, extruders, and specialized manufacturing equipment."
+              severity="Medium"
+              frequency="High"
+            />
+            <RiskCard
+              icon={<FaThermometerHalf />}
+              title="Process Control Risks"
+              description="Temperature variations, pressure failures, and quality control issues affecting production."
+              severity="Medium"
+              frequency="Medium"
+            />
+            <RiskCard
+              icon={<FaExclamationTriangle />}
+              title="Raw Material Quality"
+              description="Contaminated or substandard raw materials affecting product quality and safety."
+              severity="Medium"
+              frequency="Medium"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Claim Stories Component */}
+      <ClaimStories stories={claimStories} industryName="Plastic Industry" />
+
+      {/* Core coverage suite */}
       <section className="w-full border-b border-gray-100 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold md:text-3xl">Core Coverage Suite</h2>
           <p className="mt-3 text-gray-700">
-            Comprehensive policies mapped to plant, people, product, and process risks across
+            Comprehensive protection designed specifically for plastic manufacturing and processing
             operations.
           </p>
 
-          {/* Grid 1 */}
           <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
             <Card
-              icon={<FaWarehouse className="text-2xl text-blue-500" />}
-              title="Property & Business Interruption"
-              body="Covers buildings, machinery, molds, dies, inventory (raw, WIP, FG), utilities, with BI/CMI for loss of gross profit due to insured perils."
+              icon={<FaFire className="text-2xl text-blue-500" />}
+              title="Fire & Allied Perils"
+              body="Comprehensive fire coverage for manufacturing equipment, raw materials, and finished products."
               bullets={[
-                'Perils: Fire, flood, storm, riot/strike, burglary, impact, explosion',
-                'Add-ons: Debris removal, professional fees, escalation, STFI, EQ',
-                'BI: Waiting period/sum insured design, supplier/customer extension',
-              ]}
-            />
-            <Card
-              icon={<FaExclamationTriangle className="text-2xl text-blue-500" />}
-              title="General & Products Liability"
-              body="Third-party injury/property damage and completed operations including product liability for downstream usage."
-              bullets={[
-                'Contractual liability carve-outs and additional insureds',
-                'Territory/jurisdiction for export exposures',
-                'Vendor’s liability and component integration risks',
-              ]}
-            />
-          </div>
-
-          {/* Grid 2 */}
-          <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
-            <Card
-              icon={<FaBoxOpen className="text-2xl text-blue-500" />}
-              title="Product Recall & Contamination"
-              body="Covers recall costs, third-party financial loss, brand rehabilitation, and accidental contamination for food/pharma contact applications."
-              bullets={[
-                'Voluntary/mandatory recall expenses',
-                'Crisis consultants and PR costs',
-                'Extended coverage to global distributions',
-              ]}
-            />
-            <Card
-              icon={<FaLeaf className="text-2xl text-blue-500" />}
-              title="Environmental & Pollution Liability"
-              body="Sudden/accidental and gradual pollution, on-site and off-site clean-up, third-party bodily injury/property damage."
-              bullets={[
-                'Wastewater, resin spill, solvent emission events',
-                'Regulatory defense and fines where insurable',
-                'Transportation and non-owned disposal sites',
-              ]}
-            />
-          </div>
-
-          {/* Grid 3 */}
-          <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
-            <Card
-              icon={<FaLaptopCode className="text-2xl text-blue-500" />}
-              title="Cyber & Technology"
-              body="Cyber liability and digital asset protection for smart manufacturing, MES/SCADA/PLC integrations, and data privacy compliance."
-              bullets={[
-                'Ransomware, business interruption, data restoration',
-                'OT/IT breach, contingent BI from service providers',
-                'Social engineering and funds transfer fraud',
+                'Fire, lightning, explosion, and electrical damage',
+                'Machinery and equipment protection',
+                'Raw material and finished goods coverage',
               ]}
             />
             <Card
               icon={<FaTools className="text-2xl text-blue-500" />}
               title="Machinery Breakdown & EEI"
-              body="Electrical/mechanical breakdown of critical equipment with engineering BI for extended downtimes."
+              body="Protection against breakdown of specialized plastic manufacturing equipment."
               bullets={[
-                'Presses, extruders, chillers, compressors, robots',
-                'Microelectronics and power surge endorsements',
-                'Spares and expedited repair costs',
+                'Injection molding and extrusion machinery',
+                'Heating, cooling, and control systems',
+                'Expediting expenses and temporary repairs',
               ]}
             />
           </div>
 
-          {/* Grid 4 */}
           <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
             <Card
-              icon={<FaUsers className="text-2xl text-blue-500" />}
-              title="Workmen Compensation & PA"
-              body="Statutory worker compensation, employer’s liability, and personal accident for employees and contractors."
+              icon={<FaUserShield className="text-2xl text-blue-500" />}
+              title="Product & Public Liability"
+              body="Coverage for product defects and third-party liability in manufacturing operations."
               bullets={[
-                'Shift operations and night-running protections',
-                'Ergonomics, manual handling, and heat stress',
-                'Visitor/contractor onboarding and permit controls',
-              ]}
-            />
-            <Card
-              icon={<FaRegClipboard className="text-2xl text-blue-500" />}
-              title="Management & Professional Liability"
-              body="D&O for directors, EPLI, and manufacturers E&O for financial losses due to alleged errors in design or production services."
-              bullets={[
-                'Defense costs, settlements, investigations',
-                'Global subsidiaries and outside directorships',
-                'Employment practices risk (harassment/discrimination)',
-              ]}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Process & Operations Risks */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Process & Operations Risks</h2>
-          <p className="mt-3 text-gray-700">
-            Coverage designed around typical plastic plant hazards and loss scenarios.
-          </p>
-
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <MiniCard icon={<FaFire />} title="Fire & Heat">
-              Hot runners, heaters, dryers, silos, dust; combustion risk from resins and solvents.
-            </MiniCard>
-            <MiniCard icon={<FaWater />} title="Water & Flood">
-              Cooling towers, chillers, leak risks; flood mapping and drainage adequacy.
-            </MiniCard>
-            <MiniCard icon={<FaWind />} title="Storm & Impact">
-              Windstorm, impact to utilities, roof uplift; secured stacking and racking protection.
-            </MiniCard>
-            <MiniCard icon={<FaSnowflake />} title="Chillers & HVAC">
-              Temperature controls for molds and lines; BI triggers from chilling failures.
-            </MiniCard>
-            <MiniCard icon={<FaBug />} title="Contamination">
-              Foreign matter or chemical contamination; recall triggers in food/pharma supply.
-            </MiniCard>
-            <MiniCard icon={<FaPlug />} title="Power Quality">
-              Harmonics, surges and outages; UPS/generator design and surge protection.
-            </MiniCard>
-          </div>
-        </div>
-      </section>
-
-      {/* Supply Chain & Logistics */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Supply Chain & Logistics</h2>
-          <p className="mt-3 text-gray-700">
-            Reduce volatility with transit, storage and contingent BI solutions aligned to
-            supplier/customer dependencies.
-          </p>
-
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <CardPlain title="Marine & Inland Transit">
-              <Bullet>
-                Institute Cargo Clauses with project-specific add-ons for resins, masterbatch, and
-                tooling.
-              </Bullet>
-              <Bullet>Reefer and temperature deviation endorsements where applicable.</Bullet>
-              <Bullet>Seller’s/Buyer’s Interest and stock throughput structures.</Bullet>
-            </CardPlain>
-            <CardPlain title="Contingent BI & Denial of Access">
-              <Bullet>Supplier and customer extensions for upstream/downstream outages.</Bullet>
-              <Bullet>Named and unnamed location dependencies with limits and sub-limits.</Bullet>
-              <Bullet>Public authority closures and civil commotion endorsements.</Bullet>
-            </CardPlain>
-            <CardPlain title="Tooling & Dies in Transit">
-              <Bullet>High-value die/mold coverage including testing post-transit.</Bullet>
-              <Bullet>Special packaging/handling clauses and route survey requirements.</Bullet>
-              <Bullet>Expediting costs to reduce production downtime.</Bullet>
-            </CardPlain>
-          </div>
-        </div>
-      </section>
-
-      {/* Quality, Compliance & Sustainability */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Quality, Compliance & Sustainability</h2>
-          <p className="mt-3 text-gray-700">
-            Align insurance with QA frameworks and evolving environmental expectations.
-          </p>
-
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
-            <Card
-              icon={<FaMicroscope className="text-2xl text-blue-500" />}
-              title="QA & Traceability"
-              body="ISO/TS, GMP, and traceability standards integrated with recall and financial loss coverage."
-              bullets={[
-                'Lot/batch trace systems and supplier audits',
-                'Specification control and COA management',
-                'Sampling frequencies and test protocols',
-              ]}
-            />
-            <Card
-              icon={<FaRecycle className="text-2xl text-blue-500" />}
-              title="Recycling & Circularity"
-              body="Processing post-consumer/industrial recycled content and material substitution risk."
-              bullets={[
-                'Quality variability and contaminants',
-                'Additives and compatibilizers risk review',
-                'Customer specs and warranty clauses',
+                'Product liability for defective plastic products',
+                'Public liability for manufacturing operations',
+                'Food-grade and medical device liability coverage',
               ]}
             />
             <Card
               icon={<FaLeaf className="text-2xl text-blue-500" />}
-              title="ESG & Emissions"
-              body="Pollution liability, carbon-related outages, and green equipment endorsements."
+              title="Environmental Liability"
+              body="Protection against environmental damage and regulatory compliance costs."
               bullets={[
-                'Air/water permits and reporting errors',
-                'Energy efficiency retrofits and grants',
-                'Green build upgrades after loss',
+                'Pollution liability and cleanup costs',
+                'Waste management and disposal coverage',
+                'Regulatory defense and compliance costs',
               ]}
             />
           </div>
         </div>
       </section>
 
-      {/* Program Design & Placement */}
+      {/* Insurance Plans/Products */}
       <section className="w-full border-b border-gray-100 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Program Design & Placement</h2>
+          <h2 className="text-2xl font-bold md:text-3xl">Insurance Plans for Plastic Industry</h2>
           <p className="mt-3 text-gray-700">
-            Structured policies with optimal deductibles, sub-limits, and wording alignment to
-            contracts and clients.
+            Comprehensive insurance solutions tailored for different segments of the plastic
+            manufacturing industry.
           </p>
 
           <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
-            <Step
-              title="Exposure Mapping"
-              desc="Plant walkthroughs, hazard mapping, utility dependency, single-point-of-failure analysis."
-              points={[
-                'COPE and BI bottlenecks',
-                'Tooling criticality matrix',
-                'Supplier/customer heat-map',
+            <InsurancePlan
+              name="Plastic Starter Plan"
+              description="Essential coverage for small plastic manufacturing and processing units"
+              price="₹4L - ₹12L"
+              features={[
+                'Fire & Allied Perils Coverage',
+                'Machinery Breakdown (Basic)',
+                'Public Liability Insurance',
+                'Workmen Compensation',
+                'Product Liability (Basic)',
               ]}
+              recommended={false}
             />
-            <Step
-              title="Policy Architecture"
-              desc="Combined property/BI, GL/Product, recall, cyber, pollution, and breakdown modules."
-              points={[
-                'Named perils vs. all-risks',
-                'Sublimits and aggregates',
-                'Territory/jurisdiction alignment',
+            <InsurancePlan
+              name="Plastic Professional Plan"
+              description="Comprehensive coverage for established plastic manufacturers"
+              price="₹12L - ₹50L"
+              features={[
+                'All Starter Plan Benefits',
+                'Environmental Liability',
+                'Enhanced Product Liability',
+                'Business Interruption',
+                'Equipment Breakdown (Advanced)',
+                'Marine Transit Insurance',
               ]}
+              recommended={true}
             />
-            <Step
-              title="Placement & Claims"
-              desc="Multi-insurer quotes, benchmarked terms, and service-levels for notification-to-settlement."
-              points={['Adjustment protocols', 'On-account advances', 'Documentation playbooks']}
+            <InsurancePlan
+              name="Plastic Enterprise Plan"
+              description="Complete protection for large plastic manufacturing complexes"
+              price="₹50L+"
+              features={[
+                'All Professional Plan Benefits',
+                'International Product Liability',
+                'Crisis Management Services',
+                'Supply Chain Protection',
+                'Directors & Officers Liability',
+                'Dedicated Risk Management Support',
+              ]}
+              recommended={false}
             />
           </div>
         </div>
       </section>
 
-      {/* Typical Extensions */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Typical Extensions & Add-ons</h2>
-          <p className="mt-3 text-gray-700">
-            Strengthen coverage with targeted endorsements that reflect real operating conditions.
-          </p>
+      {/* Relevant Articles Component */}
+      <RelevantArticles articles={articles} industryName="Plastic Industry" />
 
-          <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {[
-              'ESCL/Escalation clause for inflation',
-              'Debris removal and professional fees',
-              'Deterioration of stock (temperature)',
-              'Contingent business interruption',
-              'Non-damage BI (utility outage)',
-              'Denial of access/public authority',
-              'Customers’ and suppliers’ premises',
-              'Brands and labels expenses',
-              'Error & omission in processing',
-              'Sue and labor/expediting costs',
-              'Spare parts and tooling floaters',
-              'Employee tools and personal effects',
-              'Equipment rental and hire charges',
-              'Cyber dependent business interruption',
-              'Environmental cleanup off-site',
-              'Transportation deviation/reefer cover',
-            ].map((txt) => (
-              <div key={txt} className="flex items-start rounded-lg border border-gray-200 p-5">
-                <FaChevronRight className="mt-1 mr-2 text-blue-400" />
-                <span className="text-sm">{txt}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Knowledge Questionnaire Component */}
+      <KnowledgeQuestionnaire questions={quizQuestions} industryName="Plastic Industry" />
 
-      {/* Premium Drivers */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Premium Drivers</h2>
-          <p className="mt-3 text-gray-700">
-            Underwriting parameters that typically influence pricing and terms.
-          </p>
-
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <CardStat
-              title="Asset Profile"
-              body="Machinery age, automation/robotics, tool values, redundancy and spares."
-              icon={<FaCog className="text-blue-500" />}
-            />
-            <CardStat
-              title="BI Exposure"
-              body="Throughput, cycle times, buffer stocks, alternate suppliers, logistics resilience."
-              icon={<FaChartLine className="text-blue-500" />}
-            />
-            <CardStat
-              title="Fire Protection"
-              body="Sprinklers/hydrants, spacing, dust management, housekeeping, electricals."
-              icon={<FaFire className="text-blue-500" />}
-            />
-            <CardStat
-              title="Quality & Recall"
-              body="Traceability depth, testing rigor, supplier controls, historical recalls."
-              icon={<FaBox className="text-blue-500" />}
-            />
-            <CardStat
-              title="Environmental"
-              body="Effluent treatment, emissions, solvent use, storage compliance, permits."
-              icon={<FaLeaf className="text-blue-500" />}
-            />
-            <CardStat
-              title="Cyber Hygiene"
-              body="Segregated OT/IT, backups, MFA, EDR, user training, incident response."
-              icon={<FaLock className="text-blue-500" />}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Case Snapshots */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Case Snapshots</h2>
-          <p className="mt-3 text-gray-700">
-            Realistic examples showing how program design and claims protocols respond.
-          </p>
-
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
-            <Case
-              title="Injection Molding Press Breakdown"
-              points={[
-                'EEI trigger for spindle failure; expedited parts via air freight covered.',
-                'Engineering BI supported payroll and temporary outsourcing.',
-                'Root-cause analysis offsets repeat exposure; deductible optimization.',
-              ]}
-            />
-            <Case
-              title="Food-Grade Film Contamination"
-              points={[
-                'Product recall and contamination policy funded pull-back and destruction.',
-                'Crisis consultant ran comms; brands/labels clause reduced losses.',
-                'Supplier audit enhanced; revised sieve and metal-detection controls.',
-              ]}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* What You Receive */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">What You Receive</h2>
-          <p className="mt-3 text-gray-700">
-            Clear deliverables and visibility from design to settlement.
-          </p>
-
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
-            <Card
-              icon={<FaClipboardCheck className="text-2xl text-blue-500" />}
-              title="Risk Survey & Gap Report"
-              body="Pre-placement risk engineering with practical controls to reduce loss likelihood and severity."
-              bullets={[
-                'Electrical thermography and MCC checks',
-                'Storage/segregation and fire water audits',
-                'Recall drill and traceability tests',
-              ]}
-            />
-            <Card
-              icon={<FaFileContract className="text-2xl text-blue-500" />}
-              title="Coverage Blueprint"
-              body="Structure, wordings, sub-limits, territories and endorsements aligned to customer contracts."
-              bullets={[
-                'Liability carve-outs and indemnities',
-                'Jurisdiction and arbitration fitment',
-                'Certificates for audits and tenders',
-              ]}
-            />
-            <Card
-              icon={<FaHandHoldingUsd className="text-2xl text-blue-500" />}
-              title="Claims Playbook"
-              body="Notification timelines, adjuster engagement, on-account strategies and evidence packs."
-              bullets={[
-                'Root-cause and CAPA templates',
-                'Inventory and rework quantification',
-                'Loss modeling and claim memos',
-              ]}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* CTA & Contact */}
+      {/* What you receive & CTA */}
       <section className="w-full bg-white">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="rounded-2xl border border-blue-200 bg-blue-50 p-8">
             <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-3">
               <div className="lg:col-span-2">
                 <h3 className="text-2xl font-bold text-gray-900">
-                  Build a Plastic Industry Insurance Program That Performs
+                  Shaping the Future. Protecting Every Process.
                 </h3>
                 <p className="mt-2 text-gray-700">
-                  Partner with SIIB’s manufacturing desk for better wordings, faster placement, and
-                  proactive claims management.
+                  Partner with SIIB's plastic industry specialists for comprehensive coverage,
+                  environmental protection, and expert risk management.
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row">
@@ -515,8 +534,8 @@ const PlasticIndustryInsurancePage = () => {
                   Request Proposal
                 </button>
                 <button className="inline-flex items-center justify-center rounded-lg border border-blue-200 bg-white px-6 py-3 font-semibold text-blue-700 hover:bg-blue-100">
-                  <FaLaptopCode className="mr-2" />
-                  Upload Risk Data
+                  <FaFileContract className="mr-2" />
+                  Upload Plant Data
                 </button>
               </div>
             </div>
@@ -528,7 +547,7 @@ const PlasticIndustryInsurancePage = () => {
             <Contact label="Email" value="contact.ins@shareindia.co.in" icon={<FaEnvelope />} />
             <Contact
               label="Advisory Desk"
-              value="Manufacturing Insurance Specialists"
+              value="Plastic Industry Insurance Specialists"
               icon={<FaHeadset />}
             />
           </div>
@@ -538,7 +557,7 @@ const PlasticIndustryInsurancePage = () => {
   );
 };
 
-/* Helper Components */
+/* Helpers */
 const Tile = ({
   icon,
   title,
@@ -583,64 +602,108 @@ const Card = ({
   </div>
 );
 
-const MiniCard = ({
+const RiskCard = ({
   icon,
   title,
-  children,
+  description,
+  severity,
+  frequency,
 }: {
   icon: React.ReactNode;
   title: string;
-  children: React.ReactNode;
+  description: string;
+  severity: string;
+  frequency: string;
 }) => (
-  <div className="rounded-xl border border-gray-200 p-6">
+  <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
     <div className="flex items-center gap-3">
-      <span className="text-xl text-blue-500">{icon}</span>
-      <h3 className="font-semibold">{title}</h3>
+      <span className="text-2xl text-red-500">{icon}</span>
+      <h3 className="text-lg font-semibold">{title}</h3>
     </div>
-    <p className="mt-2 text-sm text-gray-700">{children}</p>
+    <p className="mt-3 text-sm text-gray-700">{description}</p>
+    <div className="mt-4 flex gap-4">
+      <div className="flex items-center gap-2">
+        <span className="text-xs text-gray-500">Severity:</span>
+        <span
+          className={`rounded-full px-2 py-1 text-xs font-medium ${
+            severity === 'High'
+              ? 'bg-red-100 text-red-800'
+              : severity === 'Medium'
+                ? 'bg-yellow-100 text-yellow-800'
+                : 'bg-green-100 text-green-800'
+          }`}
+        >
+          {severity}
+        </span>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="text-xs text-gray-500">Frequency:</span>
+        <span
+          className={`rounded-full px-2 py-1 text-xs font-medium ${
+            frequency === 'High'
+              ? 'bg-red-100 text-red-800'
+              : frequency === 'Medium'
+                ? 'bg-yellow-100 text-yellow-800'
+                : 'bg-green-100 text-green-800'
+          }`}
+        >
+          {frequency}
+        </span>
+      </div>
+    </div>
   </div>
 );
 
-const CardPlain = ({ title, children }: { title: string; children: React.ReactNode }) => (
-  <div className="rounded-xl border border-gray-200 p-6">
-    <h3 className="text-lg font-semibold">{title}</h3>
-    <div className="mt-2 space-y-2">{children}</div>
-  </div>
-);
-
-const Bullet = ({ children }: { children: React.ReactNode }) => (
-  <div className="flex text-sm text-gray-700">
-    <FaChevronRight className="mt-1 mr-2 text-blue-400" />
-    <span>{children}</span>
-  </div>
-);
-
-const Step = ({ title, desc, points }: { title: string; desc: string; points: string[] }) => (
-  <div className="rounded-xl border border-gray-200 p-6">
-    <h3 className="text-lg font-semibold">{title}</h3>
-    <p className="mt-2 text-sm text-gray-700">{desc}</p>
-    <ul className="mt-4 space-y-1 text-sm text-gray-700">
-      {points.map((p) => (
-        <li key={p} className="flex">
-          <FaChevronRight className="mt-1 mr-2 text-blue-400" />
-          {p}
+const InsurancePlan = ({
+  name,
+  description,
+  price,
+  features,
+  recommended,
+}: {
+  name: string;
+  description: string;
+  price: string;
+  features: string[];
+  recommended: boolean;
+}) => (
+  <div
+    className={`rounded-xl border p-6 ${
+      recommended ? 'border-blue-500 bg-blue-50' : 'border-gray-200 bg-white'
+    }`}
+  >
+    {recommended && (
+      <div className="mb-4">
+        <span className="inline-flex items-center rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-800">
+          <FaCertificate className="mr-1" />
+          Recommended
+        </span>
+      </div>
+    )}
+    <h3 className="text-xl font-bold text-gray-900">{name}</h3>
+    <p className="mt-2 text-sm text-gray-600">{description}</p>
+    <div className="mt-4 flex items-center gap-2">
+      <FaRupeeSign className="text-blue-500" />
+      <span className="text-2xl font-bold text-blue-600">{price}</span>
+      <span className="text-sm text-gray-500">per year</span>
+    </div>
+    <ul className="mt-6 space-y-3">
+      {features.map((feature, index) => (
+        <li key={index} className="flex items-start gap-3">
+          <FaCheckCircle className="mt-1 text-green-500" />
+          <span className="text-sm text-gray-700">{feature}</span>
         </li>
       ))}
     </ul>
-  </div>
-);
-
-const Case = ({ title, points }: { title: string; points: string[] }) => (
-  <div className="rounded-xl border border-gray-200 p-6">
-    <h3 className="text-lg font-semibold">{title}</h3>
-    <ul className="mt-3 space-y-1 text-sm text-gray-700">
-      {points.map((p) => (
-        <li key={p} className="flex">
-          <FaChevronRight className="mt-1 mr-2 text-blue-400" />
-          {p}
-        </li>
-      ))}
-    </ul>
+    <button
+      className={`mt-6 w-full rounded-lg px-4 py-3 font-semibold ${
+        recommended
+          ? 'bg-blue-600 text-white hover:bg-blue-700'
+          : 'border border-blue-200 text-blue-700 hover:bg-blue-50'
+      }`}
+    >
+      Get Quote
+    </button>
   </div>
 );
 
@@ -656,27 +719,10 @@ const Contact = ({
   <div className="flex items-center justify-between rounded-lg border border-gray-200 p-5">
     <div>
       <div className="text-sm text-gray-500">{label}</div>
-      <div className="font-semibold">{value}</div>
+      <div className="font-semibeld">{value}</div>
     </div>
     <div className="text-xl text-blue-600">{icon}</div>
   </div>
 );
 
-// CardStat component definition
-const CardStat = ({
-  title,
-  body,
-  icon,
-}: {
-  title: string;
-  body: string;
-  icon: React.ReactNode;
-}) => (
-  <div className="flex flex-col items-start rounded-xl border border-gray-200 p-6">
-    <div className="mb-2">{icon}</div>
-    <h3 className="text-lg font-semibold">{title}</h3>
-    <p className="mt-2 text-sm text-gray-700">{body}</p>
-  </div>
-);
-
-export default PlasticIndustryInsurancePage;
+export default PlasticInsurancePage;

@@ -1,6 +1,6 @@
 # Share India Insurance - Modern Website (Next.js + Tailwind + TypeScript)
 
-This is the official frontend codebase for rebuilding the [Share India Insurance](https://shareindiainsurance.com/home/index.html) website using modern web technologies — **Next.js (App Router)**, **Tailwind CSS**, and **TypeScript**. The site is designed to be fully responsive, maintainable, SEO-friendly, and scalable.
+This is the official frontend codebase for rebuilding the [Share India Insurance](https://shareindiainsurance.com/) website using modern web technologies — **Next.js (App Router)**, **Tailwind CSS**, and **TypeScript**. The site is designed to be fully responsive, maintainable, SEO-friendly, and scalable.
 
 ---
 
@@ -8,7 +8,7 @@ This is the official frontend codebase for rebuilding the [Share India Insurance
 
 ### 🚀 Home Page
 
-- Catchy Short Intro
+- Hero Section
 - Featured Insights
 - Featured Impact Stories
 - Target Audience

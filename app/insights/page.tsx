@@ -55,14 +55,19 @@ export default function InsightsPage() {
   };
 
   return (
-    <div className="w-screen px-2 py-5 pt-[10vh] sm:px-4 md:px-6 lg:px-8 lg:pt-[15vh]">
-      <div className="flex flex-col gap-10 lg:flex-row lg:justify-between lg:gap-20">
+    <div className="section-vibrant-blue w-screen px-2 py-5 pt-[10vh] sm:px-4 md:px-6 lg:px-8 lg:pt-[15vh]">
+      <div className="bg-pattern-dots absolute inset-0 opacity-20" />
+      <div className="relative flex flex-col gap-10 lg:flex-row lg:justify-between lg:gap-20">
         {/* Heading/Intro */}
         <div className="flex flex-col items-center pt-4 lg:w-[25vw] lg:pt-10 lg:pl-4">
-          <h1 className="text-si-dark text-center text-3xl font-semibold sm:text-4xl md:text-5xl lg:w-[25vw] lg:text-left lg:text-6xl">
-            Featured Insights
+          <div className="from-si-primary/15 to-si-red/10 text-si-primary border-si-primary/20 mb-4 inline-flex items-center gap-2 rounded-full border bg-gradient-to-r px-4 py-2 text-xs font-bold tracking-wider uppercase backdrop-blur-sm">
+            <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full" />
+            Expert Insights
+          </div>
+          <h1 className="text-si-ink text-center text-3xl font-semibold sm:text-4xl md:text-5xl lg:w-[25vw] lg:text-left lg:text-6xl">
+            Featured <span className="text-gradient-primary">Insights</span>
           </h1>
-          <p className="text-si-dark/70 w-full pt-6 text-center text-base font-medium sm:text-lg lg:pt-10 lg:text-justify">
+          <p className="text-si-ink/80 w-full pt-6 text-center text-base font-medium sm:text-lg lg:pt-10 lg:text-justify">
             Explore expert-led articles and blogs from Share India Brokers featuring actionable
             insights on market trends, trading strategies, and the evolving Indian financial
             landscape.
@@ -74,17 +79,21 @@ export default function InsightsPage() {
       </div>
 
       {/* Filter Bar */}
-      <div className="mt-10 mb-10">
+      <div className="relative mt-10 mb-10">
         <InsightsFilterBar onFiltersChange={handleFiltersChange} />
       </div>
 
       {/* Results Section */}
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="section-spot-alt relative mx-auto max-w-7xl rounded-2xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="bg-pattern-grid absolute inset-0 rounded-2xl opacity-15" />
         {/* Results Counter */}
-        <div className="mb-6">
-          <p className="text-si-dark/60 text-sm">
-            Showing {filteredPosts.length} article{filteredPosts.length !== 1 ? 's' : ''}
-          </p>
+        <div className="relative mb-6">
+          <div className="flex items-center gap-3">
+            <div className="accent-bar-gradient h-2 w-12" />
+            <p className="text-si-ink/80 text-sm font-medium">
+              Showing {filteredPosts.length} article{filteredPosts.length !== 1 ? 's' : ''}
+            </p>
+          </div>
         </div>
 
         {/* Articles Grid */}
@@ -93,30 +102,31 @@ export default function InsightsPage() {
             {filteredPosts.map((post) => (
               <article
                 key={post.slug}
-                className="bg-si-white relative overflow-hidden rounded-lg shadow-md transition-shadow duration-300 hover:shadow-lg"
+                className="card-vibrant hover-lift hover-glow-blue relative overflow-hidden rounded-xl"
               >
-                <div className="from-si-bluegreen to-si-slate relative flex h-48 items-center justify-center bg-gradient-to-r">
+                <div className="from-si-primary/20 via-si-primary/10 to-si-red/5 relative flex h-48 items-center justify-center bg-gradient-to-br">
                   <Image
                     fill
                     src={post.image}
                     alt={post.title}
-                    className="h-16 w-16 object-contain opacity-50"
+                    className="h-16 w-16 object-contain opacity-60"
                   />
                   <div className="absolute top-4 left-4">
-                    <span className="bg-si-slate text-si-dark rounded-full px-3 py-1 text-sm">
+                    <span className="from-si-primary to-si-primary-600 rounded-full bg-gradient-to-r px-3 py-1.5 text-sm font-semibold text-white shadow-lg backdrop-blur-sm">
                       {post.category}
                     </span>
                   </div>
                   <div className="absolute top-4 right-4">
-                    <span className="bg-si-bluegreen/20 text-si-offwhite rounded-full px-3 py-1 text-xs font-medium uppercase">
+                    <span className="from-si-red/90 to-si-red rounded-full bg-gradient-to-r px-3 py-1.5 text-xs font-bold text-white uppercase shadow-lg backdrop-blur-sm">
                       {post.type.replace('_', ' ')}
                     </span>
                   </div>
                 </div>
                 <div className="p-6">
-                  <div className="text-si-bluegreen mb-3 flex items-center text-sm">
+                  <div className="accent-bar-gradient mb-3 h-2 w-12" />
+                  <div className="text-si-primary mb-3 flex items-center text-sm font-medium">
                     <span>{post.author}</span>
-                    <span className="mx-2">•</span>
+                    <span className="text-si-ink/40 mx-2">•</span>
                     <span>
                       {new Date(post.date).toLocaleDateString('en-IN', {
                         year: 'numeric',
@@ -124,27 +134,27 @@ export default function InsightsPage() {
                         day: 'numeric',
                       })}
                     </span>
-                    <span className="mx-2">•</span>
+                    <span className="text-si-ink/40 mx-2">•</span>
                     <span>{post.readTime}</span>
                   </div>
-                  <h2 className="text-si-dark hover:text-si-slate mb-3 line-clamp-2 text-xl font-bold transition-colors">
+                  <h2 className="text-si-ink hover:text-si-primary mb-3 line-clamp-2 text-xl font-bold transition-colors">
                     <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                   </h2>
                   <div className="mb-4 flex flex-wrap gap-2">
-                    <span className="bg-si-slate/20 text-si-dark rounded px-2 py-1 text-xs">
+                    <span className="from-si-primary/20 to-si-primary/10 text-si-primary border-si-primary/20 rounded-full border bg-gradient-to-r px-3 py-1 text-xs font-semibold">
                       {post.industry}
                     </span>
-                    <span className="bg-si-bluegreen/20 text-si-dark rounded px-2 py-1 text-xs">
+                    <span className="from-si-red/20 to-si-red/10 text-si-red border-si-red/20 rounded-full border bg-gradient-to-r px-3 py-1 text-xs font-semibold">
                       {post.topic.replace('_', ' ')}
                     </span>
                   </div>
                   <Link
                     href={`/blog/${post.slug}`}
-                    className="text-si-bluegreen hover:text-si-bluegreen/80 inline-flex items-center font-medium transition-colors"
+                    className="text-si-primary hover:text-si-primary-600 inline-flex items-center font-semibold transition-all hover:gap-3"
                   >
                     Read More
                     <svg
-                      className="ml-1 h-4 w-4"
+                      className="ml-2 h-4 w-4 transition-transform hover:translate-x-1"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -162,23 +172,25 @@ export default function InsightsPage() {
             ))}
           </div>
         ) : (
-          <div className="py-12 text-center">
-            <div className="mx-auto max-w-md">
-              <svg
-                className="text-si-dark/40 mx-auto mb-4 h-12 w-12"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                />
-              </svg>
-              <h3 className="text-si-dark mb-2 text-lg font-medium">No articles found</h3>
-              <p className="text-si-dark/60 text-sm">
+          <div className="relative py-12 text-center">
+            <div className="card-vibrant hover-lift mx-auto max-w-md rounded-xl p-8">
+              <div className="from-si-primary/20 to-si-red/10 mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br">
+                <svg
+                  className="text-si-primary h-8 w-8"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                  />
+                </svg>
+              </div>
+              <h3 className="text-si-ink mb-2 text-lg font-semibold">No articles found</h3>
+              <p className="text-si-ink/70 text-sm">
                 Try adjusting your filters to see more results.
               </p>
             </div>

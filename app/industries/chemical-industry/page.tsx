@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import {
   FaChevronRight,
@@ -20,9 +21,191 @@ import {
   FaPlug,
   FaLock,
   FaExclamationTriangle,
+  FaCheckCircle,
+  FaRupeeSign,
+  FaCertificate,
 } from 'react-icons/fa';
+import ClaimStories from '../../../components/industries/ClaimStories';
+import RelevantArticles from '../../../components/industries/RelevantArticles';
+import KnowledgeQuestionnaire from '../../../components/industries/KnowledgeQuestionnaire';
 
 const ChemicalInsurancePage = () => {
+  // Sample data for components
+  const claimStories = [
+    {
+      id: '1',
+      title: 'Chemical Plant Fire & Explosion',
+      description:
+        'A major petrochemical facility experienced a catastrophic fire due to equipment failure, resulting in significant property damage and business interruption.',
+      claimAmount: '₹45 Crores',
+      settlementTime: '8 months',
+      riskType: 'Fire & Explosion',
+      outcome: 'settled' as const,
+      lessons: [
+        'Regular equipment maintenance is crucial',
+        'Emergency response protocols saved lives',
+        'Business interruption coverage was essential',
+      ],
+    },
+    {
+      id: '2',
+      title: 'Environmental Contamination',
+      description:
+        'Chemical spill contaminated groundwater requiring extensive cleanup and third-party compensation.',
+      claimAmount: '₹12 Crores',
+      settlementTime: '14 months',
+      riskType: 'Environmental',
+      outcome: 'settled' as const,
+      lessons: [
+        'Environmental liability coverage is mandatory',
+        'Quick response minimizes damage',
+        'Regulatory compliance reduces penalties',
+      ],
+    },
+    {
+      id: '3',
+      title: 'Product Liability Claim',
+      description:
+        'Defective chemical batch caused damage to customer manufacturing process, leading to liability claims.',
+      claimAmount: '₹8 Crores',
+      settlementTime: '6 months',
+      riskType: 'Product Liability',
+      outcome: 'settled' as const,
+      lessons: [
+        'Quality control processes are vital',
+        'Product liability insurance protects reputation',
+        'Documentation helps in claim settlement',
+      ],
+    },
+    {
+      id: '4',
+      title: 'Cyber Attack on Control Systems',
+      description:
+        'Ransomware attack on industrial control systems caused production shutdown and data breach.',
+      claimAmount: '₹5 Crores',
+      settlementTime: '4 months',
+      riskType: 'Cyber Security',
+      outcome: 'settled' as const,
+      lessons: [
+        'OT/ICS systems need cyber protection',
+        'Backup systems are essential',
+        'Cyber insurance covers business interruption',
+      ],
+    },
+  ];
+
+  const articles = [
+    {
+      id: '1',
+      title: 'New Chemical Safety Regulations 2024: What Manufacturers Need to Know',
+      excerpt:
+        'Comprehensive guide to the latest safety regulations affecting chemical manufacturers and their insurance implications.',
+      author: 'Dr. Rajesh Kumar',
+      publishDate: 'Mar 15, 2024',
+      readTime: '8 min read',
+      category: 'Regulations',
+      url: '#',
+      featured: true,
+    },
+    {
+      id: '2',
+      title: 'Risk Management in Petrochemical Plants: Best Practices',
+      excerpt:
+        'Essential risk management strategies for petrochemical facilities to minimize operational risks and insurance costs.',
+      author: 'Priya Sharma',
+      publishDate: 'Feb 28, 2024',
+      readTime: '6 min read',
+      category: 'Risk Management',
+      url: '#',
+    },
+    {
+      id: '3',
+      title: 'Environmental Liability Trends in Chemical Industry',
+      excerpt:
+        'Analysis of recent environmental liability claims and emerging trends in chemical industry insurance.',
+      author: 'Amit Patel',
+      publishDate: 'Feb 10, 2024',
+      readTime: '5 min read',
+      category: 'Environmental',
+      url: '#',
+    },
+  ];
+
+  const quizQuestions = [
+    {
+      id: '1',
+      question: 'What is the most critical factor in chemical plant fire prevention?',
+      options: [
+        'Having fire extinguishers',
+        'Regular equipment maintenance and inspection',
+        'Training employees only',
+        'Installing alarms',
+      ],
+      correctAnswer: 1,
+      explanation:
+        'Regular equipment maintenance and inspection is crucial as most chemical plant fires are caused by equipment failure, leaks, or malfunctions.',
+      difficulty: 'medium' as const,
+    },
+    {
+      id: '2',
+      question:
+        'Which insurance coverage is mandatory for chemical manufacturers handling hazardous substances?',
+      options: [
+        'Product liability only',
+        'Environmental liability insurance',
+        'Fire insurance only',
+        'Marine insurance',
+      ],
+      correctAnswer: 1,
+      explanation:
+        'Environmental liability insurance is mandatory for chemical manufacturers as they handle hazardous substances that can cause environmental damage.',
+      difficulty: 'easy' as const,
+    },
+    {
+      id: '3',
+      question: 'What does HAZOP stand for in chemical industry risk assessment?',
+      options: [
+        'Hazard and Operability Study',
+        'Hazardous Operations Protocol',
+        'Health and Safety Operations',
+        'Hazard Analysis and Prevention',
+      ],
+      correctAnswer: 0,
+      explanation:
+        'HAZOP (Hazard and Operability Study) is a systematic examination technique used to identify potential hazards and operational problems.',
+      difficulty: 'hard' as const,
+    },
+    {
+      id: '4',
+      question: 'Which factor most affects chemical industry insurance premiums?',
+      options: [
+        'Company size',
+        'Location only',
+        'Risk management practices and safety record',
+        'Number of employees',
+      ],
+      correctAnswer: 2,
+      explanation:
+        'Risk management practices and safety record are the most significant factors as they directly indicate the likelihood of claims.',
+      difficulty: 'medium' as const,
+    },
+    {
+      id: '5',
+      question:
+        'What is the typical coverage limit recommended for chemical plant business interruption insurance?',
+      options: [
+        '6 months of revenue',
+        '12-18 months of revenue',
+        '3 months of revenue',
+        '24 months of revenue',
+      ],
+      correctAnswer: 1,
+      explanation:
+        '12-18 months of revenue is typically recommended as chemical plant repairs and restart can take considerable time after major incidents.',
+      difficulty: 'medium' as const,
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-white pt-[8vh] text-gray-900">
       {/* Hero */}
@@ -267,6 +450,126 @@ const ChemicalInsurancePage = () => {
         </div>
       </section>
 
+      {/* Sample Risks */}
+      <section className="w-full border-b border-gray-100 bg-gray-50">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold md:text-3xl">Common Risks in Chemical Industry</h2>
+          <p className="mt-3 text-gray-700">
+            Understanding key risks helps in selecting appropriate insurance coverage for your
+            chemical operations.
+          </p>
+
+          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <RiskCard
+              icon={<FaFire />}
+              title="Fire & Explosion"
+              description="Chemical reactions, equipment failure, and flammable material handling pose significant fire and explosion risks."
+              severity="High"
+              frequency="Medium"
+            />
+            <RiskCard
+              icon={<FaLeaf />}
+              title="Environmental Contamination"
+              description="Chemical spills, emissions, and waste disposal can cause environmental damage and regulatory penalties."
+              severity="High"
+              frequency="Medium"
+            />
+            <RiskCard
+              icon={<FaBiohazard />}
+              title="Product Liability"
+              description="Defective chemical products can cause damage to customers and end-users, leading to liability claims."
+              severity="Medium"
+              frequency="Low"
+            />
+            <RiskCard
+              icon={<FaTools />}
+              title="Equipment Breakdown"
+              description="Critical equipment failure in reactors, distillation columns, and control systems can halt production."
+              severity="Medium"
+              frequency="High"
+            />
+            <RiskCard
+              icon={<FaLock />}
+              title="Cyber Security"
+              description="Cyber attacks on industrial control systems can disrupt operations and compromise safety systems."
+              severity="High"
+              frequency="Medium"
+            />
+            <RiskCard
+              icon={<FaTruckMoving />}
+              title="Transportation Risks"
+              description="Hazardous material transportation poses risks of accidents, spills, and regulatory violations."
+              severity="Medium"
+              frequency="Medium"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Claim Stories Component */}
+      <ClaimStories stories={claimStories} industryName="Chemical Industry" />
+
+      {/* Insurance Plans/Products */}
+      <section className="w-full border-b border-gray-100 bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold md:text-3xl">Insurance Plans for Chemical Industry</h2>
+          <p className="mt-3 text-gray-700">
+            Comprehensive insurance solutions tailored for different segments of the chemical
+            industry.
+          </p>
+
+          <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
+            <InsurancePlan
+              name="Chemical Starter Plan"
+              description="Essential coverage for small chemical manufacturers and distributors"
+              price="₹2.5L - ₹5L"
+              features={[
+                'Fire & Allied Perils Coverage',
+                'Public Liability Insurance',
+                'Product Liability (Basic)',
+                'Workmen Compensation',
+                'Marine Transit Insurance',
+              ]}
+              recommended={false}
+            />
+            <InsurancePlan
+              name="Chemical Professional Plan"
+              description="Comprehensive coverage for medium-scale chemical operations"
+              price="₹5L - ₹25L"
+              features={[
+                'All Starter Plan Benefits',
+                'Environmental Liability',
+                'Equipment Breakdown',
+                'Business Interruption',
+                'Cyber Liability (Basic)',
+                'Directors & Officers Liability',
+              ]}
+              recommended={true}
+            />
+            <InsurancePlan
+              name="Chemical Enterprise Plan"
+              description="Complete protection for large chemical manufacturing complexes"
+              price="₹25L+"
+              features={[
+                'All Professional Plan Benefits',
+                'Advanced Cyber & OT Protection',
+                'International Coverage',
+                'Crisis Management',
+                'Recall Insurance',
+                'Dedicated Claims Manager',
+              ]}
+              recommended={false}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Relevant Articles Component */}
+      <RelevantArticles articles={articles} industryName="Chemical Industry" />
+
+      {/* Knowledge Questionnaire Component */}
+      <KnowledgeQuestionnaire questions={quizQuestions} industryName="Chemical Industry" />
+
       {/* What you receive & CTA */}
       <section className="w-full bg-white">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
@@ -403,6 +706,112 @@ const Contact = ({
       <div className="font-semibold">{value}</div>
     </div>
     <div className="text-xl text-blue-600">{icon}</div>
+  </div>
+);
+
+// Additional Helper Components
+const RiskCard = ({
+  icon,
+  title,
+  description,
+  severity,
+  frequency,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  severity: string;
+  frequency: string;
+}) => (
+  <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+    <div className="flex items-center gap-3">
+      <span className="text-2xl text-red-500">{icon}</span>
+      <h3 className="text-lg font-semibold">{title}</h3>
+    </div>
+    <p className="mt-3 text-sm text-gray-700">{description}</p>
+    <div className="mt-4 flex gap-4">
+      <div className="flex items-center gap-2">
+        <span className="text-xs text-gray-500">Severity:</span>
+        <span
+          className={`rounded-full px-2 py-1 text-xs font-medium ${
+            severity === 'High'
+              ? 'bg-red-100 text-red-800'
+              : severity === 'Medium'
+                ? 'bg-yellow-100 text-yellow-800'
+                : 'bg-green-100 text-green-800'
+          }`}
+        >
+          {severity}
+        </span>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="text-xs text-gray-500">Frequency:</span>
+        <span
+          className={`rounded-full px-2 py-1 text-xs font-medium ${
+            frequency === 'High'
+              ? 'bg-red-100 text-red-800'
+              : frequency === 'Medium'
+                ? 'bg-yellow-100 text-yellow-800'
+                : 'bg-green-100 text-green-800'
+          }`}
+        >
+          {frequency}
+        </span>
+      </div>
+    </div>
+  </div>
+);
+
+const InsurancePlan = ({
+  name,
+  description,
+  price,
+  features,
+  recommended,
+}: {
+  name: string;
+  description: string;
+  price: string;
+  features: string[];
+  recommended: boolean;
+}) => (
+  <div
+    className={`rounded-xl border p-6 ${
+      recommended ? 'border-blue-500 bg-blue-50' : 'border-gray-200 bg-white'
+    }`}
+  >
+    {recommended && (
+      <div className="mb-4">
+        <span className="inline-flex items-center rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-800">
+          <FaCertificate className="mr-1" />
+          Recommended
+        </span>
+      </div>
+    )}
+    <h3 className="text-xl font-bold text-gray-900">{name}</h3>
+    <p className="mt-2 text-sm text-gray-600">{description}</p>
+    <div className="mt-4 flex items-center gap-2">
+      <FaRupeeSign className="text-blue-500" />
+      <span className="text-2xl font-bold text-blue-600">{price}</span>
+      <span className="text-sm text-gray-500">per year</span>
+    </div>
+    <ul className="mt-6 space-y-3">
+      {features.map((feature, index) => (
+        <li key={index} className="flex items-start gap-3">
+          <FaCheckCircle className="mt-1 text-green-500" />
+          <span className="text-sm text-gray-700">{feature}</span>
+        </li>
+      ))}
+    </ul>
+    <button
+      className={`mt-6 w-full rounded-lg px-4 py-3 font-semibold ${
+        recommended
+          ? 'bg-blue-600 text-white hover:bg-blue-700'
+          : 'border border-blue-200 text-blue-700 hover:bg-blue-50'
+      }`}
+    >
+      Get Quote
+    </button>
   </div>
 );
 

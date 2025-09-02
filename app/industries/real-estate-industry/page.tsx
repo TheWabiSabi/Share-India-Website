@@ -1,33 +1,206 @@
+'use client';
 import React from 'react';
 import {
   FaChevronRight,
   FaShieldAlt,
   FaBuilding,
-  FaWarehouse,
-  FaCity,
   FaHome,
-  FaTools,
-  FaBox,
+  FaHammer,
+  FaLeaf,
   FaFire,
   FaWater,
   FaWind,
-  FaLock,
-  FaLeaf,
-  FaBug,
+  FaWarehouse,
+  FaTruckMoving,
   FaUserShield,
-  FaUsers,
-  FaRegClipboard,
   FaFileContract,
   FaPhoneAlt,
   FaEnvelope,
   FaHeadset,
-  FaHandshake,
-  FaChartLine,
-  FaClipboardCheck,
-  FaGlobe,
+  FaTools,
+  FaPlug,
+  FaLock,
+  FaExclamationTriangle,
+  FaCheckCircle,
+  FaRupeeSign,
+  FaCertificate,
+  FaKey,
+  FaCity,
 } from 'react-icons/fa';
+import ClaimStories from '../../../components/industries/ClaimStories';
+import RelevantArticles from '../../../components/industries/RelevantArticles';
+import KnowledgeQuestionnaire from '../../../components/industries/KnowledgeQuestionnaire';
 
 const RealEstateInsurancePage = () => {
+  // Sample data for components
+  const claimStories = [
+    {
+      id: '1',
+      title: 'High-Rise Construction Accident',
+      description:
+        'Crane collapse during high-rise construction caused multiple injuries and property damage, leading to significant liability claims.',
+      claimAmount: '₹85 Crores',
+      settlementTime: '16 months',
+      riskType: 'Construction Accident',
+      outcome: 'settled' as const,
+      lessons: [
+        'Comprehensive construction insurance is essential for high-rise projects',
+        'Safety protocols and equipment maintenance prevent accidents',
+        'Third-party liability coverage protects against injury claims',
+      ],
+    },
+    {
+      id: '2',
+      title: 'Commercial Building Fire',
+      description:
+        'Electrical fault caused fire in commercial complex, damaging multiple units and causing business interruption for tenants.',
+      claimAmount: '₹45 Crores',
+      settlementTime: '12 months',
+      riskType: 'Property Fire',
+      outcome: 'settled' as const,
+      lessons: [
+        'Fire safety systems in commercial buildings are critical',
+        'Property insurance covers building and tenant improvements',
+        'Loss of rent coverage protects against income loss',
+      ],
+    },
+    {
+      id: '3',
+      title: 'Professional Liability - Design Error',
+      description:
+        'Structural design error in residential project led to safety concerns and costly remediation work.',
+      claimAmount: '₹25 Crores',
+      settlementTime: '18 months',
+      riskType: 'Professional Liability',
+      outcome: 'settled' as const,
+      lessons: [
+        'Professional indemnity insurance protects against design errors',
+        'Quality assurance and peer reviews reduce risks',
+        'Early detection of issues minimizes remediation costs',
+      ],
+    },
+    {
+      id: '4',
+      title: 'Natural Disaster - Cyclone Damage',
+      description:
+        'Severe cyclone damaged multiple residential projects under construction, causing delays and additional costs.',
+      claimAmount: '₹35 Crores',
+      settlementTime: '8 months',
+      riskType: 'Natural Disaster',
+      outcome: 'settled' as const,
+      lessons: [
+        'Weather-resistant construction reduces damage',
+        'Natural catastrophe coverage is essential in vulnerable areas',
+        'Proper project scheduling considers seasonal risks',
+      ],
+    },
+  ];
+
+  const articles = [
+    {
+      id: '1',
+      title: 'Real Estate Insurance Trends 2024: Smart Buildings and IoT Risks',
+      excerpt:
+        'How smart building technologies are creating new risk profiles and insurance requirements in real estate.',
+      author: 'Vikash Agarwal',
+      publishDate: 'Apr 10, 2024',
+      readTime: '8 min read',
+      category: 'Smart Buildings',
+      url: '#',
+      featured: true,
+    },
+    {
+      id: '2',
+      title: 'RERA Compliance and Insurance: What Developers Need to Know',
+      excerpt:
+        'Understanding RERA requirements and how insurance coverage supports regulatory compliance for real estate projects.',
+      author: 'Priya Malhotra',
+      publishDate: 'Mar 30, 2024',
+      readTime: '7 min read',
+      category: 'Regulatory Compliance',
+      url: '#',
+    },
+    {
+      id: '3',
+      title: 'Construction Risk Management in High-Rise Projects',
+      excerpt:
+        'Best practices for managing construction risks and insurance coverage in high-rise residential and commercial projects.',
+      author: 'Rajesh Khanna',
+      publishDate: 'Mar 22, 2024',
+      readTime: '9 min read',
+      category: 'Construction Risk',
+      url: '#',
+    },
+  ];
+
+  const quizQuestions = [
+    {
+      id: '1',
+      question: 'What is the most critical insurance coverage for real estate developers?',
+      options: [
+        'Fire insurance only',
+        'Contractors All Risk (CAR) insurance',
+        'Motor vehicle insurance',
+        'Personal accident insurance',
+      ],
+      correctAnswer: 1,
+      explanation:
+        'Contractors All Risk (CAR) insurance is essential as it covers construction risks, material damage, and third-party liability during development.',
+      difficulty: 'easy' as const,
+    },
+    {
+      id: '2',
+      question: 'Which regulation primarily governs real estate development in India?',
+      options: [
+        'Companies Act',
+        'Real Estate (Regulation and Development) Act (RERA)',
+        'Building Code only',
+        'Environmental Protection Act',
+      ],
+      correctAnswer: 1,
+      explanation:
+        'RERA 2016 is the primary legislation governing real estate development, establishing regulatory authorities and protecting buyer interests.',
+      difficulty: 'medium' as const,
+    },
+    {
+      id: '3',
+      question: 'What does "Defects Liability Period" mean in construction insurance?',
+      options: [
+        'Period when defects are not covered',
+        'Period during which contractor remains liable for defects',
+        'Period for reporting defects only',
+        'Period for insurance premium payment',
+      ],
+      correctAnswer: 1,
+      explanation:
+        'Defects Liability Period is the time after completion during which the contractor remains responsible for rectifying defects.',
+      difficulty: 'hard' as const,
+    },
+    {
+      id: '4',
+      question: 'Which type of property insurance is mandatory for housing societies?',
+      options: [
+        'Fire insurance for common areas',
+        'Comprehensive building insurance',
+        'Individual unit insurance only',
+        'No mandatory insurance',
+      ],
+      correctAnswer: 0,
+      explanation:
+        'Fire insurance for common areas is typically mandatory under society bylaws and state cooperative housing regulations.',
+      difficulty: 'medium' as const,
+    },
+    {
+      id: '5',
+      question: 'What is the typical construction period coverage for high-rise projects?',
+      options: ['1-2 years', '2-3 years', '3-5 years', '5+ years'],
+      correctAnswer: 2,
+      explanation:
+        '3-5 years is typical for high-rise projects, considering planning, construction, and completion phases with potential delays.',
+      difficulty: 'medium' as const,
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-white pt-[8vh] text-gray-900">
       {/* Hero */}
@@ -38,8 +211,8 @@ const RealEstateInsurancePage = () => {
               Real Estate Industry Insurance Solutions
             </h1>
             <p className="mt-6 text-lg text-gray-700 md:text-xl">
-              Integrated risk programs for developers, REITs, asset managers, and facility operators
-              across residential, commercial, retail, warehousing, and mixed-use portfolios.
+              Comprehensive coverage for real estate development, construction, and property
+              management—protecting investments from ground-breaking to occupancy.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <button className="inline-flex items-center justify-center rounded-lg bg-blue-100 px-6 py-3 font-semibold text-blue-800 hover:bg-blue-200">
@@ -56,8 +229,82 @@ const RealEstateInsurancePage = () => {
               </button>
             </div>
             <div className="mt-4 text-sm text-gray-600">
-              SIIB brokerage for end-to-end placement and claims support across construction,
-              operations, leasing, and asset disposition.
+              Specialized coverage for residential, commercial, and mixed-use developments with RERA
+              compliance support.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Industry Explanation */}
+      <section className="w-full border-b border-gray-100 bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold md:text-3xl">
+            Understanding Real Estate Industry Insurance
+          </h2>
+          <p className="mt-3 text-gray-700">
+            The real estate industry involves significant capital investments, long development
+            cycles, and complex stakeholder relationships. Comprehensive insurance coverage is
+            essential for protecting these investments and ensuring project success.
+          </p>
+
+          <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2">
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900">Industry Overview</h3>
+              <p className="mt-3 text-gray-700">
+                Real estate development encompasses residential, commercial, and mixed-use projects
+                involving complex construction processes, regulatory compliance, and market risks.
+                The industry faces risks from construction accidents, natural disasters, design
+                errors, and regulatory changes. With RERA implementation and increasing buyer
+                awareness, insurance has become crucial for developer credibility and project
+                financing.
+              </p>
+              <ul className="mt-4 space-y-2 text-sm text-gray-700">
+                <li className="flex items-start">
+                  <FaChevronRight className="mt-1 mr-2 text-blue-400" />
+                  Multi-year projects with significant capital exposure
+                </li>
+                <li className="flex items-start">
+                  <FaChevronRight className="mt-1 mr-2 text-blue-400" />
+                  RERA compliance requirements for buyer protection
+                </li>
+                <li className="flex items-start">
+                  <FaChevronRight className="mt-1 mr-2 text-blue-400" />
+                  Professional liability risks for architects and engineers
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900">Key Development Types</h3>
+              <div className="mt-3 space-y-3">
+                <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
+                  <FaHome className="text-blue-500" />
+                  <div>
+                    <div className="font-medium">Residential Projects</div>
+                    <div className="text-sm text-gray-600">
+                      Apartments, villas, and gated communities
+                    </div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
+                  <FaBuilding className="text-blue-500" />
+                  <div>
+                    <div className="font-medium">Commercial Developments</div>
+                    <div className="text-sm text-gray-600">
+                      Office complexes, retail, and hospitality
+                    </div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
+                  <FaCity className="text-blue-500" />
+                  <div>
+                    <div className="font-medium">Mixed-Use Projects</div>
+                    <div className="text-sm text-gray-600">
+                      Integrated townships and smart cities
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -68,376 +315,218 @@ const RealEstateInsurancePage = () => {
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold md:text-3xl">Who We Serve</h2>
           <p className="mt-3 text-gray-700">
-            Coverage architectures aligned to every stage of the real estate lifecycle—from
-            development to stabilized operations.
+            Tailored insurance solutions for every stakeholder in the real estate ecosystem.
           </p>
+
           <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <Tile icon={<FaBuilding />} title="Developers & SPVs">
-              Residential townships, commercial towers, malls, hotels, co-working, mixed-use assets.
+            <Tile icon={<FaBuilding />} title="Real Estate Developers">
+              Residential and commercial project developers, including listed and private companies.
             </Tile>
-            <Tile icon={<FaWarehouse />} title="Logistics & Industrial Parks">
-              Grade-A warehousing, BTS facilities, last-mile hubs, cold storage parks.
+            <Tile icon={<FaHammer />} title="Construction Companies">
+              EPC contractors, civil contractors, and specialized construction service providers.
             </Tile>
-            <Tile icon={<FaCity />} title="REITs & Asset Managers">
-              Office portfolios, retail centers, multi-family, strata, and strata associations.
+            <Tile icon={<FaKey />} title="Property Managers">
+              Facility management companies, property consultants, and maintenance service
+              providers.
             </Tile>
-            <Tile icon={<FaHome />} title="Landlords & HOAs">
-              Rental assets, leasehold interests, housing societies, facility management.
+            <Tile icon={<FaUserShield />} title="Design Professionals">
+              Architects, structural engineers, and project management consultants.
             </Tile>
           </div>
         </div>
       </section>
+
+      {/* Sample Risks */}
+      <section className="w-full border-b border-gray-100 bg-gray-50">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold md:text-3xl">Common Risks in Real Estate Industry</h2>
+          <p className="mt-3 text-gray-700">
+            Understanding key risks helps in selecting appropriate insurance coverage for your real
+            estate operations.
+          </p>
+
+          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <RiskCard
+              icon={<FaHammer />}
+              title="Construction Risks"
+              description="Accidents, structural failures, and construction defects during development phase."
+              severity="High"
+              frequency="Medium"
+            />
+            <RiskCard
+              icon={<FaWater />}
+              title="Natural Disasters"
+              description="Earthquakes, floods, cyclones affecting construction and completed properties."
+              severity="High"
+              frequency="Medium"
+            />
+            <RiskCard
+              icon={<FaUserShield />}
+              title="Professional Liability"
+              description="Design errors, engineering mistakes, and professional negligence claims."
+              severity="Medium"
+              frequency="Low"
+            />
+            <RiskCard
+              icon={<FaFileContract />}
+              title="Regulatory & Legal Risks"
+              description="RERA compliance, approval delays, and legal disputes with buyers."
+              severity="Medium"
+              frequency="Medium"
+            />
+            <RiskCard
+              icon={<FaFire />}
+              title="Property Damage"
+              description="Fire, theft, and vandalism affecting completed properties and construction sites."
+              severity="Medium"
+              frequency="Medium"
+            />
+            <RiskCard
+              icon={<FaExclamationTriangle />}
+              title="Project Delays"
+              description="Construction delays, cost overruns, and delivery timeline extensions."
+              severity="Medium"
+              frequency="High"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Claim Stories Component */}
+      <ClaimStories stories={claimStories} industryName="Real Estate Industry" />
 
       {/* Core coverage suite */}
       <section className="w-full border-b border-gray-100 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold md:text-3xl">Core Coverage Suite</h2>
           <p className="mt-3 text-gray-700">
-            Foundation policies that protect property value, income streams, and liabilities to
-            occupants and the public.
-          </p>
-
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
-            <Card
-              icon={<FaBuilding className="text-2xl text-blue-500" />}
-              title="Property & Loss of Income"
-              body="All-risk or named-perils protection for structures, interiors, mechanical/electrical/plumbing, with loss of rent/business interruption for insured damage."
-              bullets={[
-                'Perils: Fire, STFI, RSMD, earthquake, burglary, impact',
-                'Add-ons: Debris removal, professional fees, escalation, tenant improvements',
-                'Loss of rent: Waiting period, indemnity period, alternative accommodation',
-              ]}
-            />
-            <Card
-              icon={<FaUserShield className="text-2xl text-blue-500" />}
-              title="Premises & Umbrella Liability"
-              body="Bodily injury and property damage to third parties at owned/managed premises, including tenant legal liability and completed operations."
-              bullets={[
-                'Slip, trip, falls; falling objects; glazing, facade risks',
-                'Contractor protective and additional insured endorsements',
-                'Jurisdiction/territory fitment for cross-border tenants',
-              ]}
-            />
-          </div>
-
-          <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
-            <Card
-              icon={<FaLock className="text-2xl text-blue-500" />}
-              title="Crime & Cyber for Real Estate"
-              body="Protection against employee/computer fraud, funds transfer, ransomware, and privacy events in connected buildings."
-              bullets={[
-                'Social engineering and vendor fraud',
-                'BMS/IoT/SCADA cyber with contingent BI',
-                'Incident response, forensics, data restoration',
-              ]}
-            />
-            <Card
-              icon={<FaRegClipboard className="text-2xl text-blue-500" />}
-              title="Management & Professional"
-              body="D&O for REITs/SPVs, EPLI for large facilities, and PI for property managers/agents for alleged negligence."
-              bullets={[
-                'Defense costs, investigations, settlements',
-                'Outside directorship and prospectus liability options',
-                'Misrepresentation, wrongful eviction, discrimination',
-              ]}
-            />
-          </div>
-
-          <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
-            <Card
-              icon={<FaLeaf className="text-2xl text-blue-500" />}
-              title="Environmental & Pollution"
-              body="Sudden/gradual pollution, mold, asbestos, and clean-up liabilities for redevelopment and operations."
-              bullets={[
-                'On-site/off-site clean-up and third-party BI/PD',
-                'Storage tanks, waste handling, contractor pollution',
-                'Regulatory defense and civil fines where insurable',
-              ]}
-            />
-            <Card
-              icon={<FaBox className="text-2xl text-blue-500" />}
-              title="Equipment & Breakdown"
-              body="Electrical/mechanical breakdown of HVAC, elevators, pumps, DG, solar rooftops—plus engineering BI for critical outages."
-              bullets={[
-                'Power surge, boiler explosion, breakdown of BMS',
-                'Spares, expediting, temporary rentals',
-                'Extended outage endorsements for mission-critical sites',
-              ]}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Operational risks */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Operational Risks</h2>
-          <p className="mt-3 text-gray-700">
-            Typical hazard scenarios addressed in modern portfolios and smart buildings.
-          </p>
-
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <MiniCard icon={<FaFire />} title="Fire & Life Safety">
-              Fire load, LPG/FO stores, hot works, evacuation, impairment control for sprinklers and
-              hydrants.
-            </MiniCard>
-            <MiniCard icon={<FaWater />} title="Water & Flood">
-              Water ingress, sump overflows, basement flooding; backflow and drainage controls.
-            </MiniCard>
-            <MiniCard icon={<FaWind />} title="Wind & Impact">
-              Facade/glazing failures, signage fall, crane/vehicle impact, rooftop solar hazards.
-            </MiniCard>
-            <MiniCard icon={<FaBug />} title="Mold & Hygiene">
-              HVAC moisture, mold proliferation, IAQ management, remediation protocols.
-            </MiniCard>
-            <MiniCard icon={<FaLock />} title="Security & Access">
-              Access control, CCTV coverage, perimeter security, visitor/vendor management.
-            </MiniCard>
-            <MiniCard icon={<FaUsers />} title="Tenant & Public">
-              Crowd management, events, escalator/elevator safety, childcare/eldercare premises.
-            </MiniCard>
-          </div>
-        </div>
-      </section>
-
-      {/* Leasing, rent & supply chain */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Leasing, Rent & Supply Chain</h2>
-          <p className="mt-3 text-gray-700">
-            Keep income streams stable and align coverage to lease obligations and tenant
+            Comprehensive protection designed specifically for real estate development and property
             operations.
           </p>
 
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
-            <CardPlain title="Loss of Rent & Denial of Access">
-              <Bullet>
-                Waiting period, indemnity period, and dependency mapping for anchor tenants.
-              </Bullet>
-              <Bullet>
-                Public authority closure and non-damage BI endorsements where available.
-              </Bullet>
-              <Bullet>
-                Alternative accommodation and fit-out timelines for malls and offices.
-              </Bullet>
-            </CardPlain>
-            <CardPlain title="Tenant Improvements & Fit-Out">
-              <Bullet>
-                Coverage for interiors, signage, fit-out works, and defects under liability.
-              </Bullet>
-              <Bullet>Waiver of subrogation and contractual liability alignment.</Bullet>
-              <Bullet>Certificate issuance for tenant audit requirements.</Bullet>
-            </CardPlain>
-            <CardPlain title="Logistics & On-site Operations">
-              <Bullet>Marine/transit for inbound materials, critical spares, and FFE.</Bullet>
-              <Bullet>Contractor liability and vendor management for facility operations.</Bullet>
-              <Bullet>Elevator/escalator maintenance and breakdown alignment.</Bullet>
-            </CardPlain>
-          </div>
-        </div>
-      </section>
-
-      {/* Program design & placement */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Program Design & Placement</h2>
-          <p className="mt-3 text-gray-700">
-            Portfolio-level structures with schedules, sub-limits, and deductibles tuned to risk
-            appetite.
-          </p>
-
-          <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
-            <Step
-              title="Exposure Mapping"
-              desc="Occupancy, construction, protection (COPE), valuations, income streams, and critical utilities."
-              points={[
-                'Earthquake/flood zoning',
-                'Aging MEP & retrofits',
-                'Anchor/footfall dependencies',
-              ]}
-            />
-            <Step
-              title="Policy Architecture"
-              desc="Master policies with location schedules, difference-in-conditions, and lender/tenant endorsements."
-              points={[
-                'Sublimits and aggregates',
-                'Jurisdiction and territory',
-                'Named insureds/additional insureds',
-              ]}
-            />
-            <Step
-              title="Placement & Claims"
-              desc="Multi-insurer panels, agreed claims protocols, and SLAs from notification to settlement."
-              points={[
-                'On-account advances',
-                'Loss adjuster engagement',
-                'Evidence and repair validation',
-              ]}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Extensions & add-ons */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Typical Extensions & Add-ons</h2>
-          <p className="mt-3 text-gray-700">
-            Strengthen coverage with endorsements tuned to lease, lender, and regulatory needs.
-          </p>
-
-          <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {[
-              'Escalation & inflation guard',
-              'Debris removal & professional fees',
-              'Tenant improvements & betterments',
-              'Denial of access & civil authority',
-              'Utility services (on/off premises)',
-              'Breakdown of HVAC/elevators',
-              'Glass and facade extensions',
-              'Flood maps and basement cover',
-              'EQ add-on with sublimits by zone',
-              'Crime—employee theft and EFT',
-              'Cyber dependent BI for smart systems',
-              'Environmental cleanup & mold',
-              'Terrorism and sabotage (as available)',
-              'Public liability for events/common areas',
-              'Equipment rental & expediting costs',
-            ].map((txt) => (
-              <div key={txt} className="flex items-start rounded-lg border border-gray-200 p-5">
-                <FaChevronRight className="mt-1 mr-2 text-blue-400" />
-                <span className="text-sm">{txt}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Premium drivers */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Premium Drivers</h2>
-          <p className="mt-3 text-gray-700">
-            Key underwriting parameters that typically influence pricing and terms.
-          </p>
-
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <CardStat
-              title="Construction & Age"
-              body="Structure type, retrofits, fireproofing, and MEP condition."
-              icon={<FaTools className="text-blue-500" />}
-            />
-            <CardStat
-              title="Occupancy & Footfall"
-              body="Retail vs office vs residential mix, crowding, events."
-              icon={<FaUsers className="text-blue-500" />}
-            />
-            <CardStat
-              title="Protection & Security"
-              body="Sprinklers, hydrants, alarms, access control, CCTV."
-              icon={<FaLock className="text-blue-500" />}
-            />
-            <CardStat
-              title="Cat Perils"
-              body="Flood/earthquake zones, basements, roof drainage, facade risk."
-              icon={<FaWater className="text-blue-500" />}
-            />
-            <CardStat
-              title="Income Stability"
-              body="Anchor tenant dependency, lease terms, alternative space."
-              icon={<FaChartLine className="text-blue-500" />}
-            />
-            <CardStat
-              title="Cyber & BMS"
-              body="Smart building integrations, patching, backups, MFA, network segmentation."
-              icon={<FaGlobe className="text-blue-500" />}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Case snapshots */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Case Snapshots</h2>
-          <p className="mt-3 text-gray-700">
-            Illustrative scenarios demonstrating policy response and claims protocols in practice.
-          </p>
-
           <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
-            <Case
-              title="Basement Flooding at City Mall"
-              points={[
-                'Property damage for electricals and flooring; debris removal and professionals fees.',
-                'Loss of rent triggered; denial of access endorsement supported closures.',
-                'Root-cause: storm drains; capex for improvement and revised deductibles.',
+            <Card
+              icon={<FaHammer className="text-2xl text-blue-500" />}
+              title="Contractors All Risk (CAR)"
+              body="Comprehensive coverage for construction phase including material damage and liability."
+              bullets={[
+                'Material damage during construction',
+                'Third-party liability and property damage',
+                'Natural catastrophe and weather protection',
               ]}
             />
-            <Case
-              title="Ransomware at Smart Office Tower"
-              points={[
-                'Cyber policy funded forensics, restoration, and PR; dependent BI for BMS outage.',
-                'Segmentation and MFA remediation requirements implemented.',
-                'Incident playbook improved notification timelines and backups.',
+            <Card
+              icon={<FaBuilding className="text-2xl text-blue-500" />}
+              title="Property & Asset Protection"
+              body="Coverage for completed properties, rental income, and asset values."
+              bullets={[
+                'Fire and allied perils for buildings',
+                'Loss of rent and business interruption',
+                'Tenant improvements and betterments',
               ]}
             />
           </div>
-        </div>
-      </section>
 
-      {/* What you receive */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">What You Receive</h2>
-          <p className="mt-3 text-gray-700">Portfolio clarity and claim readiness from day one.</p>
-
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
+          <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
             <Card
-              icon={<FaClipboardCheck className="text-2xl text-blue-500" />}
-              title="Risk Survey & Gap Report"
-              body="Fire/life safety, flood control, façade/glazing, cyber-BMS, and security improvements prioritized."
+              icon={<FaUserShield className="text-2xl text-blue-500" />}
+              title="Professional Indemnity"
+              body="Protection for design professionals and project consultants."
               bullets={[
-                'Thermography and switchgear checks',
-                'Drainage audits and FM compliance',
-                'Access control and visitor management',
+                'Architects and engineers professional liability',
+                'Design error and omission coverage',
+                'Project management consultant protection',
               ]}
             />
             <Card
               icon={<FaFileContract className="text-2xl text-blue-500" />}
-              title="Coverage Blueprint"
-              body="Policy schedule, sub-limits, endorsements, and certificate matrix aligned to leases and lenders."
+              title="Directors & Officers Liability"
+              body="Coverage for management decisions and regulatory compliance."
               bullets={[
-                'Waiver of subrogation/additional insureds',
-                'Tenant legal liability and fit-out coverage',
-                'Jurisdiction and territory language',
-              ]}
-            />
-            <Card
-              icon={<FaHandshake className="text-2xl text-blue-500" />}
-              title="Claims Playbook"
-              body="SOPs for notification, documentation, loss adjuster coordination, and on-account payments."
-              bullets={[
-                'Photographic evidence and salvage control',
-                'Vendor mobilization and repair validation',
-                'Loss memos and settlement tracking',
+                'RERA compliance and regulatory defense',
+                'Management liability and decision coverage',
+                'Shareholder and investor protection',
               ]}
             />
           </div>
         </div>
       </section>
 
-      {/* CTA & Contact */}
+      {/* Insurance Plans/Products */}
+      <section className="w-full border-b border-gray-100 bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold md:text-3xl">
+            Insurance Plans for Real Estate Industry
+          </h2>
+          <p className="mt-3 text-gray-700">
+            Comprehensive insurance solutions tailored for different scales of real estate
+            development.
+          </p>
+
+          <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
+            <InsurancePlan
+              name="Real Estate Starter Plan"
+              description="Essential coverage for small to medium real estate projects"
+              price="₹8L - ₹25L"
+              features={[
+                'Contractors All Risk (CAR)',
+                'Public Liability Insurance',
+                'Workmen Compensation',
+                'Professional Indemnity (Basic)',
+                'Fire & Allied Perils',
+              ]}
+              recommended={false}
+            />
+            <InsurancePlan
+              name="Real Estate Professional Plan"
+              description="Comprehensive coverage for established real estate developers"
+              price="₹25L - ₹2Cr"
+              features={[
+                'All Starter Plan Benefits',
+                'Directors & Officers Liability',
+                'Enhanced Professional Indemnity',
+                'Loss of Rent Coverage',
+                'RERA Compliance Support',
+                'Project Delay Insurance',
+              ]}
+              recommended={true}
+            />
+            <InsurancePlan
+              name="Real Estate Enterprise Plan"
+              description="Complete protection for large real estate companies and townships"
+              price="₹2Cr+"
+              features={[
+                'All Professional Plan Benefits',
+                'International Coverage',
+                'Crisis Management Services',
+                'Environmental Liability',
+                'Cyber Liability Protection',
+                'Dedicated Account Management',
+              ]}
+              recommended={false}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Relevant Articles Component */}
+      <RelevantArticles articles={articles} industryName="Real Estate Industry" />
+
+      {/* Knowledge Questionnaire Component */}
+      <KnowledgeQuestionnaire questions={quizQuestions} industryName="Real Estate Industry" />
+
+      {/* What you receive & CTA */}
       <section className="w-full bg-white">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="rounded-2xl border border-blue-200 bg-blue-50 p-8">
             <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-3">
               <div className="lg:col-span-2">
                 <h3 className="text-2xl font-bold text-gray-900">
-                  Stabilize Income. Protect Assets. Elevate Tenant Experience.
+                  Building Dreams. Protecting Investments.
                 </h3>
                 <p className="mt-2 text-gray-700">
-                  Partner with SIIB’s real estate desk for sharper wordings, faster placement, and
-                  proactive claims management.
+                  Partner with SIIB's real estate specialists for comprehensive coverage, RERA
+                  compliance support, and expert risk management.
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row">
@@ -447,12 +536,13 @@ const RealEstateInsurancePage = () => {
                 </button>
                 <button className="inline-flex items-center justify-center rounded-lg border border-blue-200 bg-white px-6 py-3 font-semibold text-blue-700 hover:bg-blue-100">
                   <FaFileContract className="mr-2" />
-                  Upload Asset Schedules
+                  Upload Project Data
                 </button>
               </div>
             </div>
           </div>
 
+          {/* Contact strip */}
           <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
             <Contact label="Call" value="1800 210 2022" icon={<FaPhoneAlt />} />
             <Contact label="Email" value="contact.ins@shareindia.co.in" icon={<FaEnvelope />} />
@@ -468,7 +558,7 @@ const RealEstateInsurancePage = () => {
   );
 };
 
-/* Helpers (reuse from earlier pages) */
+/* Helpers */
 const Tile = ({
   icon,
   title,
@@ -513,82 +603,108 @@ const Card = ({
   </div>
 );
 
-const MiniCard = ({
+const RiskCard = ({
   icon,
   title,
-  children,
+  description,
+  severity,
+  frequency,
 }: {
   icon: React.ReactNode;
   title: string;
-  children: React.ReactNode;
+  description: string;
+  severity: string;
+  frequency: string;
 }) => (
-  <div className="rounded-xl border border-gray-200 p-6">
+  <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
     <div className="flex items-center gap-3">
-      <span className="text-xl text-blue-500">{icon}</span>
-      <h3 className="font-semibold">{title}</h3>
-    </div>
-    <p className="mt-2 text-sm text-gray-700">{children}</p>
-  </div>
-);
-
-const CardPlain = ({ title, children }: { title: string; children: React.ReactNode }) => (
-  <div className="rounded-xl border border-gray-200 p-6">
-    <h3 className="text-lg font-semibold">{title}</h3>
-    <div className="mt-2 space-y-2">{children}</div>
-  </div>
-);
-
-const Bullet = ({ children }: { children: React.ReactNode }) => (
-  <div className="flex text-sm text-gray-700">
-    <FaChevronRight className="mt-1 mr-2 text-blue-400" />
-    <span>{children}</span>
-  </div>
-);
-
-const Step = ({ title, desc, points }: { title: string; desc: string; points: string[] }) => (
-  <div className="rounded-xl border border-gray-200 p-6">
-    <h3 className="text-lg font-semibold">{title}</h3>
-    <p className="mt-2 text-sm text-gray-700">{desc}</p>
-    <ul className="mt-4 space-y-1 text-sm text-gray-700">
-      {points.map((p) => (
-        <li key={p} className="flex">
-          <FaChevronRight className="mt-1 mr-2 text-blue-400" />
-          {p}
-        </li>
-      ))}
-    </ul>
-  </div>
-);
-
-const Case = ({ title, points }: { title: string; points: string[] }) => (
-  <div className="rounded-xl border border-gray-200 p-6">
-    <h3 className="text-lg font-semibold">{title}</h3>
-    <ul className="mt-3 space-y-1 text-sm text-gray-700">
-      {points.map((p) => (
-        <li key={p} className="flex">
-          <FaChevronRight className="mt-1 mr-2 text-blue-400" />
-          {p}
-        </li>
-      ))}
-    </ul>
-  </div>
-);
-
-const CardStat = ({
-  title,
-  body,
-  icon,
-}: {
-  title: string;
-  body: string;
-  icon: React.ReactNode;
-}) => (
-  <div className="rounded-xl border border-gray-200 p-6">
-    <div className="flex items-center gap-3">
-      <span className="text-xl text-blue-500">{icon}</span>
+      <span className="text-2xl text-red-500">{icon}</span>
       <h3 className="text-lg font-semibold">{title}</h3>
     </div>
-    <p className="mt-2 text-sm text-gray-700">{body}</p>
+    <p className="mt-3 text-sm text-gray-700">{description}</p>
+    <div className="mt-4 flex gap-4">
+      <div className="flex items-center gap-2">
+        <span className="text-xs text-gray-500">Severity:</span>
+        <span
+          className={`rounded-full px-2 py-1 text-xs font-medium ${
+            severity === 'High'
+              ? 'bg-red-100 text-red-800'
+              : severity === 'Medium'
+                ? 'bg-yellow-100 text-yellow-800'
+                : 'bg-green-100 text-green-800'
+          }`}
+        >
+          {severity}
+        </span>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="text-xs text-gray-500">Frequency:</span>
+        <span
+          className={`rounded-full px-2 py-1 text-xs font-medium ${
+            frequency === 'High'
+              ? 'bg-red-100 text-red-800'
+              : frequency === 'Medium'
+                ? 'bg-yellow-100 text-yellow-800'
+                : 'bg-green-100 text-green-800'
+          }`}
+        >
+          {frequency}
+        </span>
+      </div>
+    </div>
+  </div>
+);
+
+const InsurancePlan = ({
+  name,
+  description,
+  price,
+  features,
+  recommended,
+}: {
+  name: string;
+  description: string;
+  price: string;
+  features: string[];
+  recommended: boolean;
+}) => (
+  <div
+    className={`rounded-xl border p-6 ${
+      recommended ? 'border-blue-500 bg-blue-50' : 'border-gray-200 bg-white'
+    }`}
+  >
+    {recommended && (
+      <div className="mb-4">
+        <span className="inline-flex items-center rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-800">
+          <FaCertificate className="mr-1" />
+          Recommended
+        </span>
+      </div>
+    )}
+    <h3 className="text-xl font-bold text-gray-900">{name}</h3>
+    <p className="mt-2 text-sm text-gray-600">{description}</p>
+    <div className="mt-4 flex items-center gap-2">
+      <FaRupeeSign className="text-blue-500" />
+      <span className="text-2xl font-bold text-blue-600">{price}</span>
+      <span className="text-sm text-gray-500">per year</span>
+    </div>
+    <ul className="mt-6 space-y-3">
+      {features.map((feature, index) => (
+        <li key={index} className="flex items-start gap-3">
+          <FaCheckCircle className="mt-1 text-green-500" />
+          <span className="text-sm text-gray-700">{feature}</span>
+        </li>
+      ))}
+    </ul>
+    <button
+      className={`mt-6 w-full rounded-lg px-4 py-3 font-semibold ${
+        recommended
+          ? 'bg-blue-600 text-white hover:bg-blue-700'
+          : 'border border-blue-200 text-blue-700 hover:bg-blue-50'
+      }`}
+    >
+      Get Quote
+    </button>
   </div>
 );
 

@@ -11,22 +11,22 @@ export default function HomePage() {
   return (
     <main className="text-si-dark bg-white font-sans">
       {/* Hero – Insurance Broker focused */}
-      <section className="bg-si-bg section-spot section-divider-bottom relative isolate">
+      <section className="section-vibrant-blue section-divider-bottom relative isolate">
         <div className="hero-grid absolute inset-0" />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/70 via-white/40 to-white/0" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/60 via-white/30 to-transparent" />
 
         <div className="relative mx-auto max-w-7xl px-6 sm:px-10 md:px-12">
           <div className="grid min-h-[86vh] grid-cols-1 items-center gap-10 py-20 md:grid-cols-2">
             {/* Left */}
             <FadeUp>
               <div className="max-w-2xl">
-                <div className="bg-si-primary/10 text-si-primary float-slow mb-4 inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm font-medium">
-                  <span className="bg-si-primary h-2 w-2 rounded-full" />
+                <div className="from-si-primary/15 to-si-red/10 text-si-primary float-slow border-si-primary/20 mb-4 inline-flex items-center gap-2 rounded-full border bg-gradient-to-r px-4 py-2 text-sm font-semibold backdrop-blur-sm">
+                  <span className="accent-dot-vibrant h-2 w-2 rounded-full" />
                   IRDAI-licensed Insurance Brokers
                 </div>
 
                 <h1 className="text-si-ink text-4xl leading-tight font-semibold sm:text-5xl md:text-6xl">
-                  Insurance, Simplified.
+                  Insurance, <span className="text-gradient-primary">Simplified</span>.
                 </h1>
 
                 <p className="text-si-ink/80 mt-5 max-w-xl text-lg leading-relaxed">
@@ -37,7 +37,7 @@ export default function HomePage() {
 
                 <Stagger>
                   <div className="mt-6 flex flex-wrap gap-2">
-                    {['Motor', 'Health', 'Property', 'Marine', 'Liability', 'Cyber', 'Travel'].map(
+                    {['Motor', 'Health', 'Life', 'Term', 'Business', 'Property', 'Travel'].map(
                       (t) => (
                         <Item key={t}>
                           <span className="badge-chip">{t}</span>
@@ -95,9 +95,9 @@ export default function HomePage() {
                     ].map((x) => (
                       <Item key={x.v}>
                         <div>
-                          <div className="bg-si-red mb-1 h-1 w-10" />
-                          <div className="text-si-ink text-2xl font-semibold">{x.k}</div>
-                          <div className="text-si-ink/70 text-sm">{x.v}</div>
+                          <div className="accent-bar-gradient mb-2 h-1 w-12" />
+                          <div className="text-si-ink text-2xl font-bold">{x.k}</div>
+                          <div className="text-si-ink/70 text-sm font-medium">{x.v}</div>
                         </div>
                       </Item>
                     ))}
@@ -109,8 +109,8 @@ export default function HomePage() {
             {/* Right visual */}
             <FadeUp delay={0.1}>
               <div className="relative">
-                <div className="bg-si-primary/10 absolute -inset-6 rounded-3xl blur-2xl" />
-                <div className="shadow-elevate relative rounded-2xl border border-slate-200 bg-white p-6">
+                <div className="from-si-primary/20 to-si-red/10 absolute -inset-6 rounded-3xl bg-gradient-to-br blur-2xl" />
+                <div className="shadow-elevate-vibrant border-si-primary/10 hover-lift relative rounded-2xl border bg-white/95 p-6 backdrop-blur-sm">
                   <Image
                     src="/about-img/meeting.png"
                     alt="Advisors comparing policies and negotiating better terms"
@@ -120,13 +120,13 @@ export default function HomePage() {
                     priority
                   />
                   <div className="mt-4 grid grid-cols-2 gap-3 text-sm">
-                    <div className="rounded-lg border border-slate-200 bg-white p-3">
-                      <div className="text-si-ink/60 text-xs">Avg. savings (SMB)</div>
-                      <div className="text-si-ink text-lg font-semibold">12–18%</div>
+                    <div className="card-vibrant hover-glow-blue rounded-lg p-3">
+                      <div className="text-si-ink/60 text-xs font-medium">Avg. savings (SMB)</div>
+                      <div className="text-gradient-primary text-lg font-bold">12–18%</div>
                     </div>
-                    <div className="rounded-lg border border-slate-200 bg-white p-3">
-                      <div className="text-si-ink/60 text-xs">Claims NPS</div>
-                      <div className="text-si-ink text-lg font-semibold">+62</div>
+                    <div className="card-accent-red hover-glow-red rounded-lg p-3">
+                      <div className="text-si-ink/60 text-xs font-medium">Claims NPS</div>
+                      <div className="text-gradient-accent text-lg font-bold">+62</div>
                     </div>
                   </div>
                 </div>
@@ -139,9 +139,10 @@ export default function HomePage() {
       {/* What We Do */}
       <section
         id="what-we-do"
-        className="bg-si-bg section-divider-top section-divider-bottom relative isolate overflow-hidden py-20 md:py-28"
+        className="section-gradient-accent section-divider-top section-divider-bottom relative isolate overflow-hidden py-20 md:py-28"
       >
-        <div className="from-si-primary/5 pointer-events-none absolute inset-0 bg-gradient-to-b via-transparent to-transparent" />
+        <div className="bg-pattern-grid absolute inset-0 opacity-30" />
+        <div className="from-si-primary/8 via-si-red/3 pointer-events-none absolute inset-0 bg-gradient-to-br to-transparent" />
 
         <HorizontalCarousal />
 
@@ -149,12 +150,12 @@ export default function HomePage() {
           {/* Header */}
           <div className="flex flex-col items-start justify-between gap-8 lg:flex-row">
             <div className="max-w-xl flex-1">
-              <span className="bg-si-primary/10 text-si-primary mb-3 inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold tracking-wider uppercase">
-                <span className="bg-si-primary h-1.5 w-1.5 rounded-full" />
+              <span className="from-si-primary/15 to-si-red/10 text-si-primary border-si-primary/20 mb-3 inline-flex items-center gap-2 rounded-full border bg-gradient-to-r px-4 py-2 text-xs font-bold tracking-wider uppercase backdrop-blur-sm">
+                <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full" />
                 What We Do
               </span>
               <h2 className="text-si-ink text-3xl leading-tight font-semibold sm:text-4xl md:text-5xl">
-                Insurance brokerage that puts <span className="text-si-primary">outcomes</span>{' '}
+                Insurance brokerage that puts <span className="text-gradient-accent">outcomes</span>{' '}
                 first
               </h2>
               <p className="text-si-ink/80 mt-4 text-lg leading-relaxed">
@@ -166,7 +167,7 @@ export default function HomePage() {
 
             {/* Why choose us */}
             <div className="max-w-2xl lg:mt-2">
-              <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+              <div className="card-vibrant shadow-vibrant-blue hover-lift rounded-xl p-6">
                 <div className="flex items-start gap-4">
                   {/* shield icon */}
                   <svg
@@ -265,7 +266,7 @@ export default function HomePage() {
           {/* Pillars */}
           <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {/* Advisory & Placement */}
-            <div className="group rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+            <div className="group card-vibrant hover-lift hover-glow-blue rounded-xl p-6">
               <div className="mb-4 flex items-center justify-between">
                 <h3 className="text-si-ink text-lg font-semibold">Advisory &amp; Placement</h3>
                 <svg
@@ -287,18 +288,18 @@ export default function HomePage() {
               </p>
               <ul className="text-si-ink/80 mt-4 space-y-2 text-sm">
                 <li className="flex items-center gap-2">
-                  <span className="bg-si-red h-1.5 w-1.5 rounded-full"></span> Property, Marine,
-                  Liability
+                  <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full"></span> Property,
+                  Marine, Liability
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="bg-si-red h-1.5 w-1.5 rounded-full"></span> Health &amp; Group
-                  Benefits
+                  <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full"></span> Health &amp;
+                  Group Benefits
                 </li>
               </ul>
             </div>
 
             {/* Claims Advocacy */}
-            <div className="group rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+            <div className="group card-accent-red hover-lift hover-glow-red rounded-xl p-6">
               <div className="mb-4 flex items-center justify-between">
                 <h3 className="text-si-ink text-lg font-semibold">Claims Advocacy</h3>
                 <svg
@@ -320,17 +321,18 @@ export default function HomePage() {
               </p>
               <ul className="text-si-ink/80 mt-4 space-y-2 text-sm">
                 <li className="flex items-center gap-2">
-                  <span className="bg-si-red h-1.5 w-1.5 rounded-full"></span> Dedicated claims desk
+                  <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full"></span> Dedicated
+                  claims desk
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="bg-si-red h-1.5 w-1.5 rounded-full"></span> Faster TAT with
-                  insurer liaisons
+                  <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full"></span> Faster TAT
+                  with insurer liaisons
                 </li>
               </ul>
             </div>
 
             {/* Risk Engineering */}
-            <div className="group rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+            <div className="group card-vibrant hover-lift hover-glow-blue rounded-xl p-6">
               <div className="mb-4 flex items-center justify-between">
                 <h3 className="text-si-ink text-lg font-semibold">Risk Engineering</h3>
                 <svg
@@ -352,18 +354,18 @@ export default function HomePage() {
               </p>
               <ul className="text-si-ink/80 mt-4 space-y-2 text-sm">
                 <li className="flex items-center gap-2">
-                  <span className="bg-si-red h-1.5 w-1.5 rounded-full"></span> FM &amp; statutory
-                  compliance
+                  <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full"></span> FM &amp;
+                  statutory compliance
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="bg-si-red h-1.5 w-1.5 rounded-full"></span> Catastrophe &amp;
-                  cyber posture
+                  <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full"></span> Catastrophe
+                  &amp; cyber posture
                 </li>
               </ul>
             </div>
 
             {/* Digital Tools */}
-            <div className="group rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+            <div className="group card-accent-red hover-lift hover-glow-red rounded-xl p-6">
               <div className="mb-4 flex items-center justify-between">
                 <h3 className="text-si-ink text-lg font-semibold">Digital Tools</h3>
                 <svg
@@ -385,21 +387,21 @@ export default function HomePage() {
               </p>
               <ul className="text-si-ink/80 mt-4 space-y-2 text-sm">
                 <li className="flex items-center gap-2">
-                  <span className="bg-si-red h-1.5 w-1.5 rounded-full"></span> Self-serve + assisted
-                  workflows
+                  <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full"></span> Self-serve +
+                  assisted workflows
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="bg-si-red h-1.5 w-1.5 rounded-full"></span> API-ready for
-                  enterprise
+                  <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full"></span> API-ready
+                  for enterprise
                 </li>
               </ul>
             </div>
           </div>
 
           {/* CTA strip */}
-          <div className="mt-12 flex flex-wrap items-center justify-between gap-4 rounded-xl border border-slate-200 bg-white px-6 py-5 shadow-sm">
+          <div className="card-vibrant hover-lift mt-12 flex flex-wrap items-center justify-between gap-4 rounded-xl px-6 py-5">
             <div className="flex items-center gap-3">
-              <div className="bg-si-red h-2 w-12" />
+              <div className="accent-bar-gradient h-3 w-14" />
               <p className="text-si-ink/80 text-sm">
                 Compare policies across 40+ insurers • Issue within <strong>24–48h</strong> •
                 Dedicated claims support
@@ -435,20 +437,21 @@ export default function HomePage() {
       {/* Featured Insights */}
       <section
         id="featured-insights"
-        className="bg-si-lightblue section-spot-alt section-divider-bottom relative isolate py-20 md:py-28"
+        className="section-vibrant-red section-divider-bottom relative isolate py-20 md:py-28"
       >
         {/* soft brand wash */}
-        <div className="from-si-primary/5 pointer-events-none absolute inset-0 bg-gradient-to-b via-transparent to-transparent" />
+        <div className="bg-pattern-dots absolute inset-0 opacity-20" />
+        <div className="from-si-red/8 via-si-primary/4 pointer-events-none absolute inset-0 bg-gradient-to-br to-transparent" />
 
         <div className="relative mx-auto max-w-7xl px-6 sm:px-10 md:px-12">
           {/* Header */}
           <div className="mb-8 max-w-3xl">
-            <span className="bg-si-primary/10 text-si-primary mb-3 inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold tracking-wider uppercase">
-              <span className="bg-si-primary h-1.5 w-1.5 rounded-full" />
+            <span className="from-si-red/15 to-si-primary/10 text-si-red border-si-red/20 mb-3 inline-flex items-center gap-2 rounded-full border bg-gradient-to-r px-4 py-2 text-xs font-bold tracking-wider uppercase backdrop-blur-sm">
+              <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full" />
               Insights
             </span>
             <h3 className="text-si-ink text-3xl leading-tight font-semibold sm:text-4xl">
-              Featured <span className="text-si-primary">Insights</span>
+              Featured <span className="text-gradient-accent">Insights</span>
             </h3>
             <p className="text-si-ink/80 mt-4 text-base leading-relaxed sm:text-lg">
               Expert explainers from Share India Brokers—market trends, risk solutions, and how
@@ -493,14 +496,14 @@ export default function HomePage() {
           </div>
 
           {/* Carousel */}
-          <div className="rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
+          <div className="card-vibrant shadow-vibrant-blue hover-lift rounded-xl p-4">
             <FeaturedCarousel />
           </div>
 
           {/* CTA strip */}
-          <div className="mt-10 flex flex-wrap items-center justify-between gap-4 rounded-xl border border-slate-200 bg-white px-6 py-5 shadow-sm">
+          <div className="card-accent-red hover-lift mt-10 flex flex-wrap items-center justify-between gap-4 rounded-xl px-6 py-5">
             <div className="flex items-center gap-3">
-              <div className="bg-si-red h-2 w-12" />
+              <div className="accent-bar-gradient h-3 w-14" />
               <p className="text-si-ink/80 text-sm">
                 Curated weekly by our brokerage team • No jargon, just outcomes
               </p>
@@ -526,16 +529,17 @@ export default function HomePage() {
       {/* Top News – crisp explainers */}
       <section
         id="top-news"
-        className="bg-si-muted section-divider-top relative isolate py-20 md:py-28"
+        className="section-spot-alt section-divider-top relative isolate py-20 md:py-28"
       >
         {/* soft brand wash */}
-        <div className="from-si-primary/5 pointer-events-none absolute inset-0 bg-gradient-to-b via-transparent to-transparent" />
+        <div className="bg-pattern-grid absolute inset-0 opacity-25" />
+        <div className="from-si-primary/6 via-si-red/3 pointer-events-none absolute inset-0 bg-gradient-to-tl to-transparent" />
 
         <div className="relative mx-auto max-w-7xl px-6 sm:px-10 md:px-12">
           <div className="flex flex-col items-start justify-between gap-8 lg:flex-row">
             <div className="max-w-2xl">
-              <span className="bg-si-primary/10 text-si-primary mb-3 inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold tracking-wider uppercase">
-                <span className="bg-si-primary h-1.5 w-1.5 rounded-full" />
+              <span className="from-si-primary/15 to-si-red/10 text-si-primary border-si-primary/20 mb-3 inline-flex items-center gap-2 rounded-full border bg-gradient-to-r px-4 py-2 text-xs font-bold tracking-wider uppercase backdrop-blur-sm">
+                <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full" />
                 News, Decoded
               </span>
               <h2 className="text-si-ink text-3xl leading-tight font-semibold sm:text-4xl">
@@ -548,7 +552,7 @@ export default function HomePage() {
             </div>
 
             <div className="lg:mt-2">
-              <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+              <div className="card-vibrant shadow-vibrant-blue hover-lift rounded-xl p-6">
                 <div className="text-si-ink/60 mb-2 text-sm font-medium">What you’ll find</div>
                 <ul className="text-si-ink/80 grid gap-2 text-sm sm:grid-cols-2">
                   <li className="flex items-center gap-2">
@@ -626,9 +630,9 @@ export default function HomePage() {
           </div>
 
           {/* CTA strip */}
-          <div className="mt-10 flex flex-wrap items-center justify-between gap-4 rounded-xl border border-slate-200 bg-white px-6 py-5 shadow-sm">
+          <div className="card-vibrant hover-lift mt-10 flex flex-wrap items-center justify-between gap-4 rounded-xl px-6 py-5">
             <div className="flex items-center gap-3">
-              <div className="bg-si-red h-2 w-12" />
+              <div className="accent-bar-gradient h-3 w-14" />
               <p className="text-si-ink/80 text-sm">Updated weekly • Editor’s picks • No jargon</p>
             </div>
             <Link
@@ -652,20 +656,21 @@ export default function HomePage() {
       {/* Awards & Testimonials */}
       <section
         id="awards-testimonials"
-        className="bg-si-muted section-divider-top section-divider-bottom relative isolate py-20 md:py-28"
+        className="section-spot section-divider-top section-divider-bottom relative isolate py-20 md:py-28"
       >
         {/* soft brand wash */}
-        <div className="from-si-primary/5 pointer-events-none absolute inset-0 bg-gradient-to-b via-transparent to-transparent" />
+        <div className="bg-pattern-dots absolute inset-0 opacity-15" />
+        <div className="from-si-primary/6 via-si-red/4 pointer-events-none absolute inset-0 bg-gradient-to-br to-transparent" />
 
         <div className="relative mx-auto max-w-7xl px-6 sm:px-10 md:px-12">
           {/* Header */}
           <div className="mb-12 text-center">
-            <span className="bg-si-primary/10 text-si-primary mb-3 inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold tracking-wider uppercase">
-              <span className="bg-si-primary h-1.5 w-1.5 rounded-full" />
+            <span className="from-si-primary/15 to-si-red/10 text-si-primary border-si-primary/20 mb-3 inline-flex items-center gap-2 rounded-full border bg-gradient-to-r px-4 py-2 text-xs font-bold tracking-wider uppercase backdrop-blur-sm">
+              <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full" />
               Recognition & Trust
             </span>
             <h2 className="text-si-ink text-3xl leading-tight font-semibold sm:text-4xl">
-              Awards & Testimonials
+              Awards & <span className="text-gradient-primary">Testimonials</span>
             </h2>
             <p className="text-si-ink/80 mx-auto mt-4 max-w-2xl text-base leading-relaxed">
               Celebrated for excellence, trusted by clients. Here’s what the industry and our
@@ -699,7 +704,7 @@ export default function HomePage() {
             ].map((a) => (
               <div
                 key={a.award}
-                className="flex flex-col rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                className="card-vibrant hover-lift hover-glow-blue flex flex-col rounded-xl p-6"
               >
                 {/* trophy placeholder you can replace */}
                 <div className="mb-4 flex h-16 w-16 items-center justify-center overflow-hidden rounded-lg border border-slate-200 bg-white">
@@ -711,7 +716,7 @@ export default function HomePage() {
                   />
                 </div>
 
-                <div className="bg-si-red mb-2 h-1 w-10" />
+                <div className="accent-bar-gradient mb-2 h-2 w-12" />
                 <h3 className="text-si-ink text-xl font-semibold">{a.year}</h3>
                 <p className="text-si-ink/70 mt-1 text-sm">{a.award}</p>
               </div>
@@ -749,7 +754,7 @@ export default function HomePage() {
               ].map((t) => (
                 <figure
                   key={t.name}
-                  className="flex flex-col justify-between rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                  className="card-accent-red hover-lift hover-glow-red flex flex-col justify-between rounded-xl p-6"
                 >
                   <blockquote className="text-si-ink/80 text-sm leading-relaxed">
                     “{t.text}”
@@ -772,7 +777,7 @@ export default function HomePage() {
                   </figcaption>
 
                   {/* red accent underline */}
-                  <div className="bg-si-red mt-5 h-1 w-8" />
+                  <div className="accent-bar-gradient mt-5 h-2 w-10" />
                 </figure>
               ))}
             </div>
@@ -799,7 +804,7 @@ export default function HomePage() {
       </section>
 
       {/* Connect CTA */}
-      <section className="section-divider-top bg-white py-20 md:py-28">
+      <section className="section-divider-top section-vibrant-blue py-20 md:py-28">
         <div className="mx-auto max-w-5xl px-6 text-center sm:px-8 md:px-12">
           <h3 className="text-3xl font-semibold sm:text-4xl">Let’s Connect</h3>
           <p className="text-si-dark/80 mx-auto mt-4 max-w-2xl text-base sm:text-lg">
@@ -808,20 +813,68 @@ export default function HomePage() {
           </p>
 
           <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <div className="rounded-lg border border-gray-100 bg-white p-6 shadow-sm transition hover:shadow-md">
-              <div className="bg-si-bluegreen/10 mx-auto mb-3 h-12 w-12 rounded-full" />
+            <div className="card-vibrant hover-lift hover-glow-blue rounded-lg p-6">
+              <div className="from-si-primary/20 to-si-primary/10 mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br">
+                <svg
+                  className="text-si-primary h-6 w-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                  />
+                </svg>
+              </div>
               <h4 className="text-lg font-semibold">Schedule a Call</h4>
               <p className="text-si-dark/70 mt-1 text-sm">Book a consultation with our advisors</p>
             </div>
-            <div className="rounded-lg border border-gray-100 bg-white p-6 shadow-sm transition hover:shadow-md">
-              <div className="bg-si-bluegreen/10 mx-auto mb-3 h-12 w-12 rounded-full" />
+            <div className="card-accent-red hover-lift hover-glow-red rounded-lg p-6">
+              <div className="from-si-red/20 to-si-red/10 mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br">
+                <svg
+                  className="text-si-red h-6 w-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
+                </svg>
+              </div>
               <h4 className="text-lg font-semibold">Send a Message</h4>
               <p className="text-si-dark/70 mt-1 text-sm">
                 Get in touch with questions or inquiries
               </p>
             </div>
-            <div className="rounded-lg border border-gray-100 bg-white p-6 shadow-sm transition hover:shadow-md sm:col-span-2 lg:col-span-1">
-              <div className="bg-si-bluegreen/10 mx-auto mb-3 h-12 w-12 rounded-full" />
+            <div className="card-vibrant hover-lift hover-glow-blue rounded-lg p-6 sm:col-span-2 lg:col-span-1">
+              <div className="from-si-primary/20 to-si-red/10 mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br">
+                <svg
+                  className="text-si-primary h-6 w-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                  />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                </svg>
+              </div>
               <h4 className="text-lg font-semibold">Visit Our Office</h4>
               <p className="text-si-dark/70 mt-1 text-sm">
                 Meet our team at our convenient locations
@@ -830,10 +883,7 @@ export default function HomePage() {
           </div>
 
           <div className="mt-10 flex justify-center">
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 rounded-md bg-red-600 px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-red-700"
-            >
+            <Link href="/contact" className="btn-primary px-8 py-4 text-base">
               Connect With Our Team
               <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                 <path
