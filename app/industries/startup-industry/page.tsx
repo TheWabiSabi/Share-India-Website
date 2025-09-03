@@ -6,19 +6,11 @@ import {
   FaRocket,
   FaLightbulb,
   FaUsers,
-  FaLeaf,
-  FaFire,
-  FaWater,
-  FaWind,
-  FaWarehouse,
-  FaTruckMoving,
   FaUserShield,
   FaFileContract,
   FaPhoneAlt,
   FaEnvelope,
   FaHeadset,
-  FaTools,
-  FaPlug,
   FaLock,
   FaExclamationTriangle,
   FaCheckCircle,
@@ -526,8 +518,8 @@ const StartupInsurancePage = () => {
                   Fueling Innovation. Protecting Growth.
                 </h3>
                 <p className="mt-2 text-gray-700">
-                  Partner with SIIB's startup specialists for scalable coverage, cyber protection,
-                  and expert risk management tailored for emerging businesses.
+                  Partner with SIIB&#39;s startup specialists for scalable coverage, cyber
+                  protection, and expert risk management tailored for emerging businesses.
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row">

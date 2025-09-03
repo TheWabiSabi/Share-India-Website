@@ -6,20 +6,13 @@ import {
   FaBuilding,
   FaHome,
   FaHammer,
-  FaLeaf,
   FaFire,
   FaWater,
-  FaWind,
-  FaWarehouse,
-  FaTruckMoving,
   FaUserShield,
   FaFileContract,
   FaPhoneAlt,
   FaEnvelope,
   FaHeadset,
-  FaTools,
-  FaPlug,
-  FaLock,
   FaExclamationTriangle,
   FaCheckCircle,
   FaRupeeSign,
@@ -525,7 +518,7 @@ const RealEstateInsurancePage = () => {
                   Building Dreams. Protecting Investments.
                 </h3>
                 <p className="mt-2 text-gray-700">
-                  Partner with SIIB's real estate specialists for comprehensive coverage, RERA
+                  Partner with SIIB&#39;s real estate specialists for comprehensive coverage, RERA
                   compliance support, and expert risk management.
                 </p>
               </div>

@@ -7,12 +7,12 @@ import {
   FaUser,
   FaTag,
   FaSearch,
-  FaFilter,
   FaNewspaper,
-  FaTrendingUp,
   FaExternalLinkAlt,
 } from 'react-icons/fa';
 import blogPosts from '../blog/list_of_blogs.json';
+import { TbTrendingUp } from 'react-icons/tb';
+import { BlogInterface } from '../blog/blog.interface';
 
 const NewsPage = () => {
   // Filter for news content and sort by date (newest first)
@@ -162,7 +162,7 @@ const NewsPage = () => {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
-              <FaTrendingUp className="text-yellow-300" />
+              <TbTrendingUp className="text-yellow-300" />
               <span className="font-bold">BREAKING:</span>
             </div>
             <div className="flex-1 overflow-hidden">
@@ -268,7 +268,7 @@ const NewsPage = () => {
 
             <div className="group cursor-pointer rounded-lg border border-gray-200 bg-white p-6 text-center transition-all hover:border-red-300 hover:shadow-lg">
               <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-100 group-hover:bg-green-200">
-                <FaTrendingUp className="text-green-600" />
+                <TbTrendingUp className="text-green-600" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900">Market Trends</h3>
               <p className="mt-2 text-sm text-gray-600">Industry growth and market analysis</p>
@@ -316,7 +316,13 @@ const NewsPage = () => {
 };
 
 // Featured News Card Component
-const FeaturedNewsCard = ({ article, isLarge = false }: { article: any; isLarge?: boolean }) => {
+const FeaturedNewsCard = ({
+  article,
+  isLarge = false,
+}: {
+  article: BlogInterface;
+  isLarge?: boolean;
+}) => {
   const getCategoryColor = (category: string) => {
     switch (category) {
       case 'Breaking News':
@@ -395,7 +401,7 @@ const FeaturedNewsCard = ({ article, isLarge = false }: { article: any; isLarge?
 };
 
 // Regular News Card Component
-const RegularNewsCard = ({ article }: { article: any }) => {
+const RegularNewsCard = ({ article }: { article: BlogInterface }) => {
   const getCategoryColor = (category: string) => {
     switch (category) {
       case 'Breaking News':

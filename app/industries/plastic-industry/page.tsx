@@ -8,18 +8,12 @@ import {
   FaIndustry,
   FaLeaf,
   FaFire,
-  FaWater,
-  FaWind,
-  FaWarehouse,
-  FaTruckMoving,
   FaUserShield,
   FaFileContract,
   FaPhoneAlt,
   FaEnvelope,
   FaHeadset,
   FaTools,
-  FaPlug,
-  FaLock,
   FaExclamationTriangle,
   FaCheckCircle,
   FaRupeeSign,
@@ -524,7 +518,7 @@ const PlasticInsurancePage = () => {
                   Shaping the Future. Protecting Every Process.
                 </h3>
                 <p className="mt-2 text-gray-700">
-                  Partner with SIIB's plastic industry specialists for comprehensive coverage,
+                  Partner with SIIB&#39;s plastic industry specialists for comprehensive coverage,
                   environmental protection, and expert risk management.
                 </p>
               </div>

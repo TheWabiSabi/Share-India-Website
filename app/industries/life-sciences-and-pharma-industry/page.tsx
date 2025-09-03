@@ -6,11 +6,6 @@ import {
   FaPills,
   FaFlask,
   FaMicroscope,
-  FaLeaf,
-  FaFire,
-  FaWater,
-  FaWind,
-  FaWarehouse,
   FaTruckMoving,
   FaUserShield,
   FaFileContract,
@@ -18,9 +13,7 @@ import {
   FaEnvelope,
   FaHeadset,
   FaTools,
-  FaPlug,
   FaLock,
-  FaExclamationTriangle,
   FaCheckCircle,
   FaRupeeSign,
   FaCertificate,
@@ -521,7 +514,7 @@ const PharmaInsurancePage = () => {
                   Advancing Healthcare. Protecting Innovation.
                 </h3>
                 <p className="mt-2 text-gray-700">
-                  Partner with SIIB's life sciences specialists for comprehensive coverage,
+                  Partner with SIIB&#39;s life sciences specialists for comprehensive coverage,
                   regulatory protection, and expert risk management.
                 </p>
               </div>

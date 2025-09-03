@@ -5,20 +5,15 @@ import {
   FaShieldAlt,
   FaTruck,
   FaShip,
-  FaPlane,
-  FaLeaf,
   FaFire,
   FaWater,
-  FaWind,
   FaWarehouse,
-  FaTruckMoving,
   FaUserShield,
   FaFileContract,
   FaPhoneAlt,
   FaEnvelope,
   FaHeadset,
   FaTools,
-  FaPlug,
   FaLock,
   FaExclamationTriangle,
   FaCheckCircle,
@@ -516,7 +511,7 @@ const LogisticsInsurancePage = () => {
                   Moving Forward. Protecting Every Mile.
                 </h3>
                 <p className="mt-2 text-gray-700">
-                  Partner with SIIB's logistics specialists for comprehensive coverage, cargo
+                  Partner with SIIB&#39;s logistics specialists for comprehensive coverage, cargo
                   protection, and expert claims management.
                 </p>
               </div>
