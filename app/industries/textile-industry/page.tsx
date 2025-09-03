@@ -1,29 +1,201 @@
+'use client';
 import React from 'react';
 import {
   FaChevronRight,
   FaShieldAlt,
-  FaIndustry,
   FaTshirt,
-  FaCog,
-  FaWarehouse,
+  FaCut,
+  FaIndustry,
+  FaLeaf,
   FaFire,
   FaWater,
   FaWind,
-  FaSnowflake,
+  FaWarehouse,
   FaTruckMoving,
-  FaBoxOpen,
   FaUserShield,
   FaFileContract,
   FaPhoneAlt,
   FaEnvelope,
   FaHeadset,
-  FaLeaf,
   FaTools,
   FaPlug,
   FaLock,
+  FaExclamationTriangle,
+  FaCheckCircle,
+  FaRupeeSign,
+  FaCertificate,
+  FaGlobe,
+  FaRecycle,
 } from 'react-icons/fa';
+import ClaimStories from '../../../components/industries/ClaimStories';
+import RelevantArticles from '../../../components/industries/RelevantArticles';
+import KnowledgeQuestionnaire from '../../../components/industries/KnowledgeQuestionnaire';
 
 const TextileInsurancePage = () => {
+  // Sample data for components
+  const claimStories = [
+    {
+      id: '1',
+      title: 'Textile Mill Fire Incident',
+      description:
+        'Major fire in spinning unit caused by electrical short circuit, destroying machinery and raw materials worth crores.',
+      claimAmount: '₹35 Crores',
+      settlementTime: '10 months',
+      riskType: 'Fire & Explosion',
+      outcome: 'settled' as const,
+      lessons: [
+        'Regular electrical maintenance prevents fires',
+        'Proper fire detection systems save lives and property',
+        'Business interruption coverage crucial for mill operations',
+      ],
+    },
+    {
+      id: '2',
+      title: 'Export Shipment Contamination',
+      description:
+        'Contamination of textile shipment during transit led to rejection by international buyer and liability claims.',
+      claimAmount: '₹8 Crores',
+      settlementTime: '6 months',
+      riskType: 'Product Liability',
+      outcome: 'settled' as const,
+      lessons: [
+        'Quality control at every stage is essential',
+        'Marine insurance covers transit risks',
+        'Product liability insurance protects against rejections',
+      ],
+    },
+    {
+      id: '3',
+      title: 'Machinery Breakdown in Weaving Unit',
+      description:
+        'Critical loom breakdown during peak production season caused significant production delays and order cancellations.',
+      claimAmount: '₹12 Crores',
+      settlementTime: '4 months',
+      riskType: 'Equipment Breakdown',
+      outcome: 'settled' as const,
+      lessons: [
+        'Preventive maintenance reduces breakdown risks',
+        'Equipment breakdown insurance covers repair costs',
+        'Business interruption protects against lost orders',
+      ],
+    },
+    {
+      id: '4',
+      title: 'Environmental Pollution Claim',
+      description:
+        'Effluent treatment plant failure led to water contamination and regulatory penalties.',
+      claimAmount: '₹5 Crores',
+      settlementTime: '8 months',
+      riskType: 'Environmental',
+      outcome: 'settled' as const,
+      lessons: [
+        'Environmental compliance is mandatory',
+        'Pollution liability insurance covers cleanup costs',
+        'Regular ETP maintenance prevents violations',
+      ],
+    },
+  ];
+
+  const articles = [
+    {
+      id: '1',
+      title: 'Sustainable Textile Manufacturing: Insurance Implications 2024',
+      excerpt:
+        'How sustainability initiatives in textile industry are changing risk profiles and insurance requirements.',
+      author: 'Meera Joshi',
+      publishDate: 'Mar 25, 2024',
+      readTime: '8 min read',
+      category: 'Sustainability',
+      url: '#',
+      featured: true,
+    },
+    {
+      id: '2',
+      title: 'Fire Safety in Textile Mills: Best Practices and Insurance Coverage',
+      excerpt:
+        'Comprehensive guide to fire prevention and protection strategies for textile manufacturing facilities.',
+      author: 'Rajesh Gupta',
+      publishDate: 'Mar 12, 2024',
+      readTime: '6 min read',
+      category: 'Safety',
+      url: '#',
+    },
+    {
+      id: '3',
+      title: 'Export Credit Insurance for Textile Exporters',
+      excerpt:
+        'Understanding export credit insurance and how it protects textile exporters from buyer default risks.',
+      author: 'Sanjay Mehta',
+      publishDate: 'Feb 28, 2024',
+      readTime: '5 min read',
+      category: 'Export Finance',
+      url: '#',
+    },
+  ];
+
+  const quizQuestions = [
+    {
+      id: '1',
+      question: 'What is the most common cause of fire in textile mills?',
+      options: [
+        'Chemical reactions',
+        'Electrical faults and overheating',
+        'Smoking in premises',
+        'External factors',
+      ],
+      correctAnswer: 1,
+      explanation:
+        'Electrical faults and overheating of machinery are the leading causes of fires in textile mills due to high power consumption and continuous operations.',
+      difficulty: 'easy' as const,
+    },
+    {
+      id: '2',
+      question: 'Which insurance is mandatory for textile exporters?',
+      options: [
+        'Fire insurance only',
+        'Export credit insurance',
+        'Marine insurance',
+        'Product liability insurance',
+      ],
+      correctAnswer: 2,
+      explanation:
+        'Marine insurance is mandatory for textile exporters to cover goods in transit, though export credit insurance is also highly recommended.',
+      difficulty: 'medium' as const,
+    },
+    {
+      id: '3',
+      question: 'What does GSM stand for in textile industry?',
+      options: [
+        'Global Supply Management',
+        'Grams per Square Meter',
+        'Garment Size Measurement',
+        'General Safety Manual',
+      ],
+      correctAnswer: 1,
+      explanation:
+        'GSM (Grams per Square Meter) is a standard measurement for fabric weight and density in the textile industry.',
+      difficulty: 'hard' as const,
+    },
+    {
+      id: '4',
+      question: 'Which environmental risk is highest in textile dyeing units?',
+      options: ['Air pollution', 'Water contamination', 'Soil degradation', 'Noise pollution'],
+      correctAnswer: 1,
+      explanation:
+        'Water contamination is the highest environmental risk in dyeing units due to chemical discharge and effluent treatment challenges.',
+      difficulty: 'medium' as const,
+    },
+    {
+      id: '5',
+      question: 'What is the typical business interruption period covered for textile mills?',
+      options: ['3-6 months', '6-12 months', '12-18 months', '24+ months'],
+      correctAnswer: 2,
+      explanation:
+        '12-18 months is typical as textile mill reconstruction and machinery replacement can take considerable time after major incidents.',
+      difficulty: 'medium' as const,
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-white pt-[8vh] text-gray-900">
       {/* Hero */}
@@ -34,8 +206,9 @@ const TextileInsurancePage = () => {
               Textile Industry Insurance Solutions
             </h1>
             <p className="mt-6 text-lg text-gray-700 md:text-xl">
-              End-to-end coverage for spinning, weaving, knitting, dyeing/processing, garmenting,
-              and home textiles—aligned to buyer audits and global supply chains.
+              Comprehensive coverage for spinning, weaving, dyeing, and garment
+              manufacturing—protecting your textile operations from fire, machinery breakdown, and
+              export risks.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <button className="inline-flex items-center justify-center rounded-lg bg-blue-100 px-6 py-3 font-semibold text-blue-800 hover:bg-blue-200">
@@ -52,8 +225,76 @@ const TextileInsurancePage = () => {
               </button>
             </div>
             <div className="mt-4 text-sm text-gray-600">
-              Programs spanning property/BI, liability, environment, transit, and product compliance
-              for export buyers.
+              Specialized coverage for cotton, synthetic, and blended textile manufacturing with
+              export credit protection.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Industry Explanation */}
+      <section className="w-full border-b border-gray-100 bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold md:text-3xl">
+            Understanding Textile Industry Insurance
+          </h2>
+          <p className="mt-3 text-gray-700">
+            The textile industry is one of India's largest manufacturing sectors, employing millions
+            and contributing significantly to exports. However, it faces unique risks that require
+            specialized insurance solutions.
+          </p>
+
+          <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2">
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900">Industry Overview</h3>
+              <p className="mt-3 text-gray-700">
+                Textile manufacturing involves complex processes from fiber to finished products,
+                with significant fire risks, machinery dependencies, and export market exposures.
+                The industry requires comprehensive insurance coverage to protect against
+                operational risks, environmental liabilities, and international trade risks.
+              </p>
+              <ul className="mt-4 space-y-2 text-sm text-gray-700">
+                <li className="flex items-start">
+                  <FaChevronRight className="mt-1 mr-2 text-blue-400" />
+                  High fire risk due to combustible materials and electrical equipment
+                </li>
+                <li className="flex items-start">
+                  <FaChevronRight className="mt-1 mr-2 text-blue-400" />
+                  Machinery-intensive operations requiring breakdown protection
+                </li>
+                <li className="flex items-start">
+                  <FaChevronRight className="mt-1 mr-2 text-blue-400" />
+                  Export-oriented business needing trade credit insurance
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900">Key Segments</h3>
+              <div className="mt-3 space-y-3">
+                <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
+                  <FaTshirt className="text-blue-500" />
+                  <div>
+                    <div className="font-medium">Spinning & Weaving</div>
+                    <div className="text-sm text-gray-600">
+                      Yarn production and fabric manufacturing
+                    </div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
+                  <FaCut className="text-blue-500" />
+                  <div>
+                    <div className="font-medium">Dyeing & Finishing</div>
+                    <div className="text-sm text-gray-600">Fabric processing and treatment</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
+                  <FaGlobe className="text-blue-500" />
+                  <div>
+                    <div className="font-medium">Garment Manufacturing</div>
+                    <div className="text-sm text-gray-600">Ready-made garments and apparel</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -64,207 +305,203 @@ const TextileInsurancePage = () => {
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold md:text-3xl">Who We Serve</h2>
           <p className="mt-3 text-gray-700">
-            Coverage for fiber-to-fashion value chains and cluster ecosystems.
+            Tailored insurance solutions for every segment of the textile value chain.
           </p>
 
           <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <Tile icon={<FaIndustry />} title="Spinning & Yarn">
-              Blowroom, carding, combing, ring/spinning, winding; cotton/synthetic blends.
+            <Tile icon={<FaTshirt />} title="Spinning Mills">
+              Cotton, synthetic, and blended yarn manufacturing units with high-speed machinery.
             </Tile>
-            <Tile icon={<FaCog />} title="Weaving & Knitting">
-              Looms, warping, sizing, circular/flat knitting; technical textiles.
+            <Tile icon={<FaCut />} title="Weaving & Knitting">
+              Fabric production units including power looms, shuttleless looms, and knitting
+              machines.
             </Tile>
-            <Tile icon={<FaLeaf />} title="Dyeing & Processing">
-              Continuous/batch dyeing, printing, finishing; ETP/air permits and ZDHC.
+            <Tile icon={<FaRecycle />} title="Processing Units">
+              Dyeing, printing, finishing, and chemical treatment facilities.
             </Tile>
-            <Tile icon={<FaTshirt />} title="Garmenting & Home">
-              Cutting, sewing, washing, embroidery, finishing, and export packing.
+            <Tile icon={<FaGlobe />} title="Garment Exporters">
+              Ready-made garment manufacturers and textile exporters serving global markets.
             </Tile>
           </div>
         </div>
       </section>
+
+      {/* Sample Risks */}
+      <section className="w-full border-b border-gray-100 bg-gray-50">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold md:text-3xl">Common Risks in Textile Industry</h2>
+          <p className="mt-3 text-gray-700">
+            Understanding key risks helps in selecting appropriate insurance coverage for your
+            textile operations.
+          </p>
+
+          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <RiskCard
+              icon={<FaFire />}
+              title="Fire & Explosion"
+              description="High fire risk due to combustible materials, lint accumulation, and electrical equipment overheating."
+              severity="High"
+              frequency="High"
+            />
+            <RiskCard
+              icon={<FaTools />}
+              title="Machinery Breakdown"
+              description="Critical equipment failure in spinning, weaving, or processing machinery affecting production."
+              severity="Medium"
+              frequency="High"
+            />
+            <RiskCard
+              icon={<FaLeaf />}
+              title="Environmental Pollution"
+              description="Water contamination from dyeing processes and chemical discharge affecting environment."
+              severity="High"
+              frequency="Medium"
+            />
+            <RiskCard
+              icon={<FaGlobe />}
+              title="Export Credit Risk"
+              description="Buyer default, political risks, and currency fluctuations affecting export payments."
+              severity="Medium"
+              frequency="Medium"
+            />
+            <RiskCard
+              icon={<FaUserShield />}
+              title="Product Liability"
+              description="Quality issues, contamination, or defects in textile products leading to liability claims."
+              severity="Medium"
+              frequency="Low"
+            />
+            <RiskCard
+              icon={<FaWater />}
+              title="Natural Disasters"
+              description="Floods, cyclones, and extreme weather events damaging facilities and inventory."
+              severity="High"
+              frequency="Medium"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Claim Stories Component */}
+      <ClaimStories stories={claimStories} industryName="Textile Industry" />
 
       {/* Core coverage suite */}
       <section className="w-full border-b border-gray-100 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold md:text-3xl">Core Coverage Suite</h2>
           <p className="mt-3 text-gray-700">
-            Protect assets, income, and obligations to buyers and regulators.
+            Comprehensive protection designed specifically for textile manufacturing and export
+            operations.
           </p>
 
           <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
             <Card
-              icon={<FaWarehouse className="text-2xl text-blue-500" />}
-              title="Property & Business Interruption"
-              body="Plants, machinery, stores, dyes/chemicals, fabric/goods with BI/CMI for insured interruptions."
+              icon={<FaFire className="text-2xl text-blue-500" />}
+              title="Fire & Allied Perils"
+              body="Comprehensive fire coverage for mills, machinery, raw materials, and finished goods."
               bullets={[
-                'Fire, STFI, EQ, boiler/MB; dust and lint fire controls',
-                'Escalation, debris removal, professional fees',
-                'Denial of access and utilities failure options',
+                'Fire, lightning, explosion, and electrical damage',
+                'Riot, strike, malicious damage coverage',
+                'Impact damage and aircraft damage protection',
               ]}
             />
             <Card
-              icon={<FaUserShield className="text-2xl text-blue-500" />}
-              title="General & Product Liability"
-              body="Third-party injury/property damage and product liability for export buyers and retailers."
+              icon={<FaTools className="text-2xl text-blue-500" />}
+              title="Machinery Breakdown & EEI"
+              body="Protection against breakdown of critical textile machinery and electrical equipment."
               bullets={[
-                'Additional insured/waiver of subrogation',
-                'Jurisdiction/territory for export markets',
-                'Vendor endorsements for global retailers',
+                'Spinning, weaving, and processing machinery',
+                'Electrical and electronic equipment coverage',
+                'Expediting expenses and temporary repairs',
               ]}
             />
           </div>
 
           <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
             <Card
-              icon={<FaLeaf className="text-2xl text-blue-500" />}
-              title="Environmental & Pollution"
-              body="ETP operations, dye/chemical storage, sludge handling, air/water permits and clean-up."
+              icon={<FaUserShield className="text-2xl text-blue-500" />}
+              title="Public & Product Liability"
+              body="Third-party liability coverage for manufacturing operations and product defects."
               bullets={[
-                'Sudden/gradual pollution, on/off-site cleanup',
-                'Third-party BI/PD and regulatory defense',
-                'Contractor pollution liability options',
+                'Public liability for mill operations',
+                'Product liability for textile products',
+                'Employer liability and workmen compensation',
               ]}
             />
             <Card
               icon={<FaTruckMoving className="text-2xl text-blue-500" />}
-              title="Marine/Transit & Warehouse Legal Liability"
-              body="Raw material and FG transit; bailee’s liability for warehousing and 3PL nodes."
+              title="Marine & Export Credit"
+              body="Coverage for goods in transit and protection against buyer default risks."
               bullets={[
-                'Moisture/mildew, contamination, theft',
-                'Container sweat and temperature deviation',
-                'Brands/labels and reconditioning costs',
-              ]}
-            />
-          </div>
-
-          <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
-            <Card
-              icon={<FaTools className="text-2xl text-blue-500" />}
-              title="Machinery Breakdown & EEI"
-              body="Breakdown of looms, dyeing machines, compressors, boilers, DGs; engineering BI for outages."
-              bullets={[
-                'Spares and expedited repairs',
-                'Power surge and electronics',
-                'Rental equipment coverage',
-              ]}
-            />
-            <Card
-              icon={<FaLock className="text-2xl text-blue-500" />}
-              title="Cyber & Compliance"
-              body="Cyber for ERP/PLM/WMS and buyer portals, with dependent BI and data/privacy response."
-              bullets={[
-                'Ransomware and credential theft',
-                'Vendor access control and audits',
-                'Incident response and PR costs',
+                'Marine cargo insurance for exports',
+                'Export credit insurance for buyer risks',
+                'Warehouse to warehouse coverage',
               ]}
             />
           </div>
         </div>
       </section>
 
-      {/* Operational risks */}
+      {/* Insurance Plans/Products */}
       <section className="w-full border-b border-gray-100 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Operational Risks</h2>
+          <h2 className="text-2xl font-bold md:text-3xl">Insurance Plans for Textile Industry</h2>
           <p className="mt-3 text-gray-700">
-            High-frequency and high-severity loss scenarios addressed in design.
-          </p>
-
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <MiniCard icon={<FaFire />} title="Fire & Lint">
-              Dust, lint, cotton storage, hot spots, and impairment control for sprinklers/hydrants.
-            </MiniCard>
-            <MiniCard icon={<FaWater />} title="Water & Effluent">
-              Dye bath leaks, wastewater upsets, ETP capacity and emergency drains.
-            </MiniCard>
-            <MiniCard icon={<FaSnowflake />} title="Humidity & HVAC">
-              Fabric dimensional stability; BI triggers from HVAC outages.
-            </MiniCard>
-            <MiniCard icon={<FaBoxOpen />} title="Quality & Claims">
-              Shade variation, shrinkage, fastness failures; rework and buyer claims.
-            </MiniCard>
-            <MiniCard icon={<FaPlug />} title="Power Quality">
-              Surges/harmonics; UPS and generator design for critical sections.
-            </MiniCard>
-            <MiniCard icon={<FaWind />} title="Storm & Impact">
-              Roof uplift, signage/stack collapse, and perimeter security.
-            </MiniCard>
-          </div>
-        </div>
-      </section>
-
-      {/* Program design & placement */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Program Design & Placement</h2>
-          <p className="mt-3 text-gray-700">
-            Buyer-audit and compliance-ready, with export documentation support.
+            Comprehensive insurance solutions tailored for different segments of the textile
+            industry.
           </p>
 
           <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
-            <Step
-              title="Exposure Mapping"
-              desc="Plant walkthroughs, fire/lint controls, ETP, utilities, export contracts and buyer codes."
-              points={[
-                'COPE and cat maps',
-                'Quality and recall drill reviews',
-                '3PL and export lanes assessment',
+            <InsurancePlan
+              name="Textile Starter Plan"
+              description="Essential coverage for small textile units and processing facilities"
+              price="₹3L - ₹8L"
+              features={[
+                'Fire & Allied Perils Coverage',
+                'Machinery Breakdown (Basic)',
+                'Public Liability Insurance',
+                'Workmen Compensation',
+                'Burglary & Theft Protection',
               ]}
+              recommended={false}
             />
-            <Step
-              title="Policy Architecture"
-              desc="Property/BI, GL/Product, Environmental, Transit/Warehouse, MB/EEI, Cyber."
-              points={[
-                'Sublimits and aggregates',
-                'Jurisdiction and territory',
-                'Additional insureds and waivers',
+            <InsurancePlan
+              name="Textile Professional Plan"
+              description="Comprehensive coverage for medium-scale textile manufacturing units"
+              price="₹8L - ₹30L"
+              features={[
+                'All Starter Plan Benefits',
+                'Business Interruption Coverage',
+                'Environmental Liability',
+                'Marine Cargo Insurance',
+                'Product Liability Coverage',
+                'Export Credit Insurance (Basic)',
               ]}
+              recommended={true}
             />
-            <Step
-              title="Placement & Claims"
-              desc="Panel quotes, adjuster SLAs, and evidence packs for faster settlements."
-              points={[
-                'On-account advances',
-                'Quality and rework quantification',
-                'Salvage and damage mitigation',
+            <InsurancePlan
+              name="Textile Enterprise Plan"
+              description="Complete protection for large textile mills and export houses"
+              price="₹30L+"
+              features={[
+                'All Professional Plan Benefits',
+                'Advanced Export Credit Coverage',
+                'International Liability Coverage',
+                'Political Risk Insurance',
+                'Directors & Officers Liability',
+                'Dedicated Claims Management',
               ]}
+              recommended={false}
             />
           </div>
         </div>
       </section>
 
-      {/* Extensions & add-ons */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Typical Extensions & Add-ons</h2>
-          <p className="mt-3 text-gray-700">
-            Address practical conditions across mills, process houses, and export hubs.
-          </p>
+      {/* Relevant Articles Component */}
+      <RelevantArticles articles={articles} industryName="Textile Industry" />
 
-          <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {[
-              'Escalation/inflation and professional fees',
-              'Deterioration of stock (humidity/temp)',
-              'Brands/labels, reconditioning and repacking',
-              'Contingent BI (supplier/customer)',
-              'Denial of access/public authority',
-              'Cyber dependent BI for ERP/WMS/PLM',
-              'Marine—sweat, moisture, odour endorsements',
-              'Warehouse legal liability (bailee’s)',
-              'Equipment rental and expediting costs',
-              'Third-party property in CCC',
-              'Product recall/withdrawal (where available)',
-              'Environmental cleanup and tank leakage',
-            ].map((txt) => (
-              <div key={txt} className="flex items-start rounded-lg border border-gray-200 p-5">
-                <FaChevronRight className="mt-1 mr-2 text-blue-400" />
-                <span className="text-sm">{txt}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Knowledge Questionnaire Component */}
+      <KnowledgeQuestionnaire questions={quizQuestions} industryName="Textile Industry" />
 
       {/* What you receive & CTA */}
       <section className="w-full bg-white">
@@ -273,11 +510,11 @@ const TextileInsurancePage = () => {
             <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-3">
               <div className="lg:col-span-2">
                 <h3 className="text-2xl font-bold text-gray-900">
-                  Export-Ready Coverage. Factory-Floor Resilience.
+                  Weaving Protection. Securing Textile Success.
                 </h3>
                 <p className="mt-2 text-gray-700">
-                  Engage SIIB’s textiles desk for precise wordings, faster placement, and proactive
-                  claims support.
+                  Partner with SIIB's textile specialists for comprehensive coverage, export
+                  protection, and expert claims management.
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row">
@@ -287,7 +524,7 @@ const TextileInsurancePage = () => {
                 </button>
                 <button className="inline-flex items-center justify-center rounded-lg border border-blue-200 bg-white px-6 py-3 font-semibold text-blue-700 hover:bg-blue-100">
                   <FaFileContract className="mr-2" />
-                  Upload Buyer Requirements
+                  Upload Mill Data
                 </button>
               </div>
             </div>
@@ -354,36 +591,108 @@ const Card = ({
   </div>
 );
 
-const MiniCard = ({
+const RiskCard = ({
   icon,
   title,
-  children,
+  description,
+  severity,
+  frequency,
 }: {
   icon: React.ReactNode;
   title: string;
-  children: React.ReactNode;
+  description: string;
+  severity: string;
+  frequency: string;
 }) => (
-  <div className="rounded-xl border border-gray-200 p-6">
+  <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
     <div className="flex items-center gap-3">
-      <span className="text-xl text-blue-500">{icon}</span>
-      <h3 className="font-semibold">{title}</h3>
+      <span className="text-2xl text-red-500">{icon}</span>
+      <h3 className="text-lg font-semibold">{title}</h3>
     </div>
-    <p className="mt-2 text-sm text-gray-700">{children}</p>
+    <p className="mt-3 text-sm text-gray-700">{description}</p>
+    <div className="mt-4 flex gap-4">
+      <div className="flex items-center gap-2">
+        <span className="text-xs text-gray-500">Severity:</span>
+        <span
+          className={`rounded-full px-2 py-1 text-xs font-medium ${
+            severity === 'High'
+              ? 'bg-red-100 text-red-800'
+              : severity === 'Medium'
+                ? 'bg-yellow-100 text-yellow-800'
+                : 'bg-green-100 text-green-800'
+          }`}
+        >
+          {severity}
+        </span>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="text-xs text-gray-500">Frequency:</span>
+        <span
+          className={`rounded-full px-2 py-1 text-xs font-medium ${
+            frequency === 'High'
+              ? 'bg-red-100 text-red-800'
+              : frequency === 'Medium'
+                ? 'bg-yellow-100 text-yellow-800'
+                : 'bg-green-100 text-green-800'
+          }`}
+        >
+          {frequency}
+        </span>
+      </div>
+    </div>
   </div>
 );
 
-const Step = ({ title, desc, points }: { title: string; desc: string; points: string[] }) => (
-  <div className="rounded-xl border border-gray-200 p-6">
-    <h3 className="text-lg font-semibold">{title}</h3>
-    <p className="mt-2 text-sm text-gray-700">{desc}</p>
-    <ul className="mt-4 space-y-1 text-sm text-gray-700">
-      {points.map((p) => (
-        <li key={p} className="flex">
-          <FaChevronRight className="mt-1 mr-2 text-blue-400" />
-          {p}
+const InsurancePlan = ({
+  name,
+  description,
+  price,
+  features,
+  recommended,
+}: {
+  name: string;
+  description: string;
+  price: string;
+  features: string[];
+  recommended: boolean;
+}) => (
+  <div
+    className={`rounded-xl border p-6 ${
+      recommended ? 'border-blue-500 bg-blue-50' : 'border-gray-200 bg-white'
+    }`}
+  >
+    {recommended && (
+      <div className="mb-4">
+        <span className="inline-flex items-center rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-800">
+          <FaCertificate className="mr-1" />
+          Recommended
+        </span>
+      </div>
+    )}
+    <h3 className="text-xl font-bold text-gray-900">{name}</h3>
+    <p className="mt-2 text-sm text-gray-600">{description}</p>
+    <div className="mt-4 flex items-center gap-2">
+      <FaRupeeSign className="text-blue-500" />
+      <span className="text-2xl font-bold text-blue-600">{price}</span>
+      <span className="text-sm text-gray-500">per year</span>
+    </div>
+    <ul className="mt-6 space-y-3">
+      {features.map((feature, index) => (
+        <li key={index} className="flex items-start gap-3">
+          <FaCheckCircle className="mt-1 text-green-500" />
+          <span className="text-sm text-gray-700">{feature}</span>
         </li>
       ))}
     </ul>
+    <button
+      className={`mt-6 w-full rounded-lg px-4 py-3 font-semibold ${
+        recommended
+          ? 'bg-blue-600 text-white hover:bg-blue-700'
+          : 'border border-blue-200 text-blue-700 hover:bg-blue-50'
+      }`}
+    >
+      Get Quote
+    </button>
   </div>
 );
 

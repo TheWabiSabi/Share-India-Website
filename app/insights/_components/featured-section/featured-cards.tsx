@@ -28,7 +28,7 @@ const FeaturedBlogCard: React.FC<FeaturedBlogCardProps> = ({
   const href = slug ? `/blog/${slug}` : undefined;
 
   return (
-    <article className="group focus-within:ring-si-primary/30 flex h-full w-full min-w-0 flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition duration-300 focus-within:ring-2 hover:-translate-y-1 hover:shadow-md sm:w-80 md:w-[40vw] lg:max-w-[20vw] xl:w-[18vw]">
+    <article className="group card-vibrant focus-within:ring-si-primary/30 hover-lift hover-glow-blue flex h-full w-full min-w-0 flex-col overflow-hidden rounded-xl transition duration-300 focus-within:ring-2 sm:w-80 md:w-[40vw] lg:max-w-[20vw] xl:w-[18vw]">
       {/* Media */}
       <div className="relative h-40 w-full overflow-hidden sm:h-52 md:h-[30vh]">
         <Image
@@ -41,13 +41,13 @@ const FeaturedBlogCard: React.FC<FeaturedBlogCardProps> = ({
         />
         {/* Category Badge */}
         {category && (
-          <span className="bg-si-bluegreen absolute top-3 left-3 rounded-full px-2.5 py-1 text-xs font-semibold text-white shadow">
+          <span className="from-si-primary to-si-primary-600 shadow-vibrant-blue absolute top-3 left-3 rounded-full bg-gradient-to-r px-3 py-1.5 text-xs font-bold text-white backdrop-blur-sm">
             {category}
           </span>
         )}
         {/* Type Badge */}
         {type && (
-          <span className="bg-si-slate/20 text-si-dark absolute top-3 right-3 rounded-full px-2.5 py-1 text-xs font-medium uppercase backdrop-blur-sm">
+          <span className="from-si-red/90 to-si-red shadow-vibrant-red absolute top-3 right-3 rounded-full bg-gradient-to-r px-3 py-1.5 text-xs font-bold text-white uppercase backdrop-blur-sm">
             {type.replace('_', ' ')}
           </span>
         )}
@@ -55,42 +55,42 @@ const FeaturedBlogCard: React.FC<FeaturedBlogCardProps> = ({
 
       {/* Content */}
       <div className="flex flex-1 flex-col p-5">
-        {/* Red accent bar */}
-        <div className="bg-si-red mb-3 h-1 w-12" />
+        {/* Gradient accent bar */}
+        <div className="accent-bar-gradient mb-3 h-2 w-14" />
 
         {/* Title */}
         {href ? (
           <Link
             href={href}
-            className="text-si-dark hover:text-si-bluegreen focus-visible:text-si-bluegreen line-clamp-2 text-lg leading-tight font-semibold transition-colors outline-none md:text-xl"
+            className="text-si-ink hover:text-si-primary focus-visible:text-si-primary line-clamp-2 text-lg leading-tight font-bold transition-colors outline-none md:text-xl"
             aria-label={title}
           >
             {title}
           </Link>
         ) : (
-          <h3 className="text-si-dark line-clamp-2 text-lg leading-tight font-semibold md:text-xl">
+          <h3 className="text-si-ink line-clamp-2 text-lg leading-tight font-bold md:text-xl">
             {title}
           </h3>
         )}
 
         {/* Author and Date */}
-        <div className="text-si-dark/60 mt-2 flex items-center text-xs md:text-sm">
-          <span className="text-si-dark mr-2 font-medium">{author}</span>
-          <span className="mx-2">•</span>
+        <div className="text-si-primary mt-2 flex items-center text-xs font-medium md:text-sm">
+          <span className="text-si-ink mr-2 font-semibold">{author}</span>
+          <span className="text-si-ink/40 mx-2">•</span>
           <time>{date}</time>
         </div>
 
         {/* Industry Tag */}
         {industry && (
-          <div className="mt-2">
-            <span className="bg-si-slate/10 text-si-dark border-si-slate/20 rounded-full border px-2 py-1 text-xs">
+          <div className="mt-3">
+            <span className="from-si-primary/20 to-si-primary/10 text-si-primary border-si-primary/20 rounded-full border bg-gradient-to-r px-3 py-1 text-xs font-semibold">
               {industry}
             </span>
           </div>
         )}
 
         {/* Description */}
-        <p className="text-si-dark/75 mt-3 line-clamp-2 text-sm leading-relaxed md:text-base">
+        <p className="text-si-ink/80 mt-3 line-clamp-2 text-sm leading-relaxed font-medium md:text-base">
           {description}
         </p>
 
@@ -99,10 +99,15 @@ const FeaturedBlogCard: React.FC<FeaturedBlogCardProps> = ({
           <div className="mt-auto pt-4">
             <Link
               href={href}
-              className="text-si-bluegreen hover:text-si-bluegreen/80 inline-flex items-center gap-2 text-sm font-semibold transition-colors"
+              className="text-si-primary hover:text-si-primary-600 inline-flex items-center gap-2 text-sm font-bold transition-all hover:gap-3"
             >
               Read more
-              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <svg
+                className="h-4 w-4 transition-transform hover:translate-x-1"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"

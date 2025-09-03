@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
       links: [
         { label: 'Insyclopedia', href: '/insyclopedia' },
         { label: 'Downloads', href: '/downloads' },
-        { label: 'Blog', href: '/blog' },
+        { label: 'Blogs', href: '/blogs' },
       ],
     },
     {

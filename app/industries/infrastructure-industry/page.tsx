@@ -1,420 +1,560 @@
-import CarouselWithFilter from '@/components/caraousel-with-filter';
+'use client';
 import React from 'react';
 import {
   FaChevronRight,
   FaShieldAlt,
-  FaHardHat,
-  FaIndustry,
-  FaUniversity,
-  FaCogs,
-  FaTools,
-  FaShip,
-  FaWater,
   FaRoad,
-  FaTrain,
-  FaWind,
-  FaSolarPanel,
+  FaBridge,
   FaBuilding,
-  FaMapSigns,
+  FaLeaf,
+  FaFire,
+  FaWater,
+  FaWind,
+  FaWarehouse,
+  FaTruckMoving,
+  FaUserShield,
   FaFileContract,
-  FaClipboardCheck,
-  FaLock,
-  FaUmbrella,
-  FaFirstAid,
-  FaBriefcaseMedical,
   FaPhoneAlt,
-  FaLaptopCode,
-  FaGavel,
+  FaEnvelope,
+  FaHeadset,
+  FaTools,
   FaPlug,
-  FaBolt,
-  FaSnowflake,
+  FaLock,
+  FaExclamationTriangle,
+  FaCheckCircle,
+  FaRupeeSign,
+  FaCertificate,
+  FaHardHat,
+  FaCogs,
 } from 'react-icons/fa';
-import { FaBridge } from 'react-icons/fa6';
+import ClaimStories from '../../../components/industries/ClaimStories';
+import RelevantArticles from '../../../components/industries/RelevantArticles';
+import KnowledgeQuestionnaire from '../../../components/industries/KnowledgeQuestionnaire';
 
 const InfrastructureInsurancePage = () => {
+  // Sample data for components
+  const claimStories = [
+    {
+      id: '1',
+      title: 'Bridge Construction Collapse',
+      description:
+        'Partial collapse of under-construction bridge due to design flaw, causing injuries and significant reconstruction costs.',
+      claimAmount: '₹150 Crores',
+      settlementTime: '18 months',
+      riskType: 'Construction Risk',
+      outcome: 'settled' as const,
+      lessons: [
+        'Design review and approval processes are critical',
+        'Professional indemnity insurance protects against design errors',
+        'Third-party liability coverage essential for public projects',
+      ],
+    },
+    {
+      id: '2',
+      title: 'Highway Project Delay',
+      description:
+        'Land acquisition delays and environmental clearance issues caused significant project delays and cost overruns.',
+      claimAmount: '₹85 Crores',
+      settlementTime: '24 months',
+      riskType: 'Delay in Start-up',
+      outcome: 'settled' as const,
+      lessons: [
+        'Regulatory risk coverage is essential for infrastructure projects',
+        'Delay in start-up insurance protects against revenue loss',
+        'Proper due diligence reduces regulatory risks',
+      ],
+    },
+    {
+      id: '3',
+      title: 'Power Plant Equipment Damage',
+      description:
+        'Turbine damage during commissioning phase caused extended delays and replacement costs.',
+      claimAmount: '₹120 Crores',
+      settlementTime: '12 months',
+      riskType: 'Equipment Damage',
+      outcome: 'settled' as const,
+      lessons: [
+        'Commissioning phase requires specialized coverage',
+        'Equipment breakdown insurance covers replacement costs',
+        'Manufacturer warranties should complement insurance',
+      ],
+    },
+    {
+      id: '4',
+      title: 'Metro Rail System Cyber Attack',
+      description:
+        'Cyber attack on metro control systems caused service disruption and security concerns.',
+      claimAmount: '₹25 Crores',
+      settlementTime: '8 months',
+      riskType: 'Cyber Security',
+      outcome: 'settled' as const,
+      lessons: [
+        'Critical infrastructure needs robust cyber protection',
+        'Business interruption from cyber events is significant',
+        'Incident response planning reduces impact',
+      ],
+    },
+  ];
+
+  const articles = [
+    {
+      id: '1',
+      title: 'Infrastructure Insurance Trends 2024: Emerging Risks in Smart Cities',
+      excerpt:
+        'How smart city initiatives are creating new risk profiles and insurance requirements for infrastructure projects.',
+      author: 'Vikram Sharma',
+      publishDate: 'Mar 30, 2024',
+      readTime: '9 min read',
+      category: 'Smart Infrastructure',
+      url: '#',
+      featured: true,
+    },
+    {
+      id: '2',
+      title: 'PPP Project Insurance: Risk Allocation and Coverage Strategies',
+      excerpt:
+        'Best practices for insurance coverage in public-private partnership infrastructure projects.',
+      author: 'Anita Desai',
+      publishDate: 'Mar 18, 2024',
+      readTime: '7 min read',
+      category: 'PPP Projects',
+      url: '#',
+    },
+    {
+      id: '3',
+      title: 'Climate Resilience in Infrastructure: Insurance Implications',
+      excerpt:
+        'How climate change is affecting infrastructure risk assessment and insurance coverage requirements.',
+      author: 'Dr. Ramesh Kumar',
+      publishDate: 'Mar 8, 2024',
+      readTime: '8 min read',
+      category: 'Climate Risk',
+      url: '#',
+    },
+  ];
+
+  const quizQuestions = [
+    {
+      id: '1',
+      question:
+        'What is the most critical insurance coverage for infrastructure construction projects?',
+      options: [
+        'Fire insurance only',
+        'Contractors All Risk (CAR) insurance',
+        'Motor vehicle insurance',
+        'Personal accident insurance',
+      ],
+      correctAnswer: 1,
+      explanation:
+        'Contractors All Risk (CAR) insurance is essential as it covers material damage during construction, third-party liability, and various construction risks.',
+      difficulty: 'easy' as const,
+    },
+    {
+      id: '2',
+      question: 'Which phase of infrastructure projects typically has the highest insurance risk?',
+      options: [
+        'Planning and design phase',
+        'Construction and commissioning phase',
+        'Operation and maintenance phase',
+        'Decommissioning phase',
+      ],
+      correctAnswer: 1,
+      explanation:
+        'Construction and commissioning phase has the highest risk due to complex operations, equipment exposure, and potential for accidents.',
+      difficulty: 'medium' as const,
+    },
+    {
+      id: '3',
+      question: 'What does FIDIC stand for in infrastructure contracts?',
+      options: [
+        'Federal Infrastructure Development Insurance Corporation',
+        'International Federation of Consulting Engineers',
+        'Financial Infrastructure Development Investment Committee',
+        'Foreign Investment Development Insurance Council',
+      ],
+      correctAnswer: 1,
+      explanation:
+        'FIDIC (International Federation of Consulting Engineers) provides standard contract forms widely used in infrastructure projects globally.',
+      difficulty: 'hard' as const,
+    },
+    {
+      id: '4',
+      question: 'Which insurance is mandatory for infrastructure projects involving public funds?',
+      options: [
+        'Performance guarantee insurance',
+        'Professional indemnity insurance',
+        'Public liability insurance',
+        'All of the above',
+      ],
+      correctAnswer: 3,
+      explanation:
+        'Infrastructure projects with public funds typically require all three: performance guarantees, professional indemnity, and public liability insurance.',
+      difficulty: 'medium' as const,
+    },
+    {
+      id: '5',
+      question: 'What is the typical defects liability period for infrastructure projects?',
+      options: ['6 months', '1 year', '2-5 years', '10 years'],
+      correctAnswer: 2,
+      explanation:
+        '2-5 years is typical for infrastructure projects, during which contractors remain liable for defects and insurance coverage is maintained.',
+      difficulty: 'medium' as const,
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-white pt-[8vh] text-gray-900">
-      {/* Hero Section */}
+      {/* Hero */}
       <section className="w-full border-b border-gray-100">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
           <div className="max-w-4xl">
             <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl">
-              Infrastructure Insurance Solutions
+              Infrastructure Industry Insurance Solutions
             </h1>
-            <p className="mt-5 text-lg text-gray-700 md:text-xl">
-              End-to-end risk cover for EPC, developers, and financiers across roads, bridges,
-              metros, airports, ports, power, renewables, water, and industrial projects.
+            <p className="mt-6 text-lg text-gray-700 md:text-xl">
+              Comprehensive coverage for roads, bridges, power plants, and smart city
+              projects—protecting critical infrastructure investments from construction to
+              operation.
             </p>
-
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <button className="inline-flex items-center justify-center rounded-lg bg-blue-100 px-6 py-3 font-semibold text-blue-800 hover:bg-blue-200">
                 <FaShieldAlt className="mr-2" />
-                Get Project Quote
+                Get Coverage Proposal
               </button>
               <button className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-6 py-3 font-semibold hover:bg-gray-50">
                 <FaFileContract className="mr-2" />
-                Book Risk Workshop
+                Book Risk Assessment
               </button>
               <button className="inline-flex items-center justify-center rounded-lg border border-blue-200 px-6 py-3 font-semibold text-blue-700 hover:bg-blue-50">
                 <FaPhoneAlt className="mr-2" />
                 Speak to Specialist
               </button>
             </div>
-
             <div className="mt-4 text-sm text-gray-600">
-              Licensed IRDA Insurance Broker under Share India Group; technology-driven placement
-              and claims services.
+              Specialized coverage for PPP projects, smart cities, and critical infrastructure with
+              performance guarantees.
             </div>
           </div>
         </div>
       </section>
 
-      {/* Claim Stories Carousel */}
-      <section className="mx-auto my-12 max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h3 className="text-2xl font-bold md:text-3xl">Claim Stories</h3>
-        <p className="mt-3 mb-6 text-gray-700">
-          See how we helped infrastructure clients manage complex claims and get back on track.
-        </p>
-        <div className="rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
-          <CarouselWithFilter topic="infrastructure_industry" />
+      {/* Industry Explanation */}
+      <section className="w-full border-b border-gray-100 bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold md:text-3xl">
+            Understanding Infrastructure Industry Insurance
+          </h2>
+          <p className="mt-3 text-gray-700">
+            Infrastructure development is the backbone of economic growth, involving massive
+            investments in roads, bridges, power plants, airports, and smart city projects. These
+            projects face unique risks requiring specialized insurance solutions.
+          </p>
+
+          <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2">
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900">Industry Overview</h3>
+              <p className="mt-3 text-gray-700">
+                Infrastructure projects involve complex engineering, long construction periods,
+                multiple stakeholders, and significant public interest. They require comprehensive
+                risk management covering construction risks, performance guarantees, environmental
+                liabilities, and long-term operational risks. Insurance plays a crucial role in
+                project financing and risk allocation.
+              </p>
+              <ul className="mt-4 space-y-2 text-sm text-gray-700">
+                <li className="flex items-start">
+                  <FaChevronRight className="mt-1 mr-2 text-blue-400" />
+                  Multi-year projects with complex risk profiles
+                </li>
+                <li className="flex items-start">
+                  <FaChevronRight className="mt-1 mr-2 text-blue-400" />
+                  Public-private partnerships requiring specialized coverage
+                </li>
+                <li className="flex items-start">
+                  <FaChevronRight className="mt-1 mr-2 text-blue-400" />
+                  Performance guarantees essential for project completion
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900">Key Project Types</h3>
+              <div className="mt-3 space-y-3">
+                <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
+                  <FaRoad className="text-blue-500" />
+                  <div>
+                    <div className="font-medium">Transportation Infrastructure</div>
+                    <div className="text-sm text-gray-600">
+                      Roads, highways, bridges, and tunnels
+                    </div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
+                  <FaPlug className="text-blue-500" />
+                  <div>
+                    <div className="font-medium">Power & Energy</div>
+                    <div className="text-sm text-gray-600">
+                      Power plants, transmission lines, and renewable energy
+                    </div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
+                  <FaBuilding className="text-blue-500" />
+                  <div>
+                    <div className="font-medium">Urban Infrastructure</div>
+                    <div className="text-sm text-gray-600">
+                      Smart cities, metro systems, and airports
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Who We Serve */}
+      {/* Who we serve */}
       <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold md:text-3xl">Who We Serve</h2>
           <p className="mt-3 text-gray-700">
-            Comprehensive broking for complex, multi-stakeholder infrastructure ecosystems.
+            Tailored insurance solutions for every stakeholder in infrastructure development.
           </p>
 
-          <div className="mt-7 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <ServiceCard
-              icon={<FaHardHat />}
-              title="EPC & Contractors"
-              description="Civil, mechanical, electrical, O&M contractors and subcontractors."
-            />
-            <ServiceCard
-              icon={<FaIndustry />}
-              title="Developers & SPVs"
-              description="Project owners, concessionaires, InvITs and infrastructure investors."
-            />
-            <ServiceCard
-              icon={<FaUniversity />}
-              title="Financiers"
-              description="Banks, NBFCs, multilaterals with lender's interest endorsements."
-            />
-            <ServiceCard
-              icon={<FaMapSigns />}
-              title="Government & PSU"
-              description="Roads, rails, bridges, airports, ports and water agencies."
-            />
+          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <Tile icon={<FaHardHat />} title="EPC Contractors">
+              Engineering, procurement, and construction companies executing infrastructure
+              projects.
+            </Tile>
+            <Tile icon={<FaBuilding />} title="Project Developers">
+              Infrastructure developers and special purpose vehicles managing large-scale projects.
+            </Tile>
+            <Tile icon={<FaCogs />} title="Equipment Suppliers">
+              Manufacturers and suppliers of heavy machinery and specialized infrastructure
+              equipment.
+            </Tile>
+            <Tile icon={<FaUserShield />} title="Government Agencies">
+              Public sector entities and authorities overseeing infrastructure development.
+            </Tile>
           </div>
         </div>
       </section>
 
-      {/* Core Project Policies */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Core Project Policies</h2>
-          <p className="mt-3 text-gray-700">
-            Modular and comprehensive covers across construction, erection, testing and operations
-            phases.
-          </p>
-
-          <div className="mt-7 grid grid-cols-1 gap-6 md:grid-cols-2">
-            <PolicyCard
-              icon={<FaTools />}
-              title="Contractors All Risk (CAR)"
-              description="All-risk cover for civil works: works-in-progress, materials on site, TPL, debris removal, with optional extensions for DSU/ALOP."
-              features={[
-                'Section I: Material Damage (fire, flood, storm, theft, collapse, landslide).',
-                'Section II: Third-Party Liability (injury, property damage, legal costs).',
-                'Key exclusions: faulty design, normal wear/tear; faulty workmanship limited to affected part.',
-              ]}
-            />
-
-            <PolicyCard
-              icon={<FaCogs />}
-              title="Erection All Risk (EAR)"
-              description="Cover for installation and commissioning of plant and machinery, including testing and trial runs with TPL extensions."
-              features={[
-                'Material damage during erection, hot/cold testing, commissioning.',
-                'TPL for injury/damage to adjacent property and public.',
-              ]}
-            />
-
-            <PolicyCard
-              icon={<FaClipboardCheck />}
-              title="Delay in Start-Up (DSU/ALOP)"
-              description="Consequential loss cover for revenue/financing costs due to insured physical damage delays on CAR/EAR master policy."
-              features={[
-                'Covers lost gross profit, standing charges, debt servicing for insured events.',
-                "Critical for lender protection, aligns with lender's interest endorsements.",
-              ]}
-            />
-
-            <PolicyCard
-              icon={<FaShip />}
-              title="Project Cargo & Marine"
-              description="Transit cover for heavy/over-dimensional cargo from origin to site including unloading, storage and inland transit."
-              features={[
-                'Institute Cargo Clauses, project cargo add-ons, SDR limits alignment.',
-                'Stock throughput structures for long projects with multiple consignments.',
-              ]}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Liability and Specialty Coverage */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Liability and Specialty</h2>
-          <p className="mt-3 text-gray-700">
-            Comprehensive third-party and specialty protections for large project environments.
-          </p>
-
-          <div className="mt-7 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <LiabilityCard
-              icon={<FaUmbrella />}
-              title="Commercial General Liability"
-              description="Premises, operations, products/completed ops, contractor protective liability."
-            />
-            <LiabilityCard
-              icon={<FaFirstAid />}
-              title="Contractor's Plant & Machinery"
-              description="CPM cover for excavators, cranes, tunneling machines, with earthquake/flood add-ons."
-            />
-            <LiabilityCard
-              icon={<FaBriefcaseMedical />}
-              title="Workmen Compensation"
-              description="Statutory WC/EL and PA for site and yard workforce including subcontractor employees."
-            />
-            <LiabilityCard
-              icon={<FaGavel />}
-              title="Professional Indemnity"
-              description="PI for architects, engineers, PMC, and design consultants with retro and run-off."
-            />
-            <LiabilityCard
-              icon={<FaLock />}
-              title="Cyber & OT Security"
-              description="Cyber/OT risk for SCADA, ICS, and project data rooms during construction and operations."
-            />
-            <LiabilityCard
-              icon={<FaBolt />}
-              title="Contractor's Guarantee/Advance Loss"
-              description="Advance Payment Bond, Performance Guarantee via surety solutions; ALoP tied to DSU."
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Sector Coverage */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Sector Coverage</h2>
-          <p className="mt-3 text-gray-700">
-            Tailored wordings and extensions for sector-specific exposures across India.
-          </p>
-
-          <div className="mt-7 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
-            <SectorTag icon={<FaRoad />} label="Highways" />
-            <SectorTag icon={<FaBridge />} label="Bridges & Flyovers" />
-            <SectorTag icon={<FaTrain />} label="Rail & Metro" />
-            <SectorTag icon={<FaWater />} label="Water & Sewage" />
-            <SectorTag icon={<FaWind />} label="Wind" />
-            <SectorTag icon={<FaSolarPanel />} label="Solar" />
-            <SectorTag icon={<FaPlug />} label="Transmission" />
-            <SectorTag icon={<FaIndustry />} label="Industrial Plants" />
-            <SectorTag icon={<FaBuilding />} label="Airports & Ports" />
-            <SectorTag icon={<FaSnowflake />} label="Tunnels" />
-            <SectorTag icon={<FaShip />} label="Harbors" />
-            <SectorTag icon={<FaUniversity />} label="Urban Infra" />
-          </div>
-        </div>
-      </section>
-
-      {/* How SIIB Delivers */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">How SIIB Delivers</h2>
-          <p className="mt-3 text-gray-700">
-            Data-driven broking with rigorous risk engineering and lender alignment.
-          </p>
-
-          <div className="mt-7 grid grid-cols-1 gap-6 lg:grid-cols-3">
-            <ProcessStep
-              title="Risk Engineering"
-              description="On-site risk surveys, loss prevention checklists, catastrophe assessment, and BOQ validation before placement."
-              points={[
-                'Scope & hazard mapping',
-                'Method statements & JSA review',
-                'Sum insured adequacy & PML',
-              ]}
-            />
-            <ProcessStep
-              title="Program Design"
-              description="Policy structure, deductibles/franchises, sub-limits, testing periods, maintenance clauses, and lender endorsements."
-              points={[
-                'Wording alignment & exclusions',
-                'DSU basis: GP/GS/DSC',
-                'Multi-stakeholder coverage',
-              ]}
-            />
-            <ProcessStep
-              title="Placement & Claims"
-              description="Competitive multi-insurer placement, claims protocols, and post-loss project acceleration support."
-              points={[
-                'Panel negotiation & slips',
-                'Loss adjuster engagement',
-                'Cash loss/On-account advances',
-              ]}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Typical Extensions & Add-ons */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Typical Extensions & Add-ons</h2>
-          <p className="mt-3 text-gray-700">
-            Build a robust program with project-specific endorsements and extensions.
-          </p>
-
-          <div className="mt-7 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {extensionsList.map((item) => (
-              <ExtensionItem key={item} text={item} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* DSU/ALOP Structuring */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">DSU/ALOP Structuring Considerations</h2>
-          <p className="mt-3 text-gray-700">
-            Aligning contractual timelines with realistic indemnity and waiting periods.
-          </p>
-
-          <div className="mt-7 grid grid-cols-1 gap-6 md:grid-cols-3">
-            <InfoCard
-              title="Sum Insured Basis"
-              content="Gross Profit, Gross Earnings, Debt Service Cost or hybrid depending on lender covenants and cash flow models."
-            />
-            <InfoCard
-              title="Waiting Period"
-              content="Typical 30–90 days based on critical path analysis and single point of failure assessment."
-            />
-            <InfoCard
-              title="Indemnity Period"
-              content="6–18 months aligned to reconstruction timelines, import lead times, and statutory approvals."
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Premium Drivers */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Premium Drivers</h2>
-          <p className="mt-3 text-gray-700">
-            Underwriting parameters that influence quotes and coverage terms.
-          </p>
-
-          <div className="mt-7 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <InfoCard
-              title="Project Value & Duration"
-              content="Total project cost, phase milestones, long-lead imports and schedule buffers."
-            />
-            <InfoCard
-              title="Location & Perils"
-              content="Seismic zone, flood/storm history, geotechnical risks, hydrology and proximity exposures."
-            />
-            <InfoCard
-              title="Design & Methods"
-              content="Novel construction techniques, tunneling, deep foundations, hot commissioning risk."
-            />
-            <InfoCard
-              title="Loss History & Controls"
-              content="Past claims, HSE culture, site security, QA/QC, surveillance, and supervision."
-            />
-            <InfoCard
-              title="Supply Chain"
-              content="ODC moves, route surveys, multimodal legs, cranes and jacking risks."
-            />
-            <InfoCard
-              title="Stakeholder Matrix"
-              content="Sub-contracting complexity, JV structures, and lender covenants affecting coverage."
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* What You Receive */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">What You Receive</h2>
-          <p className="mt-3 text-gray-700">
-            Structured documentation and real-time visibility throughout the project lifecycle.
-          </p>
-
-          <div className="mt-7 grid grid-cols-1 gap-6 md:grid-cols-3">
-            <InfoCard
-              title="Risk Survey Report"
-              content="Detailed hazard analysis, PML scenarios, COPE data and recommendations before placement."
-            />
-            <InfoCard
-              title="Placement Slips"
-              content="Multiple insurer quotes, clause-by-clause comparison, panel recommendation and binders."
-            />
-            <InfoCard
-              title="Claims Protocols"
-              content="Loss notification flow, adjuster coordination, documentation checklist, and on-account strategies."
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Relevant Articles Carousel */}
-      <section className="mx-auto my-12 max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h3 className="text-2xl font-bold md:text-3xl">Relevant Articles</h3>
-        <p className="mt-3 mb-6 text-gray-700">
-          Browse insights on infrastructure insurance trends, claims, and risk management.
-        </p>
-        <div className="rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
-          <CarouselWithFilter topic="infrastructure_industry" />
-        </div>
-      </section>
-
-      {/* Call to Action */}
-      <section className="w-full bg-white">
+      {/* Sample Risks */}
+      <section className="w-full border-b border-gray-100 bg-gray-50">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold md:text-3xl">
+            Common Risks in Infrastructure Industry
+          </h2>
+          <p className="mt-3 text-gray-700">
+            Understanding key risks helps in selecting appropriate insurance coverage for your
+            infrastructure projects.
+          </p>
+
+          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <RiskCard
+              icon={<FaHardHat />}
+              title="Construction & Design Risks"
+              description="Design errors, construction defects, and technical failures during project execution."
+              severity="High"
+              frequency="Medium"
+            />
+            <RiskCard
+              icon={<FaExclamationTriangle />}
+              title="Delay & Performance Risks"
+              description="Project delays, cost overruns, and failure to meet performance specifications."
+              severity="High"
+              frequency="High"
+            />
+            <RiskCard
+              icon={<FaWater />}
+              title="Natural Disasters"
+              description="Earthquakes, floods, cyclones affecting construction and completed infrastructure."
+              severity="High"
+              frequency="Medium"
+            />
+            <RiskCard
+              icon={<FaFileContract />}
+              title="Regulatory & Political Risks"
+              description="Policy changes, permit delays, and political instability affecting project viability."
+              severity="Medium"
+              frequency="Medium"
+            />
+            <RiskCard
+              icon={<FaLock />}
+              title="Cyber & Technology Risks"
+              description="Cyber attacks on smart infrastructure and technology system failures."
+              severity="Medium"
+              frequency="Low"
+            />
+            <RiskCard
+              icon={<FaLeaf />}
+              title="Environmental Liabilities"
+              description="Environmental damage, pollution incidents, and ecological impact issues."
+              severity="Medium"
+              frequency="Low"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Claim Stories Component */}
+      <ClaimStories stories={claimStories} industryName="Infrastructure Industry" />
+
+      {/* Core coverage suite */}
+      <section className="w-full border-b border-gray-100 bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold md:text-3xl">Core Coverage Suite</h2>
+          <p className="mt-3 text-gray-700">
+            Comprehensive protection designed specifically for infrastructure projects and
+            operations.
+          </p>
+
+          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
+            <Card
+              icon={<FaHardHat className="text-2xl text-blue-500" />}
+              title="Contractors All Risk (CAR)"
+              body="Comprehensive coverage for construction phase including material damage and third-party liability."
+              bullets={[
+                'Material damage during construction',
+                'Natural catastrophe and weather damage',
+                'Third-party liability and property damage',
+              ]}
+            />
+            <Card
+              icon={<FaCogs className="text-2xl text-blue-500" />}
+              title="Erection All Risk (EAR)"
+              body="Specialized coverage for mechanical and electrical installation and commissioning."
+              bullets={[
+                'Machinery and equipment installation',
+                'Testing and commissioning coverage',
+                'Maintenance period protection',
+              ]}
+            />
+          </div>
+
+          <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
+            <Card
+              icon={<FaUserShield className="text-2xl text-blue-500" />}
+              title="Professional Indemnity & Performance"
+              body="Protection against design errors and performance guarantee requirements."
+              bullets={[
+                'Design and engineering errors coverage',
+                'Performance guarantee insurance',
+                'Advance payment guarantee protection',
+              ]}
+            />
+            <Card
+              icon={<FaExclamationTriangle className="text-2xl text-blue-500" />}
+              title="Delay in Start-up & Business Interruption"
+              body="Coverage for project delays and revenue loss during construction and operation."
+              bullets={[
+                'Delay in start-up coverage',
+                'Business interruption protection',
+                'Loss of revenue during delays',
+              ]}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Insurance Plans/Products */}
+      <section className="w-full border-b border-gray-100 bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold md:text-3xl">
+            Insurance Plans for Infrastructure Industry
+          </h2>
+          <p className="mt-3 text-gray-700">
+            Comprehensive insurance solutions tailored for different scales of infrastructure
+            projects.
+          </p>
+
+          <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
+            <InsurancePlan
+              name="Infrastructure Starter Plan"
+              description="Essential coverage for small to medium infrastructure projects"
+              price="₹5L - ₹15L"
+              features={[
+                'Contractors All Risk (CAR)',
+                'Public Liability Insurance',
+                'Workmen Compensation',
+                'Motor Vehicle Insurance',
+                'Basic Performance Guarantee',
+              ]}
+              recommended={false}
+            />
+            <InsurancePlan
+              name="Infrastructure Professional Plan"
+              description="Comprehensive coverage for major infrastructure projects"
+              price="₹15L - ₹1Cr"
+              features={[
+                'All Starter Plan Benefits',
+                'Erection All Risk (EAR)',
+                'Professional Indemnity',
+                'Delay in Start-up Coverage',
+                'Environmental Liability',
+                'Advanced Performance Guarantees',
+              ]}
+              recommended={true}
+            />
+            <InsurancePlan
+              name="Infrastructure Enterprise Plan"
+              description="Complete protection for mega infrastructure projects and PPPs"
+              price="₹1Cr+"
+              features={[
+                'All Professional Plan Benefits',
+                'Political Risk Insurance',
+                'International Coverage',
+                'Cyber Liability for Smart Infrastructure',
+                'Crisis Management Services',
+                'Dedicated Project Insurance Manager',
+              ]}
+              recommended={false}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Relevant Articles Component */}
+      <RelevantArticles articles={articles} industryName="Infrastructure Industry" />
+
+      {/* Knowledge Questionnaire Component */}
+      <KnowledgeQuestionnaire questions={quizQuestions} industryName="Infrastructure Industry" />
+
+      {/* What you receive & CTA */}
+      <section className="w-full bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="rounded-2xl border border-blue-200 bg-blue-50 p-8">
             <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-3">
               <div className="lg:col-span-2">
                 <h3 className="text-2xl font-bold text-gray-900">
-                  Start Your Infrastructure Insurance Program
+                  Building Tomorrow. Protecting Today.
                 </h3>
                 <p className="mt-2 text-gray-700">
-                  Work with SIIB&#39;s dedicated infrastructure desk for faster placement, stronger
-                  wordings, and proactive claims support.
+                  Partner with SIIB's infrastructure specialists for comprehensive project coverage,
+                  performance guarantees, and expert risk management.
                 </p>
               </div>
-
               <div className="flex flex-col gap-3 sm:flex-row">
                 <button className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-700">
                   <FaShieldAlt className="mr-2" />
                   Request Proposal
                 </button>
                 <button className="inline-flex items-center justify-center rounded-lg border border-blue-200 bg-white px-6 py-3 font-semibold text-blue-700 hover:bg-blue-100">
-                  <FaLaptopCode className="mr-2" />
-                  Upload Project Docs
+                  <FaFileContract className="mr-2" />
+                  Upload Project Data
                 </button>
               </div>
             </div>
+          </div>
+
+          {/* Contact strip */}
+          <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
+            <Contact label="Call" value="1800 210 2022" icon={<FaPhoneAlt />} />
+            <Contact label="Email" value="contact.ins@shareindia.co.in" icon={<FaEnvelope />} />
+            <Contact
+              label="Advisory Desk"
+              value="Infrastructure Insurance Specialists"
+              icon={<FaHeadset />}
+            />
           </div>
         </div>
       </section>
@@ -422,133 +562,172 @@ const InfrastructureInsurancePage = () => {
   );
 };
 
-// Helper Components
-const ServiceCard = ({
+/* Helpers */
+const Tile = ({
   icon,
   title,
-  description,
+  children,
 }: {
   icon: React.ReactNode;
   title: string;
-  description: string;
+  children: React.ReactNode;
 }) => (
   <div className="rounded-xl border border-gray-200 p-6">
     <div className="text-2xl text-blue-500">{icon}</div>
     <h3 className="mt-3 font-semibold">{title}</h3>
-    <p className="mt-1 text-sm text-gray-600">{description}</p>
+    <p className="mt-1 text-sm text-gray-600">{children}</p>
   </div>
 );
 
-const PolicyCard = ({
+const Card = ({
   icon,
   title,
-  description,
-  features,
+  body,
+  bullets,
 }: {
   icon: React.ReactNode;
   title: string;
-  description: string;
-  features: string[];
+  body: string;
+  bullets: string[];
 }) => (
   <div className="rounded-xl border border-gray-200 p-6">
     <div className="flex items-center gap-3">
-      <div className="text-2xl text-blue-500">{icon}</div>
+      {icon}
       <h3 className="text-lg font-semibold">{title}</h3>
     </div>
-    <p className="mt-2 text-sm text-gray-700">{description}</p>
+    <p className="mt-2 text-sm text-gray-700">{body}</p>
     <ul className="mt-3 space-y-1 text-sm text-gray-700">
-      {features.map((feature, index) => (
-        <li key={index} className="flex">
+      {bullets.map((b) => (
+        <li key={b} className="flex">
           <FaChevronRight className="mt-1 mr-2 text-blue-400" />
-          {feature}
+          {b}
         </li>
       ))}
     </ul>
   </div>
 );
 
-const LiabilityCard = ({
+const RiskCard = ({
   icon,
   title,
   description,
+  severity,
+  frequency,
 }: {
   icon: React.ReactNode;
   title: string;
   description: string;
+  severity: string;
+  frequency: string;
 }) => (
-  <div className="rounded-xl border border-gray-200 p-6">
+  <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
     <div className="flex items-center gap-3">
-      <div className="text-blue-500">{icon}</div>
-      <h3 className="font-semibold">{title}</h3>
+      <span className="text-2xl text-red-500">{icon}</span>
+      <h3 className="text-lg font-semibold">{title}</h3>
     </div>
-    <p className="mt-2 text-sm text-gray-700">{description}</p>
+    <p className="mt-3 text-sm text-gray-700">{description}</p>
+    <div className="mt-4 flex gap-4">
+      <div className="flex items-center gap-2">
+        <span className="text-xs text-gray-500">Severity:</span>
+        <span
+          className={`rounded-full px-2 py-1 text-xs font-medium ${
+            severity === 'High'
+              ? 'bg-red-100 text-red-800'
+              : severity === 'Medium'
+                ? 'bg-yellow-100 text-yellow-800'
+                : 'bg-green-100 text-green-800'
+          }`}
+        >
+          {severity}
+        </span>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="text-xs text-gray-500">Frequency:</span>
+        <span
+          className={`rounded-full px-2 py-1 text-xs font-medium ${
+            frequency === 'High'
+              ? 'bg-red-100 text-red-800'
+              : frequency === 'Medium'
+                ? 'bg-yellow-100 text-yellow-800'
+                : 'bg-green-100 text-green-800'
+          }`}
+        >
+          {frequency}
+        </span>
+      </div>
+    </div>
   </div>
 );
 
-const SectorTag = ({ icon, label }: { icon: React.ReactNode; label: string }) => (
-  <div className="flex items-center gap-2 rounded-lg border border-gray-200 px-3 py-2">
-    <span className="text-blue-500">{icon}</span>
-    <span className="text-sm">{label}</span>
-  </div>
-);
-
-const ProcessStep = ({
-  title,
+const InsurancePlan = ({
+  name,
   description,
-  points,
+  price,
+  features,
+  recommended,
 }: {
-  title: string;
+  name: string;
   description: string;
-  points: string[];
+  price: string;
+  features: string[];
+  recommended: boolean;
 }) => (
-  <div className="rounded-xl border border-gray-200 p-6">
-    <h3 className="text-lg font-semibold">{title}</h3>
-    <p className="mt-2 text-sm text-gray-700">{description}</p>
-    <ul className="mt-4 space-y-1 text-sm text-gray-700">
-      {points.map((point, index) => (
-        <li key={index} className="flex">
-          <FaChevronRight className="mt-1 mr-2 text-blue-400" />
-          {point}
+  <div
+    className={`rounded-xl border p-6 ${
+      recommended ? 'border-blue-500 bg-blue-50' : 'border-gray-200 bg-white'
+    }`}
+  >
+    {recommended && (
+      <div className="mb-4">
+        <span className="inline-flex items-center rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-800">
+          <FaCertificate className="mr-1" />
+          Recommended
+        </span>
+      </div>
+    )}
+    <h3 className="text-xl font-bold text-gray-900">{name}</h3>
+    <p className="mt-2 text-sm text-gray-600">{description}</p>
+    <div className="mt-4 flex items-center gap-2">
+      <FaRupeeSign className="text-blue-500" />
+      <span className="text-2xl font-bold text-blue-600">{price}</span>
+      <span className="text-sm text-gray-500">per year</span>
+    </div>
+    <ul className="mt-6 space-y-3">
+      {features.map((feature, index) => (
+        <li key={index} className="flex items-start gap-3">
+          <FaCheckCircle className="mt-1 text-green-500" />
+          <span className="text-sm text-gray-700">{feature}</span>
         </li>
       ))}
     </ul>
+    <button
+      className={`mt-6 w-full rounded-lg px-4 py-3 font-semibold ${
+        recommended
+          ? 'bg-blue-600 text-white hover:bg-blue-700'
+          : 'border border-blue-200 text-blue-700 hover:bg-blue-50'
+      }`}
+    >
+      Get Quote
+    </button>
   </div>
 );
 
-const ExtensionItem = ({ text }: { text: string }) => (
-  <div className="flex items-start rounded-lg border border-gray-200 p-4">
-    <FaChevronRight className="mt-1 mr-2 text-blue-400" />
-    <span className="text-sm">{text}</span>
+const Contact = ({
+  label,
+  value,
+  icon,
+}: {
+  label: string;
+  value: string;
+  icon: React.ReactNode;
+}) => (
+  <div className="flex items-center justify-between rounded-lg border border-gray-200 p-5">
+    <div>
+      <div className="text-sm text-gray-500">{label}</div>
+      <div className="font-semibold">{value}</div>
+    </div>
+    <div className="text-xl text-blue-600">{icon}</div>
   </div>
 );
-
-const InfoCard = ({ title, content }: { title: string; content: string }) => (
-  <div className="rounded-xl border border-gray-200 p-6">
-    <h3 className="text-lg font-semibold">{title}</h3>
-    <p className="mt-2 text-sm text-gray-700">{content}</p>
-  </div>
-);
-
-// Constants
-const extensionsList = [
-  'Escalation clause',
-  'Expediting expenses',
-  'Design defect (LEG 1/2/3 equivalents)',
-  'Debris removal',
-  'Surrounding property',
-  'Offsite storage',
-  'Inland transit to site',
-  'Testing & commissioning',
-  'Extended maintenance',
-  'Cross liability/separation of insureds',
-  "Principal's existing property",
-  'Architects/Surveyors fees',
-  'Earthquake (Zone-wise)',
-  'Flood, storm, cyclone',
-  'Breakdown during testing',
-  'Clearance of drains',
-  'Underground services',
-  'Devaluation due to delay (with DSU)',
-];
 
 export default InfrastructureInsurancePage;

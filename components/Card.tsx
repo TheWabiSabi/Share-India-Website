@@ -24,39 +24,43 @@ export default function Card({
 }: CardProps) {
   return (
     <div
-      className={`bg-si-white overflow-hidden rounded-lg transition-shadow duration-300 hover:shadow-lg ${className}`}
+      className={`card-vibrant hover-lift hover-glow-blue overflow-hidden rounded-xl ${className}`}
     >
       {/* Image Section */}
-      <div className="relative h-64 w-full overflow-hidden rounded-lg">
+      <div className="relative h-64 w-full overflow-hidden">
         <Image
           fill
           src={image}
           alt={imageAlt}
-          className="h-full w-full object-cover transition-transform duration-300"
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
+        <div className="from-si-ink/20 absolute inset-0 bg-gradient-to-t via-transparent to-transparent" />
       </div>
 
       {/* Content Section */}
       <div className="p-6">
+        {/* Accent bar */}
+        <div className="accent-bar-gradient mb-4 h-2 w-12" />
+
         {/* Category Label */}
         <div className="mb-4">
-          <span className="text-si-bluegreen inline-block text-sm font-medium tracking-wider uppercase">
+          <span className="from-si-primary/20 to-si-primary/10 text-si-primary border-si-primary/20 rounded-full border bg-gradient-to-r px-3 py-1 text-sm font-bold tracking-wider uppercase">
             {category}
           </span>
         </div>
 
         {/* Title */}
-        <h3 className="mb-4 text-2xl leading-tight font-bold text-gray-900">{title}</h3>
+        <h3 className="text-si-ink mb-4 text-2xl leading-tight font-bold">{title}</h3>
 
         {/* Description */}
-        <p className="mb-6 leading-relaxed text-gray-600">{description}</p>
+        <p className="text-si-ink/80 mb-6 leading-relaxed font-medium">{description}</p>
 
         {/* Link */}
         <Link
           href={link}
-          className="group text-si-bluegreen hover:text-si-bluegreen/70 inline-flex items-center gap-2 font-semibold transition-colors duration-200"
+          className="group text-si-primary hover:text-si-primary-600 inline-flex items-center gap-2 font-bold transition-all hover:gap-3"
         >
-          <span className="border-si-bluegreen group-hover:border-si-bluegreen/50 border-b-2 pb-1">
+          <span className="border-si-primary group-hover:border-si-primary-600 border-b-2 pb-1">
             {linkText}
           </span>
           <svg

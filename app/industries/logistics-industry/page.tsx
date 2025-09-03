@@ -1,29 +1,207 @@
+'use client';
 import React from 'react';
 import {
   FaChevronRight,
   FaShieldAlt,
-  FaTruckMoving,
+  FaTruck,
   FaShip,
+  FaPlane,
+  FaLeaf,
+  FaFire,
+  FaWater,
+  FaWind,
   FaWarehouse,
-  FaSnowflake,
-  FaRoute,
-  FaCubes,
-  FaBoxOpen,
-  FaLock,
+  FaTruckMoving,
   FaUserShield,
-  FaHandsHelping,
-  FaClipboardCheck,
   FaFileContract,
   FaPhoneAlt,
   FaEnvelope,
   FaHeadset,
-  FaHandshake,
-  FaGlobe,
-  FaLaptopCode,
+  FaTools,
+  FaPlug,
+  FaLock,
   FaExclamationTriangle,
+  FaCheckCircle,
+  FaRupeeSign,
+  FaCertificate,
+  FaBoxes,
+  FaRoute,
 } from 'react-icons/fa';
+import ClaimStories from '../../../components/industries/ClaimStories';
+import RelevantArticles from '../../../components/industries/RelevantArticles';
+import KnowledgeQuestionnaire from '../../../components/industries/KnowledgeQuestionnaire';
 
 const LogisticsInsurancePage = () => {
+  // Sample data for components
+  const claimStories = [
+    {
+      id: '1',
+      title: 'Highway Truck Accident with Cargo Loss',
+      description:
+        'Multi-vehicle accident on national highway resulted in truck rollover, complete cargo loss, and third-party liability claims.',
+      claimAmount: '₹15 Crores',
+      settlementTime: '8 months',
+      riskType: 'Motor & Cargo',
+      outcome: 'settled' as const,
+      lessons: [
+        'Comprehensive motor insurance with adequate coverage is essential',
+        'Cargo insurance protects against total loss scenarios',
+        'Driver training and vehicle maintenance reduce accident risks',
+      ],
+    },
+    {
+      id: '2',
+      title: 'Warehouse Fire Destroys Electronics Shipment',
+      description:
+        'Electrical short circuit caused warehouse fire, destroying high-value electronics awaiting distribution.',
+      claimAmount: '₹25 Crores',
+      settlementTime: '6 months',
+      riskType: 'Warehouse Fire',
+      outcome: 'settled' as const,
+      lessons: [
+        'Warehouse legal liability insurance covers stored goods',
+        'Fire detection and suppression systems are critical',
+        'Proper segregation of high-value items reduces exposure',
+      ],
+    },
+    {
+      id: '3',
+      title: 'Port Container Theft',
+      description:
+        'Organized theft of multiple containers at port facility resulted in significant cargo losses and security concerns.',
+      claimAmount: '₹8 Crores',
+      settlementTime: '10 months',
+      riskType: 'Theft & Pilferage',
+      outcome: 'settled' as const,
+      lessons: [
+        'Port and terminal security measures need enhancement',
+        'Cargo insurance covers theft and pilferage risks',
+        'GPS tracking and monitoring systems help prevent theft',
+      ],
+    },
+    {
+      id: '4',
+      title: 'Cold Chain Failure Damages Pharmaceuticals',
+      description:
+        'Refrigeration system failure during transport caused temperature excursion, damaging pharmaceutical shipment.',
+      claimAmount: '₹12 Crores',
+      settlementTime: '5 months',
+      riskType: 'Cold Chain Failure',
+      outcome: 'settled' as const,
+      lessons: [
+        'Temperature-controlled logistics require specialized coverage',
+        'Backup refrigeration systems prevent total loss',
+        'Continuous monitoring alerts prevent damage escalation',
+      ],
+    },
+  ];
+
+  const articles = [
+    {
+      id: '1',
+      title: 'Logistics Insurance Trends 2024: E-commerce and Last-Mile Delivery',
+      excerpt:
+        'How the growth of e-commerce is changing logistics risk profiles and insurance requirements.',
+      author: 'Sunil Agarwal',
+      publishDate: 'Apr 5, 2024',
+      readTime: '8 min read',
+      category: 'E-commerce Logistics',
+      url: '#',
+      featured: true,
+    },
+    {
+      id: '2',
+      title: 'Cold Chain Logistics: Managing Temperature-Sensitive Cargo Risks',
+      excerpt:
+        'Best practices for insuring temperature-controlled supply chains and preventing cargo damage.',
+      author: 'Deepika Rao',
+      publishDate: 'Mar 28, 2024',
+      readTime: '6 min read',
+      category: 'Cold Chain',
+      url: '#',
+    },
+    {
+      id: '3',
+      title: 'Cyber Security in Modern Logistics: Protecting Digital Supply Chains',
+      excerpt:
+        'Understanding cyber risks in logistics operations and implementing comprehensive protection strategies.',
+      author: 'Arjun Mehta',
+      publishDate: 'Mar 20, 2024',
+      readTime: '7 min read',
+      category: 'Cyber Security',
+      url: '#',
+    },
+  ];
+
+  const quizQuestions = [
+    {
+      id: '1',
+      question: 'What is the most common cause of cargo damage in logistics operations?',
+      options: [
+        'Theft and pilferage',
+        'Handling and transportation damage',
+        'Natural disasters',
+        'Fire incidents',
+      ],
+      correctAnswer: 1,
+      explanation:
+        'Handling and transportation damage accounts for the majority of cargo insurance claims due to rough handling, vibration, and impact during transit.',
+      difficulty: 'easy' as const,
+    },
+    {
+      id: '2',
+      question: 'Which insurance coverage is mandatory for commercial vehicle operators in India?',
+      options: [
+        'Comprehensive motor insurance',
+        'Third-party liability insurance',
+        'Cargo insurance',
+        'Driver personal accident insurance',
+      ],
+      correctAnswer: 1,
+      explanation:
+        'Third-party liability insurance is mandatory under the Motor Vehicles Act for all commercial vehicles operating in India.',
+      difficulty: 'easy' as const,
+    },
+    {
+      id: '3',
+      question: 'What does CIF stand for in international trade terms?',
+      options: [
+        'Cost, Insurance, and Freight',
+        'Cargo Insurance and Forwarding',
+        'Commercial Invoice and Finance',
+        'Container Import Fee',
+      ],
+      correctAnswer: 0,
+      explanation:
+        'CIF (Cost, Insurance, and Freight) is an Incoterm where the seller pays for cost, insurance, and freight to deliver goods to the destination port.',
+      difficulty: 'medium' as const,
+    },
+    {
+      id: '4',
+      question:
+        'Which type of warehouse legal liability coverage is most important for 3PL providers?',
+      options: [
+        'Fire and allied perils only',
+        'Comprehensive warehouse legal liability',
+        'Public liability only',
+        'Employee liability only',
+      ],
+      correctAnswer: 1,
+      explanation:
+        "Comprehensive warehouse legal liability covers the 3PL provider's legal liability for damage to customers' goods while in their custody.",
+      difficulty: 'hard' as const,
+    },
+    {
+      id: '5',
+      question: 'What is the typical temperature range for pharmaceutical cold chain logistics?',
+      options: ['0°C to 5°C', '2°C to 8°C', '5°C to 15°C', '-20°C to 0°C'],
+      correctAnswer: 1,
+      explanation:
+        '2°C to 8°C is the standard temperature range for most pharmaceutical products requiring cold chain logistics.',
+      difficulty: 'medium' as const,
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-white pt-[8vh] text-gray-900">
       {/* Hero */}
@@ -31,11 +209,11 @@ const LogisticsInsurancePage = () => {
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
           <div className="max-w-4xl">
             <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl">
-              Logistics & Supply Chain Insurance Solutions
+              Logistics Industry Insurance Solutions
             </h1>
             <p className="mt-6 text-lg text-gray-700 md:text-xl">
-              End-to-end risk cover for 3PL/4PL, fleet operators, freight forwarders, customs
-              brokers, distributors, and e-commerce logistics across road, rail, air, and sea.
+              Comprehensive coverage for transportation, warehousing, and supply chain
+              operations—protecting cargo, vehicles, and logistics infrastructure.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <button className="inline-flex items-center justify-center rounded-lg bg-blue-100 px-6 py-3 font-semibold text-blue-800 hover:bg-blue-200">
@@ -52,8 +230,75 @@ const LogisticsInsurancePage = () => {
               </button>
             </div>
             <div className="mt-4 text-sm text-gray-600">
-              SIIB logistics desk supports integrated marine, liability, fleet, warehousing, cargo,
-              cyber, and financial lines for resilient supply chains.
+              Specialized coverage for road, rail, air, and sea transportation with warehouse legal
+              liability protection.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Industry Explanation */}
+      <section className="w-full border-b border-gray-100 bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold md:text-3xl">
+            Understanding Logistics Industry Insurance
+          </h2>
+          <p className="mt-3 text-gray-700">
+            The logistics industry is the backbone of global trade, involving complex networks of
+            transportation, warehousing, and distribution. This sector faces diverse risks requiring
+            comprehensive insurance solutions.
+          </p>
+
+          <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2">
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900">Industry Overview</h3>
+              <p className="mt-3 text-gray-700">
+                Logistics operations involve multiple modes of transportation, temporary storage,
+                and handling of diverse cargo types. The industry faces risks from accidents, theft,
+                natural disasters, and operational failures. With the growth of e-commerce and
+                global trade, logistics insurance has become increasingly complex, requiring
+                specialized coverage for different segments and cargo types.
+              </p>
+              <ul className="mt-4 space-y-2 text-sm text-gray-700">
+                <li className="flex items-start">
+                  <FaChevronRight className="mt-1 mr-2 text-blue-400" />
+                  Multi-modal transportation requiring integrated coverage
+                </li>
+                <li className="flex items-start">
+                  <FaChevronRight className="mt-1 mr-2 text-blue-400" />
+                  High-value cargo exposure across supply chains
+                </li>
+                <li className="flex items-start">
+                  <FaChevronRight className="mt-1 mr-2 text-blue-400" />
+                  Third-party liability risks in transportation and warehousing
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900">Key Service Areas</h3>
+              <div className="mt-3 space-y-3">
+                <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
+                  <FaTruck className="text-blue-500" />
+                  <div>
+                    <div className="font-medium">Transportation Services</div>
+                    <div className="text-sm text-gray-600">Road, rail, air, and sea freight</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
+                  <FaWarehouse className="text-blue-500" />
+                  <div>
+                    <div className="font-medium">Warehousing & Distribution</div>
+                    <div className="text-sm text-gray-600">Storage, handling, and fulfillment</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
+                  <FaRoute className="text-blue-500" />
+                  <div>
+                    <div className="font-medium">Supply Chain Management</div>
+                    <div className="text-sm text-gray-600">End-to-end logistics solutions</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -64,339 +309,215 @@ const LogisticsInsurancePage = () => {
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold md:text-3xl">Who We Serve</h2>
           <p className="mt-3 text-gray-700">
-            Configurable programs for multi-modal networks and high-SKU, high-velocity operations.
+            Tailored insurance solutions for every segment of the logistics ecosystem.
           </p>
+
           <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <Tile icon={<FaTruckMoving />} title="3PL/4PL & Fleet">
-              Primary/secondary transport, linehaul, last-mile, dedicated contract carriage.
+            <Tile icon={<FaTruck />} title="Transportation Companies">
+              Trucking companies, freight forwarders, and multi-modal transport operators.
             </Tile>
-            <Tile icon={<FaShip />} title="Forwarders & NVOCC">
-              Sea/air consolidations, project cargo, chartering, door-to-door logistics.
+            <Tile icon={<FaWarehouse />} title="Warehouse Operators">
+              3PL providers, distribution centers, and cold storage facilities.
             </Tile>
-            <Tile icon={<FaWarehouse />} title="Warehousing & Fulfillment">
-              Dry, bonded, FTWZ, cold chain, cross-dock, sortation centers, dark stores.
+            <Tile icon={<FaShip />} title="Shipping & Ports">
+              Shipping lines, port operators, and container terminal services.
             </Tile>
-            <Tile icon={<FaGlobe />} title="E-commerce & Distribution">
-              Multi-node networks, marketplaces, returns and reverse logistics flows.
+            <Tile icon={<FaBoxes />} title="E-commerce Logistics">
+              Last-mile delivery, fulfillment centers, and courier services.
             </Tile>
           </div>
         </div>
       </section>
+
+      {/* Sample Risks */}
+      <section className="w-full border-b border-gray-100 bg-gray-50">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold md:text-3xl">Common Risks in Logistics Industry</h2>
+          <p className="mt-3 text-gray-700">
+            Understanding key risks helps in selecting appropriate insurance coverage for your
+            logistics operations.
+          </p>
+
+          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <RiskCard
+              icon={<FaTruck />}
+              title="Transportation Accidents"
+              description="Vehicle accidents, cargo damage, and third-party liability during transportation."
+              severity="High"
+              frequency="High"
+            />
+            <RiskCard
+              icon={<FaExclamationTriangle />}
+              title="Cargo Theft & Pilferage"
+              description="Theft of goods during transit, storage, or handling operations."
+              severity="Medium"
+              frequency="Medium"
+            />
+            <RiskCard
+              icon={<FaFire />}
+              title="Warehouse Fires"
+              description="Fire incidents in warehouses and distribution centers causing cargo damage."
+              severity="High"
+              frequency="Low"
+            />
+            <RiskCard
+              icon={<FaWater />}
+              title="Natural Disasters"
+              description="Floods, cyclones, and earthquakes affecting transportation and storage facilities."
+              severity="High"
+              frequency="Medium"
+            />
+            <RiskCard
+              icon={<FaLock />}
+              title="Cyber Security"
+              description="Cyber attacks on logistics systems, GPS tracking, and supply chain networks."
+              severity="Medium"
+              frequency="Low"
+            />
+            <RiskCard
+              icon={<FaTools />}
+              title="Equipment Breakdown"
+              description="Failure of handling equipment, refrigeration systems, and loading machinery."
+              severity="Medium"
+              frequency="Medium"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Claim Stories Component */}
+      <ClaimStories stories={claimStories} industryName="Logistics Industry" />
 
       {/* Core coverage suite */}
       <section className="w-full border-b border-gray-100 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold md:text-3xl">Core Coverage Suite</h2>
           <p className="mt-3 text-gray-700">
-            Marine, liability, fleet, and warehouse coverages integrated to follow cargo and
-            custody.
+            Comprehensive protection designed specifically for logistics and transportation
+            operations.
           </p>
 
           <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
             <Card
-              icon={<FaShip className="text-2xl text-blue-500" />}
-              title="Marine Cargo & Stock Throughput"
-              body="Door-to-door cover across all conveyances including ocean/air/road/rail, integrated with warehouse stock values."
+              icon={<FaTruck className="text-2xl text-blue-500" />}
+              title="Motor & Cargo Insurance"
+              body="Comprehensive coverage for vehicles and cargo during transportation."
               bullets={[
-                'Institute Cargo Clauses (A/B/C), temp deviation, SDR limits',
-                'Stock Throughput: production to distribution with seasonal peaks',
-                'Seller’s/Buyer’s Interest, reefer/temperature deviation',
+                'Commercial vehicle insurance with adequate coverage',
+                'Cargo insurance for goods in transit',
+                'Third-party liability and passenger coverage',
               ]}
             />
-            <Card
-              icon={<FaUserShield className="text-2xl text-blue-500" />}
-              title="Logistics Liability (FFL/CMR/BAF/Haulier)"
-              body="Liability for loss/damage to customers’ cargo under forwarding/haulier conditions of carriage and statutory frameworks."
-              bullets={[
-                'Errors & omissions for forwarding documents',
-                'Bailee’s liability at warehouse and cross-dock',
-                'Contractual liability carve-outs and limits per conveyance',
-              ]}
-            />
-          </div>
-
-          <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
             <Card
               icon={<FaWarehouse className="text-2xl text-blue-500" />}
-              title="Warehouse & Fulfillment"
-              body="Property cover for buildings/racking/MHE, and bailee’s/customer goods liability while in care, custody, or control."
+              title="Warehouse Legal Liability"
+              body="Protection for goods stored in warehouses and distribution centers."
               bullets={[
-                'Fire, STFI, EQ; sprinklers, hydrants, impairment controls',
-                'High-pile storage, aisle spacing, and commodity classes',
-                'CCTV/access control and theft prevention endorsements',
-              ]}
-            />
-            <Card
-              icon={<FaTruckMoving className="text-2xl text-blue-500" />}
-              title="Fleet & Carrier Solutions"
-              body="Motor fleet for tractors/trailers, carrier’s liability, and inland transit add-ons to address over-the-road exposures."
-              bullets={[
-                'Driver vetting, telematics, driver behavior scoring',
-                'Temperature monitoring for reefers and alarms',
-                'Trailer interchange and non-owned trailers',
+                'Bailee liability for customer goods',
+                'Fire and allied perils coverage',
+                'Handling and storage damage protection',
               ]}
             />
           </div>
 
           <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
             <Card
-              icon={<FaLaptopCode className="text-2xl text-blue-500" />}
-              title="Cyber & Crime for Logistics"
-              body="Protection for WMS/TMS/ERP integrations, APIs with carriers/marketplaces, and payment/fraud events."
+              icon={<FaUserShield className="text-2xl text-blue-500" />}
+              title="Public & Employer Liability"
+              body="Third-party liability coverage for logistics operations."
               bullets={[
-                'Ransomware, dependent BI (cloud/DC outages)',
-                'E-funds transfer fraud and social engineering',
-                'Data breach response, notification, credit monitoring',
+                'Public liability for third-party injury and property damage',
+                'Employer liability and workmen compensation',
+                'Professional indemnity for logistics services',
               ]}
             />
             <Card
-              icon={<FaHandsHelping className="text-2xl text-blue-500" />}
-              title="Workmen Compensation & EPLI"
-              body="Statutory WC and employer’s liability for drivers, handlers, pickers/packers; EPLI for large networks."
+              icon={<FaShip className="text-2xl text-blue-500" />}
+              title="Marine & International Transit"
+              body="Coverage for international shipments and marine transportation."
               bullets={[
-                'Manual handling and ergonomics controls',
-                'Night shifts, lone working, and yard safety',
-                'Incident investigation and RTW programs',
+                'Marine cargo insurance for sea and air freight',
+                'Import/export transit coverage',
+                'Port and terminal operator liability',
               ]}
             />
           </div>
         </div>
       </section>
 
-      {/* Operational risks */}
+      {/* Insurance Plans/Products */}
       <section className="w-full border-b border-gray-100 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Operational Risks</h2>
+          <h2 className="text-2xl font-bold md:text-3xl">Insurance Plans for Logistics Industry</h2>
           <p className="mt-3 text-gray-700">
-            Hazards spanning nodes, modes, and hand-offs along the chain.
-          </p>
-
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <MiniCard icon={<FaSnowflake />} title="Cold Chain">
-              Temperature excursions, reefer breakdowns, door discipline, loading delays.
-            </MiniCard>
-            <MiniCard icon={<FaRoute />} title="Route & Theft">
-              Hot spots, parking controls, convoying, high-value loads, geo-fencing.
-            </MiniCard>
-            <MiniCard icon={<FaBoxOpen />} title="Handling & Stacking">
-              Damage during picking/packing, racking collapse, forklift impacts.
-            </MiniCard>
-            <MiniCard icon={<FaExclamationTriangle />} title="Compliance">
-              Dangerous goods segregation, DG labelling, customs/FTA documentation.
-            </MiniCard>
-            <MiniCard icon={<FaLock />} title="Security">
-              Driver ID, seals/tamper-evident locks, CCTV, access control, yard marshaling.
-            </MiniCard>
-            <MiniCard icon={<FaGlobe />} title="Cross-Border">
-              Sanctions, embargoes, war/strike risks, political violence endorsements.
-            </MiniCard>
-          </div>
-        </div>
-      </section>
-
-      {/* Program design & placement */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Program Design & Placement</h2>
-          <p className="mt-3 text-gray-700">
-            Follow-the-cargo structures with harmonized limits and deductibles across nodes and
-            modes.
+            Comprehensive insurance solutions tailored for different segments of the logistics
+            industry.
           </p>
 
           <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
-            <Step
-              title="Exposure Mapping"
-              desc="Flow mapping by SKU and lane, peak seasonality, and custody transitions with node-level risk scoring."
-              points={[
-                'Mode mix and ODC/high-value loads',
-                'Reefer lanes and door-open analysis',
-                'Documentation and INCOTERMS alignment',
+            <InsurancePlan
+              name="Logistics Starter Plan"
+              description="Essential coverage for small transportation and logistics companies"
+              price="₹2L - ₹8L"
+              features={[
+                'Commercial Vehicle Insurance',
+                'Basic Cargo Coverage',
+                'Public Liability Insurance',
+                'Workmen Compensation',
+                'Driver Personal Accident',
               ]}
+              recommended={false}
             />
-            <Step
-              title="Policy Architecture"
-              desc="Stock throughput master, liability towers, motor fleet, and cyber/crime modules with shared claims protocols."
-              points={[
-                'Sublimits for hot spots and HVTs',
-                'Deductibles by lane and temp bands',
-                'Additional insureds and waivers',
+            <InsurancePlan
+              name="Logistics Professional Plan"
+              description="Comprehensive coverage for established logistics service providers"
+              price="₹8L - ₹40L"
+              features={[
+                'All Starter Plan Benefits',
+                'Warehouse Legal Liability',
+                'Enhanced Cargo Coverage',
+                'Marine Transit Insurance',
+                'Equipment Breakdown',
+                'Professional Indemnity',
               ]}
+              recommended={true}
             />
-            <Step
-              title="Placement & Claims"
-              desc="Panel placement, SLAs with TPA/adjusters, and escalation paths to maintain continuity during surges."
-              points={[
-                'On-account and salvage protocols',
-                'Telematics/temperature evidence packs',
-                'Subrogation and shipper/carrier recourse',
+            <InsurancePlan
+              name="Logistics Enterprise Plan"
+              description="Complete protection for large logistics and supply chain companies"
+              price="₹40L+"
+              features={[
+                'All Professional Plan Benefits',
+                'International Coverage',
+                'Cyber Liability Protection',
+                'Crisis Management Services',
+                'Supply Chain Interruption',
+                'Dedicated Account Management',
               ]}
+              recommended={false}
             />
           </div>
         </div>
       </section>
 
-      {/* Extensions & add-ons */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Typical Extensions & Add-ons</h2>
-          <p className="mt-3 text-gray-700">
-            Focus endorsements for fragile, perishable, and high-value cargo with custody nuances.
-          </p>
+      {/* Relevant Articles Component */}
+      <RelevantArticles articles={articles} industryName="Logistics Industry" />
 
-          <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {[
-              'Temperature deviation and reefer breakdown',
-              'Brands/labels and reconditioning costs',
-              'Theft from unattended vehicle (conditions)',
-              'Fraudulent pickup and identity theft',
-              'Concealed damage and shortage',
-              'Strikes, riots, civil commotion/war risks (where available)',
-              'Expediting and airfreight for rework/replacement',
-              'DIC/DIL for contractual coverage gaps',
-              'Errors & omissions for forwarding',
-              'Demurrage, detention, fines and duties (as insurable)',
-              'Extended transit and storage at terminals',
-              'Contingent cargo and seller/buyer’s interest',
-              'Cyber dependent BI for WMS/TMS/marketplace APIs',
-              'Pollution liability for warehousing sites',
-              'Non-owned/hired vehicle liability',
-            ].map((txt) => (
-              <div key={txt} className="flex items-start rounded-lg border border-gray-200 p-5">
-                <FaChevronRight className="mt-1 mr-2 text-blue-400" />
-                <span className="text-sm">{txt}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Knowledge Questionnaire Component */}
+      <KnowledgeQuestionnaire questions={quizQuestions} industryName="Logistics Industry" />
 
-      {/* Premium drivers */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Premium Drivers</h2>
-          <p className="mt-3 text-gray-700">
-            Underwriting parameters that drive pricing and capacity across networks.
-          </p>
-
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <CardStat
-              title="Lane & Mode Mix"
-              body="International vs domestic, sea/air/road/rail share, hot spots."
-              icon={<FaRoute className="text-blue-500" />}
-            />
-            <CardStat
-              title="Cargo Profile"
-              body="Perishables, pharma, electronics, DG classes, security needs."
-              icon={<FaCubes className="text-blue-500" />}
-            />
-            <CardStat
-              title="Cold Chain Integrity"
-              body="Reefer assets, temp logging, alarm, corrective action SLAs."
-              icon={<FaSnowflake className="text-blue-500" />}
-            />
-            <CardStat
-              title="Security & Controls"
-              body="Driver vetting, geo-fencing, sealed parking, CCTV, access."
-              icon={<FaLock className="text-blue-500" />}
-            />
-            <CardStat
-              title="Warehouse Protection"
-              body="Sprinklers, hydrants, high-pile spacing, impairment controls."
-              icon={<FaWarehouse className="text-blue-500" />}
-            />
-            <CardStat
-              title="Digital Resilience"
-              body="WMS/TMS uptime, backups, MFA, EDR, vendor access controls."
-              icon={<FaLaptopCode className="text-blue-500" />}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Case snapshots */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Case Snapshots</h2>
-          <p className="mt-3 text-gray-700">
-            How coverage responds across transit and warehousing incidents.
-          </p>
-
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
-            <Case
-              title="Electronics Theft in Transit"
-              points={[
-                'Cargo policy with theft-from-vehicle endorsement responded.',
-                'Geo-fencing breach evidence and driver vetting review.',
-                'Subrogation pursued; deductibles recalibrated for HVT lanes.',
-              ]}
-            />
-            <Case
-              title="Cold Store Temperature Excursion"
-              points={[
-                'Stock throughput and temperature deviation endorsements applied.',
-                'Data logger evidence supported salvage and reconditioning.',
-                'Revised alarm thresholds and door discipline SOPs.',
-              ]}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* What you receive */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">What You Receive</h2>
-          <p className="mt-3 text-gray-700">
-            Clear deliverables for visibility and faster recovery.
-          </p>
-
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
-            <Card
-              icon={<FaClipboardCheck className="text-2xl text-blue-500" />}
-              title="Lane & Node Risk Report"
-              body="Hot spot maps, temp profiles, custody transitions, and gap analysis with prioritized controls."
-              bullets={[
-                'Peak season and surge plans',
-                'Secure parking and seal discipline',
-                'DG segregation and training matrix',
-              ]}
-            />
-            <Card
-              icon={<FaFileContract className="text-2xl text-blue-500" />}
-              title="Coverage Blueprint"
-              body="STP, liability, fleet, warehouse, cyber and crime modules with harmonized limits and endorsements."
-              bullets={[
-                'INCOTERMS and contract mapping',
-                'Additional insureds and waivers',
-                'Evidence packs and claim triggers',
-              ]}
-            />
-            <Card
-              icon={<FaHandshake className="text-2xl text-blue-500" />}
-              title="Claims Playbook"
-              body="Notification SLAs, adjuster coordination, salvage, on-account strategies, and recovery/subrogation pursuit."
-              bullets={[
-                'Telematics/temp data capture',
-                'Photographs and chain-of-custody',
-                'Loss memos and settlement tracking',
-              ]}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* CTA & Contact */}
+      {/* What you receive & CTA */}
       <section className="w-full bg-white">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="rounded-2xl border border-blue-200 bg-blue-50 p-8">
             <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-3">
               <div className="lg:col-span-2">
                 <h3 className="text-2xl font-bold text-gray-900">
-                  Build a Resilient Logistics Insurance Program
+                  Moving Forward. Protecting Every Mile.
                 </h3>
                 <p className="mt-2 text-gray-700">
-                  Work with SIIB’s logistics desk for coverage harmony across marine, liability,
-                  fleet, warehouse, cyber, and financial lines.
+                  Partner with SIIB's logistics specialists for comprehensive coverage, cargo
+                  protection, and expert claims management.
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row">
@@ -406,7 +527,7 @@ const LogisticsInsurancePage = () => {
                 </button>
                 <button className="inline-flex items-center justify-center rounded-lg border border-blue-200 bg-white px-6 py-3 font-semibold text-blue-700 hover:bg-blue-100">
                   <FaFileContract className="mr-2" />
-                  Upload Lane & Node Data
+                  Upload Fleet Data
                 </button>
               </div>
             </div>
@@ -428,7 +549,7 @@ const LogisticsInsurancePage = () => {
   );
 };
 
-/* Helpers (same as above page) */
+/* Helpers */
 const Tile = ({
   icon,
   title,
@@ -473,68 +594,108 @@ const Card = ({
   </div>
 );
 
-const MiniCard = ({
+const RiskCard = ({
   icon,
   title,
-  children,
+  description,
+  severity,
+  frequency,
 }: {
   icon: React.ReactNode;
   title: string;
-  children: React.ReactNode;
+  description: string;
+  severity: string;
+  frequency: string;
 }) => (
-  <div className="rounded-xl border border-gray-200 p-6">
+  <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
     <div className="flex items-center gap-3">
-      <span className="text-xl text-blue-500">{icon}</span>
-      <h3 className="font-semibold">{title}</h3>
-    </div>
-    <p className="mt-2 text-sm text-gray-700">{children}</p>
-  </div>
-);
-
-const Step = ({ title, desc, points }: { title: string; desc: string; points: string[] }) => (
-  <div className="rounded-xl border border-gray-200 p-6">
-    <h3 className="text-lg font-semibold">{title}</h3>
-    <p className="mt-2 text-sm text-gray-700">{desc}</p>
-    <ul className="mt-4 space-y-1 text-sm text-gray-700">
-      {points.map((p) => (
-        <li key={p} className="flex">
-          <FaChevronRight className="mt-1 mr-2 text-blue-400" />
-          {p}
-        </li>
-      ))}
-    </ul>
-  </div>
-);
-
-const Case = ({ title, points }: { title: string; points: string[] }) => (
-  <div className="rounded-xl border border-gray-200 p-6">
-    <h3 className="text-lg font-semibold">{title}</h3>
-    <ul className="mt-3 space-y-1 text-sm text-gray-700">
-      {points.map((p) => (
-        <li key={p} className="flex">
-          <FaChevronRight className="mt-1 mr-2 text-blue-400" />
-          {p}
-        </li>
-      ))}
-    </ul>
-  </div>
-);
-
-const CardStat = ({
-  title,
-  body,
-  icon,
-}: {
-  title: string;
-  body: string;
-  icon: React.ReactNode;
-}) => (
-  <div className="rounded-xl border border-gray-200 p-6">
-    <div className="flex items-center gap-3">
-      <span className="text-xl text-blue-500">{icon}</span>
+      <span className="text-2xl text-red-500">{icon}</span>
       <h3 className="text-lg font-semibold">{title}</h3>
     </div>
-    <p className="mt-2 text-sm text-gray-700">{body}</p>
+    <p className="mt-3 text-sm text-gray-700">{description}</p>
+    <div className="mt-4 flex gap-4">
+      <div className="flex items-center gap-2">
+        <span className="text-xs text-gray-500">Severity:</span>
+        <span
+          className={`rounded-full px-2 py-1 text-xs font-medium ${
+            severity === 'High'
+              ? 'bg-red-100 text-red-800'
+              : severity === 'Medium'
+                ? 'bg-yellow-100 text-yellow-800'
+                : 'bg-green-100 text-green-800'
+          }`}
+        >
+          {severity}
+        </span>
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="text-xs text-gray-500">Frequency:</span>
+        <span
+          className={`rounded-full px-2 py-1 text-xs font-medium ${
+            frequency === 'High'
+              ? 'bg-red-100 text-red-800'
+              : frequency === 'Medium'
+                ? 'bg-yellow-100 text-yellow-800'
+                : 'bg-green-100 text-green-800'
+          }`}
+        >
+          {frequency}
+        </span>
+      </div>
+    </div>
+  </div>
+);
+
+const InsurancePlan = ({
+  name,
+  description,
+  price,
+  features,
+  recommended,
+}: {
+  name: string;
+  description: string;
+  price: string;
+  features: string[];
+  recommended: boolean;
+}) => (
+  <div
+    className={`rounded-xl border p-6 ${
+      recommended ? 'border-blue-500 bg-blue-50' : 'border-gray-200 bg-white'
+    }`}
+  >
+    {recommended && (
+      <div className="mb-4">
+        <span className="inline-flex items-center rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-800">
+          <FaCertificate className="mr-1" />
+          Recommended
+        </span>
+      </div>
+    )}
+    <h3 className="text-xl font-bold text-gray-900">{name}</h3>
+    <p className="mt-2 text-sm text-gray-600">{description}</p>
+    <div className="mt-4 flex items-center gap-2">
+      <FaRupeeSign className="text-blue-500" />
+      <span className="text-2xl font-bold text-blue-600">{price}</span>
+      <span className="text-sm text-gray-500">per year</span>
+    </div>
+    <ul className="mt-6 space-y-3">
+      {features.map((feature, index) => (
+        <li key={index} className="flex items-start gap-3">
+          <FaCheckCircle className="mt-1 text-green-500" />
+          <span className="text-sm text-gray-700">{feature}</span>
+        </li>
+      ))}
+    </ul>
+    <button
+      className={`mt-6 w-full rounded-lg px-4 py-3 font-semibold ${
+        recommended
+          ? 'bg-blue-600 text-white hover:bg-blue-700'
+          : 'border border-blue-200 text-blue-700 hover:bg-blue-50'
+      }`}
+    >
+      Get Quote
+    </button>
   </div>
 );
 

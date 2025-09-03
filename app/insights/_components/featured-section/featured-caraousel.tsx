@@ -46,7 +46,7 @@ export default function FeaturedCarousel() {
         <button
           ref={prevRef}
           aria-label="Previous insight"
-          className="text-si-dark pointer-events-auto inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white shadow transition-colors hover:bg-slate-50"
+          className="text-si-primary border-si-primary/20 shadow-vibrant-blue hover:bg-si-primary hover:border-si-primary hover-lift pointer-events-auto inline-flex h-10 w-10 items-center justify-center rounded-full border-2 bg-white/90 backdrop-blur-sm transition-all hover:text-white"
         >
           <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
             <path
@@ -60,7 +60,7 @@ export default function FeaturedCarousel() {
         <button
           ref={nextRef}
           aria-label="Next insight"
-          className="text-si-dark pointer-events-auto inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white shadow transition-colors hover:bg-slate-50"
+          className="text-si-primary border-si-primary/20 shadow-vibrant-blue hover:bg-si-primary hover:border-si-primary hover-lift pointer-events-auto inline-flex h-10 w-10 items-center justify-center rounded-full border-2 bg-white/90 backdrop-blur-sm transition-all hover:text-white"
         >
           <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -116,7 +116,11 @@ export default function FeaturedCarousel() {
         </Swiper>
       ) : (
         <div className="py-8 text-center">
-          <p className="text-si-dark/60">No featured articles available at the moment.</p>
+          <div className="card-vibrant hover-lift mx-auto max-w-md rounded-xl p-6">
+            <p className="text-si-ink/70 font-medium">
+              No featured articles available at the moment.
+            </p>
+          </div>
         </div>
       )}
     </div>

@@ -81,14 +81,15 @@ export default function InsightsFilterBar({
   };
 
   return (
-    <div className="bg-si-slate mt-5 w-full rounded-md p-6">
-      <div className="flex w-full flex-col items-center justify-center gap-6 md:flex-row md:items-center md:gap-0">
+    <div className="section-gradient-accent shadow-elevate-vibrant border-si-primary/10 mt-5 w-full rounded-xl border p-8">
+      <div className="bg-pattern-dots absolute inset-0 rounded-xl opacity-10" />
+      <div className="relative flex w-full flex-col items-center justify-center gap-6 md:flex-row md:items-center md:gap-0">
         {/* Side Label */}
         <div className="flex min-w-[175px] flex-shrink-0 items-center justify-center pr-8 md:justify-end md:text-right">
-          <span className="text-si-dark block text-left text-xl leading-tight font-bold">
+          <span className="text-si-ink block text-left text-xl leading-tight font-bold">
             Explore
             <br />
-            Insights By:
+            <span className="text-gradient-primary">Insights</span> By:
           </span>
         </div>
         {/* Filter Selectors */}
@@ -136,25 +137,27 @@ function CustomDropdown({
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="border-si-bluegreen/60 text-si-dark focus:border-si-bluegreen hover:border-si-bluegreen flex w-full items-center justify-between border-0 border-b-2 bg-transparent px-0 py-2 text-base font-normal transition-colors outline-none"
+        className="border-si-primary/60 text-si-ink focus:border-si-primary hover:border-si-primary hover:text-si-primary flex w-full items-center justify-between border-0 border-b-2 bg-transparent px-0 py-3 text-base font-semibold transition-all outline-none"
       >
-        <span className="opacity-80">{selectedOption}</span>
+        <span className="opacity-90">{selectedOption}</span>
         <FaChevronDown
-          className={`text-si-bluegreen ml-2 transition-transform duration-200 ${
+          className={`text-si-primary ml-2 transition-transform duration-200 ${
             isOpen ? 'rotate-180' : ''
           }`}
         />
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 z-10 mt-1 max-h-[20vh] w-full overflow-y-auto rounded-md border border-gray-200 bg-white shadow-lg">
+        <div className="border-si-primary/20 shadow-vibrant-blue absolute top-full left-0 z-10 mt-2 max-h-[20vh] w-full overflow-y-auto rounded-xl border bg-white/95 backdrop-blur-sm">
           {options.map((option, index) => (
             <button
               key={index}
               type="button"
               onClick={() => handleSelect(option)}
-              className={`w-full px-4 py-2 text-left text-sm transition-colors first:rounded-t-md last:rounded-b-md hover:bg-gray-50 focus:bg-gray-50 focus:outline-none ${
-                selectedOption === option ? 'bg-si-bluegreen text-white' : ''
+              className={`hover:bg-si-primary/10 hover:text-si-primary focus:bg-si-primary/10 focus:text-si-primary w-full px-4 py-3 text-left text-sm font-medium transition-all first:rounded-t-xl last:rounded-b-xl focus:outline-none ${
+                selectedOption === option
+                  ? 'from-si-primary to-si-primary-600 bg-gradient-to-r font-bold text-white'
+                  : 'text-si-ink'
               }`}
             >
               {option}
