@@ -112,7 +112,7 @@ export default function HomePage() {
                 <div className="from-si-primary/20 to-si-red/10 absolute -inset-6 rounded-3xl bg-gradient-to-br blur-2xl" />
                 <div className="shadow-elevate-vibrant border-si-primary/10 hover-lift relative rounded-2xl border bg-white/95 p-6 backdrop-blur-sm">
                   <Image
-                    src="/about-img/meeting.png"
+                    src="https://minio-api.internal.wabisabitech.in/share-india/about/meeting.png"
                     alt="Advisors comparing policies and negotiating better terms"
                     width={960}
                     height={720}
@@ -636,7 +636,7 @@ export default function HomePage() {
               <p className="text-si-ink/80 text-sm">Updated weekly • Editor’s picks • No jargon</p>
             </div>
             <Link
-              href="/insights/news"
+              href="/news"
               className="bg-si-primary hover:bg-si-primary-600 inline-flex items-center gap-2 rounded-md px-5 py-2.5 font-semibold text-white"
             >
               Browse All News

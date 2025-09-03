@@ -151,7 +151,7 @@ export default function ImpactPage() {
               <div className="relative aspect-square overflow-hidden rounded-lg">
                 <Image
                   fill
-                  src="/about-img/ceo.png"
+                  src="https://minio-api.internal.wabisabitech.in/share-india/about/ceo.png"
                   alt="Greg Case, CEO"
                   className="h-full w-full object-cover"
                 />
@@ -212,7 +212,7 @@ export default function ImpactPage() {
             <div className="relative mr-4 h-16 w-16 flex-shrink-0 overflow-hidden rounded-full">
               <Image
                 fill
-                src="/about-img/ceo.png"
+                src="https://minio-api.internal.wabisabitech.in/share-india/about/ceo.png"
                 alt="Greg Case"
                 className="h-full w-full object-cover"
               />
@@ -260,7 +260,7 @@ export default function ImpactPage() {
               <div className="relative aspect-[16/9] overflow-hidden rounded-lg">
                 <Image
                   fill
-                  src="/about-img/trees.png"
+                  src="https://minio-api.internal.wabisabitech.in/share-india/about/trees.png"
                   alt="Environmental Impact - Aerial view of renewable energy and nature"
                   className="h-full w-full object-cover"
                 />
@@ -304,7 +304,7 @@ export default function ImpactPage() {
               <div className="relative aspect-[16/9] overflow-hidden rounded-lg">
                 <Image
                   fill
-                  src="/about-img/meeting.png"
+                  src="https://minio-api.internal.wabisabitech.in/share-india/about/meeting.png"
                   alt="Social Impact - Diverse team collaborating in workplace"
                   className="h-full w-full object-cover"
                 />
@@ -349,7 +349,7 @@ export default function ImpactPage() {
               <div className="relative aspect-[16/9] overflow-hidden rounded-lg">
                 <Image
                   fill
-                  src="/about-img/trees.png"
+                  src="https://minio-api.internal.wabisabitech.in/share-india/about/trees.png"
                   alt="Environmental Impact - Aerial view of renewable energy and nature"
                   className="h-full w-full object-cover"
                 />

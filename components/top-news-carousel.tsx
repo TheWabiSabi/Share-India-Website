@@ -4,46 +4,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 
-type NewsItem = {
-  id: string;
-  title: string;
-  source: string;
-  date: string; // ISO string
-  tag?: string; // e.g., "Health", "Motor", "Regulatory"
-  cover?: string; // image path
-  explainHref: string;
-};
+function formatString(str: string) {
+  return str.replace(/_/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
+}
 
-// Option 1: Use static dates
-const ITEMS: NewsItem[] = [
-  {
-    id: 'n1',
-    title: 'IRDAI proposes simplified KYC for micro-insurance—what it means for MSMEs',
-    source: 'Editorial Desk',
-    date: '2025-09-03T00:00:00.000Z', // Static date
-    tag: 'Regulatory',
-    cover: '/about-img/meeting.png',
-    explainHref: '/insights/news/irdai-kyc-micro-insurance',
-  },
-  {
-    id: 'n2',
-    title: 'Cat losses rise in coastal belts—property premiums to stay firm this season',
-    source: 'Market Watch',
-    date: '2025-09-03T00:00:00.000Z', // Static date
-    tag: 'Property',
-    cover: '/about-img/trees.png',
-    explainHref: '/insights/news/cat-losses-property-premiums',
-  },
-  {
-    id: 'n3',
-    title: 'Group health: insurer co-pay changes—how HR should adjust benefits now',
-    source: 'Benefits Brief',
-    date: '2025-09-03T00:00:00.000Z', // Static date
-    tag: 'Health',
-    cover: '/Scenery.jpg',
-    explainHref: '/insights/news/group-health-copay-adjustments',
-  },
-];
+import allBlogs from '@/app/blog/list_of_blogs.json';
+
+// Filter to only news items
+const ITEMS = allBlogs.filter((item) => item.type === 'news');
 
 function formatDate(d: string) {
   try {
@@ -99,21 +67,21 @@ export default function TopNewsCarousel() {
       >
         {ITEMS.map((item) => (
           <article
-            key={item.id}
+            key={item.slug}
             className="group relative w-[320px] shrink-0 snap-start rounded-xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md sm:w-[360px]"
           >
-            {item.cover && (
+            {item.image && (
               <div className="relative h-44 w-full overflow-hidden rounded-t-xl">
                 <Image
-                  src={item.cover}
+                  src={item.image}
                   alt={item.title}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                   sizes="(max-width: 768px) 320px, 360px"
                 />
-                {item.tag && (
+                {item.topic && (
                   <span className="bg-si-primary/90 absolute top-3 left-3 inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium text-white backdrop-blur">
-                    {item.tag}
+                    {formatString(item.topic)}
                   </span>
                 )}
               </div>
@@ -123,14 +91,14 @@ export default function TopNewsCarousel() {
                 {item.title}
               </h3>
               <div className="text-si-ink/60 mt-2 flex items-center gap-2 text-xs">
-                <span>{item.source}</span>
+                <span>{item.author}</span>
                 <span>•</span>
                 <time dateTime={item.date}>{formatDate(item.date)}</time>
               </div>
 
               <div className="mt-4 flex items-center justify-between">
                 <Link
-                  href={item.explainHref}
+                  href={`/blog/${item.slug}`}
                   className="text-si-primary hover:text-si-primary-600 inline-flex items-center gap-2 text-sm font-semibold"
                 >
                   Read explainer
@@ -163,7 +131,7 @@ export default function TopNewsCarousel() {
             </div>
 
             {/* Our take badge */}
-            <div className="bg-si-red absolute -top-2 -right-2 rounded-md px-2 py-1 text-[10px] font-bold tracking-wider text-white uppercase shadow">
+            <div className="bg-si-red absolute -top-2 -right-2 rounded-md px-2 py-3 text-[10px] font-bold tracking-wider text-white uppercase shadow">
               Our Take
             </div>
           </article>

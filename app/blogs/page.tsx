@@ -1,4 +1,5 @@
-import React from 'react';
+'use client';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaCalendar, FaClock, FaUser, FaTag, FaSearch } from 'react-icons/fa';
@@ -6,16 +7,111 @@ import blogPosts from '../blog/list_of_blogs.json';
 import { BlogInterface } from '../blog/blog.interface';
 
 const BlogsPage = () => {
-  // Sort blogs by date (newest first) and separate featured from regular
-  const sortedBlogs = [...blogPosts].sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-  );
-  const featuredBlogs = sortedBlogs.filter((blog) => blog.featured);
-  const regularBlogs = sortedBlogs.filter((blog) => !blog.featured);
+  // Constants for pagination
+  const ITEMS_PER_PAGE = 8;
+  const FEATURED_ITEMS_PER_PAGE = 4;
 
-  // Get unique categories for filter
-  const categories = [...new Set(blogPosts.map((blog) => blog.category))];
-  const types = [...new Set(blogPosts.map((blog) => blog.type))];
+  // Filter states
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedType, setSelectedType] = useState('');
+
+  // State for lazy loading
+  const [displayedFeaturedCount, setDisplayedFeaturedCount] = useState(FEATURED_ITEMS_PER_PAGE);
+  const [displayedRegularCount, setDisplayedRegularCount] = useState(ITEMS_PER_PAGE);
+  const [loadingFeatured, setLoadingFeatured] = useState(false);
+  const [loadingRegular, setLoadingRegular] = useState(false);
+
+  // Sort blogs by date (newest first)
+  const sortedBlogs = useMemo(
+    () => [...blogPosts].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()),
+    [],
+  );
+
+  // Apply filters to all blogs
+  const filteredBlogs = useMemo(() => {
+    let filtered = sortedBlogs;
+
+    // Search filter
+    if (searchTerm.trim()) {
+      filtered = filtered.filter(
+        (blog) =>
+          blog.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          blog.author.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          blog.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          blog.type.toLowerCase().includes(searchTerm.toLowerCase()),
+      );
+    }
+
+    // Category filter
+    if (selectedCategory) {
+      filtered = filtered.filter((blog) => blog.category === selectedCategory);
+    }
+
+    // Type filter
+    if (selectedType) {
+      filtered = filtered.filter((blog) => blog.type === selectedType);
+    }
+
+    return filtered;
+  }, [sortedBlogs, searchTerm, selectedCategory, selectedType]);
+
+  // Separate featured from regular after filtering
+  const filteredFeaturedBlogs = useMemo(
+    () => filteredBlogs.filter((blog) => blog.featured),
+    [filteredBlogs],
+  );
+
+  const filteredRegularBlogs = useMemo(
+    () => filteredBlogs.filter((blog) => !blog.featured),
+    [filteredBlogs],
+  );
+
+  // Get displayed blogs
+  const displayedFeaturedBlogs = filteredFeaturedBlogs.slice(0, displayedFeaturedCount);
+  const displayedRegularBlogs = filteredRegularBlogs.slice(0, displayedRegularCount);
+
+  // Check if more items available
+  const hasFeaturedMore = displayedFeaturedCount < filteredFeaturedBlogs.length;
+  const hasRegularMore = displayedRegularCount < filteredRegularBlogs.length;
+
+  // Reset pagination when filters change
+  useEffect(() => {
+    setDisplayedFeaturedCount(FEATURED_ITEMS_PER_PAGE);
+    setDisplayedRegularCount(ITEMS_PER_PAGE);
+  }, [searchTerm, selectedCategory, selectedType]);
+
+  // Load more functions
+  const loadMoreFeatured = useCallback(() => {
+    if (loadingFeatured || !hasFeaturedMore) return;
+
+    setLoadingFeatured(true);
+    setTimeout(() => {
+      setDisplayedFeaturedCount((prev) => prev + FEATURED_ITEMS_PER_PAGE);
+      setLoadingFeatured(false);
+    }, 500);
+  }, [loadingFeatured, hasFeaturedMore]);
+
+  const loadMoreRegular = useCallback(() => {
+    if (loadingRegular || !hasRegularMore) return;
+
+    setLoadingRegular(true);
+    setTimeout(() => {
+      setDisplayedRegularCount((prev) => prev + ITEMS_PER_PAGE);
+      setLoadingRegular(false);
+    }, 500);
+  }, [loadingRegular, hasRegularMore]);
+
+  // Get unique categories and types for filters
+  const categories = useMemo(() => [...new Set(blogPosts.map((blog) => blog.category))], []);
+  const types = useMemo(() => [...new Set(blogPosts.map((blog) => blog.type))], []);
+
+  // Clear all filters
+  const clearFilters = () => {
+    setSearchTerm('');
+    setSelectedCategory('');
+    setSelectedType('');
+  };
 
   return (
     <div className="min-h-screen bg-white pt-[8vh]">
@@ -40,12 +136,18 @@ const BlogsPage = () => {
                     <input
                       type="text"
                       placeholder="Search articles, insights, and stories..."
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
                       className="w-full rounded-lg border border-gray-300 py-3 pr-4 pl-10 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none"
                     />
                   </div>
                 </div>
                 <div className="flex gap-3">
-                  <select className="rounded-lg border border-gray-300 px-4 py-3 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none">
+                  <select
+                    value={selectedCategory}
+                    onChange={(e) => setSelectedCategory(e.target.value)}
+                    className="rounded-lg border border-gray-300 px-4 py-3 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none"
+                  >
                     <option value="">All Categories</option>
                     {categories.map((category) => (
                       <option key={category} value={category}>
@@ -53,7 +155,11 @@ const BlogsPage = () => {
                       </option>
                     ))}
                   </select>
-                  <select className="rounded-lg border border-gray-300 px-4 py-3 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none">
+                  <select
+                    value={selectedType}
+                    onChange={(e) => setSelectedType(e.target.value)}
+                    className="rounded-lg border border-gray-300 px-4 py-3 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none"
+                  >
                     <option value="">All Types</option>
                     {types.map((type) => (
                       <option key={type} value={type}>
@@ -63,13 +169,68 @@ const BlogsPage = () => {
                   </select>
                 </div>
               </div>
+
+              {/* Active filters and results count */}
+              <div className="mt-4 flex flex-wrap items-center gap-4">
+                <div className="flex items-center gap-2 text-sm text-gray-600">
+                  <span>Results: {filteredBlogs.length} articles</span>
+                  {filteredFeaturedBlogs.length > 0 && (
+                    <span className="text-blue-600">({filteredFeaturedBlogs.length} featured)</span>
+                  )}
+                </div>
+
+                {/* Active filter badges */}
+                <div className="flex flex-wrap gap-2">
+                  {searchTerm && (
+                    <span className="inline-flex items-center gap-1 rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-blue-800">
+                      Search: &#34;{searchTerm}&#34;
+                      <button
+                        onClick={() => setSearchTerm('')}
+                        className="ml-1 hover:text-blue-600"
+                      >
+                        ×
+                      </button>
+                    </span>
+                  )}
+                  {selectedCategory && (
+                    <span className="inline-flex items-center gap-1 rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-800">
+                      Category: {selectedCategory}
+                      <button
+                        onClick={() => setSelectedCategory('')}
+                        className="ml-1 hover:text-green-600"
+                      >
+                        ×
+                      </button>
+                    </span>
+                  )}
+                  {selectedType && (
+                    <span className="inline-flex items-center gap-1 rounded-full bg-purple-100 px-3 py-1 text-xs font-medium text-purple-800">
+                      Type: {selectedType.replace('_', ' ').toUpperCase()}
+                      <button
+                        onClick={() => setSelectedType('')}
+                        className="ml-1 hover:text-purple-600"
+                      >
+                        ×
+                      </button>
+                    </span>
+                  )}
+                  {(searchTerm || selectedCategory || selectedType) && (
+                    <button
+                      onClick={clearFilters}
+                      className="text-xs text-gray-500 underline hover:text-gray-700"
+                    >
+                      Clear all filters
+                    </button>
+                  )}
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Featured Articles */}
-      {featuredBlogs.length > 0 && (
+      {filteredFeaturedBlogs.length > 0 && (
         <section className="py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mb-12 text-center">
@@ -80,16 +241,50 @@ const BlogsPage = () => {
             </div>
 
             <div className="grid gap-8 lg:grid-cols-2">
-              {featuredBlogs.slice(0, 2).map((blog, index) => (
+              {displayedFeaturedBlogs.slice(0, 2).map((blog, index) => (
                 <FeaturedBlogCard key={blog.slug} blog={blog} isLarge={index === 0} />
               ))}
             </div>
 
-            {featuredBlogs.length > 2 && (
+            {displayedFeaturedBlogs.length > 2 && (
               <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {featuredBlogs.slice(2).map((blog) => (
+                {displayedFeaturedBlogs.slice(2).map((blog) => (
                   <RegularBlogCard key={blog.slug} blog={blog} />
                 ))}
+              </div>
+            )}
+
+            {/* Load More Featured Button */}
+            {hasFeaturedMore && (
+              <div className="mt-12 text-center">
+                <button
+                  onClick={loadMoreFeatured}
+                  disabled={loadingFeatured}
+                  className="rounded-lg bg-blue-600 px-8 py-3 font-semibold text-white transition-colors hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+                >
+                  {loadingFeatured ? (
+                    <span className="flex items-center gap-2">
+                      <svg className="h-4 w-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        ></circle>
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="m4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                        ></path>
+                      </svg>
+                      Loading...
+                    </span>
+                  ) : (
+                    `Load More Featured (${filteredFeaturedBlogs.length - displayedFeaturedCount} remaining)`
+                  )}
+                </button>
               </div>
             )}
           </div>
@@ -100,24 +295,88 @@ const BlogsPage = () => {
       <section className="bg-gray-50 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 md:text-4xl">Latest Articles</h2>
+            <h2 className="text-3xl font-bold text-gray-900 md:text-4xl">
+              {filteredRegularBlogs.length === 0 ? 'No Articles Found' : 'Latest Articles'}
+            </h2>
             <p className="mt-4 text-lg text-gray-600">
-              Explore our complete collection of insurance insights and industry updates
+              {filteredRegularBlogs.length === 0
+                ? 'Try adjusting your filters to see more results'
+                : 'Explore our complete collection of insurance insights and industry updates'}
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {regularBlogs.map((blog) => (
-              <RegularBlogCard key={blog.slug} blog={blog} />
-            ))}
-          </div>
+          {displayedRegularBlogs.length > 0 ? (
+            <>
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+                {displayedRegularBlogs.map((blog) => (
+                  <RegularBlogCard key={blog.slug} blog={blog} />
+                ))}
+              </div>
 
-          {/* Load More Button */}
-          <div className="mt-12 text-center">
-            <button className="rounded-lg bg-blue-600 px-8 py-3 font-semibold text-white transition-colors hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none">
-              Load More Articles
-            </button>
-          </div>
+              {/* Load More Regular Button */}
+              {hasRegularMore && (
+                <div className="mt-12 text-center">
+                  <button
+                    onClick={loadMoreRegular}
+                    disabled={loadingRegular}
+                    className="rounded-lg bg-blue-600 px-8 py-3 font-semibold text-white transition-colors hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+                  >
+                    {loadingRegular ? (
+                      <span className="flex items-center gap-2">
+                        <svg className="h-4 w-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                          <circle
+                            className="opacity-25"
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                          ></circle>
+                          <path
+                            className="opacity-75"
+                            fill="currentColor"
+                            d="m4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                          ></path>
+                        </svg>
+                        Loading...
+                      </span>
+                    ) : (
+                      `Load More Articles (${filteredRegularBlogs.length - displayedRegularCount} remaining)`
+                    )}
+                  </button>
+                </div>
+              )}
+
+              {/* End of results message */}
+              {!hasRegularMore && displayedRegularBlogs.length > 0 && (
+                <div className="mt-12 text-center">
+                  <p className="text-gray-600">
+                    You&#34;ve reached the end of the filtered results.
+                  </p>
+                  <p className="mt-2 text-sm text-gray-500">
+                    Showing all {filteredRegularBlogs.length} articles
+                  </p>
+                </div>
+              )}
+            </>
+          ) : (
+            /* No articles message */
+            <div className="py-12 text-center">
+              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gray-100">
+                <FaSearch className="text-2xl text-gray-400" />
+              </div>
+              <h3 className="mb-2 text-lg font-medium text-gray-900">No articles found</h3>
+              <p className="mb-4 text-gray-500">
+                Try adjusting your search terms or filters to find what you&#34;re looking for.
+              </p>
+              <button
+                onClick={clearFilters}
+                className="font-medium text-blue-600 hover:text-blue-700"
+              >
+                Clear all filters
+              </button>
+            </div>
+          )}
         </div>
       </section>
 
@@ -148,7 +407,7 @@ const BlogsPage = () => {
   );
 };
 
-// Featured Blog Card Component
+// Featured Blog Card Component (unchanged)
 const FeaturedBlogCard = ({
   blog,
   isLarge = false,
@@ -226,7 +485,7 @@ const FeaturedBlogCard = ({
   );
 };
 
-// Regular Blog Card Component
+// Regular Blog Card Component (unchanged)
 const RegularBlogCard = ({ blog }: { blog: BlogInterface }) => {
   const getTypeColor = (type: string) => {
     switch (type) {
