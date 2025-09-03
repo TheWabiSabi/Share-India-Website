@@ -30,24 +30,29 @@ export default function FAQ() {
   };
 
   return (
-    <div className="bg-si-slate/80 flex w-full justify-center rounded-lg py-1">
-      <div className="my-6 w-full max-w-2xl px-4 sm:px-8">
-        <h2 className="text-si-bluegreen mb-8 text-center text-2xl font-bold sm:text-3xl">
-          Frequently Asked Questions
-        </h2>
-        <ul className="space-y-2">
+    <div className="section-spot-alt relative mt-10 rounded-2xl">
+      <div className="bg-pattern-grid absolute inset-0 rounded-2xl opacity-15" />
+      <div className="relative mx-auto my-6 w-full max-w-4xl px-6 py-8">
+        {/* Header */}
+        <div className="mb-8 text-center">
+          <div className="accent-bar-gradient mx-auto mb-4 h-2 w-16" />
+          <h2 className="text-si-ink text-2xl font-semibold sm:text-3xl">
+            Frequently Asked <span className="text-gradient-primary">Questions</span>
+          </h2>
+        </div>
+
+        <ul className="space-y-4">
           {faqs.map((faq, idx) => (
-            <li key={idx} className="border-si-bluegreen/20 border-b last:border-b-0">
+            <li key={idx} className="card-vibrant hover-lift overflow-hidden rounded-xl">
               <button
-                className="text-si-dark flex w-full items-center justify-between py-4 text-left font-semibold transition-colors focus:outline-none"
+                className="text-si-ink hover:from-si-primary/5 hover:to-si-red/5 flex w-full items-center justify-between p-6 text-left font-semibold transition-colors hover:bg-gradient-to-r focus:outline-none"
                 onClick={() => handleToggle(idx)}
                 aria-expanded={openIndex === idx}
                 aria-controls={`faq-answer-${idx}`}
-                style={{ background: 'transparent' }}
               >
-                <span>{faq.question}</span>
+                <span className="text-lg">{faq.question}</span>
                 <span
-                  className={`ml-2 text-lg transition-transform duration-200 ${
+                  className={`text-si-primary ml-4 text-xl transition-transform duration-300 ${
                     openIndex === idx ? 'rotate-180' : ''
                   }`}
                 >
@@ -57,9 +62,10 @@ export default function FAQ() {
               {openIndex === idx && (
                 <div
                   id={`faq-answer-${idx}`}
-                  className="text-si-dark/90 animate-fade-in mt-1 mb-2 px-1 py-2"
+                  className="animate-fade-in from-si-primary/5 to-si-red/5 bg-gradient-to-r px-6 pb-6"
                 >
-                  {faq.answer}
+                  <div className="accent-bar-gradient mb-3 h-1 w-8" />
+                  <p className="text-si-ink/80 leading-relaxed">{faq.answer}</p>
                 </div>
               )}
             </li>

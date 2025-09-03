@@ -14,12 +14,13 @@ type NewsItem = {
   explainHref: string;
 };
 
+// Option 1: Use static dates
 const ITEMS: NewsItem[] = [
   {
     id: 'n1',
     title: 'IRDAI proposes simplified KYC for micro-insurance—what it means for MSMEs',
     source: 'Editorial Desk',
-    date: new Date().toISOString(),
+    date: '2025-09-03T00:00:00.000Z', // Static date
     tag: 'Regulatory',
     cover: '/about-img/meeting.png',
     explainHref: '/insights/news/irdai-kyc-micro-insurance',
@@ -28,7 +29,7 @@ const ITEMS: NewsItem[] = [
     id: 'n2',
     title: 'Cat losses rise in coastal belts—property premiums to stay firm this season',
     source: 'Market Watch',
-    date: new Date().toISOString(),
+    date: '2025-09-03T00:00:00.000Z', // Static date
     tag: 'Property',
     cover: '/about-img/trees.png',
     explainHref: '/insights/news/cat-losses-property-premiums',
@@ -37,7 +38,7 @@ const ITEMS: NewsItem[] = [
     id: 'n3',
     title: 'Group health: insurer co-pay changes—how HR should adjust benefits now',
     source: 'Benefits Brief',
-    date: new Date().toISOString(),
+    date: '2025-09-03T00:00:00.000Z', // Static date
     tag: 'Health',
     cover: '/Scenery.jpg',
     explainHref: '/insights/news/group-health-copay-adjustments',
