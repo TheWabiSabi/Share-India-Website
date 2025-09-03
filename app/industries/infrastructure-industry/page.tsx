@@ -4,20 +4,14 @@ import {
   FaChevronRight,
   FaShieldAlt,
   FaRoad,
-  FaBridge,
   FaBuilding,
   FaLeaf,
-  FaFire,
   FaWater,
-  FaWind,
-  FaWarehouse,
-  FaTruckMoving,
   FaUserShield,
   FaFileContract,
   FaPhoneAlt,
   FaEnvelope,
   FaHeadset,
-  FaTools,
   FaPlug,
   FaLock,
   FaExclamationTriangle,
@@ -529,8 +523,8 @@ const InfrastructureInsurancePage = () => {
                   Building Tomorrow. Protecting Today.
                 </h3>
                 <p className="mt-2 text-gray-700">
-                  Partner with SIIB's infrastructure specialists for comprehensive project coverage,
-                  performance guarantees, and expert risk management.
+                  Partner with SIIB&#39;s infrastructure specialists for comprehensive project
+                  coverage, performance guarantees, and expert risk management.
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row">

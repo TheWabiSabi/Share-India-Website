@@ -9,7 +9,6 @@ import {
   FaClock,
   FaRupeeSign,
   FaSearch,
-  FaFilter,
   FaChevronRight,
   FaStar,
   FaAward,
@@ -120,9 +119,9 @@ const CareersPage = () => {
                 <span className="text-blue-600"> SIIB</span>
               </h1>
               <p className="mt-6 text-lg text-gray-700 md:text-xl">
-                Join India's leading insurance brokerage and be part of a team that's transforming
-                how businesses protect their future. Discover opportunities to grow, innovate, and
-                make a real impact.
+                Join India&#39;s leading insurance brokerage and be part of a team that&#39;s
+                transforming how businesses protect their future. Discover opportunities to grow,
+                innovate, and make a real impact.
               </p>
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
                 <button className="rounded-lg bg-blue-600 px-8 py-3 font-semibold text-white transition-colors hover:bg-blue-700">
@@ -434,8 +433,8 @@ const CareersPage = () => {
             Ready to Start Your Journey?
           </h2>
           <p className="mt-4 text-lg text-gray-600">
-            Don't see the perfect role? Send us your resume and we'll keep you in mind for future
-            opportunities.
+            Don&#39;t see the perfect role? Send us your resume and we&#39;ll keep you in mind for
+            future opportunities.
           </p>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
             <button className="rounded-lg bg-blue-600 px-8 py-3 font-semibold text-white transition-colors hover:bg-blue-700">

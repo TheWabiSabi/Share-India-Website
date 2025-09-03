@@ -5,12 +5,9 @@ import {
   FaShieldAlt,
   FaTshirt,
   FaCut,
-  FaIndustry,
   FaLeaf,
   FaFire,
   FaWater,
-  FaWind,
-  FaWarehouse,
   FaTruckMoving,
   FaUserShield,
   FaFileContract,
@@ -18,9 +15,6 @@ import {
   FaEnvelope,
   FaHeadset,
   FaTools,
-  FaPlug,
-  FaLock,
-  FaExclamationTriangle,
   FaCheckCircle,
   FaRupeeSign,
   FaCertificate,
@@ -239,9 +233,9 @@ const TextileInsurancePage = () => {
             Understanding Textile Industry Insurance
           </h2>
           <p className="mt-3 text-gray-700">
-            The textile industry is one of India's largest manufacturing sectors, employing millions
-            and contributing significantly to exports. However, it faces unique risks that require
-            specialized insurance solutions.
+            The textile industry is one of India&#39;s largest manufacturing sectors, employing
+            millions and contributing significantly to exports. However, it faces unique risks that
+            require specialized insurance solutions.
           </p>
 
           <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2">
@@ -513,7 +507,7 @@ const TextileInsurancePage = () => {
                   Weaving Protection. Securing Textile Success.
                 </h3>
                 <p className="mt-2 text-gray-700">
-                  Partner with SIIB's textile specialists for comprehensive coverage, export
+                  Partner with SIIB&#39;s textile specialists for comprehensive coverage, export
                   protection, and expert claims management.
                 </p>
               </div>

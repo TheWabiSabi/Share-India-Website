@@ -185,7 +185,7 @@ export default function AboutPage() {
                 What We Do
               </div>
               <h2 className="text-si-ink mb-6 text-3xl leading-tight font-bold sm:mb-8 sm:text-4xl md:text-5xl lg:text-6xl">
-                Expertise Across Today's <span className="text-gradient-accent">Risk</span> and
+                Expertise Across Today&#39;s <span className="text-gradient-accent">Risk</span> and
                 People Issues
               </h2>
             </div>
@@ -193,9 +193,9 @@ export default function AboutPage() {
               <div className="card-vibrant hover-lift shadow-vibrant-blue rounded-xl p-6">
                 <div className="accent-bar-gradient mb-4 h-2 w-12" />
                 <p className="text-si-ink/90 text-lg leading-relaxed font-medium sm:text-xl">
-                  At Share India, we've spent years developing insight and technology to help
-                  clients face today's market challenges—connecting capital, advice, and solutions
-                  for better financial confidence.
+                  At Share India, we&#39;ve spent years developing insight and technology to help
+                  clients face today&#39;s market challenges—connecting capital, advice, and
+                  solutions for better financial confidence.
                 </p>
               </div>
             </div>

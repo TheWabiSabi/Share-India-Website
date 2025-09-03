@@ -6,19 +6,13 @@ import {
   FaSolarPanel,
   FaSun,
   FaBolt,
-  FaLeaf,
   FaFire,
-  FaWater,
-  FaWind,
-  FaWarehouse,
-  FaTruckMoving,
   FaUserShield,
   FaFileContract,
   FaPhoneAlt,
   FaEnvelope,
   FaHeadset,
   FaTools,
-  FaPlug,
   FaLock,
   FaExclamationTriangle,
   FaCheckCircle,
@@ -508,7 +502,7 @@ const SolarInsurancePage = () => {
                   Powering Solar Success. Protecting Clean Energy Investments.
                 </h3>
                 <p className="mt-2 text-gray-700">
-                  Partner with SIIB's renewable energy specialists for comprehensive coverage,
+                  Partner with SIIB&#39;s renewable energy specialists for comprehensive coverage,
                   performance guarantees, and expert claims management.
                 </p>
               </div>

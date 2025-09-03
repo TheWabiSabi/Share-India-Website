@@ -1,8 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaCalendar, FaClock, FaUser, FaTag, FaSearch, FaFilter } from 'react-icons/fa';
+import { FaCalendar, FaClock, FaUser, FaTag, FaSearch } from 'react-icons/fa';
 import blogPosts from '../blog/list_of_blogs.json';
+import { BlogInterface } from '../blog/blog.interface';
 
 const BlogsPage = () => {
   // Sort blogs by date (newest first) and separate featured from regular
@@ -27,7 +28,7 @@ const BlogsPage = () => {
             </h1>
             <p className="mx-auto mt-6 max-w-3xl text-lg text-gray-700 md:text-xl">
               Stay informed with the latest trends, claim stories, and expert insights from the
-              insurance industry. Discover how we're protecting businesses across India.
+              insurance industry. Discover how we&#39;re protecting businesses across India.
             </p>
 
             {/* Search and Filter Bar */}
@@ -148,7 +149,13 @@ const BlogsPage = () => {
 };
 
 // Featured Blog Card Component
-const FeaturedBlogCard = ({ blog, isLarge = false }: { blog: any; isLarge?: boolean }) => {
+const FeaturedBlogCard = ({
+  blog,
+  isLarge = false,
+}: {
+  blog: BlogInterface;
+  isLarge?: boolean;
+}) => {
   const getTypeColor = (type: string) => {
     switch (type) {
       case 'claims_story':
@@ -220,7 +227,7 @@ const FeaturedBlogCard = ({ blog, isLarge = false }: { blog: any; isLarge?: bool
 };
 
 // Regular Blog Card Component
-const RegularBlogCard = ({ blog }: { blog: any }) => {
+const RegularBlogCard = ({ blog }: { blog: BlogInterface }) => {
   const getTypeColor = (type: string) => {
     switch (type) {
       case 'claims_story':
