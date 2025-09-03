@@ -6,19 +6,10 @@ import {
   FaHandshake,
   FaGlobe,
   FaChartLine,
-  FaLeaf,
-  FaFire,
-  FaWater,
-  FaWind,
-  FaWarehouse,
-  FaTruckMoving,
-  FaUserShield,
   FaFileContract,
   FaPhoneAlt,
   FaEnvelope,
   FaHeadset,
-  FaTools,
-  FaPlug,
   FaLock,
   FaExclamationTriangle,
   FaCheckCircle,
@@ -516,7 +507,7 @@ const TradeCreditInsurancePage = () => {
                   Enabling Trade. Securing Payments.
                 </h3>
                 <p className="mt-2 text-gray-700">
-                  Partner with SIIB's trade credit specialists for comprehensive buyer protection,
+                  Partner with SIIBs trade credit specialists for comprehensive buyer protection,
                   market expansion support, and expert credit management.
                 </p>
               </div>

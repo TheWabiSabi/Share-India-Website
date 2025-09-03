@@ -6,19 +6,10 @@ import {
   FaPlane,
   FaGlobe,
   FaUsers,
-  FaLeaf,
-  FaFire,
-  FaWater,
-  FaWind,
-  FaWarehouse,
-  FaTruckMoving,
-  FaUserShield,
   FaFileContract,
   FaPhoneAlt,
   FaEnvelope,
   FaHeadset,
-  FaTools,
-  FaPlug,
   FaLock,
   FaExclamationTriangle,
   FaCheckCircle,
@@ -252,7 +243,7 @@ const GroupTravelInsurancePage = () => {
               <h3 className="text-xl font-semibold text-gray-900">Coverage Overview</h3>
               <p className="mt-3 text-gray-700">
                 This insurance covers multiple travelers under a single policy, providing medical
-                coverage, trip cancellation, baggage protection, and emergency assistance. It's
+                coverage, trip cancellation, baggage protection, and emergency assistance. Its
                 designed for companies with traveling employees, group tours, and corporate events,
                 offering cost-effective protection and simplified administration for multiple
                 travelers.
@@ -518,8 +509,8 @@ const GroupTravelInsurancePage = () => {
                   Enabling Safe Travel. Protecting Every Journey.
                 </h3>
                 <p className="mt-2 text-gray-700">
-                  Partner with SIIB's travel insurance specialists for comprehensive coverage,
-                  global support, and expert travel risk management.
+                  Partner with SIIBs travel insurance specialists for comprehensive coverage, global
+                  support, and expert travel risk management.
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row">

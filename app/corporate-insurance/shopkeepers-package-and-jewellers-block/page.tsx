@@ -6,19 +6,13 @@ import {
   FaStore,
   FaGem,
   FaShoppingBag,
-  FaLeaf,
   FaFire,
   FaWater,
-  FaWind,
-  FaWarehouse,
-  FaTruckMoving,
   FaUserShield,
   FaFileContract,
   FaPhoneAlt,
   FaEnvelope,
   FaHeadset,
-  FaTools,
-  FaPlug,
   FaLock,
   FaExclamationTriangle,
   FaCheckCircle,
@@ -529,7 +523,7 @@ const ShopkeepersJewellersInsurancePage = () => {
                   Securing Retail Success. Protecting Precious Assets.
                 </h3>
                 <p className="mt-2 text-gray-700">
-                  Partner with SIIB's retail insurance specialists for comprehensive coverage,
+                  Partner with SIIBs retail insurance specialists for comprehensive coverage,
                   security expertise, and dedicated support for your business.
                 </p>
               </div>

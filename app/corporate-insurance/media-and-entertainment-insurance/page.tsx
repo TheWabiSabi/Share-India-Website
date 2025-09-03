@@ -6,19 +6,12 @@ import {
   FaVideo,
   FaMusic,
   FaTheaterMasks,
-  FaLeaf,
-  FaFire,
   FaWater,
-  FaWind,
-  FaWarehouse,
-  FaTruckMoving,
   FaUserShield,
   FaFileContract,
   FaPhoneAlt,
   FaEnvelope,
   FaHeadset,
-  FaTools,
-  FaPlug,
   FaLock,
   FaExclamationTriangle,
   FaCheckCircle,
@@ -528,7 +521,7 @@ const MediaEntertainmentInsurancePage = () => {
                   Creating Stories. Protecting Dreams.
                 </h3>
                 <p className="mt-2 text-gray-700">
-                  Partner with SIIB's entertainment specialists for comprehensive production
+                  Partner with SIIBs entertainment specialists for comprehensive production
                   coverage, talent protection, and expert risk management.
                 </p>
               </div>

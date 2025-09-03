@@ -6,20 +6,16 @@ import {
   FaShip,
   FaPlane,
   FaTruck,
-  FaLeaf,
   FaFire,
   FaWater,
   FaWind,
   FaWarehouse,
   FaTruckMoving,
-  FaUserShield,
   FaFileContract,
   FaPhoneAlt,
   FaEnvelope,
   FaHeadset,
   FaTools,
-  FaPlug,
-  FaLock,
   FaExclamationTriangle,
   FaCheckCircle,
   FaRupeeSign,
@@ -523,7 +519,7 @@ const MarineTransitInsurancePage = () => {
                   Securing Cargo. Enabling Trade.
                 </h3>
                 <p className="mt-2 text-gray-700">
-                  Partner with SIIB's marine specialists for comprehensive cargo protection, global
+                  Partner with SIIBs marine specialists for comprehensive cargo protection, global
                   coverage, and expert claims management.
                 </p>
               </div>

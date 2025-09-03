@@ -6,19 +6,14 @@ import {
   FaBuilding,
   FaTools,
   FaIndustry,
-  FaLeaf,
   FaFire,
   FaWater,
   FaWind,
-  FaWarehouse,
-  FaTruckMoving,
-  FaUserShield,
   FaFileContract,
   FaPhoneAlt,
   FaEnvelope,
   FaHeadset,
   FaPlug,
-  FaLock,
   FaExclamationTriangle,
   FaCheckCircle,
   FaRupeeSign,
@@ -515,8 +510,8 @@ const PropertyEngineeringInsurancePage = () => {
                   Protecting Assets. Ensuring Continuity.
                 </h3>
                 <p className="mt-2 text-gray-700">
-                  Partner with SIIB's property specialists for comprehensive asset protection,
-                  expert risk assessment, and efficient claims management.
+                  Partner with SIIBs property specialists for comprehensive asset protection, expert
+                  risk assessment, and efficient claims management.
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row">

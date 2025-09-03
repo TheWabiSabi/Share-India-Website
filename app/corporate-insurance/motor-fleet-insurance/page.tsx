@@ -6,11 +6,8 @@ import {
   FaTruck,
   FaCar,
   FaBus,
-  FaLeaf,
   FaFire,
   FaWater,
-  FaWind,
-  FaWarehouse,
   FaTruckMoving,
   FaUserShield,
   FaFileContract,
@@ -18,14 +15,12 @@ import {
   FaEnvelope,
   FaHeadset,
   FaTools,
-  FaPlug,
   FaLock,
   FaExclamationTriangle,
   FaCheckCircle,
   FaRupeeSign,
   FaCertificate,
   FaRoute,
-  FaGasPump,
 } from 'react-icons/fa';
 import ClaimStories from '../../../components/industries/ClaimStories';
 import RelevantArticles from '../../../components/industries/RelevantArticles';
@@ -519,7 +514,7 @@ const MotorFleetInsurancePage = () => {
                   Moving Business Forward. Protecting Every Mile.
                 </h3>
                 <p className="mt-2 text-gray-700">
-                  Partner with SIIB's fleet specialists for comprehensive vehicle protection, cost
+                  Partner with SIIBs fleet specialists for comprehensive vehicle protection, cost
                   optimization, and expert fleet management support.
                 </p>
               </div>

@@ -6,20 +6,10 @@ import {
   FaUsers,
   FaHeartbeat,
   FaUmbrella,
-  FaLeaf,
-  FaFire,
-  FaWater,
-  FaWind,
-  FaWarehouse,
-  FaTruckMoving,
-  FaUserShield,
   FaFileContract,
   FaPhoneAlt,
   FaEnvelope,
   FaHeadset,
-  FaTools,
-  FaPlug,
-  FaLock,
   FaExclamationTriangle,
   FaCheckCircle,
   FaRupeeSign,
@@ -530,7 +520,7 @@ const EmployeeBenefitsInsurancePage = () => {
                   Caring for People. Building Success.
                 </h3>
                 <p className="mt-2 text-gray-700">
-                  Partner with SIIB's employee benefits specialists for comprehensive workforce
+                  Partner with SIIBs employee benefits specialists for comprehensive workforce
                   protection, wellness programs, and expert benefits administration.
                 </p>
               </div>

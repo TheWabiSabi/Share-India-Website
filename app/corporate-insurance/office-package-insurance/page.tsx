@@ -6,18 +6,13 @@ import {
   FaBuilding,
   FaLaptop,
   FaBriefcase,
-  FaLeaf,
   FaFire,
   FaWater,
-  FaWind,
-  FaWarehouse,
-  FaTruckMoving,
   FaUserShield,
   FaFileContract,
   FaPhoneAlt,
   FaEnvelope,
   FaHeadset,
-  FaTools,
   FaPlug,
   FaLock,
   FaExclamationTriangle,
@@ -25,7 +20,6 @@ import {
   FaRupeeSign,
   FaCertificate,
   FaDesktop,
-  FaWifi,
 } from 'react-icons/fa';
 import ClaimStories from '../../../components/industries/ClaimStories';
 import RelevantArticles from '../../../components/industries/RelevantArticles';
@@ -251,7 +245,7 @@ const OfficePackageInsurancePage = () => {
               <p className="mt-3 text-gray-700">
                 This insurance combines multiple coverages including fire and allied perils,
                 burglary and theft, public liability, and office equipment protection in one
-                comprehensive package. It's designed specifically for small and medium enterprises,
+                comprehensive package. Its designed specifically for small and medium enterprises,
                 professional service providers, and office-based businesses that need
                 cost-effective, comprehensive protection without the complexity of multiple
                 policies.
@@ -520,7 +514,7 @@ const OfficePackageInsurancePage = () => {
                   Simplifying Protection. Empowering Business.
                 </h3>
                 <p className="mt-2 text-gray-700">
-                  Partner with SIIB's office insurance specialists for comprehensive coverage,
+                  Partner with SIIBs office insurance specialists for comprehensive coverage,
                   simplified administration, and expert support for your business.
                 </p>
               </div>

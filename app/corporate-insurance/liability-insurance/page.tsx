@@ -7,17 +7,10 @@ import {
   FaGavel,
   FaHandshake,
   FaLeaf,
-  FaFire,
-  FaWater,
-  FaWind,
-  FaWarehouse,
-  FaTruckMoving,
   FaFileContract,
   FaPhoneAlt,
   FaEnvelope,
   FaHeadset,
-  FaPlug,
-  FaLock,
   FaExclamationTriangle,
   FaCheckCircle,
   FaRupeeSign,
@@ -514,7 +507,7 @@ const LiabilityInsurancePage = () => {
                   Defending Rights. Protecting Reputation.
                 </h3>
                 <p className="mt-2 text-gray-700">
-                  Partner with SIIB's liability specialists for comprehensive protection, expert
+                  Partner with SIIBs liability specialists for comprehensive protection, expert
                   legal support, and professional claims management.
                 </p>
               </div>
