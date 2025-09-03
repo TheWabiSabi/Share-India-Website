@@ -9,7 +9,7 @@
     "date": "2025-08-27",
     "readTime": "8 min read",
     "category": "Claims Analysis",
-    "image": "/blogs/infra.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/infra.jpg",
     "featured": true
   },
   {
@@ -22,7 +22,7 @@
     "date": "2025-08-28",
     "readTime": "6 min read",
     "category": "News Analysis",
-    "image": "/blogs/entertainment.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/entertainment.jpg",
     "featured": false
   },
   {
@@ -35,7 +35,7 @@
     "date": "2025-08-28",
     "readTime": "7 min read",
     "category": "Industry Insights",
-    "image": "/blogs/office-working.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/office-working.jpg",
     "featured": true
   },
   {
@@ -48,7 +48,7 @@
     "date": "2025-08-28",
     "readTime": "9 min read",
     "category": "Claims Analysis",
-    "image": "/blogs/people.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/people.jpg",
     "featured": true
   },
   {
@@ -61,7 +61,7 @@
     "date": "2025-08-28",
     "readTime": "5 min read",
     "category": "Breaking News",
-    "image": "/blogs/textile.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/textile.jpg",
     "featured": false
   },
   {
@@ -74,7 +74,7 @@
     "date": "2025-08-28",
     "readTime": "10 min read",
     "category": "Industry Insights",
-    "image": "/blogs/transport-cartons.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/transport-cartons.jpg",
     "featured": true
   },
   {
@@ -87,7 +87,7 @@
     "date": "2025-08-29",
     "readTime": "12 min read",
     "category": "Regulatory Updates",
-    "image": "/blogs/medicines.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/medicines.jpg",
     "featured": true
   },
   {
@@ -100,7 +100,7 @@
     "date": "2025-08-29",
     "readTime": "8 min read",
     "category": "Claims Analysis",
-    "image": "/blogs/factory.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/factory.jpg",
     "featured": false
   },
   {
@@ -113,7 +113,7 @@
     "date": "2025-08-29",
     "readTime": "6 min read",
     "category": "Startup Guide",
-    "image": "/blogs/bulb.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/bulb.jpg",
     "featured": true
   },
   {
@@ -126,7 +126,7 @@
     "date": "2025-08-29",
     "readTime": "7 min read",
     "category": "Market Trends",
-    "image": "/blogs/building.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/building.jpg",
     "featured": false
   },
   {
@@ -139,7 +139,7 @@
     "date": "2025-08-30",
     "readTime": "9 min read",
     "category": "Claims Analysis",
-    "image": "/blogs/chemical.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/chemical.jpg",
     "featured": true
   },
   {
@@ -152,7 +152,7 @@
     "date": "2025-08-30",
     "readTime": "8 min read",
     "category": "Industry Analysis",
-    "image": "/blogs/ships-transport.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/ships-transport.jpg",
     "featured": false
   },
   {
@@ -165,7 +165,7 @@
     "date": "2025-08-30",
     "readTime": "10 min read",
     "category": "Renewable Energy",
-    "image": "/blogs/solar-panel.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/solar-panel.jpg",
     "featured": true
   },
   {
@@ -178,7 +178,7 @@
     "date": "2025-08-30",
     "readTime": "11 min read",
     "category": "Product Guide",
-    "image": "/blogs/steel-frames-industry.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/steel-frames-industry.jpg",
     "featured": false
   },
   {
@@ -191,7 +191,7 @@
     "date": "2025-08-31",
     "readTime": "7 min read",
     "category": "Claims Analysis",
-    "image": "/blogs/contract.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/contract.jpg",
     "featured": true
   },
   {
@@ -204,7 +204,7 @@
     "date": "2025-08-31",
     "readTime": "9 min read",
     "category": "Marine Coverage",
-    "image": "/blogs/shipyard.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/shipyard.jpg",
     "featured": false
   },
   {
@@ -217,7 +217,7 @@
     "date": "2025-08-31",
     "readTime": "8 min read",
     "category": "Financial Protection",
-    "image": "/blogs/wallstreet.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/wallstreet.jpg",
     "featured": true
   },
   {
@@ -230,7 +230,7 @@
     "date": "2025-09-01",
     "readTime": "6 min read",
     "category": "Entertainment News",
-    "image": "/blogs/recording-video.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/recording-video.jpg",
     "featured": false
   },
   {
@@ -243,7 +243,7 @@
     "date": "2025-09-01",
     "readTime": "10 min read",
     "category": "HR Insights",
-    "image": "/blogs/stethoscope.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/stethoscope.jpg",
     "featured": true
   },
   {
@@ -256,7 +256,7 @@
     "date": "2025-09-01",
     "readTime": "8 min read",
     "category": "Office Solutions",
-    "image": "/blogs/office-work.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/office-work.jpg",
     "featured": false
   },
   {
@@ -269,7 +269,7 @@
     "date": "2025-09-02",
     "readTime": "9 min read",
     "category": "Retail Protection",
-    "image": "/blogs/contract.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/contract.jpg",
     "featured": true
   },
   {
@@ -282,7 +282,7 @@
     "date": "2025-09-02",
     "readTime": "7 min read",
     "category": "Travel Solutions",
-    "image": "/blogs/bridge.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/bridge.jpg",
     "featured": false
   },
   {
@@ -295,7 +295,7 @@
     "date": "2025-09-02",
     "readTime": "6 min read",
     "category": "Government Initiatives",
-    "image": "/blogs/city.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/city.jpg",
     "featured": true
   },
   {
@@ -308,7 +308,7 @@
     "date": "2025-09-03",
     "readTime": "8 min read",
     "category": "Crisis Management",
-    "image": "/blogs/pills.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/pills.jpg",
     "featured": false
   },
   {
@@ -321,7 +321,7 @@
     "date": "2025-09-03",
     "readTime": "9 min read",
     "category": "Environmental Coverage",
-    "image": "/blogs/chemical2.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/chemical2.jpg",
     "featured": true
   },
   {
@@ -334,7 +334,7 @@
     "date": "2025-09-03",
     "readTime": "5 min read",
     "category": "Tech Trends",
-    "image": "/blogs/highrise.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/highrise.jpg",
     "featured": false
   },
   {
@@ -347,7 +347,7 @@
     "date": "2025-09-04",
     "readTime": "8 min read",
     "category": "Business Continuity",
-    "image": "/blogs/smoke.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/smoke.jpg",
     "featured": true
   },
   {
@@ -360,7 +360,7 @@
     "date": "2025-09-04",
     "readTime": "11 min read",
     "category": "Construction Insurance",
-    "image": "/blogs/construction.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/construction.jpg",
     "featured": false
   },
   {
@@ -373,7 +373,7 @@
     "date": "2025-09-04",
     "readTime": "10 min read",
     "category": "Regulatory Compliance",
-    "image": "/blogs/medical-lab.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/medical-lab.jpg",
     "featured": true
   },
   {
@@ -386,7 +386,7 @@
     "date": "2025-09-05",
     "readTime": "7 min read",
     "category": "Supply Chain",
-    "image": "/blogs/transport-cartons.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/transport-cartons.jpg",
     "featured": false
   },
   {
@@ -399,7 +399,7 @@
     "date": "2025-09-05",
     "readTime": "9 min read",
     "category": "Export Insurance",
-    "image": "/blogs/women-work-factory.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/women-work-factory.jpg",
     "featured": true
   },
   {
@@ -412,7 +412,7 @@
     "date": "2025-09-05",
     "readTime": "6 min read",
     "category": "Climate Impact",
-    "image": "/blogs/solar+turbine.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/solar+turbine.jpg",
     "featured": false
   },
   {
@@ -425,7 +425,7 @@
     "date": "2025-09-06",
     "readTime": "10 min read",
     "category": "Engineering Claims",
-    "image": "/blogs/factory.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/factory.jpg",
     "featured": true
   },
   {
@@ -438,7 +438,7 @@
     "date": "2025-09-06",
     "readTime": "8 min read",
     "category": "Executive Protection",
-    "image": "/blogs/office-working.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/office-working.jpg",
     "featured": false
   },
   {
@@ -451,7 +451,7 @@
     "date": "2025-09-06",
     "readTime": "9 min read",
     "category": "Marine Claims",
-    "image": "/blogs/ships-transport.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/ships-transport.jpg",
     "featured": true
   },
   {
@@ -464,7 +464,7 @@
     "date": "2025-09-07",
     "readTime": "5 min read",
     "category": "Market Statistics",
-    "image": "/blogs/wallstreet.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/wallstreet.jpg",
     "featured": false
   },
   {
@@ -477,7 +477,7 @@
     "date": "2025-09-07",
     "readTime": "7 min read",
     "category": "Digital Entertainment",
-    "image": "/blogs/entertainment.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/entertainment.jpg",
     "featured": true
   },
   {
@@ -490,7 +490,7 @@
     "date": "2025-09-07",
     "readTime": "8 min read",
     "category": "Health Benefits",
-    "image": "/blogs/medical-lab.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/medical-lab.jpg",
     "featured": false
   },
   {
@@ -503,7 +503,7 @@
     "date": "2025-09-08",
     "readTime": "9 min read",
     "category": "Electric Vehicles",
-    "image": "/blogs/transport-cartons.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/transport-cartons.jpg",
     "featured": true
   },
   {
@@ -516,7 +516,7 @@
     "date": "2025-09-08",
     "readTime": "6 min read",
     "category": "Workplace Trends",
-    "image": "/blogs/office-work.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/office-work.jpg",
     "featured": false
   },
   {
@@ -529,7 +529,7 @@
     "date": "2025-09-08",
     "readTime": "8 min read",
     "category": "Security Claims",
-    "image": "/blogs/contract.jpg",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/contract.jpg",
     "featured": true
   }
 ]
