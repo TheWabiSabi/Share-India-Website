@@ -206,7 +206,7 @@ export default function TeamPage() {
             <div className="relative mr-4 h-16 w-16 flex-shrink-0 overflow-hidden rounded-full">
               <Image
                 fill
-                src="/about-img/ceo.png"
+                src="https://minio-api.internal.wabisabitech.in/share-india/about/ceo.png"
                 alt="Greg Case"
                 className="h-full w-full object-cover"
               />
@@ -279,7 +279,7 @@ export default function TeamPage() {
               <div className="relative aspect-[16/9] overflow-hidden rounded-lg">
                 <Image
                   fill
-                  src="/about-img/buildings.png"
+                  src="https://minio-api.internal.wabisabitech.in/share-india/about/buildings.png"
                   alt="City skyline with modern buildings representing financial district"
                   className="h-full w-full object-cover"
                 />

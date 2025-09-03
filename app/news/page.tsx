@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
@@ -14,97 +14,128 @@ import {
 import blogPosts from '../blog/list_of_blogs.json';
 import { TbTrendingUp } from 'react-icons/tb';
 import { BlogInterface } from '../blog/blog.interface';
+import { ListOfBreakingNews } from '../blog/list_of_breaking_news';
 
 const NewsPage = () => {
+  // Constants for pagination
+  const ITEMS_PER_PAGE = 6;
+
+  // Filter states
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedDateRange, setSelectedDateRange] = useState('');
+
+  // State for lazy loading
+  const [displayedRegularNews, setDisplayedRegularNews] = useState<BlogInterface[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
+  const [loading, setLoading] = useState(false);
+
   // Filter for news content and sort by date (newest first)
-  const newsArticles = [...blogPosts]
-    .filter(
-      (post) =>
-        post.type === 'news' ||
-        post.category === 'Breaking News' ||
-        post.category === 'News Analysis',
-    )
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-
-  // Create additional news content to supplement existing data
-  const additionalNews = [
-    {
-      slug: 'insurance-market-growth-2024',
-      topic: 'market_trends',
-      industry: 'corporate',
-      type: 'news',
-      title: 'Indian Insurance Market Shows 15% Growth in Q4 2024, Driven by Corporate Segment',
-      author: 'Market Research Team',
-      date: '2025-01-15',
-      readTime: '4 min read',
-      category: 'Market News',
-      image: '/blogs/market-growth.svg',
-      featured: true,
-    },
-    {
-      slug: 'irdai-new-regulations-2025',
-      topic: 'regulatory',
-      industry: 'corporate',
-      type: 'news',
-      title: 'IRDAI Announces New Digital Insurance Regulations for 2025',
-      author: 'Regulatory Affairs Team',
-      date: '2025-01-12',
-      readTime: '6 min read',
-      category: 'Regulatory News',
-      image: '/blogs/regulatory.svg',
-      featured: true,
-    },
-    {
-      slug: 'climate-risk-insurance-trends',
-      topic: 'climate_risk',
-      industry: 'corporate',
-      type: 'news',
-      title: 'Climate Risk Insurance Demand Surges 200% Following Extreme Weather Events',
-      author: 'Climate Risk Specialists',
-      date: '2025-01-10',
-      readTime: '5 min read',
-      category: 'Industry News',
-      image: '/blogs/climate.svg',
-      featured: false,
-    },
-    {
-      slug: 'cyber-insurance-claims-rise',
-      topic: 'cyber_security',
-      industry: 'corporate',
-      type: 'news',
-      title: 'Cyber Insurance Claims Rise 300% as Indian Businesses Face Increased Threats',
-      author: 'Cyber Security Team',
-      date: '2025-01-08',
-      readTime: '7 min read',
-      category: 'Breaking News',
-      image: '/blogs/cyber-security.svg',
-      featured: true,
-    },
-    {
-      slug: 'startup-insurance-adoption',
-      topic: 'startup_trends',
-      industry: 'startup',
-      type: 'news',
-      title: 'Indian Startups Embrace Comprehensive Insurance Coverage Amid Funding Challenges',
-      author: 'Startup Desk',
-      date: '2025-01-05',
-      readTime: '5 min read',
-      category: 'Startup News',
-      image: '/blogs/startup-news.svg',
-      featured: false,
-    },
-  ];
-
-  // Combine existing and additional news
-  const allNews = [...newsArticles, ...additionalNews].sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+  const allNews = useMemo(
+    () =>
+      blogPosts
+        .filter((post) => post.type === 'news')
+        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()),
+    [],
   );
 
-  const featuredNews = allNews.filter((article) => article.featured);
-  const regularNews = allNews.filter((article) => !article.featured);
+  // Apply filters to all news
+  const filteredAllNews = useMemo(() => {
+    let filtered = allNews;
+
+    // Search filter
+    if (searchTerm.trim()) {
+      filtered = filtered.filter(
+        (article) =>
+          article.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          article.author.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          article.category.toLowerCase().includes(searchTerm.toLowerCase()),
+      );
+    }
+
+    // Category filter
+    if (selectedCategory) {
+      filtered = filtered.filter((article) => article.category === selectedCategory);
+    }
+
+    // Date range filter
+    if (selectedDateRange) {
+      const now = new Date();
+      const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+      filtered = filtered.filter((article) => {
+        const articleDate = new Date(article.date);
+
+        switch (selectedDateRange) {
+          case 'today':
+            return articleDate >= today;
+          case 'week':
+            const weekAgo = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000);
+            return articleDate >= weekAgo;
+          case 'month':
+            const monthAgo = new Date(today.getTime() - 30 * 24 * 60 * 60 * 1000);
+            return articleDate >= monthAgo;
+          default:
+            return true;
+        }
+      });
+    }
+
+    return filtered;
+  }, [allNews, searchTerm, selectedCategory, selectedDateRange]);
+
+  // Separate breaking news from regular news based on ListOfBreakingNews
+  const filteredBreakingNews = useMemo(
+    () => filteredAllNews.filter((article) => ListOfBreakingNews.includes(article.slug)),
+    [filteredAllNews],
+  );
+
+  const filteredRegularNews = useMemo(
+    () => filteredAllNews.filter((article) => !ListOfBreakingNews.includes(article.slug)),
+    [filteredAllNews],
+  );
+
+  // Reset pagination when filters change
+  useEffect(() => {
+    const initialNews = filteredRegularNews.slice(0, ITEMS_PER_PAGE);
+    setDisplayedRegularNews(initialNews);
+    setCurrentPage(1);
+    setHasMore(filteredRegularNews.length > ITEMS_PER_PAGE);
+  }, [filteredRegularNews]);
+
+  // Load more function
+  const loadMore = useCallback(() => {
+    if (loading || !hasMore) return;
+
+    setLoading(true);
+
+    // Simulate loading delay for better UX
+    setTimeout(() => {
+      const nextPage = currentPage + 1;
+      const startIndex = currentPage * ITEMS_PER_PAGE;
+      const endIndex = startIndex + ITEMS_PER_PAGE;
+      const newItems = filteredRegularNews.slice(startIndex, endIndex);
+
+      setDisplayedRegularNews((prev) => [...prev, ...newItems]);
+      setCurrentPage(nextPage);
+      setHasMore(endIndex < filteredRegularNews.length);
+      setLoading(false);
+    }, 500);
+  }, [currentPage, loading, hasMore, filteredRegularNews]);
 
   // Get unique categories for filter
-  const categories = [...new Set(allNews.map((article) => article.category))];
+  const categories = useMemo(
+    () => [...new Set(allNews.map((article) => article.category))],
+    [allNews],
+  );
+
+  // Clear all filters
+  const clearFilters = () => {
+    setSearchTerm('');
+    setSelectedCategory('');
+    setSelectedDateRange('');
+  };
 
   return (
     <div className="min-h-screen bg-white pt-[8vh]">
@@ -132,12 +163,18 @@ const NewsPage = () => {
                     <input
                       type="text"
                       placeholder="Search news, updates, and announcements..."
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
                       className="w-full rounded-lg border border-gray-300 py-3 pr-4 pl-10 focus:border-red-500 focus:ring-2 focus:ring-red-200 focus:outline-none"
                     />
                   </div>
                 </div>
                 <div className="flex gap-3">
-                  <select className="rounded-lg border border-gray-300 px-4 py-3 focus:border-red-500 focus:ring-2 focus:ring-red-200 focus:outline-none">
+                  <select
+                    value={selectedCategory}
+                    onChange={(e) => setSelectedCategory(e.target.value)}
+                    className="rounded-lg border border-gray-300 px-4 py-3 focus:border-red-500 focus:ring-2 focus:ring-red-200 focus:outline-none"
+                  >
                     <option value="">All Categories</option>
                     {categories.map((category) => (
                       <option key={category} value={category}>
@@ -145,12 +182,68 @@ const NewsPage = () => {
                       </option>
                     ))}
                   </select>
-                  <select className="rounded-lg border border-gray-300 px-4 py-3 focus:border-red-500 focus:ring-2 focus:ring-red-200 focus:outline-none">
+                  <select
+                    value={selectedDateRange}
+                    onChange={(e) => setSelectedDateRange(e.target.value)}
+                    className="rounded-lg border border-gray-300 px-4 py-3 focus:border-red-500 focus:ring-2 focus:ring-red-200 focus:outline-none"
+                  >
                     <option value="">All Time</option>
                     <option value="today">Today</option>
                     <option value="week">This Week</option>
                     <option value="month">This Month</option>
                   </select>
+                </div>
+              </div>
+
+              {/* Active filters and results count */}
+              <div className="mt-4 flex flex-wrap items-center gap-4">
+                <div className="flex items-center gap-2 text-sm text-gray-600">
+                  <span>Results: {filteredAllNews.length} articles</span>
+                  {filteredBreakingNews.length > 0 && (
+                    <span className="text-red-600">({filteredBreakingNews.length} breaking)</span>
+                  )}
+                </div>
+
+                {/* Active filter badges */}
+                <div className="flex flex-wrap gap-2">
+                  {searchTerm && (
+                    <span className="inline-flex items-center gap-1 rounded-full bg-red-100 px-3 py-1 text-xs font-medium text-red-800">
+                      Search: &#34;{searchTerm}&#34;
+                      <button onClick={() => setSearchTerm('')} className="ml-1 hover:text-red-600">
+                        ×
+                      </button>
+                    </span>
+                  )}
+                  {selectedCategory && (
+                    <span className="inline-flex items-center gap-1 rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-blue-800">
+                      Category: {selectedCategory}
+                      <button
+                        onClick={() => setSelectedCategory('')}
+                        className="ml-1 hover:text-blue-600"
+                      >
+                        ×
+                      </button>
+                    </span>
+                  )}
+                  {selectedDateRange && (
+                    <span className="inline-flex items-center gap-1 rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-800">
+                      Time: {selectedDateRange}
+                      <button
+                        onClick={() => setSelectedDateRange('')}
+                        className="ml-1 hover:text-green-600"
+                      >
+                        ×
+                      </button>
+                    </span>
+                  )}
+                  {(searchTerm || selectedCategory || selectedDateRange) && (
+                    <button
+                      onClick={clearFilters}
+                      className="text-xs text-gray-500 underline hover:text-gray-700"
+                    >
+                      Clear all filters
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
@@ -168,17 +261,17 @@ const NewsPage = () => {
             </div>
             <div className="flex-1 overflow-hidden">
               <div className="animate-marquee whitespace-nowrap">
-                IRDAI announces new digital insurance regulations • Cyber insurance claims surge
-                300% • Climate risk coverage demand increases • Indian insurance market grows 15% in
-                Q4
+                {filteredBreakingNews.length > 0
+                  ? filteredBreakingNews.map((news) => news.title).join(' • ')
+                  : 'No breaking news matching current filters'}
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Featured News */}
-      {featuredNews.length > 0 && (
+      {/* Breaking News Section */}
+      {filteredBreakingNews.length > 0 && (
         <section className="py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mb-12 flex items-center justify-between">
@@ -191,21 +284,26 @@ const NewsPage = () => {
               <div className="hidden md:block">
                 <span className="flex items-center gap-2 rounded-full bg-red-100 px-4 py-2 text-sm font-semibold text-red-800">
                   <div className="h-2 w-2 animate-pulse rounded-full bg-red-500"></div>
-                  Live Updates
+                  {filteredBreakingNews.length} Live Updates
                 </span>
               </div>
             </div>
 
             <div className="grid gap-8 lg:grid-cols-2">
-              {featuredNews.slice(0, 2).map((article, index) => (
-                <FeaturedNewsCard key={article.slug} article={article} isLarge={index === 0} />
+              {filteredBreakingNews.slice(0, 2).map((article, index) => (
+                <FeaturedNewsCard
+                  key={article.slug}
+                  article={article}
+                  isLarge={index === 0}
+                  isBreaking={true}
+                />
               ))}
             </div>
 
-            {featuredNews.length > 2 && (
+            {filteredBreakingNews.length > 2 && (
               <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {featuredNews.slice(2).map((article) => (
-                  <RegularNewsCard key={article.slug} article={article} />
+                {filteredBreakingNews.slice(2).map((article) => (
+                  <RegularNewsCard key={article.slug} article={article} isBreaking={true} />
                 ))}
               </div>
             )}
@@ -213,28 +311,89 @@ const NewsPage = () => {
         </section>
       )}
 
-      {/* All News */}
+      {/* Regular News */}
       <section className="bg-gray-50 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 md:text-4xl">Latest News</h2>
+            <h2 className="text-3xl font-bold text-gray-900 md:text-4xl">
+              {filteredRegularNews.length === 0 ? 'No Regular News Found' : 'Latest News'}
+            </h2>
             <p className="mt-4 text-lg text-gray-600">
-              Comprehensive coverage of insurance industry developments and market trends
+              {filteredRegularNews.length === 0
+                ? 'Try adjusting your filters to see more results'
+                : 'Comprehensive coverage of insurance industry developments and market trends'}
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {regularNews.map((article) => (
-              <RegularNewsCard key={article.slug} article={article} />
-            ))}
-          </div>
+          {displayedRegularNews.length > 0 ? (
+            <>
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {displayedRegularNews.map((article) => (
+                  <RegularNewsCard key={article.slug} article={article} />
+                ))}
+              </div>
 
-          {/* Load More Button */}
-          <div className="mt-12 text-center">
-            <button className="rounded-lg bg-red-600 px-8 py-3 font-semibold text-white transition-colors hover:bg-red-700 focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:outline-none">
-              Load More News
-            </button>
-          </div>
+              {/* Load More Button */}
+              {hasMore && (
+                <div className="mt-12 text-center">
+                  <button
+                    onClick={loadMore}
+                    disabled={loading}
+                    className="rounded-lg bg-red-600 px-8 py-3 font-semibold text-white transition-colors hover:bg-red-700 focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+                  >
+                    {loading ? (
+                      <span className="flex items-center gap-2">
+                        <svg className="h-4 w-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                          <circle
+                            className="opacity-25"
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                          ></circle>
+                          <path
+                            className="opacity-75"
+                            fill="currentColor"
+                            d="m4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                          ></path>
+                        </svg>
+                        Loading...
+                      </span>
+                    ) : (
+                      'Load More News'
+                    )}
+                  </button>
+                </div>
+              )}
+
+              {/* End of results message */}
+              {!hasMore && displayedRegularNews.length > 0 && (
+                <div className="mt-12 text-center">
+                  <p className="text-gray-600">
+                    You&#34;ve reached the end of the filtered results.
+                  </p>
+                </div>
+              )}
+            </>
+          ) : (
+            /* No results message */
+            <div className="py-12 text-center">
+              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gray-100">
+                <FaSearch className="text-2xl text-gray-400" />
+              </div>
+              <h3 className="mb-2 text-lg font-medium text-gray-900">No articles found</h3>
+              <p className="mb-4 text-gray-500">
+                Try adjusting your search terms or filters to find what you&#34;re looking for.
+              </p>
+              <button
+                onClick={clearFilters}
+                className="font-medium text-red-600 hover:text-red-700"
+              >
+                Clear all filters
+              </button>
+            </div>
+          )}
         </div>
       </section>
 
@@ -249,41 +408,60 @@ const NewsPage = () => {
           </div>
 
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            <div className="group cursor-pointer rounded-lg border border-gray-200 bg-white p-6 text-center transition-all hover:border-red-300 hover:shadow-lg">
+            <button
+              onClick={() => setSelectedCategory('')}
+              className="group cursor-pointer rounded-lg border border-gray-200 bg-white p-6 text-center transition-all hover:border-red-300 hover:shadow-lg"
+            >
               <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-red-100 group-hover:bg-red-200">
                 <FaNewspaper className="text-red-600" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900">Breaking News</h3>
               <p className="mt-2 text-sm text-gray-600">Latest developments and urgent updates</p>
-              <div className="mt-3 text-sm font-medium text-red-600">12 Articles</div>
-            </div>
-
-            <div className="group cursor-pointer rounded-lg border border-gray-200 bg-white p-6 text-center transition-all hover:border-red-300 hover:shadow-lg">
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-100 group-hover:bg-blue-200">
-                <FaTag className="text-blue-600" />
+              <div className="mt-3 text-sm font-medium text-red-600">
+                {filteredBreakingNews.length} Articles
               </div>
-              <h3 className="text-lg font-semibold text-gray-900">Regulatory News</h3>
-              <p className="mt-2 text-sm text-gray-600">Policy changes and compliance updates</p>
-              <div className="mt-3 text-sm font-medium text-blue-600">8 Articles</div>
-            </div>
+            </button>
 
-            <div className="group cursor-pointer rounded-lg border border-gray-200 bg-white p-6 text-center transition-all hover:border-red-300 hover:shadow-lg">
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-100 group-hover:bg-green-200">
-                <TbTrendingUp className="text-green-600" />
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900">Market Trends</h3>
-              <p className="mt-2 text-sm text-gray-600">Industry growth and market analysis</p>
-              <div className="mt-3 text-sm font-medium text-green-600">15 Articles</div>
-            </div>
+            {categories.slice(0, 3).map((category, index) => {
+              const colors = [
+                { bg: 'bg-blue-100 group-hover:bg-blue-200', text: 'text-blue-600', icon: FaTag },
+                {
+                  bg: 'bg-green-100 group-hover:bg-green-200',
+                  text: 'text-green-600',
+                  icon: TbTrendingUp,
+                },
+                {
+                  bg: 'bg-purple-100 group-hover:bg-purple-200',
+                  text: 'text-purple-600',
+                  icon: FaExternalLinkAlt,
+                },
+              ];
+              const colorSet = colors[index] || colors[0];
+              const IconComponent = colorSet.icon;
 
-            <div className="group cursor-pointer rounded-lg border border-gray-200 bg-white p-6 text-center transition-all hover:border-red-300 hover:shadow-lg">
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-purple-100 group-hover:bg-purple-200">
-                <FaExternalLinkAlt className="text-purple-600" />
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900">Industry News</h3>
-              <p className="mt-2 text-sm text-gray-600">Sector-specific updates and insights</p>
-              <div className="mt-3 text-sm font-medium text-purple-600">22 Articles</div>
-            </div>
+              return (
+                <button
+                  key={category}
+                  onClick={() => setSelectedCategory(category)}
+                  className={`group cursor-pointer rounded-lg border border-gray-200 bg-white p-6 text-center transition-all hover:border-red-300 hover:shadow-lg ${
+                    selectedCategory === category ? 'border-red-300 shadow-lg' : ''
+                  }`}
+                >
+                  <div
+                    className={`mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full ${colorSet.bg}`}
+                  >
+                    <IconComponent className={colorSet.text} />
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900">{category}</h3>
+                  <p className="mt-2 text-sm text-gray-600">
+                    Category-specific updates and insights
+                  </p>
+                  <div className={`mt-3 text-sm font-medium ${colorSet.text}`}>
+                    {allNews.filter((n) => n.category === category).length} Articles
+                  </div>
+                </button>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -316,13 +494,15 @@ const NewsPage = () => {
   );
 };
 
-// Featured News Card Component
+// Featured News Card Component (unchanged from previous version)
 const FeaturedNewsCard = ({
   article,
   isLarge = false,
+  isBreaking = false,
 }: {
   article: BlogInterface;
   isLarge?: boolean;
+  isBreaking?: boolean;
 }) => {
   const getCategoryColor = (category: string) => {
     switch (category) {
@@ -354,12 +534,18 @@ const FeaturedNewsCard = ({
 
         {/* Badges */}
         <div className="absolute top-4 left-4 flex gap-2">
-          <span
-            className={`rounded-full px-3 py-1 text-xs font-semibold ${getCategoryColor(article.category)}`}
-          >
-            {article.category}
-          </span>
-          {article.featured && (
+          {isBreaking ? (
+            <span className="animate-pulse rounded-full bg-red-600 px-3 py-1 text-xs font-semibold text-white">
+              BREAKING
+            </span>
+          ) : (
+            <span
+              className={`rounded-full px-3 py-1 text-xs font-semibold ${getCategoryColor(article.category)}`}
+            >
+              {article.category}
+            </span>
+          )}
+          {article.featured && !isBreaking && (
             <span className="rounded-full bg-yellow-400 px-3 py-1 text-xs font-semibold text-yellow-900">
               FEATURED
             </span>
@@ -367,7 +553,7 @@ const FeaturedNewsCard = ({
         </div>
 
         {/* Live indicator for breaking news */}
-        {article.category === 'Breaking News' && (
+        {isBreaking && (
           <div className="absolute top-4 right-4 flex items-center gap-2 rounded-full bg-red-600 px-3 py-1 text-xs font-semibold text-white">
             <div className="h-2 w-2 animate-pulse rounded-full bg-white"></div>
             LIVE
@@ -391,7 +577,7 @@ const FeaturedNewsCard = ({
             </span>
           </div>
           <h3 className={`leading-tight font-bold ${isLarge ? 'text-xl lg:text-2xl' : 'text-lg'}`}>
-            <Link href={`/news/${article.slug}`} className="hover:underline">
+            <Link href={`/blog/${article.slug}`} className="hover:underline">
               {article.title}
             </Link>
           </h3>
@@ -401,8 +587,14 @@ const FeaturedNewsCard = ({
   );
 };
 
-// Regular News Card Component
-const RegularNewsCard = ({ article }: { article: BlogInterface }) => {
+// Regular News Card Component (unchanged from previous version)
+const RegularNewsCard = ({
+  article,
+  isBreaking = false,
+}: {
+  article: BlogInterface;
+  isBreaking?: boolean;
+}) => {
   const getCategoryColor = (category: string) => {
     switch (category) {
       case 'Breaking News':
@@ -430,12 +622,18 @@ const RegularNewsCard = ({ article }: { article: BlogInterface }) => {
           className="object-cover transition-transform duration-300 group-hover:scale-105"
         />
         <div className="absolute top-3 left-3 flex gap-2">
-          <span
-            className={`rounded-full px-3 py-1 text-xs font-semibold ${getCategoryColor(article.category)}`}
-          >
-            {article.category}
-          </span>
-          {isRecent && (
+          {isBreaking ? (
+            <span className="animate-pulse rounded-full bg-red-600 px-3 py-1 text-xs font-semibold text-white">
+              BREAKING
+            </span>
+          ) : (
+            <span
+              className={`rounded-full px-3 py-1 text-xs font-semibold ${getCategoryColor(article.category)}`}
+            >
+              {article.category}
+            </span>
+          )}
+          {isRecent && !isBreaking && (
             <span className="rounded-full bg-orange-400 px-3 py-1 text-xs font-semibold text-orange-900">
               NEW
             </span>
@@ -456,7 +654,7 @@ const RegularNewsCard = ({ article }: { article: BlogInterface }) => {
         </div>
 
         <h3 className="mb-3 line-clamp-2 text-lg font-bold text-gray-900">
-          <Link href={`/news/${article.slug}`} className="hover:text-red-600">
+          <Link href={`/blog/${article.slug}`} className="hover:text-red-600">
             {article.title}
           </Link>
         </h3>
@@ -466,14 +664,11 @@ const RegularNewsCard = ({ article }: { article: BlogInterface }) => {
             <FaClock className="text-xs" />
             {article.readTime}
           </span>
-          <span className="text-sm font-medium text-red-600">
-            {article.category === 'Breaking News' ? 'URGENT' : 'READ MORE'}
-          </span>
         </div>
 
         <div className="mt-4">
           <Link
-            href={`/news/${article.slug}`}
+            href={`/blog/${article.slug}`}
             className="inline-flex items-center gap-2 text-sm font-semibold text-red-600 hover:text-red-800"
           >
             Read Full Story
