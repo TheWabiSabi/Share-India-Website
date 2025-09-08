@@ -73,7 +73,7 @@ export default function InsightsPage() {
             landscape.
           </p>
         </div>
-        <div className="pr-5 lg:w-[64vw]">
+        <div className="lg:w-[64vw]">
           <FeaturedCarousel />
         </div>
       </div>
@@ -109,7 +109,7 @@ export default function InsightsPage() {
                     fill
                     src={post.image}
                     alt={post.title}
-                    className="h-16 w-16 object-contain opacity-60"
+                    className="h-16 w-16 object-contain"
                   />
                   <div className="absolute top-4 left-4">
                     <span className="from-si-primary to-si-primary-600 rounded-full bg-gradient-to-r px-3 py-1.5 text-sm font-semibold text-white shadow-lg backdrop-blur-sm">

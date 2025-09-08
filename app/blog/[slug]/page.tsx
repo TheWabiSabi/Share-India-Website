@@ -5,6 +5,7 @@ import { compileMDX } from 'next-mdx-remote/rsc';
 import path from 'path';
 import { readFile, access } from 'fs/promises';
 import { notFound } from 'next/navigation';
+import BlogContent from './blog-content';
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -174,9 +175,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       {/* Article Content */}
       <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
         <article className="bg-si-white rounded-lg p-8 shadow-sm md:p-12">
-          <div className="prose prose-lg prose-slate prose-headings:text-si-dark prose-p:text-si-dark/80 prose-strong:text-si-bluegreen prose-a:text-si-bluegreen prose-table:border-si-bluegreen/20 max-w-none">
+          {/* <div className="prose prose-lg prose-slate prose-headings:text-si-dark prose-p:text-si-dark/80 prose-strong:text-si-bluegreen prose-a:text-si-bluegreen prose-table:border-si-bluegreen/20 max-w-none">
             {content}
-          </div>
+          </div> */}
+          <BlogContent content={content} />
 
           {/* Share Section */}
           <div className="border-si-bluegreen/30 mt-12 border-t pt-8">

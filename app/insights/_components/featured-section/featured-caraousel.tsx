@@ -37,7 +37,7 @@ export default function FeaturedCarousel() {
     }));
 
   // Loop only if enough slides to make sense
-  const enableLoop = featuredData.length > 3;
+  const enableLoop = featuredData.length > 2;
 
   return (
     <div className="relative w-full">
@@ -71,7 +71,7 @@ export default function FeaturedCarousel() {
       {featuredData.length > 0 ? (
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y]}
-          spaceBetween={8}
+          spaceBetween={24}
           slidesPerView={1}
           centeredSlides={false}
           watchOverflow
@@ -100,15 +100,18 @@ export default function FeaturedCarousel() {
           }}
           breakpoints={{
             640: { slidesPerView: 1, spaceBetween: 20 },
-            768: { slidesPerView: 2, spaceBetween: 24 },
-            1024: { slidesPerView: 3, spaceBetween: 28 },
-            1280: { slidesPerView: 3, spaceBetween: '2vw' },
+            768: { slidesPerView: 1, spaceBetween: 24 },
+            1024: { slidesPerView: 1, spaceBetween: 28 },
+            1280: { slidesPerView: 1, spaceBetween: 32 },
+            1536: { slidesPerView: 1, spaceBetween: 36 },
           }}
           className="!pb-12"
         >
           {featuredData.map((item, index) => (
             <SwiperSlide key={`${item.slug}-${index}`} aria-label={`Featured insight ${index + 1}`}>
-              <div className="h-full">
+              <div className="h-64 md:h-72 lg:h-80">
+                {' '}
+                {/* Fixed height for horizontal cards */}
                 <FeaturedBlogCard {...item} />
               </div>
             </SwiperSlide>
