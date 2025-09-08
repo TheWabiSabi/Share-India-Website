@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import HorizontalCarousal from './about/_components/horizontalCarousal';
-import FeaturedCarousel from './insights/_components/featured-section/featured-caraousel';
 import TopNewsCarousel from '@/components/top-news-carousel';
 
 import { FadeUp, Stagger, Item } from '@/components/motion';
 import './style.css';
+import MainCaraousel from '@/components/main-caraousel';
 
 export default function HomePage() {
   return (
@@ -497,7 +497,7 @@ export default function HomePage() {
 
           {/* Carousel */}
           <div className="card-vibrant shadow-vibrant-blue hover-lift rounded-xl p-4">
-            <FeaturedCarousel />
+            <MainCaraousel color="blue" layout={1} />
           </div>
 
           {/* CTA strip */}

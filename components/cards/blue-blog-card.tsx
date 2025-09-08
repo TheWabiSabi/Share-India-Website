@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
-interface FeaturedBlogCardProps {
+interface BlueBlogCardProps {
   title: string;
   author: string;
   date: string;
@@ -14,7 +14,7 @@ interface FeaturedBlogCardProps {
   industry?: string;
 }
 
-const FeaturedBlogCard: React.FC<FeaturedBlogCardProps> = ({
+const BlueBlogCard: React.FC<BlueBlogCardProps> = ({
   title,
   author,
   date,
@@ -122,4 +122,4 @@ const FeaturedBlogCard: React.FC<FeaturedBlogCardProps> = ({
   );
 };
 
-export default FeaturedBlogCard;
+export default BlueBlogCard;

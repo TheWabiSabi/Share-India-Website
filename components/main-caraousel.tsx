@@ -10,16 +10,72 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 import './swiper.css';
-import FeaturedBlogCard from './featured-cards';
+import WhiteBlogCard from './cards/white-blog-card';
+import BlueBlogCard from './cards/blue-blog-card';
 import blogPosts from '@/app/blog/list_of_blogs.json';
+import { AllTypes } from '@/consts/types';
+import { AllTopics } from '@/consts/topics';
+import { AllIndustries } from '@/consts/industries';
 
-export default function FeaturedCarousel() {
+const getBreakpoints = (layout: 1 | 2 | 3) => {
+  const baseBreakpoints = {
+    640: { slidesPerView: 1, spaceBetween: 20 },
+    768: { slidesPerView: 1, spaceBetween: 24 },
+    1024: { slidesPerView: 1, spaceBetween: 28 },
+    1280: { slidesPerView: 1, spaceBetween: 32 },
+    1536: { slidesPerView: 1, spaceBetween: 36 },
+  };
+
+  if (layout === 1) {
+    return baseBreakpoints;
+  } else if (layout === 2) {
+    return {
+      640: { slidesPerView: 1, spaceBetween: 20 },
+      768: { slidesPerView: 1, spaceBetween: 24 },
+      1024: { slidesPerView: 2, spaceBetween: 28 },
+      1280: { slidesPerView: 2, spaceBetween: 32 },
+      1536: { slidesPerView: 2, spaceBetween: 36 },
+    };
+  } else if (layout === 3) {
+    return {
+      640: { slidesPerView: 1, spaceBetween: 20 },
+      768: { slidesPerView: 1, spaceBetween: 24 },
+      1024: { slidesPerView: 2, spaceBetween: 28 },
+      1280: { slidesPerView: 3, spaceBetween: 32 },
+      1536: { slidesPerView: 3, spaceBetween: 36 },
+    };
+  }
+};
+
+interface CaraouselProps {
+  type?: AllTypes;
+  topic?: AllTopics;
+  industry?: AllIndustries;
+  featured?: boolean;
+  layout: 1 | 2 | 3;
+  color: 'blue' | 'white';
+}
+
+export default function MainCaraousel({
+  type,
+  topic,
+  industry,
+  featured,
+  layout,
+  color,
+}: CaraouselProps) {
   const prevRef = useRef<HTMLButtonElement | null>(null);
   const nextRef = useRef<HTMLButtonElement | null>(null);
 
   // Filter only featured articles and transform data
   const featuredData = blogPosts
-    .filter((post) => post.featured === true)
+    .filter((post) => {
+      if (featured && !post.featured) return false;
+      if (type && post.type !== type) return false;
+      if (topic && post.topic !== topic) return false;
+      if (industry && post.industry !== industry) return false;
+      return true;
+    })
     .map((post) => ({
       title: post.title,
       author: post.author,
@@ -98,21 +154,15 @@ export default function FeaturedCarousel() {
             swiper.navigation.init();
             swiper.navigation.update();
           }}
-          breakpoints={{
-            640: { slidesPerView: 1, spaceBetween: 20 },
-            768: { slidesPerView: 1, spaceBetween: 24 },
-            1024: { slidesPerView: 1, spaceBetween: 28 },
-            1280: { slidesPerView: 1, spaceBetween: 32 },
-            1536: { slidesPerView: 1, spaceBetween: 36 },
-          }}
+          breakpoints={getBreakpoints(layout)}
           className="!pb-12"
         >
           {featuredData.map((item, index) => (
             <SwiperSlide key={`${item.slug}-${index}`} aria-label={`Featured insight ${index + 1}`}>
-              <div className="h-64 md:h-72 lg:h-80">
+              <div className={color == 'blue' ? 'h-64 md:h-72 lg:h-80' : 'h-full'}>
                 {' '}
                 {/* Fixed height for horizontal cards */}
-                <FeaturedBlogCard {...item} />
+                {color === 'white' ? <WhiteBlogCard {...item} /> : <BlueBlogCard {...item} />}
               </div>
             </SwiperSlide>
           ))}
