@@ -18,7 +18,6 @@ import {
   FaHandHoldingHeart,
 } from 'react-icons/fa';
 import ClaimStories from '../../../components/industries/ClaimStories';
-import RelevantArticles from '../../../components/industries/RelevantArticles';
 import KnowledgeQuestionnaire from '../../../components/industries/KnowledgeQuestionnaire';
 import MainCaraousel from '@/components/main-caraousel';
 
@@ -84,43 +83,6 @@ const EmployeeBenefitsInsurancePage = () => {
         'Preventive wellness programs reduce long-term costs',
         'Comprehensive employee benefits improve retention',
       ],
-    },
-  ];
-
-  const articles = [
-    {
-      id: '1',
-      title: 'Employee Benefits Trends 2024: Mental Health and Wellness Programs',
-      excerpt:
-        'How companies are expanding employee benefits to include comprehensive mental health and wellness support.',
-      author: 'Employee Benefits Team',
-      publishDate: 'Apr 30, 2024',
-      readTime: '8 min read',
-      category: 'Employee Wellness',
-      url: '#',
-      featured: true,
-    },
-    {
-      id: '2',
-      title: 'Group Health Insurance: Designing Comprehensive Medical Benefits',
-      excerpt:
-        'Best practices for structuring group health insurance plans that meet diverse employee needs.',
-      author: 'Health Insurance Specialists',
-      publishDate: 'Apr 22, 2024',
-      readTime: '9 min read',
-      category: 'Health Insurance',
-      url: '#',
-    },
-    {
-      id: '3',
-      title: 'Employee Retention Through Benefits: ROI of Comprehensive Coverage',
-      excerpt:
-        'How comprehensive employee benefits programs improve retention and reduce recruitment costs.',
-      author: 'HR Benefits Consultants',
-      publishDate: 'Apr 18, 2024',
-      readTime: '7 min read',
-      category: 'HR Strategy',
-      url: '#',
     },
   ];
 

@@ -19,7 +19,6 @@ import {
   FaPassport,
 } from 'react-icons/fa';
 import ClaimStories from '../../../components/industries/ClaimStories';
-import RelevantArticles from '../../../components/industries/RelevantArticles';
 import KnowledgeQuestionnaire from '../../../components/industries/KnowledgeQuestionnaire';
 import MainCaraousel from '@/components/main-caraousel';
 const GroupTravelInsurancePage = () => {
@@ -84,43 +83,6 @@ const GroupTravelInsurancePage = () => {
         'Business travel insurance protects against missed opportunities',
         'Flexible booking options reduce delay impact',
       ],
-    },
-  ];
-
-  const articles = [
-    {
-      id: '1',
-      title: 'Corporate Travel Insurance Trends 2024: Post-Pandemic Travel Safety',
-      excerpt:
-        'How corporate travel insurance has evolved to address new health and safety concerns.',
-      author: 'Travel Insurance Team',
-      publishDate: 'May 8, 2024',
-      readTime: '8 min read',
-      category: 'Corporate Travel',
-      url: '#',
-      featured: true,
-    },
-    {
-      id: '2',
-      title: 'Group Travel Insurance: Managing Risks for Business Teams',
-      excerpt:
-        'Best practices for protecting business travelers and managing corporate travel risks.',
-      author: 'Group Travel Specialists',
-      publishDate: 'May 2, 2024',
-      readTime: '7 min read',
-      category: 'Group Travel',
-      url: '#',
-    },
-    {
-      id: '3',
-      title: 'International Business Travel: Insurance Requirements and Coverage',
-      excerpt:
-        'Essential insurance coverage for international business travel and compliance requirements.',
-      author: 'International Travel Team',
-      publishDate: 'Apr 25, 2024',
-      readTime: '9 min read',
-      category: 'International Travel',
-      url: '#',
     },
   ];
 

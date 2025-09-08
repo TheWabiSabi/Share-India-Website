@@ -22,7 +22,6 @@ import {
   FaEye,
 } from 'react-icons/fa';
 import ClaimStories from '../../../components/industries/ClaimStories';
-import RelevantArticles from '../../../components/industries/RelevantArticles';
 import KnowledgeQuestionnaire from '../../../components/industries/KnowledgeQuestionnaire';
 import MainCaraousel from '@/components/main-caraousel';
 
@@ -88,42 +87,6 @@ const ShopkeepersJewellersInsurancePage = () => {
         'Secure transportation and timing reduce theft exposure',
         'Digital payment systems minimize cash handling risks',
       ],
-    },
-  ];
-
-  const articles = [
-    {
-      id: '1',
-      title: 'Retail Insurance Trends 2024: E-commerce Integration and Omnichannel Risks',
-      excerpt:
-        'How modern retail operations are changing insurance needs and coverage requirements.',
-      author: 'Retail Insurance Team',
-      publishDate: 'May 5, 2024',
-      readTime: '8 min read',
-      category: 'Retail Insurance',
-      url: '#',
-      featured: true,
-    },
-    {
-      id: '2',
-      title: 'Jewellery Insurance: Protecting High-Value Inventory and Operations',
-      excerpt: 'Specialized insurance solutions for jewelry retailers and precious metals dealers.',
-      author: 'Jewellery Insurance Specialists',
-      publishDate: 'Apr 28, 2024',
-      readTime: '9 min read',
-      category: 'Jewellery Insurance',
-      url: '#',
-    },
-    {
-      id: '3',
-      title: 'Small Retail Business Security: Insurance and Risk Management',
-      excerpt:
-        'Best practices for protecting small retail businesses from theft, fire, and liability risks.',
-      author: 'Retail Risk Team',
-      publishDate: 'Apr 22, 2024',
-      readTime: '7 min read',
-      category: 'Retail Security',
-      url: '#',
     },
   ];
 

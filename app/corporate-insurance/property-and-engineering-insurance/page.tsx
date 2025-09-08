@@ -22,7 +22,6 @@ import {
   FaCogs,
 } from 'react-icons/fa';
 import ClaimStories from '../../../components/industries/ClaimStories';
-import RelevantArticles from '../../../components/industries/RelevantArticles';
 import KnowledgeQuestionnaire from '../../../components/industries/KnowledgeQuestionnaire';
 import MainCaraousel from '@/components/main-caraousel';
 
@@ -88,43 +87,6 @@ const PropertyEngineeringInsurancePage = () => {
         'Proper drainage and flood barriers reduce damage',
         'Emergency restoration services minimize downtime',
       ],
-    },
-  ];
-
-  const articles = [
-    {
-      id: '1',
-      title: 'Property Insurance Trends 2024: Industrial Risk Assessment and Coverage',
-      excerpt:
-        'Latest developments in property insurance for industrial facilities and engineering projects.',
-      author: 'Property Risk Team',
-      publishDate: 'Apr 15, 2024',
-      readTime: '8 min read',
-      category: 'Property Insurance',
-      url: '#',
-      featured: true,
-    },
-    {
-      id: '2',
-      title: 'Engineering Insurance: Protecting Critical Infrastructure Projects',
-      excerpt:
-        'Comprehensive guide to engineering insurance for construction and infrastructure development.',
-      author: 'Engineering Specialists',
-      publishDate: 'Apr 8, 2024',
-      readTime: '10 min read',
-      category: 'Engineering Insurance',
-      url: '#',
-    },
-    {
-      id: '3',
-      title: 'Business Interruption Claims: Lessons from Recent Industrial Losses',
-      excerpt:
-        'Analysis of business interruption claims and best practices for coverage optimization.',
-      author: 'Claims Analytics Team',
-      publishDate: 'Mar 25, 2024',
-      readTime: '7 min read',
-      category: 'Business Interruption',
-      url: '#',
     },
   ];
 

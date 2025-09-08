@@ -22,7 +22,6 @@ import {
   FaThermometerHalf,
 } from 'react-icons/fa';
 import ClaimStories from '../../../components/industries/ClaimStories';
-import RelevantArticles from '../../../components/industries/RelevantArticles';
 import KnowledgeQuestionnaire from '../../../components/industries/KnowledgeQuestionnaire';
 import MainCaraousel from '@/components/main-caraousel';
 
@@ -88,43 +87,6 @@ const PlasticInsurancePage = () => {
         'Product recall insurance covers batch rejection costs',
         'Supplier quality agreements reduce risks',
       ],
-    },
-  ];
-
-  const articles = [
-    {
-      id: '1',
-      title: 'Sustainable Plastics Manufacturing: Insurance Implications 2024',
-      excerpt:
-        'How the shift towards sustainable and biodegradable plastics is changing industry risk profiles.',
-      author: 'Dr. Ramesh Gupta',
-      publishDate: 'Apr 8, 2024',
-      readTime: '9 min read',
-      category: 'Sustainability',
-      url: '#',
-      featured: true,
-    },
-    {
-      id: '2',
-      title: 'Fire Safety in Plastic Manufacturing: Prevention and Protection',
-      excerpt:
-        'Comprehensive guide to fire prevention strategies and insurance coverage for plastic manufacturing facilities.',
-      author: 'Sanjay Patel',
-      publishDate: 'Mar 25, 2024',
-      readTime: '7 min read',
-      category: 'Safety',
-      url: '#',
-    },
-    {
-      id: '3',
-      title: 'Product Liability Trends in Plastic Packaging Industry',
-      excerpt:
-        'Analysis of recent product liability claims and emerging risks in plastic packaging applications.',
-      author: 'Neha Sharma',
-      publishDate: 'Mar 18, 2024',
-      readTime: '6 min read',
-      category: 'Product Liability',
-      url: '#',
     },
   ];
 

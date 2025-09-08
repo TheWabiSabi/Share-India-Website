@@ -21,7 +21,6 @@ import {
   FaHeartbeat,
 } from 'react-icons/fa';
 import ClaimStories from '../../../components/industries/ClaimStories';
-import RelevantArticles from '../../../components/industries/RelevantArticles';
 import KnowledgeQuestionnaire from '../../../components/industries/KnowledgeQuestionnaire';
 import MainCaraousel from '@/components/main-caraousel';
 
@@ -87,43 +86,6 @@ const PharmaInsurancePage = () => {
         'Continuous compliance monitoring prevents violations',
         'Professional liability coverage protects against regulatory actions',
       ],
-    },
-  ];
-
-  const articles = [
-    {
-      id: '1',
-      title: 'Pharmaceutical Insurance Trends 2024: Biosimilars and Personalized Medicine',
-      excerpt:
-        'How emerging therapies and personalized medicine are changing risk profiles in pharmaceutical insurance.',
-      author: 'Dr. Priya Nair',
-      publishDate: 'Apr 2, 2024',
-      readTime: '10 min read',
-      category: 'Innovation',
-      url: '#',
-      featured: true,
-    },
-    {
-      id: '2',
-      title: 'Clinical Trial Insurance: Managing Participant Safety and Liability',
-      excerpt:
-        'Best practices for clinical trial insurance coverage and participant protection strategies.',
-      author: 'Rajesh Khanna',
-      publishDate: 'Mar 22, 2024',
-      readTime: '8 min read',
-      category: 'Clinical Trials',
-      url: '#',
-    },
-    {
-      id: '3',
-      title: 'Supply Chain Resilience in Pharmaceutical Manufacturing',
-      excerpt:
-        'How to protect pharmaceutical supply chains against disruptions and ensure business continuity.',
-      author: 'Dr. Sunita Sharma',
-      publishDate: 'Mar 15, 2024',
-      readTime: '7 min read',
-      category: 'Supply Chain',
-      url: '#',
     },
   ];
 

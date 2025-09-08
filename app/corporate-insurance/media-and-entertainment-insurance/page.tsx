@@ -21,7 +21,6 @@ import {
   FaStar,
 } from 'react-icons/fa';
 import ClaimStories from '../../../components/industries/ClaimStories';
-import RelevantArticles from '../../../components/industries/RelevantArticles';
 import KnowledgeQuestionnaire from '../../../components/industries/KnowledgeQuestionnaire';
 import MainCaraousel from '@/components/main-caraousel';
 
@@ -87,42 +86,6 @@ const MediaEntertainmentInsurancePage = () => {
         'Proper rights clearance prevents infringement issues',
         'Legal review of content reduces liability exposure',
       ],
-    },
-  ];
-
-  const articles = [
-    {
-      id: '1',
-      title: 'Entertainment Insurance Trends 2024: OTT Platforms and Digital Content',
-      excerpt:
-        'How streaming platforms and digital content creation are changing entertainment insurance needs.',
-      author: 'Entertainment Insurance Team',
-      publishDate: 'Apr 28, 2024',
-      readTime: '9 min read',
-      category: 'Digital Entertainment',
-      url: '#',
-      featured: true,
-    },
-    {
-      id: '2',
-      title: 'Film Production Insurance: Managing Risks in Indian Cinema',
-      excerpt:
-        'Comprehensive guide to insurance coverage for film and television production in India.',
-      author: 'Film Insurance Specialists',
-      publishDate: 'Apr 20, 2024',
-      readTime: '8 min read',
-      category: 'Film Production',
-      url: '#',
-    },
-    {
-      id: '3',
-      title: 'Event Insurance: Protecting Live Entertainment and Concerts',
-      excerpt: 'Essential insurance coverage for live events, concerts, and entertainment venues.',
-      author: 'Event Risk Team',
-      publishDate: 'Apr 15, 2024',
-      readTime: '7 min read',
-      category: 'Live Events',
-      url: '#',
     },
   ];
 

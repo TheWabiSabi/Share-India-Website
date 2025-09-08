@@ -19,7 +19,6 @@ import {
   FaBalanceScale,
 } from 'react-icons/fa';
 import ClaimStories from '../../../components/industries/ClaimStories';
-import RelevantArticles from '../../../components/industries/RelevantArticles';
 import KnowledgeQuestionnaire from '../../../components/industries/KnowledgeQuestionnaire';
 import MainCaraousel from '@/components/main-caraousel';
 
@@ -85,41 +84,6 @@ const TradeCreditInsurancePage = () => {
         'Diversified supplier base reduces dependency',
         'Contract penalty coverage protects against delays',
       ],
-    },
-  ];
-
-  const articles = [
-    {
-      id: '1',
-      title: 'Trade Credit Insurance Trends 2024: Digital Credit Assessment and AI',
-      excerpt:
-        'How artificial intelligence and digital platforms are transforming trade credit risk assessment.',
-      author: 'Trade Credit Team',
-      publishDate: 'Apr 25, 2024',
-      readTime: '9 min read',
-      category: 'Trade Finance',
-      url: '#',
-      featured: true,
-    },
-    {
-      id: '2',
-      title: 'Export Credit Insurance: Navigating Global Market Uncertainties',
-      excerpt: 'Strategies for managing export credit risks in volatile international markets.',
-      author: 'Export Finance Specialists',
-      publishDate: 'Apr 18, 2024',
-      readTime: '8 min read',
-      category: 'Export Finance',
-      url: '#',
-    },
-    {
-      id: '3',
-      title: 'Supply Chain Finance: Credit Insurance for Supplier Networks',
-      excerpt: 'Protecting supply chains through comprehensive supplier credit insurance programs.',
-      author: 'Supply Chain Risk Team',
-      publishDate: 'Apr 12, 2024',
-      readTime: '7 min read',
-      category: 'Supply Chain',
-      url: '#',
     },
   ];
 

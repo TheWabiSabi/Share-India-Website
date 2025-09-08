@@ -90,43 +90,6 @@ const InfrastructureInsurancePage = () => {
     },
   ];
 
-  const articles = [
-    {
-      id: '1',
-      title: 'Infrastructure Insurance Trends 2024: Emerging Risks in Smart Cities',
-      excerpt:
-        'How smart city initiatives are creating new risk profiles and insurance requirements for infrastructure projects.',
-      author: 'Vikram Sharma',
-      publishDate: 'Mar 30, 2024',
-      readTime: '9 min read',
-      category: 'Smart Infrastructure',
-      url: '#',
-      featured: true,
-    },
-    {
-      id: '2',
-      title: 'PPP Project Insurance: Risk Allocation and Coverage Strategies',
-      excerpt:
-        'Best practices for insurance coverage in public-private partnership infrastructure projects.',
-      author: 'Anita Desai',
-      publishDate: 'Mar 18, 2024',
-      readTime: '7 min read',
-      category: 'PPP Projects',
-      url: '#',
-    },
-    {
-      id: '3',
-      title: 'Climate Resilience in Infrastructure: Insurance Implications',
-      excerpt:
-        'How climate change is affecting infrastructure risk assessment and insurance coverage requirements.',
-      author: 'Dr. Ramesh Kumar',
-      publishDate: 'Mar 8, 2024',
-      readTime: '8 min read',
-      category: 'Climate Risk',
-      url: '#',
-    },
-  ];
-
   const quizQuestions = [
     {
       id: '1',

@@ -22,7 +22,6 @@ import {
   FaDesktop,
 } from 'react-icons/fa';
 import ClaimStories from '../../../components/industries/ClaimStories';
-import RelevantArticles from '../../../components/industries/RelevantArticles';
 import KnowledgeQuestionnaire from '../../../components/industries/KnowledgeQuestionnaire';
 import MainCaraousel from '@/components/main-caraousel';
 
@@ -88,43 +87,6 @@ const OfficePackageInsurancePage = () => {
         'Backup power systems reduce operational disruptions',
         'Proper documentation of losses supports claims',
       ],
-    },
-  ];
-
-  const articles = [
-    {
-      id: '1',
-      title: 'Office Insurance Trends 2024: Remote Work and Hybrid Office Models',
-      excerpt:
-        'How changing work patterns are affecting office insurance needs and coverage requirements.',
-      author: 'Office Insurance Team',
-      publishDate: 'May 2, 2024',
-      readTime: '7 min read',
-      category: 'Office Insurance',
-      url: '#',
-      featured: true,
-    },
-    {
-      id: '2',
-      title: 'Small Business Insurance: Protecting Your Office Operations',
-      excerpt:
-        'Essential insurance coverage for small businesses and professional service providers.',
-      author: 'SME Insurance Specialists',
-      publishDate: 'Apr 25, 2024',
-      readTime: '8 min read',
-      category: 'Small Business',
-      url: '#',
-    },
-    {
-      id: '3',
-      title: 'Cyber Security for Small Offices: Insurance and Prevention',
-      excerpt:
-        'Protecting small offices from cyber threats and understanding cyber insurance needs.',
-      author: 'Cyber Risk Team',
-      publishDate: 'Apr 20, 2024',
-      readTime: '6 min read',
-      category: 'Cyber Security',
-      url: '#',
     },
   ];
 

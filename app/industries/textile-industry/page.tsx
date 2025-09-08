@@ -22,7 +22,6 @@ import {
   FaRecycle,
 } from 'react-icons/fa';
 import ClaimStories from '../../../components/industries/ClaimStories';
-import RelevantArticles from '../../../components/industries/RelevantArticles';
 import KnowledgeQuestionnaire from '../../../components/industries/KnowledgeQuestionnaire';
 import MainCaraousel from '@/components/main-caraousel';
 
@@ -88,43 +87,6 @@ const TextileInsurancePage = () => {
         'Pollution liability insurance covers cleanup costs',
         'Regular ETP maintenance prevents violations',
       ],
-    },
-  ];
-
-  const articles = [
-    {
-      id: '1',
-      title: 'Sustainable Textile Manufacturing: Insurance Implications 2024',
-      excerpt:
-        'How sustainability initiatives in textile industry are changing risk profiles and insurance requirements.',
-      author: 'Meera Joshi',
-      publishDate: 'Mar 25, 2024',
-      readTime: '8 min read',
-      category: 'Sustainability',
-      url: '#',
-      featured: true,
-    },
-    {
-      id: '2',
-      title: 'Fire Safety in Textile Mills: Best Practices and Insurance Coverage',
-      excerpt:
-        'Comprehensive guide to fire prevention and protection strategies for textile manufacturing facilities.',
-      author: 'Rajesh Gupta',
-      publishDate: 'Mar 12, 2024',
-      readTime: '6 min read',
-      category: 'Safety',
-      url: '#',
-    },
-    {
-      id: '3',
-      title: 'Export Credit Insurance for Textile Exporters',
-      excerpt:
-        'Understanding export credit insurance and how it protects textile exporters from buyer default risks.',
-      author: 'Sanjay Mehta',
-      publishDate: 'Feb 28, 2024',
-      readTime: '5 min read',
-      category: 'Export Finance',
-      url: '#',
     },
   ];
 

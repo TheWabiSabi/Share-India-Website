@@ -23,7 +23,6 @@ import {
   FaRoute,
 } from 'react-icons/fa';
 import ClaimStories from '../../../components/industries/ClaimStories';
-import RelevantArticles from '../../../components/industries/RelevantArticles';
 import KnowledgeQuestionnaire from '../../../components/industries/KnowledgeQuestionnaire';
 import MainCaraousel from '@/components/main-caraousel';
 
@@ -89,43 +88,6 @@ const LogisticsInsurancePage = () => {
         'Backup refrigeration systems prevent total loss',
         'Continuous monitoring alerts prevent damage escalation',
       ],
-    },
-  ];
-
-  const articles = [
-    {
-      id: '1',
-      title: 'Logistics Insurance Trends 2024: E-commerce and Last-Mile Delivery',
-      excerpt:
-        'How the growth of e-commerce is changing logistics risk profiles and insurance requirements.',
-      author: 'Sunil Agarwal',
-      publishDate: 'Apr 5, 2024',
-      readTime: '8 min read',
-      category: 'E-commerce Logistics',
-      url: '#',
-      featured: true,
-    },
-    {
-      id: '2',
-      title: 'Cold Chain Logistics: Managing Temperature-Sensitive Cargo Risks',
-      excerpt:
-        'Best practices for insuring temperature-controlled supply chains and preventing cargo damage.',
-      author: 'Deepika Rao',
-      publishDate: 'Mar 28, 2024',
-      readTime: '6 min read',
-      category: 'Cold Chain',
-      url: '#',
-    },
-    {
-      id: '3',
-      title: 'Cyber Security in Modern Logistics: Protecting Digital Supply Chains',
-      excerpt:
-        'Understanding cyber risks in logistics operations and implementing comprehensive protection strategies.',
-      author: 'Arjun Mehta',
-      publishDate: 'Mar 20, 2024',
-      readTime: '7 min read',
-      category: 'Cyber Security',
-      url: '#',
     },
   ];
 

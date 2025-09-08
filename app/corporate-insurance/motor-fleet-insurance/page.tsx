@@ -23,7 +23,6 @@ import {
   FaRoute,
 } from 'react-icons/fa';
 import ClaimStories from '../../../components/industries/ClaimStories';
-import RelevantArticles from '../../../components/industries/RelevantArticles';
 import KnowledgeQuestionnaire from '../../../components/industries/KnowledgeQuestionnaire';
 import MainCaraousel from '@/components/main-caraousel';
 
@@ -89,43 +88,6 @@ const MotorFleetInsurancePage = () => {
         'Proper parking facilities reduce weather damage',
         'Fleet management systems help track and protect vehicles',
       ],
-    },
-  ];
-
-  const articles = [
-    {
-      id: '1',
-      title: 'Fleet Insurance Trends 2024: Telematics and Usage-Based Pricing',
-      excerpt:
-        'How telematics and IoT are revolutionizing fleet insurance pricing and risk management.',
-      author: 'Fleet Insurance Team',
-      publishDate: 'Apr 22, 2024',
-      readTime: '8 min read',
-      category: 'Fleet Management',
-      url: '#',
-      featured: true,
-    },
-    {
-      id: '2',
-      title: 'Electric Vehicle Fleet Insurance: New Considerations and Coverage',
-      excerpt:
-        'Understanding insurance implications and coverage needs for electric commercial vehicle fleets.',
-      author: 'EV Insurance Specialists',
-      publishDate: 'Apr 16, 2024',
-      readTime: '7 min read',
-      category: 'Electric Vehicles',
-      url: '#',
-    },
-    {
-      id: '3',
-      title: 'Fleet Safety Management: Reducing Accidents and Insurance Costs',
-      excerpt:
-        'Best practices for fleet safety management to minimize accidents and optimize insurance premiums.',
-      author: 'Fleet Safety Team',
-      publishDate: 'Apr 10, 2024',
-      readTime: '9 min read',
-      category: 'Fleet Safety',
-      url: '#',
     },
   ];
 

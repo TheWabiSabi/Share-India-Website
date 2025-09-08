@@ -95,43 +95,6 @@ const ChemicalInsurancePage = () => {
     },
   ];
 
-  const articles = [
-    {
-      id: '1',
-      title: 'New Chemical Safety Regulations 2024: What Manufacturers Need to Know',
-      excerpt:
-        'Comprehensive guide to the latest safety regulations affecting chemical manufacturers and their insurance implications.',
-      author: 'Dr. Rajesh Kumar',
-      publishDate: 'Mar 15, 2024',
-      readTime: '8 min read',
-      category: 'Regulations',
-      url: '#',
-      featured: true,
-    },
-    {
-      id: '2',
-      title: 'Risk Management in Petrochemical Plants: Best Practices',
-      excerpt:
-        'Essential risk management strategies for petrochemical facilities to minimize operational risks and insurance costs.',
-      author: 'Priya Sharma',
-      publishDate: 'Feb 28, 2024',
-      readTime: '6 min read',
-      category: 'Risk Management',
-      url: '#',
-    },
-    {
-      id: '3',
-      title: 'Environmental Liability Trends in Chemical Industry',
-      excerpt:
-        'Analysis of recent environmental liability claims and emerging trends in chemical industry insurance.',
-      author: 'Amit Patel',
-      publishDate: 'Feb 10, 2024',
-      readTime: '5 min read',
-      category: 'Environmental',
-      url: '#',
-    },
-  ];
-
   const quizQuestions = [
     {
       id: '1',

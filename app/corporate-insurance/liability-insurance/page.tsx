@@ -19,7 +19,6 @@ import {
   FaBuilding,
 } from 'react-icons/fa';
 import ClaimStories from '../../../components/industries/ClaimStories';
-import RelevantArticles from '../../../components/industries/RelevantArticles';
 import KnowledgeQuestionnaire from '../../../components/industries/KnowledgeQuestionnaire';
 import MainCaraousel from '@/components/main-caraousel';
 
@@ -85,43 +84,6 @@ const LiabilityInsurancePage = () => {
         'Proper HR policies and training prevent issues',
         'Documentation of employment decisions is crucial',
       ],
-    },
-  ];
-
-  const articles = [
-    {
-      id: '1',
-      title: 'Liability Insurance Trends 2024: Emerging Risks and Coverage Evolution',
-      excerpt:
-        'Latest developments in liability insurance covering new risks and regulatory changes.',
-      author: 'Liability Risk Team',
-      publishDate: 'Apr 18, 2024',
-      readTime: '9 min read',
-      category: 'Liability Insurance',
-      url: '#',
-      featured: true,
-    },
-    {
-      id: '2',
-      title: 'Product Liability in the Digital Age: E-commerce and Marketplace Risks',
-      excerpt:
-        'Understanding product liability risks for online businesses and digital marketplaces.',
-      author: 'Product Liability Specialists',
-      publishDate: 'Apr 12, 2024',
-      readTime: '7 min read',
-      category: 'Product Liability',
-      url: '#',
-    },
-    {
-      id: '3',
-      title: 'Professional Indemnity: Protecting Service Providers in India',
-      excerpt:
-        'Comprehensive guide to professional indemnity insurance for consultants and service providers.',
-      author: 'Professional Lines Team',
-      publishDate: 'Apr 5, 2024',
-      readTime: '8 min read',
-      category: 'Professional Indemnity',
-      url: '#',
     },
   ];
 
@@ -495,17 +457,17 @@ const LiabilityInsurancePage = () => {
       {/* Relevant Articles Component */}
       {/* <RelevantArticles articles={articles} industryName="Liability Insurance" /> */}
       <section className="w-full border-b border-gray-100 bg-gray-50">
-              <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-                <h2 className="text-2xl font-bold md:text-3xl">Industry Insights & Articles</h2>
-                <p className="mt-3 text-gray-700">
-                  Stay updated with the latest trends, regulations, and best practices in Plastic Industry
-                  insurance.
-                </p>
-                <div className="w-full pt-6">
-                  <MainCaraousel color="white" layout={3} topic="liability_insurance" />
-                </div>
-              </div>
-            </section>
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold md:text-3xl">Industry Insights & Articles</h2>
+          <p className="mt-3 text-gray-700">
+            Stay updated with the latest trends, regulations, and best practices in Plastic Industry
+            insurance.
+          </p>
+          <div className="w-full pt-6">
+            <MainCaraousel color="white" layout={3} topic="liability_insurance" />
+          </div>
+        </div>
+      </section>
 
       {/* Knowledge Questionnaire Component */}
       <KnowledgeQuestionnaire questions={quizQuestions} industryName="Liability Insurance" />
