@@ -169,7 +169,7 @@ export default function Header() {
             <Image src="/logo.png" alt="Logo" fill className="object-contain" />
           </Link>
 
-          <nav className="flex items-center gap-6 text-[15px] font-medium">
+          <nav className="flex items-center gap-6 text-[16px] font-semibold">
             {primaryLinks.map((link) => {
               const hasChildren = !!link.children?.length;
 

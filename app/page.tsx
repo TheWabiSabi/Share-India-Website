@@ -30,9 +30,9 @@ export default function HomePage() {
                 </h1>
 
                 <p className="text-si-ink/80 mt-5 max-w-xl text-lg leading-relaxed">
-                  Share India Brokers compares policies across leading insurers, negotiates better
-                  terms, and stands with you at claims—so businesses and families can focus on what
-                  matters.
+                  <b>Share India Insurance Brokers</b> compares policies across leading insurers,
+                  negotiates better terms, and stands with you at claims — so businesses and
+                  families can focus on what matters.
                 </p>
 
                 <Stagger>
@@ -89,9 +89,9 @@ export default function HomePage() {
                 <Stagger>
                   <div className="mt-10 grid max-w-lg grid-cols-3 gap-6">
                     {[
-                      { k: '1,500+', v: 'Claims handled' },
-                      { k: '40+', v: 'Insurer partners' },
-                      { k: '24–48h', v: 'Policy issuance' },
+                      { k: '6,000+', v: 'Claims handled' },
+                      { k: '21,000+', v: 'Retail Clients' },
+                      { k: '9000+', v: 'Corporate Clients' },
                     ].map((x) => (
                       <Item key={x.v}>
                         <div>
@@ -125,8 +125,8 @@ export default function HomePage() {
                       <div className="text-gradient-primary text-lg font-bold">12–18%</div>
                     </div>
                     <div className="card-accent-red hover-glow-red rounded-lg p-3">
-                      <div className="text-si-ink/60 text-xs font-medium">Claims NPS</div>
-                      <div className="text-gradient-accent text-lg font-bold">+62</div>
+                      <div className="text-si-ink/60 text-xs font-medium">Locations Reached</div>
+                      <div className="text-gradient-accent text-lg font-bold">250+</div>
                     </div>
                   </div>
                 </div>
@@ -460,7 +460,7 @@ export default function HomePage() {
           </div>
 
           {/* Quick filters (non-functional placeholders—hook to your state if needed) */}
-          <div className="mb-6 flex flex-wrap items-center gap-2">
+          <div className="mb-6 flex flex-wrap items-center gap-2 py-8">
             {['All', 'Regulatory', 'Health', 'Motor', 'Property', 'Liability', 'SMB'].map(
               (t, i) => (
                 <button
