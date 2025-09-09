@@ -27,6 +27,7 @@ const CheckIcon = memo(() => (
     <path strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
   </svg>
 ));
+CheckIcon.displayName = 'CheckIcon';
 
 const ArrowIcon = memo(() => (
   <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -38,12 +39,14 @@ const ArrowIcon = memo(() => (
     />
   </svg>
 ));
+ArrowIcon.displayName = 'ArrowIcon';
 
 const ChevronIcon = memo(() => (
   <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
   </svg>
 ));
+ChevronIcon.displayName = 'ChevronIcon';
 
 export default function HomePage() {
   // Memoize expensive computations
