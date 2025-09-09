@@ -3,9 +3,9 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import FeaturedCarousel from './_components/featured-section/featured-caraousel';
 import InsightsFilterBar from './_components/insights-filter';
 import blogPosts from '@/app/blog/list_of_blogs.json';
+import MainCaraousel from '@/components/main-caraousel';
 
 export default function InsightsPage() {
   const [filteredPosts, setFilteredPosts] = useState(blogPosts);
@@ -73,8 +73,8 @@ export default function InsightsPage() {
             landscape.
           </p>
         </div>
-        <div className="pr-5 lg:w-[64vw]">
-          <FeaturedCarousel />
+        <div className="lg:w-[64vw]">
+          <MainCaraousel color="blue" layout={1} featured={true} />
         </div>
       </div>
 
@@ -109,7 +109,7 @@ export default function InsightsPage() {
                     fill
                     src={post.image}
                     alt={post.title}
-                    className="h-16 w-16 object-contain opacity-60"
+                    className="h-16 w-16 object-contain"
                   />
                   <div className="absolute top-4 left-4">
                     <span className="from-si-primary to-si-primary-600 rounded-full bg-gradient-to-r px-3 py-1.5 text-sm font-semibold text-white shadow-lg backdrop-blur-sm">

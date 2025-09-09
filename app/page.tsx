@@ -1,148 +1,168 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { memo, useMemo } from 'react';
 import HorizontalCarousal from './about/_components/horizontalCarousal';
-import FeaturedCarousel from './insights/_components/featured-section/featured-caraousel';
 import TopNewsCarousel from '@/components/top-news-carousel';
-
-import { FadeUp, Stagger, Item } from '@/components/motion';
+import MainCaraousel from '@/components/main-caraousel';
 import './style.css';
 
+// Move constants outside component to prevent recreation
+const INSURANCE_TYPES = ['Motor', 'Health', 'Life', 'Term', 'Business', 'Property', 'Travel'];
+const STATS_DATA = [
+  { k: '6,000+', v: 'Claims handled' },
+  { k: '21,000+', v: 'Retail Clients' },
+  { k: '9000+', v: 'Corporate Clients' },
+];
+
+const FEATURES = [
+  '40+ insurer panel',
+  'Tailored wording & endorsements',
+  'Proactive claims strategy',
+  'Digital policy & renewals',
+];
+
+// Memoized components to prevent re-renders
+const CheckIcon = memo(() => (
+  <svg className="text-si-primary h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+    <path strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+  </svg>
+));
+CheckIcon.displayName = 'CheckIcon';
+
+const ArrowIcon = memo(() => (
+  <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M17 8l4 4m0 0l-4 4m4-4H3"
+    />
+  </svg>
+));
+ArrowIcon.displayName = 'ArrowIcon';
+
+const ChevronIcon = memo(() => (
+  <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+  </svg>
+));
+ChevronIcon.displayName = 'ChevronIcon';
+
 export default function HomePage() {
+  // Memoize expensive computations
+  const insuranceBadges = useMemo(
+    () =>
+      INSURANCE_TYPES.map((type) => (
+        <span key={type} className="badge-chip will-change-auto">
+          {type}
+        </span>
+      )),
+    [],
+  );
+
+  const statsGrid = useMemo(
+    () =>
+      STATS_DATA.map(({ k, v }) => (
+        <div key={v} className="will-change-auto">
+          <div className="accent-bar-gradient mb-2 h-1 w-12" />
+          <div className="text-si-ink text-2xl font-bold">{k}</div>
+          <div className="text-si-ink/70 text-sm font-medium">{v}</div>
+        </div>
+      )),
+    [],
+  );
+
+  const featureList = useMemo(
+    () =>
+      FEATURES.map((feature) => (
+        <li key={feature} className="flex items-center gap-2">
+          <CheckIcon />
+          {feature}
+        </li>
+      )),
+    [],
+  );
+
   return (
     <main className="text-si-dark bg-white font-sans">
-      {/* Hero – Insurance Broker focused */}
+      {/* Optimized Hero Section */}
       <section className="section-vibrant-blue section-divider-bottom relative isolate">
+        {/* Simplified background layers - remove will-change */}
         <div className="hero-grid absolute inset-0" />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/60 via-white/30 to-transparent" />
 
         <div className="relative mx-auto max-w-7xl px-6 sm:px-10 md:px-12">
           <div className="grid min-h-[86vh] grid-cols-1 items-center gap-10 py-20 md:grid-cols-2">
-            {/* Left */}
-            <FadeUp>
-              <div className="max-w-2xl">
-                <div className="from-si-primary/15 to-si-red/10 text-si-primary float-slow border-si-primary/20 mb-4 inline-flex items-center gap-2 rounded-full border bg-gradient-to-r px-4 py-2 text-sm font-semibold backdrop-blur-sm">
-                  <span className="accent-dot-vibrant h-2 w-2 rounded-full" />
-                  IRDAI-licensed Insurance Brokers
-                </div>
-
-                <h1 className="text-si-ink text-4xl leading-tight font-semibold sm:text-5xl md:text-6xl">
-                  Insurance, <span className="text-gradient-primary">Simplified</span>.
-                </h1>
-
-                <p className="text-si-ink/80 mt-5 max-w-xl text-lg leading-relaxed">
-                  Share India Brokers compares policies across leading insurers, negotiates better
-                  terms, and stands with you at claims—so businesses and families can focus on what
-                  matters.
-                </p>
-
-                <Stagger>
-                  <div className="mt-6 flex flex-wrap gap-2">
-                    {['Motor', 'Health', 'Life', 'Term', 'Business', 'Property', 'Travel'].map(
-                      (t) => (
-                        <Item key={t}>
-                          <span className="badge-chip">{t}</span>
-                        </Item>
-                      ),
-                    )}
-                  </div>
-
-                  <div className="mt-8 flex flex-wrap items-center gap-4">
-                    <Item>
-                      <Link href="/contact?type=quote" className="btn-primary">
-                        Get a Quote
-                        <svg
-                          className="h-5 w-5"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M17 8l4 4m0 0l-4 4m4-4H3"
-                          />
-                        </svg>
-                      </Link>
-                    </Item>
-                    <Item>
-                      <Link href="#what-we-do" className="btn-ghost">
-                        Explore Solutions
-                        <svg
-                          className="h-5 w-5"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M9 5l7 7-7 7"
-                          />
-                        </svg>
-                      </Link>
-                    </Item>
-                  </div>
-                </Stagger>
-
-                <Stagger>
-                  <div className="mt-10 grid max-w-lg grid-cols-3 gap-6">
-                    {[
-                      { k: '1,500+', v: 'Claims handled' },
-                      { k: '40+', v: 'Insurer partners' },
-                      { k: '24–48h', v: 'Policy issuance' },
-                    ].map((x) => (
-                      <Item key={x.v}>
-                        <div>
-                          <div className="accent-bar-gradient mb-2 h-1 w-12" />
-                          <div className="text-si-ink text-2xl font-bold">{x.k}</div>
-                          <div className="text-si-ink/70 text-sm font-medium">{x.v}</div>
-                        </div>
-                      </Item>
-                    ))}
-                  </div>
-                </Stagger>
+            {/* Left Content */}
+            <div className="max-w-2xl">
+              <div className="from-si-primary/15 to-si-red/10 text-si-primary border-si-primary/20 mb-4 inline-flex items-center gap-2 rounded-full border bg-gradient-to-r px-4 py-2 text-sm font-semibold backdrop-blur-sm">
+                <span className="accent-dot-vibrant h-2 w-2 rounded-full" />
+                IRDAI-licensed Insurance Brokers
               </div>
-            </FadeUp>
 
-            {/* Right visual */}
-            <FadeUp delay={0.1}>
-              <div className="relative">
-                <div className="from-si-primary/20 to-si-red/10 absolute -inset-6 rounded-3xl bg-gradient-to-br blur-2xl" />
-                <div className="shadow-elevate-vibrant border-si-primary/10 hover-lift relative rounded-2xl border bg-white/95 p-6 backdrop-blur-sm">
-                  <Image
-                    src="https://minio-api.internal.wabisabitech.in/share-india/about/meeting.png"
-                    alt="Advisors comparing policies and negotiating better terms"
-                    width={960}
-                    height={720}
-                    className="h-auto w-full rounded-xl object-cover"
-                    priority
-                  />
-                  <div className="mt-4 grid grid-cols-2 gap-3 text-sm">
-                    <div className="card-vibrant hover-glow-blue rounded-lg p-3">
-                      <div className="text-si-ink/60 text-xs font-medium">Avg. savings (SMB)</div>
-                      <div className="text-gradient-primary text-lg font-bold">12–18%</div>
-                    </div>
-                    <div className="card-accent-red hover-glow-red rounded-lg p-3">
-                      <div className="text-si-ink/60 text-xs font-medium">Claims NPS</div>
-                      <div className="text-gradient-accent text-lg font-bold">+62</div>
-                    </div>
+              <h1 className="text-si-ink text-4xl leading-tight font-semibold sm:text-5xl md:text-6xl">
+                Insurance, <span className="text-gradient-primary">Simplified</span>.
+              </h1>
+
+              <p className="text-si-ink/80 mt-5 max-w-xl text-lg leading-relaxed">
+                <strong>Share India Insurance Brokers</strong> compares policies across leading
+                insurers, negotiates better terms, and stands with you at claims — so businesses and
+                families can focus on what matters.
+              </p>
+
+              <div className="mt-6 flex flex-wrap gap-2">{insuranceBadges}</div>
+
+              <div className="mt-8 flex flex-wrap items-center gap-4">
+                <Link href="/contact?type=quote" className="btn-primary">
+                  Get a Quote
+                  <ArrowIcon />
+                </Link>
+                <Link href="#what-we-do" className="btn-ghost">
+                  Explore Solutions
+                  <ChevronIcon />
+                </Link>
+              </div>
+
+              <div className="mt-10 grid max-w-lg grid-cols-3 gap-6">{statsGrid}</div>
+            </div>
+
+            {/* Right Visual - Heavily optimized */}
+            <div className="relative">
+              {/* Remove blur effect entirely */}
+              <div className="from-si-primary/20 to-si-red/10 absolute -inset-6 rounded-3xl bg-gradient-to-br opacity-30" />
+              <div className="shadow-elevate-vibrant border-si-primary/10 relative rounded-2xl border bg-white/95 p-6">
+                <Image
+                  src="https://minio-api.internal.wabisabitech.in/share-india/about/meeting.png"
+                  alt="Insurance consultation"
+                  width={320}
+                  height={240}
+                  className="h-auto w-full rounded-xl object-cover"
+                  priority
+                  quality={60}
+                />
+                <div className="mt-4 grid grid-cols-2 gap-3 text-sm">
+                  <div className="card-vibrant rounded-lg p-3">
+                    <div className="text-si-ink/60 text-xs font-medium">Avg. savings (SMB)</div>
+                    <div className="text-gradient-primary text-lg font-bold">12–18%</div>
+                  </div>
+                  <div className="card-accent-red rounded-lg p-3">
+                    <div className="text-si-ink/60 text-xs font-medium">Locations Reached</div>
+                    <div className="text-gradient-accent text-lg font-bold">250+</div>
                   </div>
                 </div>
               </div>
-            </FadeUp>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* What We Do */}
+      {/* Optimized What We Do Section */}
       <section
         id="what-we-do"
-        className="section-gradient-accent section-divider-top section-divider-bottom relative isolate overflow-hidden py-20 md:py-28"
+        className="section-gradient-accent relative overflow-hidden py-20 md:py-28"
       >
-        <div className="bg-pattern-grid absolute inset-0 opacity-30" />
-        <div className="from-si-primary/8 via-si-red/3 pointer-events-none absolute inset-0 bg-gradient-to-br to-transparent" />
+        {/* <div className="bg-pattern-grid absolute inset-0 opacity-30 will-change-auto" />
+        <div className="from-si-primary/8 via-si-red/3 pointer-events-none absolute inset-0 bg-gradient-to-br to-transparent will-change-auto" /> */}
 
         <HorizontalCarousal />
 
@@ -165,11 +185,10 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* Why choose us */}
+            {/* Why choose us - Simplified */}
             <div className="max-w-2xl lg:mt-2">
-              <div className="card-vibrant shadow-vibrant-blue hover-lift rounded-xl p-6">
+              <div className="card-vibrant shadow-vibrant-blue transform-gpu rounded-xl p-6">
                 <div className="flex items-start gap-4">
-                  {/* shield icon */}
                   <svg
                     className="text-si-primary mt-1 h-7 w-7"
                     viewBox="0 0 24 24"
@@ -192,70 +211,7 @@ export default function HomePage() {
                   <div>
                     <div className="text-si-ink/60 text-sm font-medium">Why clients choose us</div>
                     <ul className="text-si-ink/80 mt-2 grid gap-2 text-sm sm:grid-cols-2">
-                      <li className="flex items-center gap-2">
-                        <svg
-                          className="text-si-primary h-4 w-4"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeWidth={2}
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M5 13l4 4L19 7"
-                          />
-                        </svg>
-                        40+ insurer panel
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <svg
-                          className="text-si-primary h-4 w-4"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeWidth={2}
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M5 13l4 4L19 7"
-                          />
-                        </svg>
-                        Tailored wording & endorsements
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <svg
-                          className="text-si-primary h-4 w-4"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeWidth={2}
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M5 13l4 4L19 7"
-                          />
-                        </svg>
-                        Proactive claims strategy
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <svg
-                          className="text-si-primary h-4 w-4"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeWidth={2}
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M5 13l4 4L19 7"
-                          />
-                        </svg>
-                        Digital policy & renewals
-                      </li>
+                      {featureList}
                     </ul>
                   </div>
                 </div>
@@ -263,12 +219,12 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Pillars */}
+          {/* Simplified Pillars Grid */}
           <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {/* Advisory & Placement */}
-            <div className="group card-vibrant hover-lift hover-glow-blue rounded-xl p-6">
+            <div className="card-vibrant transform-gpu rounded-xl p-6">
               <div className="mb-4 flex items-center justify-between">
-                <h3 className="text-si-ink text-lg font-semibold">Advisory &amp; Placement</h3>
+                <h3 className="text-si-ink text-lg font-semibold">Advisory & Placement</h3>
                 <svg
                   className="text-si-primary h-5 w-5"
                   viewBox="0 0 24 24"
@@ -288,18 +244,18 @@ export default function HomePage() {
               </p>
               <ul className="text-si-ink/80 mt-4 space-y-2 text-sm">
                 <li className="flex items-center gap-2">
-                  <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full"></span> Property,
-                  Marine, Liability
+                  <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full" /> Property, Marine,
+                  Liability
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full"></span> Health &amp;
-                  Group Benefits
+                  <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full" /> Health & Group
+                  Benefits
                 </li>
               </ul>
             </div>
 
             {/* Claims Advocacy */}
-            <div className="group card-accent-red hover-lift hover-glow-red rounded-xl p-6">
+            <div className="card-accent-red transform-gpu rounded-xl p-6">
               <div className="mb-4 flex items-center justify-between">
                 <h3 className="text-si-ink text-lg font-semibold">Claims Advocacy</h3>
                 <svg
@@ -321,18 +277,18 @@ export default function HomePage() {
               </p>
               <ul className="text-si-ink/80 mt-4 space-y-2 text-sm">
                 <li className="flex items-center gap-2">
-                  <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full"></span> Dedicated
-                  claims desk
+                  <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full" /> Dedicated claims
+                  desk
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full"></span> Faster TAT
-                  with insurer liaisons
+                  <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full" /> Faster TAT with
+                  insurer liaisons
                 </li>
               </ul>
             </div>
 
             {/* Risk Engineering */}
-            <div className="group card-vibrant hover-lift hover-glow-blue rounded-xl p-6">
+            <div className="card-vibrant transform-gpu rounded-xl p-6">
               <div className="mb-4 flex items-center justify-between">
                 <h3 className="text-si-ink text-lg font-semibold">Risk Engineering</h3>
                 <svg
@@ -354,18 +310,18 @@ export default function HomePage() {
               </p>
               <ul className="text-si-ink/80 mt-4 space-y-2 text-sm">
                 <li className="flex items-center gap-2">
-                  <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full"></span> FM &amp;
-                  statutory compliance
+                  <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full" /> FM & statutory
+                  compliance
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full"></span> Catastrophe
-                  &amp; cyber posture
+                  <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full" /> Catastrophe &
+                  cyber posture
                 </li>
               </ul>
             </div>
 
             {/* Digital Tools */}
-            <div className="group card-accent-red hover-lift hover-glow-red rounded-xl p-6">
+            <div className="card-accent-red transform-gpu rounded-xl p-6">
               <div className="mb-4 flex items-center justify-between">
                 <h3 className="text-si-ink text-lg font-semibold">Digital Tools</h3>
                 <svg
@@ -387,19 +343,19 @@ export default function HomePage() {
               </p>
               <ul className="text-si-ink/80 mt-4 space-y-2 text-sm">
                 <li className="flex items-center gap-2">
-                  <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full"></span> Self-serve +
+                  <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full" /> Self-serve +
                   assisted workflows
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full"></span> API-ready
-                  for enterprise
+                  <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full" /> API-ready for
+                  enterprise
                 </li>
               </ul>
             </div>
           </div>
 
           {/* CTA strip */}
-          <div className="card-vibrant hover-lift mt-12 flex flex-wrap items-center justify-between gap-4 rounded-xl px-6 py-5">
+          <div className="card-vibrant mt-12 flex transform-gpu flex-wrap items-center justify-between gap-4 rounded-xl px-6 py-5">
             <div className="flex items-center gap-3">
               <div className="accent-bar-gradient h-3 w-14" />
               <p className="text-si-ink/80 text-sm">
@@ -410,30 +366,17 @@ export default function HomePage() {
             <div className="flex gap-3">
               <Link href="/contact?type=quote" className="btn-primary">
                 Get a Quote
-                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
+                <ArrowIcon />
               </Link>
               <Link href="/insights" className="btn-ghost">
                 Read Insights
-                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
+                <ChevronIcon />
               </Link>
             </div>
           </div>
         </div>
       </section>
+
       {/* Featured Insights */}
       <section
         id="featured-insights"
@@ -460,7 +403,7 @@ export default function HomePage() {
           </div>
 
           {/* Quick filters (non-functional placeholders—hook to your state if needed) */}
-          <div className="mb-6 flex flex-wrap items-center gap-2">
+          <div className="mb-6 flex flex-wrap items-center gap-2 py-8">
             {['All', 'Regulatory', 'Health', 'Motor', 'Property', 'Liability', 'SMB'].map(
               (t, i) => (
                 <button
@@ -497,7 +440,7 @@ export default function HomePage() {
 
           {/* Carousel */}
           <div className="card-vibrant shadow-vibrant-blue hover-lift rounded-xl p-4">
-            <FeaturedCarousel />
+            <MainCaraousel color="blue" layout={1} />
           </div>
 
           {/* CTA strip */}

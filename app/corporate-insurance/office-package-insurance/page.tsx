@@ -22,8 +22,8 @@ import {
   FaDesktop,
 } from 'react-icons/fa';
 import ClaimStories from '../../../components/industries/ClaimStories';
-import RelevantArticles from '../../../components/industries/RelevantArticles';
 import KnowledgeQuestionnaire from '../../../components/industries/KnowledgeQuestionnaire';
+import MainCaraousel from '@/components/main-caraousel';
 
 const OfficePackageInsurancePage = () => {
   // Sample data for components
@@ -87,43 +87,6 @@ const OfficePackageInsurancePage = () => {
         'Backup power systems reduce operational disruptions',
         'Proper documentation of losses supports claims',
       ],
-    },
-  ];
-
-  const articles = [
-    {
-      id: '1',
-      title: 'Office Insurance Trends 2024: Remote Work and Hybrid Office Models',
-      excerpt:
-        'How changing work patterns are affecting office insurance needs and coverage requirements.',
-      author: 'Office Insurance Team',
-      publishDate: 'May 2, 2024',
-      readTime: '7 min read',
-      category: 'Office Insurance',
-      url: '#',
-      featured: true,
-    },
-    {
-      id: '2',
-      title: 'Small Business Insurance: Protecting Your Office Operations',
-      excerpt:
-        'Essential insurance coverage for small businesses and professional service providers.',
-      author: 'SME Insurance Specialists',
-      publishDate: 'Apr 25, 2024',
-      readTime: '8 min read',
-      category: 'Small Business',
-      url: '#',
-    },
-    {
-      id: '3',
-      title: 'Cyber Security for Small Offices: Insurance and Prevention',
-      excerpt:
-        'Protecting small offices from cyber threats and understanding cyber insurance needs.',
-      author: 'Cyber Risk Team',
-      publishDate: 'Apr 20, 2024',
-      readTime: '6 min read',
-      category: 'Cyber Security',
-      url: '#',
     },
   ];
 
@@ -499,7 +462,19 @@ const OfficePackageInsurancePage = () => {
       </section>
 
       {/* Relevant Articles Component */}
-      <RelevantArticles articles={articles} industryName="Office Package Insurance" />
+      {/* <RelevantArticles articles={articles} industryName="Office Package Insurance" /> */}
+      <section className="w-full border-b border-gray-100 bg-gray-50">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold md:text-3xl">Industry Insights & Articles</h2>
+          <p className="mt-3 text-gray-700">
+            Stay updated with the latest trends, regulations, and best practices in Plastic Industry
+            insurance.
+          </p>
+          <div className="w-full pt-6">
+            <MainCaraousel color="white" layout={3} topic="office_package_insurance" />
+          </div>
+        </div>
+      </section>
 
       {/* Knowledge Questionnaire Component */}
       <KnowledgeQuestionnaire questions={quizQuestions} industryName="Office Package Insurance" />

@@ -24,8 +24,8 @@ import {
   FaGlobe,
 } from 'react-icons/fa';
 import ClaimStories from '../../../components/industries/ClaimStories';
-import RelevantArticles from '../../../components/industries/RelevantArticles';
 import KnowledgeQuestionnaire from '../../../components/industries/KnowledgeQuestionnaire';
+import MainCaraousel from '@/components/main-caraousel';
 
 const MarineTransitInsurancePage = () => {
   // Sample data for components
@@ -89,43 +89,6 @@ const MarineTransitInsurancePage = () => {
         'Fire safety measures at ports are crucial',
         'Extended coverage needed for customs delays',
       ],
-    },
-  ];
-
-  const articles = [
-    {
-      id: '1',
-      title: 'Marine Insurance Trends 2024: Digital Documentation and Blockchain',
-      excerpt:
-        'How digital transformation is revolutionizing marine insurance documentation and claims processing.',
-      author: 'Marine Insurance Team',
-      publishDate: 'Apr 20, 2024',
-      readTime: '9 min read',
-      category: 'Marine Insurance',
-      url: '#',
-      featured: true,
-    },
-    {
-      id: '2',
-      title: 'Cargo Security: Protecting High-Value Shipments in Transit',
-      excerpt:
-        'Best practices for securing valuable cargo during international and domestic transportation.',
-      author: 'Cargo Security Specialists',
-      publishDate: 'Apr 14, 2024',
-      readTime: '7 min read',
-      category: 'Cargo Security',
-      url: '#',
-    },
-    {
-      id: '3',
-      title: 'Incoterms 2020: Insurance Implications for International Trade',
-      excerpt:
-        'Understanding insurance responsibilities under different Incoterms for importers and exporters.',
-      author: 'Trade Finance Team',
-      publishDate: 'Apr 7, 2024',
-      readTime: '8 min read',
-      category: 'International Trade',
-      url: '#',
     },
   ];
 
@@ -504,7 +467,19 @@ const MarineTransitInsurancePage = () => {
       </section>
 
       {/* Relevant Articles Component */}
-      <RelevantArticles articles={articles} industryName="Marine Transit Insurance" />
+      {/* <RelevantArticles articles={articles} industryName="Marine Transit Insurance" /> */}
+      <section className="w-full border-b border-gray-100 bg-gray-50">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold md:text-3xl">Industry Insights & Articles</h2>
+          <p className="mt-3 text-gray-700">
+            Stay updated with the latest trends, regulations, and best practices in Plastic Industry
+            insurance.
+          </p>
+          <div className="w-full pt-6">
+            <MainCaraousel color="white" layout={3} topic="marine_transit_insurance" />
+          </div>
+        </div>
+      </section>
 
       {/* Knowledge Questionnaire Component */}
       <KnowledgeQuestionnaire questions={quizQuestions} industryName="Marine Transit Insurance" />

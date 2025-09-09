@@ -22,8 +22,8 @@ import {
   FaThermometerHalf,
 } from 'react-icons/fa';
 import ClaimStories from '../../../components/industries/ClaimStories';
-import RelevantArticles from '../../../components/industries/RelevantArticles';
 import KnowledgeQuestionnaire from '../../../components/industries/KnowledgeQuestionnaire';
+import MainCaraousel from '@/components/main-caraousel';
 
 const SolarInsurancePage = () => {
   // Sample data for components
@@ -87,43 +87,6 @@ const SolarInsurancePage = () => {
         'Delay in start-up coverage protects revenue',
         'Government approvals should be expedited',
       ],
-    },
-  ];
-
-  const articles = [
-    {
-      id: '1',
-      title: 'Solar Insurance Trends 2024: Emerging Risks and Coverage Solutions',
-      excerpt:
-        'Comprehensive analysis of new risks in solar industry and innovative insurance products to address them.',
-      author: 'Suresh Menon',
-      publishDate: 'Mar 20, 2024',
-      readTime: '7 min read',
-      category: 'Industry Trends',
-      url: '#',
-      featured: true,
-    },
-    {
-      id: '2',
-      title: 'Weather Risk Management for Solar Projects in India',
-      excerpt:
-        'Best practices for protecting solar installations from extreme weather events and climate risks.',
-      author: 'Kavita Singh',
-      publishDate: 'Mar 5, 2024',
-      readTime: '5 min read',
-      category: 'Risk Management',
-      url: '#',
-    },
-    {
-      id: '3',
-      title: 'Performance Guarantee Insurance for Solar Projects',
-      excerpt:
-        'Understanding performance guarantees and how insurance can protect against underperformance risks.',
-      author: 'Ravi Kumar',
-      publishDate: 'Feb 18, 2024',
-      readTime: '6 min read',
-      category: 'Performance',
-      url: '#',
     },
   ];
 
@@ -487,7 +450,19 @@ const SolarInsurancePage = () => {
       </section>
 
       {/* Relevant Articles Component */}
-      <RelevantArticles articles={articles} industryName="Solar Industry" />
+      {/* <RelevantArticles articles={articles} industryName="Solar Industry" /> */}
+      <section className="w-full border-b border-gray-100 bg-gray-50">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold md:text-3xl">Industry Insights & Articles</h2>
+          <p className="mt-3 text-gray-700">
+            Stay updated with the latest trends, regulations, and best practices in Plastic Industry
+            insurance.
+          </p>
+          <div className="w-full pt-6">
+            <MainCaraousel color="white" layout={3} topic="solar_industry" />
+          </div>
+        </div>
+      </section>
 
       {/* Knowledge Questionnaire Component */}
       <KnowledgeQuestionnaire questions={quizQuestions} industryName="Solar Industry" />

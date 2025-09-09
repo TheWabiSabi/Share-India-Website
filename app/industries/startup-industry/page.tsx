@@ -20,8 +20,8 @@ import {
   FaChartLine,
 } from 'react-icons/fa';
 import ClaimStories from '../../../components/industries/ClaimStories';
-import RelevantArticles from '../../../components/industries/RelevantArticles';
 import KnowledgeQuestionnaire from '../../../components/industries/KnowledgeQuestionnaire';
+import MainCaraousel from '@/components/main-caraousel';
 
 const StartupInsurancePage = () => {
   // Sample data for components
@@ -85,43 +85,6 @@ const StartupInsurancePage = () => {
         'Regular testing and quality assurance prevent bugs',
         'Service level agreements should include liability limitations',
       ],
-    },
-  ];
-
-  const articles = [
-    {
-      id: '1',
-      title: 'Startup Insurance Guide 2024: Essential Coverage for New Ventures',
-      excerpt:
-        'Comprehensive guide to insurance needs for startups across different stages of growth and industry sectors.',
-      author: 'Ankit Sharma',
-      publishDate: 'Apr 12, 2024',
-      readTime: '10 min read',
-      category: 'Startup Guide',
-      url: '#',
-      featured: true,
-    },
-    {
-      id: '2',
-      title: 'Cyber Security Insurance for Tech Startups: What You Need to Know',
-      excerpt:
-        'Understanding cyber risks and insurance requirements for technology startups handling sensitive data.',
-      author: 'Priya Nair',
-      publishDate: 'Apr 5, 2024',
-      readTime: '8 min read',
-      category: 'Cyber Security',
-      url: '#',
-    },
-    {
-      id: '3',
-      title: 'D&O Insurance for Startup Founders: Protecting Leadership Decisions',
-      excerpt:
-        'Why directors and officers insurance is crucial for startup founders and how to choose the right coverage.',
-      author: 'Rajesh Gupta',
-      publishDate: 'Mar 28, 2024',
-      readTime: '7 min read',
-      category: 'Leadership Protection',
-      url: '#',
     },
   ];
 
@@ -503,7 +466,19 @@ const StartupInsurancePage = () => {
       </section>
 
       {/* Relevant Articles Component */}
-      <RelevantArticles articles={articles} industryName="Startup Industry" />
+      {/* <RelevantArticles articles={articles} industryName="Startup Industry" /> */}
+      <section className="w-full border-b border-gray-100 bg-gray-50">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold md:text-3xl">Industry Insights & Articles</h2>
+          <p className="mt-3 text-gray-700">
+            Stay updated with the latest trends, regulations, and best practices in Plastic Industry
+            insurance.
+          </p>
+          <div className="w-full pt-6">
+            <MainCaraousel color="white" layout={3} topic="startup_industry" />
+          </div>
+        </div>
+      </section>
 
       {/* Knowledge Questionnaire Component */}
       <KnowledgeQuestionnaire questions={quizQuestions} industryName="Startup Industry" />

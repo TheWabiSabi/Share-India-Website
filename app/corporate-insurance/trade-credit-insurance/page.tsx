@@ -19,8 +19,8 @@ import {
   FaBalanceScale,
 } from 'react-icons/fa';
 import ClaimStories from '../../../components/industries/ClaimStories';
-import RelevantArticles from '../../../components/industries/RelevantArticles';
 import KnowledgeQuestionnaire from '../../../components/industries/KnowledgeQuestionnaire';
+import MainCaraousel from '@/components/main-caraousel';
 
 const TradeCreditInsurancePage = () => {
   // Sample data for components
@@ -84,41 +84,6 @@ const TradeCreditInsurancePage = () => {
         'Diversified supplier base reduces dependency',
         'Contract penalty coverage protects against delays',
       ],
-    },
-  ];
-
-  const articles = [
-    {
-      id: '1',
-      title: 'Trade Credit Insurance Trends 2024: Digital Credit Assessment and AI',
-      excerpt:
-        'How artificial intelligence and digital platforms are transforming trade credit risk assessment.',
-      author: 'Trade Credit Team',
-      publishDate: 'Apr 25, 2024',
-      readTime: '9 min read',
-      category: 'Trade Finance',
-      url: '#',
-      featured: true,
-    },
-    {
-      id: '2',
-      title: 'Export Credit Insurance: Navigating Global Market Uncertainties',
-      excerpt: 'Strategies for managing export credit risks in volatile international markets.',
-      author: 'Export Finance Specialists',
-      publishDate: 'Apr 18, 2024',
-      readTime: '8 min read',
-      category: 'Export Finance',
-      url: '#',
-    },
-    {
-      id: '3',
-      title: 'Supply Chain Finance: Credit Insurance for Supplier Networks',
-      excerpt: 'Protecting supply chains through comprehensive supplier credit insurance programs.',
-      author: 'Supply Chain Risk Team',
-      publishDate: 'Apr 12, 2024',
-      readTime: '7 min read',
-      category: 'Supply Chain',
-      url: '#',
     },
   ];
 
@@ -492,7 +457,19 @@ const TradeCreditInsurancePage = () => {
       </section>
 
       {/* Relevant Articles Component */}
-      <RelevantArticles articles={articles} industryName="Trade Credit Insurance" />
+      {/* <RelevantArticles articles={articles} industryName="Trade Credit Insurance" /> */}
+      <section className="w-full border-b border-gray-100 bg-gray-50">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold md:text-3xl">Industry Insights & Articles</h2>
+          <p className="mt-3 text-gray-700">
+            Stay updated with the latest trends, regulations, and best practices in Plastic Industry
+            insurance.
+          </p>
+          <div className="w-full pt-6">
+            <MainCaraousel color="white" layout={3} topic="trade_credit_insurance" />
+          </div>
+        </div>
+      </section>
 
       {/* Knowledge Questionnaire Component */}
       <KnowledgeQuestionnaire questions={quizQuestions} industryName="Trade Credit Insurance" />

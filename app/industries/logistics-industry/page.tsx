@@ -23,8 +23,8 @@ import {
   FaRoute,
 } from 'react-icons/fa';
 import ClaimStories from '../../../components/industries/ClaimStories';
-import RelevantArticles from '../../../components/industries/RelevantArticles';
 import KnowledgeQuestionnaire from '../../../components/industries/KnowledgeQuestionnaire';
+import MainCaraousel from '@/components/main-caraousel';
 
 const LogisticsInsurancePage = () => {
   // Sample data for components
@@ -88,43 +88,6 @@ const LogisticsInsurancePage = () => {
         'Backup refrigeration systems prevent total loss',
         'Continuous monitoring alerts prevent damage escalation',
       ],
-    },
-  ];
-
-  const articles = [
-    {
-      id: '1',
-      title: 'Logistics Insurance Trends 2024: E-commerce and Last-Mile Delivery',
-      excerpt:
-        'How the growth of e-commerce is changing logistics risk profiles and insurance requirements.',
-      author: 'Sunil Agarwal',
-      publishDate: 'Apr 5, 2024',
-      readTime: '8 min read',
-      category: 'E-commerce Logistics',
-      url: '#',
-      featured: true,
-    },
-    {
-      id: '2',
-      title: 'Cold Chain Logistics: Managing Temperature-Sensitive Cargo Risks',
-      excerpt:
-        'Best practices for insuring temperature-controlled supply chains and preventing cargo damage.',
-      author: 'Deepika Rao',
-      publishDate: 'Mar 28, 2024',
-      readTime: '6 min read',
-      category: 'Cold Chain',
-      url: '#',
-    },
-    {
-      id: '3',
-      title: 'Cyber Security in Modern Logistics: Protecting Digital Supply Chains',
-      excerpt:
-        'Understanding cyber risks in logistics operations and implementing comprehensive protection strategies.',
-      author: 'Arjun Mehta',
-      publishDate: 'Mar 20, 2024',
-      readTime: '7 min read',
-      category: 'Cyber Security',
-      url: '#',
     },
   ];
 
@@ -496,7 +459,19 @@ const LogisticsInsurancePage = () => {
       </section>
 
       {/* Relevant Articles Component */}
-      <RelevantArticles articles={articles} industryName="Logistics Industry" />
+      {/* <RelevantArticles articles={articles} industryName="Logistics Industry" /> */}
+      <section className="w-full border-b border-gray-100 bg-gray-50">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold md:text-3xl">Industry Insights & Articles</h2>
+          <p className="mt-3 text-gray-700">
+            Stay updated with the latest trends, regulations, and best practices in Plastic Industry
+            insurance.
+          </p>
+          <div className="w-full pt-6">
+            <MainCaraousel color="white" layout={3} topic="logistics_industry" />
+          </div>
+        </div>
+      </section>
 
       {/* Knowledge Questionnaire Component */}
       <KnowledgeQuestionnaire questions={quizQuestions} industryName="Logistics Industry" />

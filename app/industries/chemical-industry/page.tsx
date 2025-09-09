@@ -26,8 +26,9 @@ import {
   FaCertificate,
 } from 'react-icons/fa';
 import ClaimStories from '../../../components/industries/ClaimStories';
-import RelevantArticles from '../../../components/industries/RelevantArticles';
+
 import KnowledgeQuestionnaire from '../../../components/industries/KnowledgeQuestionnaire';
+import MainCaraousel from '@/components/main-caraousel';
 
 const ChemicalInsurancePage = () => {
   // Sample data for components
@@ -91,43 +92,6 @@ const ChemicalInsurancePage = () => {
         'Backup systems are essential',
         'Cyber insurance covers business interruption',
       ],
-    },
-  ];
-
-  const articles = [
-    {
-      id: '1',
-      title: 'New Chemical Safety Regulations 2024: What Manufacturers Need to Know',
-      excerpt:
-        'Comprehensive guide to the latest safety regulations affecting chemical manufacturers and their insurance implications.',
-      author: 'Dr. Rajesh Kumar',
-      publishDate: 'Mar 15, 2024',
-      readTime: '8 min read',
-      category: 'Regulations',
-      url: '#',
-      featured: true,
-    },
-    {
-      id: '2',
-      title: 'Risk Management in Petrochemical Plants: Best Practices',
-      excerpt:
-        'Essential risk management strategies for petrochemical facilities to minimize operational risks and insurance costs.',
-      author: 'Priya Sharma',
-      publishDate: 'Feb 28, 2024',
-      readTime: '6 min read',
-      category: 'Risk Management',
-      url: '#',
-    },
-    {
-      id: '3',
-      title: 'Environmental Liability Trends in Chemical Industry',
-      excerpt:
-        'Analysis of recent environmental liability claims and emerging trends in chemical industry insurance.',
-      author: 'Amit Patel',
-      publishDate: 'Feb 10, 2024',
-      readTime: '5 min read',
-      category: 'Environmental',
-      url: '#',
     },
   ];
 
@@ -565,7 +529,19 @@ const ChemicalInsurancePage = () => {
       </section>
 
       {/* Relevant Articles Component */}
-      <RelevantArticles articles={articles} industryName="Chemical Industry" />
+      {/* <RelevantArticles articles={articles} industryName="Chemical Industry" /> */}
+      <section className="w-full border-b border-gray-100 bg-gray-50">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold md:text-3xl">Industry Insights & Articles</h2>
+          <p className="mt-3 text-gray-700">
+            Stay updated with the latest trends, regulations, and best practices in Plastic Industry
+            insurance.
+          </p>
+          <div className="w-full pt-6">
+            <MainCaraousel color="white" layout={3} topic="chemical_industry" />
+          </div>
+        </div>
+      </section>
 
       {/* Knowledge Questionnaire Component */}
       <KnowledgeQuestionnaire questions={quizQuestions} industryName="Chemical Industry" />

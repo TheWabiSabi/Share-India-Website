@@ -21,8 +21,8 @@ import {
   FaStar,
 } from 'react-icons/fa';
 import ClaimStories from '../../../components/industries/ClaimStories';
-import RelevantArticles from '../../../components/industries/RelevantArticles';
 import KnowledgeQuestionnaire from '../../../components/industries/KnowledgeQuestionnaire';
+import MainCaraousel from '@/components/main-caraousel';
 
 const MediaEntertainmentInsurancePage = () => {
   // Sample data for components
@@ -86,42 +86,6 @@ const MediaEntertainmentInsurancePage = () => {
         'Proper rights clearance prevents infringement issues',
         'Legal review of content reduces liability exposure',
       ],
-    },
-  ];
-
-  const articles = [
-    {
-      id: '1',
-      title: 'Entertainment Insurance Trends 2024: OTT Platforms and Digital Content',
-      excerpt:
-        'How streaming platforms and digital content creation are changing entertainment insurance needs.',
-      author: 'Entertainment Insurance Team',
-      publishDate: 'Apr 28, 2024',
-      readTime: '9 min read',
-      category: 'Digital Entertainment',
-      url: '#',
-      featured: true,
-    },
-    {
-      id: '2',
-      title: 'Film Production Insurance: Managing Risks in Indian Cinema',
-      excerpt:
-        'Comprehensive guide to insurance coverage for film and television production in India.',
-      author: 'Film Insurance Specialists',
-      publishDate: 'Apr 20, 2024',
-      readTime: '8 min read',
-      category: 'Film Production',
-      url: '#',
-    },
-    {
-      id: '3',
-      title: 'Event Insurance: Protecting Live Entertainment and Concerts',
-      excerpt: 'Essential insurance coverage for live events, concerts, and entertainment venues.',
-      author: 'Event Risk Team',
-      publishDate: 'Apr 15, 2024',
-      readTime: '7 min read',
-      category: 'Live Events',
-      url: '#',
     },
   ];
 
@@ -503,7 +467,19 @@ const MediaEntertainmentInsurancePage = () => {
       </section>
 
       {/* Relevant Articles Component */}
-      <RelevantArticles articles={articles} industryName="Media & Entertainment Insurance" />
+      {/* <RelevantArticles articles={articles} industryName="Media & Entertainment Insurance" /> */}
+      <section className="w-full border-b border-gray-100 bg-gray-50">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold md:text-3xl">Industry Insights & Articles</h2>
+          <p className="mt-3 text-gray-700">
+            Stay updated with the latest trends, regulations, and best practices in Plastic Industry
+            insurance.
+          </p>
+          <div className="w-full pt-6">
+            <MainCaraousel color="white" layout={3} topic="media_entertainment_insurance" />
+          </div>
+        </div>
+      </section>
 
       {/* Knowledge Questionnaire Component */}
       <KnowledgeQuestionnaire

@@ -22,8 +22,8 @@ import {
   FaThermometerHalf,
 } from 'react-icons/fa';
 import ClaimStories from '../../../components/industries/ClaimStories';
-import RelevantArticles from '../../../components/industries/RelevantArticles';
 import KnowledgeQuestionnaire from '../../../components/industries/KnowledgeQuestionnaire';
+import MainCaraousel from '@/components/main-caraousel';
 
 const PlasticInsurancePage = () => {
   // Sample data for components
@@ -87,43 +87,6 @@ const PlasticInsurancePage = () => {
         'Product recall insurance covers batch rejection costs',
         'Supplier quality agreements reduce risks',
       ],
-    },
-  ];
-
-  const articles = [
-    {
-      id: '1',
-      title: 'Sustainable Plastics Manufacturing: Insurance Implications 2024',
-      excerpt:
-        'How the shift towards sustainable and biodegradable plastics is changing industry risk profiles.',
-      author: 'Dr. Ramesh Gupta',
-      publishDate: 'Apr 8, 2024',
-      readTime: '9 min read',
-      category: 'Sustainability',
-      url: '#',
-      featured: true,
-    },
-    {
-      id: '2',
-      title: 'Fire Safety in Plastic Manufacturing: Prevention and Protection',
-      excerpt:
-        'Comprehensive guide to fire prevention strategies and insurance coverage for plastic manufacturing facilities.',
-      author: 'Sanjay Patel',
-      publishDate: 'Mar 25, 2024',
-      readTime: '7 min read',
-      category: 'Safety',
-      url: '#',
-    },
-    {
-      id: '3',
-      title: 'Product Liability Trends in Plastic Packaging Industry',
-      excerpt:
-        'Analysis of recent product liability claims and emerging risks in plastic packaging applications.',
-      author: 'Neha Sharma',
-      publishDate: 'Mar 18, 2024',
-      readTime: '6 min read',
-      category: 'Product Liability',
-      url: '#',
     },
   ];
 
@@ -503,7 +466,19 @@ const PlasticInsurancePage = () => {
       </section>
 
       {/* Relevant Articles Component */}
-      <RelevantArticles articles={articles} industryName="Plastic Industry" />
+      {/* <RelevantArticles articles={articles} industryName="Plastic Industry" /> */}
+      <section className="w-full border-b border-gray-100 bg-gray-50">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold md:text-3xl">Industry Insights & Articles</h2>
+          <p className="mt-3 text-gray-700">
+            Stay updated with the latest trends, regulations, and best practices in Plastic Industry
+            insurance.
+          </p>
+          <div className="w-full pt-6">
+            <MainCaraousel color="white" layout={3} topic="plastic_industry" />
+          </div>
+        </div>
+      </section>
 
       {/* Knowledge Questionnaire Component */}
       <KnowledgeQuestionnaire questions={quizQuestions} industryName="Plastic Industry" />

@@ -1,4 +1,4 @@
-export const industryTopics = [
+const industryTopics = [
   'Infrastructure Industry',
   'Life Sciences & Pharma Industry',
   'Plastic Industry',
@@ -10,9 +10,9 @@ export const industryTopics = [
   'Solar Industry',
 ];
 
-export const retailTopics = ['Retail'];
+const retailTopics = ['Retail'];
 
-export const corporateTopics = [
+const corporateTopics = [
   'Property & Engineering Insurance',
   'Liability Insurance',
   'Marine Transit Insurance',
@@ -24,3 +24,9 @@ export const corporateTopics = [
   'Shopkeepers Package & Jewellers Block',
   'Group Travel Insurance Plans',
 ];
+
+type IndustryTopics = (typeof industryTopics)[number];
+type RetailTopics = (typeof retailTopics)[number];
+type CorporateTopics = (typeof corporateTopics)[number];
+
+export type AllTopics = IndustryTopics | RetailTopics | CorporateTopics;

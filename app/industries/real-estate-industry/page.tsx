@@ -21,8 +21,8 @@ import {
   FaCity,
 } from 'react-icons/fa';
 import ClaimStories from '../../../components/industries/ClaimStories';
-import RelevantArticles from '../../../components/industries/RelevantArticles';
 import KnowledgeQuestionnaire from '../../../components/industries/KnowledgeQuestionnaire';
+import MainCaraousel from '@/components/main-caraousel';
 
 const RealEstateInsurancePage = () => {
   // Sample data for components
@@ -86,43 +86,6 @@ const RealEstateInsurancePage = () => {
         'Natural catastrophe coverage is essential in vulnerable areas',
         'Proper project scheduling considers seasonal risks',
       ],
-    },
-  ];
-
-  const articles = [
-    {
-      id: '1',
-      title: 'Real Estate Insurance Trends 2024: Smart Buildings and IoT Risks',
-      excerpt:
-        'How smart building technologies are creating new risk profiles and insurance requirements in real estate.',
-      author: 'Vikash Agarwal',
-      publishDate: 'Apr 10, 2024',
-      readTime: '8 min read',
-      category: 'Smart Buildings',
-      url: '#',
-      featured: true,
-    },
-    {
-      id: '2',
-      title: 'RERA Compliance and Insurance: What Developers Need to Know',
-      excerpt:
-        'Understanding RERA requirements and how insurance coverage supports regulatory compliance for real estate projects.',
-      author: 'Priya Malhotra',
-      publishDate: 'Mar 30, 2024',
-      readTime: '7 min read',
-      category: 'Regulatory Compliance',
-      url: '#',
-    },
-    {
-      id: '3',
-      title: 'Construction Risk Management in High-Rise Projects',
-      excerpt:
-        'Best practices for managing construction risks and insurance coverage in high-rise residential and commercial projects.',
-      author: 'Rajesh Khanna',
-      publishDate: 'Mar 22, 2024',
-      readTime: '9 min read',
-      category: 'Construction Risk',
-      url: '#',
     },
   ];
 
@@ -503,7 +466,19 @@ const RealEstateInsurancePage = () => {
       </section>
 
       {/* Relevant Articles Component */}
-      <RelevantArticles articles={articles} industryName="Real Estate Industry" />
+      {/* <RelevantArticles articles={articles} industryName="Real Estate Industry" /> */}
+      <section className="w-full border-b border-gray-100 bg-gray-50">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold md:text-3xl">Industry Insights & Articles</h2>
+          <p className="mt-3 text-gray-700">
+            Stay updated with the latest trends, regulations, and best practices in Plastic Industry
+            insurance.
+          </p>
+          <div className="w-full pt-6">
+            <MainCaraousel color="white" layout={3} topic="real_estate_industry" />
+          </div>
+        </div>
+      </section>
 
       {/* Knowledge Questionnaire Component */}
       <KnowledgeQuestionnaire questions={quizQuestions} industryName="Real Estate Industry" />

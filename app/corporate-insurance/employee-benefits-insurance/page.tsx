@@ -18,8 +18,8 @@ import {
   FaHandHoldingHeart,
 } from 'react-icons/fa';
 import ClaimStories from '../../../components/industries/ClaimStories';
-import RelevantArticles from '../../../components/industries/RelevantArticles';
 import KnowledgeQuestionnaire from '../../../components/industries/KnowledgeQuestionnaire';
+import MainCaraousel from '@/components/main-caraousel';
 
 const EmployeeBenefitsInsurancePage = () => {
   // Sample data for components
@@ -83,43 +83,6 @@ const EmployeeBenefitsInsurancePage = () => {
         'Preventive wellness programs reduce long-term costs',
         'Comprehensive employee benefits improve retention',
       ],
-    },
-  ];
-
-  const articles = [
-    {
-      id: '1',
-      title: 'Employee Benefits Trends 2024: Mental Health and Wellness Programs',
-      excerpt:
-        'How companies are expanding employee benefits to include comprehensive mental health and wellness support.',
-      author: 'Employee Benefits Team',
-      publishDate: 'Apr 30, 2024',
-      readTime: '8 min read',
-      category: 'Employee Wellness',
-      url: '#',
-      featured: true,
-    },
-    {
-      id: '2',
-      title: 'Group Health Insurance: Designing Comprehensive Medical Benefits',
-      excerpt:
-        'Best practices for structuring group health insurance plans that meet diverse employee needs.',
-      author: 'Health Insurance Specialists',
-      publishDate: 'Apr 22, 2024',
-      readTime: '9 min read',
-      category: 'Health Insurance',
-      url: '#',
-    },
-    {
-      id: '3',
-      title: 'Employee Retention Through Benefits: ROI of Comprehensive Coverage',
-      excerpt:
-        'How comprehensive employee benefits programs improve retention and reduce recruitment costs.',
-      author: 'HR Benefits Consultants',
-      publishDate: 'Apr 18, 2024',
-      readTime: '7 min read',
-      category: 'HR Strategy',
-      url: '#',
     },
   ];
 
@@ -502,7 +465,19 @@ const EmployeeBenefitsInsurancePage = () => {
       </section>
 
       {/* Relevant Articles Component */}
-      <RelevantArticles articles={articles} industryName="Employee Benefits Insurance" />
+      {/* <RelevantArticles articles={articles} industryName="Employee Benefits Insurance" /> */}
+      <section className="w-full border-b border-gray-100 bg-gray-50">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold md:text-3xl">Industry Insights & Articles</h2>
+          <p className="mt-3 text-gray-700">
+            Stay updated with the latest trends, regulations, and best practices in Plastic Industry
+            insurance.
+          </p>
+          <div className="w-full pt-6">
+            <MainCaraousel color="white" layout={3} topic="employee_benefits_insurance" />
+          </div>
+        </div>
+      </section>
 
       {/* Knowledge Questionnaire Component */}
       <KnowledgeQuestionnaire

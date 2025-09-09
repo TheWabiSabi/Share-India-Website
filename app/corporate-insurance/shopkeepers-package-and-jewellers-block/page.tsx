@@ -22,8 +22,8 @@ import {
   FaEye,
 } from 'react-icons/fa';
 import ClaimStories from '../../../components/industries/ClaimStories';
-import RelevantArticles from '../../../components/industries/RelevantArticles';
 import KnowledgeQuestionnaire from '../../../components/industries/KnowledgeQuestionnaire';
+import MainCaraousel from '@/components/main-caraousel';
 
 const ShopkeepersJewellersInsurancePage = () => {
   // Sample data for components
@@ -87,42 +87,6 @@ const ShopkeepersJewellersInsurancePage = () => {
         'Secure transportation and timing reduce theft exposure',
         'Digital payment systems minimize cash handling risks',
       ],
-    },
-  ];
-
-  const articles = [
-    {
-      id: '1',
-      title: 'Retail Insurance Trends 2024: E-commerce Integration and Omnichannel Risks',
-      excerpt:
-        'How modern retail operations are changing insurance needs and coverage requirements.',
-      author: 'Retail Insurance Team',
-      publishDate: 'May 5, 2024',
-      readTime: '8 min read',
-      category: 'Retail Insurance',
-      url: '#',
-      featured: true,
-    },
-    {
-      id: '2',
-      title: 'Jewellery Insurance: Protecting High-Value Inventory and Operations',
-      excerpt: 'Specialized insurance solutions for jewelry retailers and precious metals dealers.',
-      author: 'Jewellery Insurance Specialists',
-      publishDate: 'Apr 28, 2024',
-      readTime: '9 min read',
-      category: 'Jewellery Insurance',
-      url: '#',
-    },
-    {
-      id: '3',
-      title: 'Small Retail Business Security: Insurance and Risk Management',
-      excerpt:
-        'Best practices for protecting small retail businesses from theft, fire, and liability risks.',
-      author: 'Retail Risk Team',
-      publishDate: 'Apr 22, 2024',
-      readTime: '7 min read',
-      category: 'Retail Security',
-      url: '#',
     },
   ];
 
@@ -505,7 +469,19 @@ const ShopkeepersJewellersInsurancePage = () => {
       </section>
 
       {/* Relevant Articles Component */}
-      <RelevantArticles articles={articles} industryName="Shopkeepers & Jewellers Insurance" />
+      {/* <RelevantArticles articles={articles} industryName="Shopkeepers & Jewellers Insurance" /> */}
+      <section className="w-full border-b border-gray-100 bg-gray-50">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold md:text-3xl">Industry Insights & Articles</h2>
+          <p className="mt-3 text-gray-700">
+            Stay updated with the latest trends, regulations, and best practices in Plastic Industry
+            insurance.
+          </p>
+          <div className="w-full pt-6">
+            <MainCaraousel color="white" layout={3} topic="shopkeepers_package_jewellers_block" />
+          </div>
+        </div>
+      </section>
 
       {/* Knowledge Questionnaire Component */}
       <KnowledgeQuestionnaire
