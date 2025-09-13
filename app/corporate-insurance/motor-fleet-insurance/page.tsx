@@ -22,8 +22,8 @@ import {
   FaCertificate,
   FaRoute,
 } from 'react-icons/fa';
-import ClaimStories from '../../../components/industries/ClaimStories';
-import KnowledgeQuestionnaire from '../../../components/industries/KnowledgeQuestionnaire';
+import ClaimStories from '../../industries/_components/ClaimStories';
+import KnowledgeQuestionnaire from '../../industries/_components/KnowledgeQuestionnaire';
 import MainCaraousel from '@/components/main-caraousel';
 
 const MotorFleetInsurancePage = () => {

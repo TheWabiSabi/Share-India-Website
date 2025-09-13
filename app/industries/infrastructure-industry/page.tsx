@@ -1,195 +1,73 @@
-'use client';
+// 'use client';
 import React from 'react';
+import Image from 'next/image';
 import {
   FaChevronRight,
   FaShieldAlt,
   FaRoad,
   FaBuilding,
-  FaLeaf,
-  FaWater,
   FaUserShield,
   FaFileContract,
   FaPhoneAlt,
   FaEnvelope,
   FaHeadset,
   FaPlug,
-  FaLock,
   FaExclamationTriangle,
-  FaCheckCircle,
-  FaRupeeSign,
-  FaCertificate,
   FaHardHat,
   FaCogs,
 } from 'react-icons/fa';
-import ClaimStories from '../../../components/industries/ClaimStories';
-import KnowledgeQuestionnaire from '../../../components/industries/KnowledgeQuestionnaire';
+import Contact from '@/app/industries/_components/Contact';
+import Card from '@/app/industries/_components/Card';
+import Tile from '@/app/industries/_components/Tile';
+// import KnowledgeQuestionnaire from '@/app/industries/_components/KnowledgeQuestionnaire';
 import MainCaraousel from '@/components/main-caraousel';
+import KnowledgeQuestionnaire from '../_components/KnowledgeQuestionnaire';
+import { quizQuestions } from '../_data/questions/infra';
 
 const InfrastructureInsurancePage = () => {
-  // Sample data for components
-  const claimStories = [
-    {
-      id: '1',
-      title: 'Bridge Construction Collapse',
-      description:
-        'Partial collapse of under-construction bridge due to design flaw, causing injuries and significant reconstruction costs.',
-      claimAmount: '₹150 Crores',
-      settlementTime: '18 months',
-      riskType: 'Construction Risk',
-      outcome: 'settled' as const,
-      lessons: [
-        'Design review and approval processes are critical',
-        'Professional indemnity insurance protects against design errors',
-        'Third-party liability coverage essential for public projects',
-      ],
-    },
-    {
-      id: '2',
-      title: 'Highway Project Delay',
-      description:
-        'Land acquisition delays and environmental clearance issues caused significant project delays and cost overruns.',
-      claimAmount: '₹85 Crores',
-      settlementTime: '24 months',
-      riskType: 'Delay in Start-up',
-      outcome: 'settled' as const,
-      lessons: [
-        'Regulatory risk coverage is essential for infrastructure projects',
-        'Delay in start-up insurance protects against revenue loss',
-        'Proper due diligence reduces regulatory risks',
-      ],
-    },
-    {
-      id: '3',
-      title: 'Power Plant Equipment Damage',
-      description:
-        'Turbine damage during commissioning phase caused extended delays and replacement costs.',
-      claimAmount: '₹120 Crores',
-      settlementTime: '12 months',
-      riskType: 'Equipment Damage',
-      outcome: 'settled' as const,
-      lessons: [
-        'Commissioning phase requires specialized coverage',
-        'Equipment breakdown insurance covers replacement costs',
-        'Manufacturer warranties should complement insurance',
-      ],
-    },
-    {
-      id: '4',
-      title: 'Metro Rail System Cyber Attack',
-      description:
-        'Cyber attack on metro control systems caused service disruption and security concerns.',
-      claimAmount: '₹25 Crores',
-      settlementTime: '8 months',
-      riskType: 'Cyber Security',
-      outcome: 'settled' as const,
-      lessons: [
-        'Critical infrastructure needs robust cyber protection',
-        'Business interruption from cyber events is significant',
-        'Incident response planning reduces impact',
-      ],
-    },
-  ];
-
-  const quizQuestions = [
-    {
-      id: '1',
-      question:
-        'What is the most critical insurance coverage for infrastructure construction projects?',
-      options: [
-        'Fire insurance only',
-        'Contractors All Risk (CAR) insurance',
-        'Motor vehicle insurance',
-        'Personal accident insurance',
-      ],
-      correctAnswer: 1,
-      explanation:
-        'Contractors All Risk (CAR) insurance is essential as it covers material damage during construction, third-party liability, and various construction risks.',
-      difficulty: 'easy' as const,
-    },
-    {
-      id: '2',
-      question: 'Which phase of infrastructure projects typically has the highest insurance risk?',
-      options: [
-        'Planning and design phase',
-        'Construction and commissioning phase',
-        'Operation and maintenance phase',
-        'Decommissioning phase',
-      ],
-      correctAnswer: 1,
-      explanation:
-        'Construction and commissioning phase has the highest risk due to complex operations, equipment exposure, and potential for accidents.',
-      difficulty: 'medium' as const,
-    },
-    {
-      id: '3',
-      question: 'What does FIDIC stand for in infrastructure contracts?',
-      options: [
-        'Federal Infrastructure Development Insurance Corporation',
-        'International Federation of Consulting Engineers',
-        'Financial Infrastructure Development Investment Committee',
-        'Foreign Investment Development Insurance Council',
-      ],
-      correctAnswer: 1,
-      explanation:
-        'FIDIC (International Federation of Consulting Engineers) provides standard contract forms widely used in infrastructure projects globally.',
-      difficulty: 'hard' as const,
-    },
-    {
-      id: '4',
-      question: 'Which insurance is mandatory for infrastructure projects involving public funds?',
-      options: [
-        'Performance guarantee insurance',
-        'Professional indemnity insurance',
-        'Public liability insurance',
-        'All of the above',
-      ],
-      correctAnswer: 3,
-      explanation:
-        'Infrastructure projects with public funds typically require all three: performance guarantees, professional indemnity, and public liability insurance.',
-      difficulty: 'medium' as const,
-    },
-    {
-      id: '5',
-      question: 'What is the typical defects liability period for infrastructure projects?',
-      options: ['6 months', '1 year', '2-5 years', '10 years'],
-      correctAnswer: 2,
-      explanation:
-        '2-5 years is typical for infrastructure projects, during which contractors remain liable for defects and insurance coverage is maintained.',
-      difficulty: 'medium' as const,
-    },
-  ];
-
   return (
     <div className="min-h-screen bg-white pt-[8vh] text-gray-900">
       {/* Hero */}
-      <section className="w-full border-b border-gray-100">
-        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-          <div className="max-w-4xl">
-            <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl">
-              Infrastructure Industry Insurance Solutions
-            </h1>
-            <p className="mt-6 text-lg text-gray-700 md:text-xl">
-              Comprehensive coverage for roads, bridges, power plants, and smart city
-              projects—protecting critical infrastructure investments from construction to
-              operation.
-            </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <button className="inline-flex items-center justify-center rounded-lg bg-blue-100 px-6 py-3 font-semibold text-blue-800 hover:bg-blue-200">
-                <FaShieldAlt className="mr-2" />
-                Get Coverage Proposal
-              </button>
-              <button className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-6 py-3 font-semibold hover:bg-gray-50">
-                <FaFileContract className="mr-2" />
-                Book Risk Assessment
-              </button>
-              <button className="inline-flex items-center justify-center rounded-lg border border-blue-200 px-6 py-3 font-semibold text-blue-700 hover:bg-blue-50">
-                <FaPhoneAlt className="mr-2" />
-                Speak to Specialist
-              </button>
-            </div>
-            <div className="mt-4 text-sm text-gray-600">
-              Specialized coverage for PPP projects, smart cities, and critical infrastructure with
-              performance guarantees.
+      <section className="relative min-h-screen w-full">
+        {/* Background image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://minio-api.internal.wabisabitech.in/share-india/blog/construction.jpg"
+            alt="Construction infrastructure background"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw 100vh"
+          />
+          {/* Gradient + subtle blur overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/50 to-slate-900/30 backdrop-blur-sm" />
+        </div>
+
+        <div className="relative w-full pt-[30vh]">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl text-white">
+              <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl">
+                Infrastructure Industry Insurance Solutions
+              </h1>
+              <p className="mt-6 text-lg text-gray-100/90 md:text-xl">
+                Comprehensive coverage for roads, bridges, power plants, and smart city
+                projects—protecting critical infrastructure investments from construction to
+                operation.
+              </p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <button className="inline-flex items-center justify-center rounded-lg bg-blue-100 px-6 py-3 font-semibold text-blue-800 hover:bg-blue-200">
+                  <FaShieldAlt className="mr-2" />
+                  Get Coverage Proposal
+                </button>
+                <button className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-6 py-3 font-semibold hover:bg-gray-50">
+                  <FaFileContract className="mr-2" />
+                  Book Risk Assessment
+                </button>
+              </div>
+              <div className="mt-4 text-sm text-gray-100">
+                Specialized coverage for PPP projects, smart cities, and critical infrastructure
+                with performance guarantees.
+              </div>
             </div>
           </div>
         </div>
@@ -295,66 +173,8 @@ const InfrastructureInsurancePage = () => {
         </div>
       </section>
 
-      {/* Sample Risks */}
-      <section className="w-full border-b border-gray-100 bg-gray-50">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">
-            Common Risks in Infrastructure Industry
-          </h2>
-          <p className="mt-3 text-gray-700">
-            Understanding key risks helps in selecting appropriate insurance coverage for your
-            infrastructure projects.
-          </p>
-
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <RiskCard
-              icon={<FaHardHat />}
-              title="Construction & Design Risks"
-              description="Design errors, construction defects, and technical failures during project execution."
-              severity="High"
-              frequency="Medium"
-            />
-            <RiskCard
-              icon={<FaExclamationTriangle />}
-              title="Delay & Performance Risks"
-              description="Project delays, cost overruns, and failure to meet performance specifications."
-              severity="High"
-              frequency="High"
-            />
-            <RiskCard
-              icon={<FaWater />}
-              title="Natural Disasters"
-              description="Earthquakes, floods, cyclones affecting construction and completed infrastructure."
-              severity="High"
-              frequency="Medium"
-            />
-            <RiskCard
-              icon={<FaFileContract />}
-              title="Regulatory & Political Risks"
-              description="Policy changes, permit delays, and political instability affecting project viability."
-              severity="Medium"
-              frequency="Medium"
-            />
-            <RiskCard
-              icon={<FaLock />}
-              title="Cyber & Technology Risks"
-              description="Cyber attacks on smart infrastructure and technology system failures."
-              severity="Medium"
-              frequency="Low"
-            />
-            <RiskCard
-              icon={<FaLeaf />}
-              title="Environmental Liabilities"
-              description="Environmental damage, pollution incidents, and ecological impact issues."
-              severity="Medium"
-              frequency="Low"
-            />
-          </div>
-        </div>
-      </section>
-
       {/* Claim Stories Component */}
-      <ClaimStories stories={claimStories} industryName="Infrastructure Industry" />
+      {/* <ClaimStories stories={claimStories} industryName="Infrastructure Industry" /> */}
 
       {/* Core coverage suite */}
       <section className="w-full border-b border-gray-100 bg-white">
@@ -408,63 +228,6 @@ const InfrastructureInsurancePage = () => {
                 'Business interruption protection',
                 'Loss of revenue during delays',
               ]}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Insurance Plans/Products */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">
-            Insurance Plans for Infrastructure Industry
-          </h2>
-          <p className="mt-3 text-gray-700">
-            Comprehensive insurance solutions tailored for different scales of infrastructure
-            projects.
-          </p>
-
-          <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
-            <InsurancePlan
-              name="Infrastructure Starter Plan"
-              description="Essential coverage for small to medium infrastructure projects"
-              price="₹5L - ₹15L"
-              features={[
-                'Contractors All Risk (CAR)',
-                'Public Liability Insurance',
-                'Workmen Compensation',
-                'Motor Vehicle Insurance',
-                'Basic Performance Guarantee',
-              ]}
-              recommended={false}
-            />
-            <InsurancePlan
-              name="Infrastructure Professional Plan"
-              description="Comprehensive coverage for major infrastructure projects"
-              price="₹15L - ₹1Cr"
-              features={[
-                'All Starter Plan Benefits',
-                'Erection All Risk (EAR)',
-                'Professional Indemnity',
-                'Delay in Start-up Coverage',
-                'Environmental Liability',
-                'Advanced Performance Guarantees',
-              ]}
-              recommended={true}
-            />
-            <InsurancePlan
-              name="Infrastructure Enterprise Plan"
-              description="Complete protection for mega infrastructure projects and PPPs"
-              price="₹1Cr+"
-              features={[
-                'All Professional Plan Benefits',
-                'Political Risk Insurance',
-                'International Coverage',
-                'Cyber Liability for Smart Infrastructure',
-                'Crisis Management Services',
-                'Dedicated Project Insurance Manager',
-              ]}
-              recommended={false}
             />
           </div>
         </div>
@@ -530,173 +293,5 @@ const InfrastructureInsurancePage = () => {
     </div>
   );
 };
-
-/* Helpers */
-const Tile = ({
-  icon,
-  title,
-  children,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  children: React.ReactNode;
-}) => (
-  <div className="rounded-xl border border-gray-200 p-6">
-    <div className="text-2xl text-blue-500">{icon}</div>
-    <h3 className="mt-3 font-semibold">{title}</h3>
-    <p className="mt-1 text-sm text-gray-600">{children}</p>
-  </div>
-);
-
-const Card = ({
-  icon,
-  title,
-  body,
-  bullets,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  body: string;
-  bullets: string[];
-}) => (
-  <div className="rounded-xl border border-gray-200 p-6">
-    <div className="flex items-center gap-3">
-      {icon}
-      <h3 className="text-lg font-semibold">{title}</h3>
-    </div>
-    <p className="mt-2 text-sm text-gray-700">{body}</p>
-    <ul className="mt-3 space-y-1 text-sm text-gray-700">
-      {bullets.map((b) => (
-        <li key={b} className="flex">
-          <FaChevronRight className="mt-1 mr-2 text-blue-400" />
-          {b}
-        </li>
-      ))}
-    </ul>
-  </div>
-);
-
-const RiskCard = ({
-  icon,
-  title,
-  description,
-  severity,
-  frequency,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-  severity: string;
-  frequency: string;
-}) => (
-  <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-    <div className="flex items-center gap-3">
-      <span className="text-2xl text-red-500">{icon}</span>
-      <h3 className="text-lg font-semibold">{title}</h3>
-    </div>
-    <p className="mt-3 text-sm text-gray-700">{description}</p>
-    <div className="mt-4 flex gap-4">
-      <div className="flex items-center gap-2">
-        <span className="text-xs text-gray-500">Severity:</span>
-        <span
-          className={`rounded-full px-2 py-1 text-xs font-medium ${
-            severity === 'High'
-              ? 'bg-red-100 text-red-800'
-              : severity === 'Medium'
-                ? 'bg-yellow-100 text-yellow-800'
-                : 'bg-green-100 text-green-800'
-          }`}
-        >
-          {severity}
-        </span>
-      </div>
-      <div className="flex items-center gap-2">
-        <span className="text-xs text-gray-500">Frequency:</span>
-        <span
-          className={`rounded-full px-2 py-1 text-xs font-medium ${
-            frequency === 'High'
-              ? 'bg-red-100 text-red-800'
-              : frequency === 'Medium'
-                ? 'bg-yellow-100 text-yellow-800'
-                : 'bg-green-100 text-green-800'
-          }`}
-        >
-          {frequency}
-        </span>
-      </div>
-    </div>
-  </div>
-);
-
-const InsurancePlan = ({
-  name,
-  description,
-  price,
-  features,
-  recommended,
-}: {
-  name: string;
-  description: string;
-  price: string;
-  features: string[];
-  recommended: boolean;
-}) => (
-  <div
-    className={`rounded-xl border p-6 ${
-      recommended ? 'border-blue-500 bg-blue-50' : 'border-gray-200 bg-white'
-    }`}
-  >
-    {recommended && (
-      <div className="mb-4">
-        <span className="inline-flex items-center rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-800">
-          <FaCertificate className="mr-1" />
-          Recommended
-        </span>
-      </div>
-    )}
-    <h3 className="text-xl font-bold text-gray-900">{name}</h3>
-    <p className="mt-2 text-sm text-gray-600">{description}</p>
-    <div className="mt-4 flex items-center gap-2">
-      <FaRupeeSign className="text-blue-500" />
-      <span className="text-2xl font-bold text-blue-600">{price}</span>
-      <span className="text-sm text-gray-500">per year</span>
-    </div>
-    <ul className="mt-6 space-y-3">
-      {features.map((feature, index) => (
-        <li key={index} className="flex items-start gap-3">
-          <FaCheckCircle className="mt-1 text-green-500" />
-          <span className="text-sm text-gray-700">{feature}</span>
-        </li>
-      ))}
-    </ul>
-    <button
-      className={`mt-6 w-full rounded-lg px-4 py-3 font-semibold ${
-        recommended
-          ? 'bg-blue-600 text-white hover:bg-blue-700'
-          : 'border border-blue-200 text-blue-700 hover:bg-blue-50'
-      }`}
-    >
-      Get Quote
-    </button>
-  </div>
-);
-
-const Contact = ({
-  label,
-  value,
-  icon,
-}: {
-  label: string;
-  value: string;
-  icon: React.ReactNode;
-}) => (
-  <div className="flex items-center justify-between rounded-lg border border-gray-200 p-5">
-    <div>
-      <div className="text-sm text-gray-500">{label}</div>
-      <div className="font-semibold">{value}</div>
-    </div>
-    <div className="text-xl text-blue-600">{icon}</div>
-  </div>
-);
 
 export default InfrastructureInsurancePage;

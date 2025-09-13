@@ -159,38 +159,36 @@ export default function HomePage() {
       {/* Optimized What We Do Section */}
       <section
         id="what-we-do"
-        className="section-gradient-accent relative overflow-hidden py-20 md:py-28"
+        className="relative overflow-hidden bg-gradient-to-b from-white via-gray-50 to-gray-100 py-20 md:py-28"
       >
-        {/* <div className="bg-pattern-grid absolute inset-0 opacity-30 will-change-auto" />
-        <div className="from-si-primary/8 via-si-red/3 pointer-events-none absolute inset-0 bg-gradient-to-br to-transparent will-change-auto" /> */}
-
-        <HorizontalCarousal />
-
         <div className="relative mx-auto max-w-7xl px-6 sm:px-10 md:px-12">
           {/* Header */}
           <div className="flex flex-col items-start justify-between gap-8 lg:flex-row">
             <div className="max-w-xl flex-1">
-              <span className="from-si-primary/15 to-si-red/10 text-si-primary border-si-primary/20 mb-3 inline-flex items-center gap-2 rounded-full border bg-gradient-to-r px-4 py-2 text-xs font-bold tracking-wider uppercase backdrop-blur-sm">
-                <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full" />
+              <span className="mb-3 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-4 py-2 text-xs font-semibold tracking-wider text-slate-700 uppercase backdrop-blur-sm">
+                <span className="h-1.5 w-1.5 rounded-full bg-blue-500/60" />
                 What We Do
               </span>
-              <h2 className="text-si-ink text-3xl leading-tight font-semibold sm:text-4xl md:text-5xl">
-                Insurance brokerage that puts <span className="text-gradient-accent">outcomes</span>{' '}
+              <h2 className="text-3xl leading-tight font-semibold text-slate-900 sm:text-4xl md:text-5xl">
+                Insurance brokerage that puts{' '}
+                <span className="bg-gradient-to-r from-slate-700 to-blue-600 bg-clip-text text-transparent">
+                  outcomes
+                </span>{' '}
                 first
               </h2>
-              <p className="text-si-ink/80 mt-4 text-lg leading-relaxed">
+              <p className="mt-4 text-lg leading-relaxed text-slate-700/80">
                 We advise, place, and service cover across leading Indian insurers—backed by claims
-                advocacy and data-driven risk insights—so you can buy with confidence and recover
+                advocacy and data‑driven risk insights—so you can buy with confidence and recover
                 faster.
               </p>
             </div>
 
             {/* Why choose us - Simplified */}
             <div className="max-w-2xl lg:mt-2">
-              <div className="card-vibrant shadow-vibrant-blue transform-gpu rounded-xl p-6">
+              <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
                 <div className="flex items-start gap-4">
                   <svg
-                    className="text-si-primary mt-1 h-7 w-7"
+                    className="mt-1 h-7 w-7 text-blue-600/80"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -209,8 +207,8 @@ export default function HomePage() {
                     />
                   </svg>
                   <div>
-                    <div className="text-si-ink/60 text-sm font-medium">Why clients choose us</div>
-                    <ul className="text-si-ink/80 mt-2 grid gap-2 text-sm sm:grid-cols-2">
+                    <div className="text-sm font-medium text-slate-500">Why clients choose us</div>
+                    <ul className="mt-2 grid gap-2 text-sm text-slate-700/80 sm:grid-cols-2">
                       {featureList}
                     </ul>
                   </div>
@@ -222,11 +220,11 @@ export default function HomePage() {
           {/* Simplified Pillars Grid */}
           <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {/* Advisory & Placement */}
-            <div className="card-vibrant transform-gpu rounded-xl p-6">
+            <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
               <div className="mb-4 flex items-center justify-between">
-                <h3 className="text-si-ink text-lg font-semibold">Advisory & Placement</h3>
+                <h3 className="text-lg font-semibold text-slate-900">Advisory & Placement</h3>
                 <svg
-                  className="text-si-primary h-5 w-5"
+                  className="h-5 w-5 text-blue-600/80"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -239,27 +237,27 @@ export default function HomePage() {
                   />
                 </svg>
               </div>
-              <p className="text-si-ink/75 text-sm">
-                Market scans, competitive quotes, and negotiation for best-fit cover.
+              <p className="text-sm text-slate-700/75">
+                Market scans, competitive quotes, and negotiation for best‑fit cover.
               </p>
-              <ul className="text-si-ink/80 mt-4 space-y-2 text-sm">
+              <ul className="mt-4 space-y-2 text-sm text-slate-700/80">
                 <li className="flex items-center gap-2">
-                  <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full" /> Property, Marine,
+                  <span className="h-1.5 w-1.5 rounded-full bg-blue-500/50" /> Property, Marine,
                   Liability
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full" /> Health & Group
+                  <span className="h-1.5 w-1.5 rounded-full bg-blue-500/50" /> Health & Group
                   Benefits
                 </li>
               </ul>
             </div>
 
             {/* Claims Advocacy */}
-            <div className="card-accent-red transform-gpu rounded-xl p-6">
+            <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
               <div className="mb-4 flex items-center justify-between">
-                <h3 className="text-si-ink text-lg font-semibold">Claims Advocacy</h3>
+                <h3 className="text-lg font-semibold text-slate-900">Claims Advocacy</h3>
                 <svg
-                  className="text-si-primary h-5 w-5"
+                  className="h-5 w-5 text-blue-600/80"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -272,27 +270,26 @@ export default function HomePage() {
                   />
                 </svg>
               </div>
-              <p className="text-si-ink/75 text-sm">
-                Strategy, documentation, and follow-through until your claim is settled.
+              <p className="text-sm text-slate-700/75">
+                Strategy, documentation, and follow‑through until claims are settled.
               </p>
-              <ul className="text-si-ink/80 mt-4 space-y-2 text-sm">
+              <ul className="mt-4 space-y-2 text-sm text-slate-700/80">
                 <li className="flex items-center gap-2">
-                  <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full" /> Dedicated claims
-                  desk
+                  <span className="h-1.5 w-1.5 rounded-full bg-blue-500/50" /> Dedicated claims desk
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full" /> Faster TAT with
+                  <span className="h-1.5 w-1.5 rounded-full bg-blue-500/50" /> Faster TAT with
                   insurer liaisons
                 </li>
               </ul>
             </div>
 
             {/* Risk Engineering */}
-            <div className="card-vibrant transform-gpu rounded-xl p-6">
+            <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
               <div className="mb-4 flex items-center justify-between">
-                <h3 className="text-si-ink text-lg font-semibold">Risk Engineering</h3>
+                <h3 className="text-lg font-semibold text-slate-900">Risk Engineering</h3>
                 <svg
-                  className="text-si-primary h-5 w-5"
+                  className="h-5 w-5 text-blue-600/80"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -305,27 +302,27 @@ export default function HomePage() {
                   />
                 </svg>
               </div>
-              <p className="text-si-ink/75 text-sm">
-                Site surveys, loss-prevention plans, and underwriting-friendly improvements.
+              <p className="text-sm text-slate-700/75">
+                Site surveys, loss‑prevention plans, and underwriting‑friendly improvements.
               </p>
-              <ul className="text-si-ink/80 mt-4 space-y-2 text-sm">
+              <ul className="mt-4 space-y-2 text-sm text-slate-700/80">
                 <li className="flex items-center gap-2">
-                  <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full" /> FM & statutory
+                  <span className="h-1.5 w-1.5 rounded-full bg-blue-500/50" /> FM & statutory
                   compliance
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full" /> Catastrophe &
-                  cyber posture
+                  <span className="h-1.5 w-1.5 rounded-full bg-blue-500/50" /> Catastrophe & cyber
+                  posture
                 </li>
               </ul>
             </div>
 
             {/* Digital Tools */}
-            <div className="card-accent-red transform-gpu rounded-xl p-6">
+            <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
               <div className="mb-4 flex items-center justify-between">
-                <h3 className="text-si-ink text-lg font-semibold">Digital Tools</h3>
+                <h3 className="text-lg font-semibold text-slate-900">Digital Tools</h3>
                 <svg
-                  className="text-si-primary h-5 w-5"
+                  className="h-5 w-5 text-blue-600/80"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -338,16 +335,16 @@ export default function HomePage() {
                   />
                 </svg>
               </div>
-              <p className="text-si-ink/75 text-sm">
+              <p className="text-sm text-slate-700/75">
                 Quote requests, policy vault, renewal tracking, and analytics dashboards.
               </p>
-              <ul className="text-si-ink/80 mt-4 space-y-2 text-sm">
+              <ul className="mt-4 space-y-2 text-sm text-slate-700/80">
                 <li className="flex items-center gap-2">
-                  <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full" /> Self-serve +
-                  assisted workflows
+                  <span className="h-1.5 w-1.5 rounded-full bg-blue-500/50" /> Self‑serve + assisted
+                  workflows
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full" /> API-ready for
+                  <span className="h-1.5 w-1.5 rounded-full bg-blue-500/50" /> API‑ready for
                   enterprise
                 </li>
               </ul>
@@ -355,20 +352,26 @@ export default function HomePage() {
           </div>
 
           {/* CTA strip */}
-          <div className="card-vibrant mt-12 flex transform-gpu flex-wrap items-center justify-between gap-4 rounded-xl px-6 py-5">
+          <div className="mt-12 flex flex-wrap items-center justify-between gap-4 rounded-xl border border-slate-200 bg-white px-6 py-5 shadow-sm">
             <div className="flex items-center gap-3">
-              <div className="accent-bar-gradient h-3 w-14" />
-              <p className="text-si-ink/80 text-sm">
-                Compare policies across 40+ insurers • Issue within <strong>24–48h</strong> •
-                Dedicated claims support
+              <div className="h-3 w-14 bg-gradient-to-r from-slate-300 to-blue-300/50" />
+              <p className="text-sm text-slate-700/80">
+                Compare policies across 40+ insurers • Issue within{' '}
+                <strong className="text-slate-900">24–48h</strong> • Dedicated claims support
               </p>
             </div>
             <div className="flex gap-3">
-              <Link href="/contact?type=quote" className="btn-primary">
+              <Link
+                href="/contact?type=quote"
+                className="inline-flex items-center gap-2 rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white hover:bg-slate-800"
+              >
                 Get a Quote
                 <ArrowIcon />
               </Link>
-              <Link href="/insights" className="btn-ghost">
+              <Link
+                href="/insights"
+                className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-800 hover:bg-slate-50"
+              >
                 Read Insights
                 <ChevronIcon />
               </Link>
@@ -380,29 +383,32 @@ export default function HomePage() {
       {/* Featured Insights */}
       <section
         id="featured-insights"
-        className="section-vibrant-red section-divider-bottom relative isolate py-20 md:py-28"
+        className="relative isolate bg-gradient-to-br from-blue-50 via-slate-50 to-white py-20 md:py-28"
       >
-        {/* soft brand wash */}
-        <div className="bg-pattern-dots absolute inset-0 opacity-20" />
-        <div className="from-si-red/8 via-si-primary/4 pointer-events-none absolute inset-0 bg-gradient-to-br to-transparent" />
+        {/* soft brand wash (neutralized, more prominent gradient) */}
+        <div className="bg-pattern-dots absolute inset-0 opacity-10" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-blue-100/50 via-blue-50/40 to-transparent" />
 
         <div className="relative mx-auto max-w-7xl px-6 sm:px-10 md:px-12">
           {/* Header */}
           <div className="mb-8 max-w-3xl">
-            <span className="from-si-red/15 to-si-primary/10 text-si-red border-si-red/20 mb-3 inline-flex items-center gap-2 rounded-full border bg-gradient-to-r px-4 py-2 text-xs font-bold tracking-wider uppercase backdrop-blur-sm">
-              <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full" />
+            <span className="mb-3 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white/70 px-4 py-2 text-xs font-bold tracking-wider text-blue-700 uppercase backdrop-blur-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-blue-500/70" />
               Insights
             </span>
-            <h3 className="text-si-ink text-3xl leading-tight font-semibold sm:text-4xl">
-              Featured <span className="text-gradient-accent">Insights</span>
+            <h3 className="text-3xl leading-tight font-semibold text-slate-900 sm:text-4xl">
+              Featured{' '}
+              <span className="bg-gradient-to-r from-slate-700 to-blue-600 bg-clip-text text-transparent">
+                Insights
+              </span>
             </h3>
-            <p className="text-si-ink/80 mt-4 text-base leading-relaxed sm:text-lg">
+            <p className="mt-4 text-base leading-relaxed text-slate-700/80 sm:text-lg">
               Expert explainers from Share India Brokers—market trends, risk solutions, and how
               policy changes affect businesses and families in India.
             </p>
           </div>
 
-          {/* Quick filters (non-functional placeholders—hook to your state if needed) */}
+          {/* Quick filters */}
           <div className="mb-6 flex flex-wrap items-center gap-2 py-8">
             {['All', 'Regulatory', 'Health', 'Motor', 'Property', 'Liability', 'SMB'].map(
               (t, i) => (
@@ -410,8 +416,8 @@ export default function HomePage() {
                   key={t}
                   className={`rounded-full border px-3 py-1.5 text-sm transition ${
                     i === 0
-                      ? 'border-si-primary bg-si-primary hover:bg-si-primary-600 text-white'
-                      : 'text-si-ink border-slate-200 bg-white hover:bg-slate-50'
+                      ? 'border-blue-600 bg-blue-600 text-white hover:bg-blue-700'
+                      : 'border-slate-200 bg-white text-slate-900 hover:bg-slate-50'
                   }`}
                   type="button"
                 >
@@ -420,10 +426,10 @@ export default function HomePage() {
               ),
             )}
             <div className="ml-auto flex items-center gap-2 text-sm">
-              <span className="text-si-ink/60">Sort by</span>
+              <span className="text-slate-600">Sort by</span>
               <button
                 type="button"
-                className="text-si-ink inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm hover:bg-slate-50"
+                className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm text-slate-900 hover:bg-slate-50"
               >
                 Latest
                 <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -439,21 +445,21 @@ export default function HomePage() {
           </div>
 
           {/* Carousel */}
-          <div className="card-vibrant shadow-vibrant-blue hover-lift rounded-xl p-4">
+          <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
             <MainCaraousel color="blue" layout={1} />
           </div>
 
           {/* CTA strip */}
-          <div className="card-accent-red hover-lift mt-10 flex flex-wrap items-center justify-between gap-4 rounded-xl px-6 py-5">
+          <div className="mt-10 flex flex-wrap items-center justify-between gap-4 rounded-xl border border-slate-200 bg-white px-6 py-5 shadow-sm">
             <div className="flex items-center gap-3">
-              <div className="accent-bar-gradient h-3 w-14" />
-              <p className="text-si-ink/80 text-sm">
+              <div className="h-3 w-14 bg-gradient-to-r from-slate-300 to-blue-300/60" />
+              <p className="text-sm text-slate-700/80">
                 Curated weekly by our brokerage team • No jargon, just outcomes
               </p>
             </div>
             <Link
               href="/insights"
-              className="bg-si-primary hover:bg-si-primary-600 inline-flex items-center gap-2 rounded-md px-5 py-2.5 font-semibold text-white"
+              className="inline-flex items-center gap-2 rounded-md bg-blue-600 px-5 py-2.5 font-semibold text-white hover:bg-blue-700"
             >
               Explore All Insights
               <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">

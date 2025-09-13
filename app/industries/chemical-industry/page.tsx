@@ -25,9 +25,9 @@ import {
   FaRupeeSign,
   FaCertificate,
 } from 'react-icons/fa';
-import ClaimStories from '../../../components/industries/ClaimStories';
+import ClaimStories from '../_components/ClaimStories';
 
-import KnowledgeQuestionnaire from '../../../components/industries/KnowledgeQuestionnaire';
+import KnowledgeQuestionnaire from '../_components/KnowledgeQuestionnaire';
 import MainCaraousel from '@/components/main-caraousel';
 
 const ChemicalInsurancePage = () => {
