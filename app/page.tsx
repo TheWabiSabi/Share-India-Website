@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { memo, useMemo } from 'react';
-import HorizontalCarousal from './about/_components/horizontalCarousal';
 import TopNewsCarousel from '@/components/top-news-carousel';
 import MainCaraousel from '@/components/main-caraousel';
 import './style.css';
