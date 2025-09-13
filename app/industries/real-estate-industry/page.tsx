@@ -20,8 +20,8 @@ import {
   FaKey,
   FaCity,
 } from 'react-icons/fa';
-import ClaimStories from '../../../components/industries/ClaimStories';
-import KnowledgeQuestionnaire from '../../../components/industries/KnowledgeQuestionnaire';
+import ClaimStories from '../_components/ClaimStories';
+import KnowledgeQuestionnaire from '../_components/KnowledgeQuestionnaire';
 import MainCaraousel from '@/components/main-caraousel';
 
 const RealEstateInsurancePage = () => {
