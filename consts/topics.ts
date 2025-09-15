@@ -25,8 +25,11 @@ const corporateTopics = [
   'Group Travel Insurance Plans',
 ];
 
-type IndustryTopics = (typeof industryTopics)[number];
-type RetailTopics = (typeof retailTopics)[number];
-type CorporateTopics = (typeof corporateTopics)[number];
+const AllTopicsArray = [...industryTopics, ...retailTopics, ...corporateTopics];
+export type AllTopics = (typeof AllTopicsArray)[number];
 
-export type AllTopics = IndustryTopics | RetailTopics | CorporateTopics;
+// type IndustryTopics = (typeof industryTopics)[number];
+// type RetailTopics = (typeof retailTopics)[number];
+// type CorporateTopics = (typeof corporateTopics)[number];
+
+// export type AllTopics = IndustryTopics | RetailTopics | CorporateTopics;

@@ -56,6 +56,14 @@ interface CaraouselProps {
   color: 'blue' | 'white';
 }
 
+function getRandomElements<T>(array: T[], count: number = 10): T[] {
+  if (array.length <= count) return array;
+
+  // Create a copy to avoid modifying original array
+  const shuffled = [...array].sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, count);
+}
+
 export default function MainCaraousel({
   type,
   topic,
@@ -68,7 +76,7 @@ export default function MainCaraousel({
   const nextRef = useRef<HTMLButtonElement | null>(null);
 
   // Filter only featured articles and transform data
-  const featuredData = blogPosts
+  let featuredData = blogPosts
     .filter((post) => {
       if (featured && !post.featured) return false;
       if (type && post.type !== type) return false;
@@ -91,6 +99,10 @@ export default function MainCaraousel({
       type: post.type,
       industry: post.industry,
     }));
+
+    if (featuredData.length > 10){
+      featuredData = getRandomElements(featuredData, 10);
+    }
 
   // Loop only if enough slides to make sense
   const enableLoop = featuredData.length > 2;
