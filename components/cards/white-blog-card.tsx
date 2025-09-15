@@ -28,7 +28,7 @@ const WhiteBlogCard: React.FC<WhiteBlogCardProps> = ({
   const href = slug ? `/blog/${slug}` : undefined;
 
   return (
-    <article className="group card-vibrant focus-within:ring-si-primary/30 hover-lift hover-glow-blue flex h-full  flex-col overflow-hidden rounded-xl transition duration-300 focus-within:ring-2">
+    <article className="group card-vibrant focus-within:ring-si-primary/30 hover-lift hover-glow-blue flex h-full flex-col overflow-hidden rounded-xl transition duration-300 focus-within:ring-2">
       {/* Media */}
       <div className="relative h-40 w-full overflow-hidden sm:h-52 md:h-[30vh]">
         <Image

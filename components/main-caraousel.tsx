@@ -100,9 +100,9 @@ export default function MainCaraousel({
       industry: post.industry,
     }));
 
-    if (featuredData.length > 10){
-      featuredData = getRandomElements(featuredData, 10);
-    }
+  if (featuredData.length > 10) {
+    featuredData = getRandomElements(featuredData, 10);
+  }
 
   // Loop only if enough slides to make sense
   const enableLoop = featuredData.length > 2;

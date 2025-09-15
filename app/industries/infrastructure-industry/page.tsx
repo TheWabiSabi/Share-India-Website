@@ -18,7 +18,6 @@ import {
 } from 'react-icons/fa';
 import Contact from '@/app/industries/_components/Contact';
 import Card from '@/app/industries/_components/Card';
-import Tile from '@/app/industries/_components/Tile';
 // import KnowledgeQuestionnaire from '@/app/industries/_components/KnowledgeQuestionnaire';
 import MainCaraousel from '@/components/main-caraousel';
 import KnowledgeQuestionnaire from '../_components/KnowledgeQuestionnaire';
@@ -214,7 +213,7 @@ const InfrastructureInsurancePage = () => {
             Stay updated with how SIIB helped infrastructure clients recover from project delays,
             construction losses, and unforeseen risks.
           </p>
-          <div className="lg:w-[65vw] pt-6">
+          <div className="pt-6 lg:w-[65vw]">
             <MainCaraousel
               color="blue"
               layout={1}

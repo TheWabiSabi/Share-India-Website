@@ -5,20 +5,16 @@ import {
   FaChevronRight,
   FaShieldAlt,
   FaCogs,
-  FaBuilding,
-  FaUserShield,
   FaFileContract,
   FaPhoneAlt,
   FaEnvelope,
   FaHeadset,
   FaBolt,
   FaExclamationTriangle,
-  FaHardHat,
   FaIndustry,
 } from 'react-icons/fa';
 import Contact from '@/app/industries/_components/Contact';
 import Card from '@/app/industries/_components/Card';
-import Tile from '@/app/industries/_components/Tile';
 // import KnowledgeQuestionnaire from '@/app/industries/_components/KnowledgeQuestionnaire';
 import MainCaraousel from '@/components/main-caraousel';
 import KnowledgeQuestionnaire from '@/app/industries/_components/KnowledgeQuestionnaire';
