@@ -97,7 +97,7 @@ const Footer: React.FC = () => {
             <div className="lg:col-span-2">
               <div className="mb-6">
                 <Image
-                  src="/logo.png"
+                  src="/share-india-transparent.png"
                   alt="Share India Insurance"
                   width={200}
                   height={60}
