@@ -1,9 +1,7 @@
 import {
   FaSolarPanel,
   FaBolt,
-  FaSun,
   FaTools,
-  FaShieldAlt,
   FaExclamationTriangle,
   FaCogs,
   FaHome,

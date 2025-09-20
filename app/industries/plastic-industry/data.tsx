@@ -2,7 +2,6 @@ import {
   FaIndustry,
   FaRecycle,
   FaFlask,
-  FaFire,
   FaShieldAlt,
   FaExclamationTriangle,
   FaCogs,

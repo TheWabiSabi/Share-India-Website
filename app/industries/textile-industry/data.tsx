@@ -3,7 +3,6 @@ import {
   FaIndustry,
   FaCut,
   FaFire,
-  FaShieldAlt,
   FaExclamationTriangle,
   FaTruck,
   FaCogs,

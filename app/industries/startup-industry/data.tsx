@@ -1,13 +1,4 @@
-import {
-  FaRocket,
-  FaLaptop,
-  FaUsers,
-  FaShieldAlt,
-  FaExclamationTriangle,
-  FaBug,
-  FaUserTie,
-  FaMoneyBillWave,
-} from 'react-icons/fa';
+import { FaRocket, FaLaptop, FaUsers, FaBug, FaUserTie, FaMoneyBillWave } from 'react-icons/fa';
 
 export const details = {
   img: 'https://minio-api.internal.wabisabitech.in/share-india/blog/bulb.jpg',

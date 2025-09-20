@@ -4,17 +4,10 @@ import Image from 'next/image';
 import {
   FaChevronRight,
   FaShieldAlt,
-  FaRoad,
-  FaBuilding,
-  FaUserShield,
   FaFileContract,
   FaPhoneAlt,
   FaEnvelope,
   FaHeadset,
-  FaPlug,
-  FaExclamationTriangle,
-  FaHardHat,
-  FaCogs,
 } from 'react-icons/fa';
 import Contact from '@/app/industries/_components/Contact';
 import Card from '@/app/industries/_components/Card';

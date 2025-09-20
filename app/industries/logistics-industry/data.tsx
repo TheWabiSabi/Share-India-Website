@@ -1,13 +1,4 @@
-import {
-  FaTruck,
-  FaShip,
-  FaPlane,
-  FaWarehouse,
-  FaShieldAlt,
-  FaExclamationTriangle,
-  FaBoxes,
-  FaCogs,
-} from 'react-icons/fa';
+import { FaTruck, FaShip, FaWarehouse, FaShieldAlt, FaBoxes } from 'react-icons/fa';
 
 export const details = {
   img: 'https://minio-api.internal.wabisabitech.in/share-india/blog/transport-cartons.jpg',
