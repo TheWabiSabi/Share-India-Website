@@ -16,7 +16,7 @@ const ChatbotWidget: React.FC = () => {
   const chatContainerRef = useRef<HTMLDivElement>(null);
 
   // Type-safe chatbot data
-  const data: ChatbotData = chatbotData as ChatbotData;
+  const data: ChatbotData = chatbotData as unknown as ChatbotData;
 
   // Function to scroll to bottom
   const scrollToBottom = () => {
