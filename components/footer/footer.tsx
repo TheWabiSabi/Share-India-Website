@@ -89,15 +89,15 @@ const Footer: React.FC = () => {
   return (
     <footer className="text-si-ink/80 font-sans">
       {/* Duotone top wash */}
-      <div className="relative isolate bg-[#F5FAFF]">
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#F5FAFF]/80 via-[#F5FAFF]/30 to-transparent" />
+      <div className="bg-si-primary-400 relative isolate">
+        <div className="from-si-primary-200 pointer-events-none absolute inset-0 bg-gradient-to-b via-[#F5FAFF]/30 to-transparent" />
         <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-7">
             {/* Brand / About */}
             <div className="lg:col-span-2">
               <div className="mb-6">
                 <Image
-                  src="/share-india-transparent.png"
+                  src="/share-india-transparent_header.png"
                   alt="Share India Insurance"
                   width={200}
                   height={60}

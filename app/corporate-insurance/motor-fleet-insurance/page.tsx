@@ -1,30 +1,32 @@
-'use client';
+// 'use client';
 import React from 'react';
+import Image from 'next/image';
 import {
   FaChevronRight,
   FaShieldAlt,
   FaTruck,
   FaCar,
   FaBus,
-  FaFire,
-  FaWater,
-  FaTruckMoving,
-  FaUserShield,
   FaFileContract,
   FaPhoneAlt,
   FaEnvelope,
   FaHeadset,
-  FaTools,
-  FaLock,
-  FaExclamationTriangle,
-  FaCheckCircle,
-  FaRupeeSign,
-  FaCertificate,
   FaRoute,
 } from 'react-icons/fa';
-import ClaimStories from '../../industries/_components/ClaimStories';
+import ContactComponent from '@/app/industries/_components/Contact';
+import CardComponent from '@/app/industries/_components/Card';
+// import ClaimStories from '../../industries/_components/ClaimStories';
 import KnowledgeQuestionnaire from '../../industries/_components/KnowledgeQuestionnaire';
 import MainCaraousel from '@/components/main-caraousel';
+import { FaRupeeSign } from 'react-icons/fa6';
+import { FaCertificate } from 'react-icons/fa6';
+import ClaimStories from '@/app/industries/_components/ClaimStories';
+import { FaWater } from 'react-icons/fa6';
+import { FaUserShield } from 'react-icons/fa6';
+import { FaFire } from 'react-icons/fa6';
+import { FaLock } from 'react-icons/fa6';
+import { FaTruckMoving } from 'react-icons/fa6';
+// import ClaimStories from '@/app/industries/_components/ClaimStories';
 
 const MotorFleetInsurancePage = () => {
   // Sample data for components
@@ -162,99 +164,111 @@ const MotorFleetInsurancePage = () => {
   return (
     <div className="min-h-screen bg-white pt-[8vh] text-gray-900">
       {/* Hero */}
-      <section className="w-full border-b border-gray-100">
-        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-          <div className="max-w-4xl">
-            <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl">
-              Motor Fleet Insurance Solutions
-            </h1>
-            <p className="mt-6 text-lg text-gray-700 md:text-xl">
-              Comprehensive protection for your commercial vehicle fleet—covering cars, trucks,
-              buses, and specialized vehicles with efficient management and competitive pricing.
-            </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <button className="inline-flex items-center justify-center rounded-lg bg-blue-100 px-6 py-3 font-semibold text-blue-800 hover:bg-blue-200">
-                <FaShieldAlt className="mr-2" />
-                Get Fleet Quote
-              </button>
-              <button className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-6 py-3 font-semibold hover:bg-gray-50">
-                <FaFileContract className="mr-2" />
-                Fleet Assessment
-              </button>
-              <button className="inline-flex items-center justify-center rounded-lg border border-blue-200 px-6 py-3 font-semibold text-blue-700 hover:bg-blue-50">
-                <FaPhoneAlt className="mr-2" />
-                Speak to Expert
-              </button>
-            </div>
-            <div className="mt-4 text-sm text-gray-600">
-              Specialized coverage for logistics companies, delivery services, and businesses with
-              multiple vehicles.
+      <section className="relative min-h-screen w-full">
+        {/* Background image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://minio-api.internal.wabisabitech.in/share-india/blog/highrise.jpg"
+            alt="Motor fleet background"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw 100vh"
+          />
+          {/* Gradient + subtle blur overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/50 to-slate-900/30 backdrop-blur-sm" />
+        </div>
+
+        <div className="relative w-full pt-[15vh] md:pt-[30vh]">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl text-white">
+              <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl">
+                Motor Fleet Insurance Solutions
+              </h1>
+              <p className="mt-6 text-lg text-gray-100/90 md:text-xl">
+                Comprehensive protection for commercial vehicle fleets—covering trucks, cars, and
+                specialized vehicles with centralized management and cost-effective coverage.
+              </p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <button className="inline-flex items-center justify-center rounded-lg bg-blue-100 px-6 py-3 font-semibold text-blue-800 hover:bg-blue-200">
+                  <FaShieldAlt className="mr-2" />
+                  Get Coverage Proposal
+                </button>
+                <button className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-6 py-3 font-semibold hover:bg-gray-50">
+                  <FaFileContract className="mr-2" />
+                  Book Risk Assessment
+                </button>
+              </div>
+              <div className="mt-4 text-sm text-gray-100">
+                Specialized coverage for commercial fleets, logistics companies, and transportation
+                businesses.
+              </div>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Insurance Explanation */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Understanding Motor Fleet Insurance</h2>
-          <p className="mt-3 text-gray-700">
+      {/* Industry Explanation */}
+      <section className="from-si-primary-200 w-full border-b border-gray-100 bg-gradient-to-b to-transparent lg:h-screen">
+        <div className="mx-auto max-w-[90vw] px-4 py-[10vh] sm:px-6 lg:max-w-[75vw] lg:px-8 lg:pt-[20vh]">
+          <h2 className="text-3xl font-bold md:text-4xl">Understanding Motor Fleet Insurance</h2>
+          <p className="mt-[9vh] text-lg text-gray-700">
             Motor Fleet Insurance provides comprehensive coverage for businesses operating multiple
-            vehicles, offering cost-effective protection and simplified administration.
+            vehicles, offering centralized management, cost-effective protection, and specialized
+            coverage for commercial transportation operations.
           </p>
 
-          <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2">
+          <div className="mt-[10vh] grid grid-cols-1 gap-8 lg:grid-cols-2">
             <div>
-              <h3 className="text-xl font-semibold text-gray-900">Coverage Overview</h3>
-              <p className="mt-3 text-gray-700">
-                Fleet insurance covers multiple vehicles under a single policy, providing protection
-                against accidents, theft, fire, and third-party liabilities. It includes
-                comprehensive coverage for vehicle damage, driver protection, and business-specific
-                risks. The policy can be customized based on vehicle types, usage patterns, and
-                business requirements.
+              <h3 className="text-2xl font-semibold text-gray-900">Industry Overview</h3>
+              <p className="mt-8 text-lg text-gray-700">
+                Commercial vehicle fleets face unique risks including accidents, theft, driver
+                liability, and operational disruptions. Motor Fleet insurance provides comprehensive
+                coverage for businesses operating multiple vehicles, offering centralized
+                management, cost optimization, and specialized protection for commercial
+                transportation operations across various industries.
               </p>
-              <ul className="mt-4 space-y-2 text-sm text-gray-700">
-                <li className="flex items-start">
+              <ul className="mt-7 space-y-2 text-base text-gray-700">
+                <li className="mb-6 flex items-start">
                   <FaChevronRight className="mt-1 mr-2 text-blue-400" />
-                  Single policy covering multiple vehicles
+                  Comprehensive vehicle damage and theft protection
+                </li>
+                <li className="mb-6 flex items-start">
+                  <FaChevronRight className="mt-1 mr-2 text-blue-400" />
+                  Third-party liability and legal coverage
                 </li>
                 <li className="flex items-start">
                   <FaChevronRight className="mt-1 mr-2 text-blue-400" />
-                  Comprehensive and third-party liability coverage
-                </li>
-                <li className="flex items-start">
-                  <FaChevronRight className="mt-1 mr-2 text-blue-400" />
-                  Volume discounts and simplified administration
+                  Driver protection and fleet management services
                 </li>
               </ul>
             </div>
             <div>
-              <h3 className="text-xl font-semibold text-gray-900">Key Benefits</h3>
-              <div className="mt-3 space-y-3">
-                <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
-                  <FaRupeeSign className="text-blue-500" />
+              <h3 className="text-2xl font-semibold text-gray-900">Key Coverage Areas</h3>
+              <div className="mt-8 space-y-7">
+                <div className="flex items-center gap-5 rounded-lg border border-gray-200 p-3">
+                  <FaTruck className="text-blue-500" />
                   <div>
-                    <div className="font-medium">Cost Efficiency</div>
-                    <div className="text-sm text-gray-600">
-                      Volume discounts and reduced administrative costs
+                    <div className="text-lg font-medium">Commercial Vehicles</div>
+                    <div className="text-base text-gray-600">
+                      Trucks, delivery vans, and specialized transport vehicles
                     </div>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
-                  <FaRoute className="text-blue-500" />
+                <div className="flex items-center gap-5 rounded-lg border border-gray-200 p-3">
+                  <FaCar className="text-blue-500" />
                   <div>
-                    <div className="font-medium">Fleet Management</div>
-                    <div className="text-sm text-gray-600">
-                      Centralized policy management and reporting
+                    <div className="text-lg font-medium">Corporate Car Fleets</div>
+                    <div className="text-base text-gray-600">
+                      Company cars, executive vehicles, and employee transport
                     </div>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
-                  <FaUserShield className="text-blue-500" />
+                <div className="flex items-center gap-5 rounded-lg border border-gray-200 p-3">
+                  <FaBus className="text-blue-500" />
                   <div>
-                    <div className="font-medium">Comprehensive Protection</div>
-                    <div className="text-sm text-gray-600">
-                      Complete coverage for all fleet vehicles
+                    <div className="text-lg font-medium">Passenger Transport</div>
+                    <div className="text-base text-gray-600">
+                      Buses, shuttles, and passenger service vehicles
                     </div>
                   </div>
                 </div>
@@ -508,9 +522,13 @@ const MotorFleetInsurancePage = () => {
 
           {/* Contact strip */}
           <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
-            <Contact label="Call" value="1800 210 2022" icon={<FaPhoneAlt />} />
-            <Contact label="Email" value="contact.ins@shareindia.co.in" icon={<FaEnvelope />} />
-            <Contact
+            <ContactComponent label="Call" value="1800 210 2022" icon={<FaPhoneAlt />} />
+            <ContactComponent
+              label="Email"
+              value="contact.ins@shareindia.co.in"
+              icon={<FaEnvelope />}
+            />
+            <ContactComponent
               label="Advisory Desk"
               value="Fleet Insurance Specialists"
               icon={<FaHeadset />}

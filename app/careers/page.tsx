@@ -108,9 +108,9 @@ const CareersPage = () => {
   const locations = [...new Set(jobOpenings.map((job) => job.location))];
 
   return (
-    <div className="min-h-screen bg-white pt-[8vh]">
+    <div className="from-si-primary-50 to-si-primary-200 min-h-screen bg-gradient-to-b pt-[8vh]">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
+      {/* <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
@@ -144,10 +144,10 @@ const CareersPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Why Join SIIB */}
-      <section className="py-16">
+      {/* <section className="py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-3xl font-bold text-gray-900 md:text-4xl">Why Choose SIIB?</h2>
@@ -199,10 +199,10 @@ const CareersPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Benefits & Perks */}
-      <section className="bg-gray-50 py-16">
+      {/* <section className="bg-gray-50 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-3xl font-bold text-gray-900 md:text-4xl">Benefits & Perks</h2>
@@ -261,7 +261,7 @@ const CareersPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Job Openings */}
       <section className="py-16">
@@ -381,7 +381,7 @@ const CareersPage = () => {
       </section>
 
       {/* Application Process */}
-      <section className="bg-blue-600 py-16 text-white">
+      {/* <section className="bg-blue-600 py-16 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-3xl font-bold md:text-4xl">Our Hiring Process</h2>
@@ -424,10 +424,10 @@ const CareersPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
-      <section className="py-16">
+      {/* <section className="py-16">
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 md:text-4xl">
             Ready to Start Your Journey?
@@ -445,7 +445,7 @@ const CareersPage = () => {
             </button>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

@@ -55,7 +55,7 @@ export default function InsightsPage() {
   };
 
   return (
-    <div className="section-vibrant-blue w-screen px-2 py-5 pt-[10vh] sm:px-4 md:px-6 lg:px-8 lg:pt-[15vh]">
+    <div className="section-vibrant-blue from-si-primary-200 w-screen bg-gradient-to-b to-transparent px-2 py-5 pt-[10vh] sm:px-4 md:px-6 lg:px-8 lg:pt-[15vh]">
       <div className="bg-pattern-dots absolute inset-0 opacity-20" />
       <div className="relative flex flex-col gap-10 lg:flex-row lg:justify-between lg:gap-20">
         {/* Heading/Intro */}
@@ -73,7 +73,7 @@ export default function InsightsPage() {
             landscape.
           </p>
         </div>
-        <div className="lg:w-[64vw]">
+        <div className="mt-16 lg:w-[64vw]">
           <MainCaraousel color="blue" layout={1} featured={true} />
         </div>
       </div>
@@ -84,7 +84,7 @@ export default function InsightsPage() {
       </div>
 
       {/* Results Section */}
-      <div className="section-spot-alt relative mx-auto max-w-7xl rounded-2xl px-4 py-10 sm:px-6 lg:px-8">
+      <div className="to-si-primary-100 section-spot-alt relative mx-auto max-w-7xl rounded-2xl bg-gradient-to-b from-white px-4 py-10 sm:px-6 lg:px-8">
         <div className="bg-pattern-grid absolute inset-0 rounded-2xl opacity-15" />
         {/* Results Counter */}
         <div className="relative mb-6">

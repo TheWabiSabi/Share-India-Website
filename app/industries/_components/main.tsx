@@ -63,7 +63,7 @@ const IndustryPage = ({ details }: { details: InfrastructureInsuranceDetails }) 
       </section>
 
       {/* Industry Explanation */}
-      <section className="w-full border-b border-gray-100 bg-white lg:min-h-screen">
+      <section className="from-si-primary-200 w-full border-b border-gray-100 bg-gradient-to-b to-transparent lg:h-screen">
         <div className="mx-auto max-w-[90vw] px-4 py-[10vh] sm:px-6 lg:max-w-[75vw] lg:px-8 lg:pt-[20vh]">
           <h2 className="text-3xl font-bold md:text-4xl">{details.explaination.title}</h2>
           <p className="mt-[9vh] text-lg text-gray-700">{details.explaination.description}</p>
@@ -105,7 +105,7 @@ const IndustryPage = ({ details }: { details: InfrastructureInsuranceDetails }) 
       </section>
 
       {/* Core coverage suite */}
-      <section className="w-full border-b border-gray-100 bg-white lg:min-h-screen">
+      <section className="to-si-primary-200 mt-20 w-full border-b border-gray-100 bg-gradient-to-b from-transparent lg:h-screen">
         <div className="mx-auto max-w-[90vw] px-4 py-[7vh] sm:px-6 lg:max-w-[75vw] lg:px-8 lg:pt-[10vh]">
           <h2 className="text-3xl font-bold md:text-4xl">Core Coverage Suite</h2>
           <p className="mt-14 text-lg text-gray-700">{details.coverage.desciption}</p>
@@ -125,8 +125,8 @@ const IndustryPage = ({ details }: { details: InfrastructureInsuranceDetails }) 
       </section>
 
       {/* Claim Stories */}
-      <section className="w-full border-b border-gray-100 bg-gray-50">
-        <div className="mx-auto max-w-[90vw] px-4 py-14 sm:px-6 lg:max-w-[75vw] lg:px-8">
+      <section className="to-si-primary-200 w-full border-b border-gray-100 bg-gradient-to-t from-transparent py-10">
+        <div className="mx-auto max-w-[90vw] px-4 py-14 sm:px-6 lg:max-w-[80vw] lg:px-8">
           <h2 className="text-2xl font-bold md:text-3xl">Claim Stories</h2>
           <p className="mt-3 text-gray-700">{details.claim_story.description}</p>
           <div className="pt-6 lg:w-[65vw]">
@@ -141,7 +141,7 @@ const IndustryPage = ({ details }: { details: InfrastructureInsuranceDetails }) 
       </section>
 
       {/* Relevant Articles Component */}
-      <section className="w-full border-b border-gray-100 bg-gray-50">
+      <section className="to-si-primary-200 w-full border-b border-gray-100 bg-gradient-to-b from-transparent">
         <div className="mx-auto max-w-[90vw] px-4 py-14 sm:px-6 lg:max-w-[75vw] lg:px-8">
           <h2 className="text-2xl font-bold md:text-3xl">Industry Insights & Articles</h2>
           <p className="mt-3 text-gray-700">
@@ -160,7 +160,7 @@ const IndustryPage = ({ details }: { details: InfrastructureInsuranceDetails }) 
       />
 
       {/* What you receive & CTA */}
-      <section className="w-full bg-white">
+      <section className="to-si-primary-200 w-full bg-gradient-to-b from-transparent">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="rounded-2xl border border-blue-200 bg-blue-50 p-8">
             <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-3">

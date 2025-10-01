@@ -117,7 +117,17 @@ export default function Header() {
       })),
     },
     { title: 'Insights', href: '/insights' },
-    { title: 'About', href: '/about' },
+    {
+      title: 'About',
+      href: '/about',
+      children: [
+        { label: 'Our Story', href: '/about#our-story' },
+        { label: 'Leadership', href: '/about#leadership' },
+        { label: 'Our Team', href: '/about#our-team' },
+        { label: 'Awards & Recognition', href: '/about#awards-recognition' },
+        { label: 'Testimonials', href: '/about#testimonials' },
+      ],
+    },
   ];
 
   const secondaryLinks = [
@@ -156,17 +166,22 @@ export default function Header() {
   return (
     <header
       className={[
-        'fixed inset-x-0 top-0 z-50 border-b border-slate-100 bg-white font-sans shadow-sm',
+        'bg-si-primary-50 fixed inset-x-0 top-0 z-50 border-b border-slate-100 font-sans shadow-sm',
         'transition-all duration-300 will-change-transform',
         visible ? 'translate-y-0 opacity-100' : 'pointer-events-none -translate-y-4 opacity-0',
       ].join(' ')}
     >
       {/* DESKTOP NAVBAR */}
-      <div className="hidden w-full items-center justify-between px-15 py-4 lg:flex">
+      <div className="relative hidden w-full items-center justify-between px-10 py-4 lg:flex">
         {/* Left: Logo + Primary */}
         <div className="flex items-center gap-8">
-          <Link href="/" className="relative h-10 w-36" aria-label="Share India Insurance - Home">
-            <Image src="/logo.png" alt="Logo" fill className="object-contain" />
+          <Link href="/" className="relative h-14 w-36" aria-label="Share India Insurance - Home">
+            <Image
+              src="/share-india-transparent_header.png"
+              alt="Logo"
+              fill
+              className="object-contain"
+            />
           </Link>
 
           <nav className="flex items-center gap-6 text-[16px] font-semibold">

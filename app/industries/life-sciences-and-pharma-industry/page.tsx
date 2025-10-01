@@ -1,24 +1,22 @@
 'use client';
 import React from 'react';
+import Image from 'next/image';
 import {
   FaChevronRight,
   FaShieldAlt,
   FaPills,
   FaFlask,
   FaMicroscope,
-  FaTruckMoving,
-  FaUserShield,
   FaFileContract,
   FaPhoneAlt,
   FaEnvelope,
   FaHeadset,
-  FaTools,
-  FaLock,
-  FaCheckCircle,
-  FaRupeeSign,
-  FaCertificate,
   FaVial,
-  FaHeartbeat,
+  FaUserShield,
+  FaTools,
+  FaCertificate,
+  FaRupeeSign,
+  FaCheckCircle,
 } from 'react-icons/fa';
 import ClaimStories from '../_components/ClaimStories';
 import KnowledgeQuestionnaire from '../_components/KnowledgeQuestionnaire';
@@ -161,66 +159,78 @@ const PharmaInsurancePage = () => {
   return (
     <div className="min-h-screen bg-white pt-[8vh] text-gray-900">
       {/* Hero */}
-      <section className="w-full border-b border-gray-100">
-        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-          <div className="max-w-4xl">
-            <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl">
-              Life Sciences & Pharma Insurance Solutions
-            </h1>
-            <p className="mt-6 text-lg text-gray-700 md:text-xl">
-              Comprehensive coverage for pharmaceutical manufacturing, biotechnology, medical
-              devices, and clinical research—protecting innovation in healthcare.
-            </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <button className="inline-flex items-center justify-center rounded-lg bg-blue-100 px-6 py-3 font-semibold text-blue-800 hover:bg-blue-200">
-                <FaShieldAlt className="mr-2" />
-                Get Coverage Proposal
-              </button>
-              <button className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-6 py-3 font-semibold hover:bg-gray-50">
-                <FaFileContract className="mr-2" />
-                Book Risk Assessment
-              </button>
-              <button className="inline-flex items-center justify-center rounded-lg border border-blue-200 px-6 py-3 font-semibold text-blue-700 hover:bg-blue-50">
-                <FaPhoneAlt className="mr-2" />
-                Speak to Specialist
-              </button>
-            </div>
-            <div className="mt-4 text-sm text-gray-600">
-              Specialized coverage for GMP facilities, clinical trials, and regulatory compliance
-              with product recall protection.
+      <section className="relative min-h-screen w-full">
+        {/* Background image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://minio-api.internal.wabisabitech.in/share-india/blog/construction.jpg"
+            alt="Life sciences and pharma background"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw 100vh"
+          />
+          {/* Gradient + subtle blur overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/50 to-slate-900/30 backdrop-blur-sm" />
+        </div>
+
+        <div className="relative w-full pt-[15vh] md:pt-[30vh]">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl text-white">
+              <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl">
+                Life Sciences & Pharma Insurance Solutions
+              </h1>
+              <p className="mt-6 text-lg text-gray-100/90 md:text-xl">
+                Comprehensive coverage for pharmaceutical manufacturing, biotechnology, medical
+                devices, and clinical research—protecting innovation in healthcare.
+              </p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <button className="inline-flex items-center justify-center rounded-lg bg-blue-100 px-6 py-3 font-semibold text-blue-800 hover:bg-blue-200">
+                  <FaShieldAlt className="mr-2" />
+                  Get Coverage Proposal
+                </button>
+                <button className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-6 py-3 font-semibold hover:bg-gray-50">
+                  <FaFileContract className="mr-2" />
+                  Book Risk Assessment
+                </button>
+              </div>
+              <div className="mt-4 text-sm text-gray-100">
+                Specialized coverage for GMP facilities, clinical trials, and regulatory compliance
+                with product recall protection.
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Industry Explanation */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">
+      <section className="from-si-primary-200 w-full border-b border-gray-100 bg-gradient-to-b to-transparent lg:h-screen">
+        <div className="mx-auto max-w-[90vw] px-4 py-[10vh] sm:px-6 lg:max-w-[75vw] lg:px-8 lg:pt-[20vh]">
+          <h2 className="text-3xl font-bold md:text-4xl">
             Understanding Life Sciences & Pharma Insurance
           </h2>
-          <p className="mt-3 text-gray-700">
+          <p className="mt-[9vh] text-lg text-gray-700">
             The life sciences and pharmaceutical industry is highly regulated and involves
             significant risks related to product safety, clinical research, and regulatory
             compliance. Insurance plays a critical role in protecting companies and patients.
           </p>
 
-          <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2">
+          <div className="mt-[10vh] grid grid-cols-1 gap-8 lg:grid-cols-2">
             <div>
-              <h3 className="text-xl font-semibold text-gray-900">Industry Overview</h3>
-              <p className="mt-3 text-gray-700">
+              <h3 className="text-2xl font-semibold text-gray-900">Industry Overview</h3>
+              <p className="mt-8 text-lg text-gray-700">
                 Life sciences companies develop and manufacture products that directly impact human
                 health, from pharmaceuticals and biologics to medical devices and diagnostics. This
                 industry faces unique risks including product liability, clinical trial risks,
                 regulatory compliance challenges, and supply chain vulnerabilities. Comprehensive
                 insurance coverage is essential for business continuity and patient safety.
               </p>
-              <ul className="mt-4 space-y-2 text-sm text-gray-700">
-                <li className="flex items-start">
+              <ul className="mt-7 space-y-2 text-base text-gray-700">
+                <li className="mb-6 flex items-start">
                   <FaChevronRight className="mt-1 mr-2 text-blue-400" />
                   Highly regulated environment with strict compliance requirements
                 </li>
-                <li className="flex items-start">
+                <li className="mb-6 flex items-start">
                   <FaChevronRight className="mt-1 mr-2 text-blue-400" />
                   Product liability risks affecting patient safety and company reputation
                 </li>
@@ -231,29 +241,33 @@ const PharmaInsurancePage = () => {
               </ul>
             </div>
             <div>
-              <h3 className="text-xl font-semibold text-gray-900">Key Segments</h3>
-              <div className="mt-3 space-y-3">
-                <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
+              <h3 className="text-2xl font-semibold text-gray-900">Key Segments</h3>
+              <div className="mt-8 space-y-7">
+                <div className="flex items-center gap-5 rounded-lg border border-gray-200 p-3">
                   <FaPills className="text-blue-500" />
                   <div>
-                    <div className="font-medium">Pharmaceutical Manufacturing</div>
-                    <div className="text-sm text-gray-600">Generic and branded drug production</div>
+                    <div className="text-lg font-medium">Pharmaceutical Manufacturing</div>
+                    <div className="text-base text-gray-600">
+                      Generic and branded drug production
+                    </div>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
+                <div className="flex items-center gap-5 rounded-lg border border-gray-200 p-3">
                   <FaVial className="text-blue-500" />
                   <div>
-                    <div className="font-medium">Biotechnology</div>
-                    <div className="text-sm text-gray-600">
+                    <div className="text-lg font-medium">Biotechnology</div>
+                    <div className="text-base text-gray-600">
                       Biologics, vaccines, and gene therapy
                     </div>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
-                  <FaHeartbeat className="text-blue-500" />
+                <div className="flex items-center gap-5 rounded-lg border border-gray-200 p-3">
+                  <FaMicroscope className="text-blue-500" />
                   <div>
-                    <div className="font-medium">Medical Devices</div>
-                    <div className="text-sm text-gray-600">Diagnostic and therapeutic devices</div>
+                    <div className="text-lg font-medium">Medical Devices</div>
+                    <div className="text-base text-gray-600">
+                      Diagnostic and therapeutic devices
+                    </div>
                   </div>
                 </div>
               </div>
@@ -263,7 +277,7 @@ const PharmaInsurancePage = () => {
       </section>
 
       {/* Who we serve */}
-      <section className="w-full border-b border-gray-100 bg-white">
+      {/* <section className="w-full border-b border-gray-100 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold md:text-3xl">Who We Serve</h2>
           <p className="mt-3 text-gray-700">
@@ -286,10 +300,10 @@ const PharmaInsurancePage = () => {
             </Tile>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Sample Risks */}
-      <section className="w-full border-b border-gray-100 bg-gray-50">
+      {/* <section className="w-full border-b border-gray-100 bg-gray-50">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold md:text-3xl">Common Risks in Life Sciences & Pharma</h2>
           <p className="mt-3 text-gray-700">

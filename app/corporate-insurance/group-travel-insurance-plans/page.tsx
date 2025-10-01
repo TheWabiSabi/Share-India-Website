@@ -1,5 +1,6 @@
-'use client';
+// 'use client';
 import React from 'react';
+import Image from 'next/image';
 import {
   FaChevronRight,
   FaShieldAlt,
@@ -10,17 +11,15 @@ import {
   FaPhoneAlt,
   FaEnvelope,
   FaHeadset,
-  FaLock,
-  FaExclamationTriangle,
-  FaCheckCircle,
-  FaRupeeSign,
-  FaCertificate,
   FaHospital,
-  FaPassport,
+  FaLock,
 } from 'react-icons/fa';
-import ClaimStories from '../../industries/_components/ClaimStories';
+import ContactComponent from '@/app/industries/_components/Contact';
+import CardComponent from '@/app/industries/_components/Card';
+// import ClaimStories from '../../industries/_components/ClaimStories';
 import KnowledgeQuestionnaire from '../../industries/_components/KnowledgeQuestionnaire';
 import MainCaraousel from '@/components/main-caraousel';
+// import ClaimStories from '@/app/industries/_components/ClaimStories';
 const GroupTravelInsurancePage = () => {
   // Sample data for components
   const claimStories = [
@@ -161,62 +160,75 @@ const GroupTravelInsurancePage = () => {
   return (
     <div className="min-h-screen bg-white pt-[8vh] text-gray-900">
       {/* Hero */}
-      <section className="w-full border-b border-gray-100">
-        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-          <div className="max-w-4xl">
-            <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl">
-              Group Travel Insurance Plans
-            </h1>
-            <p className="mt-6 text-lg text-gray-700 md:text-xl">
-              Comprehensive protection for corporate travel and group trips—covering medical
-              emergencies, trip cancellation, and travel-related risks worldwide.
-            </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <button className="inline-flex items-center justify-center rounded-lg bg-blue-100 px-6 py-3 font-semibold text-blue-800 hover:bg-blue-200">
-                <FaShieldAlt className="mr-2" />
-                Get Travel Quote
-              </button>
-              <button className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-6 py-3 font-semibold hover:bg-gray-50">
-                <FaFileContract className="mr-2" />
-                Travel Assessment
-              </button>
-              <button className="inline-flex items-center justify-center rounded-lg border border-blue-200 px-6 py-3 font-semibold text-blue-700 hover:bg-blue-50">
-                <FaPhoneAlt className="mr-2" />
-                Speak to Expert
-              </button>
-            </div>
-            <div className="mt-4 text-sm text-gray-600">
-              Specialized coverage for corporate travel, business trips, and group travel programs.
+      <section className="relative min-h-screen w-full">
+        {/* Background image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://minio-api.internal.wabisabitech.in/share-india/blog/highrise.jpg"
+            alt="Group travel background"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw 100vh"
+          />
+          {/* Gradient + subtle blur overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/50 to-slate-900/30 backdrop-blur-sm" />
+        </div>
+
+        <div className="relative w-full pt-[15vh] md:pt-[30vh]">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl text-white">
+              <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl">
+                Group Travel Insurance Plans
+              </h1>
+              <p className="mt-6 text-lg text-gray-100/90 md:text-xl">
+                Comprehensive protection for corporate travel and group trips—covering medical
+                emergencies, trip cancellation, and travel-related risks worldwide.
+              </p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <button className="inline-flex items-center justify-center rounded-lg bg-blue-100 px-6 py-3 font-semibold text-blue-800 hover:bg-blue-200">
+                  <FaShieldAlt className="mr-2" />
+                  Get Coverage Proposal
+                </button>
+                <button className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-6 py-3 font-semibold hover:bg-gray-50">
+                  <FaFileContract className="mr-2" />
+                  Book Risk Assessment
+                </button>
+              </div>
+              <div className="mt-4 text-sm text-gray-100">
+                Specialized coverage for corporate travel, business trips, and group travel
+                programs.
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Insurance Explanation */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Understanding Group Travel Insurance</h2>
-          <p className="mt-3 text-gray-700">
+      <section className="from-si-primary-200 w-full border-b border-gray-100 bg-gradient-to-b to-transparent lg:h-screen">
+        <div className="mx-auto max-w-[90vw] px-4 py-[10vh] sm:px-6 lg:max-w-[75vw] lg:px-8 lg:pt-[20vh]">
+          <h2 className="text-3xl font-bold md:text-4xl">Understanding Group Travel Insurance</h2>
+          <p className="mt-[9vh] text-lg text-gray-700">
             Group Travel Insurance provides comprehensive protection for corporate travelers and
             group trips, covering medical emergencies, trip disruptions, and travel-related risks.
           </p>
 
-          <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2">
+          <div className="mt-[10vh] grid grid-cols-1 gap-8 lg:grid-cols-2">
             <div>
-              <h3 className="text-xl font-semibold text-gray-900">Coverage Overview</h3>
-              <p className="mt-3 text-gray-700">
+              <h3 className="text-2xl font-semibold text-gray-900">Coverage Overview</h3>
+              <p className="mt-8 text-lg text-gray-700">
                 This insurance covers multiple travelers under a single policy, providing medical
                 coverage, trip cancellation, baggage protection, and emergency assistance. Its
                 designed for companies with traveling employees, group tours, and corporate events,
                 offering cost-effective protection and simplified administration for multiple
                 travelers.
               </p>
-              <ul className="mt-4 space-y-2 text-sm text-gray-700">
-                <li className="flex items-start">
+              <ul className="mt-7 space-y-2 text-base text-gray-700">
+                <li className="mb-6 flex items-start">
                   <FaChevronRight className="mt-1 mr-2 text-blue-400" />
                   Comprehensive medical coverage worldwide
                 </li>
-                <li className="flex items-start">
+                <li className="mb-6 flex items-start">
                   <FaChevronRight className="mt-1 mr-2 text-blue-400" />
                   Trip cancellation and interruption protection
                 </li>
@@ -227,31 +239,33 @@ const GroupTravelInsurancePage = () => {
               </ul>
             </div>
             <div>
-              <h3 className="text-xl font-semibold text-gray-900">Key Benefits</h3>
-              <div className="mt-3 space-y-3">
-                <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
+              <h3 className="text-2xl font-semibold text-gray-900">Key Coverage Areas</h3>
+              <div className="mt-8 space-y-7">
+                <div className="flex items-center gap-5 rounded-lg border border-gray-200 p-3">
                   <FaUsers className="text-blue-500" />
                   <div>
-                    <div className="font-medium">Group Coverage</div>
-                    <div className="text-sm text-gray-600">
-                      Single policy for multiple travelers
+                    <div className="text-lg font-medium">Corporate Travelers</div>
+                    <div className="text-base text-gray-600">
+                      Companies with employees traveling for business
                     </div>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
+                <div className="flex items-center gap-5 rounded-lg border border-gray-200 p-3">
+                  <FaPlane className="text-blue-500" />
+                  <div>
+                    <div className="text-lg font-medium">Group Tours</div>
+                    <div className="text-base text-gray-600">
+                      Tour operators and organized group travel programs
+                    </div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-5 rounded-lg border border-gray-200 p-3">
                   <FaGlobe className="text-blue-500" />
                   <div>
-                    <div className="font-medium">Worldwide Protection</div>
-                    <div className="text-sm text-gray-600">
-                      Global coverage for international travel
+                    <div className="text-lg font-medium">International Assignments</div>
+                    <div className="text-base text-gray-600">
+                      Employees on international projects and assignments
                     </div>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
-                  <FaHospital className="text-blue-500" />
-                  <div>
-                    <div className="font-medium">Emergency Support</div>
-                    <div className="text-sm text-gray-600">24/7 assistance and medical support</div>
                   </div>
                 </div>
               </div>
@@ -260,102 +274,18 @@ const GroupTravelInsurancePage = () => {
         </div>
       </section>
 
-      {/* Who we serve */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Who We Serve</h2>
-          <p className="mt-3 text-gray-700">
-            Comprehensive group travel insurance solutions for organizations and groups with travel
-            requirements.
-          </p>
-
-          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <Tile icon={<FaUsers />} title="Corporate Travelers">
-              Companies with employees traveling for business, conferences, and client meetings.
-            </Tile>
-            <Tile icon={<FaPlane />} title="Group Tours">
-              Tour operators, travel agencies, and organized group travel programs.
-            </Tile>
-            <Tile icon={<FaGlobe />} title="International Assignments">
-              Companies with employees on international assignments and projects.
-            </Tile>
-            <Tile icon={<FaPassport />} title="Educational Groups">
-              Schools, universities, and educational institutions organizing group trips.
-            </Tile>
-          </div>
-        </div>
-      </section>
-      {/* Sample Risks */}
-      <section className="w-full border-b border-gray-100 bg-gray-50">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Common Travel Insurance Risks</h2>
-          <p className="mt-3 text-gray-700">
-            Understanding key travel risks helps in selecting appropriate insurance coverage for
-            your group travel programs.
-          </p>
-
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <RiskCard
-              icon={<FaHospital />}
-              title="Medical Emergencies"
-              description="Illness, accidents, and medical conditions requiring treatment abroad."
-              severity="High"
-              frequency="Medium"
-            />
-            <RiskCard
-              icon={<FaExclamationTriangle />}
-              title="Trip Cancellation"
-              description="Trip cancellation due to illness, natural disasters, or other covered reasons."
-              severity="Medium"
-              frequency="Medium"
-            />
-            <RiskCard
-              icon={<FaPlane />}
-              title="Flight Delays & Missed Connections"
-              description="Travel delays causing additional expenses and missed business opportunities."
-              severity="Medium"
-              frequency="High"
-            />
-            <RiskCard
-              icon={<FaLock />}
-              title="Baggage Loss & Theft"
-              description="Lost, stolen, or damaged baggage and personal belongings during travel."
-              severity="Medium"
-              frequency="Medium"
-            />
-            <RiskCard
-              icon={<FaGlobe />}
-              title="Political & Security Risks"
-              description="Political unrest, terrorism, or security issues affecting travel destinations."
-              severity="High"
-              frequency="Low"
-            />
-            <RiskCard
-              icon={<FaPassport />}
-              title="Travel Document Issues"
-              description="Lost passports, visa problems, and travel document emergencies."
-              severity="Medium"
-              frequency="Low"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Claim Stories Component */}
-      <ClaimStories stories={claimStories} industryName="Group Travel Insurance" />
-
       {/* Core coverage suite */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Core Coverage Options</h2>
-          <p className="mt-3 text-gray-700">
+      <section className="to-si-primary-200 mt-20 w-full border-b border-gray-100 bg-gradient-to-b from-transparent lg:h-screen">
+        <div className="mx-auto max-w-[90vw] px-4 py-[7vh] sm:px-6 lg:max-w-[75vw] lg:px-8 lg:pt-[10vh]">
+          <h2 className="text-3xl font-bold md:text-4xl">Core Coverage Suite</h2>
+          <p className="mt-2 text-lg text-gray-700">
             Comprehensive travel protection designed for different types of group travel and
             business requirements.
           </p>
 
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
-            <Card
-              icon={<FaHospital className="text-2xl text-blue-500" />}
+          <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
+            <CardComponent
+              icon={<FaHospital className="text-3xl text-blue-500" />}
               title="Medical & Emergency Coverage"
               body="Comprehensive medical protection and emergency assistance worldwide."
               bullets={[
@@ -364,8 +294,8 @@ const GroupTravelInsurancePage = () => {
                 '24/7 emergency assistance hotline',
               ]}
             />
-            <Card
-              icon={<FaPlane className="text-2xl text-blue-500" />}
+            <CardComponent
+              icon={<FaPlane className="text-3xl text-blue-500" />}
               title="Trip Protection Coverage"
               body="Protection against trip cancellation, interruption, and delays."
               bullets={[
@@ -376,9 +306,9 @@ const GroupTravelInsurancePage = () => {
             />
           </div>
 
-          <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
-            <Card
-              icon={<FaLock className="text-2xl text-blue-500" />}
+          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
+            <CardComponent
+              icon={<FaLock className="text-3xl text-blue-500" />}
               title="Baggage & Personal Effects"
               body="Protection for luggage, personal belongings, and business equipment."
               bullets={[
@@ -387,8 +317,8 @@ const GroupTravelInsurancePage = () => {
                 'Emergency purchase of essential items',
               ]}
             />
-            <Card
-              icon={<FaUsers className="text-2xl text-blue-500" />}
+            <CardComponent
+              icon={<FaUsers className="text-3xl text-blue-500" />}
               title="Group-Specific Benefits"
               body="Additional benefits designed for group travel and corporate programs."
               bullets={[
@@ -401,68 +331,31 @@ const GroupTravelInsurancePage = () => {
         </div>
       </section>
 
-      {/* Insurance Plans/Products */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Group Travel Insurance Plans</h2>
+      {/* Claim Stories */}
+      <section className="to-si-primary-200 w-full border-b border-gray-100 bg-gradient-to-t from-transparent py-10">
+        <div className="mx-auto max-w-[90vw] px-4 py-14 sm:px-6 lg:max-w-[80vw] lg:px-8">
+          <h2 className="text-2xl font-bold md:text-3xl">Claim Stories</h2>
           <p className="mt-3 text-gray-700">
-            Flexible travel insurance solutions designed for different group sizes and travel
-            requirements.
+            Stay updated with how SIIB helped group travel clients with medical emergencies, trip
+            cancellations, and travel-related incidents worldwide.
           </p>
-
-          <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
-            <InsurancePlan
-              name="Domestic Group Plan"
-              description="Essential coverage for domestic business travel and group trips"
-              price="₹500 - ₹2K"
-              features={[
-                'Medical Coverage (₹5L)',
-                'Trip Cancellation (₹50K)',
-                'Baggage Protection (₹25K)',
-                'Personal Accident (₹10L)',
-                'Domestic Coverage Only',
-              ]}
-              recommended={false}
-            />
-            <InsurancePlan
-              name="International Business Plan"
-              description="Comprehensive coverage for international business travel"
-              price="₹2K - ₹10K"
-              features={[
-                'All Domestic Plan Benefits',
-                'Enhanced Medical Coverage (₹50L)',
-                'Emergency Evacuation',
-                'Worldwide Coverage',
-                'Business Equipment Protection',
-                '24/7 Assistance Hotline',
-              ]}
-              recommended={true}
-            />
-            <InsurancePlan
-              name="Premium Corporate Plan"
-              description="Advanced protection for high-risk destinations and executive travel"
-              price="₹10K+"
-              features={[
-                'All International Plan Benefits',
-                'High-Risk Destination Coverage',
-                'Kidnap & Ransom Protection',
-                'Political Risk Coverage',
-                'Concierge Services',
-                'Dedicated Travel Risk Manager',
-              ]}
-              recommended={false}
+          <div className="pt-6 lg:w-[75vw]">
+            <MainCaraousel
+              color="blue"
+              layout={1}
+              topic="group_travel_insurance"
+              type="claims_story"
             />
           </div>
         </div>
       </section>
 
       {/* Relevant Articles Component */}
-      {/* <RelevantArticles articles={articles} industryName="Group Travel Insurance" /> */}
-      <section className="w-full border-b border-gray-100 bg-gray-50">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+      <section className="to-si-primary-200 w-full border-b border-gray-100 bg-gradient-to-b from-transparent">
+        <div className="mx-auto max-w-[90vw] px-4 py-14 sm:px-6 lg:max-w-[75vw] lg:px-8">
           <h2 className="text-2xl font-bold md:text-3xl">Industry Insights & Articles</h2>
           <p className="mt-3 text-gray-700">
-            Stay updated with the latest trends, regulations, and best practices in Plastic Industry
+            Stay updated with the latest trends, regulations, and best practices in Group Travel
             insurance.
           </p>
           <div className="w-full pt-6">
@@ -475,7 +368,7 @@ const GroupTravelInsurancePage = () => {
       <KnowledgeQuestionnaire questions={quizQuestions} industryName="Group Travel Insurance" />
 
       {/* What you receive & CTA */}
-      <section className="w-full bg-white">
+      <section className="to-si-primary-200 w-full bg-gradient-to-b from-transparent">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="rounded-2xl border border-blue-200 bg-blue-50 p-8">
             <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-3">
@@ -484,18 +377,18 @@ const GroupTravelInsurancePage = () => {
                   Enabling Safe Travel. Protecting Every Journey.
                 </h3>
                 <p className="mt-2 text-gray-700">
-                  Partner with SIIBs travel insurance specialists for comprehensive coverage, global
-                  support, and expert travel risk management.
+                  Partner with SIIB&#39;s travel insurance specialists for comprehensive coverage,
+                  global support, and expert travel risk management.
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row">
                 <button className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-700">
                   <FaShieldAlt className="mr-2" />
-                  Get Quote
+                  Request Proposal
                 </button>
                 <button className="inline-flex items-center justify-center rounded-lg border border-blue-200 bg-white px-6 py-3 font-semibold text-blue-700 hover:bg-blue-100">
                   <FaFileContract className="mr-2" />
-                  Travel Assessment
+                  Upload Travel Data
                 </button>
               </div>
             </div>
@@ -503,9 +396,13 @@ const GroupTravelInsurancePage = () => {
 
           {/* Contact strip */}
           <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
-            <Contact label="Call" value="1800 210 2022" icon={<FaPhoneAlt />} />
-            <Contact label="Email" value="contact.ins@shareindia.co.in" icon={<FaEnvelope />} />
-            <Contact
+            <ContactComponent label="Call" value="1800 210 2022" icon={<FaPhoneAlt />} />
+            <ContactComponent
+              label="Email"
+              value="contact.ins@shareindia.co.in"
+              icon={<FaEnvelope />}
+            />
+            <ContactComponent
               label="Advisory Desk"
               value="Travel Insurance Specialists"
               icon={<FaHeadset />}
@@ -516,8 +413,8 @@ const GroupTravelInsurancePage = () => {
     </div>
   );
 };
-/* Helpers - Same as previous pages */
-const Tile = ({
+/* Helpers - Commented out as we now use imported components */
+/* const Tile = ({
   icon,
   title,
   children,
@@ -682,6 +579,6 @@ const Contact = ({
     </div>
     <div className="text-xl text-blue-600">{icon}</div>
   </div>
-);
+); */
 
 export default GroupTravelInsurancePage;
