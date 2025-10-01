@@ -4,7 +4,7 @@ export default function ConnectCTASection() {
   return (
     <section className="from-si-primary-200 to-si-red-100 bg-gradient-to-b py-20 md:py-28">
       <div className="mx-auto max-w-5xl px-6 text-center sm:px-8 md:px-12">
-        <h3 className="text-3xl font-semibold sm:text-4xl">Let's Connect</h3>
+        <h3 className="text-3xl font-semibold sm:text-4xl">Let&apos;s Connect</h3>
         <p className="text-si-dark/80 mx-auto mt-4 max-w-2xl text-base sm:text-lg">
           Ready to take the next step? Our team of experts is here to help you navigate your journey
           with confidence.

@@ -1,19 +1,11 @@
 import React from 'react';
-import Image from 'next/image';
 import {
-  FaUsers,
-  FaRocket,
-  FaHeart,
   FaGraduationCap,
   FaMapMarkerAlt,
   FaClock,
   FaRupeeSign,
   FaSearch,
   FaChevronRight,
-  FaStar,
-  FaAward,
-  FaHandshake,
-  FaLightbulb,
 } from 'react-icons/fa';
 
 const CareersPage = () => {

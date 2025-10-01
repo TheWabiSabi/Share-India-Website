@@ -93,10 +93,10 @@ export default function AboutPage() {
                 sometimes without all the necessary facts — and almost always at speed.
               </p>
               <p className="mt-6 text-lg text-gray-700">
-                At Share India, we've been on a decade-plus journey to connect our industry
-                expertise, so we can address our clients' top priorities more effectively. Through
-                our teams across insurance brokerage, risk management, and claims advocacy, our
-                clients are better protected within, and across, their business strategies.
+                At Share India, we&apos;ve been on a decade-plus journey to connect our industry
+                expertise, so we can address our clients&apos; top priorities more effectively.
+                Through our teams across insurance brokerage, risk management, and claims advocacy,
+                our clients are better protected within, and across, their business strategies.
               </p>
             </div>
             <div>
@@ -240,8 +240,8 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold md:text-4xl">Awards & Recognition</h2>
           <p className="mt-3 text-gray-700">
-            Celebrated for excellence, trusted by clients. Here's what the industry recognizes about
-            our commitment to service.
+            Celebrated for excellence, trusted by clients. Here&apos;s what the industry recognizes
+            about our commitment to service.
           </p>
 
           <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -466,7 +466,7 @@ const TeamCard = ({ member }: { member: { name: string; role: string; color: str
 const AwardCard = ({
   award,
 }: {
-  award: { year: string; award: string; icon: any; color: string };
+  award: { year: string; award: string; icon: React.ElementType; color: string };
 }) => {
   const colorClasses = {
     yellow: 'from-yellow-400 to-yellow-600 bg-yellow-50 text-yellow-600',
@@ -477,8 +477,6 @@ const AwardCard = ({
 
   const bgClass =
     colorClasses[award.color as keyof typeof colorClasses]?.split(' ')[2] || 'bg-gray-50';
-  const textClass =
-    colorClasses[award.color as keyof typeof colorClasses]?.split(' ')[3] || 'text-gray-600';
 
   // Award image mapping
   const getAwardImagePath = (year: string) => {

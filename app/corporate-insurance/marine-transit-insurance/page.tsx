@@ -22,68 +22,68 @@ import MainCaraousel from '@/components/main-caraousel';
 
 const MarineTransitInsurancePage = () => {
   // Sample data for components
-  const claimStories = [
-    {
-      id: '1',
-      title: 'Container Ship Cargo Damage',
-      description:
-        'Rough seas caused container damage during international shipment, affecting electronics worth crores.',
-      claimAmount: '₹45 Crores',
-      settlementTime: '8 months',
-      riskType: 'Sea Transit Damage',
-      outcome: 'settled' as const,
-      lessons: [
-        'Marine cargo insurance essential for international trade',
-        'Proper packaging reduces damage during rough weather',
-        'Documentation and surveys crucial for claim settlement',
-      ],
-    },
-    {
-      id: '2',
-      title: 'Air Cargo Theft at Airport',
-      description:
-        'High-value pharmaceutical shipment stolen from airport cargo terminal during transit.',
-      claimAmount: '₹18 Crores',
-      settlementTime: '6 months',
-      riskType: 'Theft & Pilferage',
-      outcome: 'settled' as const,
-      lessons: [
-        'Air cargo insurance covers theft and pilferage risks',
-        'Secure packaging and tracking reduce theft exposure',
-        'Airport security measures are critical for high-value goods',
-      ],
-    },
-    {
-      id: '3',
-      title: 'Road Transit Accident',
-      description:
-        'Truck carrying textile goods overturned due to poor road conditions, causing total loss of cargo.',
-      claimAmount: '₹8 Crores',
-      settlementTime: '4 months',
-      riskType: 'Road Transit Accident',
-      outcome: 'settled' as const,
-      lessons: [
-        'Road transit insurance covers accident-related losses',
-        'Driver training and vehicle maintenance prevent accidents',
-        'Route planning and weather monitoring reduce risks',
-      ],
-    },
-    {
-      id: '4',
-      title: 'Port Fire Damage',
-      description:
-        'Fire at port warehouse damaged multiple import consignments awaiting customs clearance.',
-      claimAmount: '₹25 Crores',
-      settlementTime: '10 months',
-      riskType: 'Port & Terminal Risk',
-      outcome: 'settled' as const,
-      lessons: [
-        'Port risks coverage protects goods during storage',
-        'Fire safety measures at ports are crucial',
-        'Extended coverage needed for customs delays',
-      ],
-    },
-  ];
+  // const claimStories = [
+  //   {
+  //     id: '1',
+  //     title: 'Container Ship Cargo Damage',
+  //     description:
+  //       'Rough seas caused container damage during international shipment, affecting electronics worth crores.',
+  //     claimAmount: '₹45 Crores',
+  //     settlementTime: '8 months',
+  //     riskType: 'Sea Transit Damage',
+  //     outcome: 'settled' as const,
+  //     lessons: [
+  //       'Marine cargo insurance essential for international trade',
+  //       'Proper packaging reduces damage during rough weather',
+  //       'Documentation and surveys crucial for claim settlement',
+  //     ],
+  //   },
+  //   {
+  //     id: '2',
+  //     title: 'Air Cargo Theft at Airport',
+  //     description:
+  //       'High-value pharmaceutical shipment stolen from airport cargo terminal during transit.',
+  //     claimAmount: '₹18 Crores',
+  //     settlementTime: '6 months',
+  //     riskType: 'Theft & Pilferage',
+  //     outcome: 'settled' as const,
+  //     lessons: [
+  //       'Air cargo insurance covers theft and pilferage risks',
+  //       'Secure packaging and tracking reduce theft exposure',
+  //       'Airport security measures are critical for high-value goods',
+  //     ],
+  //   },
+  //   {
+  //     id: '3',
+  //     title: 'Road Transit Accident',
+  //     description:
+  //       'Truck carrying textile goods overturned due to poor road conditions, causing total loss of cargo.',
+  //     claimAmount: '₹8 Crores',
+  //     settlementTime: '4 months',
+  //     riskType: 'Road Transit Accident',
+  //     outcome: 'settled' as const,
+  //     lessons: [
+  //       'Road transit insurance covers accident-related losses',
+  //       'Driver training and vehicle maintenance prevent accidents',
+  //       'Route planning and weather monitoring reduce risks',
+  //     ],
+  //   },
+  //   {
+  //     id: '4',
+  //     title: 'Port Fire Damage',
+  //     description:
+  //       'Fire at port warehouse damaged multiple import consignments awaiting customs clearance.',
+  //     claimAmount: '₹25 Crores',
+  //     settlementTime: '10 months',
+  //     riskType: 'Port & Terminal Risk',
+  //     outcome: 'settled' as const,
+  //     lessons: [
+  //       'Port risks coverage protects goods during storage',
+  //       'Fire safety measures at ports are crucial',
+  //       'Extended coverage needed for customs delays',
+  //     ],
+  //   },
+  // ];
 
   const quizQuestions = [
     {

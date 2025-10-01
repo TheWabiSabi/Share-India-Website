@@ -20,7 +20,8 @@ import KnowledgeQuestionnaire from '../../industries/_components/KnowledgeQuesti
 import MainCaraousel from '@/components/main-caraousel';
 
 const OfficePackageInsurancePage = () => {
-  // Sample data for components
+  // Sample data for components - commented out as not currently used
+  /*
   const claimStories = [
     {
       id: '1',
@@ -83,6 +84,7 @@ const OfficePackageInsurancePage = () => {
       ],
     },
   ];
+  */
 
   const quizQuestions = [
     {

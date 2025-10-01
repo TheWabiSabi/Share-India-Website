@@ -12,7 +12,6 @@ import {
   FaEnvelope,
   FaHeadset,
   FaCreditCard,
-  FaBalanceScale,
 } from 'react-icons/fa';
 import ContactComponent from '@/app/industries/_components/Contact';
 import CardComponent from '@/app/industries/_components/Card';
@@ -22,7 +21,8 @@ import MainCaraousel from '@/components/main-caraousel';
 // import ClaimStories from '@/app/industries/_components/ClaimStories';
 
 const TradeCreditInsurancePage = () => {
-  // Sample data for components
+  // Sample data for components - commented out as not currently used
+  /*
   const claimStories = [
     {
       id: '1',
@@ -85,6 +85,7 @@ const TradeCreditInsurancePage = () => {
       ],
     },
   ];
+  */
 
   const quizQuestions = [
     {

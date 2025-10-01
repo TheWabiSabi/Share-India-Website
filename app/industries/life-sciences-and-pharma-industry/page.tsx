@@ -537,21 +537,21 @@ const PharmaInsurancePage = () => {
 };
 
 /* Helpers */
-const Tile = ({
-  icon,
-  title,
-  children,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  children: React.ReactNode;
-}) => (
-  <div className="rounded-xl border border-gray-200 p-6">
-    <div className="text-2xl text-blue-500">{icon}</div>
-    <h3 className="mt-3 font-semibold">{title}</h3>
-    <p className="mt-1 text-sm text-gray-600">{children}</p>
-  </div>
-);
+// const Tile = ({
+//   icon,
+//   title,
+//   children,
+// }: {
+//   icon: React.ReactNode;
+//   title: string;
+//   children: React.ReactNode;
+// }) => (
+//   <div className="rounded-xl border border-gray-200 p-6">
+//     <div className="text-2xl text-blue-500">{icon}</div>
+//     <h3 className="mt-3 font-semibold">{title}</h3>
+//     <p className="mt-1 text-sm text-gray-600">{children}</p>
+//   </div>
+// );
 
 const Card = ({
   icon,
@@ -581,57 +581,57 @@ const Card = ({
   </div>
 );
 
-const RiskCard = ({
-  icon,
-  title,
-  description,
-  severity,
-  frequency,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-  severity: string;
-  frequency: string;
-}) => (
-  <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-    <div className="flex items-center gap-3">
-      <span className="text-2xl text-red-500">{icon}</span>
-      <h3 className="text-lg font-semibold">{title}</h3>
-    </div>
-    <p className="mt-3 text-sm text-gray-700">{description}</p>
-    <div className="mt-4 flex gap-4">
-      <div className="flex items-center gap-2">
-        <span className="text-xs text-gray-500">Severity:</span>
-        <span
-          className={`rounded-full px-2 py-1 text-xs font-medium ${
-            severity === 'High'
-              ? 'bg-red-100 text-red-800'
-              : severity === 'Medium'
-                ? 'bg-yellow-100 text-yellow-800'
-                : 'bg-green-100 text-green-800'
-          }`}
-        >
-          {severity}
-        </span>
-      </div>
-      <div className="flex items-center gap-2">
-        <span className="text-xs text-gray-500">Frequency:</span>
-        <span
-          className={`rounded-full px-2 py-1 text-xs font-medium ${
-            frequency === 'High'
-              ? 'bg-red-100 text-red-800'
-              : frequency === 'Medium'
-                ? 'bg-yellow-100 text-yellow-800'
-                : 'bg-green-100 text-green-800'
-          }`}
-        >
-          {frequency}
-        </span>
-      </div>
-    </div>
-  </div>
-);
+// const RiskCard = ({
+//   icon,
+//   title,
+//   description,
+//   severity,
+//   frequency,
+// }: {
+//   icon: React.ReactNode;
+//   title: string;
+//   description: string;
+//   severity: string;
+//   frequency: string;
+// }) => (
+//   <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+//     <div className="flex items-center gap-3">
+//       <span className="text-2xl text-red-500">{icon}</span>
+//       <h3 className="text-lg font-semibold">{title}</h3>
+//     </div>
+//     <p className="mt-3 text-sm text-gray-700">{description}</p>
+//     <div className="mt-4 flex gap-4">
+//       <div className="flex items-center gap-2">
+//         <span className="text-xs text-gray-500">Severity:</span>
+//         <span
+//           className={`rounded-full px-2 py-1 text-xs font-medium ${
+//             severity === 'High'
+//               ? 'bg-red-100 text-red-800'
+//               : severity === 'Medium'
+//                 ? 'bg-yellow-100 text-yellow-800'
+//                 : 'bg-green-100 text-green-800'
+//           }`}
+//         >
+//           {severity}
+//         </span>
+//       </div>
+//       <div className="flex items-center gap-2">
+//         <span className="text-xs text-gray-500">Frequency:</span>
+//         <span
+//           className={`rounded-full px-2 py-1 text-xs font-medium ${
+//             frequency === 'High'
+//               ? 'bg-red-100 text-red-800'
+//               : frequency === 'Medium'
+//                 ? 'bg-yellow-100 text-yellow-800'
+//                 : 'bg-green-100 text-green-800'
+//           }`}
+//         >
+//           {frequency}
+//         </span>
+//       </div>
+//     </div>
+//   </div>
+// );
 
 const InsurancePlan = ({
   name,

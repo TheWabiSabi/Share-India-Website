@@ -17,9 +17,6 @@ import {
   FaHandHoldingHeart,
   FaGraduationCap,
   FaHeadset,
-  FaDownload,
-  FaPlay,
-  FaBriefcase,
   FaFire,
   FaLock,
   FaEnvelope,
@@ -80,22 +77,23 @@ const RetailInsurancePage = () => {
           <h2 className="text-3xl font-bold md:text-4xl">Understanding Retail Insurance</h2>
           <p className="mt-[9vh] text-lg text-gray-700">
             Retail insurance provides essential protection for individuals and families, covering
-            life's uncertainties and helping secure your financial future against unexpected events.
+            life&apos;s uncertainties and helping secure your financial future against unexpected
+            events.
           </p>
 
           <div className="mt-[10vh] grid grid-cols-1 gap-8 lg:grid-cols-2">
             <div>
               <h3 className="text-2xl font-semibold text-gray-900">Why Retail Insurance Matters</h3>
               <p className="mt-8 text-lg text-gray-700">
-                In today's unpredictable world, having the right insurance coverage is crucial for
-                protecting your family's financial security. From health emergencies to vehicle
-                accidents, the right insurance policy can make the difference between financial
-                stability and hardship.
+                In today&apos;s unpredictable world, having the right insurance coverage is crucial
+                for protecting your family&apos;s financial security. From health emergencies to
+                vehicle accidents, the right insurance policy can make the difference between
+                financial stability and hardship.
               </p>
               <ul className="mt-7 space-y-2 text-base text-gray-700">
                 <li className="mb-6 flex items-start">
                   <FaChevronRight className="mt-1 mr-2 text-blue-400" />
-                  Comprehensive protection for life's uncertainties
+                  Comprehensive protection for life&apos;s uncertainties
                 </li>
                 <li className="mb-6 flex items-start">
                   <FaChevronRight className="mt-1 mr-2 text-blue-400" />
@@ -207,13 +205,14 @@ const RetailInsurancePage = () => {
 
           <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             <Tile icon={<FaGraduationCap />} title="Child Education Plans">
-              Secure your child's educational future with dedicated savings and insurance plans.
+              Secure your child&apos;s educational future with dedicated savings and insurance
+              plans.
             </Tile>
             <Tile icon={<FaUmbrella />} title="Personal Accident">
               Coverage against accidental injuries and disabilities for comprehensive protection.
             </Tile>
             <Tile icon={<FaLock />} title="Cyber Insurance">
-              Protection against cyber risks and digital threats in today's connected world.
+              Protection against cyber risks and digital threats in today&apos;s connected world.
             </Tile>
             <Tile icon={<FaFire />} title="Fire Insurance">
               Comprehensive fire damage coverage for your property and belongings.
@@ -265,8 +264,8 @@ const RetailInsurancePage = () => {
                   Protect What Matters Most Today
                 </h3>
                 <p className="mt-2 text-gray-700">
-                  Get personalized insurance solutions from India's trusted insurance brokers with
-                  24/7 support.
+                  Get personalized insurance solutions from India&apos;s trusted insurance brokers
+                  with 24/7 support.
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row">

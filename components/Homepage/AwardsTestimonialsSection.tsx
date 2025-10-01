@@ -60,8 +60,8 @@ export default function AwardsTestimonialsSection() {
             <span className="text-gradient-primary">Awards & Testimonials</span>
           </h2>
           <p className="text-si-ink/80 mx-auto mt-4 max-w-2xl text-base leading-relaxed">
-            Celebrated for excellence, trusted by clients. Here's what the industry and our partners
-            say about us.
+            Celebrated for excellence, trusted by clients. Here&apos;s what the industry and our
+            partners say about us.
           </p>
         </div>
 
@@ -104,7 +104,7 @@ export default function AwardsTestimonialsSection() {
                 className="card-accent-red hover-lift hover-glow-red flex flex-col justify-between rounded-xl p-6"
               >
                 <blockquote className="text-si-ink/80 text-sm leading-relaxed">
-                  "{testimonial.text}"
+                  &quot;{testimonial.text}&quot;
                 </blockquote>
 
                 <figcaption className="mt-5 flex items-center gap-3">
