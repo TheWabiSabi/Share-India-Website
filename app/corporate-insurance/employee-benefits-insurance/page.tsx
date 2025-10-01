@@ -11,7 +11,6 @@ import {
   FaPhoneAlt,
   FaEnvelope,
   FaHeadset,
-  FaHospital,
   FaHandHoldingHeart,
 } from 'react-icons/fa';
 import ContactComponent from '@/app/industries/_components/Contact';
@@ -22,68 +21,68 @@ import MainCaraousel from '@/components/main-caraousel';
 
 const EmployeeBenefitsInsurancePage = () => {
   // Sample data for components
-  const claimStories = [
-    {
-      id: '1',
-      title: 'Group Health Insurance - Critical Illness',
-      description:
-        'Employee diagnosed with cancer required extensive treatment, with group health insurance covering medical expenses and providing family support.',
-      claimAmount: '₹25 Lakhs',
-      settlementTime: '2 months',
-      riskType: 'Group Health Insurance',
-      outcome: 'settled' as const,
-      lessons: [
-        'Group health insurance provides comprehensive medical coverage',
-        'Critical illness coverage essential for serious conditions',
-        'Cashless treatment facilities reduce financial stress',
-      ],
-    },
-    {
-      id: '2',
-      title: 'Group Life Insurance - Accidental Death',
-      description:
-        'Employee died in road accident, with group life insurance providing financial support to family and covering funeral expenses.',
-      claimAmount: '₹50 Lakhs',
-      settlementTime: '1 month',
-      riskType: 'Group Life Insurance',
-      outcome: 'settled' as const,
-      lessons: [
-        'Group life insurance provides financial security to families',
-        'Accidental death benefit provides additional coverage',
-        'Quick claim settlement helps families during difficult times',
-      ],
-    },
-    {
-      id: '3',
-      title: 'Group Personal Accident - Workplace Injury',
-      description:
-        'Employee injured in workplace accident resulting in temporary disability, with insurance covering medical treatment and income replacement.',
-      claimAmount: '₹15 Lakhs',
-      settlementTime: '6 weeks',
-      riskType: 'Group Personal Accident',
-      outcome: 'settled' as const,
-      lessons: [
-        'Personal accident insurance covers workplace injuries',
-        'Disability benefits provide income replacement',
-        'Comprehensive coverage includes medical and rehabilitation costs',
-      ],
-    },
-    {
-      id: '4',
-      title: 'Employee Assistance Program - Mental Health',
-      description:
-        'Multiple employees accessed mental health support during pandemic, with EAP providing counseling and wellness services.',
-      claimAmount: '₹8 Lakhs',
-      settlementTime: 'Ongoing',
-      riskType: 'Employee Wellness',
-      outcome: 'settled' as const,
-      lessons: [
-        'Employee assistance programs support mental health',
-        'Preventive wellness programs reduce long-term costs',
-        'Comprehensive employee benefits improve retention',
-      ],
-    },
-  ];
+  // const claimStories = [
+  //   {
+  //     id: '1',
+  //     title: 'Group Health Insurance - Critical Illness',
+  //     description:
+  //       'Employee diagnosed with cancer required extensive treatment, with group health insurance covering medical expenses and providing family support.',
+  //     claimAmount: '₹25 Lakhs',
+  //     settlementTime: '2 months',
+  //     riskType: 'Group Health Insurance',
+  //     outcome: 'settled' as const,
+  //     lessons: [
+  //       'Group health insurance provides comprehensive medical coverage',
+  //       'Critical illness coverage essential for serious conditions',
+  //       'Cashless treatment facilities reduce financial stress',
+  //     ],
+  //   },
+  //   {
+  //     id: '2',
+  //     title: 'Group Life Insurance - Accidental Death',
+  //     description:
+  //       'Employee died in road accident, with group life insurance providing financial support to family and covering funeral expenses.',
+  //     claimAmount: '₹50 Lakhs',
+  //     settlementTime: '1 month',
+  //     riskType: 'Group Life Insurance',
+  //     outcome: 'settled' as const,
+  //     lessons: [
+  //       'Group life insurance provides financial security to families',
+  //       'Accidental death benefit provides additional coverage',
+  //       'Quick claim settlement helps families during difficult times',
+  //     ],
+  //   },
+  //   {
+  //     id: '3',
+  //     title: 'Group Personal Accident - Workplace Injury',
+  //     description:
+  //       'Employee injured in workplace accident resulting in temporary disability, with insurance covering medical treatment and income replacement.',
+  //     claimAmount: '₹15 Lakhs',
+  //     settlementTime: '6 weeks',
+  //     riskType: 'Group Personal Accident',
+  //     outcome: 'settled' as const,
+  //     lessons: [
+  //       'Personal accident insurance covers workplace injuries',
+  //       'Disability benefits provide income replacement',
+  //       'Comprehensive coverage includes medical and rehabilitation costs',
+  //     ],
+  //   },
+  //   {
+  //     id: '4',
+  //     title: 'Employee Assistance Program - Mental Health',
+  //     description:
+  //       'Multiple employees accessed mental health support during pandemic, with EAP providing counseling and wellness services.',
+  //     claimAmount: '₹8 Lakhs',
+  //     settlementTime: 'Ongoing',
+  //     riskType: 'Employee Wellness',
+  //     outcome: 'settled' as const,
+  //     lessons: [
+  //       'Employee assistance programs support mental health',
+  //       'Preventive wellness programs reduce long-term costs',
+  //       'Comprehensive employee benefits improve retention',
+  //     ],
+  //   },
+  // ];
 
   const quizQuestions = [
     {

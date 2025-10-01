@@ -6,30 +6,22 @@ import {
   FaStore,
   FaGem,
   FaShoppingBag,
-  FaFire,
-  FaWater,
-  FaUserShield,
   FaFileContract,
   FaPhoneAlt,
   FaEnvelope,
   FaHeadset,
-  FaLock,
-  FaExclamationTriangle,
-  FaCheckCircle,
-  FaRupeeSign,
-  FaCertificate,
   FaCreditCard,
-  FaEye,
 } from 'react-icons/fa';
 import ContactComponent from '@/app/industries/_components/Contact';
 import CardComponent from '@/app/industries/_components/Card';
 // import ClaimStories from '../../industries/_components/ClaimStories';
 import KnowledgeQuestionnaire from '../../industries/_components/KnowledgeQuestionnaire';
 import MainCaraousel from '@/components/main-caraousel';
-import ClaimStories from '@/app/industries/_components/ClaimStories';
+// import ClaimStories from '@/app/industries/_components/ClaimStories';
 
 const ShopkeepersJewellersInsurancePage = () => {
-  // Sample data for components
+  // Sample data for components - commented out as not currently used
+  /*
   const claimStories = [
     {
       id: '1',
@@ -92,6 +84,7 @@ const ShopkeepersJewellersInsurancePage = () => {
       ],
     },
   ];
+  */
 
   const quizQuestions = [
     {

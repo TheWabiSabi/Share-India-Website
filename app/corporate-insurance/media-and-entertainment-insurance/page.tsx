@@ -12,7 +12,6 @@ import {
   FaEnvelope,
   FaHeadset,
   FaCamera,
-  FaStar,
 } from 'react-icons/fa';
 import ContactComponent from '@/app/industries/_components/Contact';
 import CardComponent from '@/app/industries/_components/Card';
@@ -23,68 +22,68 @@ import MainCaraousel from '@/components/main-caraousel';
 
 const MediaEntertainmentInsurancePage = () => {
   // Sample data for components
-  const claimStories = [
-    {
-      id: '1',
-      title: 'Film Production Equipment Damage',
-      description:
-        'Expensive camera equipment worth crores damaged during outdoor film shoot due to unexpected weather conditions.',
-      claimAmount: '₹35 Crores',
-      settlementTime: '6 months',
-      riskType: 'Equipment Damage',
-      outcome: 'settled' as const,
-      lessons: [
-        'Equipment insurance essential for high-value film gear',
-        'Weather protection and backup equipment reduce risks',
-        'Proper handling and storage protocols prevent damage',
-      ],
-    },
-    {
-      id: '2',
-      title: 'Celebrity Injury During Shoot',
-      description:
-        'Lead actor injured during action sequence, causing production delays and additional costs for film completion.',
-      claimAmount: '₹50 Crores',
-      settlementTime: '10 months',
-      riskType: 'Cast Insurance',
-      outcome: 'settled' as const,
-      lessons: [
-        'Cast insurance protects against production delays',
-        'Safety protocols and stunt coordination prevent injuries',
-        'Completion guarantee insurance ensures project delivery',
-      ],
-    },
-    {
-      id: '3',
-      title: 'Concert Cancellation Due to Artist Illness',
-      description:
-        'Major music concert cancelled due to headline artist illness, resulting in refunds and venue costs.',
-      claimAmount: '₹15 Crores',
-      settlementTime: '4 months',
-      riskType: 'Event Cancellation',
-      outcome: 'settled' as const,
-      lessons: [
-        'Event cancellation insurance covers unforeseen circumstances',
-        'Artist health monitoring and backup plans reduce risks',
-        'Advance ticket sales increase financial exposure',
-      ],
-    },
-    {
-      id: '4',
-      title: 'Copyright Infringement Lawsuit',
-      description:
-        'Film production company faced copyright infringement claim over music usage, leading to legal costs and settlement.',
-      claimAmount: '₹8 Crores',
-      settlementTime: '14 months',
-      riskType: 'Intellectual Property',
-      outcome: 'settled' as const,
-      lessons: [
-        'Errors and omissions insurance covers IP claims',
-        'Proper rights clearance prevents infringement issues',
-        'Legal review of content reduces liability exposure',
-      ],
-    },
-  ];
+  // const claimStories = [
+  //   {
+  //     id: '1',
+  //     title: 'Film Production Equipment Damage',
+  //     description:
+  //       'Expensive camera equipment worth crores damaged during outdoor film shoot due to unexpected weather conditions.',
+  //     claimAmount: '₹35 Crores',
+  //     settlementTime: '6 months',
+  //     riskType: 'Equipment Damage',
+  //     outcome: 'settled' as const,
+  //     lessons: [
+  //       'Equipment insurance essential for high-value film gear',
+  //       'Weather protection and backup equipment reduce risks',
+  //       'Proper handling and storage protocols prevent damage',
+  //     ],
+  //   },
+  //   {
+  //     id: '2',
+  //     title: 'Celebrity Injury During Shoot',
+  //     description:
+  //       'Lead actor injured during action sequence, causing production delays and additional costs for film completion.',
+  //     claimAmount: '₹50 Crores',
+  //     settlementTime: '10 months',
+  //     riskType: 'Cast Insurance',
+  //     outcome: 'settled' as const,
+  //     lessons: [
+  //       'Cast insurance protects against production delays',
+  //       'Safety protocols and stunt coordination prevent injuries',
+  //       'Completion guarantee insurance ensures project delivery',
+  //     ],
+  //   },
+  //   {
+  //     id: '3',
+  //     title: 'Concert Cancellation Due to Artist Illness',
+  //     description:
+  //       'Major music concert cancelled due to headline artist illness, resulting in refunds and venue costs.',
+  //     claimAmount: '₹15 Crores',
+  //     settlementTime: '4 months',
+  //     riskType: 'Event Cancellation',
+  //     outcome: 'settled' as const,
+  //     lessons: [
+  //       'Event cancellation insurance covers unforeseen circumstances',
+  //       'Artist health monitoring and backup plans reduce risks',
+  //       'Advance ticket sales increase financial exposure',
+  //     ],
+  //   },
+  //   {
+  //     id: '4',
+  //     title: 'Copyright Infringement Lawsuit',
+  //     description:
+  //       'Film production company faced copyright infringement claim over music usage, leading to legal costs and settlement.',
+  //     claimAmount: '₹8 Crores',
+  //     settlementTime: '14 months',
+  //     riskType: 'Intellectual Property',
+  //     outcome: 'settled' as const,
+  //     lessons: [
+  //       'Errors and omissions insurance covers IP claims',
+  //       'Proper rights clearance prevents infringement issues',
+  //       'Legal review of content reduces liability exposure',
+  //     ],
+  //   },
+  // ];
 
   const quizQuestions = [
     {

@@ -16,7 +16,7 @@ export default function TopNewsSection() {
               News, Decoded
             </span>
             <h2 className="text-si-ink text-3xl leading-tight font-semibold sm:text-4xl">
-              Not caught up? We've got you.
+              Not caught up? We&apos;ve got you.
             </h2>
             <p className="text-si-ink/80 mt-3 text-lg leading-relaxed">
               Our team distills complex insurance and risk headlines into punchy explainers— what
@@ -26,7 +26,7 @@ export default function TopNewsSection() {
 
           <div className="lg:mt-2">
             <div className="card-vibrant shadow-vibrant-blue hover-lift rounded-xl p-6">
-              <div className="text-si-ink/60 mb-2 text-sm font-medium">What you'll find</div>
+              <div className="text-si-ink/60 mb-2 text-sm font-medium">What you&apos;ll find</div>
               <ul className="text-si-ink/80 grid gap-2 text-sm sm:grid-cols-2">
                 <li className="flex items-center gap-2">
                   <svg
@@ -106,7 +106,9 @@ export default function TopNewsSection() {
         <div className="card-vibrant hover-lift mt-10 flex flex-wrap items-center justify-between gap-4 rounded-xl px-6 py-5">
           <div className="flex items-center gap-3">
             <div className="accent-bar-gradient h-3 w-14" />
-            <p className="text-si-ink/80 text-sm">Updated weekly • Editor's picks • No jargon</p>
+            <p className="text-si-ink/80 text-sm">
+              Updated weekly • Editor&apos;s picks • No jargon
+            </p>
           </div>
           <Link
             href="/news"

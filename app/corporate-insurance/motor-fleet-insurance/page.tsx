@@ -12,20 +12,26 @@ import {
   FaEnvelope,
   FaHeadset,
   FaRoute,
+  FaTools,
+  FaExclamationTriangle,
+  FaCheckCircle,
 } from 'react-icons/fa';
 import ContactComponent from '@/app/industries/_components/Contact';
-import CardComponent from '@/app/industries/_components/Card';
 // import ClaimStories from '../../industries/_components/ClaimStories';
 import KnowledgeQuestionnaire from '../../industries/_components/KnowledgeQuestionnaire';
 import MainCaraousel from '@/components/main-caraousel';
-import { FaRupeeSign } from 'react-icons/fa6';
-import { FaCertificate } from 'react-icons/fa6';
+
+import {
+  FaRupeeSign,
+  FaCertificate,
+  FaWater,
+  FaUserShield,
+  FaFire,
+  FaLock,
+  FaTruckMoving,
+} from 'react-icons/fa6';
+
 import ClaimStories from '@/app/industries/_components/ClaimStories';
-import { FaWater } from 'react-icons/fa6';
-import { FaUserShield } from 'react-icons/fa6';
-import { FaFire } from 'react-icons/fa6';
-import { FaLock } from 'react-icons/fa6';
-import { FaTruckMoving } from 'react-icons/fa6';
 // import ClaimStories from '@/app/industries/_components/ClaimStories';
 
 const MotorFleetInsurancePage = () => {
@@ -687,24 +693,6 @@ const InsurancePlan = ({
     >
       Get Quote
     </button>
-  </div>
-);
-
-const Contact = ({
-  label,
-  value,
-  icon,
-}: {
-  label: string;
-  value: string;
-  icon: React.ReactNode;
-}) => (
-  <div className="flex items-center justify-between rounded-lg border border-gray-200 p-5">
-    <div>
-      <div className="text-sm text-gray-500">{label}</div>
-      <div className="font-semibold">{value}</div>
-    </div>
-    <div className="text-xl text-blue-600">{icon}</div>
   </div>
 );
 

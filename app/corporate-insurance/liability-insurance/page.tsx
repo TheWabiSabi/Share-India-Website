@@ -12,7 +12,6 @@ import {
   FaEnvelope,
   FaHeadset,
   FaUsers,
-  FaBuilding,
 } from 'react-icons/fa';
 import ContactComponent from '@/app/industries/_components/Contact';
 import CardComponent from '@/app/industries/_components/Card';
@@ -23,68 +22,68 @@ import MainCaraousel from '@/components/main-caraousel';
 
 const LiabilityInsurancePage = () => {
   // Sample data for components
-  const claimStories = [
-    {
-      id: '1',
-      title: 'Product Liability Claim - Food Contamination',
-      description:
-        'Food manufacturer faced liability claims after contaminated products caused food poisoning in multiple customers.',
-      claimAmount: '₹15 Crores',
-      settlementTime: '14 months',
-      riskType: 'Product Liability',
-      outcome: 'settled' as const,
-      lessons: [
-        'Product liability insurance essential for manufacturers',
-        'Quality control processes prevent contamination',
-        'Recall insurance covers withdrawal costs',
-      ],
-    },
-    {
-      id: '2',
-      title: 'Public Liability - Shopping Mall Accident',
-      description:
-        'Customer injured due to wet floor in shopping mall, leading to compensation claim for medical expenses and damages.',
-      claimAmount: '₹8 Crores',
-      settlementTime: '10 months',
-      riskType: 'Public Liability',
-      outcome: 'settled' as const,
-      lessons: [
-        'Public liability coverage protects against third-party claims',
-        'Proper safety measures reduce accident risks',
-        'Quick response and documentation help claim settlement',
-      ],
-    },
-    {
-      id: '3',
-      title: 'Professional Indemnity - Consultant Error',
-      description:
-        "Engineering consultant faced claim for design error that caused structural problems in client's building project.",
-      claimAmount: '₹25 Crores',
-      settlementTime: '18 months',
-      riskType: 'Professional Indemnity',
-      outcome: 'settled' as const,
-      lessons: [
-        'Professional indemnity essential for service providers',
-        'Proper documentation and quality checks prevent errors',
-        'Coverage includes legal defense costs',
-      ],
-    },
-    {
-      id: '4',
-      title: 'Employment Practices Liability',
-      description:
-        'Company faced discrimination lawsuit from former employee, claiming wrongful termination and harassment.',
-      claimAmount: '₹5 Crores',
-      settlementTime: '12 months',
-      riskType: 'Employment Practices',
-      outcome: 'settled' as const,
-      lessons: [
-        'Employment practices liability protects against HR claims',
-        'Proper HR policies and training prevent issues',
-        'Documentation of employment decisions is crucial',
-      ],
-    },
-  ];
+  // const claimStories = [
+  //   {
+  //     id: '1',
+  //     title: 'Product Liability Claim - Food Contamination',
+  //     description:
+  //       'Food manufacturer faced liability claims after contaminated products caused food poisoning in multiple customers.',
+  //     claimAmount: '₹15 Crores',
+  //     settlementTime: '14 months',
+  //     riskType: 'Product Liability',
+  //     outcome: 'settled' as const,
+  //     lessons: [
+  //       'Product liability insurance essential for manufacturers',
+  //       'Quality control processes prevent contamination',
+  //       'Recall insurance covers withdrawal costs',
+  //     ],
+  //   },
+  //   {
+  //     id: '2',
+  //     title: 'Public Liability - Shopping Mall Accident',
+  //     description:
+  //       'Customer injured due to wet floor in shopping mall, leading to compensation claim for medical expenses and damages.',
+  //     claimAmount: '₹8 Crores',
+  //     settlementTime: '10 months',
+  //     riskType: 'Public Liability',
+  //     outcome: 'settled' as const,
+  //     lessons: [
+  //       'Public liability coverage protects against third-party claims',
+  //       'Proper safety measures reduce accident risks',
+  //       'Quick response and documentation help claim settlement',
+  //     ],
+  //   },
+  //   {
+  //     id: '3',
+  //     title: 'Professional Indemnity - Consultant Error',
+  //     description:
+  //       "Engineering consultant faced claim for design error that caused structural problems in client's building project.",
+  //     claimAmount: '₹25 Crores',
+  //     settlementTime: '18 months',
+  //     riskType: 'Professional Indemnity',
+  //     outcome: 'settled' as const,
+  //     lessons: [
+  //       'Professional indemnity essential for service providers',
+  //       'Proper documentation and quality checks prevent errors',
+  //       'Coverage includes legal defense costs',
+  //     ],
+  //   },
+  //   {
+  //     id: '4',
+  //     title: 'Employment Practices Liability',
+  //     description:
+  //       'Company faced discrimination lawsuit from former employee, claiming wrongful termination and harassment.',
+  //     claimAmount: '₹5 Crores',
+  //     settlementTime: '12 months',
+  //     riskType: 'Employment Practices',
+  //     outcome: 'settled' as const,
+  //     lessons: [
+  //       'Employment practices liability protects against HR claims',
+  //       'Proper HR policies and training prevent issues',
+  //       'Documentation of employment decisions is crucial',
+  //     ],
+  //   },
+  // ];
 
   const quizQuestions = [
     {

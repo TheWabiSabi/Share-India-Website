@@ -177,7 +177,7 @@ const ChatbotWidget: React.FC = () => {
       {/* Chatbot Window */}
       {state.isOpen && (
         <div className="fixed right-6 bottom-24 z-50 w-80 sm:w-96">
-          <div className="bg-si-white overflow-hidden rounded-2xl shadow-2xl">
+          <div className="bg-si-primary-500 overflow-hidden rounded-2xl shadow-2xl">
             {/* Header */}
             <div className="bg-si-bluegreen text-si-offwhite px-6 py-4">
               <div className="flex items-center justify-between">

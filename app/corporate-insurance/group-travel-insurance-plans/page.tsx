@@ -22,68 +22,68 @@ import MainCaraousel from '@/components/main-caraousel';
 // import ClaimStories from '@/app/industries/_components/ClaimStories';
 const GroupTravelInsurancePage = () => {
   // Sample data for components
-  const claimStories = [
-    {
-      id: '1',
-      title: 'Medical Emergency During Business Trip',
-      description:
-        'Employee hospitalized abroad for heart attack during business conference, with insurance covering medical expenses and repatriation.',
-      claimAmount: '₹18 Lakhs',
-      settlementTime: '2 weeks',
-      riskType: 'Medical Emergency',
-      outcome: 'settled' as const,
-      lessons: [
-        'Group travel insurance provides comprehensive medical coverage abroad',
-        'Emergency evacuation coverage essential for serious conditions',
-        'Cashless treatment facilities reduce financial stress',
-      ],
-    },
-    {
-      id: '2',
-      title: 'Trip Cancellation - Natural Disaster',
-      description:
-        'Corporate team trip cancelled due to earthquake at destination, with insurance covering non-refundable expenses.',
-      claimAmount: '₹8 Lakhs',
-      settlementTime: '3 weeks',
-      riskType: 'Trip Cancellation',
-      outcome: 'settled' as const,
-      lessons: [
-        'Trip cancellation coverage protects against unforeseen events',
-        'Natural disaster coverage essential for international travel',
-        'Advance booking increases financial exposure',
-      ],
-    },
-    {
-      id: '3',
-      title: 'Lost Baggage - Business Equipment',
-      description:
-        'Sales team lost baggage containing laptops and presentation materials during international client visit.',
-      claimAmount: '₹3 Lakhs',
-      settlementTime: '1 month',
-      riskType: 'Baggage Loss',
-      outcome: 'settled' as const,
-      lessons: [
-        'Baggage insurance covers business equipment and personal items',
-        'Proper documentation and receipts speed up claims',
-        'Backup equipment and data reduce business impact',
-      ],
-    },
-    {
-      id: '4',
-      title: 'Flight Delay - Missed Conference',
-      description:
-        'Flight delays caused team to miss important business conference, resulting in additional accommodation and rebooking costs.',
-      claimAmount: '₹2 Lakhs',
-      settlementTime: '2 weeks',
-      riskType: 'Travel Delay',
-      outcome: 'settled' as const,
-      lessons: [
-        'Travel delay coverage compensates for additional expenses',
-        'Business travel insurance protects against missed opportunities',
-        'Flexible booking options reduce delay impact',
-      ],
-    },
-  ];
+  // const claimStories = [
+  //   {
+  //     id: '1',
+  //     title: 'Medical Emergency During Business Trip',
+  //     description:
+  //       'Employee hospitalized abroad for heart attack during business conference, with insurance covering medical expenses and repatriation.',
+  //     claimAmount: '₹18 Lakhs',
+  //     settlementTime: '2 weeks',
+  //     riskType: 'Medical Emergency',
+  //     outcome: 'settled' as const,
+  //     lessons: [
+  //       'Group travel insurance provides comprehensive medical coverage abroad',
+  //       'Emergency evacuation coverage essential for serious conditions',
+  //       'Cashless treatment facilities reduce financial stress',
+  //     ],
+  //   },
+  //   {
+  //     id: '2',
+  //     title: 'Trip Cancellation - Natural Disaster',
+  //     description:
+  //       'Corporate team trip cancelled due to earthquake at destination, with insurance covering non-refundable expenses.',
+  //     claimAmount: '₹8 Lakhs',
+  //     settlementTime: '3 weeks',
+  //     riskType: 'Trip Cancellation',
+  //     outcome: 'settled' as const,
+  //     lessons: [
+  //       'Trip cancellation coverage protects against unforeseen events',
+  //       'Natural disaster coverage essential for international travel',
+  //       'Advance booking increases financial exposure',
+  //     ],
+  //   },
+  //   {
+  //     id: '3',
+  //     title: 'Lost Baggage - Business Equipment',
+  //     description:
+  //       'Sales team lost baggage containing laptops and presentation materials during international client visit.',
+  //     claimAmount: '₹3 Lakhs',
+  //     settlementTime: '1 month',
+  //     riskType: 'Baggage Loss',
+  //     outcome: 'settled' as const,
+  //     lessons: [
+  //       'Baggage insurance covers business equipment and personal items',
+  //       'Proper documentation and receipts speed up claims',
+  //       'Backup equipment and data reduce business impact',
+  //     ],
+  //   },
+  //   {
+  //     id: '4',
+  //     title: 'Flight Delay - Missed Conference',
+  //     description:
+  //       'Flight delays caused team to miss important business conference, resulting in additional accommodation and rebooking costs.',
+  //     claimAmount: '₹2 Lakhs',
+  //     settlementTime: '2 weeks',
+  //     riskType: 'Travel Delay',
+  //     outcome: 'settled' as const,
+  //     lessons: [
+  //       'Travel delay coverage compensates for additional expenses',
+  //       'Business travel insurance protects against missed opportunities',
+  //       'Flexible booking options reduce delay impact',
+  //     ],
+  //   },
+  // ];
 
   const quizQuestions = [
     {
