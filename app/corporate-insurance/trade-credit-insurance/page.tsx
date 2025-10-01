@@ -1,5 +1,6 @@
-'use client';
+// 'use client';
 import React from 'react';
+import Image from 'next/image';
 import {
   FaChevronRight,
   FaShieldAlt,
@@ -10,17 +11,15 @@ import {
   FaPhoneAlt,
   FaEnvelope,
   FaHeadset,
-  FaLock,
-  FaExclamationTriangle,
-  FaCheckCircle,
-  FaRupeeSign,
-  FaCertificate,
   FaCreditCard,
   FaBalanceScale,
 } from 'react-icons/fa';
-import ClaimStories from '../../industries/_components/ClaimStories';
+import ContactComponent from '@/app/industries/_components/Contact';
+import CardComponent from '@/app/industries/_components/Card';
+// import ClaimStories from '../../industries/_components/ClaimStories';
 import KnowledgeQuestionnaire from '../../industries/_components/KnowledgeQuestionnaire';
 import MainCaraousel from '@/components/main-caraousel';
+// import ClaimStories from '@/app/industries/_components/ClaimStories';
 
 const TradeCreditInsurancePage = () => {
   // Sample data for components
@@ -158,63 +157,75 @@ const TradeCreditInsurancePage = () => {
   return (
     <div className="min-h-screen bg-white pt-[8vh] text-gray-900">
       {/* Hero */}
-      <section className="w-full border-b border-gray-100">
-        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-          <div className="max-w-4xl">
-            <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl">
-              Trade Credit Insurance Solutions
-            </h1>
-            <p className="mt-6 text-lg text-gray-700 md:text-xl">
-              Comprehensive protection against buyer payment default and political risks—enabling
-              confident trade expansion and secure cash flow management.
-            </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <button className="inline-flex items-center justify-center rounded-lg bg-blue-100 px-6 py-3 font-semibold text-blue-800 hover:bg-blue-200">
-                <FaShieldAlt className="mr-2" />
-                Get Coverage Quote
-              </button>
-              <button className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-6 py-3 font-semibold hover:bg-gray-50">
-                <FaFileContract className="mr-2" />
-                Credit Assessment
-              </button>
-              <button className="inline-flex items-center justify-center rounded-lg border border-blue-200 px-6 py-3 font-semibold text-blue-700 hover:bg-blue-50">
-                <FaPhoneAlt className="mr-2" />
-                Speak to Expert
-              </button>
-            </div>
-            <div className="mt-4 text-sm text-gray-600">
-              Specialized coverage for exporters, importers, and businesses with significant trade
-              receivables.
+      <section className="relative min-h-screen w-full">
+        {/* Background image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://minio-api.internal.wabisabitech.in/share-india/blog/highrise.jpg"
+            alt="Trade credit insurance background"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw 100vh"
+          />
+          {/* Gradient + subtle blur overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/50 to-slate-900/30 backdrop-blur-sm" />
+        </div>
+
+        <div className="relative w-full pt-[15vh] md:pt-[30vh]">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl text-white">
+              <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl">
+                Trade Credit Insurance Solutions
+              </h1>
+              <p className="mt-6 text-lg text-gray-100/90 md:text-xl">
+                Comprehensive protection against buyer default and political risks—safeguarding your
+                receivables and enabling confident trade expansion.
+              </p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <button className="inline-flex items-center justify-center rounded-lg bg-blue-100 px-6 py-3 font-semibold text-blue-800 hover:bg-blue-200">
+                  <FaShieldAlt className="mr-2" />
+                  Get Coverage Proposal
+                </button>
+                <button className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-6 py-3 font-semibold hover:bg-gray-50">
+                  <FaFileContract className="mr-2" />
+                  Book Risk Assessment
+                </button>
+              </div>
+              <div className="mt-4 text-sm text-gray-100">
+                Specialized coverage for exporters, importers, and businesses with significant trade
+                receivables.
+              </div>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Insurance Explanation */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Understanding Trade Credit Insurance</h2>
-          <p className="mt-3 text-gray-700">
+      {/* Industry Explanation */}
+      <section className="from-si-primary-200 w-full border-b border-gray-100 bg-gradient-to-b to-transparent lg:h-screen">
+        <div className="mx-auto max-w-[90vw] px-4 py-[10vh] sm:px-6 lg:max-w-[75vw] lg:px-8 lg:pt-[20vh]">
+          <h2 className="text-3xl font-bold md:text-4xl">Understanding Trade Credit Insurance</h2>
+          <p className="mt-[9vh] text-lg text-gray-700">
             Trade Credit Insurance protects businesses against the risk of buyer payment default,
-            insolvency, and political risks that prevent payment collection.
+            insolvency, and political risks that prevent payment collection, enabling confident
+            trade expansion.
           </p>
 
-          <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2">
+          <div className="mt-[10vh] grid grid-cols-1 gap-8 lg:grid-cols-2">
             <div>
-              <h3 className="text-xl font-semibold text-gray-900">Coverage Overview</h3>
-              <p className="mt-3 text-gray-700">
-                This insurance enables businesses to trade confidently by protecting against buyer
-                default, insolvency, and political risks. It covers both domestic and international
-                trade, providing protection for accounts receivable and enabling access to better
-                financing terms. The coverage includes commercial risks (buyer insolvency) and
-                political risks (government actions preventing payment).
+              <h3 className="text-2xl font-semibold text-gray-900">Industry Overview</h3>
+              <p className="mt-8 text-lg text-gray-700">
+                Businesses engaged in trade face significant risks from buyer default, insolvency,
+                and political events. Trade Credit insurance enables confident trading by protecting
+                accounts receivable, providing access to better financing terms, and covering both
+                commercial and political risks. This coverage is essential for exporters, domestic
+                suppliers, and businesses with significant trade receivables.
               </p>
-              <ul className="mt-4 space-y-2 text-sm text-gray-700">
-                <li className="flex items-start">
+              <ul className="mt-7 space-y-2 text-base text-gray-700">
+                <li className="mb-6 flex items-start">
                   <FaChevronRight className="mt-1 mr-2 text-blue-400" />
                   Protection against buyer payment default and insolvency
                 </li>
-                <li className="flex items-start">
+                <li className="mb-6 flex items-start">
                   <FaChevronRight className="mt-1 mr-2 text-blue-400" />
                   Political risk coverage for international trade
                 </li>
@@ -225,31 +236,33 @@ const TradeCreditInsurancePage = () => {
               </ul>
             </div>
             <div>
-              <h3 className="text-xl font-semibold text-gray-900">Key Benefits</h3>
-              <div className="mt-3 space-y-3">
-                <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
-                  <FaCreditCard className="text-blue-500" />
+              <h3 className="text-2xl font-semibold text-gray-900">Key Coverage Areas</h3>
+              <div className="mt-8 space-y-7">
+                <div className="flex items-center gap-5 rounded-lg border border-gray-200 p-3">
+                  <FaGlobe className="text-blue-500" />
                   <div>
-                    <div className="font-medium">Cash Flow Protection</div>
-                    <div className="text-sm text-gray-600">
-                      Secure predictable cash flow from sales
+                    <div className="text-lg font-medium">Export Trade</div>
+                    <div className="text-base text-gray-600">
+                      International exporters and cross-border trade
                     </div>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
+                <div className="flex items-center gap-5 rounded-lg border border-gray-200 p-3">
+                  <FaHandshake className="text-blue-500" />
+                  <div>
+                    <div className="text-lg font-medium">Domestic Trade</div>
+                    <div className="text-base text-gray-600">
+                      Domestic suppliers and B2B trade relationships
+                    </div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-5 rounded-lg border border-gray-200 p-3">
                   <FaChartLine className="text-blue-500" />
                   <div>
-                    <div className="font-medium">Business Growth</div>
-                    <div className="text-sm text-gray-600">
-                      Confident expansion into new markets
+                    <div className="text-lg font-medium">Manufacturing</div>
+                    <div className="text-base text-gray-600">
+                      Manufacturers with distributor and dealer networks
                     </div>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
-                  <FaBalanceScale className="text-blue-500" />
-                  <div>
-                    <div className="font-medium">Better Financing</div>
-                    <div className="text-sm text-gray-600">Improved access to trade finance</div>
                   </div>
                 </div>
               </div>
@@ -259,7 +272,7 @@ const TradeCreditInsurancePage = () => {
       </section>
 
       {/* Who we serve */}
-      <section className="w-full border-b border-gray-100 bg-white">
+      {/* <section className="w-full border-b border-gray-100 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold md:text-3xl">Who We Serve</h2>
           <p className="mt-3 text-gray-700">
@@ -283,10 +296,10 @@ const TradeCreditInsurancePage = () => {
             </Tile>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Sample Risks */}
-      <section className="w-full border-b border-gray-100 bg-gray-50">
+      {/* <section className="w-full border-b border-gray-100 bg-gray-50">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold md:text-3xl">Common Trade Credit Risks</h2>
           <p className="mt-3 text-gray-700">
@@ -339,35 +352,35 @@ const TradeCreditInsurancePage = () => {
             />
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Claim Stories Component */}
-      <ClaimStories stories={claimStories} industryName="Trade Credit Insurance" />
+      {/* <ClaimStories stories={claimStories} industryName="Trade Credit Insurance" /> */}
 
       {/* Core coverage suite */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Core Coverage Options</h2>
-          <p className="mt-3 text-gray-700">
+      <section className="to-si-primary-200 mt-20 w-full border-b border-gray-100 bg-gradient-to-b from-transparent lg:h-screen">
+        <div className="mx-auto max-w-[90vw] px-4 py-[7vh] sm:px-6 lg:max-w-[75vw] lg:px-8 lg:pt-[10vh]">
+          <h2 className="text-3xl font-bold md:text-4xl">Core Coverage Suite</h2>
+          <p className="mt-2 text-lg text-gray-700">
             Comprehensive trade credit protection designed for different business models and risk
             exposures.
           </p>
 
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
-            <Card
-              icon={<FaGlobe className="text-2xl text-blue-500" />}
+          <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
+            <CardComponent
+              icon={<FaGlobe className="text-3xl text-blue-500" />}
               title="Export Credit Insurance"
-              body="Protection for international trade against buyer and political risks."
+              body="Protection for international trade against buyer and political risks with comprehensive coverage."
               bullets={[
                 'Commercial risk coverage for buyer default',
                 'Political risk protection for government actions',
                 'Currency transfer and convertibility coverage',
               ]}
             />
-            <Card
-              icon={<FaHandshake className="text-2xl text-blue-500" />}
+            <CardComponent
+              icon={<FaHandshake className="text-3xl text-blue-500" />}
               title="Domestic Trade Credit"
-              body="Coverage for domestic sales and accounts receivable protection."
+              body="Coverage for domestic sales and accounts receivable protection with monitoring services."
               bullets={[
                 'Buyer insolvency and default protection',
                 'Protracted default coverage',
@@ -376,21 +389,21 @@ const TradeCreditInsurancePage = () => {
             />
           </div>
 
-          <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
-            <Card
-              icon={<FaCreditCard className="text-2xl text-blue-500" />}
+          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
+            <CardComponent
+              icon={<FaCreditCard className="text-3xl text-blue-500" />}
               title="Whole Turnover Policy"
-              body="Comprehensive coverage for entire customer portfolio and sales."
+              body="Comprehensive coverage for entire customer portfolio and sales with automatic protection."
               bullets={[
                 'Coverage for all eligible customers',
                 'Portfolio approach to risk management',
                 'Automatic coverage for new customers',
               ]}
             />
-            <Card
-              icon={<FaChartLine className="text-2xl text-blue-500" />}
+            <CardComponent
+              icon={<FaChartLine className="text-3xl text-blue-500" />}
               title="Single Buyer Coverage"
-              body="Targeted protection for specific high-value customers or contracts."
+              body="Targeted protection for specific high-value customers or contracts with flexible terms."
               bullets={[
                 'Focused coverage for key accounts',
                 'Large contract protection',
@@ -401,56 +414,20 @@ const TradeCreditInsurancePage = () => {
         </div>
       </section>
 
-      {/* Insurance Plans/Products */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Trade Credit Insurance Plans</h2>
+      {/* Claim Stories */}
+      <section className="to-si-primary-200 w-full border-b border-gray-100 bg-gradient-to-t from-transparent py-10">
+        <div className="mx-auto max-w-[90vw] px-4 py-14 sm:px-6 lg:max-w-[80vw] lg:px-8">
+          <h2 className="text-2xl font-bold md:text-3xl">Claim Stories</h2>
           <p className="mt-3 text-gray-700">
-            Flexible trade credit insurance solutions designed for different business sizes and
-            trade volumes.
+            Stay updated with how SIIB helped trade credit clients recover from buyer defaults,
+            political risks, and payment collection challenges.
           </p>
-
-          <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
-            <InsurancePlan
-              name="SME Trade Plan"
-              description="Essential coverage for small and medium enterprises with trade receivables"
-              price="₹75K - ₹5L"
-              features={[
-                'Domestic Trade Credit Coverage',
-                'Basic Export Credit Protection',
-                'Credit Management Support',
-                'Standard Coverage Limits',
-                'Annual Policy Terms',
-              ]}
-              recommended={false}
-            />
-            <InsurancePlan
-              name="Export Business Plan"
-              description="Comprehensive coverage for established exporters and international traders"
-              price="₹5L - ₹50L"
-              features={[
-                'All SME Plan Benefits',
-                'Enhanced Export Credit Coverage',
-                'Political Risk Protection',
-                'Multi-Country Coverage',
-                'Credit Information Services',
-                'Dedicated Account Support',
-              ]}
-              recommended={true}
-            />
-            <InsurancePlan
-              name="Enterprise Trade Plan"
-              description="Advanced protection for large corporations with significant trade volumes"
-              price="₹50L+"
-              features={[
-                'All Export Business Benefits',
-                'Whole Turnover Coverage',
-                'Customized Policy Terms',
-                'Global Coverage Network',
-                'Advanced Credit Analytics',
-                'Priority Claims Processing',
-              ]}
-              recommended={false}
+          <div className="pt-6 lg:w-[75vw]">
+            <MainCaraousel
+              color="blue"
+              layout={1}
+              topic="trade_credit_insurance"
+              type="claims_story"
             />
           </div>
         </div>
@@ -458,11 +435,11 @@ const TradeCreditInsurancePage = () => {
 
       {/* Relevant Articles Component */}
       {/* <RelevantArticles articles={articles} industryName="Trade Credit Insurance" /> */}
-      <section className="w-full border-b border-gray-100 bg-gray-50">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+      <section className="to-si-primary-200 w-full border-b border-gray-100 bg-gradient-to-b from-transparent">
+        <div className="mx-auto max-w-[90vw] px-4 py-14 sm:px-6 lg:max-w-[75vw] lg:px-8">
           <h2 className="text-2xl font-bold md:text-3xl">Industry Insights & Articles</h2>
           <p className="mt-3 text-gray-700">
-            Stay updated with the latest trends, regulations, and best practices in Plastic Industry
+            Stay updated with the latest trends, regulations, and best practices in Trade Credit
             insurance.
           </p>
           <div className="w-full pt-6">
@@ -475,27 +452,25 @@ const TradeCreditInsurancePage = () => {
       <KnowledgeQuestionnaire questions={quizQuestions} industryName="Trade Credit Insurance" />
 
       {/* What you receive & CTA */}
-      <section className="w-full bg-white">
+      <section className="to-si-primary-200 w-full bg-gradient-to-b from-transparent">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="rounded-2xl border border-blue-200 bg-blue-50 p-8">
             <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-3">
               <div className="lg:col-span-2">
-                <h3 className="text-2xl font-bold text-gray-900">
-                  Enabling Trade. Securing Payments.
-                </h3>
+                <h3 className="text-2xl font-bold text-gray-900">Secure Your Trade Today.</h3>
                 <p className="mt-2 text-gray-700">
-                  Partner with SIIBs trade credit specialists for comprehensive buyer protection,
-                  market expansion support, and expert credit management.
+                  Partner with SIIB&#39;s trade credit specialists for comprehensive buyer
+                  protection, market expansion support, and expert credit management.
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row">
                 <button className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-700">
                   <FaShieldAlt className="mr-2" />
-                  Get Quote
+                  Request Proposal
                 </button>
                 <button className="inline-flex items-center justify-center rounded-lg border border-blue-200 bg-white px-6 py-3 font-semibold text-blue-700 hover:bg-blue-100">
                   <FaFileContract className="mr-2" />
-                  Credit Assessment
+                  Upload Trade Data
                 </button>
               </div>
             </div>
@@ -503,9 +478,13 @@ const TradeCreditInsurancePage = () => {
 
           {/* Contact strip */}
           <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
-            <Contact label="Call" value="1800 210 2022" icon={<FaPhoneAlt />} />
-            <Contact label="Email" value="contact.ins@shareindia.co.in" icon={<FaEnvelope />} />
-            <Contact
+            <ContactComponent label="Call" value="1800 210 2022" icon={<FaPhoneAlt />} />
+            <ContactComponent
+              label="Email"
+              value="contact.ins@shareindia.co.in"
+              icon={<FaEnvelope />}
+            />
+            <ContactComponent
               label="Advisory Desk"
               value="Trade Credit Insurance Specialists"
               icon={<FaHeadset />}
@@ -516,173 +495,5 @@ const TradeCreditInsurancePage = () => {
     </div>
   );
 };
-
-/* Helpers - Same as previous pages */
-const Tile = ({
-  icon,
-  title,
-  children,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  children: React.ReactNode;
-}) => (
-  <div className="rounded-xl border border-gray-200 p-6">
-    <div className="text-2xl text-blue-500">{icon}</div>
-    <h3 className="mt-3 font-semibold">{title}</h3>
-    <p className="mt-1 text-sm text-gray-600">{children}</p>
-  </div>
-);
-
-const Card = ({
-  icon,
-  title,
-  body,
-  bullets,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  body: string;
-  bullets: string[];
-}) => (
-  <div className="rounded-xl border border-gray-200 p-6">
-    <div className="flex items-center gap-3">
-      {icon}
-      <h3 className="text-lg font-semibold">{title}</h3>
-    </div>
-    <p className="mt-2 text-sm text-gray-700">{body}</p>
-    <ul className="mt-3 space-y-1 text-sm text-gray-700">
-      {bullets.map((b) => (
-        <li key={b} className="flex">
-          <FaChevronRight className="mt-1 mr-2 text-blue-400" />
-          {b}
-        </li>
-      ))}
-    </ul>
-  </div>
-);
-
-const RiskCard = ({
-  icon,
-  title,
-  description,
-  severity,
-  frequency,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-  severity: string;
-  frequency: string;
-}) => (
-  <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-    <div className="flex items-center gap-3">
-      <span className="text-2xl text-red-500">{icon}</span>
-      <h3 className="text-lg font-semibold">{title}</h3>
-    </div>
-    <p className="mt-3 text-sm text-gray-700">{description}</p>
-    <div className="mt-4 flex gap-4">
-      <div className="flex items-center gap-2">
-        <span className="text-xs text-gray-500">Severity:</span>
-        <span
-          className={`rounded-full px-2 py-1 text-xs font-medium ${
-            severity === 'High'
-              ? 'bg-red-100 text-red-800'
-              : severity === 'Medium'
-                ? 'bg-yellow-100 text-yellow-800'
-                : 'bg-green-100 text-green-800'
-          }`}
-        >
-          {severity}
-        </span>
-      </div>
-      <div className="flex items-center gap-2">
-        <span className="text-xs text-gray-500">Frequency:</span>
-        <span
-          className={`rounded-full px-2 py-1 text-xs font-medium ${
-            frequency === 'High'
-              ? 'bg-red-100 text-red-800'
-              : frequency === 'Medium'
-                ? 'bg-yellow-100 text-yellow-800'
-                : 'bg-green-100 text-green-800'
-          }`}
-        >
-          {frequency}
-        </span>
-      </div>
-    </div>
-  </div>
-);
-
-const InsurancePlan = ({
-  name,
-  description,
-  price,
-  features,
-  recommended,
-}: {
-  name: string;
-  description: string;
-  price: string;
-  features: string[];
-  recommended: boolean;
-}) => (
-  <div
-    className={`rounded-xl border p-6 ${
-      recommended ? 'border-blue-500 bg-blue-50' : 'border-gray-200 bg-white'
-    }`}
-  >
-    {recommended && (
-      <div className="mb-4">
-        <span className="inline-flex items-center rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-800">
-          <FaCertificate className="mr-1" />
-          Recommended
-        </span>
-      </div>
-    )}
-    <h3 className="text-xl font-bold text-gray-900">{name}</h3>
-    <p className="mt-2 text-sm text-gray-600">{description}</p>
-    <div className="mt-4 flex items-center gap-2">
-      <FaRupeeSign className="text-blue-500" />
-      <span className="text-2xl font-bold text-blue-600">{price}</span>
-      <span className="text-sm text-gray-500">per year</span>
-    </div>
-    <ul className="mt-6 space-y-3">
-      {features.map((feature, index) => (
-        <li key={index} className="flex items-start gap-3">
-          <FaCheckCircle className="mt-1 text-green-500" />
-          <span className="text-sm text-gray-700">{feature}</span>
-        </li>
-      ))}
-    </ul>
-    <button
-      className={`mt-6 w-full rounded-lg px-4 py-3 font-semibold ${
-        recommended
-          ? 'bg-blue-600 text-white hover:bg-blue-700'
-          : 'border border-blue-200 text-blue-700 hover:bg-blue-50'
-      }`}
-    >
-      Get Quote
-    </button>
-  </div>
-);
-
-const Contact = ({
-  label,
-  value,
-  icon,
-}: {
-  label: string;
-  value: string;
-  icon: React.ReactNode;
-}) => (
-  <div className="flex items-center justify-between rounded-lg border border-gray-200 p-5">
-    <div>
-      <div className="text-sm text-gray-500">{label}</div>
-      <div className="font-semibold">{value}</div>
-    </div>
-    <div className="text-xl text-blue-600">{icon}</div>
-  </div>
-);
 
 export default TradeCreditInsurancePage;

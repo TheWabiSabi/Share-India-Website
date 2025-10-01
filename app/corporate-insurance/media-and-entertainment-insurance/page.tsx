@@ -1,28 +1,25 @@
-'use client';
+// 'use client';
 import React from 'react';
+import Image from 'next/image';
 import {
   FaChevronRight,
   FaShieldAlt,
   FaVideo,
   FaMusic,
   FaTheaterMasks,
-  FaWater,
-  FaUserShield,
   FaFileContract,
   FaPhoneAlt,
   FaEnvelope,
   FaHeadset,
-  FaLock,
-  FaExclamationTriangle,
-  FaCheckCircle,
-  FaRupeeSign,
-  FaCertificate,
   FaCamera,
   FaStar,
 } from 'react-icons/fa';
-import ClaimStories from '../../industries/_components/ClaimStories';
+import ContactComponent from '@/app/industries/_components/Contact';
+import CardComponent from '@/app/industries/_components/Card';
+// import ClaimStories from '../../industries/_components/ClaimStories';
 import KnowledgeQuestionnaire from '../../industries/_components/KnowledgeQuestionnaire';
 import MainCaraousel from '@/components/main-caraousel';
+// import ClaimStories from '@/app/industries/_components/ClaimStories';
 
 const MediaEntertainmentInsurancePage = () => {
   // Sample data for components
@@ -165,101 +162,114 @@ const MediaEntertainmentInsurancePage = () => {
   return (
     <div className="min-h-screen bg-white pt-[8vh] text-gray-900">
       {/* Hero */}
-      <section className="w-full border-b border-gray-100">
-        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-          <div className="max-w-4xl">
-            <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl">
-              Media & Entertainment Insurance Solutions
-            </h1>
-            <p className="mt-6 text-lg text-gray-700 md:text-xl">
-              Comprehensive protection for film production, television, live events, and digital
-              content—covering equipment, talent, and creative risks in the entertainment industry.
-            </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <button className="inline-flex items-center justify-center rounded-lg bg-blue-100 px-6 py-3 font-semibold text-blue-800 hover:bg-blue-200">
-                <FaShieldAlt className="mr-2" />
-                Get Coverage Quote
-              </button>
-              <button className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-6 py-3 font-semibold hover:bg-gray-50">
-                <FaFileContract className="mr-2" />
-                Production Assessment
-              </button>
-              <button className="inline-flex items-center justify-center rounded-lg border border-blue-200 px-6 py-3 font-semibold text-blue-700 hover:bg-blue-50">
-                <FaPhoneAlt className="mr-2" />
-                Speak to Expert
-              </button>
-            </div>
-            <div className="mt-4 text-sm text-gray-600">
-              Specialized coverage for film producers, event organizers, and entertainment
-              companies.
+      <section className="relative min-h-screen w-full">
+        {/* Background image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://minio-api.internal.wabisabitech.in/share-india/blog/highrise.jpg"
+            alt="Media and entertainment background"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw 100vh"
+          />
+          {/* Gradient + subtle blur overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/50 to-slate-900/30 backdrop-blur-sm" />
+        </div>
+
+        <div className="relative w-full pt-[15vh] md:pt-[30vh]">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl text-white">
+              <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl">
+                Media and Entertainment Insurance Solutions
+              </h1>
+              <p className="mt-6 text-lg text-gray-100/90 md:text-xl">
+                Comprehensive protection for film productions, events, and entertainment
+                businesses—covering equipment, talent, and production risks.
+              </p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <button className="inline-flex items-center justify-center rounded-lg bg-blue-100 px-6 py-3 font-semibold text-blue-800 hover:bg-blue-200">
+                  <FaShieldAlt className="mr-2" />
+                  Get Coverage Proposal
+                </button>
+                <button className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-6 py-3 font-semibold hover:bg-gray-50">
+                  <FaFileContract className="mr-2" />
+                  Book Risk Assessment
+                </button>
+              </div>
+              <div className="mt-4 text-sm text-gray-100">
+                Specialized coverage for film productions, events, and entertainment industry
+                professionals.
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Insurance Explanation */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">
-            Understanding Media & Entertainment Insurance
+      {/* Industry Explanation */}
+      <section className="from-si-primary-200 w-full border-b border-gray-100 bg-gradient-to-b to-transparent lg:h-screen">
+        <div className="mx-auto max-w-[90vw] px-4 py-[10vh] sm:px-6 lg:max-w-[75vw] lg:px-8 lg:pt-[20vh]">
+          <h2 className="text-3xl font-bold md:text-4xl">
+            Understanding Media and Entertainment Insurance
           </h2>
-          <p className="mt-3 text-gray-700">
-            Media & Entertainment Insurance provides specialized protection for the unique risks
-            faced by the entertainment industry, from production delays to equipment damage.
+          <p className="mt-[9vh] text-lg text-gray-700">
+            Media and Entertainment Insurance provides specialized protection for the unique risks
+            faced by the entertainment industry, from production delays to equipment damage and
+            talent-related issues.
           </p>
 
-          <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2">
+          <div className="mt-[10vh] grid grid-cols-1 gap-8 lg:grid-cols-2">
             <div>
-              <h3 className="text-xl font-semibold text-gray-900">Coverage Overview</h3>
-              <p className="mt-3 text-gray-700">
-                This insurance covers the complex risks in entertainment production including cast
-                and crew protection, equipment coverage, production delays, intellectual property
-                issues, and event cancellation. It provides financial protection for high-value
-                productions and events where traditional insurance may not adequately address
-                industry-specific risks.
+              <h3 className="text-2xl font-semibold text-gray-900">Industry Overview</h3>
+              <p className="mt-8 text-lg text-gray-700">
+                The entertainment industry involves complex productions with high-value equipment,
+                talent, and creative assets. Media and Entertainment insurance covers risks from
+                equipment damage, cast injuries, production delays, and intellectual property
+                issues. This specialized coverage ensures productions can continue and protects
+                against unexpected financial losses during filming, events, and content creation.
               </p>
-              <ul className="mt-4 space-y-2 text-sm text-gray-700">
-                <li className="flex items-start">
+              <ul className="mt-7 space-y-2 text-base text-gray-700">
+                <li className="mb-6 flex items-start">
                   <FaChevronRight className="mt-1 mr-2 text-blue-400" />
-                  Protection for cast, crew, and key personnel
+                  Comprehensive production and equipment protection
+                </li>
+                <li className="mb-6 flex items-start">
+                  <FaChevronRight className="mt-1 mr-2 text-blue-400" />
+                  Cast and crew coverage for talent-related risks
                 </li>
                 <li className="flex items-start">
                   <FaChevronRight className="mt-1 mr-2 text-blue-400" />
-                  Coverage for expensive production equipment
-                </li>
-                <li className="flex items-start">
-                  <FaChevronRight className="mt-1 mr-2 text-blue-400" />
-                  Intellectual property and content liability protection
+                  Event cancellation and intellectual property protection
                 </li>
               </ul>
             </div>
             <div>
-              <h3 className="text-xl font-semibold text-gray-900">Key Benefits</h3>
-              <div className="mt-3 space-y-3">
-                <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
+              <h3 className="text-2xl font-semibold text-gray-900">Key Coverage Areas</h3>
+              <div className="mt-8 space-y-7">
+                <div className="flex items-center gap-5 rounded-lg border border-gray-200 p-3">
                   <FaVideo className="text-blue-500" />
                   <div>
-                    <div className="font-medium">Production Protection</div>
-                    <div className="text-sm text-gray-600">
-                      Comprehensive coverage for film and TV production
+                    <div className="text-lg font-medium">Film & TV Productions</div>
+                    <div className="text-base text-gray-600">
+                      Movie studios, TV networks, and production companies
                     </div>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
-                  <FaStar className="text-blue-500" />
+                <div className="flex items-center gap-5 rounded-lg border border-gray-200 p-3">
+                  <FaMusic className="text-blue-500" />
                   <div>
-                    <div className="font-medium">Talent Coverage</div>
-                    <div className="text-sm text-gray-600">
-                      Protection for key cast and crew members
+                    <div className="text-lg font-medium">Live Events & Concerts</div>
+                    <div className="text-base text-gray-600">
+                      Music concerts, festivals, and live entertainment venues
                     </div>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
+                <div className="flex items-center gap-5 rounded-lg border border-gray-200 p-3">
                   <FaCamera className="text-blue-500" />
                   <div>
-                    <div className="font-medium">Equipment Security</div>
-                    <div className="text-sm text-gray-600">
-                      Coverage for high-value production equipment
+                    <div className="text-lg font-medium">Digital Content Creation</div>
+                    <div className="text-base text-gray-600">
+                      Online media companies and digital content producers
                     </div>
                   </div>
                 </div>
@@ -269,115 +279,32 @@ const MediaEntertainmentInsurancePage = () => {
         </div>
       </section>
 
-      {/* Who we serve */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Who We Serve</h2>
-          <p className="mt-3 text-gray-700">
-            Comprehensive entertainment insurance solutions for all segments of the media and
-            entertainment industry.
-          </p>
-
-          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <Tile icon={<FaVideo />} title="Film & TV Producers">
-              Production companies creating films, television shows, and digital content.
-            </Tile>
-            <Tile icon={<FaMusic />} title="Event Organizers">
-              Concert promoters, festival organizers, and live entertainment companies.
-            </Tile>
-            <Tile icon={<FaTheaterMasks />} title="Theater & Performing Arts">
-              Theater companies, dance troupes, and performing arts organizations.
-            </Tile>
-            <Tile icon={<FaCamera />} title="Equipment Rental Companies">
-              Companies providing cameras, lighting, and technical equipment for productions.
-            </Tile>
-          </div>
-        </div>
-      </section>
-
-      {/* Sample Risks */}
-      <section className="w-full border-b border-gray-100 bg-gray-50">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Common Entertainment Industry Risks</h2>
-          <p className="mt-3 text-gray-700">
-            Understanding key entertainment risks helps in selecting appropriate insurance coverage
-            for your productions and events.
-          </p>
-
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <RiskCard
-              icon={<FaStar />}
-              title="Cast & Crew Risks"
-              description="Illness, injury, or death of key talent causing production delays and additional costs."
-              severity="High"
-              frequency="Medium"
-            />
-            <RiskCard
-              icon={<FaCamera />}
-              title="Equipment Damage"
-              description="Damage, theft, or malfunction of expensive production equipment and technology."
-              severity="Medium"
-              frequency="High"
-            />
-            <RiskCard
-              icon={<FaWater />}
-              title="Weather & Natural Disasters"
-              description="Adverse weather conditions affecting outdoor shoots and live events."
-              severity="Medium"
-              frequency="Medium"
-            />
-            <RiskCard
-              icon={<FaLock />}
-              title="Intellectual Property Claims"
-              description="Copyright infringement, defamation, and other content-related legal issues."
-              severity="High"
-              frequency="Low"
-            />
-            <RiskCard
-              icon={<FaExclamationTriangle />}
-              title="Event Cancellation"
-              description="Cancellation of concerts, festivals, or events due to unforeseen circumstances."
-              severity="High"
-              frequency="Low"
-            />
-            <RiskCard
-              icon={<FaUserShield />}
-              title="Public Liability"
-              description="Third-party injury or property damage during productions or events."
-              severity="Medium"
-              frequency="Medium"
-            />
-          </div>
-        </div>
-      </section>
-
       {/* Claim Stories Component */}
-      <ClaimStories stories={claimStories} industryName="Media & Entertainment Insurance" />
+      {/* <ClaimStories stories={claimStories} industryName="Media and Entertainment" /> */}
 
       {/* Core coverage suite */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Core Coverage Options</h2>
-          <p className="mt-3 text-gray-700">
-            Specialized entertainment insurance protection designed for different types of
-            productions and events.
+      <section className="to-si-primary-200 mt-20 w-full border-b border-gray-100 bg-gradient-to-b from-transparent lg:h-screen">
+        <div className="mx-auto max-w-[90vw] px-4 py-[7vh] sm:px-6 lg:max-w-[75vw] lg:px-8 lg:pt-[10vh]">
+          <h2 className="text-3xl font-bold md:text-4xl">Core Coverage Suite</h2>
+          <p className="mt-2 text-lg text-gray-700">
+            Comprehensive protection designed specifically for media and entertainment operations.
           </p>
 
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
-            <Card
-              icon={<FaVideo className="text-2xl text-blue-500" />}
+          <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
+            <CardComponent
+              icon={<FaVideo className="text-3xl text-blue-500" />}
               title="Film & TV Production Insurance"
-              body="Comprehensive coverage for film and television production activities."
+              body="Complete coverage for film and television production including cast, crew, and equipment protection."
               bullets={[
                 'Cast insurance and key person coverage',
                 'Equipment and props protection',
                 'Completion guarantee and delivery bond',
               ]}
             />
-            <Card
-              icon={<FaMusic className="text-2xl text-blue-500" />}
+            <CardComponent
+              icon={<FaMusic className="text-3xl text-blue-500" />}
               title="Event & Concert Insurance"
-              body="Protection for live events, concerts, and entertainment venues."
+              body="Protection for live events, concerts, and entertainment venues against cancellation and liability."
               bullets={[
                 'Event cancellation and postponement',
                 'Public liability and crowd control',
@@ -386,94 +313,58 @@ const MediaEntertainmentInsurancePage = () => {
             />
           </div>
 
-          <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
-            <Card
-              icon={<FaLock className="text-2xl text-blue-500" />}
-              title="Errors & Omissions Insurance"
-              body="Protection against intellectual property and content-related claims."
-              bullets={[
-                'Copyright and trademark infringement',
-                'Defamation and privacy violations',
-                'Content liability and clearance issues',
-              ]}
-            />
-            <Card
-              icon={<FaCamera className="text-2xl text-blue-500" />}
+          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
+            <CardComponent
+              icon={<FaCamera className="text-3xl text-blue-500" />}
               title="Equipment & Technology Coverage"
-              body="Specialized protection for production equipment and technology."
+              body="Specialized coverage for production equipment, cameras, and technical systems."
               bullets={[
                 'Cameras, lighting, and sound equipment',
                 'Post-production and editing facilities',
                 'Mobile equipment and location coverage',
               ]}
             />
+            <CardComponent
+              icon={<FaTheaterMasks className="text-3xl text-blue-500" />}
+              title="Errors & Omissions Insurance"
+              body="Coverage for intellectual property claims, defamation, and content-related legal issues."
+              bullets={[
+                'Copyright and trademark infringement',
+                'Defamation and privacy violations',
+                'Content liability and clearance issues',
+              ]}
+            />
           </div>
         </div>
       </section>
 
-      {/* Insurance Plans/Products */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Entertainment Insurance Plans</h2>
+      {/* Claim Stories */}
+      <section className="to-si-primary-200 w-full border-b border-gray-100 bg-gradient-to-t from-transparent py-10">
+        <div className="mx-auto max-w-[90vw] px-4 py-14 sm:px-6 lg:max-w-[80vw] lg:px-8">
+          <h2 className="text-2xl font-bold md:text-3xl">Claim Stories</h2>
           <p className="mt-3 text-gray-700">
-            Flexible entertainment insurance solutions designed for different production scales and
-            event types.
+            Stay updated with how SIIB helped media and entertainment clients recover from
+            production delays, equipment damage, and talent-related issues.
           </p>
-
-          <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
-            <InsurancePlan
-              name="Independent Production Plan"
-              description="Essential coverage for small-scale productions and independent creators"
-              price="₹2L - ₹10L"
-              features={[
-                'Basic Equipment Coverage',
-                'General Liability Protection',
-                'Cast Insurance (Limited)',
-                'Errors & Omissions (Basic)',
-                'Short-term Production Coverage',
-              ]}
-              recommended={false}
-            />
-            <InsurancePlan
-              name="Commercial Production Plan"
-              description="Comprehensive coverage for established production companies and events"
-              price="₹10L - ₹1Cr"
-              features={[
-                'All Independent Plan Benefits',
-                'Enhanced Cast & Crew Coverage',
-                'Completion Guarantee Insurance',
-                'Advanced Equipment Protection',
-                'Event Cancellation Coverage',
-                'International Location Coverage',
-              ]}
-              recommended={true}
-            />
-            <InsurancePlan
-              name="Studio Enterprise Plan"
-              description="Advanced protection for major studios and large-scale productions"
-              price="₹1Cr+"
-              features={[
-                'All Commercial Plan Benefits',
-                'Multi-Production Coverage',
-                'Celebrity and Talent Protection',
-                'Global Production Coverage',
-                'Crisis Management Services',
-                'Dedicated Entertainment Specialist',
-              ]}
-              recommended={false}
+          <div className="pt-6 lg:w-[75vw]">
+            <MainCaraousel
+              color="blue"
+              layout={1}
+              topic="media_entertainment_insurance"
+              type="claims_story"
             />
           </div>
         </div>
       </section>
 
       {/* Relevant Articles Component */}
-      {/* <RelevantArticles articles={articles} industryName="Media & Entertainment Insurance" /> */}
-      <section className="w-full border-b border-gray-100 bg-gray-50">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+      {/* <RelevantArticles articles={articles} industryName="Media and Entertainment" /> */}
+      <section className="to-si-primary-200 w-full border-b border-gray-100 bg-gradient-to-b from-transparent">
+        <div className="mx-auto max-w-[90vw] px-4 py-14 sm:px-6 lg:max-w-[75vw] lg:px-8">
           <h2 className="text-2xl font-bold md:text-3xl">Industry Insights & Articles</h2>
           <p className="mt-3 text-gray-700">
-            Stay updated with the latest trends, regulations, and best practices in Plastic Industry
-            insurance.
+            Stay updated with the latest trends, regulations, and best practices in Media and
+            Entertainment insurance.
           </p>
           <div className="w-full pt-6">
             <MainCaraousel color="white" layout={3} topic="media_entertainment_insurance" />
@@ -482,13 +373,10 @@ const MediaEntertainmentInsurancePage = () => {
       </section>
 
       {/* Knowledge Questionnaire Component */}
-      <KnowledgeQuestionnaire
-        questions={quizQuestions}
-        industryName="Media & Entertainment Insurance"
-      />
+      <KnowledgeQuestionnaire questions={quizQuestions} industryName="Media and Entertainment" />
 
       {/* What you receive & CTA */}
-      <section className="w-full bg-white">
+      <section className="to-si-primary-200 w-full bg-gradient-to-b from-transparent">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="rounded-2xl border border-blue-200 bg-blue-50 p-8">
             <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-3">
@@ -497,18 +385,18 @@ const MediaEntertainmentInsurancePage = () => {
                   Creating Stories. Protecting Dreams.
                 </h3>
                 <p className="mt-2 text-gray-700">
-                  Partner with SIIBs entertainment specialists for comprehensive production
-                  coverage, talent protection, and expert risk management.
+                  Partner with SIIB&#39;s entertainment specialists for comprehensive production
+                  coverage, talent protection, and expert risk management solutions.
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row">
                 <button className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-700">
                   <FaShieldAlt className="mr-2" />
-                  Get Quote
+                  Request Proposal
                 </button>
                 <button className="inline-flex items-center justify-center rounded-lg border border-blue-200 bg-white px-6 py-3 font-semibold text-blue-700 hover:bg-blue-100">
                   <FaFileContract className="mr-2" />
-                  Production Assessment
+                  Upload Production Data
                 </button>
               </div>
             </div>
@@ -516,9 +404,13 @@ const MediaEntertainmentInsurancePage = () => {
 
           {/* Contact strip */}
           <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
-            <Contact label="Call" value="1800 210 2022" icon={<FaPhoneAlt />} />
-            <Contact label="Email" value="contact.ins@shareindia.co.in" icon={<FaEnvelope />} />
-            <Contact
+            <ContactComponent label="Call" value="1800 210 2022" icon={<FaPhoneAlt />} />
+            <ContactComponent
+              label="Email"
+              value="contact.ins@shareindia.co.in"
+              icon={<FaEnvelope />}
+            />
+            <ContactComponent
               label="Advisory Desk"
               value="Entertainment Insurance Specialists"
               icon={<FaHeadset />}
@@ -529,173 +421,5 @@ const MediaEntertainmentInsurancePage = () => {
     </div>
   );
 };
-
-/* Helpers - Same as previous pages */
-const Tile = ({
-  icon,
-  title,
-  children,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  children: React.ReactNode;
-}) => (
-  <div className="rounded-xl border border-gray-200 p-6">
-    <div className="text-2xl text-blue-500">{icon}</div>
-    <h3 className="mt-3 font-semibold">{title}</h3>
-    <p className="mt-1 text-sm text-gray-600">{children}</p>
-  </div>
-);
-
-const Card = ({
-  icon,
-  title,
-  body,
-  bullets,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  body: string;
-  bullets: string[];
-}) => (
-  <div className="rounded-xl border border-gray-200 p-6">
-    <div className="flex items-center gap-3">
-      {icon}
-      <h3 className="text-lg font-semibold">{title}</h3>
-    </div>
-    <p className="mt-2 text-sm text-gray-700">{body}</p>
-    <ul className="mt-3 space-y-1 text-sm text-gray-700">
-      {bullets.map((b) => (
-        <li key={b} className="flex">
-          <FaChevronRight className="mt-1 mr-2 text-blue-400" />
-          {b}
-        </li>
-      ))}
-    </ul>
-  </div>
-);
-
-const RiskCard = ({
-  icon,
-  title,
-  description,
-  severity,
-  frequency,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-  severity: string;
-  frequency: string;
-}) => (
-  <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-    <div className="flex items-center gap-3">
-      <span className="text-2xl text-red-500">{icon}</span>
-      <h3 className="text-lg font-semibold">{title}</h3>
-    </div>
-    <p className="mt-3 text-sm text-gray-700">{description}</p>
-    <div className="mt-4 flex gap-4">
-      <div className="flex items-center gap-2">
-        <span className="text-xs text-gray-500">Severity:</span>
-        <span
-          className={`rounded-full px-2 py-1 text-xs font-medium ${
-            severity === 'High'
-              ? 'bg-red-100 text-red-800'
-              : severity === 'Medium'
-                ? 'bg-yellow-100 text-yellow-800'
-                : 'bg-green-100 text-green-800'
-          }`}
-        >
-          {severity}
-        </span>
-      </div>
-      <div className="flex items-center gap-2">
-        <span className="text-xs text-gray-500">Frequency:</span>
-        <span
-          className={`rounded-full px-2 py-1 text-xs font-medium ${
-            frequency === 'High'
-              ? 'bg-red-100 text-red-800'
-              : frequency === 'Medium'
-                ? 'bg-yellow-100 text-yellow-800'
-                : 'bg-green-100 text-green-800'
-          }`}
-        >
-          {frequency}
-        </span>
-      </div>
-    </div>
-  </div>
-);
-
-const InsurancePlan = ({
-  name,
-  description,
-  price,
-  features,
-  recommended,
-}: {
-  name: string;
-  description: string;
-  price: string;
-  features: string[];
-  recommended: boolean;
-}) => (
-  <div
-    className={`rounded-xl border p-6 ${
-      recommended ? 'border-blue-500 bg-blue-50' : 'border-gray-200 bg-white'
-    }`}
-  >
-    {recommended && (
-      <div className="mb-4">
-        <span className="inline-flex items-center rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-800">
-          <FaCertificate className="mr-1" />
-          Recommended
-        </span>
-      </div>
-    )}
-    <h3 className="text-xl font-bold text-gray-900">{name}</h3>
-    <p className="mt-2 text-sm text-gray-600">{description}</p>
-    <div className="mt-4 flex items-center gap-2">
-      <FaRupeeSign className="text-blue-500" />
-      <span className="text-2xl font-bold text-blue-600">{price}</span>
-      <span className="text-sm text-gray-500">per year</span>
-    </div>
-    <ul className="mt-6 space-y-3">
-      {features.map((feature, index) => (
-        <li key={index} className="flex items-start gap-3">
-          <FaCheckCircle className="mt-1 text-green-500" />
-          <span className="text-sm text-gray-700">{feature}</span>
-        </li>
-      ))}
-    </ul>
-    <button
-      className={`mt-6 w-full rounded-lg px-4 py-3 font-semibold ${
-        recommended
-          ? 'bg-blue-600 text-white hover:bg-blue-700'
-          : 'border border-blue-200 text-blue-700 hover:bg-blue-50'
-      }`}
-    >
-      Get Quote
-    </button>
-  </div>
-);
-
-const Contact = ({
-  label,
-  value,
-  icon,
-}: {
-  label: string;
-  value: string;
-  icon: React.ReactNode;
-}) => (
-  <div className="flex items-center justify-between rounded-lg border border-gray-200 p-5">
-    <div>
-      <div className="text-sm text-gray-500">{label}</div>
-      <div className="font-semibold">{value}</div>
-    </div>
-    <div className="text-xl text-blue-600">{icon}</div>
-  </div>
-);
 
 export default MediaEntertainmentInsurancePage;

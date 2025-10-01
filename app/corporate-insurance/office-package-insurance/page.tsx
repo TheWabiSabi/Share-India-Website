@@ -1,27 +1,21 @@
-'use client';
+// 'use client';
 import React from 'react';
+import Image from 'next/image';
 import {
   FaChevronRight,
   FaShieldAlt,
   FaBuilding,
   FaLaptop,
   FaBriefcase,
-  FaFire,
-  FaWater,
-  FaUserShield,
   FaFileContract,
   FaPhoneAlt,
   FaEnvelope,
   FaHeadset,
-  FaPlug,
-  FaLock,
-  FaExclamationTriangle,
-  FaCheckCircle,
-  FaRupeeSign,
-  FaCertificate,
-  FaDesktop,
+  FaUserShield,
 } from 'react-icons/fa';
-import ClaimStories from '../../industries/_components/ClaimStories';
+import ContactComponent from '@/app/industries/_components/Contact';
+import CardComponent from '@/app/industries/_components/Card';
+// import ClaimStories from '../../industries/_components/ClaimStories';
 import KnowledgeQuestionnaire from '../../industries/_components/KnowledgeQuestionnaire';
 import MainCaraousel from '@/components/main-caraousel';
 
@@ -161,51 +155,63 @@ const OfficePackageInsurancePage = () => {
   return (
     <div className="min-h-screen bg-white pt-[8vh] text-gray-900">
       {/* Hero */}
-      <section className="w-full border-b border-gray-100">
-        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-          <div className="max-w-4xl">
-            <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl">
-              Office Package Insurance Solutions
-            </h1>
-            <p className="mt-6 text-lg text-gray-700 md:text-xl">
-              Comprehensive protection for small and medium businesses—covering office premises,
-              equipment, and operations with convenient all-in-one coverage.
-            </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <button className="inline-flex items-center justify-center rounded-lg bg-blue-100 px-6 py-3 font-semibold text-blue-800 hover:bg-blue-200">
-                <FaShieldAlt className="mr-2" />
-                Get Package Quote
-              </button>
-              <button className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-6 py-3 font-semibold hover:bg-gray-50">
-                <FaFileContract className="mr-2" />
-                Office Assessment
-              </button>
-              <button className="inline-flex items-center justify-center rounded-lg border border-blue-200 px-6 py-3 font-semibold text-blue-700 hover:bg-blue-50">
-                <FaPhoneAlt className="mr-2" />
-                Speak to Expert
-              </button>
-            </div>
-            <div className="mt-4 text-sm text-gray-600">
-              Specialized coverage for professional services, consultancies, and small business
-              operations.
+      <section className="relative min-h-screen w-full">
+        {/* Background image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://minio-api.internal.wabisabitech.in/share-india/blog/highrise.jpg"
+            alt="Office package background"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw 100vh"
+          />
+          {/* Gradient + subtle blur overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/50 to-slate-900/30 backdrop-blur-sm" />
+        </div>
+
+        <div className="relative w-full pt-[15vh] md:pt-[30vh]">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl text-white">
+              <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl">
+                Office Package Insurance Solutions
+              </h1>
+              <p className="mt-6 text-lg text-gray-100/90 md:text-xl">
+                Comprehensive protection for small and medium businesses—covering office premises,
+                equipment, and operations with convenient all-in-one coverage.
+              </p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <button className="inline-flex items-center justify-center rounded-lg bg-blue-100 px-6 py-3 font-semibold text-blue-800 hover:bg-blue-200">
+                  <FaShieldAlt className="mr-2" />
+                  Get Coverage Proposal
+                </button>
+                <button className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-6 py-3 font-semibold hover:bg-gray-50">
+                  <FaFileContract className="mr-2" />
+                  Book Risk Assessment
+                </button>
+              </div>
+              <div className="mt-4 text-sm text-gray-100">
+                Specialized coverage for professional services, consultancies, and small business
+                operations.
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Insurance Explanation */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Understanding Office Package Insurance</h2>
-          <p className="mt-3 text-gray-700">
+      <section className="from-si-primary-200 w-full border-b border-gray-100 bg-gradient-to-b to-transparent lg:h-screen">
+        <div className="mx-auto max-w-[90vw] px-4 py-[10vh] sm:px-6 lg:max-w-[75vw] lg:px-8 lg:pt-[20vh]">
+          <h2 className="text-3xl font-bold md:text-4xl">Understanding Office Package Insurance</h2>
+          <p className="mt-[9vh] text-lg text-gray-700">
             Office Package Insurance provides comprehensive protection for small and medium
             businesses in a single, convenient policy covering multiple risks and assets.
           </p>
 
-          <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2">
+          <div className="mt-[10vh] grid grid-cols-1 gap-8 lg:grid-cols-2">
             <div>
-              <h3 className="text-xl font-semibold text-gray-900">Coverage Overview</h3>
-              <p className="mt-3 text-gray-700">
+              <h3 className="text-2xl font-semibold text-gray-900">Coverage Overview</h3>
+              <p className="mt-8 text-lg text-gray-700">
                 This insurance combines multiple coverages including fire and allied perils,
                 burglary and theft, public liability, and office equipment protection in one
                 comprehensive package. Its designed specifically for small and medium enterprises,
@@ -213,12 +219,12 @@ const OfficePackageInsurancePage = () => {
                 cost-effective, comprehensive protection without the complexity of multiple
                 policies.
               </p>
-              <ul className="mt-4 space-y-2 text-sm text-gray-700">
-                <li className="flex items-start">
+              <ul className="mt-7 space-y-2 text-base text-gray-700">
+                <li className="mb-6 flex items-start">
                   <FaChevronRight className="mt-1 mr-2 text-blue-400" />
                   All-in-one coverage for office premises and contents
                 </li>
-                <li className="flex items-start">
+                <li className="mb-6 flex items-start">
                   <FaChevronRight className="mt-1 mr-2 text-blue-400" />
                   Protection for office equipment and technology
                 </li>
@@ -229,32 +235,32 @@ const OfficePackageInsurancePage = () => {
               </ul>
             </div>
             <div>
-              <h3 className="text-xl font-semibold text-gray-900">Key Benefits</h3>
-              <div className="mt-3 space-y-3">
-                <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
+              <h3 className="text-2xl font-semibold text-gray-900">Key Coverage Areas</h3>
+              <div className="mt-8 space-y-7">
+                <div className="flex items-center gap-5 rounded-lg border border-gray-200 p-3">
                   <FaBriefcase className="text-blue-500" />
                   <div>
-                    <div className="font-medium">Simplified Coverage</div>
-                    <div className="text-sm text-gray-600">
-                      One policy for multiple protection needs
+                    <div className="text-lg font-medium">Professional Services</div>
+                    <div className="text-base text-gray-600">
+                      Consultants, lawyers, and professional service providers
                     </div>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
-                  <FaRupeeSign className="text-blue-500" />
+                <div className="flex items-center gap-5 rounded-lg border border-gray-200 p-3">
+                  <FaLaptop className="text-blue-500" />
                   <div>
-                    <div className="font-medium">Cost Effective</div>
-                    <div className="text-sm text-gray-600">
-                      Bundled coverage at competitive rates
+                    <div className="text-lg font-medium">IT & Technology</div>
+                    <div className="text-base text-gray-600">
+                      Software companies and technology startups
                     </div>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
-                  <FaDesktop className="text-blue-500" />
+                <div className="flex items-center gap-5 rounded-lg border border-gray-200 p-3">
+                  <FaBuilding className="text-blue-500" />
                   <div>
-                    <div className="font-medium">Equipment Protection</div>
-                    <div className="text-sm text-gray-600">
-                      Comprehensive IT and office equipment coverage
+                    <div className="text-lg font-medium">Small Businesses</div>
+                    <div className="text-base text-gray-600">
+                      SMEs, trading companies, and service businesses
                     </div>
                   </div>
                 </div>
@@ -264,8 +270,8 @@ const OfficePackageInsurancePage = () => {
         </div>
       </section>
 
-      {/* Who we serve */}
-      <section className="w-full border-b border-gray-100 bg-white">
+      {/* Who we serve - Commented out as it's now integrated above */}
+      {/* <section className="w-full border-b border-gray-100 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold md:text-3xl">Who We Serve</h2>
           <p className="mt-3 text-gray-700">
@@ -288,10 +294,10 @@ const OfficePackageInsurancePage = () => {
             </Tile>
           </div>
         </div>
-      </section>
+      </section> */}
 
-      {/* Sample Risks */}
-      <section className="w-full border-b border-gray-100 bg-gray-50">
+      {/* Sample Risks - Commented out to match Property & Engineering structure */}
+      {/* <section className="w-full border-b border-gray-100 bg-gray-50">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold md:text-3xl">Common Office Insurance Risks</h2>
           <p className="mt-3 text-gray-700">
@@ -344,23 +350,23 @@ const OfficePackageInsurancePage = () => {
             />
           </div>
         </div>
-      </section>
+      </section> */}
 
-      {/* Claim Stories Component */}
-      <ClaimStories stories={claimStories} industryName="Office Package Insurance" />
+      {/* Claim Stories Component - Commented out */}
+      {/* <ClaimStories stories={claimStories} industryName="Office Package Insurance" /> */}
 
       {/* Core coverage suite */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Core Coverage Options</h2>
-          <p className="mt-3 text-gray-700">
+      <section className="to-si-primary-200 mt-20 w-full border-b border-gray-100 bg-gradient-to-b from-transparent lg:h-screen">
+        <div className="mx-auto max-w-[90vw] px-4 py-[7vh] sm:px-6 lg:max-w-[75vw] lg:px-8 lg:pt-[10vh]">
+          <h2 className="text-3xl font-bold md:text-4xl">Core Coverage Suite</h2>
+          <p className="mt-2 text-lg text-gray-700">
             Comprehensive office protection designed for small and medium business operations and
             professional services.
           </p>
 
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
-            <Card
-              icon={<FaBuilding className="text-2xl text-blue-500" />}
+          <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
+            <CardComponent
+              icon={<FaBuilding className="text-3xl text-blue-500" />}
               title="Office Premises Coverage"
               body="Protection for office building, fixtures, and physical infrastructure."
               bullets={[
@@ -369,8 +375,8 @@ const OfficePackageInsurancePage = () => {
                 'Natural catastrophe protection',
               ]}
             />
-            <Card
-              icon={<FaLaptop className="text-2xl text-blue-500" />}
+            <CardComponent
+              icon={<FaLaptop className="text-3xl text-blue-500" />}
               title="Office Equipment Insurance"
               body="Comprehensive coverage for computers, furniture, and office assets."
               bullets={[
@@ -381,9 +387,9 @@ const OfficePackageInsurancePage = () => {
             />
           </div>
 
-          <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
-            <Card
-              icon={<FaUserShield className="text-2xl text-blue-500" />}
+          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
+            <CardComponent
+              icon={<FaUserShield className="text-3xl text-blue-500" />}
               title="Public Liability Coverage"
               body="Protection against third-party claims and visitor injuries."
               bullets={[
@@ -392,8 +398,8 @@ const OfficePackageInsurancePage = () => {
                 'Legal defense and settlement costs',
               ]}
             />
-            <Card
-              icon={<FaBriefcase className="text-2xl text-blue-500" />}
+            <CardComponent
+              icon={<FaBriefcase className="text-3xl text-blue-500" />}
               title="Business Interruption"
               body="Coverage for loss of income due to office damage or disruption."
               bullets={[
@@ -406,8 +412,8 @@ const OfficePackageInsurancePage = () => {
         </div>
       </section>
 
-      {/* Insurance Plans/Products */}
-      <section className="w-full border-b border-gray-100 bg-white">
+      {/* Insurance Plans/Products - Commented out to match Property & Engineering structure */}
+      {/* <section className="w-full border-b border-gray-100 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold md:text-3xl">Office Package Insurance Plans</h2>
           <p className="mt-3 text-gray-700">
@@ -459,15 +465,33 @@ const OfficePackageInsurancePage = () => {
             />
           </div>
         </div>
+      </section> */}
+
+      {/* Claim Stories */}
+      <section className="to-si-primary-200 w-full border-b border-gray-100 bg-gradient-to-t from-transparent py-10">
+        <div className="mx-auto max-w-[90vw] px-4 py-14 sm:px-6 lg:max-w-[80vw] lg:px-8">
+          <h2 className="text-2xl font-bold md:text-3xl">Claim Stories</h2>
+          <p className="mt-3 text-gray-700">
+            Stay updated with how SIIB helped office package insurance clients recover from
+            equipment damage, theft, and business interruptions.
+          </p>
+          <div className="pt-6 lg:w-[75vw]">
+            <MainCaraousel
+              color="blue"
+              layout={1}
+              topic="office_package_insurance"
+              type="claims_story"
+            />
+          </div>
+        </div>
       </section>
 
       {/* Relevant Articles Component */}
-      {/* <RelevantArticles articles={articles} industryName="Office Package Insurance" /> */}
-      <section className="w-full border-b border-gray-100 bg-gray-50">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+      <section className="to-si-primary-200 w-full border-b border-gray-100 bg-gradient-to-b from-transparent">
+        <div className="mx-auto max-w-[90vw] px-4 py-14 sm:px-6 lg:max-w-[75vw] lg:px-8">
           <h2 className="text-2xl font-bold md:text-3xl">Industry Insights & Articles</h2>
           <p className="mt-3 text-gray-700">
-            Stay updated with the latest trends, regulations, and best practices in Plastic Industry
+            Stay updated with the latest trends, regulations, and best practices in Office Package
             insurance.
           </p>
           <div className="w-full pt-6">
@@ -480,7 +504,7 @@ const OfficePackageInsurancePage = () => {
       <KnowledgeQuestionnaire questions={quizQuestions} industryName="Office Package Insurance" />
 
       {/* What you receive & CTA */}
-      <section className="w-full bg-white">
+      <section className="to-si-primary-200 w-full bg-gradient-to-b from-transparent">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="rounded-2xl border border-blue-200 bg-blue-50 p-8">
             <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-3">
@@ -489,18 +513,18 @@ const OfficePackageInsurancePage = () => {
                   Simplifying Protection. Empowering Business.
                 </h3>
                 <p className="mt-2 text-gray-700">
-                  Partner with SIIBs office insurance specialists for comprehensive coverage,
+                  Partner with SIIB&#39;s office insurance specialists for comprehensive coverage,
                   simplified administration, and expert support for your business.
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row">
                 <button className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-700">
                   <FaShieldAlt className="mr-2" />
-                  Get Quote
+                  Request Proposal
                 </button>
                 <button className="inline-flex items-center justify-center rounded-lg border border-blue-200 bg-white px-6 py-3 font-semibold text-blue-700 hover:bg-blue-100">
                   <FaFileContract className="mr-2" />
-                  Office Assessment
+                  Upload Office Data
                 </button>
               </div>
             </div>
@@ -508,9 +532,13 @@ const OfficePackageInsurancePage = () => {
 
           {/* Contact strip */}
           <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
-            <Contact label="Call" value="1800 210 2022" icon={<FaPhoneAlt />} />
-            <Contact label="Email" value="contact.ins@shareindia.co.in" icon={<FaEnvelope />} />
-            <Contact
+            <ContactComponent label="Call" value="1800 210 2022" icon={<FaPhoneAlt />} />
+            <ContactComponent
+              label="Email"
+              value="contact.ins@shareindia.co.in"
+              icon={<FaEnvelope />}
+            />
+            <ContactComponent
               label="Advisory Desk"
               value="Office Insurance Specialists"
               icon={<FaHeadset />}
@@ -522,8 +550,8 @@ const OfficePackageInsurancePage = () => {
   );
 };
 
-/* Helpers - Same as previous pages */
-const Tile = ({
+/* Helpers - Commented out as we now use imported components */
+/* const Tile = ({
   icon,
   title,
   children,
@@ -688,6 +716,6 @@ const Contact = ({
     </div>
     <div className="text-xl text-blue-600">{icon}</div>
   </div>
-);
+); */
 
 export default OfficePackageInsurancePage;

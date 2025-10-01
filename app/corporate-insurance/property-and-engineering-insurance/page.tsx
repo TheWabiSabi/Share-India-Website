@@ -13,8 +13,8 @@ import {
   FaExclamationTriangle,
   FaIndustry,
 } from 'react-icons/fa';
-import Contact from '@/app/industries/_components/Contact';
-import Card from '@/app/industries/_components/Card';
+import ContactComponent from '@/app/industries/_components/Contact';
+import CardComponent from '@/app/industries/_components/Card';
 // import KnowledgeQuestionnaire from '@/app/industries/_components/KnowledgeQuestionnaire';
 import MainCaraousel from '@/components/main-caraousel';
 import KnowledgeQuestionnaire from '@/app/industries/_components/KnowledgeQuestionnaire';
@@ -69,7 +69,7 @@ const PropertyEngineeringInsurancePage = () => {
       </section>
 
       {/* Industry Explanation */}
-      <section className="w-full border-b border-gray-100 bg-white lg:h-screen">
+      <section className="from-si-primary-200 w-full border-b border-gray-100 bg-gradient-to-b to-transparent lg:h-screen">
         <div className="mx-auto max-w-[90vw] px-4 py-[10vh] sm:px-6 lg:max-w-[75vw] lg:px-8 lg:pt-[20vh]">
           <h2 className="text-3xl font-bold md:text-4xl">
             Understanding Property and Engineering Insurance
@@ -145,16 +145,16 @@ const PropertyEngineeringInsurancePage = () => {
       {/* <ClaimStories stories={claimStories} industryName="Property and Engineering" /> */}
 
       {/* Core coverage suite */}
-      <section className="w-full border-b border-gray-100 bg-white lg:h-screen">
+      <section className="to-si-primary-200 mt-20 w-full border-b border-gray-100 bg-gradient-to-b from-transparent lg:h-screen">
         <div className="mx-auto max-w-[90vw] px-4 py-[7vh] sm:px-6 lg:max-w-[75vw] lg:px-8 lg:pt-[10vh]">
           <h2 className="text-3xl font-bold md:text-4xl">Core Coverage Suite</h2>
-          <p className="mt-14 text-lg text-gray-700">
+          <p className="mt-2 text-lg text-gray-700">
             Comprehensive protection designed specifically for property assets and engineering
             operations.
           </p>
 
-          <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2">
-            <Card
+          <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
+            <CardComponent
               icon={<FaIndustry className="text-3xl text-blue-500" />}
               title="Industrial All Risk (IAR)"
               body="Complete coverage for industrial properties including fire, natural perils, and business interruption."
@@ -164,7 +164,7 @@ const PropertyEngineeringInsurancePage = () => {
                 'Business interruption compensation',
               ]}
             />
-            <Card
+            <CardComponent
               icon={<FaCogs className="text-3xl text-blue-500" />}
               title="Machinery Breakdown Insurance"
               body="Protection against sudden and unforeseen breakdown of machinery and equipment."
@@ -177,7 +177,7 @@ const PropertyEngineeringInsurancePage = () => {
           </div>
 
           <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
-            <Card
+            <CardComponent
               icon={<FaBolt className="text-3xl text-blue-500" />}
               title="Electronic Equipment Insurance"
               body="Specialized coverage for computers, control systems, and electronic devices."
@@ -187,7 +187,7 @@ const PropertyEngineeringInsurancePage = () => {
                 'Temporary replacement equipment',
               ]}
             />
-            <Card
+            <CardComponent
               icon={<FaExclamationTriangle className="text-3xl text-blue-500" />}
               title="Boiler & Pressure Plant Insurance"
               body="Coverage for boiler explosion, pressure vessel failures, and associated damages."
@@ -202,14 +202,14 @@ const PropertyEngineeringInsurancePage = () => {
       </section>
 
       {/* Claim Stories */}
-      <section className="w-full border-b border-gray-100 bg-gray-50">
-        <div className="mx-auto max-w-[90vw] px-4 py-14 sm:px-6 lg:max-w-[75vw] lg:px-8">
+      <section className="to-si-primary-200 w-full border-b border-gray-100 bg-gradient-to-t from-transparent py-10">
+        <div className="mx-auto max-w-[90vw] px-4 py-14 sm:px-6 lg:max-w-[80vw] lg:px-8">
           <h2 className="text-2xl font-bold md:text-3xl">Claim Stories</h2>
           <p className="mt-3 text-gray-700">
             Stay updated with how SIIB helped property and engineering clients recover from
             machinery breakdowns, property damage, and equipment failures.
           </p>
-          <div className="pt-6 lg:w-[65vw]">
+          <div className="pt-6 lg:w-[75vw]">
             <MainCaraousel
               color="blue"
               layout={1}
@@ -222,7 +222,7 @@ const PropertyEngineeringInsurancePage = () => {
 
       {/* Relevant Articles Component */}
       {/* <RelevantArticles articles={articles} industryName="Property and Engineering" /> */}
-      <section className="w-full border-b border-gray-100 bg-gray-50">
+      <section className="to-si-primary-200 w-full border-b border-gray-100 bg-gradient-to-b from-transparent">
         <div className="mx-auto max-w-[90vw] px-4 py-14 sm:px-6 lg:max-w-[75vw] lg:px-8">
           <h2 className="text-2xl font-bold md:text-3xl">Industry Insights & Articles</h2>
           <p className="mt-3 text-gray-700">
@@ -239,7 +239,7 @@ const PropertyEngineeringInsurancePage = () => {
       <KnowledgeQuestionnaire questions={quizQuestions} industryName="Property and Engineering" />
 
       {/* What you receive & CTA */}
-      <section className="w-full bg-white">
+      <section className="to-si-primary-200 w-full bg-gradient-to-b from-transparent">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="rounded-2xl border border-blue-200 bg-blue-50 p-8">
             <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-3">
@@ -267,9 +267,13 @@ const PropertyEngineeringInsurancePage = () => {
 
           {/* Contact strip */}
           <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
-            <Contact label="Call" value="1800 210 2022" icon={<FaPhoneAlt />} />
-            <Contact label="Email" value="contact.ins@shareindia.co.in" icon={<FaEnvelope />} />
-            <Contact
+            <ContactComponent label="Call" value="1800 210 2022" icon={<FaPhoneAlt />} />
+            <ContactComponent
+              label="Email"
+              value="contact.ins@shareindia.co.in"
+              icon={<FaEnvelope />}
+            />
+            <ContactComponent
               label="Advisory Desk"
               value="Property & Engineering Specialists"
               icon={<FaHeadset />}

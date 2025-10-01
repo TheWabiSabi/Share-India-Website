@@ -146,7 +146,7 @@ export default function MainCaraousel({
           loop={enableLoop}
           grabCursor
           pagination={{ clickable: true }}
-          scrollbar={{ draggable: true }}
+          // scrollbar={{ draggable: true }} // Disabled for cleaner look
           navigation={{
             prevEl: prevRef.current,
             nextEl: nextRef.current,
@@ -167,7 +167,7 @@ export default function MainCaraousel({
             swiper.navigation.update();
           }}
           breakpoints={getBreakpoints(layout)}
-          className="!pb-12"
+          className="!pb-2"
         >
           {featuredData.map((item, index) => (
             <SwiperSlide key={`${item.slug}-${index}`} aria-label={`Featured insight ${index + 1}`}>

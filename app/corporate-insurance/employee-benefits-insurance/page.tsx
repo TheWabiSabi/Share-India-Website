@@ -1,5 +1,6 @@
-'use client';
+// 'use client';
 import React from 'react';
+import Image from 'next/image';
 import {
   FaChevronRight,
   FaShieldAlt,
@@ -10,14 +11,12 @@ import {
   FaPhoneAlt,
   FaEnvelope,
   FaHeadset,
-  FaExclamationTriangle,
-  FaCheckCircle,
-  FaRupeeSign,
-  FaCertificate,
   FaHospital,
   FaHandHoldingHeart,
 } from 'react-icons/fa';
-import ClaimStories from '../../industries/_components/ClaimStories';
+import ContactComponent from '@/app/industries/_components/Contact';
+import CardComponent from '@/app/industries/_components/Card';
+// import ClaimStories from '../../industries/_components/ClaimStories';
 import KnowledgeQuestionnaire from '../../industries/_components/KnowledgeQuestionnaire';
 import MainCaraousel from '@/components/main-caraousel';
 
@@ -163,65 +162,77 @@ const EmployeeBenefitsInsurancePage = () => {
   return (
     <div className="min-h-screen bg-white pt-[8vh] text-gray-900">
       {/* Hero */}
-      <section className="w-full border-b border-gray-100">
-        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-          <div className="max-w-4xl">
-            <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl">
-              Employee Benefits Insurance Solutions
-            </h1>
-            <p className="mt-6 text-lg text-gray-700 md:text-xl">
-              Comprehensive employee benefits programs including group health, life, and wellness
-              coverage—attracting talent and ensuring employee well-being.
-            </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <button className="inline-flex items-center justify-center rounded-lg bg-blue-100 px-6 py-3 font-semibold text-blue-800 hover:bg-blue-200">
-                <FaShieldAlt className="mr-2" />
-                Get Benefits Quote
-              </button>
-              <button className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-6 py-3 font-semibold hover:bg-gray-50">
-                <FaFileContract className="mr-2" />
-                Benefits Consultation
-              </button>
-              <button className="inline-flex items-center justify-center rounded-lg border border-blue-200 px-6 py-3 font-semibold text-blue-700 hover:bg-blue-50">
-                <FaPhoneAlt className="mr-2" />
-                Speak to Expert
-              </button>
-            </div>
-            <div className="mt-4 text-sm text-gray-600">
-              Specialized programs for HR departments and companies seeking comprehensive employee
-              welfare solutions.
+      <section className="relative min-h-screen w-full">
+        {/* Background image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://minio-api.internal.wabisabitech.in/share-india/blog/highrise.jpg"
+            alt="Employee benefits background"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw 100vh"
+          />
+          {/* Gradient + subtle blur overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/50 to-slate-900/30 backdrop-blur-sm" />
+        </div>
+
+        <div className="relative w-full pt-[15vh] md:pt-[30vh]">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl text-white">
+              <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl">
+                Employee Benefits Insurance Solutions
+              </h1>
+              <p className="mt-6 text-lg text-gray-100/90 md:text-xl">
+                Comprehensive employee benefits programs including group health, life, and wellness
+                coverage—attracting talent and ensuring employee well-being.
+              </p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <button className="inline-flex items-center justify-center rounded-lg bg-blue-100 px-6 py-3 font-semibold text-blue-800 hover:bg-blue-200">
+                  <FaShieldAlt className="mr-2" />
+                  Get Coverage Proposal
+                </button>
+                <button className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-6 py-3 font-semibold hover:bg-gray-50">
+                  <FaFileContract className="mr-2" />
+                  Book Risk Assessment
+                </button>
+              </div>
+              <div className="mt-4 text-sm text-gray-100">
+                Specialized programs for HR departments and companies seeking comprehensive employee
+                welfare solutions.
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Insurance Explanation */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">
+      <section className="from-si-primary-200 w-full border-b border-gray-100 bg-gradient-to-b to-transparent lg:h-screen">
+        <div className="mx-auto max-w-[90vw] px-4 py-[10vh] sm:px-6 lg:max-w-[75vw] lg:px-8 lg:pt-[20vh]">
+          <h2 className="text-3xl font-bold md:text-4xl">
             Understanding Employee Benefits Insurance
           </h2>
-          <p className="mt-3 text-gray-700">
+          <p className="mt-[9vh] text-lg text-gray-700">
             Employee Benefits Insurance provides comprehensive coverage for employee health, life,
             disability, and wellness needs, helping companies attract and retain talent.
           </p>
 
-          <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2">
+          <div className="mt-[10vh] grid grid-cols-1 gap-8 lg:grid-cols-2">
             <div>
-              <h3 className="text-xl font-semibold text-gray-900">Coverage Overview</h3>
-              <p className="mt-3 text-gray-700">
+              <h3 className="text-2xl font-semibold text-gray-900">Coverage Overview</h3>
+              <p className="mt-8 text-lg text-gray-700">
                 Employee benefits insurance encompasses group health insurance, group life
                 insurance, personal accident coverage, and wellness programs. These benefits provide
                 financial security to employees and their families while helping employers comply
                 with regulations and improve employee satisfaction. The coverage can be customized
                 based on company size, budget, and employee demographics.
               </p>
-              <ul className="mt-4 space-y-2 text-sm text-gray-700">
-                <li className="flex items-start">
+              <ul className="mt-7 space-y-2 text-base text-gray-700">
+                <li className="mb-6 flex items-start">
                   <FaChevronRight className="mt-1 mr-2 text-blue-400" />
                   Comprehensive health and medical coverage for employees
                 </li>
-                <li className="flex items-start">
+                <li className="mb-6 flex items-start">
                   <FaChevronRight className="mt-1 mr-2 text-blue-400" />
                   Life and disability protection for financial security
                 </li>
@@ -232,32 +243,32 @@ const EmployeeBenefitsInsurancePage = () => {
               </ul>
             </div>
             <div>
-              <h3 className="text-xl font-semibold text-gray-900">Key Benefits</h3>
-              <div className="mt-3 space-y-3">
-                <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
+              <h3 className="text-2xl font-semibold text-gray-900">Key Coverage Areas</h3>
+              <div className="mt-8 space-y-7">
+                <div className="flex items-center gap-5 rounded-lg border border-gray-200 p-3">
                   <FaUsers className="text-blue-500" />
                   <div>
-                    <div className="font-medium">Employee Retention</div>
-                    <div className="text-sm text-gray-600">
-                      Attract and retain top talent with comprehensive benefits
+                    <div className="text-lg font-medium">Corporate Employers</div>
+                    <div className="text-base text-gray-600">
+                      Large corporations and multinational companies
                     </div>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
+                <div className="flex items-center gap-5 rounded-lg border border-gray-200 p-3">
                   <FaHeartbeat className="text-blue-500" />
                   <div>
-                    <div className="font-medium">Health & Wellness</div>
-                    <div className="text-sm text-gray-600">
-                      Promote employee health and productivity
+                    <div className="text-lg font-medium">SME Businesses</div>
+                    <div className="text-base text-gray-600">
+                      Small and medium enterprises seeking cost-effective benefits
                     </div>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
-                  <FaUmbrella className="text-blue-500" />
+                <div className="flex items-center gap-5 rounded-lg border border-gray-200 p-3">
+                  <FaHandHoldingHeart className="text-blue-500" />
                   <div>
-                    <div className="font-medium">Financial Security</div>
-                    <div className="text-sm text-gray-600">
-                      Provide financial protection for employees and families
+                    <div className="text-lg font-medium">Healthcare Organizations</div>
+                    <div className="text-base text-gray-600">
+                      Hospitals, clinics, and healthcare providers
                     </div>
                   </div>
                 </div>
@@ -267,8 +278,8 @@ const EmployeeBenefitsInsurancePage = () => {
         </div>
       </section>
 
-      {/* Who we serve */}
-      <section className="w-full border-b border-gray-100 bg-white">
+      {/* Who we serve - Commented out as integrated above */}
+      {/* <section className="w-full border-b border-gray-100 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold md:text-3xl">Who We Serve</h2>
           <p className="mt-3 text-gray-700">
@@ -291,10 +302,10 @@ const EmployeeBenefitsInsurancePage = () => {
             </Tile>
           </div>
         </div>
-      </section>
+      </section> */}
 
-      {/* Sample Risks */}
-      <section className="w-full border-b border-gray-100 bg-gray-50">
+      {/* Sample Risks - Commented out to match structure */}
+      {/* <section className="w-full border-b border-gray-100 bg-gray-50">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold md:text-3xl">Common Employee Benefits Risks</h2>
           <p className="mt-3 text-gray-700">
@@ -347,23 +358,23 @@ const EmployeeBenefitsInsurancePage = () => {
             />
           </div>
         </div>
-      </section>
+      </section> */}
 
-      {/* Claim Stories Component */}
-      <ClaimStories stories={claimStories} industryName="Employee Benefits Insurance" />
+      {/* Claim Stories Component - Commented out */}
+      {/* <ClaimStories stories={claimStories} industryName="Employee Benefits Insurance" /> */}
 
       {/* Core coverage suite */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Core Coverage Options</h2>
-          <p className="mt-3 text-gray-700">
+      <section className="to-si-primary-200 mt-20 w-full border-b border-gray-100 bg-gradient-to-b from-transparent lg:h-screen">
+        <div className="mx-auto max-w-[90vw] px-4 py-[7vh] sm:px-6 lg:max-w-[75vw] lg:px-8 lg:pt-[10vh]">
+          <h2 className="text-3xl font-bold md:text-4xl">Core Coverage Suite</h2>
+          <p className="mt-2 text-lg text-gray-700">
             Comprehensive employee benefits protection designed for different organizational needs
             and employee demographics.
           </p>
 
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
-            <Card
-              icon={<FaHeartbeat className="text-2xl text-blue-500" />}
+          <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
+            <CardComponent
+              icon={<FaHeartbeat className="text-3xl text-blue-500" />}
               title="Group Health Insurance"
               body="Comprehensive medical coverage for employees and their families."
               bullets={[
@@ -372,8 +383,8 @@ const EmployeeBenefitsInsurancePage = () => {
                 'Maternity and newborn care coverage',
               ]}
             />
-            <Card
-              icon={<FaUmbrella className="text-2xl text-blue-500" />}
+            <CardComponent
+              icon={<FaUmbrella className="text-3xl text-blue-500" />}
               title="Group Life & Disability Insurance"
               body="Financial protection for employees and their beneficiaries."
               bullets={[
@@ -384,9 +395,9 @@ const EmployeeBenefitsInsurancePage = () => {
             />
           </div>
 
-          <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
-            <Card
-              icon={<FaUsers className="text-2xl text-blue-500" />}
+          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
+            <CardComponent
+              icon={<FaUsers className="text-3xl text-blue-500" />}
               title="Group Personal Accident"
               body="Protection against accidents and injuries for employees."
               bullets={[
@@ -395,8 +406,8 @@ const EmployeeBenefitsInsurancePage = () => {
                 'Temporary and permanent disability benefits',
               ]}
             />
-            <Card
-              icon={<FaHandHoldingHeart className="text-2xl text-blue-500" />}
+            <CardComponent
+              icon={<FaHandHoldingHeart className="text-3xl text-blue-500" />}
               title="Employee Wellness Programs"
               body="Comprehensive wellness and preventive healthcare initiatives."
               bullets={[
@@ -409,8 +420,8 @@ const EmployeeBenefitsInsurancePage = () => {
         </div>
       </section>
 
-      {/* Insurance Plans/Products */}
-      <section className="w-full border-b border-gray-100 bg-white">
+      {/* Insurance Plans/Products - Commented out to match structure */}
+      {/* <section className="w-full border-b border-gray-100 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold md:text-3xl">Employee Benefits Insurance Plans</h2>
           <p className="mt-3 text-gray-700">
@@ -462,16 +473,34 @@ const EmployeeBenefitsInsurancePage = () => {
             />
           </div>
         </div>
+      </section> */}
+
+      {/* Claim Stories */}
+      <section className="to-si-primary-200 w-full border-b border-gray-100 bg-gradient-to-t from-transparent py-10">
+        <div className="mx-auto max-w-[90vw] px-4 py-14 sm:px-6 lg:max-w-[80vw] lg:px-8">
+          <h2 className="text-2xl font-bold md:text-3xl">Claim Stories</h2>
+          <p className="mt-3 text-gray-700">
+            Stay updated with how SIIB helped employee benefits clients with health emergencies,
+            life insurance claims, and wellness program support.
+          </p>
+          <div className="pt-6 lg:w-[75vw]">
+            <MainCaraousel
+              color="blue"
+              layout={1}
+              topic="employee_benefits_insurance"
+              type="claims_story"
+            />
+          </div>
+        </div>
       </section>
 
       {/* Relevant Articles Component */}
-      {/* <RelevantArticles articles={articles} industryName="Employee Benefits Insurance" /> */}
-      <section className="w-full border-b border-gray-100 bg-gray-50">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+      <section className="to-si-primary-200 w-full border-b border-gray-100 bg-gradient-to-b from-transparent">
+        <div className="mx-auto max-w-[90vw] px-4 py-14 sm:px-6 lg:max-w-[75vw] lg:px-8">
           <h2 className="text-2xl font-bold md:text-3xl">Industry Insights & Articles</h2>
           <p className="mt-3 text-gray-700">
-            Stay updated with the latest trends, regulations, and best practices in Plastic Industry
-            insurance.
+            Stay updated with the latest trends, regulations, and best practices in Employee
+            Benefits insurance.
           </p>
           <div className="w-full pt-6">
             <MainCaraousel color="white" layout={3} topic="employee_benefits_insurance" />
@@ -486,7 +515,7 @@ const EmployeeBenefitsInsurancePage = () => {
       />
 
       {/* What you receive & CTA */}
-      <section className="w-full bg-white">
+      <section className="to-si-primary-200 w-full bg-gradient-to-b from-transparent">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="rounded-2xl border border-blue-200 bg-blue-50 p-8">
             <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-3">
@@ -495,18 +524,18 @@ const EmployeeBenefitsInsurancePage = () => {
                   Caring for People. Building Success.
                 </h3>
                 <p className="mt-2 text-gray-700">
-                  Partner with SIIBs employee benefits specialists for comprehensive workforce
+                  Partner with SIIB&#39;s employee benefits specialists for comprehensive workforce
                   protection, wellness programs, and expert benefits administration.
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row">
                 <button className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-700">
                   <FaShieldAlt className="mr-2" />
-                  Get Quote
+                  Request Proposal
                 </button>
                 <button className="inline-flex items-center justify-center rounded-lg border border-blue-200 bg-white px-6 py-3 font-semibold text-blue-700 hover:bg-blue-100">
                   <FaFileContract className="mr-2" />
-                  Benefits Consultation
+                  Upload Employee Data
                 </button>
               </div>
             </div>
@@ -514,9 +543,13 @@ const EmployeeBenefitsInsurancePage = () => {
 
           {/* Contact strip */}
           <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
-            <Contact label="Call" value="1800 210 2022" icon={<FaPhoneAlt />} />
-            <Contact label="Email" value="contact.ins@shareindia.co.in" icon={<FaEnvelope />} />
-            <Contact
+            <ContactComponent label="Call" value="1800 210 2022" icon={<FaPhoneAlt />} />
+            <ContactComponent
+              label="Email"
+              value="contact.ins@shareindia.co.in"
+              icon={<FaEnvelope />}
+            />
+            <ContactComponent
               label="Advisory Desk"
               value="Employee Benefits Specialists"
               icon={<FaHeadset />}
@@ -528,8 +561,8 @@ const EmployeeBenefitsInsurancePage = () => {
   );
 };
 
-/* Helpers - Same as previous pages */
-const Tile = ({
+/* Helpers - Commented out as we now use imported components */
+/* const Tile = ({
   icon,
   title,
   children,
@@ -694,6 +727,6 @@ const Contact = ({
     </div>
     <div className="text-xl text-blue-600">{icon}</div>
   </div>
-);
+); */
 
 export default EmployeeBenefitsInsurancePage;

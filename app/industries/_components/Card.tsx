@@ -11,7 +11,7 @@ const Card = ({
   body: string;
   bullets: string[];
 }) => (
-  <div className="rounded-xl border border-gray-200 p-6">
+  <div className="rounded-xl border border-gray-300 p-6">
     <div className="flex items-center gap-3">
       {icon}
       <h3 className="text-xl font-semibold">{title}</h3>

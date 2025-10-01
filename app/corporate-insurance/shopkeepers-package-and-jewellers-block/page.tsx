@@ -1,4 +1,4 @@
-'use client';
+// 'use client';
 import React from 'react';
 import {
   FaChevronRight,
@@ -21,9 +21,12 @@ import {
   FaCreditCard,
   FaEye,
 } from 'react-icons/fa';
-import ClaimStories from '../../industries/_components/ClaimStories';
+import ContactComponent from '@/app/industries/_components/Contact';
+import CardComponent from '@/app/industries/_components/Card';
+// import ClaimStories from '../../industries/_components/ClaimStories';
 import KnowledgeQuestionnaire from '../../industries/_components/KnowledgeQuestionnaire';
 import MainCaraousel from '@/components/main-caraousel';
+import ClaimStories from '@/app/industries/_components/ClaimStories';
 
 const ShopkeepersJewellersInsurancePage = () => {
   // Sample data for components
@@ -166,102 +169,70 @@ const ShopkeepersJewellersInsurancePage = () => {
 
   return (
     <div className="min-h-screen bg-white pt-[8vh] text-gray-900">
-      {/* Hero */}
-      <section className="w-full border-b border-gray-100">
-        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-          <div className="max-w-4xl">
-            <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl">
-              Shopkeepers Package & Jewellers Block Insurance
-            </h1>
-            <p className="mt-6 text-lg text-gray-700 md:text-xl">
-              Specialized protection for retail businesses and jewelry stores—covering inventory,
-              premises, and high-value assets with comprehensive security-focused coverage.
-            </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <button className="inline-flex items-center justify-center rounded-lg bg-blue-100 px-6 py-3 font-semibold text-blue-800 hover:bg-blue-200">
-                <FaShieldAlt className="mr-2" />
-                Get Retail Quote
-              </button>
-              <button className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-6 py-3 font-semibold hover:bg-gray-50">
-                <FaFileContract className="mr-2" />
-                Store Assessment
-              </button>
-              <button className="inline-flex items-center justify-center rounded-lg border border-blue-200 px-6 py-3 font-semibold text-blue-700 hover:bg-blue-50">
-                <FaPhoneAlt className="mr-2" />
-                Speak to Expert
-              </button>
-            </div>
-            <div className="mt-4 text-sm text-gray-600">
-              Specialized coverage for retail stores, jewelry shops, and high-value inventory
-              businesses.
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Insurance Explanation */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">
-            Understanding Shopkeepers & Jewellers Insurance
+      {/* Industry Explanation */}
+      <section className="from-si-primary-200 w-full border-b border-gray-100 bg-gradient-to-b to-transparent lg:h-screen">
+        <div className="mx-auto max-w-[90vw] px-4 py-[10vh] sm:px-6 lg:max-w-[75vw] lg:px-8 lg:pt-[20vh]">
+          <h2 className="text-3xl font-bold md:text-4xl">
+            Understanding Shopkeepers Package & Jewellers Block Insurance
           </h2>
-          <p className="mt-3 text-gray-700">
-            Specialized insurance solutions designed for retail businesses and jewelry stores,
-            providing comprehensive protection for high-value inventory and unique retail risks.
+          <p className="mt-[9vh] text-lg text-gray-700">
+            Specialized retail insurance providing comprehensive protection for shops, stores, and
+            jewelry businesses against theft, damage, business interruption, and high-value
+            merchandise risks with enhanced security requirements.
           </p>
 
-          <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2">
+          <div className="mt-[10vh] grid grid-cols-1 gap-8 lg:grid-cols-2">
             <div>
-              <h3 className="text-xl font-semibold text-gray-900">Coverage Overview</h3>
-              <p className="mt-3 text-gray-700">
-                These specialized policies provide comprehensive protection for retail operations,
-                with shopkeepers package covering general retail risks and jewellers block offering
-                enhanced protection for precious metals, gems, and jewelry. Coverage includes fire,
-                theft, burglary, stock protection, money insurance, and public liability, with
-                specialized valuation and security requirements for high-value items.
+              <h3 className="text-2xl font-semibold text-gray-900">Industry Overview</h3>
+              <p className="mt-8 text-lg text-gray-700">
+                Retail businesses and jewelry stores face unique risks including theft, burglary,
+                fire damage, and business interruption. Shopkeepers Package and Jewellers Block
+                insurance provides comprehensive protection for stock, fixtures, premises, and
+                high-value merchandise. This specialized coverage addresses the specific security
+                and operational challenges faced by retail and jewelry businesses.
               </p>
-              <ul className="mt-4 space-y-2 text-sm text-gray-700">
-                <li className="flex items-start">
+              <ul className="mt-7 space-y-2 text-base text-gray-700">
+                <li className="mb-6 flex items-start">
                   <FaChevronRight className="mt-1 mr-2 text-blue-400" />
-                  Comprehensive coverage for retail premises and inventory
+                  Comprehensive stock and inventory protection
+                </li>
+                <li className="mb-6 flex items-start">
+                  <FaChevronRight className="mt-1 mr-2 text-blue-400" />
+                  Premises and fixtures coverage
                 </li>
                 <li className="flex items-start">
                   <FaChevronRight className="mt-1 mr-2 text-blue-400" />
-                  Specialized protection for high-value and precious items
-                </li>
-                <li className="flex items-start">
-                  <FaChevronRight className="mt-1 mr-2 text-blue-400" />
-                  Money insurance and public liability coverage
+                  Business interruption and loss of income protection
                 </li>
               </ul>
             </div>
             <div>
-              <h3 className="text-xl font-semibold text-gray-900">Key Benefits</h3>
-              <div className="mt-3 space-y-3">
-                <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
+              <h3 className="text-2xl font-semibold text-gray-900">Key Coverage Areas</h3>
+              <div className="mt-8 space-y-7">
+                <div className="flex items-center gap-5 rounded-lg border border-gray-200 p-3">
                   <FaStore className="text-blue-500" />
                   <div>
-                    <div className="font-medium">Retail-Specific Coverage</div>
-                    <div className="text-sm text-gray-600">
-                      Tailored protection for retail operations
+                    <div className="text-lg font-medium">Retail Stores</div>
+                    <div className="text-base text-gray-600">
+                      General merchandise stores, boutiques, and retail outlets
                     </div>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
+                <div className="flex items-center gap-5 rounded-lg border border-gray-200 p-3">
                   <FaGem className="text-blue-500" />
                   <div>
-                    <div className="font-medium">High-Value Protection</div>
-                    <div className="text-sm text-gray-600">
-                      Specialized coverage for precious items
+                    <div className="text-lg font-medium">Jewelry Stores</div>
+                    <div className="text-base text-gray-600">
+                      Jewelry shops, precious metals dealers, and gemstone retailers
                     </div>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
-                  <FaEye className="text-blue-500" />
+                <div className="flex items-center gap-5 rounded-lg border border-gray-200 p-3">
+                  <FaShoppingBag className="text-blue-500" />
                   <div>
-                    <div className="font-medium">Security Focus</div>
-                    <div className="text-sm text-gray-600">
-                      Enhanced security requirements and benefits
+                    <div className="text-lg font-medium">Specialty Retailers</div>
+                    <div className="text-base text-gray-600">
+                      Electronics stores, fashion retailers, and luxury goods shops
                     </div>
                   </div>
                 </div>
@@ -272,7 +243,7 @@ const ShopkeepersJewellersInsurancePage = () => {
       </section>
 
       {/* Who we serve */}
-      <section className="w-full border-b border-gray-100 bg-white">
+      {/* <section className="w-full border-b border-gray-100 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold md:text-3xl">Who We Serve</h2>
           <p className="mt-3 text-gray-700">
@@ -295,10 +266,10 @@ const ShopkeepersJewellersInsurancePage = () => {
             </Tile>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Sample Risks */}
-      <section className="w-full border-b border-gray-100 bg-gray-50">
+      {/* <section className="w-full border-b border-gray-100 bg-gray-50">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold md:text-3xl">Common Retail Insurance Risks</h2>
           <p className="mt-3 text-gray-700">
@@ -351,35 +322,34 @@ const ShopkeepersJewellersInsurancePage = () => {
             />
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Claim Stories Component */}
-      <ClaimStories stories={claimStories} industryName="Shopkeepers & Jewellers Insurance" />
+      {/* <ClaimStories stories={claimStories} industryName="Shopkeepers & Jewellers Insurance" /> */}
 
       {/* Core coverage suite */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Core Coverage Options</h2>
-          <p className="mt-3 text-gray-700">
-            Comprehensive retail protection designed for different types of retail operations and
-            inventory values.
+      <section className="to-si-primary-200 mt-20 w-full border-b border-gray-100 bg-gradient-to-b from-transparent lg:h-screen">
+        <div className="mx-auto max-w-[90vw] px-4 py-[7vh] sm:px-6 lg:max-w-[75vw] lg:px-8 lg:pt-[10vh]">
+          <h2 className="text-3xl font-bold md:text-4xl">Core Coverage Suite</h2>
+          <p className="mt-2 text-lg text-gray-700">
+            Comprehensive protection designed specifically for retail businesses and jewelry stores.
           </p>
 
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
-            <Card
-              icon={<FaStore className="text-2xl text-blue-500" />}
+          <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
+            <CardComponent
+              icon={<FaStore className="text-3xl text-blue-500" />}
               title="Shopkeepers Package Insurance"
-              body="Comprehensive coverage for general retail businesses and stores."
+              body="Comprehensive coverage for general retail businesses and stores with complete protection."
               bullets={[
                 'Fire and allied perils for premises and stock',
                 'Burglary and theft protection',
                 'Public liability and customer injury coverage',
               ]}
             />
-            <Card
-              icon={<FaGem className="text-2xl text-blue-500" />}
+            <CardComponent
+              icon={<FaGem className="text-3xl text-blue-500" />}
               title="Jewellers Block Insurance"
-              body="Specialized protection for jewelry stores and precious items dealers."
+              body="Specialized protection for jewelry stores and precious items dealers with enhanced security."
               bullets={[
                 'All-risk coverage for precious metals and gems',
                 'Floater coverage for items in transit',
@@ -388,21 +358,21 @@ const ShopkeepersJewellersInsurancePage = () => {
             />
           </div>
 
-          <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
-            <Card
-              icon={<FaCreditCard className="text-2xl text-blue-500" />}
+          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
+            <CardComponent
+              icon={<FaCreditCard className="text-3xl text-blue-500" />}
               title="Money Insurance"
-              body="Protection for cash and negotiable instruments in business operations."
+              body="Protection for cash and negotiable instruments in business operations with comprehensive coverage."
               bullets={[
                 'Money in safe and premises coverage',
                 'Cash in transit protection',
                 'Counterfeit currency and forgery coverage',
               ]}
             />
-            <Card
-              icon={<FaShoppingBag className="text-2xl text-blue-500" />}
+            <CardComponent
+              icon={<FaShoppingBag className="text-3xl text-blue-500" />}
               title="Stock & Inventory Protection"
-              body="Comprehensive coverage for retail inventory and merchandise."
+              body="Comprehensive coverage for retail inventory and merchandise with damage protection."
               bullets={[
                 'Stock damage from fire, water, and theft',
                 'Spoilage and contamination coverage',
@@ -413,104 +383,65 @@ const ShopkeepersJewellersInsurancePage = () => {
         </div>
       </section>
 
-      {/* Insurance Plans/Products */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Retail Insurance Plans</h2>
+      {/* Claim Stories */}
+      <section className="to-si-primary-200 w-full border-b border-gray-100 bg-gradient-to-t from-transparent py-10">
+        <div className="mx-auto max-w-[90vw] px-4 py-14 sm:px-6 lg:max-w-[80vw] lg:px-8">
+          <h2 className="text-2xl font-bold md:text-3xl">Claim Stories</h2>
           <p className="mt-3 text-gray-700">
-            Flexible retail insurance solutions designed for different business sizes and inventory
-            values.
+            Stay updated with how SIIB helped retail and jewelry clients recover from theft, fire
+            damage, and business interruptions.
           </p>
-
-          <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
-            <InsurancePlan
-              name="Basic Retail Plan"
-              description="Essential coverage for small retail stores and shops"
-              price="₹10K - ₹50K"
-              features={[
-                'Fire & Allied Perils',
-                'Burglary & Theft Protection',
-                'Basic Stock Coverage',
-                'Public Liability (₹5L)',
-                'Money Insurance (₹50K)',
-              ]}
-              recommended={false}
-            />
-            <InsurancePlan
-              name="Comprehensive Retail Plan"
-              description="Complete coverage for established retail businesses"
-              price="₹50K - ₹5L"
-              features={[
-                'All Basic Plan Benefits',
-                'Enhanced Stock Coverage',
-                'Business Interruption',
-                'Increased Liability Limits',
-                'Electronic Equipment Insurance',
-                'Plate Glass Insurance',
-              ]}
-              recommended={true}
-            />
-            <InsurancePlan
-              name="Jewellers Block Plan"
-              description="Specialized protection for jewelry stores and high-value retailers"
-              price="₹2L+"
-              features={[
-                'All-Risk Jewellery Coverage',
-                'Floater Coverage Worldwide',
-                'Enhanced Security Benefits',
-                'High-Value Money Insurance',
-                'Professional Valuation Services',
-                'Dedicated Jewellery Specialist',
-              ]}
-              recommended={false}
+          <div className="pt-6 lg:w-[75vw]">
+            <MainCaraousel
+              color="blue"
+              layout={1}
+              topic="shopkeepers_jewellers_insurance"
+              type="claims_story"
             />
           </div>
         </div>
       </section>
 
       {/* Relevant Articles Component */}
-      {/* <RelevantArticles articles={articles} industryName="Shopkeepers & Jewellers Insurance" /> */}
-      <section className="w-full border-b border-gray-100 bg-gray-50">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+      {/* <RelevantArticles articles={articles} industryName="Shopkeepers & Jewellers" /> */}
+      <section className="to-si-primary-200 w-full border-b border-gray-100 bg-gradient-to-b from-transparent">
+        <div className="mx-auto max-w-[90vw] px-4 py-14 sm:px-6 lg:max-w-[75vw] lg:px-8">
           <h2 className="text-2xl font-bold md:text-3xl">Industry Insights & Articles</h2>
           <p className="mt-3 text-gray-700">
-            Stay updated with the latest trends, regulations, and best practices in Plastic Industry
-            insurance.
+            Stay updated with the latest trends, security measures, and best practices in retail and
+            jewelry insurance.
           </p>
           <div className="w-full pt-6">
-            <MainCaraousel color="white" layout={3} topic="shopkeepers_package_jewellers_block" />
+            <MainCaraousel color="white" layout={3} topic="shopkeepers_jewellers_insurance" />
           </div>
         </div>
       </section>
 
       {/* Knowledge Questionnaire Component */}
-      <KnowledgeQuestionnaire
-        questions={quizQuestions}
-        industryName="Shopkeepers & Jewellers Insurance"
-      />
+      <KnowledgeQuestionnaire questions={quizQuestions} industryName="Shopkeepers & Jewellers" />
 
       {/* What you receive & CTA */}
-      <section className="w-full bg-white">
+      <section className="to-si-primary-200 w-full bg-gradient-to-b from-transparent">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="rounded-2xl border border-blue-200 bg-blue-50 p-8">
             <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-3">
               <div className="lg:col-span-2">
                 <h3 className="text-2xl font-bold text-gray-900">
-                  Securing Retail Success. Protecting Precious Assets.
+                  Secure Your Retail Business Today.
                 </h3>
                 <p className="mt-2 text-gray-700">
-                  Partner with SIIBs retail insurance specialists for comprehensive coverage,
-                  security expertise, and dedicated support for your business.
+                  Partner with SIIB&#39;s retail specialists for comprehensive store protection,
+                  inventory coverage, and expert risk management solutions.
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row">
                 <button className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-700">
                   <FaShieldAlt className="mr-2" />
-                  Get Quote
+                  Request Proposal
                 </button>
                 <button className="inline-flex items-center justify-center rounded-lg border border-blue-200 bg-white px-6 py-3 font-semibold text-blue-700 hover:bg-blue-100">
                   <FaFileContract className="mr-2" />
-                  Store Assessment
+                  Upload Store Data
                 </button>
               </div>
             </div>
@@ -518,9 +449,13 @@ const ShopkeepersJewellersInsurancePage = () => {
 
           {/* Contact strip */}
           <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
-            <Contact label="Call" value="1800 210 2022" icon={<FaPhoneAlt />} />
-            <Contact label="Email" value="contact.ins@shareindia.co.in" icon={<FaEnvelope />} />
-            <Contact
+            <ContactComponent label="Call" value="1800 210 2022" icon={<FaPhoneAlt />} />
+            <ContactComponent
+              label="Email"
+              value="contact.ins@shareindia.co.in"
+              icon={<FaEnvelope />}
+            />
+            <ContactComponent
               label="Advisory Desk"
               value="Retail Insurance Specialists"
               icon={<FaHeadset />}
@@ -531,173 +466,5 @@ const ShopkeepersJewellersInsurancePage = () => {
     </div>
   );
 };
-
-/* Helpers - Same as previous pages */
-const Tile = ({
-  icon,
-  title,
-  children,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  children: React.ReactNode;
-}) => (
-  <div className="rounded-xl border border-gray-200 p-6">
-    <div className="text-2xl text-blue-500">{icon}</div>
-    <h3 className="mt-3 font-semibold">{title}</h3>
-    <p className="mt-1 text-sm text-gray-600">{children}</p>
-  </div>
-);
-
-const Card = ({
-  icon,
-  title,
-  body,
-  bullets,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  body: string;
-  bullets: string[];
-}) => (
-  <div className="rounded-xl border border-gray-200 p-6">
-    <div className="flex items-center gap-3">
-      {icon}
-      <h3 className="text-lg font-semibold">{title}</h3>
-    </div>
-    <p className="mt-2 text-sm text-gray-700">{body}</p>
-    <ul className="mt-3 space-y-1 text-sm text-gray-700">
-      {bullets.map((b) => (
-        <li key={b} className="flex">
-          <FaChevronRight className="mt-1 mr-2 text-blue-400" />
-          {b}
-        </li>
-      ))}
-    </ul>
-  </div>
-);
-
-const RiskCard = ({
-  icon,
-  title,
-  description,
-  severity,
-  frequency,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-  severity: string;
-  frequency: string;
-}) => (
-  <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-    <div className="flex items-center gap-3">
-      <span className="text-2xl text-red-500">{icon}</span>
-      <h3 className="text-lg font-semibold">{title}</h3>
-    </div>
-    <p className="mt-3 text-sm text-gray-700">{description}</p>
-    <div className="mt-4 flex gap-4">
-      <div className="flex items-center gap-2">
-        <span className="text-xs text-gray-500">Severity:</span>
-        <span
-          className={`rounded-full px-2 py-1 text-xs font-medium ${
-            severity === 'High'
-              ? 'bg-red-100 text-red-800'
-              : severity === 'Medium'
-                ? 'bg-yellow-100 text-yellow-800'
-                : 'bg-green-100 text-green-800'
-          }`}
-        >
-          {severity}
-        </span>
-      </div>
-      <div className="flex items-center gap-2">
-        <span className="text-xs text-gray-500">Frequency:</span>
-        <span
-          className={`rounded-full px-2 py-1 text-xs font-medium ${
-            frequency === 'High'
-              ? 'bg-red-100 text-red-800'
-              : frequency === 'Medium'
-                ? 'bg-yellow-100 text-yellow-800'
-                : 'bg-green-100 text-green-800'
-          }`}
-        >
-          {frequency}
-        </span>
-      </div>
-    </div>
-  </div>
-);
-
-const InsurancePlan = ({
-  name,
-  description,
-  price,
-  features,
-  recommended,
-}: {
-  name: string;
-  description: string;
-  price: string;
-  features: string[];
-  recommended: boolean;
-}) => (
-  <div
-    className={`rounded-xl border p-6 ${
-      recommended ? 'border-blue-500 bg-blue-50' : 'border-gray-200 bg-white'
-    }`}
-  >
-    {recommended && (
-      <div className="mb-4">
-        <span className="inline-flex items-center rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-800">
-          <FaCertificate className="mr-1" />
-          Recommended
-        </span>
-      </div>
-    )}
-    <h3 className="text-xl font-bold text-gray-900">{name}</h3>
-    <p className="mt-2 text-sm text-gray-600">{description}</p>
-    <div className="mt-4 flex items-center gap-2">
-      <FaRupeeSign className="text-blue-500" />
-      <span className="text-2xl font-bold text-blue-600">{price}</span>
-      <span className="text-sm text-gray-500">per year</span>
-    </div>
-    <ul className="mt-6 space-y-3">
-      {features.map((feature, index) => (
-        <li key={index} className="flex items-start gap-3">
-          <FaCheckCircle className="mt-1 text-green-500" />
-          <span className="text-sm text-gray-700">{feature}</span>
-        </li>
-      ))}
-    </ul>
-    <button
-      className={`mt-6 w-full rounded-lg px-4 py-3 font-semibold ${
-        recommended
-          ? 'bg-blue-600 text-white hover:bg-blue-700'
-          : 'border border-blue-200 text-blue-700 hover:bg-blue-50'
-      }`}
-    >
-      Get Quote
-    </button>
-  </div>
-);
-
-const Contact = ({
-  label,
-  value,
-  icon,
-}: {
-  label: string;
-  value: string;
-  icon: React.ReactNode;
-}) => (
-  <div className="flex items-center justify-between rounded-lg border border-gray-200 p-5">
-    <div>
-      <div className="text-sm text-gray-500">{label}</div>
-      <div className="font-semibold">{value}</div>
-    </div>
-    <div className="text-xl text-blue-600">{icon}</div>
-  </div>
-);
 
 export default ShopkeepersJewellersInsurancePage;
