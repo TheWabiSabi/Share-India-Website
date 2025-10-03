@@ -3,7 +3,68 @@
 import { useState, useEffect, useRef } from 'react';
 import type { ChatbotData, ChatMessage, ChatbotState, NavigationAction } from './chatbot-types';
 import chatbotData from './responses.json';
+<style jsx global>{`
+  @keyframes breathe {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
+    }
+    50% {
+      transform: scale(1.065);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
+    }
+  }
+  @keyframes ripple {
+    0% {
+      transform: scale(1);
+      opacity: 0.45;
+    }
+    70% {
+      transform: scale(2.2);
+      opacity: 0.05;
+    }
+    100% {
+      transform: scale(2.35);
+      opacity: 0;
+    }
+  }
+  @keyframes ripple2 {
+    0% {
+      transform: scale(1);
+      opacity: 0.3;
+    }
+    70% {
+      transform: scale(2.8);
+      opacity: 0.04;
+    }
+    100% {
+      transform: scale(3);
+      opacity: 0;
+    }
+  }
+  .animate-breathe {
+    animation: breathe 2.2s ease-in-out infinite;
+  }
+  .animate-ripple {
+    animation: ripple 2.4s ease-out infinite;
+  }
+  .animate-ripple2 {
+    animation: ripple2 3s 0.6s ease-out infinite;
+  }
 
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-breathe,
+    .animate-ripple,
+    .animate-ripple2 {
+      animation: none !important;
+    }
+  }
+`}</style>;
 const ChatbotWidget: React.FC = () => {
   const [state, setState] = useState<ChatbotState>({
     isOpen: false,
@@ -132,46 +193,83 @@ const ChatbotWidget: React.FC = () => {
 
   return (
     <>
-      {/* Chatbot Button */}
+      {/* Chatbot Button (refined) */}
       <div className="fixed right-6 bottom-6 z-50">
-        <button
-          onClick={toggleChatbot}
-          className="group bg-si-bluegreen text-si-offwhite hover:bg-si-dark focus:ring-si-bluegreen flex h-14 w-14 items-center justify-center rounded-full shadow-lg transition-all duration-300 hover:scale-110 focus:ring-2 focus:ring-offset-2 focus:outline-none sm:h-16 sm:w-16"
-          aria-label="Open chatbot"
-        >
-          {state.isOpen ? (
-            <svg
-              className="h-6 w-6 transition-transform duration-300 sm:h-7 sm:w-7"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+        <div className="flex items-end gap-3">
+          {/* Prompt bubble (clickable, hidden on xs) */}
+          <button
+            type="button"
+            onClick={toggleChatbot}
+            aria-label="Open chat"
+            className="bg-si-primary-400 hover:bg-si-primary-500 focus:ring-offset-si-primary-700 relative hidden rounded-2xl px-4 py-2 text-sm text-white shadow-xl transition-all duration-200 select-none focus:ring-2 focus:ring-white/70 focus:ring-offset-2 focus:outline-none sm:block"
+          >
+            <span className="block">What can I help you with today?</span>
+
+            {/* Tail */}
+            <span
+              aria-hidden="true"
+              className="bg-si-primary-600/95 absolute -right-1.5 bottom-2 h-3 w-3 rotate-45"
+            />
+            {/* Typing dot badge */}
+            <span
+              aria-hidden="true"
+              className="text-si-primary-700 absolute -right-1 inline-flex items-center justify-center rounded-full bg-white/95 px-1.5 py-0.5 text-[10px] font-semibold shadow"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          ) : (
-            <svg
-              className="h-6 w-6 transition-transform duration-300 group-hover:scale-110 sm:h-7 sm:w-7"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+              • • •
+            </span>
+          </button>
+
+          {/* Round launcher (breathing + ripples when closed) */}
+          <div className="relative">
+            {/* Ripples show only when closed */}
+            {!state.isOpen && (
+              <>
+                <span className="animate-ripple bg-si-bluegreen/30 pointer-events-none absolute inset-0 -z-10 rounded-full" />
+                <span className="animate-ripple2 bg-si-bluegreen/20 pointer-events-none absolute inset-0 -z-10 rounded-full" />
+              </>
+            )}
+
+            <button
+              type="button"
+              aria-label={state.isOpen ? 'Close chatbot' : 'Open chatbot'}
+              aria-expanded={state.isOpen}
+              onClick={toggleChatbot}
+              className={`group text-si-primary-900 flex h-14 w-14 items-center justify-center rounded-full bg-amber-100 shadow-xl transition-all focus:ring-2 focus:ring-white/70 focus:ring-offset-2 focus:outline-none ${state.isOpen ? 'bg-si-primary-500 hover:bg-si-primary-400 focus:ring-offset-si-primary-700' : 'bg-si-bluegreen hover:bg-si-primary-400 focus:ring-offset-si-bluegreen'} ${!state.isOpen ? 'animate-breathe' : ''} sm:h-16 sm:w-16`}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-              />
-            </svg>
-          )}
-        </button>
-        {!state.isOpen && (
-          <div className="bg-si-bluegreen/30 absolute inset-0 -z-10 animate-ping rounded-full"></div>
-        )}
+              {state.isOpen ? (
+                /* Close icon */
+                <svg
+                  className="h-6 w-6 sm:h-7 sm:w-7"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              ) : (
+                /* Chat icon */
+                <svg
+                  className="h-6 w-6 transition-transform duration-300 group-hover:scale-110 sm:h-7 sm:w-7"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                  />
+                </svg>
+              )}
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* Chatbot Window */}
