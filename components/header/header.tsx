@@ -32,10 +32,15 @@ const CORPORATE_INSURANCE = [
   'Group Travel Insurance Plans',
 ];
 
+/** ===== Controls ===== */
+const FULL_WIDTH_DROPDOWNS = false; // <-- set true for 100% width dropdowns
+const HEADER_GRADIENT_CLS = 'bg-gradient-to-b from-si-primary-300 to-si-primary-100';
+const SUBMENU_GRADIENT_CLS = 'bg-gradient-to-t from-si-primary-300 to-si-primary-100'; // <-- subsections use gradient-to-t
+
 type NavItem = {
   title: string;
   href: string;
-  children?: { label: string; href: string }[];
+  children?: { label: string; href: string; desc?: string }[];
 };
 
 const slugify = (s: string) =>
@@ -45,17 +50,37 @@ const slugify = (s: string) =>
     .replace(/\s+/g, '-')
     .replace(/[^a-z-]/g, '');
 
+// ---- Logo with fallback
+const LOGO_PRIMARY = '/share-india-transparent_header.png';
+const LOGO_FALLBACK = '/logo.png';
+
+function BrandLogo({ className }: { className?: string }) {
+  const [src, setSrc] = useState(LOGO_PRIMARY);
+  return (
+    <div className={`relative ${className ?? ''}`} aria-label="Share India Insurance - Home">
+      <Image
+        src={src}
+        alt="Share India Insurance"
+        fill
+        className="object-contain"
+        priority
+        onError={() => setSrc(LOGO_FALLBACK)}
+      />
+    </div>
+  );
+}
+
 export default function Header() {
   const [mobileMenu, setMobileMenu] = useState(false);
   const [openDesktopDropdown, setOpenDesktopDropdown] = useState<string | null>(null);
   const [openMobileAccordion, setOpenMobileAccordion] = useState<string | null>(null);
   const pathname = usePathname();
 
-  // Fonts & focus rings match homepage (black text on white/light-blue)
+  // IMPORTANT: removed hover:underline here to avoid double underline on top-level tabs.
   const baseLinkCls =
-    'transition-colors hover:text-black focus:outline-none focus-visible:ring-2 focus-visible:ring-black/10';
+    'transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-black/10';
 
-  /* ========= Scroll-aware visibility (fade out on down, fade in on up) ========= */
+  // Scroll-aware visibility
   const [visible, setVisible] = useState(true);
   const lastYRef = useRef(0);
   const tickingRef = useRef(false);
@@ -87,7 +112,7 @@ export default function Header() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  /* ========= Body scroll lock for mobile drawer ========= */
+  // Body scroll lock for mobile drawer
   useEffect(() => {
     if (!mobileMenu) return;
     const prev = document.body.style.overflow;
@@ -97,15 +122,27 @@ export default function Header() {
     };
   }, [mobileMenu]);
 
-  /* ========= Data ========= */
+  // Data
   const primaryLinks: NavItem[] = [
-    { title: 'Retail', href: '/retail' },
+    {
+      title: 'Retail',
+      href: '/retail',
+      children: [
+        { label: 'Health', href: '/retail/health', desc: 'Plans, coverage, claims' },
+        { label: 'Term', href: '/retail/term', desc: 'Pure protection, riders' },
+        { label: 'Life', href: '/retail/life', desc: 'Whole, endowment, ULIP' },
+        { label: 'Motor', href: '/retail/motor', desc: 'Car, bike, own-damage' },
+        { label: 'Travel', href: '/retail/travel', desc: 'Domestic & international' },
+        { label: 'Home', href: '/retail/home', desc: 'Structure & contents' },
+      ],
+    },
     {
       title: 'Industries',
       href: '/industries',
       children: INDUSTRIES.map((t) => ({
         label: t,
         href: `/industries/${slugify(t)}`,
+        desc: 'Solutions & case studies',
       })),
     },
     {
@@ -114,27 +151,43 @@ export default function Header() {
       children: CORPORATE_INSURANCE.map((t) => ({
         label: t,
         href: `/corporate-insurance/${slugify(t)}`,
+        desc: 'Coverage, FAQs & claims',
       })),
     },
-    { title: 'Insights', href: '/insights' },
+    {
+      title: 'Insights',
+      href: '/insights',
+      children: [
+        {
+          label: 'Claim Stories',
+          href: '/insights/claim-stories',
+          desc: 'Real journeys & learnings',
+        },
+        { label: 'Blogs', href: '/blogs', desc: 'Expert takes, tips & trends' },
+        { label: 'News', href: '/news', desc: 'Announcements & media coverage' },
+      ],
+    },
     {
       title: 'About',
       href: '/about',
       children: [
-        { label: 'Our Story', href: '/about#our-story' },
-        { label: 'Leadership', href: '/about#leadership' },
-        { label: 'Our Team', href: '/about#our-team' },
-        { label: 'Awards & Recognition', href: '/about#awards-recognition' },
-        { label: 'Testimonials', href: '/about#testimonials' },
+        { label: 'Our Story', href: '/about#our-story', desc: 'Where we began & why' },
+        { label: 'Leadership', href: '/about#leadership', desc: 'Experience that guides us' },
+        { label: 'Our Team', href: '/about#our-team', desc: 'People behind the promise' },
+        {
+          label: 'Awards & Recognition',
+          href: '/about#awards-recognition',
+          desc: 'Milestones & credibility',
+        },
+        { label: 'Testimonials', href: '/about#testimonials', desc: 'What clients say' },
+        { label: 'Careers', href: '/careers', desc: 'Grow with us' },
       ],
     },
   ];
 
-  const secondaryLinks = [
-    { title: 'Contact Us', href: '/contact' },
-    { title: 'Careers', href: '/careers' },
-    { title: 'Blogs', href: '/blogs' },
-    { title: 'News', href: '/news' },
+  const utilityLinks = [
+    { title: 'Contact Us', href: '/contact', variant: 'link' as const },
+    { title: 'Be a POSP', href: '/be-a-posp', variant: 'button' as const },
   ];
 
   const toggleDesktop = (key: string) =>
@@ -143,7 +196,7 @@ export default function Header() {
     setOpenMobileAccordion((prev) => (prev === key ? null : key));
   const activeCls = (href: string) => (pathname === href ? 'text-black' : 'text-black/80');
 
-  /* ========= Hover-exit delay + gap guard for desktop dropdown ========= */
+  // Hover-exit delay + gap guard
   const hoverTimer = useRef<number | null>(null);
   const openNow = (key: string) => {
     if (hoverTimer.current) window.clearTimeout(hoverTimer.current);
@@ -163,25 +216,26 @@ export default function Header() {
     }
   };
 
+  // width classes for dropdown panels
+  const panelWidthCls = FULL_WIDTH_DROPDOWNS
+    ? 'left-0 right-0 w-screen rounded-none border-0' // <-- 100% width
+    : 'left-0 w-[38rem] rounded-xl border border-slate-200'; // compact
+
   return (
     <header
       className={[
-        'bg-si-primary-50 fixed inset-x-0 top-0 z-50 border-b border-slate-100 font-sans shadow-sm',
-        'transition-all duration-300 will-change-transform',
+        'fixed inset-x-0 top-0 z-50 border-b border-slate-100',
+        HEADER_GRADIENT_CLS, // <-- header gradient (to-b)
+        'backdrop-blur-md transition-all duration-300 will-change-transform',
         visible ? 'translate-y-0 opacity-100' : 'pointer-events-none -translate-y-4 opacity-0',
       ].join(' ')}
     >
       {/* DESKTOP NAVBAR */}
-      <div className="relative hidden w-full items-center justify-between px-10 py-4 lg:flex">
+      <div className="relative hidden w-full items-center justify-between px-10 py-3 lg:flex">
         {/* Left: Logo + Primary */}
-        <div className="flex items-center gap-8">
-          <Link href="/" className="relative h-14 w-36" aria-label="Share India Insurance - Home">
-            <Image
-              src="/share-india-transparent_header.png"
-              alt="Logo"
-              fill
-              className="object-contain"
-            />
+        <div className="flex items-center gap-10">
+          <Link href="/" aria-label="Share India Insurance - Home">
+            <BrandLogo className="h-16 w-44" />
           </Link>
 
           <nav className="flex items-center gap-6 text-[16px] font-semibold">
@@ -193,7 +247,7 @@ export default function Header() {
                   <Link
                     key={link.title}
                     href={link.href}
-                    className={`${baseLinkCls} ${activeCls(link.href)}`}
+                    className={`${baseLinkCls} ${activeCls(link.href)} decoration-2 underline-offset-4 hover:underline`}
                   >
                     {link.title}
                   </Link>
@@ -210,15 +264,17 @@ export default function Header() {
                   <button
                     type="button"
                     onClick={() => toggleDesktop(link.title)}
-                    className={`${baseLinkCls} flex items-center gap-1 ${activeCls(link.href)}`}
+                    className={`${baseLinkCls} group flex items-center gap-1 ${activeCls(link.href)}`}
                     aria-haspopup="menu"
                     aria-expanded={openDesktopDropdown === link.title}
                   >
-                    {link.title}
+                    {/* Top-level: keep ONLY the animated bar underline (no text underline here) */}
+                    <span className="relative">
+                      {link.title}
+                      <span className="absolute -bottom-1 left-0 block h-[2px] w-0 bg-blue-600 transition-all group-hover:w-full" />
+                    </span>
                     <FaChevronDown
-                      className={`text-xs transition-transform ${
-                        openDesktopDropdown === link.title ? 'rotate-180' : ''
-                      }`}
+                      className={`text-xs transition-transform ${openDesktopDropdown === link.title ? 'rotate-180' : ''}`}
                     />
                   </button>
 
@@ -230,26 +286,43 @@ export default function Header() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -6 }}
                         transition={{ duration: 0.18, ease: 'easeOut' }}
-                        className="absolute top-full left-0 z-20 mt-3 w-[34rem] rounded-md border border-slate-200 bg-white p-4 shadow-xl"
+                        className={[
+                          'absolute top-full z-50 mt-3 overflow-hidden p-0 shadow-[0_20px_40px_-20px_rgba(30,64,175,0.25)]',
+                          panelWidthCls,
+                          SUBMENU_GRADIENT_CLS, // <-- subsections gradient (to-t)
+                        ].join(' ')}
                         onMouseEnter={cancelClose}
                         onMouseLeave={() => scheduleClose(120)}
                         role="menu"
                       >
-                        <div
-                          className={`grid gap-1 ${
-                            link.children!.length > 8 ? 'grid-cols-2' : 'grid-cols-1'
-                          }`}
-                        >
+                        <div className="mx-auto grid max-w-7xl gap-2 p-4 sm:grid-cols-2">
                           {link.children!.map((child) => (
                             <Link
                               key={child.label}
                               href={child.href}
-                              className="rounded px-3 py-2 text-[14px] text-black/80 transition-colors hover:bg-[#F2F7FF] hover:text-black"
+                              className="group rounded-lg px-3 py-2 transition-all hover:bg-white/40 focus-visible:outline-none"
                               role="menuitem"
                             >
-                              {child.label}
+                              <div className="flex flex-col">
+                                {/* Submenu items: SINGLE underline on hover */}
+                                <span className="text-[14px] font-medium text-slate-900 decoration-2 underline-offset-4 group-hover:underline">
+                                  {child.label}
+                                </span>
+                                {child.desc && (
+                                  <span className="text-[12px] text-slate-700">{child.desc}</span>
+                                )}
+                              </div>
                             </Link>
                           ))}
+                        </div>
+                        {/* view all row */}
+                        <div className="mx-auto max-w-7xl border-t border-white/40 px-4 py-2 text-right">
+                          <Link
+                            href={link.href}
+                            className="text-[12px] text-blue-800 decoration-2 underline-offset-4 hover:underline"
+                          >
+                            View all {link.title.toLowerCase()}
+                          </Link>
                         </div>
                       </motion.div>
                     )}
@@ -261,19 +334,29 @@ export default function Header() {
         </div>
 
         {/* Right: Utility */}
-        <div className="flex items-center gap-6 text-[14px] font-normal text-black/80">
-          {secondaryLinks.map((link) => (
-            <Link key={link.title} href={link.href} className={baseLinkCls}>
-              {link.title}
-            </Link>
-          ))}
+        <div className="flex items-center gap-4 text-[14px] font-medium text-black">
+          {/* Utility links: single underline on hover */}
+          <Link
+            href="/contact"
+            className={`${baseLinkCls} decoration-2 underline-offset-4 hover:underline`}
+          >
+            Contact Us
+          </Link>
+          <Link
+            href="/be-a-posp"
+            className="rounded-full border border-blue-700 bg-blue-700 px-4 py-2 text-white shadow-[0_2px_10px_rgba(37,99,235,0.35)] ring-1 ring-white/40 transition hover:bg-blue-800 focus-visible:ring-2 focus-visible:ring-blue-600/50 focus-visible:outline-none"
+          >
+            Be a POSP
+          </Link>
         </div>
       </div>
 
       {/* MOBILE NAVBAR */}
-      <div className="flex w-full items-center justify-between bg-white px-4 py-3 shadow-sm lg:hidden">
-        <Link href="/" className="relative h-8 w-24" aria-label="Share India Insurance - Home">
-          <Image src="/logo.png" alt="Logo" fill className="object-contain" />
+      <div
+        className={`flex w-full items-center justify-between px-4 py-3 backdrop-blur-md lg:hidden ${HEADER_GRADIENT_CLS}`}
+      >
+        <Link href="/" aria-label="Share India Insurance - Home">
+          <BrandLogo className="h-8 w-32" />
         </Link>
         <button
           onClick={() => setMobileMenu(true)}
@@ -292,22 +375,18 @@ export default function Header() {
       >
         {/* Backdrop */}
         <div
-          className={`absolute inset-0 bg-black/40 transition-opacity duration-300 ${
-            mobileMenu ? 'opacity-100' : 'opacity-0'
-          }`}
+          className={`absolute inset-0 bg-black/40 transition-opacity duration-300 ${mobileMenu ? 'opacity-100' : 'opacity-0'}`}
           onClick={() => setMobileMenu(false)}
         />
         {/* Drawer */}
         <aside
           role="dialog"
           aria-modal="true"
-          className={`absolute top-0 right-0 flex h-screen w-[85vw] max-w-sm flex-col bg-white shadow-2xl transition-transform duration-300 ${
-            mobileMenu ? 'translate-x-0' : 'translate-x-full'
-          }`}
+          className={`absolute top-0 right-0 flex h-screen w-[86vw] max-w-sm flex-col bg-white shadow-2xl transition-transform duration-300 ${mobileMenu ? 'translate-x-0' : 'translate-x-full'}`}
         >
-          <div className="flex items-center justify-between border-b px-6 py-4">
-            <Link href="/" className="relative h-8 w-24" onClick={() => setMobileMenu(false)}>
-              <Image src="/logo.png" alt="Logo" fill className="object-contain" />
+          <div className="sticky top-0 z-10 flex items-center justify-between border-b bg-white px-6 py-4">
+            <Link href="/" onClick={() => setMobileMenu(false)}>
+              <BrandLogo className="h-8 w-28" />
             </Link>
             <button
               onClick={() => setMobileMenu(false)}
@@ -331,7 +410,7 @@ export default function Header() {
                       key={link.title}
                       href={link.href}
                       onClick={() => setMobileMenu(false)}
-                      className="rounded px-1 py-2 transition-colors hover:text-black"
+                      className="rounded px-1 py-2 decoration-2 underline-offset-4 transition-colors hover:underline"
                     >
                       {link.title}
                     </Link>
@@ -355,10 +434,8 @@ export default function Header() {
                     </button>
                     <div
                       id={`accordion-${slugify(link.title)}`}
-                      className={`ml-2 overflow-hidden border-l pl-3 transition-[max-height,opacity] duration-300 ${
-                        open ? 'opacity-100' : 'max-h-0 opacity-0'
-                      }`}
-                      style={{ maxHeight: open ? 600 : 0 }}
+                      className={`ml-2 overflow-hidden border-l pl-3 transition-[max-height,opacity] duration-300 ${open ? 'opacity-100' : 'max-h-0 opacity-0'}`}
+                      style={{ maxHeight: open ? 800 : 0 }}
                     >
                       <div className="flex flex-col py-1">
                         {link.children!.map((child) => (
@@ -366,9 +443,12 @@ export default function Header() {
                             key={child.label}
                             href={child.href}
                             onClick={() => setMobileMenu(false)}
-                            className="py-2 text-[14px] font-normal text-black/80 transition-colors hover:text-black"
+                            className="py-2 text-[14px] font-normal text-black/80 decoration-2 underline-offset-4 transition-colors hover:underline"
                           >
                             {child.label}
+                            {child.desc && (
+                              <span className="block text-[12px] text-slate-500">{child.desc}</span>
+                            )}
                           </Link>
                         ))}
                       </div>
@@ -378,18 +458,22 @@ export default function Header() {
               })}
             </nav>
 
-            {/* Secondary */}
-            <div className="mt-8 flex flex-col gap-3 border-t pt-6 text-[14px] font-normal text-black/80">
-              {secondaryLinks.map((link) => (
-                <Link
-                  key={link.title}
-                  href={link.href}
-                  onClick={() => setMobileMenu(false)}
-                  className="transition-colors hover:text-black"
-                >
-                  {link.title}
-                </Link>
-              ))}
+            {/* Secondary / Utility */}
+            <div className="mt-8 flex flex-col gap-3 border-t pt-6 text-[14px] font-medium text-black">
+              <Link
+                href="/contact"
+                onClick={() => setMobileMenu(false)}
+                className="decoration-2 underline-offset-4 transition-colors hover:underline"
+              >
+                Contact Us
+              </Link>
+              <Link
+                href="/be-a-posp"
+                onClick={() => setMobileMenu(false)}
+                className="rounded-full border border-blue-700 bg-blue-700 px-3 py-2 text-center text-white shadow-[0_2px_10px_rgba(37,99,235,0.35)] ring-1 ring-white/40 transition hover:bg-blue-800"
+              >
+                Be a POSP
+              </Link>
             </div>
           </div>
         </aside>

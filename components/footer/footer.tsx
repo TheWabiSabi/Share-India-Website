@@ -103,7 +103,7 @@ const Footer: React.FC = () => {
                   height={60}
                   className="mb-4 h-auto w-auto"
                 />
-                <p className="text-si-dark/80 text-sm leading-relaxed">
+                <p className="text-si-dark/80 text-justify text-sm leading-relaxed">
                   Your trusted partner for comprehensive insurance solutions across health, motor,
                   life, and enterprise risks.
                 </p>

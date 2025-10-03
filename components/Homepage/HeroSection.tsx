@@ -56,10 +56,10 @@ export default function HeroSection() {
   );
 
   return (
-    <section className="section-vibrant-blue section-divider-bottom relative isolate mt-10">
+    <section className="section-vibrant-blue section-divider-bottom relative isolate pt-10">
       {/* Background layers */}
       <div className="hero-grid absolute inset-0" />
-      <div className="from-si-primary-50 to-si-primary-200 pointer-events-none absolute inset-0 bg-gradient-to-b" />
+      <div className="to-si-primary-300 pointer-events-none absolute inset-0 bg-gradient-to-b from-white" />
 
       <div className="relative mx-auto max-w-7xl px-6 sm:px-10 md:px-12">
         <div className="grid min-h-[86vh] grid-cols-1 items-center gap-10 py-20 md:grid-cols-2">
