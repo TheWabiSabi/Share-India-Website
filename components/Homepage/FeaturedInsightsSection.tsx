@@ -1,97 +1,111 @@
 import Link from 'next/link';
-import MainCaraousel from '@/components/main-caraousel';
+import dynamic from 'next/dynamic';
+import { memo } from 'react';
+
+// NOTE: If your carousel relies on window, disable SSR for smoother hydration
+const MainCaraousel = dynamic(() => import('@/components/main-caraousel'));
+
+const ArrowIcon = memo(() => (
+  <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden>
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M17 8l4 4m0 0l-4 4m4-4H3"
+    />
+  </svg>
+));
+ArrowIcon.displayName = 'ArrowIcon';
 
 export default function FeaturedInsightsSection() {
   return (
     <section
       id="featured-insights"
-      className="from-si-primary-200 relative bg-gradient-to-t to-transparent py-10 md:py-16"
+      aria-labelledby="featured-insights-title"
+      className="relative isolate bg-white py-10 sm:py-14 md:py-16"
     >
-      {/* Background patterns */}
-      <div className="bg-pattern-dots absolute inset-0 opacity-10" />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br" />
+      {/* Background: light gradient + subtle dots, masked so content stays crisp */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="from-si-primary-200/40 absolute inset-0 bg-gradient-to-t to-transparent" />
+        <div className="bg-pattern-dots [mask-image:linear-gradient(to bottom,transparent,black_20%,black_80%,transparent)] absolute inset-0 opacity-10" />
+      </div>
 
-      <div className="relative mx-auto max-w-7xl px-6 sm:px-10 md:px-12">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-10 lg:px-12">
         {/* Header */}
-        <div className="mb-8 max-w-3xl">
-          <span className="mb-3 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white/70 px-4 py-2 text-xs font-bold tracking-wider text-blue-700 uppercase backdrop-blur-sm">
+        <header className="mb-6 max-w-3xl sm:mb-8">
+          <span className="mb-3 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white/80 px-3 py-1.5 text-[11px] font-bold tracking-wide text-blue-700 uppercase backdrop-blur">
             <span className="h-1.5 w-1.5 rounded-full bg-blue-500/70" />
             Insights
           </span>
-          <h3 className="text-3xl leading-tight font-semibold text-slate-900 sm:text-4xl">
+          <h2
+            id="featured-insights-title"
+            className="text-3xl leading-tight font-semibold text-slate-900 sm:text-4xl"
+          >
             Featured{' '}
-            <span className="bg-gradient-to-r from-slate-700 to-blue-600 bg-clip-text text-transparent">
+            <span className="to-si-primary-400 bg-gradient-to-r from-slate-700 bg-clip-text text-transparent">
               Insights
             </span>
-          </h3>
-          <p className="mt-4 text-base leading-relaxed text-slate-700/80 sm:text-lg">
-            Expert explainers from Share India Brokers—market trends, risk solutions, and how policy
-            changes affect businesses and families in India.
+          </h2>
+          <p className="mt-3 text-base leading-relaxed text-slate-700/85 sm:mt-4 sm:text-lg">
+            Expert explainers from Share India Brokers — market trends, risk solutions, and how
+            policy changes affect businesses and families in India.
           </p>
-        </div>
+        </header>
 
-        {/* Quick filters */}
-        {/* <div className="mb-6 flex flex-wrap items-center gap-2 py-8">
-          {['All', 'Regulatory', 'Health', 'Motor', 'Property', 'Liability', 'SMB'].map((t, i) => (
-            <button
-              key={t}
-              className={`rounded-full border px-3 py-1.5 text-sm transition ${
-                i === 0
-                  ? 'border-blue-600 bg-blue-600 text-white hover:bg-blue-700'
-                  : 'border-slate-200 bg-white text-slate-900 hover:bg-slate-50'
-              }`}
-              type="button"
-            >
-              {t}
-            </button>
-          ))}
-          <div className="ml-auto flex items-center gap-2 text-sm">
-            <span className="text-slate-600">Sort by</span>
-            <button
-              type="button"
-              className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm text-slate-900 hover:bg-slate-50"
-            >
-              Latest
-              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </button>
+        {/* Carousel card */}
+        <div
+          className="rounded-2xl border bg-white p-3 shadow-sm ring-1 ring-slate-900 sm:p-4"
+          role="region"
+          aria-label="Featured insights carousel"
+        >
+          {/* Provide a fixed min-height to reduce CLS while items hydrate */}
+          <div className="min-h-[280px] sm:min-h-[320px]">
+            <MainCaraousel color="blue" layout={1} />
           </div>
-        </div> */}
-
-        {/* Carousel */}
-        <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-          <MainCaraousel color="blue" layout={1} />
         </div>
 
         {/* CTA strip */}
-        <div className="mt-2 flex flex-wrap items-center justify-between gap-4 rounded-xl border border-slate-200 bg-white px-6 py-5 shadow-sm">
+        <div
+          className="mt-3 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 shadow-sm sm:mt-4 sm:px-6 sm:py-4"
+          aria-label="Insights call to action"
+        >
           <div className="flex items-center gap-3">
-            <div className="h-3 w-14 bg-gradient-to-r from-slate-300 to-blue-300/60" />
-            <p className="text-sm text-slate-700/80">
+            <div className="to-si-primary-400 h-2 w-16 bg-gradient-to-r from-slate-300" />
+            <p className="text-sm text-slate-700/85">
               Curated weekly by our brokerage team • No jargon, just outcomes
             </p>
           </div>
+
           <Link
             href="/insights"
-            className="inline-flex items-center gap-2 rounded-md bg-blue-600 px-5 py-2.5 font-semibold text-white hover:bg-blue-700"
+            className="bg-si-primary-400 inline-flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600/40"
+            aria-label="Explore all insights"
           >
             Explore All Insights
-            <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
+            <ArrowIcon />
           </Link>
         </div>
+
+        {/* Optional: category filters (future) */}
+        {false && (
+          <div className="mt-6 flex flex-wrap items-center gap-2">
+            {['All', 'Regulatory', 'Health', 'Motor', 'Property', 'Liability', 'SMB'].map(
+              (t, i) => (
+                <button
+                  key={t}
+                  type="button"
+                  className={`rounded-full border px-3 py-1.5 text-sm transition ${
+                    i === 0
+                      ? 'bg-si-primary-400 hover:bg-si-primary-400 border-blue-600 text-white'
+                      : 'border-slate-200 bg-white text-slate-900 hover:bg-slate-50'
+                  }`}
+                >
+                  {t}
+                </button>
+              ),
+            )}
+          </div>
+        )}
       </div>
     </section>
   );

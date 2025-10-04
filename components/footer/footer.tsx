@@ -90,9 +90,9 @@ const Footer: React.FC = () => {
     <footer className="text-si-ink/80 font-sans">
       {/* Duotone top wash */}
       <div className="bg-si-primary-400 relative isolate">
-        <div className="from-si-primary-200 pointer-events-none absolute inset-0 bg-gradient-to-b via-[#F5FAFF]/30 to-transparent" />
-        <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-7">
+        <div className="from-si-primary-200 to-si-primary-400 pointer-events-none absolute inset-0 bg-gradient-to-b" />
+        <div className="relative mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 gap-14 md:grid-cols-2 lg:grid-cols-7">
             {/* Brand / About */}
             <div className="lg:col-span-2">
               <div className="mb-6">
@@ -151,10 +151,10 @@ const Footer: React.FC = () => {
             {/* Link columns */}
             {footerSections.map((section) => (
               <div key={section.title} className="lg:col-span-1">
-                <h3 className="text-si-dark mb-3 text-sm font-semibold tracking-wide uppercase">
+                <h3 className="text-si-dark mb-3 font-bold tracking-wide uppercase">
                   {section.title}
                 </h3>
-                <ul className="space-y-2">
+                <ul className="space-y-2 font-light">
                   {section.links.map((link) => (
                     <li key={link.label}>
                       <Link
