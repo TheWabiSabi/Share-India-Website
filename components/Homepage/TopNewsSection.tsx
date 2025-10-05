@@ -6,7 +6,7 @@ export default function TopNewsSection() {
     <section id="top-news" className="relative isolate py-20 md:py-28">
       {/* Background patterns */}
       <div className="bg-pattern-grid absolute inset-0 opacity-25" />
-      <div className="to-si-primary-200 pointer-events-none absolute inset-0 bg-gradient-to-t from-transparent" />
+      <div className="to-si-primary-200/40 pointer-events-none absolute inset-0 bg-gradient-to-t from-transparent" />
 
       <div className="relative mx-auto max-w-7xl px-6 sm:px-10 md:px-12">
         <div className="flex flex-col items-start justify-between gap-8 lg:flex-row">

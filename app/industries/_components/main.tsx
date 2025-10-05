@@ -105,7 +105,7 @@ const IndustryPage = ({ details }: { details: InfrastructureInsuranceDetails }) 
       </section>
 
       {/* Core coverage suite */}
-      <section className="to-si-primary-200 mt-20 w-full border-b border-gray-100 bg-gradient-to-b from-transparent lg:h-screen">
+      <section className="to-si-primary-200 mt-20 w-full border-b border-gray-100 bg-gradient-to-b from-transparent lg:min-h-screen">
         <div className="mx-auto max-w-[90vw] px-4 py-[7vh] sm:px-6 lg:max-w-[75vw] lg:px-8 lg:pt-[10vh]">
           <h2 className="text-3xl font-bold md:text-4xl">Core Coverage Suite</h2>
           <p className="mt-14 text-lg text-gray-700">{details.coverage.desciption}</p>

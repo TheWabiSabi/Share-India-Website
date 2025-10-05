@@ -90,7 +90,7 @@ const Footer: React.FC = () => {
     <footer className="text-si-ink/80 font-sans">
       {/* Duotone top wash */}
       <div className="bg-si-primary-400 relative isolate">
-        <div className="from-si-primary-200 to-si-primary-400 pointer-events-none absolute inset-0 bg-gradient-to-b" />
+        <div className="from-si-primary-200 to-si-primary-100 pointer-events-none absolute inset-0 bg-gradient-to-b" />
         <div className="relative mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-14 md:grid-cols-2 lg:grid-cols-7">
             {/* Brand / About */}

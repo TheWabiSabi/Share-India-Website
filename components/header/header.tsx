@@ -34,7 +34,7 @@ const CORPORATE_INSURANCE = [
 
 /** ===== Controls ===== */
 const FULL_WIDTH_DROPDOWNS = false; // <-- set true for 100% width dropdowns
-const HEADER_GRADIENT_CLS = 'bg-gradient-to-b from-si-primary-300 to-si-primary-100';
+// const HEADER_GRADIENT_CLS = 'bg-gradient-to-b from-si-primary-300 to-si-primary-100';
 const SUBMENU_GRADIENT_CLS = 'bg-gradient-to-t from-si-primary-300 to-si-primary-100'; // <-- subsections use gradient-to-t
 
 type NavItem = {
@@ -185,10 +185,10 @@ export default function Header() {
     },
   ];
 
-  const utilityLinks = [
-    { title: 'Contact Us', href: '/contact', variant: 'link' as const },
-    { title: 'Be a POSP', href: '/be-a-posp', variant: 'button' as const },
-  ];
+  // const utilityLinks = [
+  //   { title: 'Contact Us', href: '/contact', variant: 'link' as const },
+  //   { title: 'Be a POSP', href: '/be-a-posp', variant: 'button' as const },
+  // ];
 
   const toggleDesktop = (key: string) =>
     setOpenDesktopDropdown((prev) => (prev === key ? null : key));
@@ -225,7 +225,7 @@ export default function Header() {
     <header
       className={[
         'fixed inset-x-0 top-0 z-50 border-b border-slate-100',
-        HEADER_GRADIENT_CLS, // <-- header gradient (to-b)
+        // HEADER_GRADIENT_CLS, // <-- header gradient (to-b)
         'backdrop-blur-md transition-all duration-300 will-change-transform',
         visible ? 'translate-y-0 opacity-100' : 'pointer-events-none -translate-y-4 opacity-0',
       ].join(' ')}
@@ -353,7 +353,7 @@ export default function Header() {
 
       {/* MOBILE NAVBAR */}
       <div
-        className={`flex w-full items-center justify-between px-4 py-3 backdrop-blur-md lg:hidden ${HEADER_GRADIENT_CLS}`}
+        className={`flex w-full items-center justify-between px-4 py-3 backdrop-blur-md lg:hidden ${/* HEADER_GRADIENT_CLS */ ``}`}
       >
         <Link href="/" aria-label="Share India Insurance - Home">
           <BrandLogo className="h-8 w-32" />
