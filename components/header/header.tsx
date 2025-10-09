@@ -35,7 +35,7 @@ const CORPORATE_INSURANCE = [
 /** ===== Controls ===== */
 const FULL_WIDTH_DROPDOWNS = false; // <-- set true for 100% width dropdowns
 // const HEADER_GRADIENT_CLS = 'bg-gradient-to-b from-si-primary-300 to-si-primary-100';
-const SUBMENU_GRADIENT_CLS = 'bg-gradient-to-t from-si-primary-300 to-si-primary-100'; // <-- subsections use gradient-to-t
+const SUBMENU_GRADIENT_CLS = 'bg-gradient-to-t from-si-primary-200 to-si-primary-100'; // <-- subsections use gradient-to-t
 
 type NavItem = {
   title: string;

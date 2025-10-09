@@ -1,24 +1,26 @@
+import Image from 'next/image';
+
 export default function AwardsTestimonialsSection() {
   const awards = [
     {
       year: '2023',
       award: 'Best Insurance Broker – IRDAI Recognition',
-      img: '/images/awards/trophy-1.svg', // Placeholder path - replace with actual images
+      img: '/images/awards/trophy-1.svg',
     },
     {
       year: '2022',
       award: 'Excellence in Client Service – Insurance Today',
-      img: '/images/awards/trophy-2.svg', // Placeholder path - replace with actual images
+      img: '/images/awards/trophy-2.svg',
     },
     {
       year: '2021',
       award: 'Top 10 Brokerage Firms – Business India',
-      img: '/images/awards/trophy-3.svg', // Placeholder path - replace with actual images
+      img: '/images/awards/trophy-3.svg',
     },
     {
       year: '2020',
       award: 'Innovation in Claims Advocacy – FinServ Awards',
-      img: '/images/awards/trophy-4.svg', // Placeholder path - replace with actual images
+      img: '/images/awards/trophy-4.svg',
     },
   ];
 
@@ -27,114 +29,123 @@ export default function AwardsTestimonialsSection() {
       name: 'Priya Menon',
       role: 'CFO, TechNova Pvt Ltd',
       text: 'Share India Brokers made our policy renewal seamless and negotiated significant savings without compromising coverage.',
-      avatar: '/images/clients/priya.jpg', // Placeholder path - replace with actual images
+      avatar: '/images/clients/priya.jpg',
     },
     {
       name: 'Arjun Verma',
       role: 'HR Head, Zenith Industries',
       text: 'Their claims advocacy was exceptional—we felt supported throughout the entire process.',
-      avatar: '/images/clients/arjun.jpg', // Placeholder path - replace with actual images
+      avatar: '/images/clients/arjun.jpg',
     },
     {
       name: 'Kavita Iyer',
       role: 'Founder, GreenEdge Retail',
       text: 'We value their transparency and ability to simplify complex insurance products for growing businesses.',
-      avatar: '/images/clients/kavita.jpg', // Placeholder path - replace with actual images
+      avatar: '/images/clients/kavita.jpg',
     },
   ];
 
   return (
-    <section id="awards-testimonials" className="relative isolate py-20 md:py-28">
-      {/* Background patterns */}
-      <div className="bg-pattern-dots absolute inset-0 opacity-15" />
-      <div className="from-si-primary-200 pointer-events-none absolute inset-0 bg-gradient-to-t to-transparent" />
-
-      <div className="relative mx-auto max-w-7xl px-6 sm:px-10 md:px-12">
+    // Card-friendly: no full-bleed BGs here (CardScreen provides the chrome)
+    <section
+      id="awards-testimonials"
+      aria-labelledby="awards-testimonials-title"
+      className="isolate scroll-mt-[var(--header-h)]"
+    >
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
         {/* Header */}
-        <div className="mb-12 text-center">
-          <span className="from-si-primary/15 to-si-red/10 text-si-primary border-si-primary/20 mb-3 inline-flex items-center gap-2 rounded-full border bg-gradient-to-r px-4 py-2 text-xs font-bold tracking-wider uppercase backdrop-blur-sm">
+        <header className="mb-8 text-center sm:mb-10">
+          <span className="from-si-primary/15 to-si-red/10 text-si-primary border-si-primary/20 mb-3 inline-flex items-center gap-2 rounded-full border bg-gradient-to-r px-3 py-1.5 text-[11px] font-bold tracking-wider uppercase backdrop-blur-sm sm:px-4 sm:py-2">
             <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full" />
-            Recognition & Trust
+            Recognition &amp; Trust
           </span>
-          <h2 className="text-si-ink text-3xl leading-tight font-semibold sm:text-4xl">
-            <span className="text-gradient-primary">Awards & Testimonials</span>
+          <h2
+            id="awards-testimonials-title"
+            className="text-[clamp(22px,4.2vw,36px)] leading-tight font-semibold text-slate-900"
+          >
+            <span className="text-gradient-primary">Awards &amp; Testimonials</span>
           </h2>
-          <p className="text-si-ink/80 mx-auto mt-4 max-w-2xl text-base leading-relaxed">
+          <p className="mx-auto mt-3 max-w-2xl text-[clamp(14px,2.6vw,18px)] leading-relaxed text-slate-700/85">
             Celebrated for excellence, trusted by clients. Here&apos;s what the industry and our
             partners say about us.
           </p>
-        </div>
+        </header>
 
         {/* Awards Grid */}
-        <div className="mb-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {awards.map((award) => (
-            <div
-              key={award.award}
-              className="card-vibrant hover-lift hover-glow-blue flex flex-col rounded-xl p-6"
+        <div className="mb-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {awards.map((a) => (
+            <article
+              key={a.award}
+              className="card-vibrant group flex flex-col rounded-xl border border-slate-200 bg-white p-5 shadow-sm ring-1 ring-slate-900/5 transition focus-within:ring-2 focus-within:ring-blue-500/30 hover:border-slate-300 hover:shadow-md sm:p-6"
             >
-              {/* Trophy placeholder */}
-              <div className="mb-4 flex h-16 w-16 items-center justify-center overflow-hidden rounded-lg border border-slate-200 bg-white">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={award.img}
-                  alt={`${award.year} award`}
-                  className="h-12 w-12 object-contain opacity-90"
-                />
+              <div className="mb-4 flex items-center gap-3">
+                <div className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-lg border border-slate-200 bg-white">
+                  <Image
+                    src={a.img}
+                    alt={`${a.year} award`}
+                    width={48}
+                    height={48}
+                    className="object-contain opacity-90"
+                  />
+                </div>
+                <div>
+                  <div className="accent-bar-gradient mb-1 h-1.5 w-10 rounded" />
+                  <h3 className="text-[clamp(16px,3.2vw,18px)] font-semibold text-slate-900">
+                    {a.year}
+                  </h3>
+                </div>
               </div>
-
-              <div className="accent-bar-gradient mb-2 h-2 w-12" />
-              <h3 className="text-si-ink text-xl font-semibold">{award.year}</h3>
-              <p className="text-si-ink/70 mt-1 text-sm">{award.award}</p>
-            </div>
+              <p className="text-[clamp(13px,2.8vw,15px)] text-slate-700/85">{a.award}</p>
+            </article>
           ))}
         </div>
 
         {/* Testimonials */}
-        <div className="mt-10">
-          <div className="mb-8 text-center">
-            <h2 className="text-si-ink text-3xl leading-tight font-semibold sm:text-4xl">
+        <div>
+          <div className="mb-5 text-center sm:mb-7">
+            <h3 className="text-[clamp(20px,3.8vw,30px)] leading-tight font-semibold text-slate-900">
               <span className="text-gradient-primary">What Our Clients Say</span>
-            </h2>
+            </h3>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {testimonials.map((testimonial) => (
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {testimonials.map((t) => (
               <figure
-                key={testimonial.name}
-                className="card-accent-red hover-lift hover-glow-red flex flex-col justify-between rounded-xl p-6"
+                key={t.name}
+                className="card-accent-red flex flex-col justify-between rounded-xl border border-slate-200 bg-white p-5 shadow-sm ring-1 ring-slate-900/5 transition hover:border-slate-300 hover:shadow-md sm:p-6"
               >
-                <blockquote className="text-si-ink/80 text-sm leading-relaxed">
-                  &quot;{testimonial.text}&quot;
+                <blockquote className="text-[clamp(13px,2.8vw,15px)] leading-relaxed text-slate-700/90">
+                  &quot;{t.text}&quot;
                 </blockquote>
 
                 <figcaption className="mt-5 flex items-center gap-3">
-                  {/* Circular avatar */}
                   <div className="relative h-12 w-12 overflow-hidden rounded-full shadow ring-2 ring-white">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={testimonial.avatar}
-                      alt={`${testimonial.name} photo`}
-                      className="h-full w-full object-cover"
+                    <Image
+                      src={t.avatar}
+                      alt={`${t.name} photo`}
+                      width={48}
+                      height={48}
+                      className="h-12 w-12 object-cover"
                     />
                   </div>
                   <div>
-                    <div className="text-si-ink font-semibold">{testimonial.name}</div>
-                    <div className="text-si-ink/60 text-xs">{testimonial.role}</div>
+                    <div className="font-semibold text-slate-900">{t.name}</div>
+                    <div className="text-xs text-slate-600">{t.role}</div>
                   </div>
                 </figcaption>
 
-                {/* Red accent underline */}
-                <div className="accent-bar-gradient mt-5 h-2 w-10" />
+                <div className="accent-bar-gradient mt-5 h-1.5 w-10 rounded" />
               </figure>
             ))}
           </div>
         </div>
 
         {/* CTA */}
-        <div className="mt-12 flex justify-center">
+        <div className="mt-8 flex justify-center sm:mt-10">
           <a
             href="/contact"
-            className="from-si-primary-500 to-si-red-300 hover:bg-si-primary-600 inline-flex items-center gap-2 rounded-md bg-gradient-to-r via-transparent px-6 py-3 font-semibold text-black"
+            className="btn-primary inline-flex items-center gap-2 rounded-lg px-6 py-3.5 text-[15px] font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600/40"
+            aria-label="Contact Share India Brokers"
           >
             Read More
             <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -142,7 +153,7 @@ export default function AwardsTestimonialsSection() {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={2}
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
+                d="M17 8l4 4m0 0l-4 4m4-4H7"
               />
             </svg>
           </a>

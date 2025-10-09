@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { memo } from 'react';
 
 /*****************************
- * 2) WHAT WE DO (contrast box)
+ * WHAT WE DO (card-friendly)
  *****************************/
 
 const ShieldIcon = memo(() => (
@@ -44,214 +44,212 @@ Bullet.displayName = 'Bullet';
 
 const FEATURES = [
   'Personal Claim Support',
-  'Tailored wording & endorsements',
+  'Tailored wording',
   'Proactive Claims strategy',
   'Digital policy & renewals',
+  // 'Tailored endorsements',
 ];
 
 export default function WhatWeDoSection() {
   return (
-    <section
-      id="what-we-do"
-      className="relative isolate scroll-mt-[var(--header-h,4rem)] bg-gradient-to-t from-white to-white py-16 sm:py-16 lg:py-20"
-      aria-label="What we do at Share India"
-    >
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-12">
-        {/* Contrast card wrapper */}
-        <div className="relative rounded-2xl border border-slate-200/80 bg-slate-50/60 p-5 shadow-sm ring-1 backdrop-blur supports-[backdrop-filter]:bg-slate-50/60 sm:p-7 lg:p-10">
-          {/* Soft top stripe */}
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-1.5 rounded-t-2xl bg-gradient-to-r from-blue-500/20 via-sky-400/20 to-cyan-400/20" />
+    // No outer bg here — the white CardScreen provides the container
+    <section id="what-we-do" aria-label="What we do at Share India" className="isolate">
+      <div className="mx-auto max-w-7xl">
+        {/* Header row */}
+        <header className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
+          {/* Heading + copy */}
+          <div className="max-w-2xl flex-1">
+            <span className="mb-3 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold tracking-wide text-slate-700 uppercase">
+              <span className="h-2 w-2 rounded-full bg-blue-500/70" />
+              What We Do
+            </span>
 
-          {/* Header + Reasons */}
-          <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
-            {/* Header copy */}
-            <div className="max-w-2xl flex-1">
-              <span className="mb-3 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-3 py-1 text-xs font-semibold tracking-wide text-slate-700 uppercase backdrop-blur">
-                <span className="h-2 w-2 rounded-full bg-blue-500/70" />
-                What We Do
-              </span>
+            <h2 className="text-[clamp(22px,4.2vw,36px)] leading-tight font-semibold text-slate-900">
+              Share India prioritises{' '}
+              <span className="bg-gradient-to-r from-slate-700 to-blue-600 bg-clip-text text-transparent">
+                outcomes
+              </span>{' '}
+              first
+            </h2>
 
-              <h2 className="text-[clamp(22px,4.2vw,36px)] leading-tight font-semibold text-slate-900">
-                Share India prioritises{' '}
-                <span className="bg-gradient-to-r from-slate-700 to-blue-600 bg-clip-text text-transparent">
-                  outcomes
-                </span>{' '}
-                first
-              </h2>
+            <p className="mt-3 text-[clamp(14px,2.6vw,18px)] leading-relaxed text-slate-700/90">
+              We advise, place, and service cover across leading Indian insurers—backed by claims
+              advocacy and data-driven risk insights—so you can buy with confidence and recover
+              faster.
+            </p>
+          </div>
 
-              <p className="mt-3 text-[clamp(14px,2.6vw,18px)] leading-relaxed text-slate-700/90">
-                We advise, place, and service cover across leading Indian insurers—backed by claims
-                advocacy and data-driven risk insights—so you can buy with confidence and recover
-                faster.
-              </p>
-            </div>
-
-            {/* Why choose us card */}
-            <div className="max-w-xl">
-              <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
-                <div className="flex items-start gap-3">
-                  <div className="text-blue-600/80">
-                    <ShieldIcon />
-                  </div>
-                  <div>
-                    <div className="text-xs font-medium text-slate-500">Why clients choose us</div>
-                    <ul className="mt-2 grid gap-2 text-[clamp(13px,2.8vw,16px)] text-slate-800 sm:grid-cols-2">
-                      {FEATURES.map((f) => (
-                        <li key={f} className="flex items-center gap-2">
-                          <Bullet /> {f}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+          {/* Why choose us — contrast box */}
+          <aside className="w-full max-w-xl lg:w-auto">
+            <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
+              <div className="flex items-start gap-3">
+                <div className="text-blue-600/80">
+                  <ShieldIcon />
+                </div>
+                <div>
+                  <div className="text-s font-medium text-slate-500">Why clients choose us</div>
+                  <ul className="mt-2 grid gap-2 text-[clamp(13px,2.8vw,16px)] text-slate-800 sm:grid-cols-2">
+                    {FEATURES.map((f) => (
+                      <li key={f} className="flex items-center gap-2">
+                        <Bullet /> {f}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </div>
-          </div>
+          </aside>
+        </header>
 
-          {/* Service Pillars Grid */}
-          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              {
-                title: 'Advisory & Placement',
-                icon: (
-                  <svg
-                    className="h-5 w-5"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    aria-hidden
-                  >
-                    <path
-                      strokeWidth={1.8}
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M12 6v12M6 12h12"
-                    />
-                  </svg>
-                ),
-                lines: [
-                  'Market scans, best-fit quotes, negotiation',
-                  'Property, Marine, Liability',
-                  'Health & Group Benefits',
-                ],
-              },
-              {
-                title: 'Claims Advocacy',
-                icon: (
-                  <svg
-                    className="h-5 w-5"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    aria-hidden
-                  >
-                    <path
-                      strokeWidth={1.8}
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M9 12l2 2 4-4"
-                    />
-                  </svg>
-                ),
-                lines: [
-                  'Strategy, documentation, follow-through',
-                  'Dedicated claims desk',
-                  'Faster TAT with liaisons',
-                ],
-              },
-              {
-                title: 'Risk Engineering',
-                icon: (
-                  <svg
-                    className="h-5 w-5"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    aria-hidden
-                  >
-                    <path
-                      strokeWidth={1.8}
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M3 12h18M12 3v18"
-                    />
-                  </svg>
-                ),
-                lines: [
-                  'Surveys, loss-prevention, underwriting fit',
-                  'FM & statutory compliance',
-                  'Catastrophe & cyber posture',
-                ],
-              },
-              {
-                title: 'Digital Tools',
-                icon: (
-                  <svg
-                    className="h-5 w-5"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    aria-hidden
-                  >
-                    <path
-                      strokeWidth={1.8}
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M4 7h16M4 12h10M4 17h7"
-                    />
-                  </svg>
-                ),
-                lines: [
-                  'Requests, vault, renewal tracking, analytics',
-                  'Self-serve + assisted',
-                  'API-ready for enterprise',
-                ],
-              },
-            ].map(({ title, icon, lines }) => (
-              <div
-                key={title}
-                className="group rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition hover:border-slate-300 hover:shadow-md sm:p-5"
-              >
-                <div className="mb-3 flex items-center justify-between">
-                  <h3 className="text-[clamp(14px,3.2vw,18px)] font-semibold text-slate-900">
-                    {title}
-                  </h3>
-                  <div className="text-blue-600/80">{icon}</div>
-                </div>
-                <ul className="space-y-2 text-[clamp(13px,2.8vw,15px)] text-slate-700/90">
-                  {lines.map((l) => (
-                    <li key={l} className="flex items-center gap-2">
-                      <Bullet /> {l}
-                    </li>
-                  ))}
-                </ul>
+        {/* Divider accent */}
+        <div className="mt-6 h-[1.5px] w-full rounded bg-gradient-to-r from-blue-500/15 via-sky-400/15 to-cyan-400/15" />
+
+        {/* Service Pillars */}
+        <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            {
+              title: 'Advisory & Placement',
+              icon: (
+                <svg
+                  className="h-5 w-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  aria-hidden
+                >
+                  <path
+                    strokeWidth={1.8}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M12 6v12M6 12h12"
+                  />
+                </svg>
+              ),
+              lines: [
+                'Market scans, best-fit quotes, negotiation',
+                'Property, Marine, Liability',
+                'Health & Group Benefits',
+              ],
+            },
+            {
+              title: 'Claims Advocacy',
+              icon: (
+                <svg
+                  className="h-5 w-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  aria-hidden
+                >
+                  <path
+                    strokeWidth={1.8}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M9 12l2 2 4-4"
+                  />
+                </svg>
+              ),
+              lines: [
+                'Strategy, documentation, follow-through',
+                'Dedicated claims desk',
+                'Faster TAT with liaisons',
+              ],
+            },
+            {
+              title: 'Risk Engineering',
+              icon: (
+                <svg
+                  className="h-5 w-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  aria-hidden
+                >
+                  <path
+                    strokeWidth={1.8}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3 12h18M12 3v18"
+                  />
+                </svg>
+              ),
+              lines: [
+                'Surveys, loss-prevention, underwriting fit',
+                'FM & statutory compliance',
+                'Catastrophe & cyber posture',
+              ],
+            },
+            {
+              title: 'Digital Tools',
+              icon: (
+                <svg
+                  className="h-5 w-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  aria-hidden
+                >
+                  <path
+                    strokeWidth={1.8}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M4 7h16M4 12h10M4 17h7"
+                  />
+                </svg>
+              ),
+              lines: [
+                'Requests, vault, renewal tracking, analytics',
+                'Self-serve + assisted',
+                'API-ready for enterprise',
+              ],
+            },
+          ].map(({ title, icon, lines }) => (
+            <article
+              key={title}
+              className="group flex flex-col rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition focus-within:ring-2 focus-within:ring-blue-500/30 hover:border-slate-300 hover:shadow-md sm:p-5"
+            >
+              <div className="mb-3 flex items-center justify-between">
+                <h3 className="text-[clamp(14px,3.2vw,18px)] font-semibold text-slate-900">
+                  {title}
+                </h3>
+                <div className="text-blue-600/80">{icon}</div>
               </div>
-            ))}
-          </div>
+              <ul className="space-y-2 text-[clamp(13px,2.8vw,15px)] text-slate-700/90">
+                {lines.map((l) => (
+                  <li key={l} className="flex items-center gap-2">
+                    <Bullet /> {l}
+                  </li>
+                ))}
+              </ul>
 
-          {/* CTA strip */}
-          <div className="mt-8 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white/90 px-4 py-3 shadow-sm sm:px-5 sm:py-4">
-            <div className="flex items-center gap-3">
-              <div className="h-1 w-20 bg-gradient-to-r from-slate-300 to-blue-300/50" />
-              <p className="text-[clamp(13px,2.8vw,15px)] text-slate-700/90">
-                Access to <strong className="text-slate-900">40+ insurers</strong> • Issue within{' '}
-                <strong className="text-slate-900">24–48h</strong> • Dedicated claims support
-              </p>
-            </div>
-            <div className="flex gap-2">
-              <Link
-                href="/contact?type=quote"
-                className="inline-flex items-center gap-2 rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white hover:bg-slate-800"
-              >
-                Get a Quote <ArrowIcon />
-              </Link>
-              <Link
-                href="/insights"
-                className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-800 hover:bg-slate-50"
-              >
-                Read Insights <ChevronIcon />
-              </Link>
-            </div>
+              {/* subtle bottom accent on hover */}
+              <div className="mt-4 h-1 rounded bg-gradient-to-r from-transparent via-blue-400/0 to-transparent opacity-0 transition group-hover:opacity-100" />
+            </article>
+          ))}
+        </div>
+
+        {/* CTA strip */}
+        <div className="mt-8 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white/95 px-4 py-3 shadow-sm sm:px-5 sm:py-4">
+          <div className="flex items-center gap-3">
+            <div className="h-1 w-20 rounded bg-gradient-to-r from-slate-300 to-blue-300/50" />
+            <p className="text-[clamp(13px,2.8vw,15px)] text-slate-700/90">
+              Access to <strong className="text-slate-900">40+ insurers</strong> • Issue within{' '}
+              <strong className="text-slate-900">24–48h</strong> • Dedicated claims support
+            </p>
+          </div>
+          <div className="flex gap-2">
+            <Link
+              href="/contact?type=quote"
+              className="inline-flex items-center gap-2 rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white hover:bg-slate-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+            >
+              Get a Quote <ArrowIcon />
+            </Link>
+            <Link
+              href="/insights"
+              className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-800 hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+            >
+              Read Insights <ChevronIcon />
+            </Link>
           </div>
         </div>
       </div>
