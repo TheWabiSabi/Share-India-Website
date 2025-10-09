@@ -2,7 +2,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { memo, useMemo } from 'react';
 
-// Focus points we want to communicate
 const FOCUS_POINTS = ['Analyse gaps', 'Right product fit', 'Apt underwriting', 'Claims advocacy'];
 
 const STATS_DATA = [
@@ -11,9 +10,8 @@ const STATS_DATA = [
   { k: '9,000+', v: 'Corporate Clients' },
 ];
 
-// Memoized icons to prevent re-renders
 const ArrowIcon = memo(() => (
-  <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+  <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -25,18 +23,20 @@ const ArrowIcon = memo(() => (
 ArrowIcon.displayName = 'ArrowIcon';
 
 const ChevronIcon = memo(() => (
-  <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+  <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden>
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
   </svg>
 ));
 ChevronIcon.displayName = 'ChevronIcon';
 
 export default function HeroSection() {
-  // Memoize lists for perf
   const focusBadges = useMemo(
     () =>
       FOCUS_POINTS.map((label) => (
-        <span key={label} className="badge-chip will-change-auto">
+        <span
+          key={label}
+          className="badge-chip rounded-full px-3 py-1 text-sm whitespace-nowrap shadow-sm ring-1 ring-black/5 will-change-auto"
+        >
           {label}
         </span>
       )),
@@ -47,80 +47,100 @@ export default function HeroSection() {
     () =>
       STATS_DATA.map(({ k, v }) => (
         <div key={v} className="will-change-auto">
-          <div className="accent-bar-gradient mb-2 h-1 w-12" />
-          <div className="text-si-ink text-2xl font-bold">{k}</div>
-          <div className="text-si-ink/70 text-sm font-medium">{v}</div>
+          <div className="accent-bar-gradient mb-2 h-1 w-10 md:w-12" />
+          <div className="text-si-ink text-xl font-extrabold sm:text-2xl">{k}</div>
+          <div className="text-si-ink/70 text-xs font-medium sm:text-sm">{v}</div>
         </div>
       )),
     [],
   );
 
   return (
-    <section className="section-vibrant-blue section-divider-bottom relative isolate mt-10">
-      {/* Background layers */}
-      <div className="hero-grid absolute inset-0" />
-      <div className="from-si-primary-50 to-si-primary-200 pointer-events-none absolute inset-0 bg-gradient-to-b" />
-
-      <div className="relative mx-auto max-w-7xl px-6 sm:px-10 md:px-12">
-        <div className="grid min-h-[86vh] grid-cols-1 items-center gap-10 py-20 md:grid-cols-2">
-          {/* Left Content */}
-          <div className="max-w-2xl">
-            {/* Compliance / credibility tag — no mention of brokers */}
-            <div className="from-si-primary/15 to-si-red/10 text-si-primary border-si-primary/20 mb-4 inline-flex items-center gap-2 rounded-full border bg-gradient-to-r px-4 py-2 text-sm font-semibold backdrop-blur-sm">
-              <span className="accent-dot-vibrant h-2 w-2 rounded-full" />
-              IRDAI-licensed
-            </div>
-
-            <h1 className="text-si-ink text-4xl leading-tight font-semibold sm:text-5xl md:text-6xl">
-              Insurance, <span className="text-gradient-primary">Simplified</span>.
-            </h1>
-
-            <p className="text-si-ink/80 mt-5 max-w-xl text-lg leading-relaxed">
-              <strong>Share India</strong> focuses on your risk story: we analyse coverage gaps,
-              craft the right product fit with apt underwriting, and stand with you at claims—so
-              businesses and families can focus on what matters.
-            </p>
-
-            {/* Focus chips: communicate the new positioning */}
-            <div className="mt-6 flex flex-wrap gap-2">{focusBadges}</div>
-
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <Link href="/contact?type=quote" className="btn-primary">
-                Get a Quote
-                <ArrowIcon />
-              </Link>
-              <Link href="#what-we-do" className="btn-ghost">
-                Explore Solutions
-                <ChevronIcon />
-              </Link>
-            </div>
-
-            <div className="mt-10 grid max-w-lg grid-cols-3 gap-6">{statsGrid}</div>
+    <section aria-label="Share India insurance hero" className="isolate">
+      <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-12 xl:gap-16">
+        {/* Left */}
+        <div className="max-w-2xl">
+          <div className="from-si-primary/15 to-si-red/10 text-si-primary border-si-primary/20 mb-3 inline-flex items-center gap-2 rounded-full border bg-gradient-to-r px-3 py-1.5 text-xs font-semibold backdrop-blur-sm sm:mb-4 sm:px-4 sm:py-2 sm:text-sm">
+            <span className="accent-dot-vibrant h-2 w-2 rounded-full" />
+            IRDAI-licensed
           </div>
 
-          {/* Right Visual */}
-          <div className="relative">
-            <div className="from-si-primary/20 to-si-red/10 absolute -inset-6 rounded-3xl bg-gradient-to-br opacity-30" />
-            <div className="shadow-elevate-vibrant border-si-primary/10 relative rounded-2xl border bg-white/95 p-6">
-              {/* Switched to a relative path as requested */}
+          <h1 className="text-si-ink text-4xl leading-[1.1] font-semibold sm:text-5xl md:text-6xl">
+            Insurance, <span className="text-gradient-primary">Simplified</span>.
+          </h1>
+
+          <p className="text-si-ink/80 mt-4 max-w-xl text-base leading-relaxed sm:mt-5 sm:text-lg">
+            <strong>Share India</strong> focuses on your risk story: we analyse coverage gaps, craft
+            the right product fit with apt underwriting, and stand with you at claims—so businesses
+            and families can focus on what matters.
+          </p>
+
+          {/* Focus chips */}
+          <div className="-mx-1 mt-5 overflow-x-auto pb-2 sm:mt-6 sm:overflow-visible">
+            <div className="flex min-w-max gap-2 px-1 sm:min-w-0 sm:flex-wrap">{focusBadges}</div>
+          </div>
+
+          {/* Actions */}
+          <div className="mt-6 grid grid-cols-1 gap-3 sm:flex sm:flex-wrap sm:items-center sm:gap-4">
+            <Link
+              href="/contact?type=quote"
+              className="btn-primary group inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold sm:px-5 sm:py-3 sm:text-base"
+              aria-label="Get a quote"
+            >
+              <span>Get a Quote</span>
+              <span className="transition-transform duration-200 group-hover:translate-x-0.5 motion-reduce:transform-none">
+                <ArrowIcon />
+              </span>
+            </Link>
+
+            <Link
+              href="#what-we-do"
+              className="btn-ghost inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-semibold sm:px-5 sm:py-3 sm:text-base"
+              aria-label="Explore solutions"
+            >
+              <span>Explore Solutions</span>
+              <ChevronIcon />
+            </Link>
+          </div>
+
+          {/* Stats */}
+          <div className="mt-8 grid max-w-lg grid-cols-2 gap-5 sm:gap-6 md:grid-cols-3">
+            {statsGrid}
+          </div>
+        </div>
+
+        {/* Right */}
+        <div className="relative order-first sm:order-none">
+          {/* soft halo (brand hues) */}
+          <div className="from-si-primary/20 to-si-red/10 absolute -inset-4 rounded-3xl bg-gradient-to-br opacity-40 blur-md sm:-inset-6" />
+          <div className="shadow-elevate-vibrant relative rounded-2xl border bg-white/95 p-3 sm:p-5">
+            <div className="overflow-hidden rounded-xl">
               <Image
                 src="https://minio-api.internal.wabisabitech.in/share-india/about/meeting.png"
                 alt="Consultation at Share India"
-                width={320}
-                height={240}
-                className="h-auto w-full rounded-xl object-cover"
+                width={1200}
+                height={900}
                 priority
-                quality={60}
+                quality={70}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 48vw, 520px"
+                className="aspect-[4/3] h-auto w-full rounded-xl object-cover object-center"
               />
-              <div className="mt-4 grid grid-cols-2 gap-3 text-sm">
-                <div className="card-vibrant rounded-lg p-3">
-                  <div className="text-si-ink/60 text-xs font-medium">Avg. savings (SMB)</div>
-                  <div className="text-gradient-primary text-lg font-bold">12 - 18%</div>
+            </div>
+
+            <div className="mt-3 grid grid-cols-2 gap-3 text-sm sm:mt-4">
+              <div className="card-vibrant rounded-xl p-3 sm:p-4">
+                <div className="text-si-ink/60 text-[11px] font-medium sm:text-xs">
+                  Avg. savings (SMB)
                 </div>
-                <div className="card-accent-red rounded-lg p-3">
-                  <div className="text-si-ink/60 text-xs font-medium">Locations Reached</div>
-                  <div className="text-gradient-accent text-lg font-bold">250+</div>
+                <div className="text-gradient-primary text-base font-extrabold sm:text-lg">
+                  12 - 18%
                 </div>
+              </div>
+              <div className="card-accent-red rounded-xl p-3 sm:p-4">
+                <div className="text-si-ink/60 text-[11px] font-medium sm:text-xs">
+                  Locations Reached
+                </div>
+                <div className="text-gradient-accent text-base font-extrabold sm:text-lg">250+</div>
               </div>
             </div>
           </div>

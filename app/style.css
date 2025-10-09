@@ -1,3 +1,100 @@
+/* Make the scroll container feel buttery */
+main {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-h);
+}
+
+:root {
+  --header-h: 4rem; /* h-16 */
+}
+
+/* Optional: if you use hash links (#what-we-do) anywhere */
+[id] {
+  scroll-margin-top: var(--header-h);
+}
+
+/* Background: cool, modern gradient that flatters white cards */
+.bg-app-gradient {
+  background:
+    radial-gradient(1200px 600px at 120% -10%, rgba(99, 102, 241, 0.1), transparent 40%),
+    radial-gradient(1000px 500px at -15% 120%, rgba(14, 165, 233, 0.1), transparent 45%),
+    linear-gradient(180deg, #f8fafc 0%, #eef2ff 40%, #ecfeff 100%); /* slate-50 → indigo-50 → cyan-50 */
+}
+
+/* Soft, non-distracting floating blobs (GPU-friendly) */
+.bg-blob {
+  position: absolute;
+  filter: blur(60px);
+  opacity: 0.35;
+  will-change: transform;
+}
+.blob-1 {
+  top: 6vh;
+  left: 8vw;
+  width: 36vw;
+  height: 36vh;
+  background: #a5b4fc;
+} /* indigo-300 */
+.blob-2 {
+  bottom: 12vh;
+  right: 6vw;
+  width: 30vw;
+  height: 32vh;
+  background: #93c5fd;
+} /* blue-300 */
+.blob-3 {
+  top: 40vh;
+  left: 40vw;
+  width: 22vw;
+  height: 24vh;
+  background: #67e8f9;
+} /* cyan-300 */
+
+@media (max-width: 768px) {
+  .blob-1,
+  .blob-2,
+  .blob-3 {
+    filter: blur(40px);
+    opacity: 0.28;
+  }
+}
+
+/* The card texture is subtle and keeps focus on content */
+.card-screen {
+  background-image:
+    radial-gradient(1200px 400px at 120% -20%, rgba(2, 6, 23, 0.04), transparent 40%),
+    radial-gradient(1200px 400px at -20% 120%, rgba(2, 6, 23, 0.035), transparent 45%);
+}
+
+/* Motion sensitivity */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Scrollbar polish */
+main::-webkit-scrollbar {
+  width: 10px;
+}
+main::-webkit-scrollbar-track {
+  background: transparent;
+}
+main::-webkit-scrollbar-thumb {
+  background: rgba(2, 6, 23, 0.15);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+main::-webkit-scrollbar-thumb:hover {
+  background: rgba(2, 6, 23, 0.25);
+  background-clip: content-box;
+}
+
 .buttonStyle {
   position: relative;
 }
