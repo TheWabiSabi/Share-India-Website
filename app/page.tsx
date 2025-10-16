@@ -8,6 +8,7 @@ import {
 } from '@/components/Homepage';
 import './style.css';
 import { ReactNode } from 'react';
+import Footer from '@/components/footer/footer';
 
 // Full-screen, responsive card that accounts for the fixed header
 function CardScreen({ children, id }: { children: ReactNode; id?: string }) {
@@ -37,30 +38,31 @@ export default function HomePage() {
       <CardScreen id="hero">
         <HeroSection />
       </CardScreen>
-      <div className="pt-16"></div>
+      <div className="pt-8"></div>
       <CardScreen id="what-we-do">
         <WhatWeDoSection />
       </CardScreen>
 
-      <div className="pt-16"></div>
       <CardScreen id="featured-insights">
         <FeaturedInsightsSection />
       </CardScreen>
 
-      <div className="pt-16"></div>
+      <div className="pt-8"></div>
       <CardScreen id="top-news">
         <TopNewsSection />
       </CardScreen>
 
-      <div className="pt-16"></div>
+      <div className="pt-8"></div>
       <CardScreen id="awards-testimonials">
         <AwardsTestimonialsSection />
       </CardScreen>
 
-      <div className="pt-16"></div>
+      <div className="pt-8"></div>
       <CardScreen id="connect-cta">
         <ConnectCTASection />
       </CardScreen>
+
+      <Footer />
     </main>
   );
 }
