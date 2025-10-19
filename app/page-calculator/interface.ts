@@ -1,40 +1,107 @@
-// interfaces.ts
-
-export interface InsuranceFeature {
-  name: string;
-  rate: number | string;
-  unit: string;
-  available: boolean;
-}
-
-export interface InsuranceType {
-  name: string;
-  category: string;
-  features: InsuranceFeature[];
-}
+// interfaces.ts - Type definitions for the insurance calculator
 
 export interface Industry {
-  name: string;
-  code: string;
+  industryType: string;
+  industryCode: string;
   type: string;
   category: string;
-  insuranceTypes: InsuranceType[];
+  insuranceRates: InsuranceRates;
 }
 
-export interface CartItem {
-  industryName: string;
-  insuranceType: string;
+export interface InsuranceRates {
+  assetInsurance: AssetInsurance;
+  marineInsurance: MarineInsurance;
+  liabilityInsurance: LiabilityInsurance;
+  employeeBenefits: EmployeeBenefits;
+  specialPolicies: SpecialPolicies;
+  profitProtection: ProfitProtection;
+}
+
+export interface AssetInsurance {
+  fireInsurance?: string | number;
+  mbd?: string;
+  eei?: string;
+  portableEquipment?: string;
+  burglary?: string | number;
+  neon?: string | number;
+  plateGlass?: string | number;
+  moneyInsurance?: string | number;
+}
+
+export interface MarineInsurance {
+  hullInsurance?: string;
+  cropInsurance?: string;
+  cattleInsurance?: string;
+  jewellerBlockInsurance?: string;
+  fineArtInsurance?: string;
+  specificMarine?: string;
+  openMarinePolicy?: string;
+}
+
+export interface LiabilityInsurance {
+  directorOfficersLiability?: string;
+  professionalIndemnity?: string;
+  productLiability?: string;
+  commercialGeneralLiability?: string;
+  stockBrokerIndemnity?: string;
+  cyberLiability?: string;
+  workmensCompensation?: string;
+  fidelityInsurance?: string;
+}
+
+export interface EmployeeBenefits {
+  groupMedicalCoverage?: string | number;
+  groupPersonalAccident?: string | number;
+  groupTermLife?: string | number;
+  gratuity?: string;
+  leaveEncashment?: string;
+  superAnnuity?: string;
+}
+
+export interface SpecialPolicies {
+  salesTurnoverPolicy?: string;
+  stockThroughoutPolicy?: string;
+  industrialAllRisk?: string | number;
+  contractorsAllRisk?: string;
+  contractorsPlantMachinery?: string;
+  erectionAllRisk?: string;
+  aviationAllRiskPolicy?: string;
+  titleInsurance?: string;
+  eventInsurance?: string;
+  extendedWarrantyInsurance?: string;
+  clinicalTrials?: string;
+  suretyBondInsurance?: string;
+  bodyPartInsurance?: string;
+}
+
+export interface ProfitProtection {
+  fireLossOfProfitBusinessInterruption?: string | number;
+  machineryLossOfProfit?: string | number;
+  tradeCredit?: string;
+  creditLife?: string;
+}
+
+export interface SelectedInsurance {
+  category: string;
   feature: string;
-  rate: number | string;
-  unit: string;
-  sumAssured?: number;
-  calculatedCost: number;
+  rate: string | number;
+  displayName: string;
 }
 
-export interface CalculatorState {
-  selectedIndustry: string | null;
-  selectedInsurances: string[];
-  selectedFeatures: Map<string, string[]>;
-  cart: CartItem[];
-  sumAssuredValues: Map<string, number>;
+export interface CartItem extends SelectedInsurance {
+  id: string;
+}
+
+export type InsuranceCategory =
+  | 'assetInsurance'
+  | 'marineInsurance'
+  | 'liabilityInsurance'
+  | 'employeeBenefits'
+  | 'specialPolicies'
+  | 'profitProtection';
+
+export interface InsuranceCategoryInfo {
+  key: InsuranceCategory;
+  displayName: string;
+  description: string;
 }

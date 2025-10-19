@@ -26,7 +26,7 @@ function CardScreen({ children, id }: { children: ReactNode; id?: string }) {
 
 export default function HomePage() {
   return (
-    <main className="bg-app-gradient h-full relative h-dvh pt-16">
+    <main className="bg-app-gradient relative h-full pt-16">
       {/* Optional background accents you already had from earlier message */}
       <div className="pointer-events-none absolute inset-0">
         <div className="bg-blob blob-1" />
