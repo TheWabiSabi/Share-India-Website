@@ -7,6 +7,7 @@ import Header from '@/components/header/header';
 import ChatbotWidget from '@/components/chatbot/chatbot-widget';
 
 import { Inter, Geist_Mono } from 'next/font/google';
+import Footer from '@/components/footer/footer';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -31,7 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="font-sans antialiased">
         <Header />
         <main className="text-si-dark bg-white">{children}</main>
-        {/* <Footer /> */}
+        <Footer />
         <ChatbotWidget />
       </body>
     </html>
