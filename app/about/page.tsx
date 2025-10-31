@@ -35,8 +35,8 @@ export default function AboutPage() {
             className="object-cover"
             sizes="100vw 100vh"
           />
-          {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/60 to-slate-900/40 backdrop-blur-sm" />
+          {/* Solid overlay */}
+          <div className="absolute inset-0 bg-slate-900/70 backdrop-blur-sm" />
         </div>
 
         <div className="relative w-full pt-[15vh] md:pt-[30vh]">
@@ -74,7 +74,7 @@ export default function AboutPage() {
       {/* Our Story Section */}
       <section
         id="our-story"
-        className="from-si-primary-200 w-full border-b border-gray-100 bg-gradient-to-b to-transparent lg:h-screen"
+        className="bg-si-primary-100 w-full border-b border-gray-100 lg:h-screen"
       >
         <div className="mx-auto max-w-[90vw] px-4 py-[10vh] sm:px-6 lg:max-w-[75vw] lg:px-8 lg:pt-[20vh]">
           <h2 className="text-3xl font-bold md:text-4xl">Our Story</h2>
@@ -157,7 +157,7 @@ export default function AboutPage() {
                   className="object-cover"
                   sizes="320px 384px"
                 />
-                <div className="absolute right-0 bottom-0 left-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+                <div className="absolute right-0 bottom-0 left-0 bg-black/60 p-4">
                   <h3 className="text-xl font-bold text-white">Ajaykumar Patel</h3>
                   <p className="text-blue-100">CEO & Principal Officer</p>
                 </div>

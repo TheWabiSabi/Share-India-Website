@@ -201,19 +201,19 @@ const ChatbotWidget: React.FC = () => {
             type="button"
             onClick={toggleChatbot}
             aria-label="Open chat"
-            className="bg-si-primary-400 hover:bg-si-primary-500 focus:ring-offset-si-primary-700 relative hidden rounded-2xl px-4 py-2 text-sm text-white shadow-xl transition-all duration-200 select-none focus:ring-2 focus:ring-white/70 focus:ring-offset-2 focus:outline-none sm:block"
+            className="bg-si-primary hover:bg-si-primary-600 relative hidden rounded-2xl px-4 py-2 text-sm text-white shadow-xl transition-all duration-200 select-none focus:ring-2 focus:ring-white/70 focus:ring-offset-2 focus:outline-none sm:block"
           >
             <span className="block">What can I help you with today?</span>
 
             {/* Tail */}
             <span
               aria-hidden="true"
-              className="bg-si-primary-600/95 absolute -right-1.5 bottom-2 h-3 w-3 rotate-45"
+              className="bg-si-primary absolute -right-1.5 bottom-2 h-3 w-3 rotate-45"
             />
             {/* Typing dot badge */}
             <span
               aria-hidden="true"
-              className="text-si-primary-700 absolute -right-1 inline-flex items-center justify-center rounded-full bg-white/95 px-1.5 py-0.5 text-[10px] font-semibold shadow"
+              className="text-si-primary absolute -right-1 inline-flex items-center justify-center rounded-full bg-white px-1.5 py-0.5 text-[10px] font-semibold shadow"
             >
               • • •
             </span>
@@ -224,8 +224,8 @@ const ChatbotWidget: React.FC = () => {
             {/* Ripples show only when closed */}
             {!state.isOpen && (
               <>
-                <span className="animate-ripple bg-si-bluegreen/30 pointer-events-none absolute inset-0 -z-10 rounded-full" />
-                <span className="animate-ripple2 bg-si-bluegreen/20 pointer-events-none absolute inset-0 -z-10 rounded-full" />
+                <span className="animate-ripple bg-si-primary/30 pointer-events-none absolute inset-0 -z-10 rounded-full" />
+                <span className="animate-ripple2 bg-si-primary/20 pointer-events-none absolute inset-0 -z-10 rounded-full" />
               </>
             )}
 
@@ -234,7 +234,7 @@ const ChatbotWidget: React.FC = () => {
               aria-label={state.isOpen ? 'Close chatbot' : 'Open chatbot'}
               aria-expanded={state.isOpen}
               onClick={toggleChatbot}
-              className={`group text-si-primary-900 flex h-14 w-14 items-center justify-center rounded-full bg-amber-100 shadow-xl transition-all focus:ring-2 focus:ring-white/70 focus:ring-offset-2 focus:outline-none ${state.isOpen ? 'bg-si-primary-500 hover:bg-si-primary-400 focus:ring-offset-si-primary-700' : 'bg-si-bluegreen hover:bg-si-primary-400 focus:ring-offset-si-bluegreen'} ${!state.isOpen ? 'animate-breathe' : ''} sm:h-16 sm:w-16`}
+              className={`group flex h-14 w-14 items-center justify-center rounded-full text-white shadow-xl transition-all focus:ring-2 focus:ring-white/70 focus:ring-offset-2 focus:outline-none ${state.isOpen ? 'bg-si-primary hover:bg-si-primary-600' : 'bg-si-primary hover:bg-si-primary-600'} ${!state.isOpen ? 'animate-breathe' : ''} sm:h-16 sm:w-16`}
             >
               {state.isOpen ? (
                 /* Close icon */
@@ -275,12 +275,12 @@ const ChatbotWidget: React.FC = () => {
       {/* Chatbot Window */}
       {state.isOpen && (
         <div className="fixed right-6 bottom-24 z-50 w-80 sm:w-96">
-          <div className="bg-si-primary-500 overflow-hidden rounded-2xl shadow-2xl">
+          <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-2xl">
             {/* Header */}
-            <div className="bg-si-bluegreen text-si-offwhite px-6 py-4">
+            <div className="bg-si-primary px-6 py-4 text-white">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-3">
-                  <div className="bg-si-offwhite/20 flex h-8 w-8 items-center justify-center rounded-full">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/20">
                     <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path
                         strokeLinecap="round"
@@ -297,7 +297,7 @@ const ChatbotWidget: React.FC = () => {
                 </div>
                 <button
                   onClick={toggleChatbot}
-                  className="text-si-offwhite/80 hover:text-si-offwhite rounded-full p-1 transition-colors"
+                  className="rounded-full p-1 text-white/80 transition-colors hover:text-white"
                   aria-label="Close chatbot"
                 >
                   <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -319,17 +319,15 @@ const ChatbotWidget: React.FC = () => {
                   <div key={index}>
                     {msg.type === 'user' ? (
                       <div className="mb-2 flex justify-end">
-                        <div className="bg-si-bluegreen text-si-offwhite max-w-xs rounded-2xl rounded-br-sm px-4 py-3">
+                        <div className="bg-si-primary max-w-xs rounded-2xl rounded-br-sm px-4 py-3 text-white">
                           <p className="text-sm">{msg.message}</p>
                         </div>
                       </div>
                     ) : (
                       <div className="mb-4">
-                        <div className="bg-si-slate/30 mb-3 max-w-xs rounded-2xl rounded-bl-sm px-4 py-3">
-                          <p className="text-si-dark text-sm">{msg.message}</p>
-                          {msg.answer && (
-                            <p className="text-si-dark/80 mt-2 text-xs">{msg.answer}</p>
-                          )}
+                        <div className="mb-3 max-w-xs rounded-2xl rounded-bl-sm bg-gray-100 px-4 py-3">
+                          <p className="text-sm text-gray-800">{msg.message}</p>
+                          {msg.answer && <p className="mt-2 text-xs text-gray-600">{msg.answer}</p>}
                         </div>
 
                         {msg.buttons && msg.buttons.length > 0 && (
@@ -340,7 +338,7 @@ const ChatbotWidget: React.FC = () => {
                                 onClick={() =>
                                   handleButtonClick(button.action as NavigationAction, button.url)
                                 }
-                                className="border-si-bluegreen/20 text-si-bluegreen hover:bg-si-bluegreen hover:text-si-offwhite block w-full rounded-lg border px-3 py-2 text-left text-sm transition-colors"
+                                className="border-si-primary/20 text-si-primary hover:bg-si-primary block w-full rounded-lg border px-3 py-2 text-left text-sm transition-colors hover:text-white"
                               >
                                 {button.text}
                               </button>
@@ -355,7 +353,7 @@ const ChatbotWidget: React.FC = () => {
 
               {state.messages.length === 0 && (
                 <div className="space-y-2">
-                  <p className="text-si-dark/70 text-xs font-medium tracking-wide uppercase">
+                  <p className="text-xs font-medium tracking-wide text-gray-600 uppercase">
                     Quick Actions
                   </p>
                   <div className="space-y-2">
@@ -363,7 +361,7 @@ const ChatbotWidget: React.FC = () => {
                       <button
                         key={index}
                         onClick={() => handleQuickAction(action.action as NavigationAction)}
-                        className="border-si-bluegreen/20 text-si-bluegreen hover:bg-si-bluegreen hover:text-si-offwhite block w-full rounded-lg border px-3 py-2 text-left text-sm transition-colors"
+                        className="border-si-primary/20 text-si-primary hover:bg-si-primary block w-full rounded-lg border px-3 py-2 text-left text-sm transition-colors hover:text-white"
                       >
                         {action.action === 'get_quote' && '📊 '}
                         {action.action === 'contact_info' && '📞 '}
@@ -376,15 +374,15 @@ const ChatbotWidget: React.FC = () => {
               )}
             </div>
 
-            <div className="border-si-slate/30 border-t p-4">
-              <div className="bg-si-slate/20 flex items-center rounded-lg px-3 py-2">
+            <div className="border-t border-gray-200 p-4">
+              <div className="flex items-center rounded-lg bg-gray-100 px-3 py-2">
                 <input
                   type="text"
                   placeholder="Please use the buttons above..."
-                  className="text-si-dark placeholder-si-dark/50 flex-1 bg-transparent text-sm outline-none"
+                  className="flex-1 bg-transparent text-sm text-gray-800 placeholder-gray-500 outline-none"
                   disabled
                 />
-                <button className="text-si-bluegreen/50 ml-2 cursor-not-allowed" disabled>
+                <button className="ml-2 cursor-not-allowed text-gray-400" disabled>
                   <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path
                       strokeLinecap="round"
