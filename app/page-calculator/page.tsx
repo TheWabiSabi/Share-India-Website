@@ -130,19 +130,43 @@ const InsuranceCalculator: React.FC = () => {
 
   if (!selectedIndustry) {
     return (
-      <div className="min-h-screen bg-gray-50 pt-[15vh] pb-12">
+      <div className="bg-si-primary-50 min-h-screen pt-20 pb-12">
         <div className="mx-auto max-w-4xl px-4">
-          <div className="rounded-lg bg-white p-8 shadow-lg">
-            <h1 className="mb-8 text-center text-3xl font-bold text-gray-900">
-              Insurance Rate Calculator
-            </h1>
+          <div className="card-vibrant shadow-vibrant-blue rounded-2xl bg-white/95 p-6 backdrop-blur-sm sm:p-8 md:p-12">
+            <div className="mb-8 text-center">
+              <div className="bg-si-primary/10 mb-4 inline-flex items-center gap-2 rounded-full px-4 py-2">
+                <svg
+                  className="text-si-primary h-5 w-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+                  />
+                </svg>
+                <span className="text-si-primary text-sm font-semibold">Premium Calculator</span>
+              </div>
+
+              <h1 className="text-si-ink mb-4 text-3xl font-bold md:text-4xl">
+                Insurance Rate <span className="text-gradient-primary">Calculator</span>
+              </h1>
+
+              <p className="text-si-ink/70 mx-auto max-w-2xl text-lg">
+                Get instant premium estimates for your business insurance needs. Select your
+                industry to explore tailored coverage options.
+              </p>
+            </div>
 
             <div className="mb-8">
-              <label className="mb-2 block text-sm font-medium text-gray-700">
+              <label className="text-si-ink mb-3 block text-sm font-semibold">
                 Select Your Industry Type
               </label>
               <select
-                className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-blue-500"
+                className="border-si-primary/20 text-si-ink focus:border-si-primary focus:ring-si-primary/20 w-full rounded-xl border bg-white/80 px-4 py-4 backdrop-blur-sm transition-all focus:ring-2"
                 onChange={(e) => handleIndustryChange(e.target.value)}
                 value=""
               >
@@ -156,8 +180,13 @@ const InsuranceCalculator: React.FC = () => {
             </div>
 
             <div className="text-center">
-              <div className="inline-flex items-center space-x-2 text-gray-500">
-                <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="text-si-ink/60 bg-si-primary/5 inline-flex items-center space-x-3 rounded-xl px-6 py-4">
+                <svg
+                  className="text-si-primary h-6 w-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -165,7 +194,9 @@ const InsuranceCalculator: React.FC = () => {
                     d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
-                <span>Select your industry to view available insurance options</span>
+                <span className="font-medium">
+                  Select your industry to view available insurance options and get instant quotes
+                </span>
               </div>
             </div>
           </div>
@@ -175,17 +206,22 @@ const InsuranceCalculator: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 pt-[15vh]">
+    <div className="from-si-primary-50 to-si-red-50 min-h-screen bg-gradient-to-br via-white py-8 pt-20">
       <div className="mx-auto max-w-7xl px-4">
         {/* Header */}
-        <div className="mb-8 rounded-lg bg-white p-6 shadow-lg">
-          <div className="flex items-center justify-between">
+        <div className="card-vibrant shadow-vibrant-blue mb-8 rounded-2xl bg-white/95 p-6 backdrop-blur-sm">
+          <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">Insurance Rate Calculator</h1>
-              <p className="mt-1 text-gray-600">
-                Industry: <span className="font-semibold">{selectedIndustry.industryType}</span>
+              <h1 className="text-si-ink text-2xl font-bold md:text-3xl">
+                Insurance Rate Calculator
+              </h1>
+              <p className="text-si-ink/70 mt-2">
+                Industry:{' '}
+                <span className="text-si-primary font-semibold">
+                  {selectedIndustry.industryType}
+                </span>
                 {selectedIndustry.industryCode && (
-                  <span className="ml-2 rounded bg-gray-100 px-2 py-1 text-sm">
+                  <span className="bg-si-primary/10 text-si-primary ml-2 rounded-full px-3 py-1 text-sm font-medium">
                     {selectedIndustry.industryCode}
                   </span>
                 )}
@@ -193,7 +229,7 @@ const InsuranceCalculator: React.FC = () => {
             </div>
             <button
               onClick={() => setSelectedIndustry(null)}
-              className="rounded-lg border border-gray-300 px-4 py-2 text-sm text-gray-600 hover:bg-gray-50"
+              className="border-si-primary/20 text-si-ink hover:bg-si-primary/5 hover:border-si-primary/40 rounded-xl border px-4 py-2 text-sm transition-all"
             >
               Change Industry
             </button>
@@ -203,8 +239,8 @@ const InsuranceCalculator: React.FC = () => {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           {/* Insurance Categories */}
           <div className="lg:col-span-2">
-            <div className="rounded-lg bg-white p-6 shadow-lg">
-              <h2 className="mb-6 text-xl font-bold text-gray-900">Select Insurance Types</h2>
+            <div className="card-vibrant shadow-vibrant-blue rounded-2xl bg-white/95 p-6 backdrop-blur-sm">
+              <h2 className="text-si-ink mb-6 text-xl font-bold">Select Insurance Types</h2>
 
               <div className="space-y-4">
                 {INSURANCE_CATEGORIES.map((category) => {
@@ -310,11 +346,14 @@ const InsuranceCalculator: React.FC = () => {
 
           {/* Cart */}
           <div className="lg:col-span-1">
-            <div className="sticky top-8 rounded-lg bg-white p-6 shadow-lg">
+            <div className="card-vibrant shadow-vibrant-blue sticky top-8 rounded-2xl bg-white/95 p-6 backdrop-blur-sm">
               <div className="mb-6 flex items-center justify-between">
-                <h2 className="text-xl font-bold text-gray-900">Selected Coverage</h2>
+                <h2 className="text-si-ink text-xl font-bold">Selected Coverage</h2>
                 {cartItems.length > 0 && (
-                  <button onClick={clearCart} className="text-sm text-red-600 hover:text-red-800">
+                  <button
+                    onClick={clearCart}
+                    className="text-si-red hover:text-si-red-600 text-sm font-medium transition-colors"
+                  >
                     Clear All
                   </button>
                 )}
@@ -322,20 +361,22 @@ const InsuranceCalculator: React.FC = () => {
 
               {/* Sum Insured Input */}
               <div className="mb-6">
-                <label className="mb-2 block text-sm font-medium text-gray-700">
+                <label className="text-si-ink mb-2 block text-sm font-semibold">
                   Sum Insured Amount
                 </label>
                 <div className="relative">
-                  <span className="absolute top-1/2 left-3 -translate-y-1/2 text-gray-500">₹</span>
+                  <span className="text-si-primary absolute top-1/2 left-3 -translate-y-1/2 font-semibold">
+                    ₹
+                  </span>
                   <input
                     type="text"
                     value={sumInsured.toLocaleString('en-IN')}
                     onChange={handleSumInsuredChange}
-                    className="w-full rounded-lg border border-gray-300 py-2 pr-4 pl-8 focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                    className="border-si-primary/20 focus:border-si-primary focus:ring-si-primary/20 w-full rounded-xl border bg-white/80 py-3 pr-4 pl-8 transition-all focus:ring-2"
                     placeholder="Enter amount"
                   />
                 </div>
-                <p className="mt-1 text-xs text-gray-500">
+                <p className="text-si-ink/60 mt-2 text-xs">
                   Enter the total amount you want to insure
                 </p>
               </div>
@@ -418,7 +459,7 @@ const InsuranceCalculator: React.FC = () => {
                       </span>
                     </div>
 
-                    <button className="w-full rounded-lg bg-blue-600 px-4 py-3 font-semibold text-white transition-colors hover:bg-blue-700">
+                    <button className="btn-primary hover-lift w-full rounded-xl px-4 py-3 font-semibold text-white transition-all">
                       Get Quote
                     </button>
 

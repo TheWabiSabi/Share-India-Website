@@ -172,8 +172,8 @@ const RealEstateInsurancePage = () => {
             className="object-cover"
             sizes="100vw 100vh"
           />
-          {/* Gradient + subtle blur overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/50 to-slate-900/30 backdrop-blur-sm" />
+          {/* Solid overlay */}
+          <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" />
         </div>
 
         <div className="relative w-full pt-[15vh] md:pt-[30vh]">

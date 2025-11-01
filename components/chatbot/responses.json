@@ -92,6 +92,12 @@
           "type": "redirect"
         },
         {
+          "text": "🧮 Insurance Calculator",
+          "action": "redirect",
+          "url": "/page-calculator",
+          "type": "redirect"
+        },
+        {
           "text": "← Back to Main Menu",
           "action": "welcome",
           "type": "navigation"
@@ -99,7 +105,7 @@
       ]
     },
     "agent_menu": {
-      "message": "Connect with our insurance experts for personalized assistance:",
+      "message": "Connect with our insurance experts or join our team:",
       "buttons": [
         {
           "text": "📞 Call Us: 1800 210 2022",
@@ -115,6 +121,12 @@
           "text": "📍 Visit Our Office",
           "action": "redirect",
           "url": "/contact",
+          "type": "redirect"
+        },
+        {
+          "text": "🤝 Become a POSP Agent",
+          "action": "redirect",
+          "url": "/be-a-posp",
           "type": "redirect"
         },
         {

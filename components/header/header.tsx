@@ -34,8 +34,7 @@ const CORPORATE_INSURANCE = [
 
 /** ===== Controls ===== */
 const FULL_WIDTH_DROPDOWNS = false; // <-- set true for 100% width dropdowns
-// const HEADER_GRADIENT_CLS = 'bg-gradient-to-b from-si-primary-300 to-si-primary-100';
-const SUBMENU_GRADIENT_CLS = 'bg-gradient-to-t from-si-primary-200 to-si-primary-100'; // <-- subsections use gradient-to-t
+const SUBMENU_BG_CLS = 'bg-white'; // <-- clean white background for submenus
 
 type NavItem = {
   title: string;
@@ -180,6 +179,7 @@ export default function Header() {
           desc: 'Milestones & credibility',
         },
         { label: 'Testimonials', href: '/about#testimonials', desc: 'What clients say' },
+        { label: 'Insurance Calculator', href: '/page-calculator', desc: 'Calculate your premium' },
         { label: 'Careers', href: '/careers', desc: 'Grow with us' },
       ],
     },
@@ -224,21 +224,21 @@ export default function Header() {
   return (
     <header
       className={[
-        'fixed inset-x-0 top-0 z-50 border-b border-slate-100',
-        // HEADER_GRADIENT_CLS, // <-- header gradient (to-b)
-        'backdrop-blur-md transition-all duration-300 will-change-transform',
+        'border-si-primary/10 fixed inset-x-0 top-0 z-50 border-b',
+        'bg-white/95 backdrop-blur-md transition-all duration-300 will-change-transform',
+        'shadow-[0_4px_20px_-4px_rgba(45,169,255,0.1)]',
         visible ? 'translate-y-0 opacity-100' : 'pointer-events-none -translate-y-4 opacity-0',
       ].join(' ')}
     >
       {/* DESKTOP NAVBAR */}
-      <div className="relative hidden w-full items-center justify-between px-10 py-3 lg:flex">
+      <div className="relative hidden w-full items-center justify-between px-6 py-3 lg:flex xl:px-10">
         {/* Left: Logo + Primary */}
-        <div className="flex items-center gap-10">
-          <Link href="/" aria-label="Share India Insurance - Home">
-            <BrandLogo className="h-16 w-44" />
+        <div className="flex items-center gap-8 xl:gap-10">
+          <Link href="/" aria-label="Share India Insurance - Home" className="hover-lift">
+            <BrandLogo className="h-14 w-40 xl:h-16 xl:w-44" />
           </Link>
 
-          <nav className="flex items-center gap-6 text-[16px] font-semibold">
+          <nav className="flex items-center gap-5 text-[15px] font-semibold xl:gap-6 xl:text-[16px]">
             {primaryLinks.map((link) => {
               const hasChildren = !!link.children?.length;
 
@@ -289,7 +289,7 @@ export default function Header() {
                         className={[
                           'absolute top-full z-50 mt-3 overflow-hidden p-0 shadow-[0_20px_40px_-20px_rgba(30,64,175,0.25)]',
                           panelWidthCls,
-                          SUBMENU_GRADIENT_CLS, // <-- subsections gradient (to-t)
+                          SUBMENU_BG_CLS, // <-- clean white background
                         ].join(' ')}
                         onMouseEnter={cancelClose}
                         onMouseLeave={() => scheduleClose(120)}
@@ -334,17 +334,17 @@ export default function Header() {
         </div>
 
         {/* Right: Utility */}
-        <div className="flex items-center gap-4 text-[14px] font-medium text-black">
+        <div className="text-si-ink flex items-center gap-3 text-[13px] font-medium xl:gap-4 xl:text-[14px]">
           {/* Utility links: single underline on hover */}
           <Link
             href="/contact"
-            className={`${baseLinkCls} decoration-2 underline-offset-4 hover:underline`}
+            className={`${baseLinkCls} hover:text-si-primary decoration-2 underline-offset-4 transition-colors hover:underline`}
           >
             Contact Us
           </Link>
           <Link
-            href="/page-calculator"
-            className="rounded-full border border-blue-700 bg-blue-700 px-4 py-2 text-white shadow-[0_2px_10px_rgba(37,99,235,0.35)] ring-1 ring-white/40 transition hover:bg-blue-800 focus-visible:ring-2 focus-visible:ring-blue-600/50 focus-visible:outline-none"
+            href="/be-a-posp"
+            className="btn-primary hover-lift rounded-full px-4 py-2 text-sm font-semibold transition-all xl:px-5 xl:py-2.5"
           >
             Be a POSP
           </Link>
@@ -352,17 +352,15 @@ export default function Header() {
       </div>
 
       {/* MOBILE NAVBAR */}
-      <div
-        className={`flex w-full items-center justify-between px-4 py-3 backdrop-blur-md lg:hidden ${/* HEADER_GRADIENT_CLS */ ``}`}
-      >
-        <Link href="/" aria-label="Share India Insurance - Home">
-          <BrandLogo className="h-8 w-32" />
+      <div className="flex w-full items-center justify-between px-4 py-3 lg:hidden">
+        <Link href="/" aria-label="Share India Insurance - Home" className="hover-lift">
+          <BrandLogo className="h-8 w-32 sm:h-10 sm:w-36" />
         </Link>
         <button
           onClick={() => setMobileMenu(true)}
           aria-label="Open menu"
           type="button"
-          className="text-xl text-black"
+          className="text-si-ink hover:bg-si-primary/10 hover:text-si-primary rounded-lg p-2 text-xl transition-colors"
         >
           <FaBars />
         </button>

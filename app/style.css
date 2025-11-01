@@ -14,12 +14,9 @@ main {
   scroll-margin-top: var(--header-h);
 }
 
-/* Background: cool, modern gradient that flatters white cards */
+/* Background: solid color that flatters white cards */
 .bg-app-gradient {
-  background:
-    radial-gradient(1200px 600px at 120% -10%, rgba(99, 102, 241, 0.1), transparent 40%),
-    radial-gradient(1000px 500px at -15% 120%, rgba(14, 165, 233, 0.1), transparent 45%),
-    linear-gradient(180deg, #f8fafc 0%, #eef2ff 40%, #ecfeff 100%); /* slate-50 → indigo-50 → cyan-50 */
+  background: #f8fafc; /* slate-50 solid color */
 }
 
 /* Soft, non-distracting floating blobs (GPU-friendly) */

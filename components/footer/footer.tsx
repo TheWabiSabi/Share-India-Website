@@ -88,9 +88,9 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="text-si-ink/80 font-sans">
-      {/* Duotone top wash */}
-      <div className="bg-si-primary-400 relative isolate">
-        <div className="from-si-primary-200 to-si-primary-100 pointer-events-none absolute inset-0 bg-gradient-to-b" />
+      {/* Clean top section */}
+      <div className="bg-si-primary-100 relative">
+        {/* Removed complex gradient background */}
         <div className="relative mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-14 md:grid-cols-2 lg:grid-cols-7">
             {/* Brand / About */}
@@ -206,8 +206,8 @@ const Footer: React.FC = () => {
             </div>
           </div>
         </div>
-        {/* subtle top border in brand blue */}
-        <div className="h-px w-full bg-gradient-to-r from-transparent via-[#CFE6FF] to-transparent" />
+        {/* Clean top border */}
+        <div className="bg-si-primary/20 h-px w-full" />
       </div>
     </footer>
   );
