@@ -70,15 +70,15 @@ const Bullet = memo(() => (
 ));
 Bullet.displayName = 'Bullet';
 
+const FOCUS_POINTS = ['Analyse gaps', 'Right product fit', 'Apt underwriting', 'Claims advocacy'];
+const STATS_DATA = [
+  { k: '6,000+', v: 'Claims handled' },
+  { k: '21,000+', v: 'Retail Clients' },
+  { k: '9,000+', v: 'Corporate Clients' },
+];
+
 // Hero Section Component
 function HeroSection() {
-  const FOCUS_POINTS = ['Analyse gaps', 'Right product fit', 'Apt underwriting', 'Claims advocacy'];
-  const STATS_DATA = [
-    { k: '6,000+', v: 'Claims handled' },
-    { k: '21,000+', v: 'Retail Clients' },
-    { k: '9,000+', v: 'Corporate Clients' },
-  ];
-
   const focusBadges = useMemo(
     () =>
       FOCUS_POINTS.map((label) => (

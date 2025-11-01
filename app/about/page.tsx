@@ -151,14 +151,14 @@ export default function AboutPage() {
               <div className="relative h-96 w-80 overflow-hidden rounded-2xl border-4 border-blue-100 shadow-xl">
                 {/* REPLACE: /public/images/leadership/ajaykumar-patel-ceo.jpg - Professional headshot of CEO Ajaykumar Patel */}
                 <Image
-                  src="/images/leadership/ajaykumar-patel-ceo.jpg"
+                  src="/leadership/ajay-kumar.png"
                   alt="Ajaykumar Patel - CEO & Principal Officer"
                   fill
                   className="object-cover"
                   sizes="320px 384px"
                 />
-                <div className="absolute right-0 bottom-0 left-0 bg-black/60 p-4">
-                  <h3 className="text-xl font-bold text-white">Ajaykumar Patel</h3>
+                <div className="absolute right-0 bottom-0 left-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+                  <h3 className="text-xl font-bold text-white">Mr. Ajay Kumar Patel</h3>
                   <p className="text-blue-100">CEO & Principal Officer</p>
                 </div>
               </div>
@@ -421,7 +421,7 @@ const TeamCard = ({ member }: { member: { name: string; role: string; color: str
   // Team member image mapping
   const getTeamImagePath = (name: string) => {
     const slug = name.toLowerCase().replace(/\s+/g, '-');
-    return `/images/team/${slug}.jpg`;
+    return `/team/${slug}.jpg`;
   };
 
   return (
