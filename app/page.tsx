@@ -563,45 +563,51 @@ function TopNewsSection() {
 function AwardsTestimonialsSection() {
   const awards = [
     {
-      year: '2023',
-      award: 'Best Insurance Broker – IRDAI Recognition',
-      img: '/images/awards/trophy-1.svg',
-    },
-    {
       year: '2022',
-      award: 'Excellence in Client Service – Insurance Today',
-      img: '/images/awards/trophy-2.svg',
+      award: 'SME Superstars - Awarded to SIIB by Chola MS',
+      img: '/awards/chola-ms.jpeg',
     },
     {
-      year: '2021',
-      award: 'Top 10 Brokerage Firms – Business India',
-      img: '/images/awards/trophy-3.svg',
+      year: '2024',
+      award: 'Diamond Club - Awarded to SIIB by digit Inner Circle',
+      img: '/awards/digit.jpeg',
     },
     {
-      year: '2020',
-      award: 'Innovation in Claims Advocacy – FinServ Awards',
-      img: '/images/awards/trophy-4.svg',
+      year: '2025',
+      award: 'CEO of the year to Mr. Ajay Kumar Patel - Awared by UBS Forums',
+      img: '/awards/ubs-ceo.jpeg',
+    },
+    {
+      year: '2025',
+      award: 'Best Claims Partner of the year - Awared to SIIB by UBS Forums',
+      img: '/awards/ubs-claims.jpeg',
     },
   ];
 
   const testimonials = [
     {
-      name: 'Priya Menon',
-      role: 'CFO, TechNova Pvt Ltd',
-      text: 'Share India Brokers made our policy renewal seamless and negotiated significant savings without compromising coverage.',
-      avatar: '/images/clients/priya.jpg',
+      name: 'API Holdings',
+      // role: 'Digital Healthcare Platform',
+      text: 'Share India Insurance Brokers’ proactive approach, professionalism, and flawless execution have made managing our insurance portfolio seamless and efficient — a partnership we truly value.',
+      avatar: '/testimonials/api-holding.png',
     },
     {
-      name: 'Arjun Verma',
-      role: 'HR Head, Zenith Industries',
-      text: 'Their claims advocacy was exceptional—we felt supported throughout the entire process.',
-      avatar: '/images/clients/arjun.jpg',
+      name: 'Sunjewels Pvt. Ltd.',
+      // role: 'Jewellery Chain',
+      text: 'For three years, Team Share India — especially Mr. Raunaq Pai, Mr. Shekhar Pradhan, and Mr. Sagar Agre — have impressed us with their professionalism, reliability, and proactive service.',
+      avatar: '/testimonials/sun-jewels.png',
     },
     {
-      name: 'Kavita Iyer',
-      role: 'Founder, GreenEdge Retail',
-      text: 'We value their transparency and ability to simplify complex insurance products for growing businesses.',
-      avatar: '/images/clients/kavita.jpg',
+      name: 'Global Ocean Logistics India Ltd',
+      // role: 'Founder, GreenEdge Retail',
+      text: 'For over four years, Share India’s expertise, responsiveness, and attention to detail have ensured smooth, reliable insurance support and a partnership built on trust and excellence.',
+      avatar: '/testimonials/global-ocean.png',
+    },
+    {
+      name: 'Santu Mondal',
+      // role: 'Founder, GreenEdge Retail',
+      text: 'My experience with Raunaq Pai and Share India Insurance has been exceptional — Raunaq’s professionalism, expertise, and prompt support made the entire insurance process seamless and trustworthy.',
+      avatar: '/testimonials/santu-mondal.png',
     },
   ];
 
@@ -638,14 +644,8 @@ function AwardsTestimonialsSection() {
               className="group flex flex-col rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-slate-300 hover:shadow-md sm:p-6"
             >
               <div className="mb-4 flex items-center gap-3">
-                <div className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-lg border border-slate-200 bg-white">
-                  <Image
-                    src={a.img}
-                    alt={`${a.year} award`}
-                    width={48}
-                    height={48}
-                    className="object-contain opacity-90"
-                  />
+                <div className="relative flex h-14 w-14 items-center justify-center overflow-hidden rounded-lg border border-slate-200 bg-white">
+                  <Image src={a.img} alt={`${a.year} award`} fill className="object-cover" />
                 </div>
                 <div>
                   <div className="accent-bar-gradient mb-1 h-1.5 w-10 rounded" />
@@ -667,7 +667,7 @@ function AwardsTestimonialsSection() {
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2">
             {testimonials.map((t) => (
               <figure
                 key={t.name}
@@ -679,17 +679,11 @@ function AwardsTestimonialsSection() {
 
                 <figcaption className="mt-5 flex items-center gap-3">
                   <div className="relative h-12 w-12 overflow-hidden rounded-full shadow ring-2 ring-white">
-                    <Image
-                      src={t.avatar}
-                      alt={`${t.name} photo`}
-                      width={48}
-                      height={48}
-                      className="h-12 w-12 object-cover"
-                    />
+                    <Image src={t.avatar} alt={`${t.name} photo`} fill className="object-cover" />
                   </div>
                   <div>
                     <div className="font-semibold text-slate-900">{t.name}</div>
-                    <div className="text-xs text-slate-600">{t.role}</div>
+                    {/* <div className="text-xs text-slate-600">{t.role}</div> */}
                   </div>
                 </figcaption>
 
