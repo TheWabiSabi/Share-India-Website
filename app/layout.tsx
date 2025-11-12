@@ -22,7 +22,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Share India Brokers',
+  title: 'Share India Insurance',
   description: 'Created by team WabiSabi',
 };
 

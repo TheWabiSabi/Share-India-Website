@@ -133,6 +133,11 @@ export default function Header() {
         { label: 'Motor', href: '/retail/motor', desc: 'Car, bike, own-damage' },
         { label: 'Travel', href: '/retail/travel', desc: 'Domestic & international' },
         { label: 'Home', href: '/retail/home', desc: 'Structure & contents' },
+        {
+          label: 'Cyber',
+          href: '/retail/cyber',
+          desc: 'Digital security & identity theft',
+        },
       ],
     },
     {
