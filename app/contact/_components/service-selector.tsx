@@ -96,7 +96,7 @@ export default function ServicesSelector() {
 
       {/* Action Buttons */}
       <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-        <button className="card-vibrant hover-lift hover-glow-blue from-si-primary to-si-primary-600 focus:ring-si-primary/30 rounded-xl bg-gradient-to-r px-8 py-4 font-semibold text-white transition-all duration-300 focus:ring-4 focus:outline-none">
+        <button className="card-vibrant hover-lift hover-glow-blue from-si-primary to-si-primary-600 focus:ring-si-primary/30 rounded-xl bg-gradient-to-r px-8 py-4 font-semibold text-black transition-all duration-300 focus:ring-4 focus:outline-none">
           <span className="flex items-center justify-center gap-2">
             Get Started
             <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

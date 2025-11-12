@@ -162,7 +162,7 @@ const IndustryPage = ({ details }: { details: InfrastructureInsuranceDetails }) 
       {/* What you receive & CTA */}
       <section className="to-si-primary-200 w-full bg-gradient-to-b from-transparent">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <div className="rounded-2xl border border-blue-200 bg-blue-50 p-8">
+          <div className="bg-si-white rounded-2xl border border-blue-200 p-8">
             <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-3">
               <div className="lg:col-span-2">
                 <h3 className="text-2xl font-bold text-gray-900">
@@ -187,7 +187,7 @@ const IndustryPage = ({ details }: { details: InfrastructureInsuranceDetails }) 
           </div>
 
           {/* Contact strip */}
-          <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
+          <div className="mt-8 grid grid-cols-1 gap-4 border-white md:grid-cols-3">
             <Contact label="Call" value="1800 210 2022" icon={<FaPhoneAlt />} />
             <Contact label="Email" value="contact.ins@shareindia.co.in" icon={<FaEnvelope />} />
             <Contact

@@ -87,10 +87,9 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="text-si-ink/80 font-sans">
+    <footer className="font-sans text-black">
       {/* Clean top section */}
-      <div className="bg-si-primary-100 relative">
-        {/* Removed complex gradient background */}
+      <div className="from-si-primary-200 to-si-primary-600 relative bg-gradient-to-b">
         <div className="relative mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-14 md:grid-cols-2 lg:grid-cols-7">
             {/* Brand / About */}
@@ -103,7 +102,7 @@ const Footer: React.FC = () => {
                   height={60}
                   className="mb-4 h-auto w-auto"
                 />
-                <p className="text-si-dark/80 text-justify text-sm leading-relaxed">
+                <p className="text-justify text-sm leading-relaxed">
                   Your trusted partner for comprehensive insurance solutions across health, motor,
                   life, and enterprise risks.
                 </p>
@@ -176,7 +175,7 @@ const Footer: React.FC = () => {
       </div>
 
       {/* Bottom bar (dark for contrast) */}
-      <div className="bg-black text-gray-300">
+      <div className="from-si-primary-700 to-si-primary-900 relative bg-gradient-to-b text-gray-300">
         <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center justify-between gap-4 text-xs sm:text-sm md:flex-row">
             <div className="text-center md:text-left">

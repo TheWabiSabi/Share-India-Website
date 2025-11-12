@@ -16,7 +16,7 @@ main {
 
 /* Background: solid color that flatters white cards */
 .bg-app-gradient {
-  background: #f8fafc; /* slate-50 solid color */
+  background: #f8fcff; /* slate-50 solid color */
 }
 
 /* Soft, non-distracting floating blobs (GPU-friendly) */
@@ -26,28 +26,6 @@ main {
   opacity: 0.35;
   will-change: transform;
 }
-.blob-1 {
-  top: 6vh;
-  left: 8vw;
-  width: 36vw;
-  height: 36vh;
-  background: #a5b4fc;
-} /* indigo-300 */
-.blob-2 {
-  bottom: 12vh;
-  right: 6vw;
-  width: 30vw;
-  height: 32vh;
-  background: #93c5fd;
-} /* blue-300 */
-.blob-3 {
-  top: 40vh;
-  left: 40vw;
-  width: 22vw;
-  height: 24vh;
-  background: #67e8f9;
-} /* cyan-300 */
-
 @media (max-width: 768px) {
   .blob-1,
   .blob-2,

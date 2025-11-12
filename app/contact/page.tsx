@@ -10,7 +10,7 @@ const ContactPage = () => {
     "We take your privacy seriously, and we don't sell lists, phone numbers, or email addresses.";
 
   return (
-    <div className="section-vibrant-blue w-screen px-2 py-5 pt-[10vh] sm:px-4 md:px-6 lg:px-8 lg:pt-[15vh]">
+    <div className="to-si-primary-200 w-screen bg-gradient-to-b from-transparent via-white px-2 py-1 pt-[4vh] sm:px-4 md:px-6 lg:px-8 lg:pt-[8vh]">
       <div className="bg-pattern-dots absolute inset-0 opacity-20" />
       <div className="relative flex min-h-screen flex-col">
         {/* Header + Selector */}
@@ -18,7 +18,7 @@ const ContactPage = () => {
           <div className="w-full max-w-xl space-y-8 sm:max-w-2xl">
             <div className="text-center">
               {/* Badge */}
-              <div className="from-si-primary/15 to-si-red/10 border-si-primary/20 mb-6 inline-flex items-center gap-2 rounded-full border bg-gradient-to-r px-4 py-2 text-xs font-bold tracking-wider text-black uppercase backdrop-blur-sm">
+              <div className="border-si-primary/20 mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-bold tracking-wider text-black uppercase backdrop-blur-sm">
                 <span className="accent-dot-vibrant h-1.5 w-1.5 rounded-full bg-black" />
                 Get Started
               </div>

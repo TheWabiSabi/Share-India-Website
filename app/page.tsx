@@ -162,7 +162,7 @@ function HeroSection() {
         <div className="relative order-first sm:order-none">
           {/* soft halo (brand hues) */}
           <div className="bg-si-primary/5 absolute -inset-4 rounded-3xl opacity-30 blur-md sm:-inset-6" />
-          <div className="shadow-elevate-vibrant relative rounded-2xl border bg-white/95 p-3 sm:p-5">
+          <div className="shadow-elevate-vibrant relative rounded-2xl border-b-amber-50 bg-white/95 p-3 sm:p-5">
             <div className="overflow-hidden rounded-xl">
               <Image
                 src="https://minio-api.internal.wabisabitech.in/share-india/about/meeting.png"
@@ -844,10 +844,6 @@ export default function HomePage() {
     <main className="bg-app-gradient relative min-h-screen pt-16">
       {/* Enhanced background with better mobile optimization */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="bg-blob blob-1" />
-        <div className="bg-blob blob-2" />
-        <div className="bg-blob blob-3" />
-
         {/* Additional subtle pattern overlay */}
         <div className="bg-pattern-dots absolute inset-0 opacity-30" />
       </div>
