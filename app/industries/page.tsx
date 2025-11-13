@@ -200,9 +200,9 @@ const IndustryCard = ({
   description: string;
   risks: string[];
 }) => (
-  <div className="rounded-lg border border-gray-200 bg-white p-6 transition hover:border-blue-300 hover:shadow-md">
+  <div className="group rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:border-blue-300 hover:shadow-lg">
     <div className="mb-4 flex items-center gap-4">
-      {icon}
+      <div className="transition-transform group-hover:scale-110">{icon}</div>
       <h3 className="text-xl font-semibold text-gray-900">{name}</h3>
     </div>
     <p className="mb-4 text-gray-700">{description}</p>
@@ -218,7 +218,7 @@ const IndustryCard = ({
     <div className="mt-5">
       <a
         href={`/industries/${name.toLowerCase().replace(/ /g, '-').replace(/&/g, 'and')}`}
-        className="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-700"
+        className="inline-flex items-center text-sm font-semibold text-blue-600 transition-colors hover:text-blue-700"
       >
         Learn More <FaChevronRight className="ml-1 text-xs" />
       </a>
@@ -255,14 +255,20 @@ const IndustriesPage = () => {
                 understand your business.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <button className="inline-flex items-center justify-center rounded-lg bg-blue-100 px-6 py-3 font-semibold text-blue-800 hover:bg-blue-200">
+                <a
+                  href="/premium-estimator"
+                  className="inline-flex items-center justify-center rounded-lg bg-blue-100 px-6 py-3 font-semibold text-blue-800 hover:bg-blue-200"
+                >
                   <FaShieldAlt className="mr-2" />
-                  Explore Industry Solutions
-                </button>
-                <button className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-6 py-3 font-semibold text-white hover:bg-white/10">
+                  Get Coverage Proposal
+                </a>
+                <a
+                  href="/contact"
+                  className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-6 py-3 font-semibold text-white hover:bg-white/10"
+                >
                   <FaFileContract className="mr-2" />
-                  Request Consultation
-                </button>
+                  Book Risk Assessment
+                </a>
               </div>
               <div className="mt-4 text-sm text-gray-100">
                 Trusted by leading enterprises across 9+ major industry sectors in India.
@@ -301,7 +307,10 @@ const IndustriesPage = () => {
               <h3 className="text-2xl font-semibold text-gray-900">What SIIB Offers</h3>
               <div className="mt-8 space-y-5">
                 {SIIB_OFFERINGS.map((offering, index) => (
-                  <div key={index} className="rounded-lg border border-gray-200 bg-white p-5">
+                  <div
+                    key={index}
+                    className="rounded-lg border border-gray-200 bg-white p-5 shadow-sm transition-all hover:shadow-md"
+                  >
                     <div className="mb-2 text-lg font-semibold text-gray-900">{offering.title}</div>
                     <div className="text-base text-gray-600">{offering.description}</div>
                   </div>
@@ -340,7 +349,7 @@ const IndustriesPage = () => {
         <div className="mx-auto max-w-[90vw] px-4 py-14 sm:px-6 lg:max-w-[75vw] lg:px-8">
           <h2 className="text-3xl font-bold md:text-4xl">Our Approach to Industry Insurance</h2>
           <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-3">
-            <div className="rounded-lg border border-gray-200 bg-white p-6">
+            <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-lg">
               <div className="mb-3 text-2xl font-bold text-blue-600">01</div>
               <h3 className="mb-3 text-xl font-semibold text-gray-900">Risk Assessment</h3>
               <p className="text-gray-700">
@@ -348,7 +357,7 @@ const IndustriesPage = () => {
                 compliance requirements, and potential exposures.
               </p>
             </div>
-            <div className="rounded-lg border border-gray-200 bg-white p-6">
+            <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-lg">
               <div className="mb-3 text-2xl font-bold text-blue-600">02</div>
               <h3 className="mb-3 text-xl font-semibold text-gray-900">Solution Design</h3>
               <p className="text-gray-700">
@@ -356,7 +365,7 @@ const IndustriesPage = () => {
                 your unique business needs and risk profile.
               </p>
             </div>
-            <div className="rounded-lg border border-gray-200 bg-white p-6">
+            <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-lg">
               <div className="mb-3 text-2xl font-bold text-blue-600">03</div>
               <h3 className="mb-3 text-xl font-semibold text-gray-900">Ongoing Support</h3>
               <p className="text-gray-700">
@@ -383,14 +392,20 @@ const IndustriesPage = () => {
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-                <button className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-700">
+                <a
+                  href="/premium-estimator"
+                  className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-700"
+                >
                   <FaShieldAlt className="mr-2" />
-                  Get Industry Proposal
-                </button>
-                <button className="inline-flex items-center justify-center rounded-lg border border-blue-200 bg-white px-6 py-3 font-semibold text-blue-700 hover:bg-blue-100">
+                  Get Coverage Proposal
+                </a>
+                <a
+                  href="/contact"
+                  className="inline-flex items-center justify-center rounded-lg border border-blue-200 bg-white px-6 py-3 font-semibold text-blue-700 hover:bg-blue-100"
+                >
                   <FaFileContract className="mr-2" />
-                  Schedule Assessment
-                </button>
+                  Book Risk Assessment
+                </a>
               </div>
             </div>
           </div>

@@ -240,14 +240,20 @@ const CorporateInsurancePage = () => {
                 Brokers (SIIB).
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <button className="inline-flex items-center justify-center rounded-lg bg-blue-100 px-6 py-3 font-semibold text-blue-800 hover:bg-blue-200">
+                <a
+                  href="/premium-estimator"
+                  className="inline-flex items-center justify-center rounded-lg bg-blue-100 px-6 py-3 font-semibold text-blue-800 hover:bg-blue-200"
+                >
                   <FaShieldAlt className="mr-2" />
                   Get Coverage Proposal
-                </button>
-                <button className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-6 py-3 font-semibold text-white hover:bg-white/10">
+                </a>
+                <a
+                  href="/contact"
+                  className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-6 py-3 font-semibold text-white hover:bg-white/10"
+                >
                   <FaFileContract className="mr-2" />
                   Book Risk Assessment
-                </button>
+                </a>
               </div>
               <div className="mt-4 text-sm text-gray-100">
                 Trusted by leading enterprises across manufacturing, construction, IT, healthcare,
@@ -366,14 +372,20 @@ const CorporateInsurancePage = () => {
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-                <button className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-700">
+                <a
+                  href="/premium-estimator"
+                  className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-700"
+                >
                   <FaShieldAlt className="mr-2" />
-                  Request Proposal
-                </button>
-                <button className="inline-flex items-center justify-center rounded-lg border border-blue-200 bg-white px-6 py-3 font-semibold text-blue-700 hover:bg-blue-100">
+                  Get Coverage Proposal
+                </a>
+                <a
+                  href="/contact"
+                  className="inline-flex items-center justify-center rounded-lg border border-blue-200 bg-white px-6 py-3 font-semibold text-blue-700 hover:bg-blue-100"
+                >
                   <FaFileContract className="mr-2" />
-                  Schedule Consultation
-                </button>
+                  Book Risk Assessment
+                </a>
               </div>
             </div>
           </div>

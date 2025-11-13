@@ -124,9 +124,12 @@ const KnowledgeQuestionnaire: React.FC<KnowledgeQuestionnaireProps> = ({
                 >
                   Retake Quiz
                 </button>
-                <button className="rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-700">
-                  Get Professional Assessment
-                </button>
+                <a
+                  href="/contact"
+                  className="rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-700"
+                >
+                  Book Risk Assessment
+                </a>
               </div>
             </div>
           </div>

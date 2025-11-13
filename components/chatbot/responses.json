@@ -4,23 +4,28 @@
       "message": "Hello! I'm here to help you navigate Share India Insurance Brokers. What are you looking for today?",
       "buttons": [
         {
-          "text": "📰 Browsing News",
-          "action": "news_menu",
-          "type": "navigation"
-        },
-        {
-          "text": "📊 Browsing Insights/Info",
-          "action": "insights_menu",
-          "type": "navigation"
-        },
-        {
           "text": "🛡️ Looking for Insurance",
           "action": "insurance_menu",
           "type": "navigation"
         },
         {
-          "text": "👨‍💼 Looking for an Insurance Agent",
+          "text": "💰 Get Premium Estimate",
+          "action": "premium_estimator",
+          "type": "navigation"
+        },
+        {
+          "text": "👨‍💼 Connect with Agent",
           "action": "agent_menu",
+          "type": "navigation"
+        },
+        {
+          "text": "💼 Careers & Opportunities",
+          "action": "careers_menu",
+          "type": "navigation"
+        },
+        {
+          "text": "📰 News & Insights",
+          "action": "news_insights_menu",
           "type": "navigation"
         },
         {
@@ -30,183 +35,32 @@
         }
       ]
     },
-    "news_menu": {
-      "message": "Stay updated with the latest from Share India Insurance Brokers:",
-      "buttons": [
-        {
-          "text": "📰 Latest News",
-          "action": "redirect",
-          "url": "/news",
-          "type": "redirect"
-        },
-        {
-          "text": "📝 Company Announcements",
-          "action": "redirect",
-          "url": "/news",
-          "type": "redirect"
-        },
-        {
-          "text": "🏆 Awards & Recognition",
-          "action": "redirect",
-          "url": "/about#awards-recognition",
-          "type": "redirect"
-        },
-        {
-          "text": "← Back to Main Menu",
-          "action": "welcome",
-          "type": "navigation"
-        }
-      ]
-    },
-    "about_menu": {
-      "message": "What would you like to know about Share India Insurance Brokers?",
-      "buttons": [
-        {
-          "text": "📖 Our Story",
-          "action": "redirect",
-          "url": "/about#our-story",
-          "type": "redirect"
-        },
-        {
-          "text": "👨‍💼 Leadership Team",
-          "action": "redirect",
-          "url": "/about#leadership",
-          "type": "redirect"
-        },
-        {
-          "text": "👥 Our Team",
-          "action": "redirect",
-          "url": "/about#our-team",
-          "type": "redirect"
-        },
-        {
-          "text": "🏆 Awards & Recognition",
-          "action": "redirect",
-          "url": "/about#awards-recognition",
-          "type": "redirect"
-        },
-        {
-          "text": "💬 Customer Testimonials",
-          "action": "redirect",
-          "url": "/about#testimonials",
-          "type": "redirect"
-        },
-        {
-          "text": "🧮 Insurance Calculator",
-          "action": "redirect",
-          "url": "/page-calculator",
-          "type": "redirect"
-        },
-        {
-          "text": "← Back to Main Menu",
-          "action": "welcome",
-          "type": "navigation"
-        }
-      ]
-    },
-    "agent_menu": {
-      "message": "Connect with our insurance experts or join our team:",
-      "buttons": [
-        {
-          "text": "📞 Call Us: 1800 210 2022",
-          "action": "contact_phone",
-          "type": "info"
-        },
-        {
-          "text": "✉️ Email Us",
-          "action": "contact_email",
-          "type": "info"
-        },
-        {
-          "text": "📍 Visit Our Office",
-          "action": "redirect",
-          "url": "/contact",
-          "type": "redirect"
-        },
-        {
-          "text": "🤝 Become a POSP Agent",
-          "action": "redirect",
-          "url": "/be-a-posp",
-          "type": "redirect"
-        },
-        {
-          "text": "📅 Schedule Consultation",
-          "action": "schedule_consultation",
-          "type": "info"
-        },
-        {
-          "text": "← Back to Main Menu",
-          "action": "welcome",
-          "type": "navigation"
-        }
-      ]
-    },
     "insurance_menu": {
       "message": "Which type of insurance are you interested in?",
       "buttons": [
         {
-          "text": "🏭 Industry Insurance",
-          "action": "industry_insurance_menu",
-          "type": "navigation"
-        },
-        {
-          "text": "👨‍👩‍👧‍👦 Retail Insurance",
+          "text": "👨‍👩‍👧‍👦 Retail Insurance (Personal)",
           "action": "retail_insurance_menu",
           "type": "navigation"
         },
         {
-          "text": "🏢 Corporate Insurance",
+          "text": "🏢 Corporate Insurance (Business)",
           "action": "corporate_insurance_menu",
           "type": "navigation"
         },
         {
-          "text": "💰 Get a Quote",
-          "action": "get_quote",
-          "type": "info"
+          "text": "🏭 Industry Insurance (Specialized)",
+          "action": "industry_insurance_menu",
+          "type": "navigation"
+        },
+        {
+          "text": "💰 Get Premium Estimate",
+          "action": "premium_estimator",
+          "type": "navigation"
         },
         {
           "text": "← Back to Main Menu",
           "action": "welcome",
-          "type": "navigation"
-        }
-      ]
-    },
-    "industry_insurance_menu": {
-      "message": "Select the industry you're interested in:",
-      "buttons": [
-        {
-          "text": "🏗️ Infrastructure Industry",
-          "action": "redirect",
-          "url": "/industries/infrastructure-industry",
-          "type": "redirect"
-        },
-        {
-          "text": "💊 Life Sciences & Pharma",
-          "action": "redirect",
-          "url": "/industries/life-sciences-and-pharma-industry",
-          "type": "redirect"
-        },
-        {
-          "text": "🏠 Real Estate Industry",
-          "action": "redirect",
-          "url": "/industries/real-estate-industry",
-          "type": "redirect"
-        },
-        {
-          "text": "🧪 Chemical Industry",
-          "action": "redirect",
-          "url": "/industries/chemical-industry",
-          "type": "redirect"
-        },
-        {
-          "text": "📦 View All Industries",
-          "action": "redirect",
-          "url": "/industries",
-          "type": "redirect"
-        },
-        {
-          "text": "← Back to Insurance Menu",
-          "action": "insurance_menu",
           "type": "navigation"
         }
       ]
@@ -216,23 +70,33 @@
       "buttons": [
         {
           "text": "❤️ Life Insurance",
-          "action": "retail_life",
-          "type": "info"
+          "action": "retail_life_submenu",
+          "type": "navigation"
         },
         {
           "text": "🏥 Health Insurance",
-          "action": "retail_health",
-          "type": "info"
+          "action": "retail_health_submenu",
+          "type": "navigation"
         },
         {
           "text": "🚗 Motor Insurance",
-          "action": "retail_motor",
-          "type": "info"
+          "action": "retail_motor_submenu",
+          "type": "navigation"
         },
         {
           "text": "🏠 Home Insurance",
-          "action": "retail_home",
-          "type": "info"
+          "action": "retail_home_submenu",
+          "type": "navigation"
+        },
+        {
+          "text": "✈️ Travel Insurance",
+          "action": "retail_travel_submenu",
+          "type": "navigation"
+        },
+        {
+          "text": "🔒 Cyber Insurance",
+          "action": "retail_cyber_submenu",
+          "type": "navigation"
         },
         {
           "text": "📋 View All Retail Options",
@@ -247,8 +111,200 @@
         }
       ]
     },
+    "retail_life_submenu": {
+      "message": "Life Insurance - Secure your family's financial future",
+      "answer": "Choose from Term Life, Whole Life, Endowment Plans, and ULIP options with competitive premiums and tax benefits.",
+      "buttons": [
+        {
+          "text": "📄 Term Life Insurance",
+          "action": "redirect",
+          "url": "/retail/term",
+          "type": "redirect"
+        },
+        {
+          "text": "💎 Whole Life Insurance",
+          "action": "redirect",
+          "url": "/retail/life",
+          "type": "redirect"
+        },
+        {
+          "text": "💰 Get Life Insurance Quote",
+          "action": "premium_estimator",
+          "type": "navigation"
+        },
+        {
+          "text": "📞 Speak to Life Insurance Expert",
+          "action": "contact_phone",
+          "type": "info"
+        },
+        {
+          "text": "← Back to Retail Insurance",
+          "action": "retail_insurance_menu",
+          "type": "navigation"
+        }
+      ]
+    },
+    "retail_health_submenu": {
+      "message": "Health Insurance - Comprehensive healthcare coverage",
+      "answer": "Individual and family health plans with cashless treatment, critical illness cover, and preventive care benefits.",
+      "buttons": [
+        {
+          "text": "👤 Individual Health Plans",
+          "action": "redirect",
+          "url": "/retail/health",
+          "type": "redirect"
+        },
+        {
+          "text": "👨‍👩‍👧‍👦 Family Floater Plans",
+          "action": "redirect",
+          "url": "/retail/health",
+          "type": "redirect"
+        },
+        {
+          "text": "💰 Get Health Insurance Quote",
+          "action": "premium_estimator",
+          "type": "navigation"
+        },
+        {
+          "text": "📞 Speak to Health Insurance Expert",
+          "action": "contact_phone",
+          "type": "info"
+        },
+        {
+          "text": "← Back to Retail Insurance",
+          "action": "retail_insurance_menu",
+          "type": "navigation"
+        }
+      ]
+    },
+    "retail_motor_submenu": {
+      "message": "Motor Insurance - Complete vehicle protection",
+      "answer": "Car, bike, and commercial vehicle insurance with comprehensive coverage, third-party liability, and add-on benefits like zero depreciation.",
+      "buttons": [
+        {
+          "text": "🚗 Car Insurance",
+          "action": "redirect",
+          "url": "/retail/motor",
+          "type": "redirect"
+        },
+        {
+          "text": "🏍️ Two Wheeler Insurance",
+          "action": "redirect",
+          "url": "/retail/motor",
+          "type": "redirect"
+        },
+        {
+          "text": "💰 Get Motor Insurance Quote",
+          "action": "premium_estimator",
+          "type": "navigation"
+        },
+        {
+          "text": "📞 Speak to Motor Insurance Expert",
+          "action": "contact_phone",
+          "type": "info"
+        },
+        {
+          "text": "← Back to Retail Insurance",
+          "action": "retail_insurance_menu",
+          "type": "navigation"
+        }
+      ]
+    },
+    "retail_home_submenu": {
+      "message": "Home Insurance - Protect your most valuable asset",
+      "answer": "Comprehensive home insurance covering structure, contents, and liability protection against fire, theft, and natural disasters.",
+      "buttons": [
+        {
+          "text": "🏠 Home Structure Insurance",
+          "action": "redirect",
+          "url": "/retail/home",
+          "type": "redirect"
+        },
+        {
+          "text": "🛋️ Home Contents Insurance",
+          "action": "redirect",
+          "url": "/retail/home",
+          "type": "redirect"
+        },
+        {
+          "text": "💰 Get Home Insurance Quote",
+          "action": "premium_estimator",
+          "type": "navigation"
+        },
+        {
+          "text": "📞 Speak to Home Insurance Expert",
+          "action": "contact_phone",
+          "type": "info"
+        },
+        {
+          "text": "← Back to Retail Insurance",
+          "action": "retail_insurance_menu",
+          "type": "navigation"
+        }
+      ]
+    },
+    "retail_travel_submenu": {
+      "message": "Travel Insurance - Worry-free journeys worldwide",
+      "answer": "Comprehensive travel insurance covering medical emergencies, trip cancellations, baggage loss, and travel delays for domestic and international trips.",
+      "buttons": [
+        {
+          "text": "✈️ International Travel Insurance",
+          "action": "redirect",
+          "url": "/retail/travel",
+          "type": "redirect"
+        },
+        {
+          "text": "🇮🇳 Domestic Travel Insurance",
+          "action": "redirect",
+          "url": "/retail/travel",
+          "type": "redirect"
+        },
+        {
+          "text": "💰 Get Travel Insurance Quote",
+          "action": "premium_estimator",
+          "type": "navigation"
+        },
+        {
+          "text": "📞 Speak to Travel Insurance Expert",
+          "action": "contact_phone",
+          "type": "info"
+        },
+        {
+          "text": "← Back to Retail Insurance",
+          "action": "retail_insurance_menu",
+          "type": "navigation"
+        }
+      ]
+    },
+    "retail_cyber_submenu": {
+      "message": "Cyber Insurance - Digital protection for individuals",
+      "answer": "Protection against cyber risks, data breaches, identity theft, and online fraud for individuals and small businesses.",
+      "buttons": [
+        {
+          "text": "🔒 Personal Cyber Insurance",
+          "action": "redirect",
+          "url": "/retail/cyber",
+          "type": "redirect"
+        },
+        {
+          "text": "💰 Get Cyber Insurance Quote",
+          "action": "premium_estimator",
+          "type": "navigation"
+        },
+        {
+          "text": "📞 Speak to Cyber Insurance Expert",
+          "action": "contact_phone",
+          "type": "info"
+        },
+        {
+          "text": "← Back to Retail Insurance",
+          "action": "retail_insurance_menu",
+          "type": "navigation"
+        }
+      ]
+    },
     "corporate_insurance_menu": {
-      "message": "Explore our corporate insurance solutions:",
+      "message": "Explore our corporate insurance solutions for businesses:",
       "buttons": [
         {
           "text": "🏢 Property & Engineering",
@@ -281,6 +337,12 @@
           "type": "redirect"
         },
         {
+          "text": "🏪 Shopkeepers & Jewellers",
+          "action": "redirect",
+          "url": "/corporate-insurance/shopkeepers-package-and-jewellers-block",
+          "type": "redirect"
+        },
+        {
           "text": "📋 View All Corporate Options",
           "action": "redirect",
           "url": "/corporate-insurance",
@@ -293,11 +355,169 @@
         }
       ]
     },
-    "insights_menu": {
-      "message": "What insights and resources interest you?",
+    "industry_insurance_menu": {
+      "message": "Select the industry you're interested in:",
       "buttons": [
         {
-          "text": "📝 Latest Blog Posts",
+          "text": "🏗️ Infrastructure Industry",
+          "action": "redirect",
+          "url": "/industries/infrastructure-industry",
+          "type": "redirect"
+        },
+        {
+          "text": "💊 Life Sciences & Pharma",
+          "action": "redirect",
+          "url": "/industries/life-sciences-and-pharma-industry",
+          "type": "redirect"
+        },
+        {
+          "text": "🏠 Real Estate Industry",
+          "action": "redirect",
+          "url": "/industries/real-estate-industry",
+          "type": "redirect"
+        },
+        {
+          "text": "🧪 Chemical Industry",
+          "action": "redirect",
+          "url": "/industries/chemical-industry",
+          "type": "redirect"
+        },
+        {
+          "text": "☀️ Solar Industry",
+          "action": "redirect",
+          "url": "/industries/solar-industry",
+          "type": "redirect"
+        },
+        {
+          "text": "🚚 Logistics Industry",
+          "action": "redirect",
+          "url": "/industries/logistics-industry",
+          "type": "redirect"
+        },
+        {
+          "text": "📦 View All Industries",
+          "action": "redirect",
+          "url": "/industries",
+          "type": "redirect"
+        },
+        {
+          "text": "← Back to Insurance Menu",
+          "action": "insurance_menu",
+          "type": "navigation"
+        }
+      ]
+    },
+    "premium_estimator": {
+      "message": "Get an instant premium estimate for your insurance needs!",
+      "answer": "Our premium estimator provides quick, accurate quotes tailored to your specific requirements. No obligation required.",
+      "buttons": [
+        {
+          "text": "🧮 Calculate Premium Now",
+          "action": "redirect",
+          "url": "/premium-estimator",
+          "type": "redirect"
+        },
+        {
+          "text": "📞 Get Quote Over Phone",
+          "action": "contact_phone",
+          "type": "info"
+        },
+        {
+          "text": "📧 Request Quote via Email",
+          "action": "contact_email",
+          "type": "info"
+        },
+        {
+          "text": "← Back to Main Menu",
+          "action": "welcome",
+          "type": "navigation"
+        }
+      ]
+    },
+    "careers_menu": {
+      "message": "Join the Share India Insurance Brokers team!",
+      "answer": "Explore exciting career opportunities and become part of India's leading insurance brokerage firm.",
+      "buttons": [
+        {
+          "text": "💼 View Open Positions",
+          "action": "redirect",
+          "url": "/careers",
+          "type": "redirect"
+        },
+        {
+          "text": "🤝 Become a POSP Agent",
+          "action": "redirect",
+          "url": "/be-a-posp",
+          "type": "redirect"
+        },
+        {
+          "text": "👨‍💼 Life at SIIB",
+          "action": "redirect",
+          "url": "/careers#life-at-siib",
+          "type": "redirect"
+        },
+        {
+          "text": "📧 Send Your Resume",
+          "action": "careers_apply",
+          "type": "info"
+        },
+        {
+          "text": "← Back to Main Menu",
+          "action": "welcome",
+          "type": "navigation"
+        }
+      ]
+    },
+    "careers_apply": {
+      "message": "Ready to join our team?",
+      "answer": "Send your resume to careers@shareindia.co.in or apply through our careers page. We're always looking for talented individuals!",
+      "buttons": [
+        {
+          "text": "💼 View Open Positions",
+          "action": "redirect",
+          "url": "/careers",
+          "type": "redirect"
+        },
+        {
+          "text": "📧 Email: careers@shareindia.co.in",
+          "action": "careers_email",
+          "type": "info"
+        },
+        {
+          "text": "← Back to Careers",
+          "action": "careers_menu",
+          "type": "navigation"
+        }
+      ]
+    },
+    "careers_email": {
+      "message": "Email your resume to careers@shareindia.co.in",
+      "answer": "Include your resume, cover letter, and the position you're interested in. We'll review your application and get back to you soon!",
+      "buttons": [
+        {
+          "text": "💼 View Open Positions",
+          "action": "redirect",
+          "url": "/careers",
+          "type": "redirect"
+        },
+        {
+          "text": "← Back to Careers",
+          "action": "careers_menu",
+          "type": "navigation"
+        }
+      ]
+    },
+    "news_insights_menu": {
+      "message": "Stay updated with the latest from Share India Insurance Brokers:",
+      "buttons": [
+        {
+          "text": "📰 Latest News",
+          "action": "redirect",
+          "url": "/news",
+          "type": "redirect"
+        },
+        {
+          "text": "📝 Blog & Articles",
           "action": "redirect",
           "url": "/blogs",
           "type": "redirect"
@@ -309,14 +529,10 @@
           "type": "redirect"
         },
         {
-          "text": "📈 Risk Management Tips",
-          "action": "risk_management_info",
-          "type": "info"
-        },
-        {
-          "text": "📚 Insurance Guides",
-          "action": "insurance_guides_info",
-          "type": "info"
+          "text": "🏆 Awards & Recognition",
+          "action": "redirect",
+          "url": "/about#awards-recognition",
+          "type": "redirect"
         },
         {
           "text": "← Back to Main Menu",
@@ -325,28 +541,73 @@
         }
       ]
     },
-    "get_quote": {
-      "message": "Ready to get a personalized insurance quote?",
-      "answer": "Our quotes are fast, accurate, and tailored to your specific needs. No obligation required.",
+    "about_menu": {
+      "message": "What would you like to know about Share India Insurance Brokers?",
       "buttons": [
         {
-          "text": "🏭 Industry Insurance Quote",
-          "action": "industry_insurance_menu",
-          "type": "navigation"
+          "text": "📖 Our Story",
+          "action": "redirect",
+          "url": "/about#our-story",
+          "type": "redirect"
         },
         {
-          "text": "👨‍👩‍👧‍👦 Retail Insurance Quote",
-          "action": "retail_insurance_menu",
-          "type": "navigation"
+          "text": "👨‍💼 Leadership Team",
+          "action": "redirect",
+          "url": "/about#leadership",
+          "type": "redirect"
         },
         {
-          "text": "🏢 Corporate Insurance Quote",
-          "action": "corporate_insurance_menu",
-          "type": "navigation"
+          "text": "🏆 Awards & Recognition",
+          "action": "redirect",
+          "url": "/about#awards-recognition",
+          "type": "redirect"
         },
         {
-          "text": "📞 Call for Quote: 1800 210 2022",
+          "text": "💬 Customer Testimonials",
+          "action": "redirect",
+          "url": "/about#testimonials",
+          "type": "redirect"
+        },
+        {
+          "text": "📍 Contact Us",
+          "action": "redirect",
+          "url": "/contact",
+          "type": "redirect"
+        },
+        {
+          "text": "← Back to Main Menu",
+          "action": "welcome",
+          "type": "navigation"
+        }
+      ]
+    },
+    "agent_menu": {
+      "message": "Connect with our insurance experts:",
+      "buttons": [
+        {
+          "text": "📞 Call: 1800 210 2022",
           "action": "contact_phone",
+          "type": "info"
+        },
+        {
+          "text": "✉️ Email Us",
+          "action": "contact_email",
+          "type": "info"
+        },
+        {
+          "text": "📍 Visit Our Office",
+          "action": "redirect",
+          "url": "/contact",
+          "type": "redirect"
+        },
+        {
+          "text": "📅 Schedule Consultation",
+          "action": "schedule_consultation",
+          "type": "info"
+        },
+        {
+          "text": "💬 WhatsApp Support",
+          "action": "whatsapp_support",
           "type": "info"
         },
         {
@@ -358,7 +619,7 @@
     },
     "contact_phone": {
       "message": "Call us at 1800 210 2022 for immediate assistance!",
-      "answer": "Our insurance experts are available 24/7 to help you with quotes, claims, and policy questions.",
+      "answer": "Our insurance experts are available 24/7 to help you with quotes, claims, policy questions, and risk assessments.",
       "buttons": [
         {
           "text": "📧 Email Instead",
@@ -402,7 +663,7 @@
     },
     "schedule_consultation": {
       "message": "Schedule a free consultation with our insurance experts!",
-      "answer": "Our consultations are personalized to your needs and completely free. We'll help you understand your insurance options.",
+      "answer": "Our consultations are personalized to your needs and completely free. We'll help you understand your insurance options and find the best coverage.",
       "buttons": [
         {
           "text": "📞 Call to Schedule",
@@ -427,134 +688,23 @@
         }
       ]
     },
-    "retail_life": {
-      "message": "Life Insurance - Secure your family's financial future",
-      "answer": "Our life insurance plans include Term Life, Endowment Plans, and ULIP options with competitive premiums.",
+    "whatsapp_support": {
+      "message": "Get instant support via WhatsApp!",
+      "answer": "Chat with our insurance experts on WhatsApp for quick answers to your insurance questions. Available during business hours.",
       "buttons": [
         {
-          "text": "📋 View Life Insurance Details",
-          "action": "redirect",
-          "url": "/retail",
-          "type": "redirect"
-        },
-        {
-          "text": "💰 Get Life Insurance Quote",
-          "action": "get_quote",
-          "type": "navigation"
-        },
-        {
-          "text": "← Back to Retail Insurance",
-          "action": "retail_insurance_menu",
-          "type": "navigation"
-        }
-      ]
-    },
-    "retail_health": {
-      "message": "Health Insurance - Comprehensive healthcare coverage",
-      "answer": "Individual and family health plans with cashless treatment, critical illness cover, and preventive care benefits.",
-      "buttons": [
-        {
-          "text": "📋 View Health Insurance Details",
-          "action": "redirect",
-          "url": "/retail",
-          "type": "redirect"
-        },
-        {
-          "text": "💰 Get Health Insurance Quote",
-          "action": "get_quote",
-          "type": "navigation"
-        },
-        {
-          "text": "← Back to Retail Insurance",
-          "action": "retail_insurance_menu",
-          "type": "navigation"
-        }
-      ]
-    },
-    "retail_motor": {
-      "message": "Motor Insurance - Complete vehicle protection",
-      "answer": "Car, bike, and commercial vehicle insurance with comprehensive coverage, third-party liability, and add-on benefits.",
-      "buttons": [
-        {
-          "text": "📋 View Motor Insurance Details",
-          "action": "redirect",
-          "url": "/retail",
-          "type": "redirect"
-        },
-        {
-          "text": "💰 Get Motor Insurance Quote",
-          "action": "get_quote",
-          "type": "navigation"
-        },
-        {
-          "text": "← Back to Retail Insurance",
-          "action": "retail_insurance_menu",
-          "type": "navigation"
-        }
-      ]
-    },
-    "retail_home": {
-      "message": "Home Insurance - Protect your most valuable asset",
-      "answer": "Comprehensive home insurance covering structure, contents, and liability protection against fire, theft, and natural disasters.",
-      "buttons": [
-        {
-          "text": "📋 View Home Insurance Details",
-          "action": "redirect",
-          "url": "/retail",
-          "type": "redirect"
-        },
-        {
-          "text": "💰 Get Home Insurance Quote",
-          "action": "get_quote",
-          "type": "navigation"
-        },
-        {
-          "text": "← Back to Retail Insurance",
-          "action": "retail_insurance_menu",
-          "type": "navigation"
-        }
-      ]
-    },
-    "risk_management_info": {
-      "message": "Risk Management - Protect your business proactively",
-      "answer": "Learn about identifying, assessing, and mitigating risks in your business operations with our expert guidance.",
-      "buttons": [
-        {
-          "text": "📊 View Risk Management Insights",
-          "action": "redirect",
-          "url": "/insights",
-          "type": "redirect"
-        },
-        {
-          "text": "📞 Speak to Risk Expert",
+          "text": "📞 Call Instead",
           "action": "contact_phone",
           "type": "info"
         },
         {
-          "text": "← Back to Insights",
-          "action": "insights_menu",
-          "type": "navigation"
-        }
-      ]
-    },
-    "insurance_guides_info": {
-      "message": "Insurance Guides - Everything you need to know",
-      "answer": "Comprehensive guides covering different types of insurance, claims process, and choosing the right coverage for your needs.",
-      "buttons": [
-        {
-          "text": "📚 Browse Insurance Guides",
-          "action": "redirect",
-          "url": "/insights",
-          "type": "redirect"
-        },
-        {
-          "text": "📞 Speak to Insurance Expert",
-          "action": "contact_phone",
+          "text": "📧 Email Instead",
+          "action": "contact_email",
           "type": "info"
         },
         {
-          "text": "← Back to Insights",
-          "action": "insights_menu",
+          "text": "← Back to Agent Menu",
+          "action": "agent_menu",
           "type": "navigation"
         }
       ]
@@ -573,10 +723,10 @@
   "quick_actions": [
     {
       "text": "💰 Get Quote",
-      "action": "get_quote"
+      "action": "premium_estimator"
     },
     {
-      "text": "📞 Contact Agent",
+      "text": "📞 Call Agent",
       "action": "contact_phone"
     },
     {

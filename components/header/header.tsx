@@ -184,7 +184,7 @@ export default function Header() {
           desc: 'Milestones & credibility',
         },
         { label: 'Testimonials', href: '/about#testimonials', desc: 'What clients say' },
-        { label: 'Insurance Calculator', href: '/page-calculator', desc: 'Calculate your premium' },
+        { label: 'Premium Estimator', href: '/premium-estimator', desc: 'Calculate your premium' },
         { label: 'Careers', href: '/careers', desc: 'Grow with us' },
       ],
     },
