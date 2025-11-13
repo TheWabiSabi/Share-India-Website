@@ -54,14 +54,20 @@ const RetailInsurancePage = () => {
                 what matters most to you and your family.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <button className="inline-flex items-center justify-center rounded-lg bg-blue-100 px-6 py-3 font-semibold text-blue-800 hover:bg-blue-200">
+                <a
+                  href="/premium-estimator"
+                  className="inline-flex items-center justify-center rounded-lg bg-blue-100 px-6 py-3 font-semibold text-blue-800 hover:bg-blue-200"
+                >
                   <FaShieldAlt className="mr-2" />
-                  Get Insurance Quote
-                </button>
-                <button className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-6 py-3 font-semibold hover:bg-gray-50">
-                  <FaPhoneAlt className="mr-2" />
-                  Call 1800 210 2022
-                </button>
+                  Get Coverage Proposal
+                </a>
+                <a
+                  href="/contact"
+                  className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-6 py-3 font-semibold hover:bg-gray-50"
+                >
+                  <FaFileContract className="mr-2" />
+                  Book Risk Assessment
+                </a>
               </div>
               <div className="mt-4 text-sm text-gray-100">
                 IRDA registered broker with 24/7 customer support and 100% claims assistance.
@@ -108,15 +114,15 @@ const RetailInsurancePage = () => {
             <div>
               <h3 className="text-2xl font-semibold text-gray-900">Our Key Statistics</h3>
               <div className="mt-8 space-y-7">
-                <div className="flex items-center gap-5 rounded-lg border border-gray-200 p-3">
-                  <FaCertificate className="text-blue-500" />
+                <div className="flex items-center gap-5 rounded-lg border border-gray-200 bg-white p-4 shadow-sm transition-all hover:shadow-md">
+                  <FaCertificate className="text-2xl text-blue-500" />
                   <div>
                     <div className="text-lg font-medium">IRDA Registered</div>
                     <div className="text-base text-gray-600">Licensed insurance broker</div>
                   </div>
                 </div>
-                <div className="flex items-center gap-5 rounded-lg border border-gray-200 p-3">
-                  <FaUsers className="text-blue-500" />
+                <div className="flex items-center gap-5 rounded-lg border border-gray-200 bg-white p-4 shadow-sm transition-all hover:shadow-md">
+                  <FaUsers className="text-2xl text-blue-500" />
                   <div>
                     <div className="text-lg font-medium">30+ Years Experience</div>
                     <div className="text-base text-gray-600">
@@ -124,8 +130,8 @@ const RetailInsurancePage = () => {
                     </div>
                   </div>
                 </div>
-                <div className="flex items-center gap-5 rounded-lg border border-gray-200 p-3">
-                  <FaHandHoldingHeart className="text-blue-500" />
+                <div className="flex items-center gap-5 rounded-lg border border-gray-200 bg-white p-4 shadow-sm transition-all hover:shadow-md">
+                  <FaHandHoldingHeart className="text-2xl text-blue-500" />
                   <div>
                     <div className="text-lg font-medium">100% Claims Assistance</div>
                     <div className="text-base text-gray-600">
@@ -140,10 +146,10 @@ const RetailInsurancePage = () => {
       </section>
 
       {/* Core Coverage Suite */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold md:text-3xl">Core Coverage Suite</h2>
-          <p className="mt-3 text-gray-700">
+      <section className="to-si-primary-200 mt-20 w-full border-b border-gray-100 bg-gradient-to-b from-transparent lg:min-h-screen">
+        <div className="mx-auto max-w-[90vw] px-4 py-[7vh] sm:px-6 lg:max-w-[75vw] lg:px-8 lg:pt-[10vh]">
+          <h2 className="text-3xl font-bold md:text-4xl">Core Coverage Suite</h2>
+          <p className="mt-14 text-lg text-gray-700">
             Comprehensive protection designed specifically for individuals and families.
           </p>
 
@@ -196,8 +202,8 @@ const RetailInsurancePage = () => {
       </section>
 
       {/* Specialized Coverage Options */}
-      <section className="w-full border-b border-gray-100 bg-gray-50">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+      <section className="from-si-primary-200 to-si-primary-200 w-full border-b border-gray-100 bg-gradient-to-t via-white">
+        <div className="mx-auto max-w-[90vw] px-4 py-14 sm:px-6 lg:max-w-[75vw] lg:px-8">
           <h2 className="text-2xl font-bold md:text-3xl">Specialized Coverage Options</h2>
           <p className="mt-3 text-gray-700">
             Additional protection options to complement your core insurance portfolio.
@@ -222,8 +228,8 @@ const RetailInsurancePage = () => {
       </section>
 
       {/* Digital Platforms */}
-      <section className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+      <section className="to-si-primary-200 w-full border-b border-gray-100 bg-gradient-to-t from-transparent">
+        <div className="mx-auto max-w-[90vw] px-4 py-14 sm:px-6 lg:max-w-[75vw] lg:px-8">
           <h2 className="text-2xl font-bold md:text-3xl">Insurance Made Digital</h2>
           <p className="mt-3 text-gray-700">
             Easy policy management through our digital platforms with expert guidance.
@@ -255,7 +261,7 @@ const RetailInsurancePage = () => {
       </section>
 
       {/* Contact CTA Section */}
-      <section className="w-full bg-white">
+      <section className="to-si-primary-200 w-full bg-gradient-to-b from-transparent">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="rounded-2xl border border-blue-200 bg-blue-50 p-8">
             <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-3">
@@ -269,14 +275,20 @@ const RetailInsurancePage = () => {
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row">
-                <button className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-700">
+                <a
+                  href="/premium-estimator"
+                  className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-700"
+                >
                   <FaShieldAlt className="mr-2" />
-                  Get Free Quote
-                </button>
-                <button className="inline-flex items-center justify-center rounded-lg border border-blue-200 bg-white px-6 py-3 font-semibold text-blue-700 hover:bg-blue-100">
+                  Get Coverage Proposal
+                </a>
+                <a
+                  href="/contact"
+                  className="inline-flex items-center justify-center rounded-lg border border-blue-200 bg-white px-6 py-3 font-semibold text-blue-700 hover:bg-blue-100"
+                >
                   <FaFileContract className="mr-2" />
-                  Schedule Consultation
-                </button>
+                  Book Risk Assessment
+                </a>
               </div>
             </div>
           </div>
@@ -303,8 +315,8 @@ const Tile = ({
   title: string;
   children: React.ReactNode;
 }) => (
-  <div className="rounded-xl border border-gray-200 p-6">
-    <div className="text-2xl text-blue-500">{icon}</div>
+  <div className="group rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-all hover:border-blue-300 hover:shadow-lg">
+    <div className="text-2xl text-blue-500 transition-transform group-hover:scale-110">{icon}</div>
     <h3 className="mt-3 font-semibold">{title}</h3>
     <p className="mt-1 text-sm text-gray-600">{children}</p>
   </div>
@@ -321,7 +333,7 @@ const Card = ({
   body: string;
   bullets: string[];
 }) => (
-  <div className="rounded-xl border border-gray-200 p-6">
+  <div className="group rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-all hover:border-blue-300 hover:shadow-lg">
     <div className="flex items-center gap-3">
       {icon}
       <h3 className="text-lg font-semibold">{title}</h3>

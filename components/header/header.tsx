@@ -133,6 +133,11 @@ export default function Header() {
         { label: 'Motor', href: '/retail/motor', desc: 'Car, bike, own-damage' },
         { label: 'Travel', href: '/retail/travel', desc: 'Domestic & international' },
         { label: 'Home', href: '/retail/home', desc: 'Structure & contents' },
+        {
+          label: 'Cyber',
+          href: '/retail/cyber',
+          desc: 'Digital security & identity theft',
+        },
       ],
     },
     {
@@ -164,6 +169,7 @@ export default function Header() {
         },
         { label: 'Blogs', href: '/blogs', desc: 'Expert takes, tips & trends' },
         { label: 'News', href: '/news', desc: 'Announcements & media coverage' },
+        { label: 'Premium Estimator', href: '/premium-estimator', desc: 'Calculate your premium' },
       ],
     },
     {
@@ -179,7 +185,6 @@ export default function Header() {
           desc: 'Milestones & credibility',
         },
         { label: 'Testimonials', href: '/about#testimonials', desc: 'What clients say' },
-        { label: 'Insurance Calculator', href: '/page-calculator', desc: 'Calculate your premium' },
         { label: 'Careers', href: '/careers', desc: 'Grow with us' },
       ],
     },

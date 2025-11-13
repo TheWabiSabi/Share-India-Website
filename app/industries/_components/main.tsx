@@ -14,10 +14,26 @@ import Card from '@/app/industries/_components/Card';
 // import KnowledgeQuestionnaire from '@/app/industries/_components/KnowledgeQuestionnaire';
 import MainCaraousel from '@/components/main-caraousel';
 import KnowledgeQuestionnaire from '../_components/KnowledgeQuestionnaire';
-import { quizQuestions } from '../_data/questions/infra';
+import { quizQuestions as defaultQuizQuestions } from '../_data/questions/infra';
 import { InfrastructureInsuranceDetails } from '../main.interface';
 
-const IndustryPage = ({ details }: { details: InfrastructureInsuranceDetails }) => {
+interface Question {
+  id: string;
+  question: string;
+  options: string[];
+  correctAnswer: number;
+  explanation: string;
+  difficulty: 'easy' | 'medium' | 'hard';
+}
+
+const IndustryPage = ({
+  details,
+  questions,
+}: {
+  details: InfrastructureInsuranceDetails;
+  questions?: Question[];
+}) => {
+  const quizQuestions = questions || defaultQuizQuestions;
   return (
     <div className="min-h-screen bg-white pt-[8vh] text-gray-900">
       {/* Hero */}
@@ -44,14 +60,20 @@ const IndustryPage = ({ details }: { details: InfrastructureInsuranceDetails }) 
               </h1>
               <p className="mt-6 text-lg text-gray-100/90 md:text-xl">{details.hero.description}</p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <button className="inline-flex items-center justify-center rounded-lg bg-blue-100 px-6 py-3 font-semibold text-blue-800 hover:bg-blue-200">
+                <a
+                  href="/premium-estimator"
+                  className="inline-flex items-center justify-center rounded-lg bg-blue-100 px-6 py-3 font-semibold text-blue-800 hover:bg-blue-200"
+                >
                   <FaShieldAlt className="mr-2" />
                   Get Coverage Proposal
-                </button>
-                <button className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-6 py-3 font-semibold hover:bg-gray-50">
+                </a>
+                <a
+                  href="/contact"
+                  className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-6 py-3 font-semibold hover:bg-gray-50"
+                >
                   <FaFileContract className="mr-2" />
                   Book Risk Assessment
-                </button>
+                </a>
               </div>
               <div className="mt-4 text-sm text-gray-100">
                 Specialized coverage for PPP projects, smart cities, and critical infrastructure
@@ -174,14 +196,20 @@ const IndustryPage = ({ details }: { details: InfrastructureInsuranceDetails }) 
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row">
-                <button className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-700">
+                <a
+                  href="/premium-estimator"
+                  className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-700"
+                >
                   <FaShieldAlt className="mr-2" />
-                  Request Proposal
-                </button>
-                <button className="inline-flex items-center justify-center rounded-lg border border-blue-200 bg-white px-6 py-3 font-semibold text-blue-700 hover:bg-blue-100">
+                  Get Coverage Proposal
+                </a>
+                <a
+                  href="/contact"
+                  className="inline-flex items-center justify-center rounded-lg border border-blue-200 bg-white px-6 py-3 font-semibold text-blue-700 hover:bg-blue-100"
+                >
                   <FaFileContract className="mr-2" />
-                  Upload Project Data
-                </button>
+                  Book Risk Assessment
+                </a>
               </div>
             </div>
           </div>

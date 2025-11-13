@@ -15,29 +15,64 @@ interface FooterSection {
 const Footer: React.FC = () => {
   const footerSections: FooterSection[] = [
     {
-      title: 'Products',
+      title: 'Retail Products',
       links: [
-        { label: 'Health Insurance', href: '/health-insurance' },
-        { label: 'Life Insurance', href: '/life-insurance' },
-        { label: 'Term Insurance', href: '/term-insurance' },
-        { label: 'Motor Insurance', href: '/motor-insurance' },
-        { label: 'Travel Insurance', href: '/travel-insurance' },
-        { label: 'Corporate Insurance', href: '/corporate-insurance' },
+        { label: 'Health Insurance', href: '/retail/health' },
+        { label: 'Term Insurance', href: '/retail/term' },
+        { label: 'Life Insurance', href: '/retail/life' },
+        { label: 'Motor Insurance', href: '/retail/motor' },
+        { label: 'Travel Insurance', href: '/retail/travel' },
+        { label: 'Home Insurance', href: '/retail/home' },
+        { label: 'Cyber Insurance', href: '/retail/cyber' },
       ],
     },
     {
-      title: 'Contact Us',
+      title: 'Industry Products',
       links: [
-        { label: 'Locate Us', href: '/locate-us' },
-        { label: 'Grievance Redressal', href: '/grievance-redressal' },
+        { label: 'Infrastructure Industry', href: '/industries/infrastructure-industry' },
+        { label: 'Life Sciences & Pharma', href: '/industries/life-sciences-and-pharma-industry' },
+        { label: 'Plastic Industry', href: '/industries/plastic-industry' },
+        { label: 'Startup Industry', href: '/industries/startup-industry' },
+        { label: 'Real Estate Industry', href: '/industries/real-estate-industry' },
+        { label: 'Chemical Industry', href: '/industries/chemical-industry' },
+        { label: 'Logistics Industry', href: '/industries/logistics-industry' },
+        { label: 'Textile Industry', href: '/industries/textile-industry' },
+        { label: 'Solar Industry', href: '/industries/solar-industry' },
       ],
     },
     {
-      title: 'Info Center',
+      title: 'Corporate Products',
       links: [
-        { label: 'Insyclopedia', href: '/insyclopedia' },
-        { label: 'Downloads', href: '/downloads' },
+        {
+          label: 'Property & Engineering',
+          href: '/corporate-insurance/property-and-engineering-insurance',
+        },
+        { label: 'Liability Insurance', href: '/corporate-insurance/liability-insurance' },
+        { label: 'Marine Transit', href: '/corporate-insurance/marine-transit-insurance' },
+        { label: 'Trade Credit', href: '/corporate-insurance/trade-credit-insurance' },
+        {
+          label: 'Media & Entertainment',
+          href: '/corporate-insurance/media-and-entertainment-insurance',
+        },
+        { label: 'Employee Benefits', href: '/corporate-insurance/employee-benefits-insurance' },
+        { label: 'Motor Fleet', href: '/corporate-insurance/motor-fleet-insurance' },
+        { label: 'Office Package', href: '/corporate-insurance/office-package-insurance' },
+        {
+          label: 'Shopkeepers & Jewellers',
+          href: '/corporate-insurance/shopkeepers-package-and-jewellers-block',
+        },
+        { label: 'Group Travel', href: '/corporate-insurance/group-travel-insurance-plans' },
+      ],
+    },
+    {
+      title: 'Insights',
+      links: [
+        { label: 'Claim Stories', href: '/insights/claim-stories' },
         { label: 'Blogs', href: '/blogs' },
+        { label: 'News', href: '/news' },
+        { label: 'Premium Estimator', href: '/premium-estimator' },
+        { label: 'Contact Us', href: '/contact' },
+        { label: 'Insurepreneur (POSP)', href: '/be-a-posp' },
       ],
     },
     {
@@ -46,15 +81,8 @@ const Footer: React.FC = () => {
         { label: 'Privacy Policy', href: '/privacy-policy' },
         { label: 'Terms & Conditions', href: '/terms-conditions' },
         { label: 'Legal Disclaimers', href: '/legal-disclaimers' },
-        { label: 'Cancellation & Refund Policy', href: '/cancellation-refund' },
-      ],
-    },
-    {
-      title: 'Quick Links',
-      links: [
-        { label: 'Insurepreneur (POSP)', href: '/insurepreneur' },
-        { label: 'IRDAI Website', href: 'https://www.irdai.gov.in' },
-        { label: 'Group Site', href: '/group-site' },
+        { label: 'Cancellation & Refund', href: '/cancellation-refund' },
+        { label: 'Group Site', href: 'https://shareindia.com' },
       ],
     },
   ];
@@ -153,12 +181,12 @@ const Footer: React.FC = () => {
                 <h3 className="text-si-dark mb-3 font-bold tracking-wide uppercase">
                   {section.title}
                 </h3>
-                <ul className="space-y-2 font-light">
+                <ul className="space-y-2 font-medium">
                   {section.links.map((link) => (
                     <li key={link.label}>
                       <Link
                         href={link.href}
-                        className="text-si-dark/70 hover:text-si-primary inline-flex items-center text-sm transition"
+                        className="text-si-dark/70 inline-flex items-center text-sm transition hover:text-white"
                         {...(link.href.startsWith('http')
                           ? { target: '_blank', rel: 'noopener noreferrer' }
                           : {})}
@@ -178,20 +206,8 @@ const Footer: React.FC = () => {
       <div className="from-si-primary-700 to-si-primary-900 relative bg-gradient-to-b text-gray-300">
         <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center justify-between gap-4 text-xs sm:text-sm md:flex-row">
-            <div className="text-center md:text-left">
-              <p className="text-white/90">© Share India Insurance Brokers Private Limited</p>
-              <p className="text-white/70">
-                CIN: U66000DL2018PTC337469 • IRDA Direct Broker Code: IRDA/DB 692
-              </p>
-              <p className="text-white/70">
-                Licensed by IRDAI • Category — Direct Life &amp; General
-              </p>
-              <p className="text-white/60">
-                Copyright © 2024 ShareIndiaInsurance.com. All Rights Reserved.
-              </p>
-            </div>
             <div className="flex flex-wrap items-center justify-center gap-4">
-              <Link href="/sitemap" className="transition hover:text-white">
+              {/* <Link href="/sitemap" className="transition hover:text-white">
                 Site Map
               </Link>
               <span className="text-white/30">•</span>
@@ -201,7 +217,25 @@ const Footer: React.FC = () => {
               <span className="text-white/30">•</span>
               <Link href="/legal-notice" className="transition hover:text-white">
                 Legal Notice
+              </Link> */}
+              <span className="text-white/30">•</span>
+              <Link href="https://www.wabisabitech.in/" className="transition hover:text-white">
+                Made with ❤️ by WabiSabi
               </Link>
+            </div>
+            <div className="text-center md:text-left">
+              <p className="text-white/90">© Share India Insurance Brokers Private Limited</p>
+              <p className="text-white/70">
+                CIN: U66000DL2018PTC337469 • IRDA Direct Broker Code: IRDA/DB 692
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-4">
+                <p className="text-white/70">
+                  Licensed by IRDAI • Category — Direct Life &amp; General
+                </p>
+                <p className="text-white/60">
+                  Copyright © 2024 ShareIndiaInsurance.com. All Rights Reserved.
+                </p>
+              </div>
             </div>
           </div>
         </div>
