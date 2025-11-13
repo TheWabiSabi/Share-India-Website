@@ -169,6 +169,7 @@ export default function Header() {
         },
         { label: 'Blogs', href: '/blogs', desc: 'Expert takes, tips & trends' },
         { label: 'News', href: '/news', desc: 'Announcements & media coverage' },
+        { label: 'Premium Estimator', href: '/premium-estimator', desc: 'Calculate your premium' },
       ],
     },
     {
@@ -184,7 +185,6 @@ export default function Header() {
           desc: 'Milestones & credibility',
         },
         { label: 'Testimonials', href: '/about#testimonials', desc: 'What clients say' },
-        { label: 'Premium Estimator', href: '/premium-estimator', desc: 'Calculate your premium' },
         { label: 'Careers', href: '/careers', desc: 'Grow with us' },
       ],
     },
@@ -348,7 +348,7 @@ export default function Header() {
             Contact Us
           </Link>
           <Link
-            href="/be-a-posp"
+            href="/insurepreneur"
             className="btn-primary hover-lift rounded-full px-4 py-2 text-sm font-semibold transition-all xl:px-5 xl:py-2.5"
           >
             Be a POSP
@@ -471,7 +471,7 @@ export default function Header() {
                 Contact Us
               </Link>
               <Link
-                href="/be-a-posp"
+                href="/insurepreneur"
                 onClick={() => setMobileMenu(false)}
                 className="rounded-full border border-blue-700 bg-blue-700 px-3 py-2 text-center text-white shadow-[0_2px_10px_rgba(37,99,235,0.35)] ring-1 ring-white/40 transition hover:bg-blue-800"
               >
