@@ -22,17 +22,18 @@ export default function TermsConditionsPage() {
           <section className="mb-8">
             <h2 className="mb-4 text-2xl font-bold text-gray-900">About Share India Insurance</h2>
             <p className="mb-4 text-gray-700">
-              Share India Insurance Brokers Pvt. Ltd. operates the website{' '}
+              Share India Insurance Brokers Pvt. Ltd. operates the website&apos;&apos;
               <a
                 href="https://www.shareindiainsurance.com/"
                 className="text-blue-600 hover:underline"
               >
                 https://www.shareindiainsurance.com/
-              </a>{' '}
-              to provide consumers choice and an easy way to buy Insurance products from multiple
-              Insurance companies. Share India Insurance is not an insurance company. Share India
-              Insurance is a licensed Insurance Broking Company holding a Broking licence from the
-              Indian Insurance Regulator – Insurance Regulatory and Development Authority.
+              </a>
+              &apos; &apos; to provide consumers choice and an easy way to buy Insurance products
+              from multiple Insurance companies. Share India Insurance is not an insurance company.
+              Share India Insurance is a licensed Insurance Broking Company holding a Broking
+              licence from the Indian Insurance Regulator – Insurance Regulatory and Development
+              Authority.
             </p>
             <div className="rounded-lg bg-blue-50 p-4">
               <p className="font-semibold text-blue-900">IRDA Direct Broker Code: IRDA/DB692</p>
@@ -69,7 +70,7 @@ export default function TermsConditionsPage() {
             </h2>
             <p className="mb-4 text-gray-700">
               Share India Insurance may pass on your personal information to the relevant
-              participating provider if you apply to purchase a product through{' '}
+              participating provider if you apply to purchase a product through&apos;&apos;
               <a
                 href="https://www.shareindiainsurance.com/"
                 className="text-blue-600 hover:underline"
@@ -103,8 +104,8 @@ export default function TermsConditionsPage() {
             <p className="mb-4 text-gray-700">
               By visiting our website and accessing the information, resources, services, products,
               and tools we provide, you understand and agree to accept and adhere to the following
-              terms and conditions as stated in this policy (hereafter referred to as 'User
-              Agreement'), along with the terms and conditions as stated in our Privacy Policy
+              terms and conditions as stated in this policy (hereafter referred to as &apos;User
+              Agreement&apos;), along with the terms and conditions as stated in our Privacy Policy
               (please refer to the Privacy Policy section for more information).
             </p>
             <p className="text-gray-700">
@@ -121,9 +122,9 @@ export default function TermsConditionsPage() {
             <p className="mb-4 text-gray-700">
               By visiting our website and accessing the information, resources, services, products,
               and tools we provide for you, either directly or indirectly (hereafter referred to as
-              'Resources'), you agree to use these Resources only for the purposes intended as
-              permitted by (a) the terms of this User Agreement, and (b) applicable laws,
-              regulations and generally accepted online practices or guidelines.
+              &apos;Resources&apos;), you agree to use these Resources only for the purposes
+              intended as permitted by (a) the terms of this User Agreement, and (b) applicable
+              laws, regulations and generally accepted online practices or guidelines.
             </p>
             <p className="mb-4 text-gray-700">Wherein, you understand that:</p>
             <ul className="list-disc space-y-3 pl-6 text-gray-700">
@@ -189,14 +190,14 @@ export default function TermsConditionsPage() {
               </li>
               <li>Contains any type of unauthorized or unsolicited advertising.</li>
               <li>
-                Impersonates any person or entity, including any{' '}
+                Impersonates any person or entity, including any&apos;&apos;
                 <a
                   href="https://www.shareindiainsurance.com/"
                   className="text-blue-600 hover:underline"
                 >
                   https://www.shareindiainsurance.com/
-                </a>{' '}
-                employees or representatives.
+                </a>
+                &apos; &apos; employees or representatives.
               </li>
             </ul>
           </section>
@@ -214,9 +215,9 @@ export default function TermsConditionsPage() {
             <p className="text-gray-700">
               We do not assume any liability for any content posted by you or any other 3rd party
               users of our website. However, any content posted by you using any open communication
-              tools on our website, provided that it doesn't violate or infringe on any 3rd party
-              copyrights or trademarks, becomes the property of Share India Insurance Brokers Pvt.
-              Ltd., and as such, gives us a perpetual, irrevocable, worldwide, royalty-free,
+              tools on our website, provided that it doesn&apos;t violate or infringe on any 3rd
+              party copyrights or trademarks, becomes the property of Share India Insurance Brokers
+              Pvt. Ltd., and as such, gives us a perpetual, irrevocable, worldwide, royalty-free,
               exclusive license to reproduce, modify, adapt, translate, publish, publicly display
               and/or distribute as we see fit.
             </p>
@@ -233,10 +234,10 @@ export default function TermsConditionsPage() {
             <p className="mb-4 text-gray-700">
               You agree to indemnify and hold harmless Share India Insurance Brokers Pvt. Ltd. and
               their directors, officers, managers, employees, donors, agents, and licensors, from
-              and against all losses, expenses, damages and costs, including reasonable attorneys'
-              fees, resulting from any violation of this User Agreement or the failure to fulfil any
-              obligations relating to your account incurred by you or any other person using your
-              account.
+              and against all losses, expenses, damages and costs, including reasonable
+              attorneys&apos; fees, resulting from any violation of this User Agreement or the
+              failure to fulfil any obligations relating to your account incurred by you or any
+              other person using your account.
             </p>
             <p className="text-gray-700">
               We reserve the right to take over the exclusive defence of any claim for which we are
@@ -288,10 +289,10 @@ export default function TermsConditionsPage() {
             <h2 className="mb-4 text-2xl font-bold text-gray-900">Changes to Terms</h2>
             <p className="text-gray-700">
               We reserve the right, at our sole discretion, to modify or replace these Terms at any
-              time. If a revision is material, we will try to provide at least 30 days' notice prior
-              to any new terms taking effect. What constitutes a material change will be determined
-              at our sole discretion. By continuing to access or use our Service after those
-              revisions become effective, you agree to be bound by the revised terms.
+              time. If a revision is material, we will try to provide at least 30 days&apos; notice
+              prior to any new terms taking effect. What constitutes a material change will be
+              determined at our sole discretion. By continuing to access or use our Service after
+              those revisions become effective, you agree to be bound by the revised terms.
             </p>
           </section>
 

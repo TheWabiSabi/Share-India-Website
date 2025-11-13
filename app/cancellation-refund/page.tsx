@@ -35,15 +35,15 @@ export default function CancellationRefundPage() {
             <p className="mb-4 text-gray-700">
               As an insurance broker, Share India Insurance facilitates the purchase of insurance
               policies from various insurance companies. The cancellation terms and conditions are
-              governed by the respective insurance company's policy terms.
+              governed by the respective insurance company&apos;s policy terms.
             </p>
             <h3 className="mb-3 text-xl font-semibold text-gray-900">
               Free Look Period Cancellation
             </h3>
             <p className="mb-4 text-gray-700">
-              Most insurance policies offer a "Free Look Period" (typically 15-30 days from policy
-              receipt) during which you can cancel the policy if you are not satisfied with the
-              terms and conditions. During this period:
+              Most insurance policies offer a &quot;Free Look Period&quot; (typically 15-30 days
+              from policy receipt) during which you can cancel the policy if you are not satisfied
+              with the terms and conditions. During this period:
             </p>
             <ul className="list-disc space-y-2 pl-6 text-gray-700">
               <li>You can cancel the policy without providing any reason</li>
@@ -76,7 +76,8 @@ export default function CancellationRefundPage() {
               </li>
               <li>
                 <strong>Policy Cancellation:</strong> For cancellations after the free look period,
-                refund amounts and timelines are determined by the insurance company's policy terms.
+                refund amounts and timelines are determined by the insurance company&apos;s policy
+                terms.
               </li>
             </ul>
             <div className="mt-4 rounded-lg bg-yellow-50 p-4">
@@ -84,8 +85,8 @@ export default function CancellationRefundPage() {
               <p className="text-yellow-900">
                 Share India Insurance will ensure that refunds are processed by the insurance
                 company as per their terms. We do not have control over the refund amount or
-                timeline, which is determined by the insurance company's underwriting and policy
-                terms.
+                timeline, which is determined by the insurance company&apos;s underwriting and
+                policy terms.
               </p>
             </div>
           </section>
@@ -150,8 +151,8 @@ export default function CancellationRefundPage() {
                   request
                 </li>
                 <li>
-                  <strong>Regular Cancellation:</strong> As per insurance company's policy terms
-                  (typically 30-45 working days)
+                  <strong>Regular Cancellation:</strong> As per insurance company&apos;s policy
+                  terms (typically 30-45 working days)
                 </li>
               </ul>
               <p className="mt-4 text-sm text-gray-600">
@@ -181,8 +182,8 @@ export default function CancellationRefundPage() {
               <div className="rounded-lg border-l-4 border-red-500 bg-red-50 p-4">
                 <p className="font-semibold text-red-900">Underwriting Discretion</p>
                 <p className="text-red-900">
-                  Final policy issuance is subject to the insurance company's underwriting norms and
-                  discretion. Share India Insurance has no control over this decision.
+                  Final policy issuance is subject to the insurance company&apos;s underwriting
+                  norms and discretion. Share India Insurance has no control over this decision.
                 </p>
               </div>
               <div className="rounded-lg border-l-4 border-blue-500 bg-blue-50 p-4">
@@ -196,7 +197,7 @@ export default function CancellationRefundPage() {
                 <p className="font-semibold text-green-900">Our Commitment</p>
                 <p className="text-green-900">
                   We will ensure complete assistance and follow-up to help you receive your refund
-                  as per the insurance company's terms.
+                  as per the insurance company&apos;s terms.
                 </p>
               </div>
             </div>

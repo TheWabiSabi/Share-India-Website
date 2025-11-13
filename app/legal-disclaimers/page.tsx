@@ -36,7 +36,7 @@ export default function LegalDisclaimersPage() {
             <p className="mb-4 text-gray-700">
               The website, including any content or information contained within it or any website
               related service, or any product or service licensed or purchased through the website,
-              is provided on an <strong>"AS IS"</strong> basis and{' '}
+              is provided on an <strong>&quot;AS IS&quot;</strong> basis and &apos;&apos;
               <strong>WITHOUT WARRANTIES OF ANY KIND</strong>, either express or implied, including,
               but not limited to:
             </p>
@@ -131,10 +131,10 @@ export default function LegalDisclaimersPage() {
               guarantees whatsoever as to its completeness, correctness or accuracy.
             </p>
             <p className="text-gray-700">
-              The entire "market data" is sourced from external data content agencies and we are not
-              to be held responsible for its integrity or availability. Information herein is
-              believed to be reliable but Share India Insurance does not warrant its completeness or
-              accuracy.
+              The entire &quot;market data&quot; is sourced from external data content agencies and
+              we are not to be held responsible for its integrity or availability. Information
+              herein is believed to be reliable but Share India Insurance does not warrant its
+              completeness or accuracy.
             </p>
           </section>
 
@@ -198,9 +198,9 @@ export default function LegalDisclaimersPage() {
             <h2 className="mb-4 text-2xl font-bold text-gray-900">Limitation of Liability</h2>
             <p className="mb-4 text-gray-700">
               Except otherwise specifically provided, directors, officers, employees, agents,
-              sponsors, consultants, business partners or other representatives ('service
-              providers') of Share India Insurance and its affiliates shall not be responsible or
-              liable for any:
+              sponsors, consultants, business partners or other representatives &apos;service
+              providers&apos; of Share India Insurance and its affiliates shall not be responsible
+              or liable for any:
             </p>
             <ul className="list-disc space-y-2 pl-6 text-gray-700">
               <li>
