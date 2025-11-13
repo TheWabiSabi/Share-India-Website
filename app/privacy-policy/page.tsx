@@ -21,9 +21,10 @@ export default function PrivacyPolicyPage() {
         <div className="prose prose-blue mt-8 max-w-none">
           <section className="mb-8">
             <p className="text-lg text-gray-700">
-              Your privacy is very important to us, which is why we've created this Privacy Policy
-              to explain in detail how we collect, manage, process, secure, and store your private
-              information. This privacy policy is included under the scope of our User Agreement.
+              Your privacy is very important to us, which is why we&apos;ve created this Privacy
+              Policy to explain in detail how we collect, manage, process, secure, and store your
+              private information. This privacy policy is included under the scope of our User
+              Agreement.
             </p>
           </section>
 
@@ -64,11 +65,11 @@ export default function PrivacyPolicyPage() {
           <section className="mb-8">
             <h2 className="mb-4 text-2xl font-bold text-gray-900">Web Browser Cookies</h2>
             <p className="text-gray-700">
-              Our Site may use "cookies" to enhance User experience. User's web browser places
-              cookies on their hard drive for record-keeping purposes and sometimes to track
-              information about them. User may choose to set their web browser to refuse cookies, or
-              to alert you when cookies are being sent. If they do so, note that some parts of the
-              Site may not function properly.
+              Our Site may use &quot;cookies&quot; to enhance User experience. User&apos;s web
+              browser places cookies on their hard drive for record-keeping purposes and sometimes
+              to track information about them. User may choose to set their web browser to refuse
+              cookies, or to alert you when cookies are being sent. If they do so, note that some
+              parts of the Site may not function properly.
             </p>
           </section>
 
@@ -157,15 +158,16 @@ export default function PrivacyPolicyPage() {
               services, including their content and links, may be constantly changing. These sites
               and services may have their own privacy policies and customer service policies.
               Browsing and interaction on any other website, including websites which have a link to
-              our Site, is subject to that website's own terms and policies.
+              our Site, is subject to that website&apos;s own terms and policies.
             </p>
           </section>
 
           <section className="mb-8">
             <h2 className="mb-4 text-2xl font-bold text-gray-900">Limitation of Warranties</h2>
             <p className="mb-4 text-gray-700">
-              By using our website, you understand and agree that all Resources we provide are "as
-              is" and "as available". This means that we do not represent or warrant to you that:
+              By using our website, you understand and agree that all Resources we provide are
+              &quot;as is&quot; and &quot;as available&quot;. This means that we do not represent or
+              warrant to you that:
             </p>
             <ul className="list-disc space-y-2 pl-6 text-gray-700">
               <li>The use of our Resources will meet your needs or requirements.</li>
@@ -268,28 +270,28 @@ export default function PrivacyPolicyPage() {
           <section className="mb-8">
             <h2 className="mb-4 text-2xl font-bold text-gray-900">Nominee Assistance Program</h2>
             <p className="mb-4 text-gray-700">
-              Share India Insurance Brokers Pvt. Ltd. ("Share India Insurance") has merely partnered
-              with various third party experts in order to facilitate extended services to the users
-              purchasing Term Insurance. The services provided by the third party(s) are provided by
-              them in their capacity as an independent service provider(s). Share India Insurance do
-              not provide the services in any capacity whatsoever. Share India Insurance do not
-              endorse the services of the listed partners. Share India Insurance shall not be liable
-              for any payment obligation in relation to the services provided under the Nominee
-              Assistance program.
+              Share India Insurance Brokers Pvt. Ltd. (&quot;Share India Insurance&quot;) has merely
+              partnered with various third party experts in order to facilitate extended services to
+              the users purchasing Term Insurance. The services provided by the third party(s) are
+              provided by them in their capacity as an independent service provider(s). Share India
+              Insurance do not provide the services in any capacity whatsoever. Share India
+              Insurance do not endorse the services of the listed partners. Share India Insurance
+              shall not be liable for any payment obligation in relation to the services provided
+              under the Nominee Assistance program.
             </p>
             <p className="mb-4 text-gray-700">
               Share India Insurance shall not be liable for any act(s)/omission(s) of the partners
               and/or any defect/deficiency in provision of the listed services including their
               refusal to provide the services. Any third party
-              facility/offer(s)/service(s)/product(s) ("offer") shall be subject to the terms and
-              conditions of such third party which shall be applicable to the user. Share India
-              Insurance do not endorse, make no representation and shall have no liability or
+              facility/offer(s)/service(s)/product(s) (&quot;offer&quot;) shall be subject to the
+              terms and conditions of such third party which shall be applicable to the user. Share
+              India Insurance do not endorse, make no representation and shall have no liability or
               obligation whatsoever in relation to such third party offer.
             </p>
             <p className="mb-4 text-gray-700">
               All such third party offer shall be availed by user at their own risk and
               responsibility. Share India Insurance shall not be liable for any payment obligation
-              in relation to such third party offer, which shall be user's responsibility.
+              in relation to such third party offer, which shall be user&apos;s responsibility.
             </p>
             <p className="mb-4 text-gray-700">
               Share India Insurance is only an insurance broker and can assist with any insurance
