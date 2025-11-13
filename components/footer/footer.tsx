@@ -72,7 +72,7 @@ const Footer: React.FC = () => {
         { label: 'News', href: '/news' },
         { label: 'Premium Estimator', href: '/premium-estimator' },
         { label: 'Contact Us', href: '/contact' },
-        { label: 'Insurepreneur (POSP)', href: '/insurepreneur' },
+        { label: 'Insurepreneur (POSP)', href: '/be-a-posp' },
       ],
     },
     {
