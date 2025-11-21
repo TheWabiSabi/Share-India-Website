@@ -79,8 +79,7 @@ jobs:
       NOTIFICATION_EMAIL: ${{ secrets.NOTIFICATION_EMAIL }}
       SMTP_FROM_EMAIL: ${{ secrets.SMTP_FROM_EMAIL }}
       DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-  
-  
+
   notifications-rollback-staging:
     name: Send Notifications
     needs: [emergency-rollback-staging]

@@ -2,7 +2,7 @@ name: Production CI/CD Pipeline
 
 on:
   workflow_run:
-    workflows: ["Staging Deployment Pipeline"]  # must match the `name:` in staging.yml
+    workflows: ['Staging Deployment Pipeline'] # must match the `name:` in staging.yml
     types:
       - completed
 
