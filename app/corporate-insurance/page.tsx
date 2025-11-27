@@ -19,6 +19,7 @@ import {
   FaPlane,
 } from 'react-icons/fa';
 import { MdEngineering } from 'react-icons/md';
+import { IMAGE_BASE_URL } from '@/consts/variables';
 
 // Corporate Insurance Products
 const CORPORATE_INSURANCE = [
@@ -218,7 +219,7 @@ const CorporateInsurancePage = () => {
       <section className="relative min-h-screen w-full">
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://minio-api.internal.wabisabitech.in/share-india/corporate/office.jpg"
+            src={`${IMAGE_BASE_URL}/corporate/office.jpg`}
             alt="Corporate insurance solutions"
             fill
             priority

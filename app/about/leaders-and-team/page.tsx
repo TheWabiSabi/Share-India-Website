@@ -1,6 +1,7 @@
 import Card from '@/components/Card';
 import MoreAboutSection from '../_components/moreAboutSection';
 import Image from 'next/image';
+import { IMAGE_BASE_URL } from '@/consts/variables';
 
 export default function TeamPage() {
   return (
@@ -206,7 +207,7 @@ export default function TeamPage() {
             <div className="relative mr-4 h-16 w-16 flex-shrink-0 overflow-hidden rounded-full">
               <Image
                 fill
-                src="https://minio-api.internal.wabisabitech.in/share-india/about/ceo.png"
+                src={`${IMAGE_BASE_URL}/about/ceo.png`}
                 alt="Greg Case"
                 className="h-full w-full object-cover"
               />
@@ -279,7 +280,7 @@ export default function TeamPage() {
               <div className="relative aspect-[16/9] overflow-hidden rounded-lg">
                 <Image
                   fill
-                  src="https://minio-api.internal.wabisabitech.in/share-india/about/buildings.png"
+                  src={`${IMAGE_BASE_URL}/about/buildings.png`}
                   alt="City skyline with modern buildings representing financial district"
                   className="h-full w-full object-cover"
                 />

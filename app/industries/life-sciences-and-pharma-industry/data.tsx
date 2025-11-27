@@ -1,7 +1,8 @@
+import { IMAGE_BASE_URL } from '@/consts/variables';
 import { FaPills, FaFlask, FaMicroscope, FaVial, FaUserShield, FaTools } from 'react-icons/fa';
 
 export const details = {
-  img: 'https://minio-api.internal.wabisabitech.in/share-india/blog/construction.jpg',
+  img: `${IMAGE_BASE_URL}/blog/construction.jpg`,
   hero: {
     title: 'Life Sciences & Pharma Insurance Solutions',
     description:

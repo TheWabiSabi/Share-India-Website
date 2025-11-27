@@ -1,3 +1,4 @@
+import { IMAGE_BASE_URL } from '@/consts/variables';
 import {
   FaSolarPanel,
   FaBolt,
@@ -8,7 +9,7 @@ import {
 } from 'react-icons/fa';
 
 export const details = {
-  img: 'https://minio-api.internal.wabisabitech.in/share-india/blog/solar-panel.jpg',
+  img: `${IMAGE_BASE_URL}/blog/solar-panel.jpg`,
   hero: {
     title: 'Solar Industry Insurance Solutions',
     description:

@@ -1,3 +1,4 @@
+import { IMAGE_BASE_URL } from '@/consts/variables';
 import {
   FaShieldAlt,
   FaPlane,
@@ -9,7 +10,7 @@ import {
 } from 'react-icons/fa';
 
 export const details = {
-  img: 'https://minio-api.internal.wabisabitech.in/share-india/retail/travel-retail.jpg',
+  img: `${IMAGE_BASE_URL}/retail/travel-retail.jpg`,
   hero: {
     title: 'Retail Travel Insurance Solutions',
     description:

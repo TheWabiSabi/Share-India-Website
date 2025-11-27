@@ -1,3 +1,4 @@
+import { IMAGE_BASE_URL } from '@/consts/variables';
 import {
   FaShieldAlt,
   FaUniversity,
@@ -7,7 +8,7 @@ import {
 } from 'react-icons/fa';
 
 export const details = {
-  img: 'https://minio-api.internal.wabisabitech.in/share-india/retail/life-retail.jpg',
+  img: `${IMAGE_BASE_URL}/retail/life-retail.jpg`,
   hero: {
     title: 'Retail Life Insurance Solutions',
     description:

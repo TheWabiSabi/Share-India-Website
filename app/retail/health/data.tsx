@@ -1,3 +1,4 @@
+import { IMAGE_BASE_URL } from '@/consts/variables';
 import {
   FaHospital,
   FaUserMd,
@@ -8,7 +9,7 @@ import {
 } from 'react-icons/fa';
 
 export const details = {
-  img: 'https://minio-api.internal.wabisabitech.in/share-india/retail/health-retail.jpg',
+  img: `${IMAGE_BASE_URL}/retail/health-retail.jpg`,
   hero: {
     title: 'Retail Health Insurance Solutions',
     description:

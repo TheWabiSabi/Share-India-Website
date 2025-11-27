@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 import { memo, useMemo } from 'react';
 import './style.css';
 import { ReactNode } from 'react';
+import { IMAGE_BASE_URL } from '@/consts/variables';
 
 // Dynamic imports for carousels
 const MainCaraousel = dynamic(() => import('@/components/main-caraousel'), { ssr: true });
@@ -165,7 +166,7 @@ function HeroSection() {
           <div className="shadow-elevate-vibrant relative rounded-2xl border-b-amber-50 bg-white/95 p-3 sm:p-5">
             <div className="overflow-hidden rounded-xl">
               <Image
-                src="https://minio-api.internal.wabisabitech.in/share-india/about/meeting.png"
+                src={`${IMAGE_BASE_URL}/about/meeting.png`}
                 alt="Consultation at Share India"
                 width={1200}
                 height={900}
