@@ -1,7 +1,8 @@
+import { IMAGE_BASE_URL } from '@/consts/variables';
 import { FaHome, FaExclamationTriangle, FaTools, FaShieldAlt, FaBolt } from 'react-icons/fa';
 
 export const details = {
-  img: 'https://minio-api.internal.wabisabitech.in/share-india/retail/home-retail.jpg',
+  img: `${IMAGE_BASE_URL}/retail/home-retail.jpg`,
   hero: {
     title: 'Retail Home Insurance Solutions',
     description:

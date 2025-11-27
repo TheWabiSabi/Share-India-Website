@@ -1,3 +1,4 @@
+import { IMAGE_BASE_URL } from '@/consts/variables';
 import {
   FaIndustry,
   FaRecycle,
@@ -9,7 +10,7 @@ import {
 } from 'react-icons/fa';
 
 export const details = {
-  img: 'https://minio-api.internal.wabisabitech.in/share-india/blog/factory.jpg',
+  img: `${IMAGE_BASE_URL}/blog/factory.jpg`,
   hero: {
     title: 'Plastic Industry Insurance Solutions',
     description:

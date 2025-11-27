@@ -1,7 +1,8 @@
+import { IMAGE_BASE_URL } from '@/consts/variables';
 import { FaTruck, FaShip, FaWarehouse, FaShieldAlt, FaBoxes } from 'react-icons/fa';
 
 export const details = {
-  img: 'https://minio-api.internal.wabisabitech.in/share-india/blog/transport-cartons.jpg',
+  img: `${IMAGE_BASE_URL}/blog/transport-cartons.jpg`,
   hero: {
     title: 'Logistics Industry Insurance Solutions',
     description:

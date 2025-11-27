@@ -1,7 +1,8 @@
+import { IMAGE_BASE_URL } from '@/consts/variables';
 import { FaBuilding, FaHome, FaHammer, FaUserShield, FaFileContract, FaCity } from 'react-icons/fa';
 
 export const details = {
-  img: 'https://minio-api.internal.wabisabitech.in/share-india/blog/construction.jpg',
+  img: `${IMAGE_BASE_URL}/blog/construction.jpg`,
   hero: {
     title: 'Real Estate Industry Insurance Solutions',
     description:

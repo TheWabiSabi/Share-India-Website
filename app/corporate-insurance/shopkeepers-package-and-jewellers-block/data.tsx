@@ -1,7 +1,8 @@
+import { IMAGE_BASE_URL } from '@/consts/variables';
 import { FaStore, FaGem, FaShieldAlt, FaTruck } from 'react-icons/fa';
 
 export const details = {
-  img: 'https://minio-api.internal.wabisabitech.in/share-india/blog/highrise.jpg',
+  img: `${IMAGE_BASE_URL}/blog/highrise.jpg`,
   hero: {
     title: 'Shopkeepers & Jewellers Block Insurance',
     description:

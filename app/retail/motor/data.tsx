@@ -1,7 +1,8 @@
+import { IMAGE_BASE_URL } from '@/consts/variables';
 import { FaCar, FaShieldAlt, FaWrench, FaUserShield, FaRoad, FaAmbulance } from 'react-icons/fa';
 
 export const details = {
-  img: 'https://minio-api.internal.wabisabitech.in/share-india/retail/car-retail.jpg',
+  img: `${IMAGE_BASE_URL}/retail/car-retail.jpg`,
   hero: {
     title: 'Retail Motor Insurance Solutions',
     description:

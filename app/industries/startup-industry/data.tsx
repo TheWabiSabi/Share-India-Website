@@ -1,7 +1,8 @@
+import { IMAGE_BASE_URL } from '@/consts/variables';
 import { FaRocket, FaLaptop, FaUsers, FaBug, FaUserTie, FaMoneyBillWave } from 'react-icons/fa';
 
 export const details = {
-  img: 'https://minio-api.internal.wabisabitech.in/share-india/blog/bulb.jpg',
+  img: `${IMAGE_BASE_URL}/blog/bulb.jpg`,
   hero: {
     title: 'Startup Industry Insurance Solutions',
     description:

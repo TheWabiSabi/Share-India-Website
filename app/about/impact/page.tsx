@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import MoreAboutSection from '../_components/moreAboutSection';
+import { IMAGE_BASE_URL } from '@/consts/variables';
 
 export default function ImpactPage() {
   return (
@@ -151,7 +152,7 @@ export default function ImpactPage() {
               <div className="relative aspect-square overflow-hidden rounded-lg">
                 <Image
                   fill
-                  src="https://minio-api.internal.wabisabitech.in/share-india/about/ceo.png"
+                  src={`${IMAGE_BASE_URL}/about/ceo.png`}
                   alt="Greg Case, CEO"
                   className="h-full w-full object-cover"
                 />
@@ -212,7 +213,7 @@ export default function ImpactPage() {
             <div className="relative mr-4 h-16 w-16 flex-shrink-0 overflow-hidden rounded-full">
               <Image
                 fill
-                src="https://minio-api.internal.wabisabitech.in/share-india/about/ceo.png"
+                src={`${IMAGE_BASE_URL}/about/ceo.png`}
                 alt="Greg Case"
                 className="h-full w-full object-cover"
               />
@@ -260,7 +261,7 @@ export default function ImpactPage() {
               <div className="relative aspect-[16/9] overflow-hidden rounded-lg">
                 <Image
                   fill
-                  src="https://minio-api.internal.wabisabitech.in/share-india/about/trees.png"
+                  src={`${IMAGE_BASE_URL}/about/trees.png`}
                   alt="Environmental Impact - Aerial view of renewable energy and nature"
                   className="h-full w-full object-cover"
                 />
@@ -304,7 +305,7 @@ export default function ImpactPage() {
               <div className="relative aspect-[16/9] overflow-hidden rounded-lg">
                 <Image
                   fill
-                  src="https://minio-api.internal.wabisabitech.in/share-india/about/meeting.png"
+                  src={`${IMAGE_BASE_URL}/about/meeting.png`}
                   alt="Social Impact - Diverse team collaborating in workplace"
                   className="h-full w-full object-cover"
                 />
@@ -349,7 +350,7 @@ export default function ImpactPage() {
               <div className="relative aspect-[16/9] overflow-hidden rounded-lg">
                 <Image
                   fill
-                  src="https://minio-api.internal.wabisabitech.in/share-india/about/trees.png"
+                  src={`${IMAGE_BASE_URL}/about/trees.png`}
                   alt="Environmental Impact - Aerial view of renewable energy and nature"
                   className="h-full w-full object-cover"
                 />

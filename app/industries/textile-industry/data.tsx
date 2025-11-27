@@ -1,3 +1,4 @@
+import { IMAGE_BASE_URL } from '@/consts/variables';
 import {
   FaTshirt,
   FaIndustry,
@@ -9,7 +10,7 @@ import {
 } from 'react-icons/fa';
 
 export const details = {
-  img: 'https://minio-api.internal.wabisabitech.in/share-india/blog/textile.jpg',
+  img: `${IMAGE_BASE_URL}/blog/textile.jpg`,
   hero: {
     title: 'Textile Industry Insurance Solutions',
     description:
