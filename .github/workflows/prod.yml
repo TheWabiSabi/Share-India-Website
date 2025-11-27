@@ -2,80 +2,91 @@ name: Production CI/CD Pipeline
 
 on:
   workflow_run:
-    workflows: ['Staging Deployment Pipeline'] # must match the `name:` in staging.yml
+    workflows: ['Staging Deployment Pipeline'] # must match staging workflow name
     types:
       - completed
 
 jobs:
-  production-deployment:
-    name: Production Deployment
+  build-and-push-image:
+    name: Build & Push ARM Image to ECR
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    uses: TheWabiSabi/action-workflows/.github/workflows/deploy-vps-docker.yml@main
-    with:
-      DEPLOYMENT_PATH: /home/admin/Share-India-Website
-      DEPLOY_URL: http://43.204.38.201
-      RUN_ID: ${{ github.run_id }}
-      AUTHOR: ${{ github.actor }}
-      BRANCH: ${{github.ref_name}}
-    secrets:
-      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-      REMOTE_HOST: ${{ secrets.REMOTE_HOST_PROD }}
-      REMOTE_USER: ${{ secrets.REMOTE_USER_PROD }}
+    runs-on: ubuntu-latest
 
-  emergency-rollback-prod:
-    name: Emergency Rollback
-    needs: production-deployment
-    if: ${{ always() && needs.production-deployment.outputs.deployment_status == 'false' }}
-    uses: TheWabiSabi/action-workflows/.github/workflows/rollback-docker.yml@main
-    with:
-      DEPLOYMENT_PATH: /home/ubuntu/projects/wabisabi/Share-India-Website
-      PROD_STATUS: ${{ fromJson(needs.production-deployment.outputs.deployment_status) }}
-      DEPLOY_ID: ${{ github.run_id }}
-      DEPLOY_URL: http://43.204.38.201
-      ROLLBACK_TO_COMMIT: ${{ inputs.rollback_to_commit || '' }}
-    secrets:
-      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-      REMOTE_HOST: ${{ secrets.REMOTE_HOST_PROD }}
-      REMOTE_USER: ${{ secrets.REMOTE_USER_PROD }}
+    env:
+      AWS_REGION: ${{ secrets.AWS_REGION }}
+      AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+      ECR_REPOSITORY: share-india-website
+      IMAGE_TAG: latest
 
-  # Job 5: Notifications (runs after all other jobs complete)
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Login to ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Set up QEMU (for ARM build)
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build and push ARM image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          platforms: linux/arm64
+          tags: |
+            ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}
+            ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:${{ github.sha }}
+
+  instance-refresh:
+    name: Start ASG Instance Refresh
+    needs: build-and-push-image
+    runs-on: ubuntu-latest
+    if: ${{ needs.build-and-push-image.result == 'success' }}
+
+    env:
+      AWS_REGION: ${{ secrets.AWS_REGION }}
+      ASG_NAME: ${{ secrets.ASG_NAME }}
+
+    steps:
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Start instance refresh
+        run: |
+          aws autoscaling start-instance-refresh \
+            --auto-scaling-group-name "$ASG_NAME" \
+            --preferences MinHealthyPercentage=50,InstanceWarmup=60
+
   notifications-deploy-prod:
-    name: Send Notifications
-    needs: [production-deployment]
+    name: Send Deploy Notifications
+    needs: [build-and-push-image, instance-refresh]
     if: always()
     uses: TheWabiSabi/action-workflows/.github/workflows/notify-deploy.yml@main
     with:
-      PROD_STATUS: ${{ fromJson(needs.production-deployment.outputs.deployment_status || 'false') }}
+      PROD_STATUS: ${{ needs.instance-refresh.result == 'success' }}
       CALLER_REPO: ${{ github.repository }}
       CALLER_BRANCH: ${{ github.ref_name }}
       CALLER_COMMIT_SHA: ${{ github.sha }}
       AUTHOR: ${{ github.actor }}
       RUN_ID: ${{ github.run_id }}
       LOGS_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-      TIMESTAMP: ${{ github.event.head_commit.timestamp }}
-    secrets:
-      SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
-      SMTP_PORT: ${{ secrets.SMTP_PORT }}
-      SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
-      SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
-      NOTIFICATION_EMAIL: ${{ secrets.NOTIFICATION_EMAIL }}
-      SMTP_FROM_EMAIL: ${{ secrets.SMTP_FROM_EMAIL }}
-      DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-
-  notifications-rollback-prod:
-    name: Send Notifications
-    needs: [emergency-rollback-prod]
-    if: ${{always() && needs.production-deployment.outputs.deployment_status == 'false'}}
-    uses: TheWabiSabi/action-workflows/.github/workflows/notify-rollback.yml@main
-    with:
-      ROLLBACK_STATUS: ${{ fromJson(needs.emergency-rollback-prod.outputs.rollback_status || 'false') }}
-      CALLER_REPO: ${{ github.repository }}
-      CALLER_BRANCH: ${{ github.ref_name }}
-      CALLER_COMMIT_SHA: ${{ github.sha }}
-      AUTHOR: ${{ github.actor }}
-      RUN_ID: ${{ github.run_id }}
-      LOGS_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-      TIMESTAMP: ${{ github.event.head_commit.timestamp }}
+      TIMESTAMP: ${{ github.event.workflow_run.created_at }}
     secrets:
       SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
       SMTP_PORT: ${{ secrets.SMTP_PORT }}
