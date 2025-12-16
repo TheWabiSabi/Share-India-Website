@@ -1,12 +1,9 @@
-'use client';
 import React from 'react';
 import Image from 'next/image';
 import {
   FaUser,
   FaUsers,
   FaTrophy,
-  FaQuoteLeft,
-  FaLinkedin,
   FaEnvelope,
   FaPhone,
   FaMapMarkerAlt,
@@ -14,10 +11,22 @@ import {
   FaHandshake,
   FaLightbulb,
   FaStar,
-  FaAward,
-  FaMedal,
-  FaCertificate,
 } from 'react-icons/fa';
+
+export const metadata = {
+  title: 'About Us - Share India Insurance Brokers | Expert Insurance Team',
+  description:
+    'Meet the expert team at Share India Insurance Brokers. Led by experienced professionals with decades of combined expertise in life, general, and corporate insurance solutions.',
+  keywords:
+    'insurance brokers team, insurance experts India, Share India leadership, insurance professionals, IRDAI licensed brokers',
+  openGraph: {
+    title: 'About Share India Insurance Brokers - Meet Our Expert Team',
+    description:
+      'Discover our leadership team with 25+ years of experience in insurance brokerage, risk management, and claims advocacy.',
+    type: 'website',
+    url: 'https://www.shareindia.co.in/about',
+  },
+};
 
 export default function AboutPage() {
   return (
@@ -26,45 +35,67 @@ export default function AboutPage() {
       <section className="relative min-h-screen w-full">
         {/* Background image */}
         <div className="absolute inset-0 z-0">
-          {/* REPLACE: /public/images/about/hero-background.jpg - Professional office or team meeting background */}
           <Image
             src="/images/about/hero-background.jpg"
-            alt="About Share India Insurance Brokers"
+            alt="Share India Insurance Brokers - Professional Insurance Team"
             fill
             priority
             className="object-cover"
-            sizes="100vw 100vh"
+            sizes="100vw"
           />
-          {/* Solid overlay */}
-          <div className="absolute inset-0 bg-slate-900/70 backdrop-blur-sm" />
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-900/80 via-blue-900/70 to-slate-900/80 backdrop-blur-sm" />
         </div>
 
-        <div className="relative w-full pt-[15vh] md:pt-[30vh]">
+        <div className="relative w-full pt-[15vh] md:pt-[25vh]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl text-white">
-              <h1 className="text-4xl font-extrabold tracking-tight md:text-6xl">
-                About <span className="text-gradient-primary">Share India</span>
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-300/30 bg-blue-500/20 px-4 py-2 backdrop-blur-sm">
+                <FaShieldAlt className="text-blue-300" />
+                <span className="text-sm font-semibold text-blue-100">
+                  IRDAI Licensed Insurance Brokers
+                </span>
+              </div>
+              <h1 className="text-5xl leading-tight font-extrabold tracking-tight md:text-7xl">
+                About{' '}
+                <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+                  Share India
+                </span>
               </h1>
-              <p className="mt-6 text-lg text-gray-100/90 md:text-xl">
+              <p className="mt-6 text-xl leading-relaxed text-gray-100 md:text-2xl">
                 Protecting dreams, securing futures. We are passionate about creating exceptional
                 insurance experiences that inspire confidence and connect people with the right
                 protection for their unique needs.
               </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                 <a
                   href="#our-story"
-                  className="inline-flex items-center justify-center rounded-lg bg-blue-100 px-6 py-3 font-semibold text-blue-800 hover:bg-blue-200"
+                  className="group inline-flex items-center justify-center rounded-lg bg-blue-600 px-8 py-4 font-semibold text-white shadow-lg transition-all hover:bg-blue-700 hover:shadow-xl"
                 >
-                  <FaUser className="mr-2" />
+                  <FaUser className="mr-2 transition-transform group-hover:scale-110" />
                   Our Story
                 </a>
                 <a
-                  href="#leadership"
-                  className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-6 py-3 font-semibold hover:bg-gray-50"
+                  href="#our-team"
+                  className="group inline-flex items-center justify-center rounded-lg border-2 border-white/30 bg-white/10 px-8 py-4 font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/20"
                 >
-                  <FaUsers className="mr-2" />
-                  Leadership
+                  <FaUsers className="mr-2 transition-transform group-hover:scale-110" />
+                  Meet Our Team
                 </a>
+              </div>
+
+              {/* Quick Stats */}
+              <div className="mt-16 grid grid-cols-2 gap-6 md:grid-cols-4">
+                {[
+                  { value: '25+', label: 'Years Experience' },
+                  { value: '10+', label: 'Expert Team Members' },
+                  { value: '1000+', label: 'Happy Clients' },
+                  { value: '24/7', label: 'Support Available' },
+                ].map((stat, index) => (
+                  <div key={index} className="text-center">
+                    <div className="text-3xl font-bold text-blue-300 md:text-4xl">{stat.value}</div>
+                    <div className="mt-1 text-sm text-gray-300">{stat.label}</div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -74,59 +105,80 @@ export default function AboutPage() {
       {/* Our Story Section */}
       <section
         id="our-story"
-        className="bg-si-primary-100 w-full border-b border-gray-100 lg:h-screen"
+        className="w-full border-b border-gray-100 bg-gradient-to-br from-blue-50 via-white to-cyan-50"
       >
-        <div className="mx-auto max-w-[90vw] px-4 py-[10vh] sm:px-6 lg:max-w-[75vw] lg:px-8 lg:pt-[20vh]">
-          <h2 className="text-3xl font-bold md:text-4xl">Our Story</h2>
-          <p className="mt-[9vh] text-lg text-gray-700">
-            At Share India Insurance Brokers, we exist to shape decisions for the better — to
-            protect and enrich the lives of people across India.
-          </p>
+        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+          <div className="text-center">
+            <h2 className="text-4xl font-bold text-gray-900 md:text-5xl">Our Story</h2>
+            <p className="mx-auto mt-6 max-w-3xl text-xl text-gray-600">
+              At Share India Insurance Brokers, we exist to shape decisions for the better — to
+              protect and enrich the lives of people across India.
+            </p>
+          </div>
 
-          <div className="mt-[10vh] grid grid-cols-1 gap-8 lg:grid-cols-2">
-            <div>
-              <h3 className="text-2xl font-semibold text-gray-900">Our Journey</h3>
-              <p className="mt-8 text-lg text-gray-700">
+          <div className="mt-16 grid grid-cols-1 gap-12 lg:grid-cols-2">
+            <div className="rounded-2xl bg-white p-8 shadow-lg">
+              <div className="mb-6 inline-flex items-center gap-3 rounded-full bg-blue-100 px-4 py-2">
+                <FaUser className="text-blue-600" />
+                <span className="font-semibold text-blue-900">Our Journey</span>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900">Building Trust Since Day One</h3>
+              <p className="mt-6 leading-relaxed text-gray-700">
                 Our world has become more volatile — economically, socially and geopolitically —
                 than ever before. In an interconnected and interdependent world, organizations and
                 individuals are under constant pressure to make complex business decisions,
                 sometimes without all the necessary facts — and almost always at speed.
               </p>
-              <p className="mt-6 text-lg text-gray-700">
+              <p className="mt-4 leading-relaxed text-gray-700">
                 At Share India, we&apos;ve been on a decade-plus journey to connect our industry
                 expertise, so we can address our clients&apos; top priorities more effectively.
                 Through our teams across insurance brokerage, risk management, and claims advocacy,
                 our clients are better protected within, and across, their business strategies.
               </p>
             </div>
-            <div>
-              <h3 className="text-2xl font-semibold text-gray-900">Our Mission</h3>
-              <div className="mt-8 space-y-7">
-                <div className="flex items-center gap-5 rounded-lg border border-gray-200 p-4">
-                  <FaShieldAlt className="text-2xl text-blue-500" />
+            <div className="space-y-6">
+              <div className="mb-6 inline-flex items-center gap-3 rounded-full bg-green-100 px-4 py-2">
+                <FaShieldAlt className="text-green-600" />
+                <span className="font-semibold text-green-900">Our Mission</span>
+              </div>
+              <div className="group rounded-xl border-2 border-blue-200 bg-white p-6 shadow-md transition-all hover:border-blue-400 hover:shadow-xl">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 rounded-lg bg-blue-100 p-3">
+                    <FaShieldAlt className="text-2xl text-blue-600" />
+                  </div>
                   <div>
-                    <div className="text-lg font-medium">Protection First</div>
-                    <div className="text-base text-gray-600">
-                      Comprehensive coverage for every risk
-                    </div>
+                    <h4 className="text-lg font-bold text-gray-900">Protection First</h4>
+                    <p className="mt-2 text-gray-600">
+                      Comprehensive coverage for every risk, ensuring peace of mind for individuals
+                      and businesses
+                    </p>
                   </div>
                 </div>
-                <div className="flex items-center gap-5 rounded-lg border border-gray-200 p-4">
-                  <FaHandshake className="text-2xl text-blue-500" />
+              </div>
+              <div className="group rounded-xl border-2 border-green-200 bg-white p-6 shadow-md transition-all hover:border-green-400 hover:shadow-xl">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 rounded-lg bg-green-100 p-3">
+                    <FaHandshake className="text-2xl text-green-600" />
+                  </div>
                   <div>
-                    <div className="text-lg font-medium">Trust & Transparency</div>
-                    <div className="text-base text-gray-600">
-                      Building lasting relationships through honesty
-                    </div>
+                    <h4 className="text-lg font-bold text-gray-900">Trust & Transparency</h4>
+                    <p className="mt-2 text-gray-600">
+                      Building lasting relationships through honesty, integrity, and clear
+                      communication
+                    </p>
                   </div>
                 </div>
-                <div className="flex items-center gap-5 rounded-lg border border-gray-200 p-4">
-                  <FaLightbulb className="text-2xl text-blue-500" />
+              </div>
+              <div className="group rounded-xl border-2 border-purple-200 bg-white p-6 shadow-md transition-all hover:border-purple-400 hover:shadow-xl">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 rounded-lg bg-purple-100 p-3">
+                    <FaLightbulb className="text-2xl text-purple-600" />
+                  </div>
                   <div>
-                    <div className="text-lg font-medium">Innovation & Excellence</div>
-                    <div className="text-base text-gray-600">
-                      Cutting-edge solutions for modern challenges
-                    </div>
+                    <h4 className="text-lg font-bold text-gray-900">Innovation & Excellence</h4>
+                    <p className="mt-2 text-gray-600">
+                      Cutting-edge solutions and forward-thinking approaches for modern challenges
+                    </p>
                   </div>
                 </div>
               </div>
@@ -136,71 +188,91 @@ export default function AboutPage() {
       </section>
 
       {/* Leadership Section */}
-      <section id="leadership" className="w-full border-b border-gray-100 bg-white py-10">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold md:text-4xl">Leadership</h2>
-          <p className="mt-3 text-gray-700">
-            Meet the visionary leader driving Share India Insurance Brokers towards excellence and
-            innovation.
-          </p>
+      <section id="leadership" className="w-full border-b border-gray-100 bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h2 className="text-4xl font-bold text-gray-900 md:text-5xl">
+              Visionary{' '}
+              <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+                Leadership
+              </span>
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
+              Meet the visionary leader driving Share India Insurance Brokers towards excellence and
+              innovation.
+            </p>
+          </div>
 
           {/* CEO Profile */}
-          <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-2">
-            {/* Photo */}
-            <div className="flex justify-center lg:justify-start">
-              <div className="relative h-96 w-80 overflow-hidden rounded-2xl border-4 border-blue-100 shadow-xl">
-                {/* REPLACE: /public/images/leadership/ajaykumar-patel-ceo.jpg - Professional headshot of CEO Ajaykumar Patel */}
-                <Image
-                  src="/leadership/ajay-kumar.png"
-                  alt="Ajaykumar Patel - CEO & Principal Officer"
-                  fill
-                  className="object-cover"
-                  sizes="320px 384px"
-                />
-                <div className="absolute right-0 bottom-0 left-0 bg-gradient-to-t from-black/60 to-transparent p-4">
-                  <h3 className="text-xl font-bold text-white">Mr. Ajay Kumar Patel</h3>
-                  <p className="text-blue-100">CEO & Principal Officer</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Info */}
-            <div className="flex flex-col justify-center">
-              <div className="rounded-xl border border-gray-200 bg-gradient-to-br from-blue-50 to-white p-8">
-                <div className="mb-4 flex items-center gap-3">
-                  <div className="rounded-full bg-blue-100 p-3">
-                    <FaUser className="text-2xl text-blue-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900">25 Years Experience</h3>
-                    <p className="font-semibold text-blue-600">Ajaykumar Patel</p>
-                    <p className="text-gray-600">CEO & Principal Officer</p>
+          <div className="mt-16">
+            <div className="overflow-hidden rounded-3xl border-2 border-blue-200 bg-gradient-to-br from-blue-50 via-white to-cyan-50 shadow-2xl">
+              <div className="grid grid-cols-1 gap-8 p-8 lg:grid-cols-5 lg:p-12">
+                {/* Photo */}
+                <div className="flex justify-center lg:col-span-2 lg:justify-start">
+                  <div className="relative aspect-square w-[350px] overflow-hidden rounded-2xl border-4 border-white shadow-2xl">
+                    <Image
+                      src="/leadership/ajay-kumar.png"
+                      alt="Mr. Ajay Kumar Patel - CEO & Principal Officer"
+                      fill
+                      className="object-cover"
+                      sizes="350px"
+                    />
                   </div>
                 </div>
 
-                <p className="leading-relaxed text-gray-700">
-                  Mr. Ajay Patel has 25 years of progressive experience in Manufacturing and
-                  Insurance domain. Previously, he has provided his services to organizations like
-                  Bajaj Auto, ICICI Prudential, IIFL and others. He is Mechanical Engineering
-                  graduate and holds a MBA in Operations.
-                </p>
-
-                <p className="mt-4 leading-relaxed text-gray-700">
-                  Ajay comes in with an excellence in skills like Business Development, Strategy
-                  Implementation and an excellent team Management quality. Being the pillar of the
-                  company, he has been associated with Share India Insurance Brokers Private Limited
-                  since its inception.
-                </p>
-
-                <div className="mt-6 flex gap-3">
-                  <div className="rounded-lg bg-blue-100 px-3 py-1 text-sm font-medium text-blue-800">
-                    Business Development
+                {/* Info */}
+                <div className="flex flex-col justify-center lg:col-span-3">
+                  <div className="mb-6 inline-flex w-fit items-center gap-3 rounded-full bg-blue-100 px-5 py-2">
+                    <FaTrophy className="text-xl text-blue-600" />
+                    <span className="text-lg font-bold text-blue-900">25 Years of Excellence</span>
                   </div>
-                  <div className="rounded-lg bg-green-100 px-3 py-1 text-sm font-medium text-green-800">
-                    Strategy Implementation
+
+                  <h3 className="text-3xl font-bold text-gray-900">
+                    Leading with Vision & Expertise
+                  </h3>
+
+                  <div className="mt-6 space-y-4">
+                    <p className="text-lg leading-relaxed text-gray-700">
+                      Mr. Ajay Patel has 25 years of progressive experience in Manufacturing and
+                      Insurance domain. Previously, he has provided his services to organizations
+                      like
+                      <span className="font-semibold"> Bajaj Auto, ICICI Prudential, IIFL</span> and
+                      others. He is a Mechanical Engineering graduate and holds an MBA in
+                      Operations.
+                    </p>
+
+                    <p className="text-lg leading-relaxed text-gray-700">
+                      Ajay brings excellence in skills like Business Development, Strategy
+                      Implementation and exceptional team Management quality. Being the pillar of
+                      the company, he has been associated with Share India Insurance Brokers Private
+                      Limited since its inception, driving growth and innovation at every step.
+                    </p>
                   </div>
-                  <div className="rounded-lg bg-purple-100 px-3 py-1 text-sm font-medium text-purple-800">
-                    Team Management
+
+                  <div className="mt-8">
+                    <h4 className="mb-4 text-sm font-semibold tracking-wide text-gray-500 uppercase">
+                      Core Expertise
+                    </h4>
+                    <div className="flex flex-wrap gap-3">
+                      <div className="flex items-center gap-2 rounded-lg border-2 border-blue-200 bg-blue-50 px-4 py-2">
+                        <FaLightbulb className="text-blue-600" />
+                        <span className="font-semibold text-blue-900">Business Development</span>
+                      </div>
+                      <div className="flex items-center gap-2 rounded-lg border-2 border-green-200 bg-green-50 px-4 py-2">
+                        <FaShieldAlt className="text-green-600" />
+                        <span className="font-semibold text-green-900">
+                          Strategy Implementation
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-2 rounded-lg border-2 border-purple-200 bg-purple-50 px-4 py-2">
+                        <FaUsers className="text-purple-600" />
+                        <span className="font-semibold text-purple-900">Team Management</span>
+                      </div>
+                      <div className="flex items-center gap-2 rounded-lg border-2 border-orange-200 bg-orange-50 px-4 py-2">
+                        <FaTrophy className="text-orange-600" />
+                        <span className="font-semibold text-orange-900">Operations Excellence</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -210,125 +282,321 @@ export default function AboutPage() {
       </section>
 
       {/* Our Team Section */}
-      <section id="our-team" className="w-full border-b border-gray-100 bg-gray-50">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold md:text-4xl">Our Team</h2>
-          <p className="mt-3 text-gray-700">
-            Meet our dedicated insurance experts who bring years of experience and specialized
-            knowledge to serve you better.
-          </p>
+      <section
+        id="our-team"
+        className="w-full border-b border-gray-100 bg-gradient-to-br from-gray-50 via-blue-50/30 to-gray-50"
+      >
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+          <div className="text-center">
+            <h2 className="text-4xl font-bold text-gray-900 md:text-5xl">
+              Meet Our <span className="text-gradient-primary">Expert Team</span>
+            </h2>
+            <p className="mx-auto mt-4 max-w-3xl text-lg text-gray-600">
+              Our leadership team brings together decades of insurance expertise, combining deep
+              industry knowledge with a commitment to exceptional client service and operational
+              excellence.
+            </p>
+          </div>
 
-          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              { name: 'Mahesh Harmalkar', role: 'Insurance Expert', color: 'blue' },
-              { name: 'Vidhi Shah', role: 'Insurance Expert', color: 'green' },
-              { name: 'Rajendra Muppidwar', role: 'Insurance Expert', color: 'purple' },
-              { name: 'Raunaq Pai', role: 'Insurance Expert', color: 'red' },
-              { name: 'Shekhar Pradhan', role: 'Insurance Expert', color: 'indigo' },
-              { name: 'Manish Chavan', role: 'Insurance Expert', color: 'pink' },
-              { name: 'Vishal More', role: 'Insurance Expert', color: 'yellow' },
-              { name: 'Akash Agam', role: 'Insurance Expert', color: 'teal' },
-            ].map((member, index) => (
-              <TeamCard key={index} member={member} />
-            ))}
+          {/* President - Featured Card */}
+          <div className="mt-16">
+            <div className="mx-auto max-w-4xl">
+              <div className="overflow-hidden rounded-2xl border-2 border-blue-200 bg-gradient-to-br from-white to-blue-50/50 shadow-xl transition-all hover:shadow-2xl">
+                <div className="grid grid-cols-1 gap-8 p-8 md:grid-cols-3 md:p-10">
+                  <div className="flex justify-center md:col-span-1">
+                    <div className="relative aspect-square w-64 overflow-hidden rounded-xl border-4 border-white shadow-lg">
+                      <Image
+                        src="/team/sonam-gupta.png"
+                        alt="Ms. Sonam Gupta - President"
+                        fill
+                        className="object-cover"
+                        sizes="256px"
+                      />
+                    </div>
+                  </div>
+                  <div className="flex flex-col justify-center md:col-span-2">
+                    <div className="mb-3 inline-flex items-center gap-2 self-start rounded-full bg-blue-600 px-4 py-1.5 text-sm font-semibold text-white">
+                      <FaStar className="text-yellow-300" />
+                      President
+                    </div>
+                    <h3 className="text-3xl font-bold text-gray-900">Ms. Sonam Gupta</h3>
+                    <p className="mt-4 text-lg leading-relaxed text-gray-700">
+                      Leads a team of insurance professionals with a strong focus on service
+                      quality, operational excellence, and client-centric solutions. Under her
+                      leadership, Share India Insurance Brokers continues to set new standards in
+                      the industry.
+                    </p>
+                    <div className="mt-6 flex flex-wrap gap-2">
+                      <span className="rounded-lg bg-blue-100 px-3 py-1.5 text-sm font-medium text-blue-800">
+                        Leadership Excellence
+                      </span>
+                      <span className="rounded-lg bg-green-100 px-3 py-1.5 text-sm font-medium text-green-800">
+                        Service Quality
+                      </span>
+                      <span className="rounded-lg bg-purple-100 px-3 py-1.5 text-sm font-medium text-purple-800">
+                        Client-Centric
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Department Heads & Senior Leadership */}
+          <div className="mt-16">
+            <h3 className="mb-8 text-center text-2xl font-bold text-gray-900">
+              Senior Leadership Team
+            </h3>
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              {[
+                {
+                  name: 'Mr. Prakash Rao Dumble',
+                  role: 'Head – General Insurance',
+                  experience: '30 years',
+                  description: 'Possesses 30 years of expertise in the general insurance domain.',
+                  color: 'blue',
+                  icon: FaShieldAlt,
+                },
+                {
+                  name: 'Mr. Ram Chandra',
+                  role: 'Head – Life Insurance',
+                  experience: '25 years',
+                  description:
+                    'A seasoned professional with 25 years of experience in life insurance.',
+                  color: 'green',
+                  icon: FaHandshake,
+                },
+                {
+                  name: 'Mr. Ravi Shahani',
+                  role: 'Head of Business Excellence',
+                  experience: 'Expert',
+                  description:
+                    'Drives initiatives that enhance business processes, service quality, and organizational efficiency.',
+                  color: 'purple',
+                  icon: FaLightbulb,
+                },
+              ].map((member, index) => (
+                <TeamLeaderCard key={index} member={member} />
+              ))}
+            </div>
+          </div>
+
+          {/* Operational Leadership */}
+          <div className="mt-16">
+            <h3 className="mb-8 text-center text-2xl font-bold text-gray-900">
+              Operational Leadership
+            </h3>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                {
+                  name: 'Mr. Shekhar Pradhan',
+                  role: 'Claim Manager',
+                  description:
+                    'Leads the claims team with a focus on transparency, timely resolution, and a customer-first approach.',
+                  color: 'indigo',
+                },
+                {
+                  name: 'Mr. Manish Chavan',
+                  role: 'Product Manager',
+                  description:
+                    'Leads the Life and Motor Underwriting teams, focusing on product quality and risk assessment.',
+                  color: 'pink',
+                },
+                {
+                  name: 'Ms. Vidhi Shah',
+                  role: 'Head Underwriter',
+                  description:
+                    'Manages underwriting across all lines of business, ensuring accuracy and risk integrity.',
+                  color: 'teal',
+                },
+                {
+                  name: 'Mr. Rajendra Muppidwar',
+                  role: 'Area Manager',
+                  description:
+                    'Brings strong expertise in Life Insurance and leads the sales team with focus on quality service.',
+                  color: 'orange',
+                },
+              ].map((member, index) => (
+                <TeamMemberCard key={index} member={member} />
+              ))}
+            </div>
+          </div>
+
+          {/* Regional Leadership */}
+          <div className="mt-16">
+            <h3 className="mb-8 text-center text-2xl font-bold text-gray-900">
+              Regional Leadership
+            </h3>
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+              {[
+                {
+                  name: 'Mr. Raunaq Pai',
+                  role: 'Zonal Head – West',
+                  description:
+                    'Oversees sales for the West Zone and drives growth through strategic planning, market insights, and expertise in both General and Life Insurance.',
+                  color: 'red',
+                  region: 'West Zone',
+                },
+                {
+                  name: 'Mr. Akash Agam',
+                  role: 'Area Head – North',
+                  description:
+                    'Strengthens the sales team in the North region with deep knowledge of General and Life Insurance, ensuring efficient operations and dependable client support.',
+                  color: 'cyan',
+                  region: 'North Zone',
+                },
+              ].map((member, index) => (
+                <RegionalLeaderCard key={index} member={member} />
+              ))}
+            </div>
+          </div>
+
+          {/* Team Values */}
+          <div className="mt-20 rounded-2xl bg-gradient-to-r from-blue-600 to-blue-700 p-8 text-white md:p-12">
+            <div className="text-center">
+              <h3 className="text-3xl font-bold">Our Team Values</h3>
+              <p className="mx-auto mt-4 max-w-3xl text-lg text-blue-100">
+                United by a shared commitment to excellence, integrity, and client success
+              </p>
+            </div>
+            <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-4">
+              {[
+                { icon: FaShieldAlt, title: 'Expertise', desc: 'Decades of combined experience' },
+                { icon: FaHandshake, title: 'Trust', desc: 'Building lasting relationships' },
+                { icon: FaLightbulb, title: 'Innovation', desc: 'Forward-thinking solutions' },
+                { icon: FaStar, title: 'Excellence', desc: 'Commitment to quality' },
+              ].map((value, index) => (
+                <div key={index} className="text-center">
+                  <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
+                    <value.icon className="text-2xl text-white" />
+                  </div>
+                  <h4 className="text-xl font-semibold">{value.title}</h4>
+                  <p className="mt-2 text-sm text-blue-100">{value.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Awards & Recognition Section */}
-      <section id="awards-recognition" className="w-full border-b border-gray-100 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold md:text-4xl">Awards & Recognition</h2>
-          <p className="mt-3 text-gray-700">
-            Celebrated for excellence, trusted by clients. Here&apos;s what the industry recognizes
-            about our commitment to service.
-          </p>
+      {/* Awards & Testimonials Section */}
+      <section
+        id="awards-testimonials"
+        className="w-full border-b border-gray-100 bg-gradient-to-br from-blue-50 via-white to-cyan-50"
+      >
+        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+          {/* Header */}
+          <header className="mb-8 text-center sm:mb-10">
+            <span className="text-si-primary border-si-primary/20 bg-si-primary/5 mb-3 inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-[11px] font-bold tracking-wider uppercase sm:px-4 sm:py-2">
+              <span className="bg-si-primary h-1.5 w-1.5 rounded-full" />
+              Recognition &amp; Trust
+            </span>
+            <h2 className="text-[clamp(22px,4.2vw,36px)] leading-tight font-semibold text-slate-900">
+              <span className="text-gradient-primary">Awards &amp; Testimonials</span>
+            </h2>
+            <p className="mx-auto mt-3 max-w-2xl text-[clamp(14px,2.6vw,18px)] leading-relaxed text-slate-700/85">
+              Celebrated for excellence, trusted by clients. Here&apos;s what the industry and our
+              partners say about us.
+            </p>
+          </header>
 
-          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {/* Awards Grid */}
+          <div className="mb-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              {
-                year: '2023',
-                award: 'Best Insurance Broker – IRDAI Recognition',
-                icon: FaTrophy,
-                color: 'yellow',
-              },
               {
                 year: '2022',
-                award: 'Excellence in Client Service – Insurance Today',
-                icon: FaAward,
-                color: 'blue',
+                award: 'SME Superstars - Awarded to SIIB by Chola MS',
+                img: '/awards/chola-ms.jpeg',
               },
               {
-                year: '2021',
-                award: 'Top 10 Brokerage Firms – Business India',
-                icon: FaMedal,
-                color: 'green',
+                year: '2024',
+                award: 'Diamond Club - Awarded to SIIB by digit Inner Circle',
+                img: '/awards/digit.jpeg',
               },
               {
-                year: '2020',
-                award: 'Innovation in Claims Advocacy – FinServ Awards',
-                icon: FaCertificate,
-                color: 'purple',
+                year: '2025',
+                award: 'CEO of the year to Mr. Ajay Kumar Patel - Awared by UBS Forums',
+                img: '/awards/ubs-ceo.jpeg',
               },
-            ].map((award, index) => (
-              <AwardCard key={index} award={award} />
+              {
+                year: '2025',
+                award: 'Best Claims Partner of the year - Awared to SIIB by UBS Forums',
+                img: '/awards/ubs-claims.jpeg',
+              },
+            ].map((a) => (
+              <article
+                key={a.award}
+                className="group flex flex-col rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-slate-300 hover:shadow-md sm:p-6"
+              >
+                <div className="mb-4 flex items-center gap-3">
+                  <div className="relative flex h-14 w-14 items-center justify-center overflow-hidden rounded-lg border border-slate-200 bg-white">
+                    <Image src={a.img} alt={`${a.year} award`} fill className="object-cover" />
+                  </div>
+                  <div>
+                    <div className="accent-bar-gradient mb-1 h-1.5 w-10 rounded" />
+                    <h3 className="text-[clamp(16px,3.2vw,18px)] font-semibold text-slate-900">
+                      {a.year}
+                    </h3>
+                  </div>
+                </div>
+                <p className="text-[clamp(13px,2.8vw,15px)] text-slate-700/85">{a.award}</p>
+              </article>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Testimonials Section */}
-      <section
-        id="testimonials"
-        className="from-si-primary-200 w-full border-b border-gray-100 bg-gradient-to-b to-transparent"
-      >
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold md:text-4xl">What Our Clients Say</h2>
-          <p className="mt-3 text-gray-700">
-            Real experiences from real clients who trust us with their insurance needs.
-          </p>
+          {/* Testimonials */}
+          <div>
+            <div className="mb-5 text-center sm:mb-7">
+              <h3 className="text-[clamp(20px,3.8vw,30px)] leading-tight font-semibold text-slate-900">
+                <span className="text-gradient-primary">What Our Clients Say</span>
+              </h3>
+            </div>
 
-          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                name: 'Priya Menon',
-                role: 'CFO, TechNova Pvt Ltd',
-                text: 'Share India Brokers made our policy renewal seamless and negotiated significant savings without compromising coverage.',
-                rating: 5,
-              },
-              {
-                name: 'Arjun Verma',
-                role: 'HR Head, Zenith Industries',
-                text: 'Their claims advocacy was exceptional—we felt supported throughout the entire process.',
-                rating: 5,
-              },
-              {
-                name: 'Kavita Iyer',
-                role: 'Founder, GreenEdge Retail',
-                text: 'We value their transparency and ability to simplify complex insurance products for growing businesses.',
-                rating: 5,
-              },
-              {
-                name: 'Rajesh Kumar',
-                role: 'Managing Director, Steel Works Ltd',
-                text: 'Professional service and deep industry knowledge. They understand our manufacturing risks perfectly.',
-                rating: 5,
-              },
-              {
-                name: 'Sneha Patel',
-                role: 'Operations Head, Logistics Plus',
-                text: 'Quick response times and comprehensive coverage options. Highly recommend their services.',
-                rating: 5,
-              },
-              {
-                name: 'Amit Sharma',
-                role: 'CEO, Digital Solutions Inc',
-                text: 'Innovative approach to risk management and excellent customer service. A trusted partner.',
-                rating: 5,
-              },
-            ].map((testimonial, index) => (
-              <TestimonialCard key={index} testimonial={testimonial} />
-            ))}
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2">
+              {[
+                {
+                  name: 'API Holdings',
+                  text: "Share India Insurance Brokers' proactive approach, professionalism, and flawless execution have made managing our insurance portfolio seamless and efficient — a partnership we truly value.",
+                  avatar: '/testimonials/api-holding.png',
+                },
+                {
+                  name: 'Sunjewels Pvt. Ltd.',
+                  text: 'For three years, Team Share India — especially Mr. Raunaq Pai, Mr. Shekhar Pradhan, and Mr. Sagar Agre — have impressed us with their professionalism, reliability, and proactive service.',
+                  avatar: '/testimonials/sun-jewels.png',
+                },
+                {
+                  name: 'Global Ocean Logistics India Ltd',
+                  text: "For over four years, Share India's expertise, responsiveness, and attention to detail have ensured smooth, reliable insurance support and a partnership built on trust and excellence.",
+                  avatar: '/testimonials/global-ocean.png',
+                },
+                {
+                  name: 'Santu Mondal',
+                  text: "My experience with Raunaq Pai and Share India Insurance has been exceptional — Raunaq's professionalism, expertise, and prompt support made the entire insurance process seamless and trustworthy.",
+                  avatar: '/testimonials/santu-mondal.png',
+                },
+              ].map((t) => (
+                <figure
+                  key={t.name}
+                  className="card-accent-red flex flex-col justify-between rounded-xl border border-slate-200 bg-white p-5 shadow-sm ring-1 ring-slate-900/5 transition hover:border-slate-300 hover:shadow-md sm:p-6"
+                >
+                  <blockquote className="text-[clamp(13px,2.8vw,15px)] leading-relaxed text-slate-700/90">
+                    &quot;{t.text}&quot;
+                  </blockquote>
+
+                  <figcaption className="mt-5 flex items-center gap-3">
+                    <div className="relative h-12 w-12 overflow-hidden rounded-full shadow ring-2 ring-white">
+                      <Image src={t.avatar} alt={`${t.name} photo`} fill className="object-cover" />
+                    </div>
+                    <div>
+                      <div className="font-semibold text-slate-900">{t.name}</div>
+                    </div>
+                  </figcaption>
+
+                  <div className="accent-bar-gradient mt-5 h-1.5 w-10 rounded" />
+                </figure>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -401,158 +669,179 @@ export default function AboutPage() {
 }
 
 /* Helper Components */
-const TeamCard = ({ member }: { member: { name: string; role: string; color: string } }) => {
+
+// Team Leader Card - For Department Heads
+const TeamLeaderCard = ({
+  member,
+}: {
+  member: {
+    name: string;
+    role: string;
+    experience: string;
+    description: string;
+    color: string;
+    icon: React.ElementType;
+  };
+}) => {
   const colorClasses = {
-    blue: 'from-blue-400 to-blue-600 bg-blue-50 text-blue-600',
-    green: 'from-green-400 to-green-600 bg-green-50 text-green-600',
-    purple: 'from-purple-400 to-purple-600 bg-purple-50 text-purple-600',
-    red: 'from-red-400 to-red-600 bg-red-50 text-red-600',
-    indigo: 'from-indigo-400 to-indigo-600 bg-indigo-50 text-indigo-600',
-    pink: 'from-pink-400 to-pink-600 bg-pink-50 text-pink-600',
-    yellow: 'from-yellow-400 to-yellow-600 bg-yellow-50 text-yellow-600',
-    teal: 'from-teal-400 to-teal-600 bg-teal-50 text-teal-600',
+    blue: 'from-blue-500 to-blue-600 bg-blue-50 border-blue-200 text-blue-700',
+    green: 'from-green-500 to-green-600 bg-green-50 border-green-200 text-green-700',
+    purple: 'from-purple-500 to-purple-600 bg-purple-50 border-purple-200 text-purple-700',
   };
 
   const bgClass =
     colorClasses[member.color as keyof typeof colorClasses]?.split(' ')[2] || 'bg-gray-50';
+  const borderClass =
+    colorClasses[member.color as keyof typeof colorClasses]?.split(' ')[3] || 'border-gray-200';
   const textClass =
-    colorClasses[member.color as keyof typeof colorClasses]?.split(' ')[3] || 'text-gray-600';
+    colorClasses[member.color as keyof typeof colorClasses]?.split(' ')[4] || 'text-gray-700';
+  // const gradientClass =
+  //   colorClasses[member.color as keyof typeof colorClasses]?.split(' ').slice(0, 2).join(' ') ||
+  //   'from-gray-400 to-gray-600';
 
-  // Team member image mapping
   const getTeamImagePath = (name: string) => {
-    const slug = name.toLowerCase().replace(/\s+/g, '-');
-    return `/team/${slug}.jpg`;
+    const slug = name
+      .toLowerCase()
+      .replace(/^(mr\.|ms\.|mrs\.)\s+/i, '')
+      .replace(/\s+/g, '-');
+    return `/team/${slug}.png`;
   };
 
   return (
     <div
-      className={`rounded-xl border border-gray-200 p-6 ${bgClass} transition-shadow hover:shadow-lg`}
+      className={`group overflow-hidden rounded-2xl border-2 ${borderClass} ${bgClass} shadow-lg transition-all hover:shadow-2xl`}
     >
-      <div className="flex flex-col items-center text-center">
-        <div className="mb-4 h-16 w-16 overflow-hidden rounded-full bg-white shadow-md">
-          {/* REPLACE TEAM IMAGES:
-              /public/images/team/mahesh-harmalkar.jpg - Professional headshot of Mahesh Harmalkar
-              /public/images/team/vidhi-shah.jpg - Professional headshot of Vidhi Shah
-              /public/images/team/rajendra-muppidwar.jpg - Professional headshot of Rajendra Muppidwar
-              /public/images/team/raunaq-pai.jpg - Professional headshot of Raunaq Pai
-              /public/images/team/shekhar-pradhan.jpg - Professional headshot of Shekhar Pradhan
-              /public/images/team/manish-chavan.jpg - Professional headshot of Manish Chavan
-              /public/images/team/vishal-more.jpg - Professional headshot of Vishal More
-              /public/images/team/akash-agam.jpg - Professional headshot of Akash Agam
-          */}
-          <Image
-            src={getTeamImagePath(member.name)}
-            alt={`${member.name} - ${member.role}`}
-            width={64}
-            height={64}
-            className="h-full w-full object-cover"
-          />
+      <div className="relative aspect-square overflow-hidden">
+        <Image
+          src={getTeamImagePath(member.name)}
+          alt={`${member.name} - ${member.role}`}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-110"
+          sizes="400px"
+        />
+        <div className="absolute top-4 right-4">
+          <div className={`rounded-full bg-white/90 p-3 ${textClass} backdrop-blur-sm`}>
+            <member.icon className="text-xl" />
+          </div>
         </div>
-        <h3 className="text-lg font-semibold text-gray-900">{member.name}</h3>
-        <p className={`text-sm ${textClass} font-medium`}>{member.role}</p>
-        <div className="mt-3 flex gap-2">
-          <button className={`rounded-full p-2 ${textClass} transition-colors hover:bg-white`}>
-            <FaLinkedin className="text-sm" />
-          </button>
-          <button className={`rounded-full p-2 ${textClass} transition-colors hover:bg-white`}>
-            <FaEnvelope className="text-sm" />
-          </button>
+      </div>
+      <div className="p-6">
+        <div className="mb-2 flex items-center justify-between">
+          <span className={`text-sm font-semibold ${textClass}`}>{member.experience}</span>
         </div>
+        <h3 className="text-xl font-bold text-gray-900">{member.name}</h3>
+        <p className={`mt-1 text-sm font-semibold ${textClass}`}>{member.role}</p>
+        <p className="mt-3 text-sm leading-relaxed text-gray-600">{member.description}</p>
       </div>
     </div>
   );
 };
 
-const AwardCard = ({
-  award,
+// Team Member Card - For Operational Leadership
+const TeamMemberCard = ({
+  member,
 }: {
-  award: { year: string; award: string; icon: React.ElementType; color: string };
+  member: { name: string; role: string; description: string; color: string };
 }) => {
   const colorClasses = {
-    yellow: 'from-yellow-400 to-yellow-600 bg-yellow-50 text-yellow-600',
-    blue: 'from-blue-400 to-blue-600 bg-blue-50 text-blue-600',
-    green: 'from-green-400 to-green-600 bg-green-50 text-green-600',
-    purple: 'from-purple-400 to-purple-600 bg-purple-50 text-purple-600',
+    indigo: 'bg-indigo-50 border-indigo-200 text-indigo-700',
+    pink: 'bg-pink-50 border-pink-200 text-pink-700',
+    teal: 'bg-teal-50 border-teal-200 text-teal-700',
+    orange: 'bg-orange-50 border-orange-200 text-orange-700',
   };
 
   const bgClass =
-    colorClasses[award.color as keyof typeof colorClasses]?.split(' ')[2] || 'bg-gray-50';
+    colorClasses[member.color as keyof typeof colorClasses]?.split(' ')[0] || 'bg-gray-50';
+  const borderClass =
+    colorClasses[member.color as keyof typeof colorClasses]?.split(' ')[1] || 'border-gray-200';
+  const textClass =
+    colorClasses[member.color as keyof typeof colorClasses]?.split(' ')[2] || 'text-gray-700';
 
-  // Award image mapping
-  const getAwardImagePath = (year: string) => {
-    return `/images/awards/award-${year}.jpg`;
+  const getTeamImagePath = (name: string) => {
+    const slug = name
+      .toLowerCase()
+      .replace(/^(mr\.|ms\.|mrs\.)\s+/i, '')
+      .replace(/\s+/g, '-');
+    return `/team/${slug}.png`;
   };
 
   return (
     <div
-      className={`rounded-xl border border-gray-200 p-6 ${bgClass} transition-shadow hover:shadow-lg`}
+      className={`group overflow-hidden rounded-xl border-2 ${borderClass} ${bgClass} shadow-md transition-all hover:shadow-xl`}
     >
-      <div className="flex flex-col items-center text-center">
-        <div className="mb-4 h-16 w-16 overflow-hidden rounded-lg bg-white shadow-md">
-          {/* REPLACE AWARD IMAGES:
-              /public/images/awards/award-2023.jpg - IRDAI Recognition trophy/certificate image
-              /public/images/awards/award-2022.jpg - Insurance Today Excellence award image
-              /public/images/awards/award-2021.jpg - Business India Top 10 award image
-              /public/images/awards/award-2020.jpg - FinServ Innovation award image
-          */}
-          <Image
-            src={getAwardImagePath(award.year)}
-            alt={`${award.year} ${award.award}`}
-            width={64}
-            height={64}
-            className="h-full w-full object-contain p-2"
-          />
-        </div>
-        <h3 className="text-xl font-bold text-gray-900">{award.year}</h3>
-        <p className="mt-2 text-sm text-gray-700">{award.award}</p>
+      <div className="relative aspect-square overflow-hidden">
+        <Image
+          src={getTeamImagePath(member.name)}
+          alt={`${member.name} - ${member.role}`}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          sizes="300px"
+        />
+      </div>
+      <div className="p-5">
+        <h3 className="text-lg font-bold text-gray-900">{member.name}</h3>
+        <p className={`mt-1 text-sm font-semibold ${textClass}`}>{member.role}</p>
+        <p className="mt-3 text-xs leading-relaxed text-gray-600">{member.description}</p>
       </div>
     </div>
   );
 };
 
-const TestimonialCard = ({
-  testimonial,
+// Regional Leader Card - For Zonal/Area Heads
+const RegionalLeaderCard = ({
+  member,
 }: {
-  testimonial: { name: string; role: string; text: string; rating: number };
+  member: { name: string; role: string; description: string; color: string; region: string };
 }) => {
-  // Client image mapping
-  const getClientImagePath = (name: string) => {
-    const slug = name.toLowerCase().replace(/\s+/g, '-');
-    return `/images/clients/${slug}.jpg`;
+  const colorClasses = {
+    red: 'from-red-500 to-red-600 bg-red-50 border-red-200 text-red-700',
+    cyan: 'from-cyan-500 to-cyan-600 bg-cyan-50 border-cyan-200 text-cyan-700',
+  };
+
+  const bgClass =
+    colorClasses[member.color as keyof typeof colorClasses]?.split(' ')[2] || 'bg-gray-50';
+  const borderClass =
+    colorClasses[member.color as keyof typeof colorClasses]?.split(' ')[3] || 'border-gray-200';
+  const textClass =
+    colorClasses[member.color as keyof typeof colorClasses]?.split(' ')[4] || 'text-gray-700';
+  // const gradientClass =
+  //   colorClasses[member.color as keyof typeof colorClasses]?.split(' ').slice(0, 2).join(' ') ||
+  //   'from-gray-400 to-gray-600';
+
+  const getTeamImagePath = (name: string) => {
+    const slug = name
+      .toLowerCase()
+      .replace(/^(mr\.|ms\.|mrs\.)\s+/i, '')
+      .replace(/\s+/g, '-');
+    return `/team/${slug}.png`;
   };
 
   return (
-    <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-lg">
-      <div className="mb-4 flex items-center gap-1">
-        {[...Array(testimonial.rating)].map((_, i) => (
-          <FaStar key={i} className="text-yellow-400" />
-        ))}
-      </div>
-      <div className="mb-4">
-        <FaQuoteLeft className="mb-2 text-2xl text-blue-200" />
-        <p className="leading-relaxed text-gray-700">{testimonial.text}</p>
-      </div>
-      <div className="flex items-center gap-3">
-        <div className="h-12 w-12 overflow-hidden rounded-full bg-blue-100">
-          {/* REPLACE CLIENT IMAGES:
-              /public/images/clients/priya-menon.jpg - Professional headshot of Priya Menon
-              /public/images/clients/arjun-verma.jpg - Professional headshot of Arjun Verma
-              /public/images/clients/kavita-iyer.jpg - Professional headshot of Kavita Iyer
-              /public/images/clients/rajesh-kumar.jpg - Professional headshot of Rajesh Kumar
-              /public/images/clients/sneha-patel.jpg - Professional headshot of Sneha Patel
-              /public/images/clients/amit-sharma.jpg - Professional headshot of Amit Sharma
-          */}
-          <Image
-            src={getClientImagePath(testimonial.name)}
-            alt={`${testimonial.name} - ${testimonial.role}`}
-            width={48}
-            height={48}
-            className="h-full w-full object-cover"
-          />
+    <div
+      className={`group overflow-hidden rounded-2xl border-2 ${borderClass} ${bgClass} shadow-lg transition-all hover:shadow-2xl`}
+    >
+      <div className="grid grid-cols-1 gap-6 p-6 md:grid-cols-3">
+        <div className="flex justify-center md:col-span-1">
+          <div className="relative aspect-square w-48 overflow-hidden rounded-xl border-4 border-white shadow-lg">
+            <Image
+              src={getTeamImagePath(member.name)}
+              alt={`${member.name} - ${member.role}`}
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-110"
+              sizes="192px"
+            />
+          </div>
         </div>
-        <div>
-          <div className="font-semibold text-gray-900">{testimonial.name}</div>
-          <div className="text-sm text-gray-600">{testimonial.role}</div>
+        <div className="flex flex-col justify-center md:col-span-2">
+          <div
+            className={`mb-2 inline-flex w-fit items-center gap-2 rounded-full ${bgClass} border ${borderClass} px-3 py-1 text-xs font-semibold ${textClass}`}
+          >
+            <FaMapMarkerAlt />
+            {member.region}
+          </div>
+          <h3 className="text-2xl font-bold text-gray-900">{member.name}</h3>
+          <p className={`mt-1 text-base font-semibold ${textClass}`}>{member.role}</p>
+          <p className="mt-4 text-sm leading-relaxed text-gray-700">{member.description}</p>
         </div>
       </div>
     </div>
