@@ -5,6 +5,7 @@ import { memo, useMemo } from 'react';
 import './style.css';
 import { ReactNode } from 'react';
 import { IMAGE_BASE_URL } from '@/consts/variables';
+import { FaShieldAlt, FaLightbulb, FaUsers, FaStar } from 'react-icons/fa';
 
 // Dynamic imports for carousels
 const MainCaraousel = dynamic(() => import('@/components/main-caraousel'), { ssr: true });
@@ -840,6 +841,139 @@ function ConnectCTASection() {
   );
 }
 
+// InsurAI Section Component
+function InsurAISection() {
+  return (
+    <section className="isolate">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+          {/* Left - Content */}
+          <div>
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-300/30 bg-cyan-500/10 px-4 py-2 backdrop-blur-sm">
+              <FaStar className="text-cyan-600" />
+              <span className="text-sm font-semibold text-cyan-900">
+                AI-Powered Insurance Advisor
+              </span>
+            </div>
+
+            <h2 className="text-4xl font-bold text-slate-900 md:text-5xl">
+              Meet{' '}
+              <span className="bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
+                InsurAI
+              </span>
+            </h2>
+
+            <p className="mt-6 text-xl leading-relaxed text-slate-700/85">
+              Your personal AI insurance advisor that simplifies complex insurance decisions and
+              supports you throughout the entire policy lifecycle.
+            </p>
+
+            <div className="mt-8 space-y-4">
+              {[
+                {
+                  icon: FaShieldAlt,
+                  title: 'Smart Recommendations',
+                  desc: 'Analyzes your life stage, financial goals, and risk profile to recommend optimal insurance plans',
+                },
+                {
+                  icon: FaLightbulb,
+                  title: 'Clear Explanations',
+                  desc: 'Explains coverage, exclusions, and benefits in simple language you can understand',
+                },
+                {
+                  icon: FaUsers,
+                  title: 'Lifecycle Support',
+                  desc: 'Track policies, get renewal reminders, and receive step-by-step claims guidance',
+                },
+              ].map((feature, index) => (
+                <div
+                  key={index}
+                  className="flex items-start gap-4 rounded-xl border border-slate-200 bg-white/80 p-4 backdrop-blur-sm transition-all hover:shadow-md"
+                >
+                  <div className="flex-shrink-0 rounded-lg bg-gradient-to-br from-cyan-100 to-blue-100 p-3">
+                    <feature.icon className="text-xl text-cyan-700" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-slate-900">{feature.title}</h3>
+                    <p className="mt-1 text-sm text-slate-700/85">{feature.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+              <a
+                href="https://insurai.shareindiainsurance.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-cyan-600 to-blue-600 px-8 py-4 font-semibold text-white shadow-lg transition-all hover:scale-105 hover:shadow-xl"
+              >
+                <FaStar className="transition-transform group-hover:rotate-12" />
+                Try InsurAI Now
+                <ArrowIcon />
+              </a>
+              <Link
+                href="/about"
+                className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-slate-300 bg-white px-8 py-4 font-semibold text-slate-700 transition-all hover:border-slate-400 hover:bg-slate-50"
+              >
+                Learn More About Us
+              </Link>
+            </div>
+          </div>
+
+          {/* Right - Visual */}
+          <div className="relative">
+            <div className="absolute -inset-4 rounded-3xl bg-gradient-to-r from-cyan-400/20 to-blue-400/20 blur-2xl" />
+            <div className="relative overflow-hidden rounded-2xl border-4 border-white bg-gradient-to-br from-white to-cyan-50/50 p-8 shadow-2xl">
+              <div className="space-y-6">
+                {/* AI Chat Simulation */}
+                <div className="rounded-xl bg-white p-4 shadow-md">
+                  <div className="mb-3 flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500 to-blue-600">
+                      <FaStar className="text-white" />
+                    </div>
+                    <div>
+                      <div className="font-semibold text-slate-900">InsurAI</div>
+                      <div className="text-xs text-green-600">● Online 24/7</div>
+                    </div>
+                  </div>
+                  <div className="space-y-3">
+                    <div className="rounded-lg bg-gradient-to-r from-cyan-50 to-blue-50 p-3 text-sm text-slate-700">
+                      Hi! I&apos;m InsurAI. I can help you find the perfect insurance plan based on
+                      your needs.
+                    </div>
+                    <div className="ml-8 rounded-lg bg-slate-100 p-3 text-sm text-slate-700">
+                      I need health insurance for my family
+                    </div>
+                    <div className="rounded-lg bg-gradient-to-r from-cyan-50 to-blue-50 p-3 text-sm text-slate-700">
+                      Great! Let me analyze the best options for you...
+                    </div>
+                  </div>
+                </div>
+
+                {/* Features Grid */}
+                <div className="grid grid-cols-2 gap-3">
+                  {[
+                    { label: 'Instant Quotes', value: '< 2 min' },
+                    { label: 'Plans Compared', value: '40+' },
+                    { label: 'Avg. Savings', value: '15%' },
+                    { label: 'Response Time', value: '24/7' },
+                  ].map((stat, index) => (
+                    <div key={index} className="rounded-lg bg-white p-4 text-center shadow-sm">
+                      <div className="text-2xl font-bold text-cyan-600">{stat.value}</div>
+                      <div className="mt-1 text-xs text-slate-600">{stat.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function HomePage() {
   return (
     <main className="bg-app-gradient relative min-h-screen pt-16">
@@ -852,6 +986,14 @@ export default function HomePage() {
       {/* Hero Section */}
       <CardScreen id="hero">
         <HeroSection />
+      </CardScreen>
+
+      {/* Spacing */}
+      <div className="py-8" />
+
+      {/* InsurAI Section */}
+      <CardScreen id="insurai">
+        <InsurAISection />
       </CardScreen>
 
       {/* Spacing */}

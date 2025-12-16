@@ -91,6 +91,7 @@ export interface SelectedInsurance {
 
 export interface CartItem extends SelectedInsurance {
   id: string;
+  insuredAmount: number;
 }
 
 export type InsuranceCategory =
