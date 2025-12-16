@@ -186,6 +186,7 @@ export default function Header() {
         },
         { label: 'Testimonials', href: '/about#testimonials', desc: 'What clients say' },
         { label: 'Careers', href: '/careers', desc: 'Grow with us' },
+        { label: 'Contact Us', href: '/contact', desc: 'Get in touch with us' },
       ],
     },
   ];
@@ -342,17 +343,19 @@ export default function Header() {
         <div className="text-si-ink flex items-center gap-3 text-[13px] font-medium xl:gap-4 xl:text-[14px]">
           {/* Utility links: single underline on hover */}
           <Link
-            href="/contact"
-            className={`${baseLinkCls} hover:text-si-primary decoration-2 underline-offset-4 transition-colors hover:underline`}
-          >
-            Contact Us
-          </Link>
-          <Link
             href="/be-a-posp"
             className="btn-primary hover-lift rounded-full px-4 py-2 text-sm font-semibold transition-all xl:px-5 xl:py-2.5"
           >
             Be a POSP
           </Link>
+          <a
+            href="https://insurai.shareindiainsurance.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary hover-lift rounded-full px-4 py-2 text-sm font-semibold transition-all xl:px-5 xl:py-2.5"
+          >
+            Talk to an Agent
+          </a>
         </div>
       </div>
 
@@ -464,19 +467,21 @@ export default function Header() {
             {/* Secondary / Utility */}
             <div className="mt-8 flex flex-col gap-3 border-t pt-6 text-[14px] font-medium text-black">
               <Link
-                href="/contact"
-                onClick={() => setMobileMenu(false)}
-                className="decoration-2 underline-offset-4 transition-colors hover:underline"
-              >
-                Contact Us
-              </Link>
-              <Link
                 href="/be-a-posp"
                 onClick={() => setMobileMenu(false)}
                 className="rounded-full border border-blue-700 bg-blue-700 px-3 py-2 text-center text-white shadow-[0_2px_10px_rgba(37,99,235,0.35)] ring-1 ring-white/40 transition hover:bg-blue-800"
               >
                 Be a POSP
               </Link>
+              <a
+                href="https://insurai.shareindiainsurance.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenu(false)}
+                className="rounded-full border border-blue-700 bg-blue-700 px-3 py-2 text-center text-white shadow-[0_2px_10px_rgba(37,99,235,0.35)] ring-1 ring-white/40 transition hover:bg-blue-800"
+              >
+                Talk to an Agent
+              </a>
             </div>
           </div>
         </aside>

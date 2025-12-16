@@ -3,11 +3,10 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 import Header from '@/components/header/header';
-// import Footer from '@/components/footer/footer';
-import ChatbotWidget from '@/components/chatbot/chatbot-widget';
-
-import { Inter, Geist_Mono } from 'next/font/google';
 import Footer from '@/components/footer/footer';
+import ChatbotWidget from '@/components/chatbot/chatbot-widget';
+import FloatingAgentButton from '@/components/FloatingAgentButton';
+import { Inter, Geist_Mono } from 'next/font/google';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -89,6 +88,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="text-si-dark bg-white">{children}</main>
         <Footer />
         <ChatbotWidget />
+        <FloatingAgentButton />
       </body>
     </html>
   );

@@ -9,6 +9,11 @@
           "type": "navigation"
         },
         {
+          "text": "🤖 Try InsurAI (24/7 AI Advisor)",
+          "action": "insurai_info",
+          "type": "navigation"
+        },
+        {
           "text": "💰 Get Premium Estimate",
           "action": "premium_estimator",
           "type": "navigation"
@@ -16,11 +21,6 @@
         {
           "text": "👨‍💼 Connect with Agent",
           "action": "agent_menu",
-          "type": "navigation"
-        },
-        {
-          "text": "💼 Careers & Opportunities",
-          "action": "careers_menu",
           "type": "navigation"
         },
         {
@@ -407,9 +407,37 @@
         }
       ]
     },
+    "insurai_info": {
+      "message": "Meet InsurAI - Your 24/7 AI Insurance Advisor!",
+      "answer": "InsurAI is your personal AI insurance advisor that simplifies complex insurance decisions. It analyzes your life stage, financial goals, family needs, and risk profile to recommend the most suitable insurance plans at optimal costs. Get instant quotes, track policies, receive renewal reminders, and get step-by-step claims guidance - all powered by AI!",
+      "buttons": [
+        {
+          "text": "🤖 Talk to InsurAI Now",
+          "action": "redirect",
+          "url": "https://insurai.shareindiainsurance.com",
+          "type": "redirect"
+        },
+        {
+          "text": "📖 Learn More About InsurAI",
+          "action": "redirect",
+          "url": "/about#insurai",
+          "type": "redirect"
+        },
+        {
+          "text": "💰 Try Premium Estimator Instead",
+          "action": "premium_estimator",
+          "type": "navigation"
+        },
+        {
+          "text": "← Back to Main Menu",
+          "action": "welcome",
+          "type": "navigation"
+        }
+      ]
+    },
     "premium_estimator": {
       "message": "Get an instant premium estimate for your insurance needs!",
-      "answer": "Our premium estimator provides quick, accurate quotes tailored to your specific requirements. No obligation required.",
+      "answer": "Our advanced premium estimator lets you select your industry first, then choose specific insurance types with customizable insured amounts. Get instant quotes for Asset Insurance, Liability Insurance, Marine Insurance, Employee Benefits, and more - all with transparent rate units (per mille, percentage, or flat rates).",
       "buttons": [
         {
           "text": "🧮 Calculate Premium Now",
@@ -418,13 +446,13 @@
           "type": "redirect"
         },
         {
-          "text": "📞 Get Quote Over Phone",
-          "action": "contact_phone",
-          "type": "info"
+          "text": "🤖 Try InsurAI Instead",
+          "action": "insurai_info",
+          "type": "navigation"
         },
         {
-          "text": "📧 Request Quote via Email",
-          "action": "contact_email",
+          "text": "📞 Get Quote Over Phone",
+          "action": "contact_phone",
           "type": "info"
         },
         {
@@ -551,10 +579,14 @@
           "type": "redirect"
         },
         {
-          "text": "👨‍💼 Leadership Team",
-          "action": "redirect",
-          "url": "/about#leadership",
-          "type": "redirect"
+          "text": "👨‍💼 Our Team (10 Experts)",
+          "action": "team_info",
+          "type": "navigation"
+        },
+        {
+          "text": "🤖 About InsurAI",
+          "action": "insurai_info",
+          "type": "navigation"
         },
         {
           "text": "🏆 Awards & Recognition",
@@ -581,9 +613,37 @@
         }
       ]
     },
+    "team_info": {
+      "message": "Meet our expert team of insurance professionals!",
+      "answer": "Our team is led by Ms. Sonam Gupta (President) and includes 10 experienced professionals:\n\n• Senior Leadership: Prakash Rao Dumble (Head - General Insurance, 30 years exp.), Ram Chandra (Head - Life Insurance, 25 years exp.), Ravi Shahani (Head of Business Excellence)\n\n• Operational Leaders: Shekhar Pradhan (Claim Manager), Manish Chavan (Product Manager), Vidhi Shah (Head Underwriter), Rajendra Muppidwar (Area Manager)\n\n• Regional Heads: Raunaq Pai (Zonal Head - West), Akash Agam (Area Head - North)\n\nTogether, they bring decades of expertise in insurance, claims, underwriting, and customer service.",
+      "buttons": [
+        {
+          "text": "👥 View Full Team",
+          "action": "redirect",
+          "url": "/about#our-team",
+          "type": "redirect"
+        },
+        {
+          "text": "💼 Join Our Team",
+          "action": "careers_menu",
+          "type": "navigation"
+        },
+        {
+          "text": "← Back to About Menu",
+          "action": "about_menu",
+          "type": "navigation"
+        }
+      ]
+    },
     "agent_menu": {
       "message": "Connect with our insurance experts:",
       "buttons": [
+        {
+          "text": "🤖 Talk to InsurAI (24/7 AI Advisor)",
+          "action": "redirect",
+          "url": "https://insurai.shareindiainsurance.com",
+          "type": "redirect"
+        },
         {
           "text": "📞 Call: 1800 210 2022",
           "action": "contact_phone",
@@ -603,11 +663,6 @@
         {
           "text": "📅 Schedule Consultation",
           "action": "schedule_consultation",
-          "type": "info"
-        },
-        {
-          "text": "💬 WhatsApp Support",
-          "action": "whatsapp_support",
           "type": "info"
         },
         {
@@ -721,6 +776,10 @@
     }
   },
   "quick_actions": [
+    {
+      "text": "🤖 InsurAI",
+      "action": "insurai_info"
+    },
     {
       "text": "💰 Get Quote",
       "action": "premium_estimator"
