@@ -89,7 +89,7 @@ const InsuranceCalculator: React.FC = () => {
     // Handle flat rates
     const numericRate = parseFloat(rateStr.replace(/[^\d.]/g, ''));
     if (!isNaN(numericRate)) {
-      return numericRate;
+      return (sumInsured / 1000) * numericRate;
     }
 
     return 0;

@@ -29,13 +29,10 @@ export interface AssetInsurance {
 }
 
 export interface MarineInsurance {
-  hullInsurance?: string;
-  cropInsurance?: string;
-  cattleInsurance?: string;
-  jewellerBlockInsurance?: string;
-  fineArtInsurance?: string;
   specificMarine?: string;
   openMarinePolicy?: string;
+  salesTurnoverPolicy?: string;
+  stockThroughoutPolicy?: string;
 }
 
 export interface LiabilityInsurance {
@@ -59,8 +56,12 @@ export interface EmployeeBenefits {
 }
 
 export interface SpecialPolicies {
-  salesTurnoverPolicy?: string;
-  stockThroughoutPolicy?: string;
+  // hullInsurance?: string;
+  // cropInsurance?: string;
+  // cattleInsurance?: string;
+  // jewellerBlockInsurance?: string;
+  // fineArtInsurance?: string;
+
   industrialAllRisk?: string | number;
   contractorsAllRisk?: string;
   contractorsPlantMachinery?: string;
