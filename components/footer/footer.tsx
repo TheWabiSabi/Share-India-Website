@@ -130,48 +130,71 @@ const Footer: React.FC = () => {
                   height={60}
                   className="mb-4 h-auto w-auto"
                 />
-                <p className="text-justify text-sm leading-relaxed">
+                {/* <p className="text-justify text-sm leading-relaxed">
                   Your trusted partner for comprehensive insurance solutions across health, motor,
                   life, and enterprise risks.
-                </p>
+                </p> */}
               </div>
 
-              {/* Trust badges (IRDAI) */}
-              <div className="text-si-dark/70 mt-4 grid grid-cols-2 gap-3 text-xs sm:max-w-xs">
-                <div className="rounded-lg border border-slate-200 bg-white px-3 py-2">
-                  <div className="text-si-dark/50 text-[10px] tracking-wide uppercase">
-                    IRDAI Broker Code
+              {/* Contact & Social */}
+              <div className="mt-6 space-y-4">
+                <div className="text-si-dark/80 space-y-3 text-sm">
+                  <div>
+                    <div className="text-si-dark/50 font-bolduppercase text-xs font-bold tracking-wide uppercase">
+                      Registered Address
+                    </div>
+                    <div>
+                      14, Dayanand Vihar, Near Karkardooma Metro Station, Vikas Marg, Delhi, 110092.
+                    </div>
                   </div>
-                  <div className="text-si-dark font-semibold">IRDA/DB 692</div>
-                </div>
-                <div className="rounded-lg border border-slate-200 bg-white px-3 py-2">
-                  <div className="text-si-dark/50 text-[10px] tracking-wide uppercase">
-                    Category
+                  <div>
+                    <div className="text-si-dark/50 text-xs font-bold tracking-wide uppercase">
+                      Corporate Address
+                    </div>
+                    <div>
+                      Unit no- 1, D Wing, Ground floor Gundecha Onclaves Kherani Rd, Next to Post
+                      Office Saki Naka, Andheri East, Mumbai, Maharashtra 400072.
+                    </div>
                   </div>
-                  <div className="text-si-dark font-semibold">Direct—Life &amp; General</div>
                 </div>
-              </div>
 
-              {/* Social */}
-              <div className="mt-6 flex gap-3">
-                {socialLinks.map((s) => (
-                  <Link
-                    key={s.name}
-                    href={s.href}
-                    aria-label={s.name}
-                    className="group inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
-                  >
-                    <svg
-                      width={20}
-                      height={20}
-                      viewBox="0 0 512 512"
-                      fill="currentColor"
-                      className="text-si-dark/70 group-hover:text-si-primary transition"
+                {/* Trust badges (IRDAI) */}
+                <div className="text-si-dark/70 mt-4 grid grid-cols-2 gap-3 text-xs sm:max-w-xs">
+                  <div className="rounded-lg border border-slate-200 bg-white px-3 py-2">
+                    <div className="text-si-dark/50 text-[10px] tracking-wide uppercase">
+                      IRDAI Broker Code
+                    </div>
+                    <div className="text-si-dark font-semibold">IRDA/DB 692</div>
+                  </div>
+                  <div className="rounded-lg border border-slate-200 bg-white px-3 py-2">
+                    <div className="text-si-dark/50 text-[10px] tracking-wide uppercase">
+                      Toll Free Number
+                    </div>
+                    <div className="text-si-dark font-semibold">1800 210 2022</div>
+                  </div>
+                </div>
+
+                {/* Social */}
+                <div className="flex gap-3">
+                  {socialLinks.map((s) => (
+                    <Link
+                      key={s.name}
+                      href={s.href}
+                      aria-label={s.name}
+                      className="group inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
                     >
-                      <path d={s.svgPath} />
-                    </svg>
-                  </Link>
-                ))}
+                      <svg
+                        width={20}
+                        height={20}
+                        viewBox="0 0 512 512"
+                        fill="currentColor"
+                        className="text-si-dark/70 group-hover:text-si-primary transition"
+                      >
+                        <path d={s.svgPath} />
+                      </svg>
+                    </Link>
+                  ))}
+                </div>
               </div>
             </div>
 
