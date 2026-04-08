@@ -1,0 +1,83 @@
+{
+  "_meta": {
+    "description": "Build, deploy, and toolchain configuration for the repo. Load instead of reading config files.",
+    "lastUpdated": "2026-04-09",
+    "approxTokensToLoadThisFile": 250,
+    "approxTokensToLoadSources": 1500
+  },
+  "nextjs": {
+    "version": "15.3.5",
+    "router": "App Router",
+    "output": "standalone",
+    "turbopack": true,
+    "configFile": "next.config.ts",
+    "images": {
+      "remoteDomains": ["static.shareindiainsurance.com"],
+      "minimumCacheTTL": 60,
+      "deviceSizes": [640, 750, 828, 1080, 1200, 1920],
+      "imageSizes": [16, 32, 48, 64, 96, 128, 256, 384]
+    }
+  },
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "dependencies": {
+    "runtime": {
+      "next": "15.3.5",
+      "react": "^19.0.0",
+      "react-dom": "^19.0.0",
+      "framer-motion": "^12.23.12",
+      "swiper": "^11.2.10",
+      "react-icons": "^5.5.0",
+      "marked": "^16.2.1",
+      "@next/mdx": "^15.5.2",
+      "next-mdx-remote": "^5.0.0",
+      "remark-gfm": "^4.0.1"
+    },
+    "dev": {
+      "tailwindcss": "^4",
+      "@tailwindcss/postcss": "^4",
+      "@tailwindcss/typography": "^0.5.16",
+      "prettier": "^3.6.2",
+      "eslint": "^9",
+      "typescript": "^5"
+    }
+  },
+  "styling": {
+    "framework": "Tailwind CSS v4",
+    "configLocation": "postcss.config.mjs (NOT tailwind.config.js — v4 uses PostCSS plugin)",
+    "globalStyles": "app/globals.css",
+    "appStyles": "app/style.css",
+    "swiperStyles": "components/swiper.css",
+    "note": "Tailwind v4 uses @import 'tailwindcss'; and @theme {} blocks in globals.css — no config file"
+  },
+  "docker": {
+    "dockerfile": "Dockerfile",
+    "baseImage": "node:18-alpine",
+    "stages": ["base", "deps", "builder", "runner"],
+    "port": 3000,
+    "environments": {
+      "dev": "docker-compose.dev.yml",
+      "staging": "docker-compose.staging.yml",
+      "prod": "docker-compose.prod.yml"
+    }
+  },
+  "codeQuality": {
+    "eslint": { "config": "eslint.config.mjs", "extends": "eslint-config-next" },
+    "prettier": { "config": ".prettierrc", "ignore": ".prettierignore", "plugin": "prettier-plugin-tailwindcss" },
+    "typescript": { "config": "tsconfig.json" }
+  },
+  "pathAlias": {
+    "@/": "root of project (configured in tsconfig.json)"
+  },
+  "gitignore": {
+    "file": ".gitignore",
+    "ignored": [".next/", "node_modules/", ".env (env vars only in .env.example)"]
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "_meta": {
+    "description": "All shared TypeScript types and constants. Load instead of reading consts/ and interface files.",
+    "lastUpdated": "2026-04-09",
+    "approxTokensToLoadThisFile": 400,
+    "approxTokensToLoadSources": 2000
+  },
+  "constants": {
+    "IMAGE_BASE_URL": {
+      "value": "https://static.shareindiainsurance.com",
+      "file": "consts/variables.ts",
+      "usage": "Prefix for all remote image paths. Already whitelisted in next.config.ts"
+    },
+    "AllIndustries": {
+      "values": ["corporate", "retail"],
+      "file": "consts/industries.ts",
+      "type": "union"
+    },
+    "AllTypes": {
+      "values": ["news", "blogs", "claims_story"],
+      "file": "consts/types.ts",
+      "type": "union"
+    },
+    "AllTopics": {
+      "industryTopics": [
+        "Infrastructure Industry",
+        "Life Sciences & Pharma Industry",
+        "Plastic Industry",
+        "Startup Industry",
+        "Real Estate Industry",
+        "Chemical Industry",
+        "Logistics Industry",
+        "Textile Industry",
+        "Solar Industry"
+      ],
+      "retailTopics": ["Retail"],
+      "corporateTopics": [
+        "Property & Engineering Insurance",
+        "Liability Insurance",
+        "Marine Transit Insurance",
+        "Trade Credit Insurance",
+        "Media & Entertainment Insurance",
+        "Employee Benefits Insurance",
+        "Motor Fleet Insurance",
+        "Office Package Insurance",
+        "Shopkeepers Package & Jewellers Block",
+        "Group Travel Insurance Plans"
+      ],
+      "file": "consts/topics.ts"
+    }
+  },
+  "interfaces": {
+    "BlogInterface": {
+      "file": "app/blog/blog.interface.ts",
+      "fields": ["slug", "topic", "industry", "type", "title", "author", "date", "readTime", "category", "image", "featured"]
+    },
+    "InfrastructureInsuranceDetails": {
+      "file": "app/industries/main.interface.ts",
+      "note": "Used as the shape for every industry detail page's data object",
+      "sections": ["img", "hero", "explaination (typo!)", "coverage", "claim_story", "relevant", "knowledge"],
+      "knownTypos": ["'explaination' should be 'explanation'", "'desciption' should be 'description' (in CoverageSection)"]
+    },
+    "PremiumEstimatorInterfaces": {
+      "file": "app/premium-estimator/interface.ts",
+      "topLevelTypes": ["Industry", "InsuranceRates", "SelectedInsurance", "CartItem", "InsuranceCategory", "InsuranceCategoryInfo"],
+      "insuranceCategories": ["assetInsurance", "marineInsurance", "liabilityInsurance", "employeeBenefits", "specialPolicies", "profitProtection"]
+    },
+    "ChatbotTypes": {
+      "file": "components/chatbot/chatbot-types.ts",
+      "exports": ["ChatbotButton", "ChatbotFlow", "FallbackResponse", "QuickAction", "ChatbotFlows", "FallbackResponses", "ChatbotData", "ChatMessage", "ChatbotState", "ChatbotWidgetProps", "NavigationAction"]
+    }
+  },
+  "designSystem": {
+    "file": "app/globals.css",
+    "colors": {
+      "si-primary": "#2da9ff",
+      "si-primary-range": "50 through 900 (sky/blue scale)",
+      "si-red": "#e53935",
+      "si-red-range": "50 through 900",
+      "si-slate": "#64748b",
+      "si-slate-range": "50 through 900",
+      "si-ink": "#1e293b",
+      "si-dark": "#0f172a",
+      "si-white": "#ffffff",
+      "si-offwhite": "#f8fbff",
+      "si-lightblue": "#e8f4ff",
+      "si-bg": "#f8fafc",
+      "si-muted": "#f1f5f9"
+    },
+    "fonts": {
+      "sans": "Inter (--font-inter)",
+      "mono": "Geist Mono (--font-geist-mono)"
+    },
+    "cssVariables": {
+      "--background": "#ffffff (light) / #2c3333 (dark)",
+      "--foreground": "#062434 (light) / #e7f6f2 (dark)"
+    }
+  }
+}

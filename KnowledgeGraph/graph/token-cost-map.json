@@ -1,0 +1,71 @@
+{
+  "_meta": {
+    "description": "Token cost estimates for every significant file. Use this to decide what to load vs skip in a session.",
+    "lastUpdated": "2026-04-09",
+    "tokenEstimateMethod": "~1 token per 4 bytes (rough approximation)",
+    "approxTokensToLoadThisFile": 200
+  },
+  "costTiers": {
+    "NEVER_LOAD": {
+      "description": "These files are too large or irrelevant to ever load in a session",
+      "files": [
+        { "path": "full-export.md", "sizeKB": 138, "approxTokens": 34500 },
+        { "path": "app/premium-estimator/data.ts", "sizeKB": 225, "approxTokens": 56250 },
+        { "path": "markdowns/ (all 41 files combined)", "sizeKB": 500, "approxTokens": 125000 },
+        { "path": "node_modules/", "sizeKB": "very large", "approxTokens": "millions" },
+        { "path": "package-lock.json", "sizeKB": 313, "approxTokens": 78250 }
+      ]
+    },
+    "LOAD_ONLY_IF_TASK_REQUIRES": {
+      "description": "Large files — only read when the task directly involves them",
+      "files": [
+        { "path": "app/about/page.tsx", "sizeKB": 47.6, "approxTokens": 11900 },
+        { "path": "app/page.tsx (homepage)", "sizeKB": 42.8, "approxTokens": 10700 },
+        { "path": "components/chatbot/responses.json", "sizeKB": 25.3, "approxTokens": 6325 },
+        { "path": "app/blogs/page.tsx", "sizeKB": 23.2, "approxTokens": 5800 },
+        { "path": "components/header/header.tsx", "sizeKB": 19.6, "approxTokens": 4900 },
+        { "path": "app/careers/page.tsx", "sizeKB": 19.6, "approxTokens": 4900 },
+        { "path": "app/industries/page.tsx", "sizeKB": 17.4, "approxTokens": 4350 },
+        { "path": "app/retail/page.tsx", "sizeKB": 16.0, "approxTokens": 4000 },
+        { "path": "app/corporate-insurance/page.tsx", "sizeKB": 15.7, "approxTokens": 3925 },
+        { "path": "components/chatbot/chatbot-widget.tsx", "sizeKB": 14.8, "approxTokens": 3700 },
+        { "path": "components/footer/footer.tsx", "sizeKB": 12.8, "approxTokens": 3200 },
+        { "path": "app/blog/list_of_blogs.json", "sizeKB": 20.0, "approxTokens": 5000 },
+        { "path": "app/premium-estimator/page.tsx", "sizeKB": 29.4, "approxTokens": 7350 },
+        { "path": "app/style.css", "sizeKB": 11.8, "approxTokens": 2950 }
+      ]
+    },
+    "CHEAP_TO_LOAD": {
+      "description": "Small, high-value files safe to load when relevant",
+      "files": [
+        { "path": "KnowledgeGraph/KnowledgeGraph.md", "sizeKB": 4, "approxTokens": 800, "note": "Start here every session" },
+        { "path": "KnowledgeGraph/graph/routes.json", "sizeKB": 3, "approxTokens": 300 },
+        { "path": "KnowledgeGraph/graph/components.json", "sizeKB": 3, "approxTokens": 600 },
+        { "path": "KnowledgeGraph/graph/types-and-constants.json", "sizeKB": 3, "approxTokens": 400 },
+        { "path": "KnowledgeGraph/graph/build-and-config.json", "sizeKB": 2, "approxTokens": 250 },
+        { "path": "KnowledgeGraph/graph/decisions-and-gotchas.json", "sizeKB": 2, "approxTokens": 200 },
+        { "path": "app/layout.tsx", "sizeKB": 3.0, "approxTokens": 750 },
+        { "path": "app/sitemap.ts", "sizeKB": 3.6, "approxTokens": 900 },
+        { "path": "consts/types.ts", "sizeKB": 0.1, "approxTokens": 25 },
+        { "path": "consts/industries.ts", "sizeKB": 0.1, "approxTokens": 28 },
+        { "path": "consts/variables.ts", "sizeKB": 0.1, "approxTokens": 18 },
+        { "path": "consts/topics.ts", "sizeKB": 1.1, "approxTokens": 265 },
+        { "path": "lib/anim.tsx", "sizeKB": 0.9, "approxTokens": 230 },
+        { "path": "components/motion.tsx", "sizeKB": 4.6, "approxTokens": 1150 },
+        { "path": "next.config.ts", "sizeKB": 0.5, "approxTokens": 125 },
+        { "path": "package.json", "sizeKB": 1.1, "approxTokens": 275 },
+        { "path": "app/globals.css", "sizeKB": 2.5, "approxTokens": 615 },
+        { "path": "app/blog/blog.interface.ts", "sizeKB": 0.25, "approxTokens": 60 },
+        { "path": "app/industries/main.interface.ts", "sizeKB": 1.3, "approxTokens": 320 },
+        { "path": "app/premium-estimator/interface.ts", "sizeKB": 2.8, "approxTokens": 700 },
+        { "path": "components/chatbot/chatbot-types.ts", "sizeKB": 2.9, "approxTokens": 715 },
+        { "path": "Dockerfile", "sizeKB": 2.2, "approxTokens": 560 }
+      ]
+    }
+  },
+  "sessionStartBudget": {
+    "recommended": "Read KnowledgeGraph.md only (~800 tokens). Load graph JSON files as needed per task.",
+    "maxBaselineForAnySession": "~2,000 tokens from KnowledgeGraph/ files before touching source code",
+    "avoidPattern": "Do NOT load all source files at session start to 'understand the codebase' — use the graph files instead."
+  }
+}
