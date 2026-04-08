@@ -1,0 +1,92 @@
+{
+  "_meta": {
+    "description": "Known bugs, typos, non-obvious decisions, and gotchas discovered during development. Read before making changes to avoid reinventing the wheel or re-introducing known issues.",
+    "lastUpdated": "2026-04-09",
+    "approxTokensToLoadThisFile": 200
+  },
+  "knownTypos": [
+    {
+      "location": "components/main-caraousel.tsx",
+      "issue": "Filename typo: 'caraousel' instead of 'carousel'",
+      "action": "DO NOT rename — all imports reference the misspelled name. Fix only if you rename all imports simultaneously."
+    },
+    {
+      "location": "app/industries/main.interface.ts — ExplanationSection.overview.projectTypes",
+      "issue": "Property named 'explaination' (missing x) — should be 'explanation'",
+      "action": "Treat as canonical; changing it requires updating all industry data files."
+    },
+    {
+      "location": "app/industries/main.interface.ts — CoverageSection",
+      "issue": "Property named 'desciption' (missing 'r') — should be 'description'",
+      "action": "Same as above — treat as canonical until a coordinated rename is done."
+    }
+  ],
+  "keyDecisions": [
+    {
+      "decision": "Turbopack in dev, standard build in CI/Docker",
+      "reason": "Turbopack is faster for HMR. Not yet stable for production builds.",
+      "implication": "Never run 'next dev --turbopack' inside Docker or CI."
+    },
+    {
+      "decision": "next.config.ts output: 'standalone'",
+      "reason": "Required for Docker — produces a self-contained server.js without needing node_modules at runtime.",
+      "implication": "Docker COPY steps in Dockerfile reference .next/standalone — do not change output mode."
+    },
+    {
+      "decision": "MDX blog posts use UUID filenames",
+      "reason": "Slug → UUID mapping is handled by the route layer so URLs can change without moving files.",
+      "implication": "Never use the UUID as a slug in URLs. Always look up the slug in list_of_blogs.json."
+    },
+    {
+      "decision": "Tailwind CSS v4 via PostCSS (no tailwind.config.js)",
+      "reason": "v4 moved to a CSS-first config model using @theme {} blocks in globals.css.",
+      "implication": "Do not create a tailwind.config.js. All theme tokens go in app/globals.css @theme block."
+    },
+    {
+      "decision": "All animation variants centralised in lib/anim.tsx + components/motion.tsx",
+      "reason": "Prevents drift in animation feel and easing values across the site.",
+      "implication": "Never create inline Framer Motion variants in page or component files."
+    },
+    {
+      "decision": "Remote images must use static.shareindiainsurance.com",
+      "reason": "CDN is whitelisted in next.config.ts. Other external domains will be blocked.",
+      "implication": "Local static assets → public/. External images → use the CDN domain only."
+    },
+    {
+      "decision": "Chatbot responses are data-driven from responses.json",
+      "reason": "Separates content from logic; chatbot-widget.tsx reads flows from the JSON at runtime.",
+      "implication": "To add or edit chatbot responses, edit components/chatbot/responses.json, not the widget component."
+    },
+    {
+      "decision": "Three separate docker-compose files (dev, staging, prod)",
+      "reason": "Each environment has different env vars, port mappings, and volume mounts.",
+      "implication": "Always confirm which compose file to use before running docker-compose commands."
+    }
+  ],
+  "doNotLoad": [
+    {
+      "file": "full-export.md",
+      "reason": "138KB one-off export dump — not a reference document. ~35,000 tokens."
+    },
+    {
+      "file": "app/premium-estimator/data.ts",
+      "reason": "225KB data file with numeric insurance rate tables. ~58,000 tokens. Read only if editing rate data."
+    },
+    {
+      "file": "markdowns/*.mdx (all 41 files)",
+      "reason": "Combined ~120,000 tokens. Load individually by slug only when editing specific article content."
+    },
+    {
+      "file": "node_modules/",
+      "reason": "Build artefact. Never context-load."
+    },
+    {
+      "file": ".next/",
+      "reason": "Build artefact. Never context-load."
+    },
+    {
+      "file": "components/chatbot/responses.json",
+      "reason": "25KB JSON data file. Load only when editing chatbot response flows."
+    }
+  ]
+}

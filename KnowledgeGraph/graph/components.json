@@ -1,0 +1,97 @@
+{
+  "_meta": {
+    "description": "Full component tree with props, features, and dependencies. Load instead of reading component source files.",
+    "lastUpdated": "2026-04-09",
+    "approxTokensToLoadThisFile": 600,
+    "approxTokensToLoadSources": 12000
+  },
+  "globalLayout": {
+    "file": "app/layout.tsx",
+    "fonts": ["Inter (--font-inter)", "Geist Mono (--font-geist-mono)"],
+    "globalComponents": ["Header", "Footer", "ChatbotWidget", "FloatingAgentButton"],
+    "metadataBase": "https://insurance.shareindia.com",
+    "siteName": "Share India Insurance Brokers"
+  },
+  "components": {
+    "Header": {
+      "file": "components/header/header.tsx",
+      "sizekB": 19.6,
+      "type": "Server Component (likely)",
+      "note": "Large file — contains full nav tree with dropdown menus. Read only when modifying nav."
+    },
+    "Footer": {
+      "file": "components/footer/footer.tsx",
+      "sizekB": 12.8,
+      "note": "Full site footer. Read only when modifying footer content/links."
+    },
+    "ChatbotWidget": {
+      "file": "components/chatbot/chatbot-widget.tsx",
+      "sizekB": 14.8,
+      "responsesData": "components/chatbot/responses.json",
+      "responsesDataSizekB": 25.3,
+      "types": "components/chatbot/chatbot-types.ts",
+      "state": {
+        "isOpen": "boolean",
+        "currentFlow": "string (key into ChatbotFlows)",
+        "messages": "ChatMessage[]",
+        "isLoading": "boolean"
+      },
+      "flows": ["welcome","about_menu","about_journey","about_impact","about_leaders","about_testimonials","industries_menu","industry_healthcare","industry_manufacturing","insurance_menu","corporate_insurance_menu","corporate_liability","retail_insurance","insights_menu","blog_posts","contact_menu","contact_info","careers","get_quote"],
+      "note": "All chatbot response text is in responses.json, not in the component."
+    },
+    "FloatingAgentButton": {
+      "file": "components/FloatingAgentButton.tsx",
+      "sizekB": 1.9,
+      "note": "Floating UI button, likely triggers ChatbotWidget."
+    },
+    "Card": {
+      "file": "components/Card.tsx",
+      "sizekB": 2.5,
+      "note": "Generic card component."
+    },
+    "MainCarousel": {
+      "file": "components/main-caraousel.tsx",
+      "sizekB": 7.0,
+      "warning": "Filename is spelled 'caraousel' (typo) — do NOT rename without updating all imports.",
+      "library": "Swiper 11",
+      "styles": "components/swiper.css"
+    },
+    "TopNewsCarousel": {
+      "file": "components/top-news-carousel.tsx",
+      "sizekB": 6.5,
+      "library": "Swiper 11"
+    },
+    "BlogCards": {
+      "BlueBlogCard": "components/cards/blue-blog-card.tsx",
+      "WhiteBlogCard": "components/cards/white-blog-card.tsx"
+    }
+  },
+  "animationSystem": {
+    "primitives": "lib/anim.tsx",
+    "clientWrappers": "components/motion.tsx",
+    "exports": {
+      "fromLib": ["easings", "durations", "t()"],
+      "fromMotion": ["FadeUp", "FadeIn", "Stagger", "Item", "FlyIn", "springs", "variants", "t", "durations"]
+    },
+    "easings": {
+      "standard": [0.22, 1.0, 0.36, 1.0],
+      "emphasized": [0.2, 0.0, 0.0, 1.0],
+      "decel": [0.05, 0.7, 0.1, 1.0],
+      "accel": [0.3, 0.0, 0.8, 0.15],
+      "linear": "linear"
+    },
+    "durations": {
+      "xshort": 0.25,
+      "short": 0.4,
+      "base": 0.6,
+      "long": 0.8,
+      "xlong": 1.0
+    },
+    "springs": {
+      "hoverLift": { "type": "spring", "stiffness": 380, "damping": 28, "mass": 0.6 },
+      "press": { "type": "spring", "stiffness": 600, "damping": 40, "mass": 0.8 },
+      "gentleFloat": { "type": "spring", "stiffness": 120, "damping": 18, "mass": 0.6 }
+    },
+    "rule": "Always import animation components from components/motion.tsx. Never create inline Framer Motion variants."
+  }
+}
