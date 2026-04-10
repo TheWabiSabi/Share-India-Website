@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function LegalDisclaimersPage() {
   return (
-    <div className="min-h-screen bg-white pt-[8vh]">
+    <div className="min-h-screen bg-gradient-to-b from-white to-si-primary-200 pt-[8vh]">
       <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
         <h1 className="text-4xl font-bold text-gray-900">Legal Disclaimers</h1>
         <p className="mt-4 text-sm text-gray-600">Last Updated: November 2024</p>

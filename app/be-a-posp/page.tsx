@@ -183,7 +183,7 @@ export default function BeAPOSPPage() {
       </section>
 
       {/* Benefits Section */}
-      <section id="learn-more" className="bg-white py-20">
+      <section id="learn-more" className="bg-gradient-to-b from-si-primary-200 to-white py-20">
         <div className="container mx-auto px-4">
           <div className="mb-16 text-center">
             <h2 className="text-si-ink mb-4 text-3xl font-bold md:text-4xl">
@@ -210,7 +210,7 @@ export default function BeAPOSPPage() {
       </section>
 
       {/* Requirements Section */}
-      <section className="bg-si-primary-50 py-20">
+      <section className="bg-gradient-to-b from-white to-si-primary-200 py-20">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
             <div>
@@ -262,7 +262,7 @@ export default function BeAPOSPPage() {
       </section>
 
       {/* Process Steps */}
-      <section className="bg-white py-20">
+      <section className="bg-gradient-to-b from-si-primary-200 to-white py-20">
         <div className="container mx-auto px-4">
           <div className="mb-16 text-center">
             <h2 className="text-si-ink mb-4 text-3xl font-bold md:text-4xl">
@@ -289,7 +289,7 @@ export default function BeAPOSPPage() {
       </section>
 
       {/* Application Form */}
-      <section id="apply-now" className="from-si-primary-50 to-si-red-50 bg-gradient-to-br py-20">
+      <section id="apply-now" className="bg-gradient-to-b from-white to-si-primary-200 py-20">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-4xl">
             <div className="mb-12 text-center">
@@ -446,11 +446,11 @@ export default function BeAPOSPPage() {
       </section>
 
       {/* Contact Section */}
-      <section className="bg-si-ink py-20 text-white">
+      <section className="bg-si-primary-200 py-20">
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold md:text-4xl">Have Questions? Get in Touch</h2>
-            <p className="mx-auto max-w-3xl text-xl text-white/80">
+            <h2 className="text-si-ink mb-4 text-3xl font-bold md:text-4xl">Have Questions? Get in Touch</h2>
+            <p className="text-si-ink/65 mx-auto max-w-3xl text-xl">
               Our team is here to help you understand the POSP program and guide you through the
               application process.
             </p>
@@ -461,34 +461,34 @@ export default function BeAPOSPPage() {
               <div className="bg-si-primary mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full">
                 <FaPhone className="text-2xl text-white" />
               </div>
-              <h3 className="mb-2 text-xl font-semibold">Call Us</h3>
-              <p className="text-white/80">+91 98765 43210</p>
-              <p className="text-white/80">Mon-Fri, 9 AM - 6 PM</p>
+              <h3 className="text-si-ink mb-2 text-xl font-semibold">Call Us</h3>
+              <p className="text-si-ink/65">+91 98765 43210</p>
+              <p className="text-si-ink/65">Mon-Fri, 9 AM - 6 PM</p>
             </div>
 
             <div className="text-center">
               <div className="bg-si-primary mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full">
                 <FaEnvelope className="text-2xl text-white" />
               </div>
-              <h3 className="mb-2 text-xl font-semibold">Email Us</h3>
-              <p className="text-white/80">posp@shareindia.com</p>
-              <p className="text-white/80">We&apos;ll respond within 24 hours</p>
+              <h3 className="text-si-ink mb-2 text-xl font-semibold">Email Us</h3>
+              <p className="text-si-ink/65">posp@shareindia.com</p>
+              <p className="text-si-ink/65">We&apos;ll respond within 24 hours</p>
             </div>
 
             <div className="text-center">
               <div className="bg-si-primary mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full">
                 <FaMapMarkerAlt className="text-2xl text-white" />
               </div>
-              <h3 className="mb-2 text-xl font-semibold">Visit Us</h3>
-              <p className="text-white/80">Mumbai, Delhi, Bangalore</p>
-              <p className="text-white/80">Multiple locations available</p>
+              <h3 className="text-si-ink mb-2 text-xl font-semibold">Visit Us</h3>
+              <p className="text-si-ink/65">Mumbai, Delhi, Bangalore</p>
+              <p className="text-si-ink/65">Multiple locations available</p>
             </div>
           </div>
 
           <div className="mt-12 text-center">
             <Link
               href="/contact"
-              className="text-si-ink hover:bg-si-primary-50 hover-lift inline-flex items-center gap-2 rounded-xl bg-white px-8 py-4 text-lg font-semibold transition-all"
+              className="btn-primary hover-lift inline-flex items-center gap-2 rounded-xl px-8 py-4 text-lg font-semibold transition-all"
             >
               Contact Our Team
               <FaHandshake />

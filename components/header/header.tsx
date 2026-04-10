@@ -318,10 +318,10 @@ export default function Header() {
             Be a POSP
           </Link>
           <Link
-            href="/services-by-shareindia"
+            href="/ai-toolkit"
             className="btn-primary rounded-full px-4 py-2 text-sm font-semibold xl:px-5"
           >
-            Services by ShareIndia
+            AI Toolkit
           </Link>
           {/* <a
             href="https://insurai.shareindiainsurance.com"
@@ -443,15 +443,13 @@ export default function Header() {
               >
                 Be a POSP
               </Link>
-              <a
-                href="https://insurai.shareindiainsurance.com"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/ai-toolkit"
                 onClick={() => setMobileMenu(false)}
                 className="btn-primary rounded-xl py-2.5 text-center text-sm font-semibold"
               >
-                Talk to an Agent
-              </a>
+                AI Toolkit
+              </Link>
             </div>
           </div>
         </aside>

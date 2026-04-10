@@ -129,7 +129,7 @@ export default function CareersPage() {
               ].map(({ value, label }) => (
                 <div
                   key={label}
-                  className="border-si-primary/10 rounded-2xl border bg-white px-5 py-3 shadow-sm"
+                  className="border-si-primary/10 rounded-2xl border bg-white px-5 py-3"
                 >
                   <div className="text-si-primary text-xl font-extrabold">{value}</div>
                   <div className="text-si-ink/60 text-xs">{label}</div>
@@ -234,7 +234,7 @@ export default function CareersPage() {
 
       {/* ── Why SIIB ── */}
       <FadeIn>
-        <section className="border-t border-gray-100 bg-[#f0f7ff] py-16">
+        <section className="border-t border-gray-100 bg-si-primary-50 py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mb-10 text-center">
               <h2 className="text-si-ink text-2xl font-bold">Why Join SIIB?</h2>
@@ -275,7 +275,7 @@ export default function CareersPage() {
             </Stagger>
 
             <FadeUp delay={0.15}>
-              <div className="from-si-primary to-si-primary-600 mt-12 overflow-hidden rounded-2xl bg-gradient-to-r p-8 text-white shadow-xl md:p-10">
+              <div className="from-si-primary to-si-primary-600 mt-12 overflow-hidden rounded-2xl bg-gradient-to-r p-8 text-white md:p-10">
                 <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-3">
                   <div className="lg:col-span-2">
                     <h3 className="text-2xl font-bold">Don&apos;t see the right role?</h3>
