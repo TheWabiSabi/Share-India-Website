@@ -6,22 +6,22 @@ const faqs = [
   {
     question: 'How do I get a quote?',
     answer:
-      "Select a service above and click 'Get Started', or contact us directly for a personalised quote from our team.",
+      "Select a service on the left and click 'Continue', or reach out to our corporate line directly for a personalized assessment from our team.",
   },
   {
     question: 'What information do I need to provide?',
     answer:
-      'Basic contact details and information about your insurance or benefits needs — our advisors guide you through everything else.',
+      'Basic contact details and a brief overview of your coverage needs. Our specialized advisors will systematically guide you through the rest.',
   },
   {
     question: 'How soon will I hear back?',
     answer:
-      'We typically respond within one business day. For urgent queries, call our toll-free line: 1800 210 2022.',
+      'We operate on strict SLAs and typically respond within one business day. For immediate assistance, please utilize our toll-free line.',
   },
   {
-    question: 'Is my information secure?',
+    question: 'Is my corporate data secure?',
     answer:
-      'Yes, we take your privacy seriously and never sell or share your personal data with third parties.',
+      'Absolutely. We adhere to stringent data protection protocols and never disclose personal or corporate data to unauthorized third parties.',
   },
 ];
 
@@ -29,63 +29,54 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <div className="mt-10">
-      <div className="mb-7 text-center">
-        <div className="accent-bar-gradient mx-auto mb-3 h-1 w-12 rounded" />
-        <h2 className="text-si-ink text-2xl font-bold">
-          Frequently Asked <span className="text-gradient-primary">Questions</span>
-        </h2>
-      </div>
+    <div>
+      <h3 className="text-si-primary-950 mb-6 text-lg font-semibold">Frequently Asked Questions</h3>
 
-      <ul className="space-y-3">
+      <div className="border-t border-slate-100">
         {faqs.map((faq, idx) => {
           const isOpen = open === idx;
           return (
-            <li
-              key={idx}
-              className={`overflow-hidden rounded-2xl border transition-all duration-200 ${isOpen ? 'border-si-primary/20 shadow-sm' : 'border-gray-100 bg-white'}`}
-            >
+            <div key={idx} className="border-b border-slate-100">
               <button
-                className={`flex w-full items-center justify-between p-5 text-left transition-colors ${isOpen ? 'bg-si-primary/5' : 'bg-white hover:bg-gray-50'}`}
+                className="group flex w-full items-center justify-between py-5 text-left focus:outline-none"
                 onClick={() => setOpen(isOpen ? null : idx)}
                 aria-expanded={isOpen}
               >
                 <span
-                  className={`font-semibold transition-colors ${isOpen ? 'text-si-primary' : 'text-si-ink'}`}
+                  className={`text-sm font-medium transition-colors duration-200 ${
+                    isOpen
+                      ? 'text-si-primary-700'
+                      : 'group-hover:text-si-primary-700 text-slate-700'
+                  }`}
                 >
                   {faq.question}
                 </span>
                 <span
-                  className={`text-si-primary border-si-primary/20 bg-si-primary/5 ml-4 shrink-0 rounded-full border p-1 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+                  className={`ml-6 flex h-6 w-6 shrink-0 items-center justify-center text-lg font-light transition-colors ${
+                    // Light si-primary (+) when closed, touch of red (-) when open
+                    isOpen ? 'text-rose-500' : 'group-hover:text-si-primary-600 text-sky-400'
+                  }`}
                 >
-                  <svg
-                    className="h-3.5 w-3.5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeWidth={2.5}
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
+                  {isOpen ? '−' : '+'}
                 </span>
               </button>
+
               <div
-                className="overflow-hidden transition-[max-height,opacity] duration-300"
-                style={{ maxHeight: isOpen ? 200 : 0, opacity: isOpen ? 1 : 0 }}
+                className="overflow-hidden transition-all duration-300 ease-in-out"
+                style={{
+                  maxHeight: isOpen ? '200px' : '0',
+                  opacity: isOpen ? 1 : 0,
+                  marginBottom: isOpen ? '20px' : '0',
+                }}
               >
-                <div className="border-si-primary/5 border-t px-5 py-4">
-                  <div className="accent-bar-gradient mb-2 h-1 w-8 rounded" />
-                  <p className="text-si-ink/70 text-sm leading-relaxed">{faq.answer}</p>
-                </div>
+                <p className="pr-8 text-sm leading-relaxed font-light text-slate-500">
+                  {faq.answer}
+                </p>
               </div>
-            </li>
+            </div>
           );
         })}
-      </ul>
+      </div>
     </div>
   );
 }

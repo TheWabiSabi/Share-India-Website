@@ -89,6 +89,30 @@
         "file": "app/cancellation-refund/",
         "priority": 0.6,
         "changeFreq": "monthly"
+      },
+      {
+        "path": "/ai-toolkit",
+        "file": "app/ai-toolkit/page.tsx",
+        "priority": 0.8,
+        "changeFreq": "monthly",
+        "note": "Renamed from /services-by-shareindia. Shows the 3 AI tools: PolicyWise, Cyrus, InsureBot.",
+        "tools": [
+          {
+            "name": "PolicyWise",
+            "url": "https://policywise.shareindiainsurance.com",
+            "purpose": "AI policy document analysis & comparison for health insurance"
+          },
+          {
+            "name": "Cyrus",
+            "url": "https://cyrus.shareindiainsurance.com",
+            "purpose": "Cyber Risk Underwriting System — encrypted audit sessions for enterprise risk"
+          },
+          {
+            "name": "InsureBot",
+            "url": "https://insurebot.shareindiainsurance.com",
+            "purpose": "AI term life insurance advisor with personalized plan recommendations"
+          }
+        ]
       }
     ],
     "retail": [

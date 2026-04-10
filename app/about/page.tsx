@@ -395,7 +395,10 @@ export default function AboutPage() {
       </section>
 
       {/* ── Leadership ── */}
-      <section id="leadership" className="scroll-mt-20 border-b border-gray-100 bg-[#f0f7ff] py-20">
+      <section
+        id="leadership"
+        className="bg-si-primary-50 scroll-mt-20 border-b border-gray-100 py-20"
+      >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <FadeUp>
             <div className="mb-14 text-center">
@@ -411,12 +414,12 @@ export default function AboutPage() {
 
           {/* CEO */}
           <FadeIn delay={0.08}>
-            <div className="border-si-primary/10 overflow-hidden rounded-3xl border bg-white shadow-xl">
+            <div className="border-si-primary/10 overflow-hidden rounded-3xl border bg-white">
               <div className="border-si-primary/8 from-si-primary/5 h-1 w-full bg-gradient-to-r to-cyan-500/5" />
               <div className="accent-bar-gradient h-1 w-full" />
               <div className="grid grid-cols-1 gap-8 p-8 lg:grid-cols-5 lg:p-12">
                 <div className="flex justify-center lg:col-span-2 lg:justify-start">
-                  <div className="ring-si-primary/10 relative aspect-square w-72 overflow-hidden rounded-2xl border-4 border-white shadow-2xl ring-1">
+                  <div className="relative aspect-square w-72 overflow-hidden rounded-2xl border-4 border-white">
                     <Image
                       src="/leadership/ajay-kumar.png"
                       alt="Mr. Ajay Kumar Patel — CEO & Principal Officer"
@@ -501,11 +504,11 @@ export default function AboutPage() {
 
           {/* President */}
           <FadeIn delay={0.06}>
-            <div className="border-si-primary/10 mx-auto mb-14 max-w-4xl overflow-hidden rounded-2xl border bg-white shadow-lg transition-all hover:shadow-xl">
+            <div className="border-si-primary/10 mx-auto mb-14 max-w-4xl overflow-hidden rounded-2xl border bg-white transition-all">
               <div className="accent-bar-gradient h-1 w-full" />
               <div className="grid grid-cols-1 gap-8 p-8 md:grid-cols-3 md:p-10">
                 <div className="flex justify-center md:col-span-1">
-                  <div className="ring-si-primary/10 relative aspect-square w-56 overflow-hidden rounded-xl border-4 border-white shadow-lg ring-1">
+                  <div className="relative aspect-square w-56 overflow-hidden rounded-xl border-4 border-white">
                     <Image
                       src="/team/sonam-gupta.png"
                       alt="Ms. Sonam Gupta — President"
@@ -658,7 +661,7 @@ export default function AboutPage() {
 
           {/* Team Values banner */}
           <FadeIn delay={0.1}>
-            <div className="from-si-primary to-si-primary-600 overflow-hidden rounded-2xl bg-gradient-to-r p-8 text-white shadow-xl md:p-12">
+            <div className="from-si-primary to-si-primary-600 overflow-hidden rounded-2xl bg-gradient-to-r p-8 text-white md:p-12">
               <div className="mb-8 text-center">
                 <h3 className="text-2xl font-bold">Our Team Values</h3>
                 <p className="mt-2 text-blue-100">
@@ -688,7 +691,7 @@ export default function AboutPage() {
       {/* ── Awards & Testimonials ── */}
       <section
         id="awards-testimonials"
-        className="scroll-mt-20 border-b border-gray-100 bg-[#f0f7ff] py-20"
+        className="bg-si-primary-50 scroll-mt-20 border-b border-gray-100 py-20"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <FadeUp>
@@ -763,7 +766,7 @@ export default function AboutPage() {
       <section className="bg-white py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <FadeIn>
-            <div className="border-si-primary/10 from-si-primary/5 overflow-hidden rounded-2xl border bg-gradient-to-br to-white p-8 shadow-sm md:p-12">
+            <div className="border-si-primary/10 from-si-primary/5 overflow-hidden rounded-2xl border bg-gradient-to-br to-white p-8 md:p-12">
               <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-3">
                 <div className="lg:col-span-2">
                   <h3 className="text-si-ink text-2xl font-bold">Ready to Protect Your Future?</h3>

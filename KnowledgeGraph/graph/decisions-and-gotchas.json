@@ -61,6 +61,21 @@
       "decision": "Three separate docker-compose files (dev, staging, prod)",
       "reason": "Each environment has different env vars, port mappings, and volume mounts.",
       "implication": "Always confirm which compose file to use before running docker-compose commands."
+    },
+    {
+      "decision": "AI Toolkit page replaces /services-by-shareindia at route /ai-toolkit",
+      "reason": "Rebranding — the page showcases 3 AI tools (PolicyWise, Cyrus, InsureBot). The old route still exists as a legacy page.",
+      "implication": "All internal links to /services-by-shareindia should point to /ai-toolkit instead. Header button also updated."
+    },
+    {
+      "decision": "Section background alternation: bg-white ↔ bg-si-primary-50",
+      "reason": "User-approved pattern. Creates visual rhythm without heavy shadows or overpowering colors.",
+      "implication": "NEVER use bg-[#f0f7ff] or other hardcoded hex values. Use bg-si-primary-50 (token: var(--color-si-primary-50) = #eff9ff). NEVER put shadow-xl/shadow-2xl on section-level containers — only on individual cards if absolutely needed."
+    },
+    {
+      "decision": "No shadows on section backgrounds or CTA panels",
+      "reason": "Shadows on large section containers create visual noise. User explicitly specified this.",
+      "implication": "Cards and images can have shadow-sm for lift. Section wrappers, CTA panels, and colored banners must have NO shadow class."
     }
   ],
   "doNotLoad": [

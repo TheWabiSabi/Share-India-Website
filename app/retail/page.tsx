@@ -188,7 +188,7 @@ export default function RetailInsurancePage() {
       </section>
 
       {/* ── Understanding Retail Insurance ── */}
-      <section className="border-b border-gray-100 bg-[#f0f7ff] py-20">
+      <section className="from-si-primary-200 border-b border-gray-100 bg-gradient-to-b to-white py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
             <FlyIn dir="right" delay={0.04}>
@@ -248,7 +248,7 @@ export default function RetailInsurancePage() {
       </section>
 
       {/* ── Core Coverage Suite ── */}
-      <section className="border-b border-gray-100 bg-white py-20">
+      <section className="to-si-primary-200 border-b border-gray-100 bg-gradient-to-b from-white py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <FadeUp>
             <div className="mb-12 text-center">
@@ -314,7 +314,7 @@ export default function RetailInsurancePage() {
       </section>
 
       {/* ── Specialized Coverage ── */}
-      <section className="border-b border-gray-100 bg-[#f0f7ff] py-16">
+      <section className="from-si-primary-200 border-b border-gray-100 bg-gradient-to-b to-white py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <FadeUp>
             <div className="mb-10 text-center">
@@ -364,7 +364,7 @@ export default function RetailInsurancePage() {
       </section>
 
       {/* ── Digital Platforms ── */}
-      <section className="border-b border-gray-100 bg-white py-16">
+      <section className="to-si-primary-200 border-b border-gray-100 bg-gradient-to-b from-white py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <FadeUp>
             <div className="mb-10 text-center">
@@ -410,10 +410,10 @@ export default function RetailInsurancePage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="bg-[#f0f7ff] py-16">
+      <section className="bg-si-primary-200 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <FadeIn>
-            <div className="border-si-primary/10 from-si-primary/5 overflow-hidden rounded-2xl border bg-gradient-to-br to-white p-8 shadow-sm md:p-10">
+            <div className="border-si-primary/10 from-si-primary/5 overflow-hidden rounded-2xl border bg-gradient-to-br to-white p-8 md:p-10">
               <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-3">
                 <div className="lg:col-span-2">
                   <h3 className="text-si-ink text-2xl font-bold">
