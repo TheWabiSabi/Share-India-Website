@@ -395,7 +395,10 @@ export default function AboutPage() {
       </section>
 
       {/* ── Leadership ── */}
-      <section id="leadership" className="scroll-mt-20 border-b border-gray-100 bg-si-primary-50 py-20">
+      <section
+        id="leadership"
+        className="bg-si-primary-50 scroll-mt-20 border-b border-gray-100 py-20"
+      >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <FadeUp>
             <div className="mb-14 text-center">
@@ -688,7 +691,7 @@ export default function AboutPage() {
       {/* ── Awards & Testimonials ── */}
       <section
         id="awards-testimonials"
-        className="scroll-mt-20 border-b border-gray-100 bg-si-primary-50 py-20"
+        className="bg-si-primary-50 scroll-mt-20 border-b border-gray-100 py-20"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <FadeUp>
