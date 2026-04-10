@@ -9,7 +9,7 @@ const Contact = ({
   value: string;
   icon: React.ReactNode;
 }) => (
-  <div className="flex items-center justify-between rounded-xl border border-gray-100 bg-white p-4 shadow-sm transition-all hover:border-si-primary/20 hover:shadow-md">
+  <div className="hover:border-si-primary/20 flex items-center justify-between rounded-xl border border-gray-100 bg-white p-4 shadow-sm transition-all hover:shadow-md">
     <div>
       <div className="text-si-ink/40 text-xs font-bold tracking-wide uppercase">{label}</div>
       <div className="text-si-ink mt-0.5 text-sm font-semibold">{value}</div>

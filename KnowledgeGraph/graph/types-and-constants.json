@@ -52,22 +52,71 @@
   "interfaces": {
     "BlogInterface": {
       "file": "app/blog/blog.interface.ts",
-      "fields": ["slug", "topic", "industry", "type", "title", "author", "date", "readTime", "category", "image", "featured"]
+      "fields": [
+        "slug",
+        "topic",
+        "industry",
+        "type",
+        "title",
+        "author",
+        "date",
+        "readTime",
+        "category",
+        "image",
+        "featured"
+      ]
     },
     "InfrastructureInsuranceDetails": {
       "file": "app/industries/main.interface.ts",
       "note": "Used as the shape for every industry detail page's data object",
-      "sections": ["img", "hero", "explaination (typo!)", "coverage", "claim_story", "relevant", "knowledge"],
-      "knownTypos": ["'explaination' should be 'explanation'", "'desciption' should be 'description' (in CoverageSection)"]
+      "sections": [
+        "img",
+        "hero",
+        "explaination (typo!)",
+        "coverage",
+        "claim_story",
+        "relevant",
+        "knowledge"
+      ],
+      "knownTypos": [
+        "'explaination' should be 'explanation'",
+        "'desciption' should be 'description' (in CoverageSection)"
+      ]
     },
     "PremiumEstimatorInterfaces": {
       "file": "app/premium-estimator/interface.ts",
-      "topLevelTypes": ["Industry", "InsuranceRates", "SelectedInsurance", "CartItem", "InsuranceCategory", "InsuranceCategoryInfo"],
-      "insuranceCategories": ["assetInsurance", "marineInsurance", "liabilityInsurance", "employeeBenefits", "specialPolicies", "profitProtection"]
+      "topLevelTypes": [
+        "Industry",
+        "InsuranceRates",
+        "SelectedInsurance",
+        "CartItem",
+        "InsuranceCategory",
+        "InsuranceCategoryInfo"
+      ],
+      "insuranceCategories": [
+        "assetInsurance",
+        "marineInsurance",
+        "liabilityInsurance",
+        "employeeBenefits",
+        "specialPolicies",
+        "profitProtection"
+      ]
     },
     "ChatbotTypes": {
       "file": "components/chatbot/chatbot-types.ts",
-      "exports": ["ChatbotButton", "ChatbotFlow", "FallbackResponse", "QuickAction", "ChatbotFlows", "FallbackResponses", "ChatbotData", "ChatMessage", "ChatbotState", "ChatbotWidgetProps", "NavigationAction"]
+      "exports": [
+        "ChatbotButton",
+        "ChatbotFlow",
+        "FallbackResponse",
+        "QuickAction",
+        "ChatbotFlows",
+        "FallbackResponses",
+        "ChatbotData",
+        "ChatMessage",
+        "ChatbotState",
+        "ChatbotWidgetProps",
+        "NavigationAction"
+      ]
     }
   },
   "designSystem": {

@@ -26,7 +26,12 @@ function SectionBadge({ children }: { children: ReactNode }) {
 function ArrowIcon() {
   return (
     <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden>
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M17 8l4 4m0 0l-4 4m4-4H3"
+      />
     </svg>
   );
 }
@@ -41,14 +46,21 @@ function ChevronIcon() {
 
 function CheckIcon() {
   return (
-    <svg className="text-si-primary h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+    <svg
+      className="text-si-primary h-4 w-4 shrink-0"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+    >
       <path strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
     </svg>
   );
 }
 
 function Bullet() {
-  return <span className="bg-si-primary ring-si-primary/20 inline-block h-1.5 w-1.5 shrink-0 rounded-full ring-2" />;
+  return (
+    <span className="bg-si-primary ring-si-primary/20 inline-block h-1.5 w-1.5 shrink-0 rounded-full ring-2" />
+  );
 }
 
 /** Full-screen card wrapper used by every homepage section */
@@ -77,47 +89,100 @@ const STATS_DATA = [
 const SERVICE_PILLARS = [
   {
     title: 'Advisory & Placement',
-    desc: ['Market scans, best-fit quotes, negotiation', 'Property, Marine, Liability', 'Health & Group Benefits'],
+    desc: [
+      'Market scans, best-fit quotes, negotiation',
+      'Property, Marine, Liability',
+      'Health & Group Benefits',
+    ],
     icon: (
       <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden>
-        <path strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+        <path
+          strokeWidth={1.8}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+        />
       </svg>
     ),
   },
   {
     title: 'Claims Advocacy',
-    desc: ['Strategy, documentation, follow-through', 'Dedicated claims desk', 'Faster TAT with liaisons'],
+    desc: [
+      'Strategy, documentation, follow-through',
+      'Dedicated claims desk',
+      'Faster TAT with liaisons',
+    ],
     icon: (
       <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden>
-        <path strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        <path
+          strokeWidth={1.8}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+        />
       </svg>
     ),
   },
   {
     title: 'Risk Engineering',
-    desc: ['Surveys, loss-prevention, underwriting fit', 'FM & statutory compliance', 'Catastrophe & cyber posture'],
+    desc: [
+      'Surveys, loss-prevention, underwriting fit',
+      'FM & statutory compliance',
+      'Catastrophe & cyber posture',
+    ],
     icon: (
       <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden>
-        <path strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><circle cx="12" cy="12" r="3" strokeWidth={1.8} />
+        <path
+          strokeWidth={1.8}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+        />
+        <circle cx="12" cy="12" r="3" strokeWidth={1.8} />
       </svg>
     ),
   },
   {
     title: 'Digital Tools',
-    desc: ['Requests, vault, renewal tracking, analytics', 'Self-serve + assisted', 'API-ready for enterprise'],
+    desc: [
+      'Requests, vault, renewal tracking, analytics',
+      'Self-serve + assisted',
+      'API-ready for enterprise',
+    ],
     icon: (
       <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden>
-        <path strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        <path
+          strokeWidth={1.8}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+        />
       </svg>
     ),
   },
 ];
 
 const AWARDS = [
-  { year: '2022', award: 'SME Superstars — Awarded to SIIB by Chola MS', img: '/awards/chola-ms.jpeg' },
-  { year: '2024', award: 'Diamond Club — Awarded to SIIB by Digit Inner Circle', img: '/awards/digit.jpeg' },
-  { year: '2025', award: "CEO of the Year to Mr. Ajay Kumar Patel — Awarded by UBS Forums", img: '/awards/ubs-ceo.jpeg' },
-  { year: '2025', award: 'Best Claims Partner of the Year — Awarded to SIIB by UBS Forums', img: '/awards/ubs-claims.jpeg' },
+  {
+    year: '2022',
+    award: 'SME Superstars — Awarded to SIIB by Chola MS',
+    img: '/awards/chola-ms.jpeg',
+  },
+  {
+    year: '2024',
+    award: 'Diamond Club — Awarded to SIIB by Digit Inner Circle',
+    img: '/awards/digit.jpeg',
+  },
+  {
+    year: '2025',
+    award: 'CEO of the Year to Mr. Ajay Kumar Patel — Awarded by UBS Forums',
+    img: '/awards/ubs-ceo.jpeg',
+  },
+  {
+    year: '2025',
+    award: 'Best Claims Partner of the Year — Awarded to SIIB by UBS Forums',
+    img: '/awards/ubs-claims.jpeg',
+  },
 ];
 
 const TESTIMONIALS = [
@@ -149,7 +214,12 @@ const INSURAI_FEATURES = [
     desc: 'Analyses your life stage, financial goals, and risk profile to recommend optimal insurance plans.',
     icon: (
       <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden>
-        <path strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+        <path
+          strokeWidth={1.8}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+        />
       </svg>
     ),
   },
@@ -158,7 +228,12 @@ const INSURAI_FEATURES = [
     desc: 'Explains coverage, exclusions, and benefits in simple language you can understand.',
     icon: (
       <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden>
-        <path strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+        <path
+          strokeWidth={1.8}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+        />
       </svg>
     ),
   },
@@ -167,7 +242,12 @@ const INSURAI_FEATURES = [
     desc: 'Track policies, get renewal reminders, and receive step-by-step claims guidance.',
     icon: (
       <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden>
-        <path strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+        <path
+          strokeWidth={1.8}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+        />
       </svg>
     ),
   },
@@ -187,8 +267,18 @@ const CONNECT_CARDS = [
     href: '/contact?type=call',
     accentCls: 'hover-glow-blue',
     icon: (
-      <svg className="text-si-primary h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+      <svg
+        className="text-si-primary h-6 w-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+        />
       </svg>
     ),
     iconBg: 'bg-si-primary/10',
@@ -200,7 +290,12 @@ const CONNECT_CARDS = [
     accentCls: 'hover-glow-red card-accent-red',
     icon: (
       <svg className="text-si-red h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+        />
       </svg>
     ),
     iconBg: 'bg-si-red/10',
@@ -211,9 +306,24 @@ const CONNECT_CARDS = [
     href: '/contact?type=visit',
     accentCls: 'hover-glow-blue sm:col-span-2 lg:col-span-1',
     icon: (
-      <svg className="text-si-primary h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+      <svg
+        className="text-si-primary h-6 w-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+        />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+        />
       </svg>
     ),
     iconBg: 'bg-si-primary/10',
@@ -226,7 +336,6 @@ function HeroSection() {
   return (
     <section aria-label="Share India insurance hero" className="isolate">
       <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-12 xl:gap-16">
-
         {/* Left */}
         <div className="max-w-2xl">
           <FadeIn>
@@ -244,9 +353,9 @@ function HeroSection() {
 
           <FadeUp delay={0.12}>
             <p className="text-si-ink/80 mt-4 max-w-xl text-base leading-relaxed sm:mt-5 sm:text-lg">
-              <strong>Share India</strong> focuses on your risk story: we analyse coverage gaps, craft
-              the right product fit with apt underwriting, and stand with you at claims—so businesses
-              and families can focus on what matters.
+              <strong>Share India</strong> focuses on your risk story: we analyse coverage gaps,
+              craft the right product fit with apt underwriting, and stand with you at claims—so
+              businesses and families can focus on what matters.
             </p>
           </FadeUp>
 
@@ -324,11 +433,17 @@ function HeroSection() {
             </div>
             <div className="mt-3 grid grid-cols-2 gap-3 text-sm sm:mt-4">
               <div className="border-si-primary/10 rounded-xl border bg-white p-3 shadow-sm sm:p-4">
-                <div className="text-si-ink/60 text-[11px] font-medium sm:text-xs">Avg. savings (SMB)</div>
-                <div className="text-gradient-primary text-base font-extrabold sm:text-lg">12 – 18%</div>
+                <div className="text-si-ink/60 text-[11px] font-medium sm:text-xs">
+                  Avg. savings (SMB)
+                </div>
+                <div className="text-gradient-primary text-base font-extrabold sm:text-lg">
+                  12 – 18%
+                </div>
               </div>
               <div className="card-accent-red rounded-xl p-3 sm:p-4">
-                <div className="text-si-ink/60 text-[11px] font-medium sm:text-xs">Locations Reached</div>
+                <div className="text-si-ink/60 text-[11px] font-medium sm:text-xs">
+                  Locations Reached
+                </div>
                 <div className="text-gradient-accent text-base font-extrabold sm:text-lg">250+</div>
               </div>
             </div>
@@ -350,7 +465,6 @@ function WhatWeDoSection() {
   return (
     <section id="what-we-do" aria-label="What we do at Share India" className="isolate">
       <div className="mx-auto max-w-7xl">
-
         {/* Header */}
         <header className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
           <div className="max-w-2xl flex-1">
@@ -359,13 +473,15 @@ function WhatWeDoSection() {
             </FadeIn>
             <FadeUp delay={0.06}>
               <h2 className="text-si-ink text-[clamp(22px,4.2vw,36px)] leading-tight font-semibold">
-                Share India prioritises <span className="text-gradient-primary">outcomes</span> first
+                Share India prioritises <span className="text-gradient-primary">outcomes</span>{' '}
+                first
               </h2>
             </FadeUp>
             <FadeUp delay={0.12}>
               <p className="text-si-ink/80 mt-3 text-[clamp(14px,2.6vw,18px)] leading-relaxed">
                 We advise, place, and service cover across leading Indian insurers—backed by claims
-                advocacy and data-driven risk insights—so you can buy with confidence and recover faster.
+                advocacy and data-driven risk insights—so you can buy with confidence and recover
+                faster.
               </p>
             </FadeUp>
           </div>
@@ -375,12 +491,30 @@ function WhatWeDoSection() {
             <aside className="w-full max-w-xl lg:w-auto">
               <div className="border-si-primary/10 rounded-xl border bg-white p-4 shadow-sm sm:p-5">
                 <div className="flex items-start gap-3">
-                  <svg className="text-si-primary mt-0.5 h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden>
-                    <path strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" d="M12 3l7 3v5c0 5-3.5 9-7 10-3.5-1-7-5-7-10V6l7-3z" />
-                    <path strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4" />
+                  <svg
+                    className="text-si-primary mt-0.5 h-5 w-5 shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    aria-hidden
+                  >
+                    <path
+                      strokeWidth={1.6}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M12 3l7 3v5c0 5-3.5 9-7 10-3.5-1-7-5-7-10V6l7-3z"
+                    />
+                    <path
+                      strokeWidth={1.6}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M9 12l2 2 4-4"
+                    />
                   </svg>
                   <div>
-                    <div className="text-si-ink/70 text-sm font-semibold">Why clients choose us</div>
+                    <div className="text-si-ink/70 text-sm font-semibold">
+                      Why clients choose us
+                    </div>
                     <ul className="text-si-ink mt-2 grid gap-2 text-[clamp(13px,2.8vw,16px)] sm:grid-cols-2">
                       {WHY_FEATURES.map((f) => (
                         <li key={f} className="flex items-center gap-2">
@@ -404,8 +538,12 @@ function WhatWeDoSection() {
               <Item key={title}>
                 <article className="group hover:border-si-primary/20 flex h-full flex-col rounded-xl border border-gray-100 bg-white p-4 transition-all hover:shadow-md sm:p-5">
                   <div className="mb-3 flex items-center justify-between">
-                    <h3 className="text-si-ink text-[clamp(14px,3.2vw,16px)] font-semibold">{title}</h3>
-                    <div className="text-si-primary bg-si-primary/5 group-hover:bg-si-primary/10 rounded-lg p-1.5 transition-colors">{icon}</div>
+                    <h3 className="text-si-ink text-[clamp(14px,3.2vw,16px)] font-semibold">
+                      {title}
+                    </h3>
+                    <div className="text-si-primary bg-si-primary/5 group-hover:bg-si-primary/10 rounded-lg p-1.5 transition-colors">
+                      {icon}
+                    </div>
                   </div>
                   <ul className="text-si-ink/80 space-y-2 text-[clamp(13px,2.8vw,14px)]">
                     {desc.map((l) => (
@@ -432,10 +570,16 @@ function WhatWeDoSection() {
               </p>
             </div>
             <div className="flex gap-2">
-              <Link href="/contact?type=quote" className="btn-primary hover-lift inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium">
+              <Link
+                href="/contact?type=quote"
+                className="btn-primary hover-lift inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium"
+              >
                 Get a Quote <ArrowIcon />
               </Link>
-              <Link href="/insights" className="btn-ghost hover-lift inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium">
+              <Link
+                href="/insights"
+                className="btn-ghost hover-lift inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium"
+              >
                 Read Insights <ChevronIcon />
               </Link>
             </div>
@@ -451,22 +595,28 @@ function InsurAISection() {
     <section aria-labelledby="insurai-title" className="isolate">
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-
           {/* Left — content */}
           <div>
             <FadeIn>
               <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan-300/30 bg-cyan-500/10 px-4 py-2">
-                <svg className="text-cyan-600 h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                <svg
+                  className="h-4 w-4 text-cyan-600"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden
+                >
                   <path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
                 </svg>
-                <span className="text-sm font-semibold text-cyan-900">AI-Powered Insurance Advisor</span>
+                <span className="text-sm font-semibold text-cyan-900">
+                  AI-Powered Insurance Advisor
+                </span>
               </div>
             </FadeIn>
 
             <FadeUp delay={0.06}>
               <h2 id="insurai-title" className="text-si-ink text-4xl font-bold md:text-5xl">
                 Meet{' '}
-                <span className="bg-gradient-to-r from-cyan-600 to-si-primary bg-clip-text text-transparent">
+                <span className="to-si-primary bg-gradient-to-r from-cyan-600 bg-clip-text text-transparent">
                   InsurAI
                 </span>
               </h2>
@@ -484,7 +634,7 @@ function InsurAISection() {
                 {INSURAI_FEATURES.map(({ title, desc, icon }) => (
                   <Item key={title}>
                     <div className="flex items-start gap-4 rounded-xl border border-gray-100 bg-white/80 p-4 transition-all hover:border-cyan-200 hover:shadow-md">
-                      <div className="shrink-0 rounded-lg bg-gradient-to-br from-cyan-50 to-si-primary/10 p-2.5 text-cyan-700">
+                      <div className="to-si-primary/10 shrink-0 rounded-lg bg-gradient-to-br from-cyan-50 p-2.5 text-cyan-700">
                         {icon}
                       </div>
                       <div>
@@ -503,16 +653,17 @@ function InsurAISection() {
                   href="https://insurai.shareindiainsurance.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-600 to-si-primary px-7 py-3.5 font-semibold text-white shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl"
+                  className="group to-si-primary inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-600 px-7 py-3.5 font-semibold text-white shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl"
                 >
                   Try InsurAI Now
                   <ArrowIcon />
                 </a>
                 <Link
-                  href="/about"
+                  href="/services-by-shareindia"
                   className="btn-ghost inline-flex items-center justify-center gap-2 rounded-xl px-7 py-3.5 font-semibold"
                 >
-                  Learn More About Us
+                  More services by ShareIndia
+                  <ArrowIcon />
                 </Link>
               </div>
             </FadeUp>
@@ -521,13 +672,18 @@ function InsurAISection() {
           {/* Right — visual */}
           <FlyIn dir="left" delay={0.1}>
             <div className="relative">
-              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-r from-cyan-400/15 to-si-primary/15 blur-2xl" />
+              <div className="to-si-primary/15 absolute -inset-4 rounded-3xl bg-gradient-to-r from-cyan-400/15 blur-2xl" />
               <div className="relative overflow-hidden rounded-2xl border border-white bg-gradient-to-br from-white to-cyan-50/50 p-6 shadow-2xl sm:p-8">
                 {/* Chat UI */}
                 <div className="rounded-xl bg-white p-4 shadow-md">
                   <div className="mb-3 flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500 to-si-primary shadow-sm">
-                      <svg className="h-5 w-5 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                    <div className="to-si-primary flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500 shadow-sm">
+                      <svg
+                        className="h-5 w-5 text-white"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        aria-hidden
+                      >
                         <path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
                       </svg>
                     </div>
@@ -537,13 +693,14 @@ function InsurAISection() {
                     </div>
                   </div>
                   <div className="space-y-2.5">
-                    <div className="rounded-lg bg-gradient-to-r from-cyan-50 to-si-primary/5 p-3 text-sm text-si-ink/80">
-                      Hi! I&apos;m InsurAI. I can help you find the perfect insurance plan based on your needs.
+                    <div className="to-si-primary/5 text-si-ink/80 rounded-lg bg-gradient-to-r from-cyan-50 p-3 text-sm">
+                      Hi! I&apos;m InsurAI. I can help you find the perfect insurance plan based on
+                      your needs.
                     </div>
-                    <div className="ml-8 rounded-lg bg-gray-100 p-3 text-sm text-si-ink/80">
+                    <div className="text-si-ink/80 ml-8 rounded-lg bg-gray-100 p-3 text-sm">
                       I need health insurance for my family
                     </div>
-                    <div className="rounded-lg bg-gradient-to-r from-cyan-50 to-si-primary/5 p-3 text-sm text-si-ink/80">
+                    <div className="to-si-primary/5 text-si-ink/80 rounded-lg bg-gradient-to-r from-cyan-50 p-3 text-sm">
                       Great! Let me analyse the best options for you...
                     </div>
                   </div>
@@ -552,9 +709,12 @@ function InsurAISection() {
                 {/* Stats mini-grid */}
                 <div className="mt-4 grid grid-cols-2 gap-3">
                   {INSURAI_STATS.map(({ label, value }) => (
-                    <div key={label} className="rounded-lg bg-white p-3 text-center shadow-sm ring-1 ring-black/5">
+                    <div
+                      key={label}
+                      className="rounded-lg bg-white p-3 text-center shadow-sm ring-1 ring-black/5"
+                    >
                       <div className="text-xl font-bold text-cyan-600">{value}</div>
-                      <div className="mt-0.5 text-xs text-si-ink/60">{label}</div>
+                      <div className="text-si-ink/60 mt-0.5 text-xs">{label}</div>
                     </div>
                   ))}
                 </div>
@@ -576,7 +736,10 @@ function FeaturedInsightsSection() {
             <SectionBadge>Insights</SectionBadge>
           </FadeIn>
           <FadeUp delay={0.06}>
-            <h2 id="featured-insights-title" className="text-si-ink text-3xl leading-tight font-semibold sm:text-4xl">
+            <h2
+              id="featured-insights-title"
+              className="text-si-ink text-3xl leading-tight font-semibold sm:text-4xl"
+            >
               Featured <span className="text-gradient-primary">Insights</span>
             </h2>
           </FadeUp>
@@ -604,7 +767,9 @@ function FeaturedInsightsSection() {
           <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-gray-100 bg-white px-4 py-3 shadow-sm sm:mt-5 sm:px-6 sm:py-4">
             <div className="flex items-center gap-3">
               <div className="bg-si-primary/30 h-2 w-16 rounded" />
-              <p className="text-si-ink/80 text-sm">Curated weekly by our brokerage team • No jargon, just outcomes</p>
+              <p className="text-si-ink/80 text-sm">
+                Curated weekly by our brokerage team • No jargon, just outcomes
+              </p>
             </div>
             <Link
               href="/insights"
@@ -630,16 +795,22 @@ function TopNewsSection() {
   ];
 
   return (
-    <section id="top-news" aria-labelledby="top-news-title" className="isolate scroll-mt-[var(--header-h)]">
+    <section
+      id="top-news"
+      aria-labelledby="top-news-title"
+      className="isolate scroll-mt-[var(--header-h)]"
+    >
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
-
         <div className="flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-center">
           <div className="max-w-2xl">
             <FadeIn>
               <SectionBadge>News, Decoded</SectionBadge>
             </FadeIn>
             <FadeUp delay={0.06}>
-              <h2 id="top-news-title" className="text-si-ink text-[clamp(22px,4.2vw,36px)] leading-tight font-semibold">
+              <h2
+                id="top-news-title"
+                className="text-si-ink text-[clamp(22px,4.2vw,36px)] leading-tight font-semibold"
+              >
                 Not caught up? We&apos;ve got you.
               </h2>
             </FadeUp>
@@ -655,8 +826,10 @@ function TopNewsSection() {
           <FlyIn dir="right" delay={0.08}>
             <div className="w-full max-w-md lg:w-auto lg:max-w-none">
               <div className="rounded-xl border border-gray-100 bg-white p-5 shadow-sm sm:p-6">
-                <div className="text-si-ink/70 mb-2 text-sm font-semibold">What you&apos;ll find</div>
-                <ul className="grid gap-2 text-sm text-si-ink/80 sm:grid-cols-2">
+                <div className="text-si-ink/70 mb-2 text-sm font-semibold">
+                  What you&apos;ll find
+                </div>
+                <ul className="text-si-ink/80 grid gap-2 text-sm sm:grid-cols-2">
                   {FIND_ITEMS.map((item) => (
                     <li key={item} className="flex items-center gap-2">
                       <CheckIcon /> {item}
@@ -680,7 +853,9 @@ function TopNewsSection() {
           <div className="mt-8 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-gray-100 bg-white px-5 py-4 shadow-sm ring-1 ring-black/5 sm:mt-10 sm:px-6 sm:py-5">
             <div className="flex items-center gap-3">
               <div className="accent-bar-gradient h-2 w-14 rounded" />
-              <p className="text-si-ink/80 text-sm">Updated weekly • Editor&apos;s picks • No jargon</p>
+              <p className="text-si-ink/80 text-sm">
+                Updated weekly • Editor&apos;s picks • No jargon
+              </p>
             </div>
             <Link
               href="/news"
@@ -699,14 +874,20 @@ function TopNewsSection() {
 
 function AwardsTestimonialsSection() {
   return (
-    <section id="awards-testimonials" aria-labelledby="awards-testimonials-title" className="isolate scroll-mt-[var(--header-h)]">
+    <section
+      id="awards-testimonials"
+      aria-labelledby="awards-testimonials-title"
+      className="isolate scroll-mt-[var(--header-h)]"
+    >
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
-
         {/* Header */}
         <FadeUp>
           <header className="mb-8 text-center sm:mb-10">
             <SectionBadge>Recognition & Trust</SectionBadge>
-            <h2 id="awards-testimonials-title" className="text-si-ink text-[clamp(22px,4.2vw,36px)] leading-tight font-semibold">
+            <h2
+              id="awards-testimonials-title"
+              className="text-si-ink text-[clamp(22px,4.2vw,36px)] leading-tight font-semibold"
+            >
               <span className="text-gradient-primary">Awards & Testimonials</span>
             </h2>
             <p className="text-si-ink/80 mx-auto mt-3 max-w-2xl text-[clamp(14px,2.6vw,18px)] leading-relaxed">
@@ -721,14 +902,16 @@ function AwardsTestimonialsSection() {
           <div className="mb-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {AWARDS.map((a) => (
               <Item key={a.award}>
-                <article className="group flex h-full flex-col rounded-xl border border-gray-100 bg-white p-5 shadow-sm transition-all hover:border-si-primary/20 hover:shadow-md sm:p-6">
+                <article className="group hover:border-si-primary/20 flex h-full flex-col rounded-xl border border-gray-100 bg-white p-5 shadow-sm transition-all hover:shadow-md sm:p-6">
                   <div className="mb-4 flex items-center gap-3">
                     <div className="relative flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-gray-100 bg-white">
                       <Image src={a.img} alt={`${a.year} award`} fill className="object-cover" />
                     </div>
                     <div>
                       <div className="accent-bar-gradient mb-1 h-1.5 w-10 rounded" />
-                      <h3 className="text-si-ink text-[clamp(16px,3.2vw,18px)] font-semibold">{a.year}</h3>
+                      <h3 className="text-si-ink text-[clamp(16px,3.2vw,18px)] font-semibold">
+                        {a.year}
+                      </h3>
                     </div>
                   </div>
                   <p className="text-si-ink/80 text-[clamp(13px,2.8vw,14px)]">{a.award}</p>
@@ -758,7 +941,12 @@ function AwardsTestimonialsSection() {
                     </blockquote>
                     <figcaption className="mt-5 flex items-center gap-3">
                       <div className="relative h-11 w-11 overflow-hidden rounded-full shadow ring-2 ring-white">
-                        <Image src={t.avatar} alt={`${t.name} logo`} fill className="object-cover" />
+                        <Image
+                          src={t.avatar}
+                          alt={`${t.name} logo`}
+                          fill
+                          className="object-cover"
+                        />
                       </div>
                       <div className="text-si-ink font-semibold">{t.name}</div>
                     </figcaption>
@@ -773,7 +961,7 @@ function AwardsTestimonialsSection() {
             <div className="mt-8 flex justify-center sm:mt-10">
               <Link
                 href="/about"
-                className="btn-primary inline-flex items-center gap-2 rounded-xl px-6 py-3.5 text-[15px] font-semibold focus-visible:ring-2 focus-visible:ring-si-primary/40"
+                className="btn-primary focus-visible:ring-si-primary/40 inline-flex items-center gap-2 rounded-xl px-6 py-3.5 text-[15px] font-semibold focus-visible:ring-2"
                 aria-label="Read more about Share India Insurance"
               >
                 Read More About Us
@@ -792,12 +980,15 @@ function ConnectCTASection() {
     <section id="connect-cta" aria-labelledby="connect-cta-title" className="isolate">
       <div className="mx-auto max-w-5xl px-4 text-center sm:px-6 md:px-8">
         <FadeUp>
-          <h2 id="connect-cta-title" className="text-si-ink text-[clamp(22px,4.2vw,36px)] font-semibold">
+          <h2
+            id="connect-cta-title"
+            className="text-si-ink text-[clamp(22px,4.2vw,36px)] font-semibold"
+          >
             Let&apos;s Connect
           </h2>
           <p className="text-si-ink/80 mx-auto mt-3 max-w-2xl text-[clamp(14px,2.6vw,18px)] leading-relaxed">
-            Ready to take the next step? Our team of experts is here to help you navigate your journey
-            with confidence.
+            Ready to take the next step? Our team of experts is here to help you navigate your
+            journey with confidence.
           </p>
         </FadeUp>
 
@@ -811,15 +1002,19 @@ function ConnectCTASection() {
                     'group block rounded-xl p-5 text-left sm:p-6',
                     'border border-gray-100 bg-white shadow-sm ring-1 ring-black/5',
                     'transition-all hover:border-gray-200 hover:shadow-md',
-                    'focus:outline-none focus-visible:ring-2 focus-visible:ring-si-primary/40',
+                    'focus-visible:ring-si-primary/40 focus:outline-none focus-visible:ring-2',
                     accentCls,
                   ].join(' ')}
                   aria-label={title}
                 >
-                  <div className={`mb-3 flex h-12 w-12 items-center justify-center rounded-full ${iconBg}`}>
+                  <div
+                    className={`mb-3 flex h-12 w-12 items-center justify-center rounded-full ${iconBg}`}
+                  >
                     {icon}
                   </div>
-                  <h3 className="text-si-ink text-[clamp(15px,3.2vw,17px)] font-semibold">{title}</h3>
+                  <h3 className="text-si-ink text-[clamp(15px,3.2vw,17px)] font-semibold">
+                    {title}
+                  </h3>
                   <p className="text-si-ink/70 mt-1 text-[clamp(13px,2.8vw,14px)]">{desc}</p>
                 </Link>
               </Item>
@@ -831,7 +1026,7 @@ function ConnectCTASection() {
           <div className="mt-8 flex justify-center">
             <Link
               href="/contact"
-              className="btn-primary inline-flex items-center gap-2 rounded-xl px-8 py-4 text-[15px] font-semibold focus-visible:ring-2 focus-visible:ring-si-primary/40"
+              className="btn-primary focus-visible:ring-si-primary/40 inline-flex items-center gap-2 rounded-xl px-8 py-4 text-[15px] font-semibold focus-visible:ring-2"
             >
               Connect With Our Team
               <ArrowIcon />

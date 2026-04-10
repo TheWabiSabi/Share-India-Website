@@ -13,7 +13,8 @@ const JOB_OPENINGS = [
     type: 'Full-time',
     experience: '5–8 years',
     salary: '₹12–18 LPA',
-    description: 'Lead underwriting decisions for commercial insurance products and mentor junior underwriters.',
+    description:
+      'Lead underwriting decisions for commercial insurance products and mentor junior underwriters.',
     skills: ['Commercial Insurance', 'Risk Assessment', 'Financial Analysis', 'Team Leadership'],
     posted: '2 days ago',
   },
@@ -25,8 +26,14 @@ const JOB_OPENINGS = [
     type: 'Full-time',
     experience: '6–10 years',
     salary: '₹15–22 LPA',
-    description: 'Manage complex infrastructure insurance claims and coordinate with engineering teams.',
-    skills: ['Claims Management', 'Infrastructure Insurance', 'Engineering Knowledge', 'Negotiation'],
+    description:
+      'Manage complex infrastructure insurance claims and coordinate with engineering teams.',
+    skills: [
+      'Claims Management',
+      'Infrastructure Insurance',
+      'Engineering Knowledge',
+      'Negotiation',
+    ],
     posted: '1 week ago',
   },
   {
@@ -37,7 +44,8 @@ const JOB_OPENINGS = [
     type: 'Full-time',
     experience: '2–4 years',
     salary: '₹6–10 LPA',
-    description: 'Drive new business acquisition and maintain relationships with corporate clients.',
+    description:
+      'Drive new business acquisition and maintain relationships with corporate clients.',
     skills: ['Sales', 'Client Relationship', 'Insurance Products', 'Communication'],
     posted: '3 days ago',
   },
@@ -49,7 +57,8 @@ const JOB_OPENINGS = [
     type: 'Full-time',
     experience: '3–5 years',
     salary: '₹8–12 LPA',
-    description: 'Analyse and assess risks for various industry sectors and develop risk mitigation strategies.',
+    description:
+      'Analyse and assess risks for various industry sectors and develop risk mitigation strategies.',
     skills: ['Risk Analysis', 'Data Analytics', 'Industry Knowledge', 'Report Writing'],
     posted: '5 days ago',
   },
@@ -61,7 +70,8 @@ const JOB_OPENINGS = [
     type: 'Full-time',
     experience: '2–4 years',
     salary: '₹5–8 LPA',
-    description: 'Develop and execute digital marketing campaigns to enhance brand presence and lead generation.',
+    description:
+      'Develop and execute digital marketing campaigns to enhance brand presence and lead generation.',
     skills: ['Digital Marketing', 'SEO/SEM', 'Content Marketing', 'Analytics'],
     posted: '1 week ago',
   },
@@ -73,7 +83,8 @@ const JOB_OPENINGS = [
     type: 'Full-time',
     experience: '1–3 years',
     salary: '₹6–9 LPA',
-    description: 'Support pricing and product development through statistical analysis and modeling.',
+    description:
+      'Support pricing and product development through statistical analysis and modeling.',
     skills: ['Statistics', 'Actuarial Science', 'Excel/R/Python', 'Insurance Mathematics'],
     posted: '4 days ago',
   },
@@ -91,7 +102,6 @@ const DEPT_COLORS: Record<string, string> = {
 export default function CareersPage() {
   return (
     <div className="min-h-screen bg-white">
-
       {/* ── Hero banner ── */}
       <div className="from-si-primary/8 border-b border-gray-100 bg-gradient-to-br to-white pt-24 pb-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -101,8 +111,7 @@ export default function CareersPage() {
               Careers
             </span>
             <h1 className="text-si-ink text-4xl font-extrabold md:text-5xl">
-              Build Your Career{' '}
-              <span className="text-gradient-primary">with SIIB</span>
+              Build Your Career <span className="text-gradient-primary">with SIIB</span>
             </h1>
             <p className="text-si-ink/70 mt-4 max-w-2xl text-lg leading-relaxed">
               Join India&apos;s trusted insurance brokerage and be part of a team that&apos;s
@@ -118,7 +127,10 @@ export default function CareersPage() {
                 { value: '25+', label: 'Avg Team Experience' },
                 { value: '100%', label: 'Growth Focus' },
               ].map(({ value, label }) => (
-                <div key={label} className="rounded-2xl border border-si-primary/10 bg-white px-5 py-3 shadow-sm">
+                <div
+                  key={label}
+                  className="border-si-primary/10 rounded-2xl border bg-white px-5 py-3 shadow-sm"
+                >
                   <div className="text-si-primary text-xl font-extrabold">{value}</div>
                   <div className="text-si-ink/60 text-xs">{label}</div>
                 </div>
@@ -134,7 +146,9 @@ export default function CareersPage() {
           <FadeUp>
             <div className="mb-10">
               <h2 className="text-si-ink text-2xl font-bold">Current Openings</h2>
-              <p className="text-si-ink/60 mt-1 text-sm">Find your next opportunity and join our growing team</p>
+              <p className="text-si-ink/60 mt-1 text-sm">
+                Find your next opportunity and join our growing team
+              </p>
             </div>
           </FadeUp>
 
@@ -142,20 +156,26 @@ export default function CareersPage() {
             <div className="space-y-4">
               {JOB_OPENINGS.map((job) => (
                 <Item key={job.id}>
-                  <article className="group rounded-2xl border border-gray-100 bg-white p-5 shadow-sm transition-all hover:border-si-primary/20 hover:shadow-md sm:p-6">
+                  <article className="group hover:border-si-primary/20 rounded-2xl border border-gray-100 bg-white p-5 shadow-sm transition-all hover:shadow-md sm:p-6">
                     <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
                       <div className="flex-1">
                         <div className="mb-3 flex flex-wrap items-center gap-2">
-                          <span className={`rounded-lg border px-2.5 py-1 text-xs font-bold ${DEPT_COLORS[job.department] ?? 'bg-gray-50 text-gray-600 border-gray-200'}`}>
+                          <span
+                            className={`rounded-lg border px-2.5 py-1 text-xs font-bold ${DEPT_COLORS[job.department] ?? 'border-gray-200 bg-gray-50 text-gray-600'}`}
+                          >
                             {job.department}
                           </span>
                           <span className="text-si-ink/40 text-xs">{job.posted}</span>
                         </div>
 
-                        <h3 className="text-si-ink group-hover:text-si-primary text-lg font-bold transition-colors">{job.title}</h3>
-                        <p className="text-si-ink/60 mt-2 text-sm leading-relaxed">{job.description}</p>
+                        <h3 className="text-si-ink group-hover:text-si-primary text-lg font-bold transition-colors">
+                          {job.title}
+                        </h3>
+                        <p className="text-si-ink/60 mt-2 text-sm leading-relaxed">
+                          {job.description}
+                        </p>
 
-                        <div className="mt-3 flex flex-wrap gap-3 text-xs text-si-ink/50">
+                        <div className="text-si-ink/50 mt-3 flex flex-wrap gap-3 text-xs">
                           <span className="flex items-center gap-1">📍 {job.location}</span>
                           <span className="flex items-center gap-1">🕐 {job.type}</span>
                           <span className="flex items-center gap-1">🎓 {job.experience}</span>
@@ -164,7 +184,10 @@ export default function CareersPage() {
 
                         <div className="mt-4 flex flex-wrap gap-1.5">
                           {job.skills.map((skill) => (
-                            <span key={skill} className="rounded-full bg-gray-50 px-2.5 py-1 text-xs font-medium text-si-ink/60 ring-1 ring-black/5">
+                            <span
+                              key={skill}
+                              className="text-si-ink/60 rounded-full bg-gray-50 px-2.5 py-1 text-xs font-medium ring-1 ring-black/5"
+                            >
                               {skill}
                             </span>
                           ))}
@@ -177,8 +200,18 @@ export default function CareersPage() {
                         </button>
                         <button className="btn-primary inline-flex items-center gap-1.5 rounded-xl px-4 py-2 text-sm font-semibold">
                           Apply Now
-                          <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                          <svg
+                            className="h-3.5 w-3.5"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeWidth={2.5}
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M9 5l7 7-7 7"
+                            />
                           </svg>
                         </button>
                       </div>
@@ -209,13 +242,29 @@ export default function CareersPage() {
             <Stagger staggerChildren={0.07}>
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
                 {[
-                  { emoji: '🚀', title: 'Growth Opportunities', desc: 'Fast-track your career with mentorship programs and leadership development.' },
-                  { emoji: '🤝', title: 'Collaborative Culture', desc: 'Work with passionate professionals in a supportive and inclusive environment.' },
-                  { emoji: '💡', title: 'Innovation Focus', desc: 'Be part of digital transformation and innovative insurance solutions.' },
-                  { emoji: '⚖️', title: 'Work–Life Balance', desc: 'Flexible arrangements and comprehensive benefits for your well-being.' },
+                  {
+                    emoji: '🚀',
+                    title: 'Growth Opportunities',
+                    desc: 'Fast-track your career with mentorship programs and leadership development.',
+                  },
+                  {
+                    emoji: '🤝',
+                    title: 'Collaborative Culture',
+                    desc: 'Work with passionate professionals in a supportive and inclusive environment.',
+                  },
+                  {
+                    emoji: '💡',
+                    title: 'Innovation Focus',
+                    desc: 'Be part of digital transformation and innovative insurance solutions.',
+                  },
+                  {
+                    emoji: '⚖️',
+                    title: 'Work–Life Balance',
+                    desc: 'Flexible arrangements and comprehensive benefits for your well-being.',
+                  },
                 ].map(({ emoji, title, desc }) => (
                   <Item key={title}>
-                    <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-sm transition-all hover:border-si-primary/20 hover:shadow-md">
+                    <div className="hover:border-si-primary/20 rounded-2xl border border-gray-100 bg-white p-5 shadow-sm transition-all hover:shadow-md">
                       <div className="mb-3 text-3xl">{emoji}</div>
                       <h3 className="text-si-ink font-bold">{title}</h3>
                       <p className="text-si-ink/60 mt-2 text-sm leading-relaxed">{desc}</p>
@@ -235,7 +284,10 @@ export default function CareersPage() {
                     </p>
                   </div>
                   <div className="flex gap-3">
-                    <Link href="/contact" className="btn-ghost inline-flex items-center justify-center rounded-xl px-6 py-3 font-semibold text-si-ink">
+                    <Link
+                      href="/contact"
+                      className="btn-ghost text-si-ink inline-flex items-center justify-center rounded-xl px-6 py-3 font-semibold"
+                    >
                       Contact HR
                     </Link>
                     <button className="inline-flex items-center justify-center rounded-xl bg-white/20 px-6 py-3 font-semibold text-white transition-all hover:bg-white/30">

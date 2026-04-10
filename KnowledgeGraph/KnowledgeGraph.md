@@ -22,19 +22,20 @@ Step 3 — Only if the task requires it: Read the specific source file
 
 ### Which Graph File to Load for Each Task
 
-| Task type | Load this graph file |
-|---|---|
-| Adding/modifying a route or page | `graph/routes.json` |
-| Adding/modifying a component | `graph/components.json` |
-| Using animation or Framer Motion | `graph/components.json` → `animationSystem` |
-| Adding types or constants | `graph/types-and-constants.json` |
-| Changing build, Docker, or dependencies | `graph/build-and-config.json` |
-| Any change that feels tricky or has edge cases | `graph/decisions-and-gotchas.json` |
-| Deciding whether to read a source file | `graph/token-cost-map.json` |
+| Task type                                      | Load this graph file                        |
+| ---------------------------------------------- | ------------------------------------------- |
+| Adding/modifying a route or page               | `graph/routes.json`                         |
+| Adding/modifying a component                   | `graph/components.json`                     |
+| Using animation or Framer Motion               | `graph/components.json` → `animationSystem` |
+| Adding types or constants                      | `graph/types-and-constants.json`            |
+| Changing build, Docker, or dependencies        | `graph/build-and-config.json`               |
+| Any change that feels tricky or has edge cases | `graph/decisions-and-gotchas.json`          |
+| Deciding whether to read a source file         | `graph/token-cost-map.json`                 |
 
 ### Files to Never Load
 
 Check `graph/decisions-and-gotchas.json → doNotLoad` or `graph/token-cost-map.json → NEVER_LOAD` before reading any file. Do not load:
+
 - `full-export.md` (138KB / ~35k tokens)
 - `app/premium-estimator/data.ts` (225KB / ~56k tokens)
 - All `markdowns/*.mdx` at once (~125k tokens combined)
@@ -44,15 +45,15 @@ Check `graph/decisions-and-gotchas.json → doNotLoad` or `graph/token-cost-map.
 
 ## Project Overview
 
-| Field | Value |
-|---|---|
-| **Name** | Share India Insurance Brokers — Public Website |
-| **Domain** | `https://insurance.shareindia.com` |
-| **Framework** | Next.js 15 App Router, TypeScript, React 19 |
-| **Styling** | Tailwind CSS v4 (PostCSS, `@theme {}` in globals.css) |
-| **Deploy** | Docker standalone image (`output: 'standalone'`) |
-| **Dev server** | `npm run dev` → Turbopack |
-| **Purpose** | Marketing/informational site for IRDA-licensed insurance broker; retail, corporate, industry products |
+| Field          | Value                                                                                                 |
+| -------------- | ----------------------------------------------------------------------------------------------------- |
+| **Name**       | Share India Insurance Brokers — Public Website                                                        |
+| **Domain**     | `https://insurance.shareindia.com`                                                                    |
+| **Framework**  | Next.js 15 App Router, TypeScript, React 19                                                           |
+| **Styling**    | Tailwind CSS v4 (PostCSS, `@theme {}` in globals.css)                                                 |
+| **Deploy**     | Docker standalone image (`output: 'standalone'`)                                                      |
+| **Dev server** | `npm run dev` → Turbopack                                                                             |
+| **Purpose**    | Marketing/informational site for IRDA-licensed insurance broker; retail, corporate, industry products |
 
 ---
 
@@ -113,17 +114,17 @@ public/                       ← Static assets
 
 > Full detail in `graph/decisions-and-gotchas.json`
 
-| Decision | Implication |
-|---|---|
-| Turbopack in dev only | Never use `--turbopack` in Docker/CI |
-| `output: 'standalone'` | Docker copies `.next/standalone` — do not change |
-| MDX files use UUID names | Don't use UUID as URL slug; look up slug in `list_of_blogs.json` |
-| Tailwind v4 (no config.js) | All tokens in `app/globals.css @theme {}` |
-| Animations centralised | Always use `components/motion.tsx`; no inline FM variants |
-| Images from CDN | Remote images → `static.shareindiainsurance.com` only |
-| Chatbot is data-driven | Edit chatbot content in `components/chatbot/responses.json` |
-| `main-caraousel.tsx` typo | Do NOT rename the file without mass-updating imports |
-| Two known interface typos | `explaination` and `desciption` in `app/industries/main.interface.ts` |
+| Decision                   | Implication                                                           |
+| -------------------------- | --------------------------------------------------------------------- |
+| Turbopack in dev only      | Never use `--turbopack` in Docker/CI                                  |
+| `output: 'standalone'`     | Docker copies `.next/standalone` — do not change                      |
+| MDX files use UUID names   | Don't use UUID as URL slug; look up slug in `list_of_blogs.json`      |
+| Tailwind v4 (no config.js) | All tokens in `app/globals.css @theme {}`                             |
+| Animations centralised     | Always use `components/motion.tsx`; no inline FM variants             |
+| Images from CDN            | Remote images → `static.shareindiainsurance.com` only                 |
+| Chatbot is data-driven     | Edit chatbot content in `components/chatbot/responses.json`           |
+| `main-caraousel.tsx` typo  | Do NOT rename the file without mass-updating imports                  |
+| Two known interface typos  | `explaination` and `desciption` in `app/industries/main.interface.ts` |
 
 ---
 
@@ -132,8 +133,8 @@ public/                       ← Static assets
 > **Update this section after every significant session.**
 
 - **Status:** Active development
-- **Current focus:** *(update me)*
-- **Known blockers:** *(update me)*
+- **Current focus:** _(update me)_
+- **Known blockers:** _(update me)_
 - **Last significant change:** Full KnowledgeGraph built and graphed — all graph/ JSON files created (2026-04-09)
 
 ---

@@ -12,7 +12,7 @@ const Card = ({
   body: string;
   bullets: string[];
 }) => (
-  <div className="group rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all hover:border-si-primary/20 hover:shadow-lg">
+  <div className="group hover:border-si-primary/20 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all hover:shadow-lg">
     <div className="mb-4 flex items-center gap-3">
       <div className="text-si-primary bg-si-primary/8 rounded-xl p-2.5 transition-transform group-hover:scale-105">
         {icon}
