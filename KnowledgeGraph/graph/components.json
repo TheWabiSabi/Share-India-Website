@@ -92,6 +92,7 @@
       "press": { "type": "spring", "stiffness": 600, "damping": 40, "mass": 0.8 },
       "gentleFloat": { "type": "spring", "stiffness": 120, "damping": 18, "mass": 0.6 }
     },
-    "rule": "Always import animation components from components/motion.tsx. Never create inline Framer Motion variants."
+    "rule": "Always import animation components from components/motion.tsx. Never create inline Framer Motion variants.",
+    "classNameSupport": "All components (FadeUp, FadeIn, FlyIn, Stagger, Item) accept an optional `className` prop that is forwarded to the wrapping div."
   }
 }

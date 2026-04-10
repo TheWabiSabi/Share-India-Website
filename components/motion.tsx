@@ -43,6 +43,7 @@ export function FadeUp({
   ease = 'standard',
   once = true,
   amount = 0.25,
+  className,
 }: PropsWithChildren<{
   distance?: number;
   delay?: number;
@@ -50,12 +51,14 @@ export function FadeUp({
   ease?: EaseKey;
   once?: boolean;
   amount?: number;
+  className?: string;
 }>) {
   const reduce = useReducedMotion();
-  if (reduce) return <>{children}</>;
+  if (reduce) return <div className={className}>{children}</div>;
 
   return (
     <motion.div
+      className={className}
       variants={variants.fadeUp(distance)}
       initial="hidden"
       whileInView="show"
@@ -74,18 +77,21 @@ export function FadeIn({
   ease = 'standard',
   once = true,
   amount = 0.25,
+  className,
 }: PropsWithChildren<{
   delay?: number;
   duration?: number;
   ease?: EaseKey;
   once?: boolean;
   amount?: number;
+  className?: string;
 }>) {
   const reduce = useReducedMotion();
-  if (reduce) return <>{children}</>;
+  if (reduce) return <div className={className}>{children}</div>;
 
   return (
     <motion.div
+      className={className}
       variants={variants.fadeIn()}
       initial="hidden"
       whileInView="show"
@@ -104,18 +110,21 @@ export function Stagger({
   delay = 0,
   once = true,
   amount = 0.2,
+  className,
 }: PropsWithChildren<{
   delayChildren?: number;
   staggerChildren?: number;
   delay?: number;
   once?: boolean;
   amount?: number;
+  className?: string;
 }>) {
   const reduce = useReducedMotion();
-  if (reduce) return <>{children}</>;
+  if (reduce) return <div className={className}>{children}</div>;
 
   return (
     <motion.div
+      className={className}
       variants={{
         hidden: { opacity: 0 },
         show: {
@@ -140,12 +149,14 @@ export function Item({
   children,
   duration = durations.short,
   ease = 'standard',
-}: PropsWithChildren<{ duration?: number; ease?: EaseKey }>) {
+  className,
+}: PropsWithChildren<{ duration?: number; ease?: EaseKey; className?: string }>) {
   const reduce = useReducedMotion();
-  if (reduce) return <>{children}</>;
+  if (reduce) return <div className={className}>{children}</div>;
 
   return (
     <motion.div
+      className={className}
       variants={{
         hidden: { opacity: 0, y: 12, scale: 0.98 },
         show: { opacity: 1, y: 0, scale: 1.0 },
@@ -166,6 +177,7 @@ export function FlyIn({
   ease = 'standard',
   once = true,
   amountInView = 0.3,
+  className,
 }: PropsWithChildren<{
   dir?: 'up' | 'down' | 'left' | 'right';
   amount?: number;
@@ -174,12 +186,14 @@ export function FlyIn({
   ease?: EaseKey;
   once?: boolean;
   amountInView?: number;
+  className?: string;
 }>) {
   const reduce = useReducedMotion();
-  if (reduce) return <>{children}</>;
+  if (reduce) return <div className={className}>{children}</div>;
 
   return (
     <motion.div
+      className={className}
       variants={variants.fly(dir, amount)}
       initial="hidden"
       whileInView="show"

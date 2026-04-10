@@ -1,3 +1,4 @@
+import React from 'react';
 import { FaChevronRight } from 'react-icons/fa';
 
 const Card = ({
@@ -11,16 +12,18 @@ const Card = ({
   body: string;
   bullets: string[];
 }) => (
-  <div className="rounded-xl border border-gray-300 p-6">
-    <div className="flex items-center gap-3">
-      {icon}
-      <h3 className="text-xl font-semibold">{title}</h3>
+  <div className="group rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all hover:border-si-primary/20 hover:shadow-lg">
+    <div className="mb-4 flex items-center gap-3">
+      <div className="text-si-primary bg-si-primary/8 rounded-xl p-2.5 transition-transform group-hover:scale-105">
+        {icon}
+      </div>
+      <h3 className="text-si-ink text-lg font-bold">{title}</h3>
     </div>
-    <p className="mt-4 text-lg text-gray-700">{body}</p>
-    <ul className="mt-5 space-y-1 text-base text-gray-700">
+    <p className="text-si-ink/70 text-sm leading-relaxed">{body}</p>
+    <ul className="mt-4 space-y-2">
       {bullets.map((b) => (
-        <li key={b} className="flex">
-          <FaChevronRight className="mt-1 mr-2 text-blue-400" />
+        <li key={b} className="text-si-ink/70 flex items-start gap-2 text-sm">
+          <FaChevronRight className="text-si-primary mt-1 h-3 w-3 shrink-0" />
           {b}
         </li>
       ))}
