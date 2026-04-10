@@ -35,15 +35,15 @@ The graph replaces expensive per-session re-reads (3,000–50,000+ tokens) with 
 
 Keep under **200 lines**. Include:
 
-| Section | Content |
-|---|---|
-| **Session Start Protocol** | How agents should use the graph files |
-| **Which graph file for which task** | Routing table for agents |
-| **Project Overview** | Stack, domain, deploy target |
-| **Architecture Map** | Directory tree + what lives where |
-| **Key Decisions** | Non-obvious choices + implications |
-| **Active State** | Current sprint, focus, blockers — update every session |
-| **Graph Update Rules** | When/how to update this file |
+| Section                             | Content                                                |
+| ----------------------------------- | ------------------------------------------------------ |
+| **Session Start Protocol**          | How agents should use the graph files                  |
+| **Which graph file for which task** | Routing table for agents                               |
+| **Project Overview**                | Stack, domain, deploy target                           |
+| **Architecture Map**                | Directory tree + what lives where                      |
+| **Key Decisions**                   | Non-obvious choices + implications                     |
+| **Active State**                    | Current sprint, focus, blockers — update every session |
+| **Graph Update Rules**              | When/how to update this file                           |
 
 **Do NOT store:** raw code, full file contents, temporary notes, anything that changes daily.
 
@@ -51,14 +51,14 @@ Keep under **200 lines**. Include:
 
 Each file covers one domain:
 
-| File | Contains |
-|---|---|
-| `routes.json` | Every route path, its file, size, and sitemap priority |
-| `components.json` | Every component, its file, size, exports, external deps, and the animation system |
-| `types-and-constants.json` | All TypeScript types, type unions, design system tokens |
-| `build-and-config.json` | Next.js config, scripts, all dependencies, Docker config |
-| `decisions-and-gotchas.json` | Known bugs, filename typos, key architectural decisions, do-not-load list |
-| `token-cost-map.json` | Token cost estimate per file, tiered by safe-to-load vs never-load |
+| File                         | Contains                                                                          |
+| ---------------------------- | --------------------------------------------------------------------------------- |
+| `routes.json`                | Every route path, its file, size, and sitemap priority                            |
+| `components.json`            | Every component, its file, size, exports, external deps, and the animation system |
+| `types-and-constants.json`   | All TypeScript types, type unions, design system tokens                           |
+| `build-and-config.json`      | Next.js config, scripts, all dependencies, Docker config                          |
+| `decisions-and-gotchas.json` | Known bugs, filename typos, key architectural decisions, do-not-load list         |
+| `token-cost-map.json`        | Token cost estimate per file, tiered by safe-to-load vs never-load                |
 
 **Do NOT store:** raw code, full file contents, config values that are secrets (link to `.env.example` instead).
 
@@ -72,23 +72,23 @@ These files should be copied unchanged to every new project. Never put repo-spec
 
 ### High Priority — update within the same session
 
-| Event | What to update |
-|---|---|
-| New route or page added | `graph/routes.json`, Architecture Map in `KnowledgeGraph.md` |
-| New component created | `graph/components.json` |
-| New type or constant added | `graph/types-and-constants.json` |
-| Dependency added or removed | `graph/build-and-config.json` |
-| Non-obvious bug or gotcha discovered | `graph/decisions-and-gotchas.json` |
-| Non-obvious decision made | `graph/decisions-and-gotchas.json` |
-| Session ends (always) | `Active State` in `KnowledgeGraph.md` |
+| Event                                | What to update                                               |
+| ------------------------------------ | ------------------------------------------------------------ |
+| New route or page added              | `graph/routes.json`, Architecture Map in `KnowledgeGraph.md` |
+| New component created                | `graph/components.json`                                      |
+| New type or constant added           | `graph/types-and-constants.json`                             |
+| Dependency added or removed          | `graph/build-and-config.json`                                |
+| Non-obvious bug or gotcha discovered | `graph/decisions-and-gotchas.json`                           |
+| Non-obvious decision made            | `graph/decisions-and-gotchas.json`                           |
+| Session ends (always)                | `Active State` in `KnowledgeGraph.md`                        |
 
 ### Medium Priority — update at end of session
 
-| Event | What to update |
-|---|---|
-| Refactor changes directory structure | Architecture Map in `KnowledgeGraph.md`, relevant `graph/*.json` |
-| New canonical reference file created | `graph/token-cost-map.json` |
-| Token cost estimate for a file was wrong | `graph/token-cost-map.json` |
+| Event                                    | What to update                                                   |
+| ---------------------------------------- | ---------------------------------------------------------------- |
+| Refactor changes directory structure     | Architecture Map in `KnowledgeGraph.md`, relevant `graph/*.json` |
+| New canonical reference file created     | `graph/token-cost-map.json`                                      |
+| Token cost estimate for a file was wrong | `graph/token-cost-map.json`                                      |
 
 ### Do NOT Update For
 
@@ -101,6 +101,7 @@ These files should be copied unchanged to every new project. Never put repo-spec
 ## How to Update
 
 **Instruct the agent in-session:**
+
 ```
 "Update KnowledgeGraph/graph/routes.json — we just added the /claims route at app/claims/page.tsx."
 "Update the Active State in KnowledgeGraph/KnowledgeGraph.md — we finished the header refactor."
@@ -114,11 +115,11 @@ These files should be copied unchanged to every new project. Never put repo-spec
 
 ## Token Savings Model
 
-| Approach | Tokens loaded per session |
-|---|---|
-| No graph — re-read relevant source files | 3,000–50,000+ |
-| Graph — read `KnowledgeGraph.md` + 1–2 JSON files | 800–2,000 |
-| **Savings per session** | **~2,000–48,000 tokens** |
+| Approach                                          | Tokens loaded per session |
+| ------------------------------------------------- | ------------------------- |
+| No graph — re-read relevant source files          | 3,000–50,000+             |
+| Graph — read `KnowledgeGraph.md` + 1–2 JSON files | 800–2,000                 |
+| **Savings per session**                           | **~2,000–48,000 tokens**  |
 
 Savings compound across sessions. A mature, well-maintained graph provides value on every single session for the lifetime of the project.
 
@@ -147,10 +148,12 @@ Update any stale data before starting work. A stale graph is worse than no graph
 5. Commit the folder — the graph is persistent project infrastructure, not a scratch file.
 
 **Minimal viable graph for a new repo:**
+
 ```
 KnowledgeGraph.md          ← Overview + architecture map + active state
 graph/routes.json          ← All routes/pages
 graph/decisions-and-gotchas.json ← Key decisions + do-not-load list
 graph/token-cost-map.json  ← Cost per file
 ```
+
 Add the other data files as the project matures and you learn which information is repeatedly asked for.

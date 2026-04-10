@@ -36,7 +36,27 @@
         "messages": "ChatMessage[]",
         "isLoading": "boolean"
       },
-      "flows": ["welcome","about_menu","about_journey","about_impact","about_leaders","about_testimonials","industries_menu","industry_healthcare","industry_manufacturing","insurance_menu","corporate_insurance_menu","corporate_liability","retail_insurance","insights_menu","blog_posts","contact_menu","contact_info","careers","get_quote"],
+      "flows": [
+        "welcome",
+        "about_menu",
+        "about_journey",
+        "about_impact",
+        "about_leaders",
+        "about_testimonials",
+        "industries_menu",
+        "industry_healthcare",
+        "industry_manufacturing",
+        "insurance_menu",
+        "corporate_insurance_menu",
+        "corporate_liability",
+        "retail_insurance",
+        "insights_menu",
+        "blog_posts",
+        "contact_menu",
+        "contact_info",
+        "careers",
+        "get_quote"
+      ],
       "note": "All chatbot response text is in responses.json, not in the component."
     },
     "FloatingAgentButton": {
@@ -71,7 +91,17 @@
     "clientWrappers": "components/motion.tsx",
     "exports": {
       "fromLib": ["easings", "durations", "t()"],
-      "fromMotion": ["FadeUp", "FadeIn", "Stagger", "Item", "FlyIn", "springs", "variants", "t", "durations"]
+      "fromMotion": [
+        "FadeUp",
+        "FadeIn",
+        "Stagger",
+        "Item",
+        "FlyIn",
+        "springs",
+        "variants",
+        "t",
+        "durations"
+      ]
     },
     "easings": {
       "standard": [0.22, 1.0, 0.36, 1.0],
@@ -92,6 +122,7 @@
       "press": { "type": "spring", "stiffness": 600, "damping": 40, "mass": 0.8 },
       "gentleFloat": { "type": "spring", "stiffness": 120, "damping": 18, "mass": 0.6 }
     },
-    "rule": "Always import animation components from components/motion.tsx. Never create inline Framer Motion variants."
+    "rule": "Always import animation components from components/motion.tsx. Never create inline Framer Motion variants.",
+    "classNameSupport": "All components (FadeUp, FadeIn, FlyIn, Stagger, Item) accept an optional `className` prop that is forwarded to the wrapping div."
   }
 }

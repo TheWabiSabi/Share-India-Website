@@ -1,3 +1,5 @@
+import React from 'react';
+
 const Tile = ({
   icon,
   title,
@@ -7,10 +9,12 @@ const Tile = ({
   title: string;
   children: React.ReactNode;
 }) => (
-  <div className="rounded-xl border border-gray-200 p-6">
-    <div className="text-2xl text-blue-500">{icon}</div>
-    <h3 className="mt-3 font-semibold">{title}</h3>
-    <p className="mt-1 text-sm text-gray-600">{children}</p>
+  <div className="group hover:border-si-primary/20 rounded-2xl border border-gray-100 bg-white p-5 shadow-sm transition-all hover:shadow-lg">
+    <div className="text-si-primary bg-si-primary/8 mb-4 inline-flex rounded-xl p-2.5 text-xl transition-transform group-hover:scale-105">
+      {icon}
+    </div>
+    <h3 className="text-si-ink mb-2 font-bold">{title}</h3>
+    <p className="text-si-ink/60 text-sm leading-relaxed">{children}</p>
   </div>
 );
 

@@ -38,12 +38,25 @@
     "CHEAP_TO_LOAD": {
       "description": "Small, high-value files safe to load when relevant",
       "files": [
-        { "path": "KnowledgeGraph/KnowledgeGraph.md", "sizeKB": 4, "approxTokens": 800, "note": "Start here every session" },
+        {
+          "path": "KnowledgeGraph/KnowledgeGraph.md",
+          "sizeKB": 4,
+          "approxTokens": 800,
+          "note": "Start here every session"
+        },
         { "path": "KnowledgeGraph/graph/routes.json", "sizeKB": 3, "approxTokens": 300 },
         { "path": "KnowledgeGraph/graph/components.json", "sizeKB": 3, "approxTokens": 600 },
-        { "path": "KnowledgeGraph/graph/types-and-constants.json", "sizeKB": 3, "approxTokens": 400 },
+        {
+          "path": "KnowledgeGraph/graph/types-and-constants.json",
+          "sizeKB": 3,
+          "approxTokens": 400
+        },
         { "path": "KnowledgeGraph/graph/build-and-config.json", "sizeKB": 2, "approxTokens": 250 },
-        { "path": "KnowledgeGraph/graph/decisions-and-gotchas.json", "sizeKB": 2, "approxTokens": 200 },
+        {
+          "path": "KnowledgeGraph/graph/decisions-and-gotchas.json",
+          "sizeKB": 2,
+          "approxTokens": 200
+        },
         { "path": "app/layout.tsx", "sizeKB": 3.0, "approxTokens": 750 },
         { "path": "app/sitemap.ts", "sizeKB": 3.6, "approxTokens": 900 },
         { "path": "consts/types.ts", "sizeKB": 0.1, "approxTokens": 25 },

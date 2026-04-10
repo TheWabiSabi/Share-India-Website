@@ -10,19 +10,86 @@
   "routes": {
     "main": [
       { "path": "/", "file": "app/page.tsx", "sizekB": 42, "priority": 1.0, "changeFreq": "daily" },
-      { "path": "/about", "file": "app/about/page.tsx", "sizekB": 47, "priority": 0.8, "changeFreq": "monthly" },
-      { "path": "/contact", "file": "app/contact/page.tsx", "sizekB": 3, "priority": 0.8, "changeFreq": "monthly" },
-      { "path": "/premium-estimator", "file": "app/premium-estimator/page.tsx", "sizekB": 29, "priority": 0.9, "changeFreq": "weekly" },
-      { "path": "/careers", "file": "app/careers/page.tsx", "sizekB": 20, "priority": 0.7, "changeFreq": "weekly" },
-      { "path": "/be-a-posp", "file": "app/be-a-posp/page.tsx", "priority": 0.7, "changeFreq": "monthly" },
-      { "path": "/insights", "file": "app/insights/page.tsx", "sizekB": 9, "priority": 0.7, "changeFreq": "weekly" },
+      {
+        "path": "/about",
+        "file": "app/about/page.tsx",
+        "sizekB": 47,
+        "priority": 0.8,
+        "changeFreq": "monthly"
+      },
+      {
+        "path": "/contact",
+        "file": "app/contact/page.tsx",
+        "sizekB": 3,
+        "priority": 0.8,
+        "changeFreq": "monthly"
+      },
+      {
+        "path": "/premium-estimator",
+        "file": "app/premium-estimator/page.tsx",
+        "sizekB": 29,
+        "priority": 0.9,
+        "changeFreq": "weekly"
+      },
+      {
+        "path": "/careers",
+        "file": "app/careers/page.tsx",
+        "sizekB": 20,
+        "priority": 0.7,
+        "changeFreq": "weekly"
+      },
+      {
+        "path": "/be-a-posp",
+        "file": "app/be-a-posp/page.tsx",
+        "priority": 0.7,
+        "changeFreq": "monthly"
+      },
+      {
+        "path": "/insights",
+        "file": "app/insights/page.tsx",
+        "sizekB": 9,
+        "priority": 0.7,
+        "changeFreq": "weekly"
+      },
       { "path": "/news", "file": "app/news/page.tsx", "priority": 0.7, "changeFreq": "daily" },
-      { "path": "/blog", "file": "app/blog/", "priority": 0.8, "changeFreq": "weekly", "note": "Blog index; bloglist from app/blog/list_of_blogs.json" },
-      { "path": "/blogs/[slug]", "file": "app/blogs/page.tsx", "sizekB": 23, "priority": 0.8, "note": "Individual blog post; content from markdowns/<uuid>.mdx" },
-      { "path": "/privacy-policy", "file": "app/privacy-policy/", "priority": 0.6, "changeFreq": "monthly" },
-      { "path": "/terms-conditions", "file": "app/terms-conditions/", "priority": 0.6, "changeFreq": "monthly" },
-      { "path": "/legal-disclaimers", "file": "app/legal-disclaimers/", "priority": 0.6, "changeFreq": "monthly" },
-      { "path": "/cancellation-refund", "file": "app/cancellation-refund/", "priority": 0.6, "changeFreq": "monthly" }
+      {
+        "path": "/blog",
+        "file": "app/blog/",
+        "priority": 0.8,
+        "changeFreq": "weekly",
+        "note": "Blog index; bloglist from app/blog/list_of_blogs.json"
+      },
+      {
+        "path": "/blogs/[slug]",
+        "file": "app/blogs/page.tsx",
+        "sizekB": 23,
+        "priority": 0.8,
+        "note": "Individual blog post; content from markdowns/<uuid>.mdx"
+      },
+      {
+        "path": "/privacy-policy",
+        "file": "app/privacy-policy/",
+        "priority": 0.6,
+        "changeFreq": "monthly"
+      },
+      {
+        "path": "/terms-conditions",
+        "file": "app/terms-conditions/",
+        "priority": 0.6,
+        "changeFreq": "monthly"
+      },
+      {
+        "path": "/legal-disclaimers",
+        "file": "app/legal-disclaimers/",
+        "priority": 0.6,
+        "changeFreq": "monthly"
+      },
+      {
+        "path": "/cancellation-refund",
+        "file": "app/cancellation-refund/",
+        "priority": 0.6,
+        "changeFreq": "monthly"
+      }
     ],
     "retail": [
       { "path": "/retail", "file": "app/retail/page.tsx", "sizekB": 16 },
@@ -36,26 +103,65 @@
     ],
     "corporate": [
       { "path": "/corporate-insurance", "file": "app/corporate-insurance/page.tsx", "sizekB": 16 },
-      { "path": "/corporate-insurance/property-and-engineering-insurance", "file": "app/corporate-insurance/property-and-engineering-insurance/" },
-      { "path": "/corporate-insurance/liability-insurance", "file": "app/corporate-insurance/liability-insurance/" },
-      { "path": "/corporate-insurance/marine-transit-insurance", "file": "app/corporate-insurance/marine-transit-insurance/" },
-      { "path": "/corporate-insurance/motor-fleet-insurance", "file": "app/corporate-insurance/motor-fleet-insurance/" },
-      { "path": "/corporate-insurance/employee-benefits-insurance", "file": "app/corporate-insurance/employee-benefits-insurance/" },
-      { "path": "/corporate-insurance/office-package-insurance", "file": "app/corporate-insurance/office-package-insurance/" },
-      { "path": "/corporate-insurance/shopkeepers-package-and-jewellers-block", "file": "app/corporate-insurance/shopkeepers-package-and-jewellers-block/" },
-      { "path": "/corporate-insurance/media-and-entertainment-insurance", "file": "app/corporate-insurance/media-and-entertainment-insurance/" },
-      { "path": "/corporate-insurance/group-travel-insurance-plans", "file": "app/corporate-insurance/group-travel-insurance-plans/" },
-      { "path": "/corporate-insurance/trade-credit-insurance", "file": "app/corporate-insurance/trade-credit-insurance/" }
+      {
+        "path": "/corporate-insurance/property-and-engineering-insurance",
+        "file": "app/corporate-insurance/property-and-engineering-insurance/"
+      },
+      {
+        "path": "/corporate-insurance/liability-insurance",
+        "file": "app/corporate-insurance/liability-insurance/"
+      },
+      {
+        "path": "/corporate-insurance/marine-transit-insurance",
+        "file": "app/corporate-insurance/marine-transit-insurance/"
+      },
+      {
+        "path": "/corporate-insurance/motor-fleet-insurance",
+        "file": "app/corporate-insurance/motor-fleet-insurance/"
+      },
+      {
+        "path": "/corporate-insurance/employee-benefits-insurance",
+        "file": "app/corporate-insurance/employee-benefits-insurance/"
+      },
+      {
+        "path": "/corporate-insurance/office-package-insurance",
+        "file": "app/corporate-insurance/office-package-insurance/"
+      },
+      {
+        "path": "/corporate-insurance/shopkeepers-package-and-jewellers-block",
+        "file": "app/corporate-insurance/shopkeepers-package-and-jewellers-block/"
+      },
+      {
+        "path": "/corporate-insurance/media-and-entertainment-insurance",
+        "file": "app/corporate-insurance/media-and-entertainment-insurance/"
+      },
+      {
+        "path": "/corporate-insurance/group-travel-insurance-plans",
+        "file": "app/corporate-insurance/group-travel-insurance-plans/"
+      },
+      {
+        "path": "/corporate-insurance/trade-credit-insurance",
+        "file": "app/corporate-insurance/trade-credit-insurance/"
+      }
     ],
     "industries": [
       { "path": "/industries", "file": "app/industries/page.tsx", "sizekB": 17 },
-      { "path": "/industries/infrastructure-industry", "file": "app/industries/infrastructure-industry/" },
+      {
+        "path": "/industries/infrastructure-industry",
+        "file": "app/industries/infrastructure-industry/"
+      },
       { "path": "/industries/chemical-industry", "file": "app/industries/chemical-industry/" },
       { "path": "/industries/solar-industry", "file": "app/industries/solar-industry/" },
       { "path": "/industries/textile-industry", "file": "app/industries/textile-industry/" },
       { "path": "/industries/logistics-industry", "file": "app/industries/logistics-industry/" },
-      { "path": "/industries/real-estate-industry", "file": "app/industries/real-estate-industry/" },
-      { "path": "/industries/life-sciences-and-pharma-industry", "file": "app/industries/life-sciences-and-pharma-industry/" },
+      {
+        "path": "/industries/real-estate-industry",
+        "file": "app/industries/real-estate-industry/"
+      },
+      {
+        "path": "/industries/life-sciences-and-pharma-industry",
+        "file": "app/industries/life-sciences-and-pharma-industry/"
+      },
       { "path": "/industries/plastic-industry", "file": "app/industries/plastic-industry/" },
       { "path": "/industries/startup-industry", "file": "app/industries/startup-industry/" }
     ]

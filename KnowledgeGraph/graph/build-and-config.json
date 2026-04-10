@@ -70,7 +70,11 @@
   },
   "codeQuality": {
     "eslint": { "config": "eslint.config.mjs", "extends": "eslint-config-next" },
-    "prettier": { "config": ".prettierrc", "ignore": ".prettierignore", "plugin": "prettier-plugin-tailwindcss" },
+    "prettier": {
+      "config": ".prettierrc",
+      "ignore": ".prettierignore",
+      "plugin": "prettier-plugin-tailwindcss"
+    },
     "typescript": { "config": "tsconfig.json" }
   },
   "pathAlias": {

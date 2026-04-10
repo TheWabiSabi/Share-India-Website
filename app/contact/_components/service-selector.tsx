@@ -7,131 +7,126 @@ interface ServiceOption {
   id: string;
   label: string;
   href: string;
-  description?: string;
+  description: string;
+  emoji: string;
 }
 
 const services: ServiceOption[] = [
   {
     id: 'business-insurance',
+    emoji: '🏢',
     label: 'Business Insurance',
-    href: '/business-insurance',
-    description: 'Protect your business with comprehensive coverage',
+    href: '/corporate-insurance',
+    description: 'Protect your business with comprehensive corporate coverage',
   },
   {
     id: 'employee-benefits',
+    emoji: '👥',
     label: 'Employee Benefits',
-    href: '/employee-benefits',
-    description: 'Comprehensive benefits packages for your employees',
+    href: '/corporate-insurance/employee-benefits-insurance',
+    description: 'Comprehensive group health & benefits for your team',
   },
   {
     id: 'personal-insurance',
+    emoji: '🛡️',
     label: 'Personal Insurance',
-    href: '/personal-insurance',
-    description: 'Individual and family insurance solutions',
+    href: '/retail',
+    description: 'Individual and family health, life, motor & home plans',
   },
   {
     id: 'retirement-wealth',
-    label: 'Retirement and Private Wealth',
-    href: '/retirement-wealth',
-    description: 'Plan for your future with our wealth management services',
+    emoji: '💰',
+    label: 'Retirement & Private Wealth',
+    href: '/retail/life',
+    description: 'Plan for your future with smart life & savings solutions',
   },
 ];
 
 export default function ServicesSelector() {
-  const [selectedService, setSelectedService] = useState<string>('');
-
-  const handleServiceClick = (service: ServiceOption) => {
-    setSelectedService(service.id);
-  };
+  const [selected, setSelected] = useState<string>('');
 
   return (
     <>
-      {/* Services Selection */}
-      <div className="space-y-4">
-        {services.map((service) => (
-          <div key={service.id} className="flex w-full justify-center">
+      <div className="space-y-3">
+        {services.map((svc) => {
+          const isActive = selected === svc.id;
+          return (
             <button
-              onClick={() => handleServiceClick(service)}
-              className={`card-vibrant hover-lift focus:ring-si-primary/20 w-full max-w-2xl rounded-xl p-6 transition-all duration-300 focus:ring-4 focus:outline-none ${
-                selectedService === service.id
-                  ? 'hover-glow-blue from-si-primary/20 to-si-red/10 border-si-primary bg-gradient-to-r'
-                  : 'hover:from-si-primary/10 hover:to-si-red/5 hover:bg-gradient-to-r'
-              }`}
+              key={svc.id}
+              onClick={() => setSelected(svc.id)}
+              className={[
+                'w-full rounded-2xl border p-5 text-left transition-all duration-200',
+                'focus-visible:ring-si-primary/40 focus:outline-none focus-visible:ring-2',
+                isActive
+                  ? 'border-si-primary/30 bg-si-primary/5 shadow-[0_0_0_3px_rgba(45,169,255,0.1)]'
+                  : 'hover:border-si-primary/20 border-gray-100 bg-white hover:shadow-sm',
+              ].join(' ')}
             >
               <div className="flex items-center justify-between">
-                <div className="text-left">
-                  <span className="text-si-ink block text-lg font-semibold sm:text-xl">
-                    {service.label}
-                  </span>
-                  {service.description && (
-                    <span className="text-si-ink/70 mt-2 block text-sm">{service.description}</span>
-                  )}
+                <div className="flex items-center gap-3">
+                  <span className="text-2xl">{svc.emoji}</span>
+                  <div>
+                    <div
+                      className={`text-base font-bold transition-colors ${isActive ? 'text-si-primary' : 'text-si-ink'}`}
+                    >
+                      {svc.label}
+                    </div>
+                    <div className="text-si-ink/55 mt-0.5 text-sm">{svc.description}</div>
+                  </div>
                 </div>
                 <div
-                  className={`ml-4 transition-transform duration-300 ${
-                    selectedService === service.id ? 'rotate-90' : ''
-                  }`}
+                  className={`ml-4 shrink-0 rounded-full p-1.5 transition-all ${isActive ? 'bg-si-primary text-white' : 'text-si-ink/30 bg-gray-100'}`}
                 >
-                  <svg
-                    className={`h-6 w-6 ${
-                      selectedService === service.id ? 'text-si-primary' : 'text-si-ink/40'
-                    }`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
+                  <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
+                      strokeWidth={2.5}
+                      d={isActive ? 'M5 13l4 4L19 7' : 'M9 5l7 7-7 7'}
                     />
                   </svg>
                 </div>
               </div>
             </button>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
-      {/* Action Buttons */}
-      <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-        <button className="card-vibrant hover-lift hover-glow-blue from-si-primary to-si-primary-600 focus:ring-si-primary/30 rounded-xl bg-gradient-to-r px-8 py-4 font-semibold text-black transition-all duration-300 focus:ring-4 focus:outline-none">
-          <span className="flex items-center justify-center gap-2">
-            Get Started
-            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 8l4 4m0 0l-4 4m4-4H7"
-              />
-            </svg>
-          </span>
+      <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+        <button
+          disabled={!selected}
+          className="btn-primary inline-flex flex-1 items-center justify-center gap-2 rounded-xl py-3.5 font-semibold disabled:cursor-not-allowed disabled:opacity-40"
+        >
+          Get Started
+          <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2.5}
+              d="M17 8l4 4m0 0l-4 4m4-4H7"
+            />
+          </svg>
         </button>
         <Link
           href="/contact"
-          className="card-vibrant hover-lift border-si-primary/30 from-si-primary/10 to-si-red/5 hover:from-si-primary/20 hover:to-si-red/10 text-si-ink focus:ring-si-primary/20 rounded-xl border bg-gradient-to-r px-8 py-4 text-center font-semibold transition-all duration-300 focus:ring-4 focus:outline-none"
+          className="btn-ghost inline-flex flex-1 items-center justify-center rounded-xl py-3.5 font-semibold"
         >
           Contact Us
         </Link>
       </div>
 
-      {/* Selected Service Display */}
-      {selectedService && (
-        <div className="card-vibrant hover-lift hover-glow-blue from-si-primary/15 to-si-red/10 mt-8 rounded-xl bg-gradient-to-r p-6">
-          <div className="text-center">
-            <div className="accent-bar-gradient mx-auto mb-3 h-2 w-12" />
-            <p className="text-si-ink mb-2 text-lg font-semibold">
-              Selected Service:{' '}
-              <span className="text-gradient-primary">
-                {services.find((s) => s.id === selectedService)?.label}
-              </span>
-            </p>
-            <p className="text-si-ink/80 text-sm">
-              {services.find((s) => s.id === selectedService)?.description}
-            </p>
-          </div>
+      {selected && (
+        <div className="border-si-primary/15 from-si-primary/5 mt-5 overflow-hidden rounded-2xl border bg-gradient-to-br to-white p-5">
+          <div className="accent-bar-gradient mb-3 h-1 w-10 rounded" />
+          <p className="text-si-ink font-semibold">
+            Selected:{' '}
+            <span className="text-gradient-primary">
+              {services.find((s) => s.id === selected)?.label}
+            </span>
+          </p>
+          <p className="text-si-ink/60 mt-1 text-sm">
+            {services.find((s) => s.id === selected)?.description}
+          </p>
         </div>
       )}
     </>
