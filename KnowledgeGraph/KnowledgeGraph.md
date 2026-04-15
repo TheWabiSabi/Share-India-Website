@@ -121,7 +121,7 @@ public/                       ← Static assets
 | MDX files use UUID names   | Don't use UUID as URL slug; look up slug in `list_of_blogs.json`      |
 | Tailwind v4 (no config.js) | All tokens in `app/globals.css @theme {}`                             |
 | Animations centralised     | Always use `components/motion.tsx`; no inline FM variants             |
-| Images from CDN            | Remote images → `static.shareindiainsurance.com` only                 |
+| Images from CDN            | Remote images → `minio-api.internal.wabisabitech.in/share-india` only |
 | Chatbot is data-driven     | Edit chatbot content in `components/chatbot/responses.json`           |
 | `main-caraousel.tsx` typo  | Do NOT rename the file without mass-updating imports                  |
 | Two known interface typos  | `explaination` and `desciption` in `app/industries/main.interface.ts` |

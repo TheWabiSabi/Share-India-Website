@@ -48,7 +48,7 @@
       "implication": "Never create inline Framer Motion variants in page or component files."
     },
     {
-      "decision": "Remote images must use static.shareindiainsurance.com",
+      "decision": "Remote images must use minio-api.internal.wabisabitech.in/share-india",
       "reason": "CDN is whitelisted in next.config.ts. Other external domains will be blocked.",
       "implication": "Local static assets → public/. External images → use the CDN domain only."
     },
