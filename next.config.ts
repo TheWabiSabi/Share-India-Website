@@ -7,7 +7,13 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'static.shareindiainsurance.com',
+        hostname: 'minio-api.internal.wabisabitech.in/share-india',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'minio-api.internal.wabisabitech.in',
         port: '',
         pathname: '/**',
       },

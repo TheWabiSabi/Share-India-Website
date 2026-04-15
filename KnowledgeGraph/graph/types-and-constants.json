@@ -7,7 +7,7 @@
   },
   "constants": {
     "IMAGE_BASE_URL": {
-      "value": "https://static.shareindiainsurance.com",
+      "value": "https://minio-api.internal.wabisabitech.in/share-india",
       "file": "consts/variables.ts",
       "usage": "Prefix for all remote image paths. Already whitelisted in next.config.ts"
     },
