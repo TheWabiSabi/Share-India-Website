@@ -1,8 +1,7 @@
-import { IMAGE_BASE_URL } from '@/consts/variables';
 import { FaHammer, FaIndustry, FaTools, FaShieldAlt } from 'react-icons/fa';
 
 export const details = {
-  img: `${IMAGE_BASE_URL}/blog/highrise.jpg`,
+  img: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80',
   hero: {
     title: 'Property & Engineering Insurance Solutions',
     description:

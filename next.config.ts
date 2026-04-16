@@ -22,6 +22,30 @@ const nextConfig: NextConfig = {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
+  async redirects() {
+    return [
+      {
+        source: '/corporate',
+        destination: '/corporate-insurance',
+        permanent: true,
+      },
+      {
+        source: '/corporate/marine-transit',
+        destination: '/corporate-insurance/marine-transit-insurance',
+        permanent: true,
+      },
+      {
+        source: '/industries/real-estate',
+        destination: '/industries/real-estate-industry',
+        permanent: true,
+      },
+      {
+        source: '/our-story',
+        destination: '/about#our-story',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
