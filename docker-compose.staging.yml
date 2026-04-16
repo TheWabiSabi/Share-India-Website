@@ -6,7 +6,7 @@ services:
       - proxy
     labels:
       - 'traefik.enable=true'
-      - 'traefik.http.routers.shareindia.rule=Host(`shareindiainsurance.com`) || Host(`shareindia.internal.wabisabitech.in`)'
+      - 'traefik.http.routers.shareindia.rule=Host(`shareindiainsurance.com`) || Host(`shareindia.internal.wabisabitech.in`) || Host(`www.shareindiainsurance.com`)'
       - 'traefik.http.routers.shareindia.entrypoints=https'
       - 'traefik.http.routers.shareindia.tls=true'
       - 'traefik.http.services.shareindia.loadbalancer.server.port=3000'
@@ -21,6 +21,11 @@ services:
         mode: 'non-blocking'
     restart: unless-stopped
     container_name: share-india-website-staging
+    deploy:
+      resources:
+        limits:
+          cpus: '0.20' # Max 50% of a single CPU core
+          memory: 512M # Hard limit: container is killed if exceeded
     environment:
       - NODE_ENV=production
       - PORT=3000
