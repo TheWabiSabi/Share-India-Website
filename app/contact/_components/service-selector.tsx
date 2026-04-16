@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 
 
 interface ServiceOption {
@@ -79,7 +80,7 @@ export default function ServicesSelector() {
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <span className="text-2xl">{svc.emoji}</span>
+                      <span className="text-si-primary border-si-primary/20 bg-si-primary/5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border text-xs font-bold tabular-nums">{svc.number}</span>
                       <div>
                         <div
                           className={`text-base font-bold transition-colors ${isActive ? 'text-si-primary' : 'text-si-ink'}`}
@@ -107,28 +108,20 @@ export default function ServicesSelector() {
             })}
           </div>
 
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
             <button
               onClick={handleNextStep}
               disabled={!selected}
-              className="btn-primary inline-flex flex-1 items-center justify-center gap-2 rounded-xl py-3.5 font-semibold disabled:cursor-not-allowed disabled:opacity-40"
+              className="bg-si-primary hover:bg-si-primary-800 hover:shadow-si-primary-700/20 inline-flex flex-1 items-center justify-center gap-3 rounded-xl py-4 text-sm font-bold tracking-wider text-white uppercase transition-all hover:shadow-lg disabled:cursor-not-allowed disabled:bg-slate-300 disabled:opacity-30"
             >
-              Continue
-              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2.5}
-                  d="M17 8l4 4m0 0l-4 4m4-4H7"
-                />
-              </svg>
+              Continue &rarr;
             </button>
-            <a
+            <Link
               href="tel:18002102022"
-              className="btn-ghost inline-flex flex-1 items-center justify-center rounded-xl py-3.5 font-semibold"
+              className="hover:text-si-primary-700 inline-flex flex-1 items-center justify-center rounded-xl border-2 border-slate-200 py-4 text-sm font-bold tracking-wider text-slate-600 uppercase transition-colors hover:border-sky-200 hover:bg-sky-50"
             >
               Call Us Instead
-            </a>
+            </Link>
           </div>
         </>
       )}
@@ -169,22 +162,19 @@ export default function ServicesSelector() {
               placeholder="+91"
             />
           </div>
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
             <button
               type="button"
               onClick={() => setStep(1)}
-              className="btn-ghost inline-flex flex-1 items-center justify-center rounded-xl py-3.5 font-semibold"
+              className="hover:text-si-primary-700 inline-flex flex-1 items-center justify-center rounded-xl border-2 border-slate-200 py-4 text-sm font-bold tracking-wider text-slate-600 uppercase transition-colors hover:border-sky-200 hover:bg-sky-50"
             >
               Back
             </button>
             <button
               type="submit"
-              className="btn-primary inline-flex flex-1 items-center justify-center gap-2 rounded-xl py-3.5 font-semibold"
+              className="bg-si-primary hover:bg-si-primary-800 hover:shadow-si-primary-700/20 inline-flex flex-1 items-center justify-center gap-3 rounded-xl py-4 text-sm font-bold tracking-wider text-white uppercase transition-all hover:shadow-lg"
             >
-              Submit Request
-              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-              </svg>
+              Submit Request &rarr;
             </button>
           </div>
         </form>
@@ -215,20 +205,6 @@ export default function ServicesSelector() {
         </div>
       )}
 
-      <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-        <button
-          disabled={!selected}
-          className="bg-si-primary hover:bg-si-primary-800 hover:shadow-si-primary-700/20 inline-flex flex-1 items-center justify-center gap-3 rounded-xl py-4 text-sm font-bold tracking-wider text-white uppercase transition-all hover:shadow-lg disabled:cursor-not-allowed disabled:bg-slate-300 disabled:opacity-30"
-        >
-          Continue &rarr;
-        </button>
-        <Link
-          href="tel:18002102022"
-          className="hover:text-si-primary-700 inline-flex flex-1 items-center justify-center rounded-xl border-2 border-slate-200 py-4 text-sm font-bold tracking-wider text-slate-600 uppercase transition-colors hover:border-sky-200 hover:bg-sky-50"
-        >
-          Call Us Instead
-        </Link>
-      </div>
-    </div>
+    </>
   );
 }
