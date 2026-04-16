@@ -659,7 +659,7 @@ function InsurAISection() {
                   <ArrowIcon />
                 </a>
                 <Link
-                  href="/services-by-shareindia"
+                  href="/ai-toolkit"
                   className="btn-ghost inline-flex items-center justify-center gap-2 rounded-xl px-7 py-3.5 font-semibold"
                 >
                   More services by ShareIndia

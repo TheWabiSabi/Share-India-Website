@@ -304,18 +304,29 @@ export default function BeAPOSPPage() {
 
             <div className="shadow-vibrant-blue rounded-2xl bg-white p-8 md:p-12">
               {isSubmitted ? (
-                <div className="text-center py-12">
+                <div className="py-12 text-center">
                   <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-green-100">
                     <FaCheckCircle className="text-4xl text-green-600" />
                   </div>
-                  <h3 className="mb-4 text-2xl font-bold text-si-ink md:text-3xl">Application Submitted Successfully!</h3>
-                  <p className="mb-8 text-lg text-si-ink/70">
-                    Thank you, {formData.name}. We have received your application. Our recruitment team will review your details and contact you at {formData.phone} shortly.
+                  <h3 className="text-si-ink mb-4 text-2xl font-bold md:text-3xl">
+                    Application Submitted Successfully!
+                  </h3>
+                  <p className="text-si-ink/70 mb-8 text-lg">
+                    Thank you, {formData.name}. We have received your application. Our recruitment
+                    team will review your details and contact you at {formData.phone} shortly.
                   </p>
                   <button
                     onClick={() => {
                       setIsSubmitted(false);
-                      setFormData({ name: '', email: '', phone: '', city: '', experience: '', qualification: '', message: '' });
+                      setFormData({
+                        name: '',
+                        email: '',
+                        phone: '',
+                        city: '',
+                        experience: '',
+                        qualification: '',
+                        message: '',
+                      });
                     }}
                     className="btn-ghost inline-flex items-center gap-2 rounded-xl px-8 py-4 font-semibold"
                   >
@@ -326,7 +337,10 @@ export default function BeAPOSPPage() {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                     <div>
-                      <label htmlFor="name" className="text-si-ink mb-2 block text-sm font-semibold">
+                      <label
+                        htmlFor="name"
+                        className="text-si-ink mb-2 block text-sm font-semibold"
+                      >
                         Full Name *
                       </label>
                       <input
@@ -342,7 +356,10 @@ export default function BeAPOSPPage() {
                     </div>
 
                     <div>
-                      <label htmlFor="email" className="text-si-ink mb-2 block text-sm font-semibold">
+                      <label
+                        htmlFor="email"
+                        className="text-si-ink mb-2 block text-sm font-semibold"
+                      >
                         Email Address *
                       </label>
                       <input
@@ -358,7 +375,10 @@ export default function BeAPOSPPage() {
                     </div>
 
                     <div>
-                      <label htmlFor="phone" className="text-si-ink mb-2 block text-sm font-semibold">
+                      <label
+                        htmlFor="phone"
+                        className="text-si-ink mb-2 block text-sm font-semibold"
+                      >
                         Phone Number *
                       </label>
                       <input
@@ -374,7 +394,10 @@ export default function BeAPOSPPage() {
                     </div>
 
                     <div>
-                      <label htmlFor="city" className="text-si-ink mb-2 block text-sm font-semibold">
+                      <label
+                        htmlFor="city"
+                        className="text-si-ink mb-2 block text-sm font-semibold"
+                      >
                         City *
                       </label>
                       <input
@@ -436,7 +459,10 @@ export default function BeAPOSPPage() {
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="text-si-ink mb-2 block text-sm font-semibold">
+                    <label
+                      htmlFor="message"
+                      className="text-si-ink mb-2 block text-sm font-semibold"
+                    >
                       Why do you want to become a POSP agent?
                     </label>
                     <textarea
