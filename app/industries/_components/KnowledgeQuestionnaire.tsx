@@ -101,7 +101,7 @@ const KnowledgeQuestionnaire: React.FC<KnowledgeQuestionnaireProps> = ({
     const scoreMessage = getScoreMessage(score, questions.length);
 
     return (
-      <section className="w-full border-b border-gray-100 bg-gradient-to-b from-si-primary-200 to-white">
+      <section className="from-si-primary-200 w-full border-b border-gray-100 bg-gradient-to-b to-white">
         <div className="mx-auto max-w-4xl px-4 py-14 sm:px-6 lg:px-8">
           <div className="text-center">
             <FaChartLine className="mx-auto text-4xl text-blue-500" />
@@ -143,7 +143,7 @@ const KnowledgeQuestionnaire: React.FC<KnowledgeQuestionnaireProps> = ({
   const selectedAnswer = selectedAnswers[currentQuestion];
 
   return (
-    <section className="w-full border-b border-gray-100 bg-gradient-to-b from-si-primary-200 to-white">
+    <section className="from-si-primary-200 w-full border-b border-gray-100 bg-gradient-to-b to-white">
       <div className="mx-auto max-w-4xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="text-center">
           <FaQuestionCircle className="mx-auto text-4xl text-blue-500" />

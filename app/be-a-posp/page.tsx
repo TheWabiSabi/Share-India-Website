@@ -183,7 +183,7 @@ export default function BeAPOSPPage() {
       </section>
 
       {/* Benefits Section */}
-      <section id="learn-more" className="bg-gradient-to-b from-si-primary-200 to-white py-20">
+      <section id="learn-more" className="from-si-primary-200 bg-gradient-to-b to-white py-20">
         <div className="container mx-auto px-4">
           <div className="mb-16 text-center">
             <h2 className="text-si-ink mb-4 text-3xl font-bold md:text-4xl">
@@ -210,7 +210,7 @@ export default function BeAPOSPPage() {
       </section>
 
       {/* Requirements Section */}
-      <section className="bg-gradient-to-b from-white to-si-primary-200 py-20">
+      <section className="to-si-primary-200 bg-gradient-to-b from-white py-20">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
             <div>
@@ -262,7 +262,7 @@ export default function BeAPOSPPage() {
       </section>
 
       {/* Process Steps */}
-      <section className="bg-gradient-to-b from-si-primary-200 to-white py-20">
+      <section className="from-si-primary-200 bg-gradient-to-b to-white py-20">
         <div className="container mx-auto px-4">
           <div className="mb-16 text-center">
             <h2 className="text-si-ink mb-4 text-3xl font-bold md:text-4xl">
@@ -289,7 +289,7 @@ export default function BeAPOSPPage() {
       </section>
 
       {/* Application Form */}
-      <section id="apply-now" className="bg-gradient-to-b from-white to-si-primary-200 py-20">
+      <section id="apply-now" className="to-si-primary-200 bg-gradient-to-b from-white py-20">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-4xl">
             <div className="mb-12 text-center">
@@ -470,7 +470,9 @@ export default function BeAPOSPPage() {
       <section className="bg-si-primary-200 py-20">
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
-            <h2 className="text-si-ink mb-4 text-3xl font-bold md:text-4xl">Have Questions? Get in Touch</h2>
+            <h2 className="text-si-ink mb-4 text-3xl font-bold md:text-4xl">
+              Have Questions? Get in Touch
+            </h2>
             <p className="text-si-ink/65 mx-auto max-w-3xl text-xl">
               Our team is here to help you understand the POSP program and guide you through the
               application process.

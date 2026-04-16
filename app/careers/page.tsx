@@ -242,7 +242,7 @@ export default function CareersPage() {
 
       {/* ── Why SIIB ── */}
       <FadeIn>
-        <section className="border-t border-gray-100 bg-si-primary-50 py-16">
+        <section className="bg-si-primary-50 border-t border-gray-100 py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mb-10 text-center">
               <h2 className="text-si-ink text-2xl font-bold">Why Join SIIB?</h2>

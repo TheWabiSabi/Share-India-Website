@@ -96,7 +96,7 @@ const CorporatePage = ({
     </section>
 
     {/* ── Explanation ── */}
-    <section className="border-b border-gray-100 bg-gradient-to-b from-si-primary-200 to-white py-16 lg:py-20">
+    <section className="from-si-primary-200 border-b border-gray-100 bg-gradient-to-b to-white py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10">
           <h2 className="text-si-ink text-3xl font-bold md:text-4xl">
@@ -144,7 +144,7 @@ const CorporatePage = ({
     </section>
 
     {/* ── Core Coverage ── */}
-    <section className="border-b border-gray-100 bg-gradient-to-b from-white to-si-primary-200 py-16">
+    <section className="to-si-primary-200 border-b border-gray-100 bg-gradient-to-b from-white py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10">
           <h2 className="text-si-ink text-3xl font-bold md:text-4xl">Core Coverage Suite</h2>
@@ -159,7 +159,7 @@ const CorporatePage = ({
     </section>
 
     {/* ── Claim Stories ── */}
-    <section className="border-b border-gray-100 bg-gradient-to-b from-si-primary-200 to-white py-14">
+    <section className="from-si-primary-200 border-b border-gray-100 bg-gradient-to-b to-white py-14">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-si-ink mb-3 text-2xl font-bold md:text-3xl">Claim Stories</h2>
         <p className="text-si-ink/70 mb-8">{details.claim_story.description}</p>
@@ -175,7 +175,7 @@ const CorporatePage = ({
     </section>
 
     {/* ── Industry Insights ── */}
-    <section className="border-b border-gray-100 bg-gradient-to-b from-white to-si-primary-200 py-14">
+    <section className="to-si-primary-200 border-b border-gray-100 bg-gradient-to-b from-white py-14">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-si-ink mb-3 text-2xl font-bold md:text-3xl">
           Industry Insights & Articles

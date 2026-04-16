@@ -5,40 +5,40 @@ import React, { useState } from 'react';
 
 interface ServiceOption {
   id: string;
+  number: string;
   label: string;
   href: string;
   description: string;
-  emoji: string;
 }
 
 const services: ServiceOption[] = [
   {
     id: 'business-insurance',
-    emoji: '🏢',
+    number: '01',
     label: 'Business Insurance',
     href: '/corporate-insurance',
-    description: 'Protect your business with comprehensive corporate coverage',
+    description: 'Protect your business with comprehensive corporate coverage.',
   },
   {
     id: 'employee-benefits',
-    emoji: '👥',
+    number: '02',
     label: 'Employee Benefits',
     href: '/corporate-insurance/employee-benefits-insurance',
-    description: 'Comprehensive group health & benefits for your team',
+    description: 'Comprehensive group health & benefits for your team.',
   },
   {
     id: 'personal-insurance',
-    emoji: '🛡️',
+    number: '03',
     label: 'Personal Insurance',
     href: '/retail',
-    description: 'Individual and family health, life, motor & home plans',
+    description: 'Individual and family health, life, motor & home plans.',
   },
   {
     id: 'retirement-wealth',
-    emoji: '💰',
-    label: 'Retirement & Private Wealth',
+    number: '04',
+    label: 'Retirement & Wealth',
     href: '/retail/life',
-    description: 'Plan for your future with smart life & savings solutions',
+    description: 'Plan for your future with smart life & savings solutions.',
   },
 ];
 
@@ -214,6 +214,21 @@ export default function ServicesSelector() {
           </button>
         </div>
       )}
-    </>
+
+      <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+        <button
+          disabled={!selected}
+          className="bg-si-primary hover:bg-si-primary-800 hover:shadow-si-primary-700/20 inline-flex flex-1 items-center justify-center gap-3 rounded-xl py-4 text-sm font-bold tracking-wider text-white uppercase transition-all hover:shadow-lg disabled:cursor-not-allowed disabled:bg-slate-300 disabled:opacity-30"
+        >
+          Continue &rarr;
+        </button>
+        <Link
+          href="tel:18002102022"
+          className="hover:text-si-primary-700 inline-flex flex-1 items-center justify-center rounded-xl border-2 border-slate-200 py-4 text-sm font-bold tracking-wider text-slate-600 uppercase transition-colors hover:border-sky-200 hover:bg-sky-50"
+        >
+          Call Us Instead
+        </Link>
+      </div>
+    </div>
   );
 }
