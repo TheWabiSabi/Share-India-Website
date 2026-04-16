@@ -1,5 +1,5 @@
 // app/layout.tsx
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
 import Header from '@/components/header/header';
@@ -19,6 +19,12 @@ const geistMono = Geist_Mono({
   display: 'swap',
   variable: '--font-geist-mono',
 });
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://insurance.shareindia.com'),
@@ -62,7 +68,7 @@ export const metadata: Metadata = {
     title: 'Share India Insurance Brokers | IRDA Licensed Insurance Broker',
     description:
       'IRDA licensed insurance broker offering comprehensive insurance solutions across India.',
-    creator: '@ShareIndiaIns',
+    creator: '@ShareIndia73227',
   },
   robots: {
     index: true,

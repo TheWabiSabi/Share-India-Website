@@ -1,8 +1,7 @@
-import { IMAGE_BASE_URL } from '@/consts/variables';
 import { FaPills, FaFlask, FaMicroscope, FaVial, FaUserShield, FaTools } from 'react-icons/fa';
 
 export const details = {
-  img: `${IMAGE_BASE_URL}/blog/construction.jpg`,
+  img: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&q=80',
   hero: {
     title: 'Life Sciences & Pharma Insurance Solutions',
     description:
