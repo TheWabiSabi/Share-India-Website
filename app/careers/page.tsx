@@ -335,17 +335,37 @@ export default function CareersPage() {
             >
               <div>
                 <label className="text-si-ink mb-1 block text-sm font-semibold">Full Name *</label>
-                <input required type="text" className="border-si-primary/20 focus:ring-si-primary w-full rounded-lg border px-4 py-2 transition-all focus:border-transparent focus:ring-2" />
+                <input
+                  required
+                  type="text"
+                  className="border-si-primary/20 focus:ring-si-primary w-full rounded-lg border px-4 py-2 transition-all focus:border-transparent focus:ring-2"
+                />
               </div>
               <div>
-                <label className="text-si-ink mb-1 block text-sm font-semibold">Email Address *</label>
-                <input required type="email" className="border-si-primary/20 focus:ring-si-primary w-full rounded-lg border px-4 py-2 transition-all focus:border-transparent focus:ring-2" />
+                <label className="text-si-ink mb-1 block text-sm font-semibold">
+                  Email Address *
+                </label>
+                <input
+                  required
+                  type="email"
+                  className="border-si-primary/20 focus:ring-si-primary w-full rounded-lg border px-4 py-2 transition-all focus:border-transparent focus:ring-2"
+                />
               </div>
               <div>
-                <label className="text-si-ink mb-1 block text-sm font-semibold">Resume / CV (PDF/Word) *</label>
-                <input required type="file" accept=".pdf,.doc,.docx" className="w-full rounded-lg border border-gray-100 bg-gray-50 px-3 py-2 text-sm text-gray-700" />
+                <label className="text-si-ink mb-1 block text-sm font-semibold">
+                  Resume / CV (PDF/Word) *
+                </label>
+                <input
+                  required
+                  type="file"
+                  accept=".pdf,.doc,.docx"
+                  className="w-full rounded-lg border border-gray-100 bg-gray-50 px-3 py-2 text-sm text-gray-700"
+                />
               </div>
-              <button type="submit" className="btn-primary mt-6 w-full rounded-xl py-3 font-semibold">
+              <button
+                type="submit"
+                className="btn-primary mt-6 w-full rounded-xl py-3 font-semibold"
+              >
                 Submit Application
               </button>
             </form>
