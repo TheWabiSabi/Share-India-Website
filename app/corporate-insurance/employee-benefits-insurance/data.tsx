@@ -1,8 +1,7 @@
-import { IMAGE_BASE_URL } from '@/consts/variables';
 import { FaUsers, FaHeartbeat, FaShieldAlt, FaUserMd } from 'react-icons/fa';
 
 export const details = {
-  img: `${IMAGE_BASE_URL}/blog/highrise.jpg`,
+  img: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80',
   hero: {
     title: 'Employee Benefits Insurance Solutions',
     description:

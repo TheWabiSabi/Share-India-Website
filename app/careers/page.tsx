@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { FadeUp, FadeIn, Stagger, Item } from '@/components/motion';
 
@@ -100,6 +100,8 @@ const DEPT_COLORS: Record<string, string> = {
 };
 
 export default function CareersPage() {
+  const [selectedJob, setSelectedJob] = useState<string | null>(null);
+
   return (
     <div className="min-h-screen bg-white">
       {/* ── Hero banner ── */}
@@ -195,10 +197,16 @@ export default function CareersPage() {
                       </div>
 
                       <div className="flex shrink-0 gap-2 lg:flex-col xl:flex-row">
-                        <button className="btn-ghost rounded-xl px-4 py-2 text-sm font-semibold">
+                        <button
+                          onClick={() => setSelectedJob(job.title)}
+                          className="btn-ghost rounded-xl px-4 py-2 text-sm font-semibold"
+                        >
                           View Details
                         </button>
-                        <button className="btn-primary inline-flex items-center gap-1.5 rounded-xl px-4 py-2 text-sm font-semibold">
+                        <button
+                          onClick={() => setSelectedJob(job.title)}
+                          className="btn-primary inline-flex items-center gap-1.5 rounded-xl px-4 py-2 text-sm font-semibold"
+                        >
                           Apply Now
                           <svg
                             className="h-3.5 w-3.5"
@@ -290,7 +298,10 @@ export default function CareersPage() {
                     >
                       Contact HR
                     </Link>
-                    <button className="inline-flex items-center justify-center rounded-xl bg-white/20 px-6 py-3 font-semibold text-white transition-all hover:bg-white/30">
+                    <button
+                      onClick={() => setSelectedJob('General Application')}
+                      className="inline-flex items-center justify-center rounded-xl bg-white/20 px-6 py-3 font-semibold text-white transition-all hover:bg-white/30"
+                    >
                       Submit Resume
                     </button>
                   </div>
@@ -300,6 +311,47 @@ export default function CareersPage() {
           </div>
         </section>
       </FadeIn>
+
+      {/* Application Modal */}
+      {selectedJob && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm">
+          <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
+            <div className="mb-4 flex items-center justify-between">
+              <h3 className="text-si-ink text-xl font-bold">Apply for {selectedJob}</h3>
+              <button
+                onClick={() => setSelectedJob(null)}
+                className="text-si-ink/50 hover:text-si-ink text-2xl leading-none"
+              >
+                &times;
+              </button>
+            </div>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                alert('Success! Your application has been submitted.');
+                setSelectedJob(null);
+              }}
+              className="space-y-4"
+            >
+              <div>
+                <label className="text-si-ink mb-1 block text-sm font-semibold">Full Name *</label>
+                <input required type="text" className="border-si-primary/20 focus:ring-si-primary w-full rounded-lg border px-4 py-2 transition-all focus:border-transparent focus:ring-2" />
+              </div>
+              <div>
+                <label className="text-si-ink mb-1 block text-sm font-semibold">Email Address *</label>
+                <input required type="email" className="border-si-primary/20 focus:ring-si-primary w-full rounded-lg border px-4 py-2 transition-all focus:border-transparent focus:ring-2" />
+              </div>
+              <div>
+                <label className="text-si-ink mb-1 block text-sm font-semibold">Resume / CV (PDF/Word) *</label>
+                <input required type="file" accept=".pdf,.doc,.docx" className="w-full rounded-lg border border-gray-100 bg-gray-50 px-3 py-2 text-sm text-gray-700" />
+              </div>
+              <button type="submit" className="btn-primary mt-6 w-full rounded-xl py-3 font-semibold">
+                Submit Application
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

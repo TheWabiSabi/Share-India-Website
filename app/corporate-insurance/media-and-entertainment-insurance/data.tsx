@@ -1,8 +1,7 @@
-import { IMAGE_BASE_URL } from '@/consts/variables';
 import { FaFilm, FaVideo, FaMusic, FaTheaterMasks } from 'react-icons/fa';
 
 export const details = {
-  img: `${IMAGE_BASE_URL}/blog/highrise.jpg`,
+  img: 'https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?auto=format&fit=crop&q=80',
   hero: {
     title: 'Media & Entertainment Insurance Solutions',
     description:

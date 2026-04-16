@@ -18,6 +18,7 @@ import {
 } from 'react-icons/fa';
 
 export default function BeAPOSPPage() {
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -40,9 +41,8 @@ export default function BeAPOSPPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    alert('Thank you for your interest! We will contact you soon.');
+    // Simulate submission
+    setIsSubmitted(true);
   };
 
   const benefits = [
@@ -303,143 +303,164 @@ export default function BeAPOSPPage() {
             </div>
 
             <div className="shadow-vibrant-blue rounded-2xl bg-white p-8 md:p-12">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                  <div>
-                    <label htmlFor="name" className="text-si-ink mb-2 block text-sm font-semibold">
-                      Full Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      required
-                      className="border-si-primary/20 focus:ring-si-primary w-full rounded-lg border px-4 py-3 transition-all focus:border-transparent focus:ring-2"
-                      placeholder="Enter your full name"
-                    />
+              {isSubmitted ? (
+                <div className="text-center py-12">
+                  <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-green-100">
+                    <FaCheckCircle className="text-4xl text-green-600" />
                   </div>
-
-                  <div>
-                    <label htmlFor="email" className="text-si-ink mb-2 block text-sm font-semibold">
-                      Email Address *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                      className="border-si-primary/20 focus:ring-si-primary w-full rounded-lg border px-4 py-3 transition-all focus:border-transparent focus:ring-2"
-                      placeholder="Enter your email address"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="phone" className="text-si-ink mb-2 block text-sm font-semibold">
-                      Phone Number *
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      required
-                      className="border-si-primary/20 focus:ring-si-primary w-full rounded-lg border px-4 py-3 transition-all focus:border-transparent focus:ring-2"
-                      placeholder="Enter your phone number"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="city" className="text-si-ink mb-2 block text-sm font-semibold">
-                      City *
-                    </label>
-                    <input
-                      type="text"
-                      id="city"
-                      name="city"
-                      value={formData.city}
-                      onChange={handleInputChange}
-                      required
-                      className="border-si-primary/20 focus:ring-si-primary w-full rounded-lg border px-4 py-3 transition-all focus:border-transparent focus:ring-2"
-                      placeholder="Enter your city"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="experience"
-                      className="text-si-ink mb-2 block text-sm font-semibold"
-                    >
-                      Experience in Sales/Insurance
-                    </label>
-                    <select
-                      id="experience"
-                      name="experience"
-                      value={formData.experience}
-                      onChange={handleInputChange}
-                      className="border-si-primary/20 focus:ring-si-primary w-full rounded-lg border px-4 py-3 transition-all focus:border-transparent focus:ring-2"
-                    >
-                      <option value="">Select experience level</option>
-                      <option value="fresher">Fresher (No experience)</option>
-                      <option value="1-2">1-2 years</option>
-                      <option value="3-5">3-5 years</option>
-                      <option value="5+">5+ years</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="qualification"
-                      className="text-si-ink mb-2 block text-sm font-semibold"
-                    >
-                      Highest Qualification *
-                    </label>
-                    <select
-                      id="qualification"
-                      name="qualification"
-                      value={formData.qualification}
-                      onChange={handleInputChange}
-                      required
-                      className="border-si-primary/20 focus:ring-si-primary w-full rounded-lg border px-4 py-3 transition-all focus:border-transparent focus:ring-2"
-                    >
-                      <option value="">Select qualification</option>
-                      <option value="10th">10th Pass</option>
-                      <option value="12th">12th Pass</option>
-                      <option value="graduate">Graduate</option>
-                      <option value="postgraduate">Post Graduate</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="text-si-ink mb-2 block text-sm font-semibold">
-                    Why do you want to become a POSP agent?
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    rows={4}
-                    className="border-si-primary/20 focus:ring-si-primary w-full resize-none rounded-lg border px-4 py-3 transition-all focus:border-transparent focus:ring-2"
-                    placeholder="Tell us about your motivation and goals..."
-                  />
-                </div>
-
-                <div className="text-center">
+                  <h3 className="mb-4 text-2xl font-bold text-si-ink md:text-3xl">Application Submitted Successfully!</h3>
+                  <p className="mb-8 text-lg text-si-ink/70">
+                    Thank you, {formData.name}. We have received your application. Our recruitment team will review your details and contact you at {formData.phone} shortly.
+                  </p>
                   <button
-                    type="submit"
-                    className="btn-primary hover-lift inline-flex items-center gap-2 rounded-xl px-8 py-4 text-lg font-semibold"
+                    onClick={() => {
+                      setIsSubmitted(false);
+                      setFormData({ name: '', email: '', phone: '', city: '', experience: '', qualification: '', message: '' });
+                    }}
+                    className="btn-ghost inline-flex items-center gap-2 rounded-xl px-8 py-4 font-semibold"
                   >
-                    Submit Application
-                    <FaCheckCircle />
+                    Submit Another Application
                   </button>
                 </div>
-              </form>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                    <div>
+                      <label htmlFor="name" className="text-si-ink mb-2 block text-sm font-semibold">
+                        Full Name *
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        required
+                        className="border-si-primary/20 focus:ring-si-primary w-full rounded-lg border px-4 py-3 transition-all focus:border-transparent focus:ring-2"
+                        placeholder="Enter your full name"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="email" className="text-si-ink mb-2 block text-sm font-semibold">
+                        Email Address *
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        required
+                        className="border-si-primary/20 focus:ring-si-primary w-full rounded-lg border px-4 py-3 transition-all focus:border-transparent focus:ring-2"
+                        placeholder="Enter your email address"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="phone" className="text-si-ink mb-2 block text-sm font-semibold">
+                        Phone Number *
+                      </label>
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        required
+                        className="border-si-primary/20 focus:ring-si-primary w-full rounded-lg border px-4 py-3 transition-all focus:border-transparent focus:ring-2"
+                        placeholder="Enter your phone number"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="city" className="text-si-ink mb-2 block text-sm font-semibold">
+                        City *
+                      </label>
+                      <input
+                        type="text"
+                        id="city"
+                        name="city"
+                        value={formData.city}
+                        onChange={handleInputChange}
+                        required
+                        className="border-si-primary/20 focus:ring-si-primary w-full rounded-lg border px-4 py-3 transition-all focus:border-transparent focus:ring-2"
+                        placeholder="Enter your city"
+                      />
+                    </div>
+
+                    <div>
+                      <label
+                        htmlFor="experience"
+                        className="text-si-ink mb-2 block text-sm font-semibold"
+                      >
+                        Experience in Sales/Insurance
+                      </label>
+                      <select
+                        id="experience"
+                        name="experience"
+                        value={formData.experience}
+                        onChange={handleInputChange}
+                        className="border-si-primary/20 focus:ring-si-primary w-full rounded-lg border px-4 py-3 transition-all focus:border-transparent focus:ring-2"
+                      >
+                        <option value="">Select experience level</option>
+                        <option value="fresher">Fresher (No experience)</option>
+                        <option value="1-2">1-2 years</option>
+                        <option value="3-5">3-5 years</option>
+                        <option value="5+">5+ years</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label
+                        htmlFor="qualification"
+                        className="text-si-ink mb-2 block text-sm font-semibold"
+                      >
+                        Highest Qualification *
+                      </label>
+                      <select
+                        id="qualification"
+                        name="qualification"
+                        value={formData.qualification}
+                        onChange={handleInputChange}
+                        required
+                        className="border-si-primary/20 focus:ring-si-primary w-full rounded-lg border px-4 py-3 transition-all focus:border-transparent focus:ring-2"
+                      >
+                        <option value="">Select qualification</option>
+                        <option value="10th">10th Pass</option>
+                        <option value="12th">12th Pass</option>
+                        <option value="graduate">Graduate</option>
+                        <option value="postgraduate">Post Graduate</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label htmlFor="message" className="text-si-ink mb-2 block text-sm font-semibold">
+                      Why do you want to become a POSP agent?
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      rows={4}
+                      className="border-si-primary/20 focus:ring-si-primary w-full resize-none rounded-lg border px-4 py-3 transition-all focus:border-transparent focus:ring-2"
+                      placeholder="Tell us about your motivation and goals..."
+                    />
+                  </div>
+
+                  <div className="text-center">
+                    <button
+                      type="submit"
+                      className="btn-primary hover-lift inline-flex items-center gap-2 rounded-xl px-8 py-4 text-lg font-semibold"
+                    >
+                      Submit Application
+                      <FaCheckCircle />
+                    </button>
+                  </div>
+                </form>
+              )}
             </div>
           </div>
         </div>

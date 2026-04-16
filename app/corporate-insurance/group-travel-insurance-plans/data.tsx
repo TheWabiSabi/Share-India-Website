@@ -1,8 +1,7 @@
-import { IMAGE_BASE_URL } from '@/consts/variables';
 import { FaPlane, FaUsers, FaBriefcase, FaGlobe } from 'react-icons/fa';
 
 export const details = {
-  img: `${IMAGE_BASE_URL}/blog/highrise.jpg`,
+  img: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80',
   hero: {
     title: 'Group Travel Insurance Plans',
     description:

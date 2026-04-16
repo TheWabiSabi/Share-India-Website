@@ -592,6 +592,13 @@ Ensure proper environment variables are set for each environment:
 - Email: careers@shareindia.co.in
 - Page: https://shareindiainsurance.com/careers
 
+### Social Media
+
+- [Twitter/X](https://x.com/ShareIndia73227)
+- [Facebook](https://www.facebook.com/ShareIndiaInsurance/)
+- [LinkedIn](https://www.linkedin.com/company/share-india-insurance-brokers-private-limited/)
+- [Instagram](https://www.instagram.com/shareindiainsurancebrokers/)
+
 ## License
 
 Copyright © 2025 Share India Insurance Brokers. All rights reserved.

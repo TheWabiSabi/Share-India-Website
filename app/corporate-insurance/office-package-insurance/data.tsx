@@ -1,8 +1,7 @@
-import { IMAGE_BASE_URL } from '@/consts/variables';
 import { FaBuilding, FaDesktop, FaShieldAlt, FaMoneyBillWave } from 'react-icons/fa';
 
 export const details = {
-  img: `${IMAGE_BASE_URL}/blog/highrise.jpg`,
+  img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80',
   hero: {
     title: 'Office Package Insurance Solutions',
     description:
