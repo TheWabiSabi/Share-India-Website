@@ -168,6 +168,11 @@ export default function Header() {
           desc: 'Milestones & credibility',
         },
         { label: 'Testimonials', href: '/about#testimonials', desc: 'What clients say' },
+        {
+          label: 'Investor Relations',
+          href: '/about/investor-relations',
+          desc: 'Annual returns & notices',
+        },
         { label: 'Careers', href: '/careers', desc: 'Grow with us' },
         { label: 'Contact Us', href: '/contact', desc: 'Get in touch with us' },
       ],
