@@ -56,6 +56,7 @@ function BrandLogo({ className }: { className?: string }) {
         src={src}
         alt="Share India Insurance"
         fill
+        sizes="(max-width: 768px) 160px, 176px"
         className="object-contain"
         priority
         onError={() => setSrc(LOGO_FALLBACK)}

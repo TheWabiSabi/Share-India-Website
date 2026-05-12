@@ -106,27 +106,27 @@ const KnowledgeQuestionnaire: React.FC<KnowledgeQuestionnaireProps> = ({
           <div className="text-center">
             <FaChartLine className="mx-auto text-4xl text-blue-500" />
             <h2 className="mt-4 text-2xl font-bold">Quiz Results</h2>
-            <div className="mt-6 rounded-xl bg-white p-8 shadow-sm">
-              <div className="text-4xl font-bold text-blue-600">
+            <div className="mt-8 card-vibrant hover-glow-blue rounded-2xl border border-white/50 p-8 shadow-lg ring-1 ring-black/5 md:p-12">
+              <div className="text-5xl font-black tracking-tighter text-si-primary">
                 {score}/{questions.length}
               </div>
-              <div className="mt-2 text-lg text-gray-600">
+              <div className="mt-2 text-xl font-bold text-si-ink/80">
                 {Math.round((score / questions.length) * 100)}% Correct
               </div>
-              <div className={`mt-4 text-lg font-medium ${scoreMessage.color}`}>
+              <div className={`mt-6 text-lg font-semibold ${scoreMessage.color}`}>
                 {scoreMessage.message}
               </div>
 
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
+              <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:justify-center">
                 <button
                   onClick={resetQuiz}
-                  className="rounded-lg border border-blue-200 px-6 py-3 font-semibold text-blue-700 hover:bg-blue-50"
+                  className="btn-ghost rounded-xl px-8 py-4 font-bold"
                 >
                   Retake Quiz
                 </button>
                 <a
                   href="/contact"
-                  className="rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-700"
+                  className="btn-primary hover-glow-blue rounded-xl px-8 py-4 font-bold shadow-vibrant-blue"
                 >
                   Book Risk Assessment
                 </a>
@@ -155,43 +155,43 @@ const KnowledgeQuestionnaire: React.FC<KnowledgeQuestionnaireProps> = ({
           </p>
         </div>
 
-        <div className="mt-8 rounded-xl bg-white p-8 shadow-sm">
-          <div className="mb-6 flex items-center justify-between">
+        <div className="mt-12 card-vibrant hover-glow-blue rounded-2xl border border-white/50 p-6 shadow-xl ring-1 ring-black/5 sm:p-10">
+          <div className="mb-8 flex items-center justify-between border-b border-si-primary/10 pb-6">
             <div className="flex items-center gap-3">
-              <span className="text-sm text-gray-500">
-                Question {currentQuestion + 1} of {questions.length}
+              <span className="text-sm font-bold tracking-wide text-si-ink/40 uppercase">
+                Question {currentQuestion + 1} <span className="mx-1">/</span> {questions.length}
               </span>
               <span
-                className={`rounded-full px-2 py-1 text-xs font-medium ${getDifficultyColor(question.difficulty)}`}
+                className={`rounded-full px-3 py-1 text-[10px] font-bold tracking-wider uppercase ${getDifficultyColor(question.difficulty)}`}
               >
                 {question.difficulty}
               </span>
             </div>
-            <div className="h-2 w-32 rounded-full bg-gray-200">
+            <div className="h-2 w-32 rounded-full bg-si-primary/10 overflow-hidden">
               <div
-                className="h-2 rounded-full bg-blue-500 transition-all duration-300"
+                className="h-2 rounded-full bg-si-primary shadow-[0_0_8px_rgba(45,169,255,0.5)] transition-all duration-500 ease-out"
                 style={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
               ></div>
             </div>
           </div>
 
-          <h3 className="text-lg font-semibold text-gray-900">{question.question}</h3>
+          <h3 className="text-xl font-bold leading-tight text-si-ink md:text-2xl">{question.question}</h3>
 
-          <div className="mt-6 space-y-3">
+          <div className="mt-8 space-y-3">
             {question.options.map((option, index) => {
               let buttonClass =
-                'w-full rounded-lg border p-4 text-left transition-colors hover:bg-gray-50';
+                'w-full rounded-xl border p-5 text-left transition-all duration-300 font-medium relative overflow-hidden group/opt';
 
               if (isAnswered) {
                 if (index === question.correctAnswer) {
-                  buttonClass += ' border-green-500 bg-green-50 text-green-800';
+                  buttonClass += ' border-green-500/50 bg-green-50/50 text-green-900 shadow-sm';
                 } else if (index === selectedAnswer && index !== question.correctAnswer) {
-                  buttonClass += ' border-red-500 bg-red-50 text-red-800';
+                  buttonClass += ' border-si-red-500/50 bg-si-red-50/50 text-si-red-900 shadow-sm';
                 } else {
-                  buttonClass += ' border-gray-200 bg-gray-50 text-gray-600';
+                  buttonClass += ' border-transparent bg-si-muted/30 text-si-ink/40';
                 }
               } else {
-                buttonClass += ' border-gray-200 hover:border-blue-300';
+                buttonClass += ' border-si-primary/10 bg-white hover:border-si-primary/40 hover:bg-si-primary/5 hover:shadow-md hover:-translate-y-0.5';
               }
 
               return (
@@ -202,13 +202,13 @@ const KnowledgeQuestionnaire: React.FC<KnowledgeQuestionnaireProps> = ({
                   className={buttonClass}
                 >
                   <div className="flex items-center justify-between">
-                    <span>{option}</span>
+                    <span className="relative z-10">{option}</span>
                     {isAnswered && (
-                      <span>
+                      <span className="relative z-10">
                         {index === question.correctAnswer ? (
-                          <FaCheckCircle className="text-green-500" />
+                          <FaCheckCircle className="text-green-600 text-xl" />
                         ) : index === selectedAnswer ? (
-                          <FaTimesCircle className="text-red-500" />
+                          <FaTimesCircle className="text-si-red-600 text-xl" />
                         ) : null}
                       </span>
                     )}
@@ -219,24 +219,26 @@ const KnowledgeQuestionnaire: React.FC<KnowledgeQuestionnaireProps> = ({
           </div>
 
           {showExplanation && (
-            <div className="mt-6 rounded-lg bg-blue-50 p-4">
-              <div className="flex items-start gap-3">
-                <FaLightbulb className="mt-1 text-blue-500" />
+            <div className="mt-8 rounded-xl bg-si-primary/5 border border-si-primary/10 p-6 animate-fadeInUp">
+              <div className="flex items-start gap-4">
+                <div className="bg-si-primary/20 rounded-lg p-2 mt-0.5">
+                  <FaLightbulb className="text-si-primary" />
+                </div>
                 <div>
-                  <h4 className="font-semibold text-blue-900">Explanation:</h4>
-                  <p className="mt-1 text-sm text-blue-800">{question.explanation}</p>
+                  <h4 className="font-bold text-si-ink text-sm tracking-wide uppercase">Expert Insight:</h4>
+                  <p className="mt-2 text-[15px] leading-relaxed text-si-ink/80">{question.explanation}</p>
                 </div>
               </div>
             </div>
           )}
 
           {isAnswered && (
-            <div className="mt-6 text-center">
+            <div className="mt-10 text-center">
               <button
                 onClick={nextQuestion}
-                className="rounded-lg bg-blue-600 px-8 py-3 font-semibold text-white hover:bg-blue-700"
+                className="btn-primary hover-glow-blue rounded-xl px-10 py-4 font-bold shadow-vibrant-blue transition-all active:scale-95"
               >
-                {currentQuestion < questions.length - 1 ? 'Next Question' : 'View Results'}
+                {currentQuestion < questions.length - 1 ? 'Next Challenge' : 'Discover Results'}
               </button>
             </div>
           )}

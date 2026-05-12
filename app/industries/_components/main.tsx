@@ -117,14 +117,14 @@ const IndustryPage = ({
                 {details.explaination.projectTypes.types.map((type, i) => (
                   <div
                     key={i}
-                    className="hover:border-si-primary/20 flex items-start gap-4 rounded-2xl border border-gray-100 bg-white p-4 shadow-sm transition-all hover:shadow-md"
+                    className="card-vibrant hover-glow-blue hover-lift flex items-start gap-4 rounded-2xl border border-white/50 p-4 shadow-md ring-1 ring-black/5 transition-all duration-300"
                   >
-                    <div className="text-si-primary bg-si-primary/8 shrink-0 rounded-xl p-2.5 text-xl">
+                    <div className="text-si-primary bg-si-primary/8 shrink-0 rounded-xl p-2.5 text-xl transition-transform group-hover:scale-110">
                       {type.icon}
                     </div>
                     <div>
                       <div className="text-si-ink font-bold">{type.title}</div>
-                      <div className="text-si-ink/60 mt-0.5 text-sm">{type.description}</div>
+                      <div className="text-si-ink/60 mt-0.5 text-sm leading-relaxed">{type.description}</div>
                     </div>
                   </div>
                 ))}
@@ -193,7 +193,7 @@ const IndustryPage = ({
       />
 
       {/* ── CTA ── */}
-      <section className="bg-si-primary-200 py-16">
+      <section className="bg-gradient-to-b from-white to-si-primary-200 py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="border-si-primary/10 from-si-primary/5 overflow-hidden rounded-2xl border bg-gradient-to-br to-white p-8 md:p-10">
             <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-3">

@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { FadeUp, FadeIn, FlyIn } from '@/components/motion';
+import { PageSection } from '@/components/ui/page-section';
 
 // ─── Tools ────────────────────────────────────────────────────────────────────
 
@@ -124,63 +125,36 @@ export default function AIToolkitPage() {
           : 'bg-gradient-to-b from-si-primary-200 to-white';
 
         return (
-          <section
+          <PageSection
             key={tool.id}
             id={tool.id}
-            className={`${bg} border-b border-gray-100 py-20 lg:py-24`}
+            className={`${bg} border-b border-gray-100`}
           >
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <div
-                className={`grid grid-cols-1 items-center gap-12 lg:grid-cols-2 ${isEven ? '' : 'lg:[&>*:first-child]:order-2'}`}
-              >
-                {/* Text */}
-                <FlyIn dir={isEven ? 'right' : 'left'} delay={0.04}>
-                  <div>
-                    <span className="text-si-primary border-si-primary/20 bg-si-primary/8 mb-4 inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-[11px] font-bold tracking-wider uppercase">
-                      <span className="bg-si-primary h-1.5 w-1.5 rounded-full" />
-                      {tool.tag}
-                    </span>
+            <div
+              className={`grid grid-cols-1 items-center gap-12 lg:grid-cols-2 ${isEven ? '' : 'lg:[&>*:first-child]:order-2'}`}
+            >
+              {/* Text */}
+              <FlyIn dir={isEven ? 'right' : 'left'} delay={0.04}>
+                <div>
+                  <span className="text-si-primary border-si-primary/20 bg-si-primary/8 mb-4 inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-[11px] font-bold tracking-wider uppercase">
+                    <span className="bg-si-primary h-1.5 w-1.5 rounded-full" />
+                    {tool.tag}
+                  </span>
 
-                    <h2 className="text-si-ink mt-1 text-3xl font-extrabold tracking-tight md:text-4xl">
-                      {tool.name}
-                    </h2>
-                    <p className="text-si-primary mt-1 text-base font-semibold">{tool.tagline}</p>
+                  <h2 className="text-si-ink mt-1 text-3xl font-extrabold tracking-tight md:text-4xl">
+                    {tool.name}
+                  </h2>
+                  <p className="text-si-primary mt-1 text-base font-semibold">{tool.tagline}</p>
 
-                    <p className="text-si-ink/65 mt-5 text-base leading-relaxed">
-                      {tool.description}
-                    </p>
+                  <p className="text-si-ink/65 mt-5 text-base leading-relaxed">
+                    {tool.description}
+                  </p>
 
-                    <ul className="mt-6 space-y-2.5">
-                      {tool.features.map((f) => (
-                        <li key={f} className="text-si-ink/70 flex items-start gap-2.5 text-sm">
-                          <svg
-                            className="text-si-primary mt-0.5 h-4 w-4 shrink-0"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeWidth={2.5}
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M5 13l4 4L19 7"
-                            />
-                          </svg>
-                          {f}
-                        </li>
-                      ))}
-                    </ul>
-
-                    <div className="mt-8">
-                      <a
-                        href={tool.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-primary inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold"
-                      >
-                        {tool.cta}
+                  <ul className="mt-6 space-y-2.5">
+                    {tool.features.map((f) => (
+                      <li key={f} className="text-si-ink/70 flex items-start gap-2.5 text-sm">
                         <svg
-                          className="h-4 w-4"
+                          className="text-si-primary mt-0.5 h-4 w-4 shrink-0"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -189,70 +163,95 @@ export default function AIToolkitPage() {
                             strokeWidth={2.5}
                             strokeLinecap="round"
                             strokeLinejoin="round"
-                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                            d="M5 13l4 4L19 7"
                           />
                         </svg>
-                      </a>
-                    </div>
-                  </div>
-                </FlyIn>
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
 
-                {/* Visual card */}
-                <FlyIn dir={isEven ? 'left' : 'right'} delay={0.08}>
-                  <div className="border-si-primary/10 flex flex-col gap-4 rounded-2xl border bg-white p-6 lg:p-8">
-                    {/* Icon header */}
-                    <div className="flex items-center gap-4">
-                      <div className="text-si-primary bg-si-primary/8 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl">
-                        {tool.icon}
-                      </div>
-                      <div>
-                        <div className="text-si-ink text-lg font-bold">{tool.name}</div>
-                        <div className="text-si-ink/45 text-xs">{tool.tag}</div>
-                      </div>
-                    </div>
-
-                    {/* Feature pills */}
-                    <div className="mt-2 flex flex-wrap gap-2">
-                      {tool.features.map((f) => (
-                        <span
-                          key={f}
-                          className="border-si-primary/15 bg-si-primary/5 text-si-ink/70 rounded-full border px-3 py-1 text-xs font-medium"
-                        >
-                          {f}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* CTA strip */}
-                    <div className="border-si-primary/10 bg-si-primary-50 mt-2 flex items-center justify-between rounded-xl border px-4 py-3">
-                      <span className="text-si-ink/55 text-xs">shareindiainsurance.com</span>
-                      <a
-                        href={tool.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-si-primary inline-flex items-center gap-1 text-xs font-bold hover:underline"
+                  <div className="mt-8">
+                    <a
+                      href={tool.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-primary inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold hover-lift"
+                    >
+                      {tool.cta}
+                      <svg
+                        className="h-4 w-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
                       >
-                        Launch
-                        <svg
-                          className="h-3 w-3"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeWidth={2.5}
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M9 5l7 7-7 7"
-                          />
-                        </svg>
-                      </a>
+                        <path
+                          strokeWidth={2.5}
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </FlyIn>
+
+              {/* Visual card */}
+              <FlyIn dir={isEven ? 'left' : 'right'} delay={0.08}>
+                <div className="border-si-primary/10 flex flex-col gap-4 rounded-2xl border bg-white p-6 lg:p-8 hover-lift hover:shadow-md transition-all">
+                  {/* Icon header */}
+                  <div className="flex items-center gap-4">
+                    <div className="text-si-primary bg-si-primary/8 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl transition-transform hover:scale-105">
+                      {tool.icon}
+                    </div>
+                    <div>
+                      <div className="text-si-ink text-lg font-bold">{tool.name}</div>
+                      <div className="text-si-ink/45 text-xs">{tool.tag}</div>
                     </div>
                   </div>
-                </FlyIn>
-              </div>
+
+                  {/* Feature pills */}
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {tool.features.map((f) => (
+                      <span
+                        key={f}
+                        className="border-si-primary/15 bg-si-primary/5 text-si-ink/70 rounded-full border px-3 py-1 text-xs font-medium"
+                      >
+                        {f}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* CTA strip */}
+                  <div className="border-si-primary/10 bg-si-primary-50 mt-2 flex items-center justify-between rounded-xl border px-4 py-3">
+                    <span className="text-si-ink/55 text-xs">shareindiainsurance.com</span>
+                    <a
+                      href={tool.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-si-primary inline-flex items-center gap-1 text-xs font-bold hover:underline"
+                    >
+                      Launch
+                      <svg
+                        className="h-3 w-3"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeWidth={2.5}
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M9 5l7 7-7 7"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </FlyIn>
             </div>
-          </section>
+          </PageSection>
         );
       })}
 

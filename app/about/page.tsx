@@ -4,179 +4,18 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FadeUp, FadeIn, FlyIn, Stagger, Item } from '@/components/motion';
-
-// ─── Static data ──────────────────────────────────────────────────────────────
-
-const TEAM_LEADERS = [
-  {
-    name: 'Mr. Prakash Rao Dumble',
-    role: 'Head – General Insurance',
-    experience: '30 years',
-    description: 'Possesses 30 years of expertise in the general insurance domain.',
-  },
-  {
-    name: 'Mr. Ram Chandra',
-    role: 'Head – Life Insurance',
-    experience: '25 years',
-    description: 'A seasoned professional with 25 years of experience in life insurance.',
-  },
-  {
-    name: 'Mr. Ravi Shahani',
-    role: 'Head of Business Excellence',
-    experience: 'Expert',
-    description:
-      'Drives initiatives that enhance business processes, service quality, and organizational efficiency.',
-  },
-];
-
-const OPERATIONAL_TEAM = [
-  {
-    name: 'Mr. Shekhar Pradhan',
-    role: 'Claim Manager',
-    description:
-      'Leads the claims team with a focus on transparency, timely resolution, and a customer-first approach.',
-  },
-  {
-    name: 'Mr. Manish Chavan',
-    role: 'Product Manager',
-    description:
-      'Leads the Life and Motor Underwriting teams, focusing on product quality and risk assessment.',
-  },
-  {
-    name: 'Ms. Vidhi Shah',
-    role: 'Head Underwriter',
-    description:
-      'Manages underwriting across all lines of business, ensuring accuracy and risk integrity.',
-  },
-  {
-    name: 'Mr. Rajendra Muppidwar',
-    role: 'Area Manager',
-    description:
-      'Brings strong expertise in Life Insurance and leads the sales team with focus on quality service.',
-  },
-];
-
-const REGIONAL_TEAM = [
-  {
-    name: 'Mr. Raunaq Pai',
-    role: 'Zonal Head – West',
-    region: 'West Zone',
-    description:
-      'Oversees sales for the West Zone and drives growth through strategic planning, market insights, and expertise in both General and Life Insurance.',
-  },
-  {
-    name: 'Mr. Akash Agam',
-    role: 'Area Head – North',
-    region: 'North Zone',
-    description:
-      'Strengthens the sales team in the North region with deep knowledge of General and Life Insurance, ensuring efficient operations and dependable client support.',
-  },
-];
-
-const TEAM_VALUES = [
-  {
-    title: 'Expertise',
-    desc: 'Decades of combined experience',
-    icon: (
-      <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path
-          strokeWidth={1.8}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
-        />
-      </svg>
-    ),
-  },
-  {
-    title: 'Trust',
-    desc: 'Building lasting relationships',
-    icon: (
-      <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path
-          strokeWidth={1.8}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
-        />
-      </svg>
-    ),
-  },
-  {
-    title: 'Innovation',
-    desc: 'Forward-thinking solutions',
-    icon: (
-      <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path
-          strokeWidth={1.8}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-        />
-      </svg>
-    ),
-  },
-  {
-    title: 'Excellence',
-    desc: 'Commitment to quality',
-    icon: (
-      <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path
-          strokeWidth={1.8}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
-        />
-      </svg>
-    ),
-  },
-];
-
-const AWARDS = [
-  {
-    year: '2022',
-    award: 'SME Superstars — Awarded to SIIB by Chola MS',
-    img: '/awards/chola-ms.jpeg',
-  },
-  {
-    year: '2024',
-    award: 'Diamond Club — Awarded to SIIB by Digit Inner Circle',
-    img: '/awards/digit.jpeg',
-  },
-  {
-    year: '2025',
-    award: 'CEO of the Year to Mr. Ajay Kumar Patel — Awarded by UBS Forums',
-    img: '/awards/ubs-ceo.jpeg',
-  },
-  {
-    year: '2025',
-    award: 'Best Claims Partner of the Year — Awarded to SIIB by UBS Forums',
-    img: '/awards/ubs-claims.jpeg',
-  },
-];
-
-const TESTIMONIALS = [
-  {
-    name: 'API Holdings',
-    text: "Share India Insurance Brokers' proactive approach, professionalism, and flawless execution have made managing our insurance portfolio seamless and efficient — a partnership we truly value.",
-    avatar: '/testimonials/api-holding.png',
-  },
-  {
-    name: 'Sunjewels Pvt. Ltd.',
-    text: 'For three years, Team Share India — especially Mr. Raunaq Pai, Mr. Shekhar Pradhan, and Mr. Sagar Agre — have impressed us with their professionalism, reliability, and proactive service.',
-    avatar: '/testimonials/sun-jewels.png',
-  },
-  {
-    name: 'Global Ocean Logistics India Ltd',
-    text: "For over four years, Share India's expertise, responsiveness, and attention to detail have ensured smooth, reliable insurance support and a partnership built on trust and excellence.",
-    avatar: '/testimonials/global-ocean.png',
-  },
-  {
-    name: 'Santu Mondal',
-    text: "My experience with Raunaq Pai and Share India Insurance has been exceptional — Raunaq's professionalism, expertise, and prompt support made the entire insurance process seamless and trustworthy.",
-    avatar: '/testimonials/santu-mondal.png',
-  },
-];
+import { PageSection } from '@/components/ui/page-section';
+import { SectionBadge } from '@/components/ui/section-badge';
+import { ContactCard } from '@/components/ui/contact-card';
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import {
+  TEAM_LEADERS,
+  OPERATIONAL_TEAM,
+  REGIONAL_TEAM,
+  TEAM_VALUES,
+  AWARDS,
+  TESTIMONIALS,
+} from './data';
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -185,15 +24,6 @@ function getTeamSlug(name: string) {
     .toLowerCase()
     .replace(/^(mr\.|ms\.|mrs\.)\s+/i, '')
     .replace(/\s+/g, '-');
-}
-
-function SectionBadge({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="text-si-primary border-si-primary/20 bg-si-primary/5 mb-4 inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-[11px] font-bold tracking-wider uppercase">
-      <span className="bg-si-primary h-1.5 w-1.5 rounded-full" />
-      {children}
-    </span>
-  );
 }
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
@@ -216,7 +46,7 @@ export default function AboutPage() {
           <div className="from-si-primary/10 absolute inset-0 bg-gradient-to-t to-transparent" />
         </div>
 
-        <div className="relative z-10 w-full pt-[15vh] pb-16 md:pt-[20vh] md:pb-24">
+        <div className="relative z-10 w-full pb-14 md:pb-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl text-white">
               <FadeIn>
@@ -293,12 +123,8 @@ export default function AboutPage() {
       </section>
 
       {/* ── Our Story ── */}
-      <section
-        id="our-story"
-        className="scroll-mt-20 border-b border-gray-100 bg-white py-20 lg:py-28"
-      >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <FadeUp>
+      <PageSection id="our-story" className="from-si-primary-200 scroll-mt-20 border-b border-gray-100 bg-gradient-to-b to-white">
+        <FadeUp>
             <div className="mb-14 text-center">
               <SectionBadge>Our Story</SectionBadge>
               <h2 className="text-si-ink text-3xl font-bold md:text-4xl">
@@ -391,16 +217,11 @@ export default function AboutPage() {
               </div>
             </FlyIn>
           </div>
-        </div>
-      </section>
+      </PageSection>
 
       {/* ── Leadership ── */}
-      <section
-        id="leadership"
-        className="bg-si-primary-50 scroll-mt-20 border-b border-gray-100 py-20"
-      >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <FadeUp>
+      <PageSection id="leadership" className="to-si-primary-200 scroll-mt-20 border-b border-gray-100 bg-gradient-to-b from-white">
+        <FadeUp>
             <div className="mb-14 text-center">
               <SectionBadge>Leadership</SectionBadge>
               <h2 className="text-si-ink text-3xl font-bold md:text-4xl">
@@ -414,18 +235,18 @@ export default function AboutPage() {
 
           {/* CEO */}
           <FadeIn delay={0.08}>
-            <div className="border-si-primary/10 overflow-hidden rounded-3xl border bg-white">
+            <div className="card-vibrant hover-glow-blue hover-lift overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-black/5">
               <div className="border-si-primary/8 from-si-primary/5 h-1 w-full bg-gradient-to-r to-cyan-500/5" />
               <div className="accent-bar-gradient h-1 w-full" />
               <div className="grid grid-cols-1 gap-8 p-8 lg:grid-cols-5 lg:p-12">
                 <div className="flex justify-center lg:col-span-2 lg:justify-start">
-                  <div className="relative aspect-square w-72 overflow-hidden rounded-2xl border-4 border-white">
+                  <div className="relative aspect-square w-full max-w-[280px] sm:max-w-sm overflow-hidden rounded-2xl border-4 border-white">
                     <Image
                       src="/leadership/ajay-kumar.png"
                       alt="Mr. Ajay Kumar Patel — CEO & Principal Officer"
                       fill
                       className="object-cover"
-                      sizes="288px"
+                      sizes="320px"
                     />
                   </div>
                 </div>
@@ -495,13 +316,11 @@ export default function AboutPage() {
               </div>
             </div>
           </FadeIn>
-        </div>
-      </section>
+      </PageSection>
 
       {/* ── Our Team ── */}
-      <section id="our-team" className="scroll-mt-20 border-b border-gray-100 bg-white py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <FadeUp>
+      <PageSection id="our-team" className="from-si-primary-200 scroll-mt-20 border-b border-gray-100 bg-gradient-to-b to-white">
+        <FadeUp>
             <div className="mb-14 text-center">
               <SectionBadge>Our Team</SectionBadge>
               <h2 className="text-si-ink text-3xl font-bold md:text-4xl">
@@ -516,7 +335,7 @@ export default function AboutPage() {
 
           {/* President */}
           <FadeIn delay={0.06}>
-            <div className="border-si-primary/10 mx-auto mb-14 max-w-4xl overflow-hidden rounded-2xl border bg-white transition-all">
+            <div className="card-vibrant hover-glow-blue hover-lift mx-auto bg-white mb-14 max-w-4xl overflow-hidden rounded-2xl transition-all shadow-lg ring-1 ring-black/5">
               <div className="accent-bar-gradient h-1 w-full" />
               <div className="grid grid-cols-1 gap-8 p-8 md:grid-cols-3 md:p-10">
                 <div className="flex justify-center md:col-span-1">
@@ -578,7 +397,7 @@ export default function AboutPage() {
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {TEAM_LEADERS.map((m) => (
                   <Item key={m.name}>
-                    <div className="group border-si-primary/10 hover:border-si-primary/25 overflow-hidden rounded-2xl border bg-white shadow-sm transition-all hover:shadow-lg">
+                    <div className="group card-vibrant hover-glow-blue hover-lift overflow-hidden bg-white rounded-2xl transition-all duration-300 shadow-md ring-1 ring-black/5">
                       <div className="relative aspect-square overflow-hidden bg-gray-50">
                         <Image
                           src={`/team/${getTeamSlug(m.name)}.png`}
@@ -619,7 +438,7 @@ export default function AboutPage() {
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
                 {OPERATIONAL_TEAM.map((m) => (
                   <Item key={m.name}>
-                    <div className="group hover:border-si-primary/20 overflow-hidden rounded-xl border border-gray-100 bg-white shadow-sm transition-all hover:shadow-md">
+                    <div className="group card-vibrant hover-glow-blue hover-lift overflow-hidden bg-white rounded-xl transition-all duration-300 shadow-md ring-1 ring-black/5">
                       <div className="relative aspect-square overflow-hidden bg-gray-50">
                         <Image
                           src={`/team/${getTeamSlug(m.name)}.png`}
@@ -654,7 +473,7 @@ export default function AboutPage() {
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 {REGIONAL_TEAM.map((m) => (
                   <Item key={m.name}>
-                    <div className="group border-si-primary/10 overflow-hidden rounded-2xl border bg-white shadow-sm transition-all hover:shadow-lg">
+                    <div className="group card-vibrant hover-glow-blue hover-lift overflow-hidden bg-white rounded-2xl transition-all duration-300 shadow-md ring-1 ring-black/5">
                       <div className="grid grid-cols-3 gap-0">
                         <div className="relative aspect-square overflow-hidden bg-gray-50">
                           <Image
@@ -709,16 +528,11 @@ export default function AboutPage() {
               </Stagger>
             </div>
           </FadeIn>
-        </div>
-      </section>
+      </PageSection>
 
       {/* ── Awards & Testimonials ── */}
-      <section
-        id="awards-testimonials"
-        className="bg-si-primary-50 scroll-mt-20 border-b border-gray-100 py-20"
-      >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <FadeUp>
+      <PageSection id="awards-testimonials" className="to-si-primary-200  scroll-mt-20 border-b border-gray-100 bg-gradient-to-b from-white">
+        <FadeUp>
             <div className="mb-12 text-center">
               <SectionBadge>Recognition & Trust</SectionBadge>
               <h2 className="text-si-ink text-3xl font-bold md:text-4xl">
@@ -735,10 +549,16 @@ export default function AboutPage() {
             <div className="mb-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {AWARDS.map((a) => (
                 <Item key={a.award}>
-                  <article className="group hover:border-si-primary/20 flex h-full flex-col rounded-xl border border-gray-100 bg-white p-5 shadow-sm transition-all hover:shadow-md">
+                  <article className="group card-vibrant hover-glow-blue hover-lift bg-white flex h-full flex-col rounded-xl p-5 transition-all duration-300 shadow-md ring-1 ring-black/5">
                     <div className="mb-4 flex items-center gap-3">
                       <div className="relative flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-gray-100 bg-white shadow-sm">
-                        <Image src={a.img} alt={`${a.year} award`} fill className="object-cover" />
+                        <Image
+                          src={a.img}
+                          alt={`${a.year} award`}
+                          fill
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                          className="object-cover"
+                        />
                       </div>
                       <div>
                         <div className="accent-bar-gradient mb-1 h-1 w-8 rounded" />
@@ -762,7 +582,7 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
               {TESTIMONIALS.map((t) => (
                 <Item key={t.name}>
-                  <figure className="flex h-full flex-col justify-between rounded-xl border border-gray-100 bg-white p-5 shadow-sm ring-1 ring-black/5 transition-all hover:shadow-md sm:p-6">
+                  <figure className="card-vibrant hover-glow-blue hover-lift flex h-full bg-white flex-col justify-between rounded-xl p-5 transition-all duration-300 sm:p-6 shadow-md ring-1 ring-black/5">
                     <blockquote className="text-si-ink/80 text-[14.5px] leading-relaxed">
                       &ldquo;{t.text}&rdquo;
                     </blockquote>
@@ -772,6 +592,7 @@ export default function AboutPage() {
                           src={t.avatar}
                           alt={`${t.name} logo`}
                           fill
+                          sizes="44px"
                           className="object-cover"
                         />
                       </div>
@@ -783,74 +604,44 @@ export default function AboutPage() {
               ))}
             </div>
           </Stagger>
-        </div>
-      </section>
+      </PageSection>
 
       {/* ── Contact CTA ── */}
-      <section className="bg-white py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <div className="border-si-primary/10 from-si-primary/5 overflow-hidden rounded-2xl border bg-gradient-to-br to-white p-8 md:p-12">
-              <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-3">
-                <div className="lg:col-span-2">
-                  <h3 className="text-si-ink text-2xl font-bold">Ready to Protect Your Future?</h3>
-                  <p className="text-si-ink/70 mt-2">
-                    Connect with our insurance experts and discover how we can safeguard what
-                    matters most to you.
-                  </p>
-                </div>
-                <div className="flex flex-col gap-3 sm:flex-row">
-                  <Link
-                    href="/contact"
-                    className="btn-primary inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 font-semibold"
-                  >
-                    Contact Us
-                  </Link>
-                  <Link
-                    href="/retail"
-                    className="btn-ghost inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 font-semibold"
-                  >
-                    Get Quote
-                  </Link>
-                </div>
+      <PageSection className="bg-gradient-to-b from-white to-si-primary-200">
+        <FadeIn>
+          <div className="border-si-primary/10 from-si-primary/5 overflow-hidden rounded-2xl border bg-white p-8 md:p-12">
+            <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-3">
+              <div className="lg:col-span-2">
+                <h3 className="text-si-ink text-2xl font-bold">Ready to Protect Your Future?</h3>
+                <p className="text-si-ink/70 mt-2">
+                  Connect with our insurance experts and discover how we can safeguard what
+                  matters most to you.
+                </p>
               </div>
-
-              <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
-                {[
-                  { label: 'Call', value: '1800 210 2022' },
-                  { label: 'Email', value: 'contact.ins@shareindia.co.in' },
-                  { label: 'Location', value: 'Mumbai, India' },
-                ].map(({ label, value }) => (
-                  <div
-                    key={label}
-                    className="flex items-center justify-between rounded-xl border border-gray-100 bg-white p-4 shadow-sm"
-                  >
-                    <div>
-                      <div className="text-si-ink/40 text-xs font-bold uppercase">{label}</div>
-                      <div className="text-si-ink text-sm font-semibold">{value}</div>
-                    </div>
-                    <div className="text-si-primary bg-si-primary/8 rounded-lg p-2">
-                      <svg
-                        className="h-4 w-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeWidth={2}
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M9 5l7 7-7 7"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                ))}
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <Link
+                  href="/contact"
+                  className="btn-primary inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 font-semibold"
+                >
+                  Contact Us
+                </Link>
+                <Link
+                  href="/retail"
+                  className="btn-ghost inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 font-semibold"
+                >
+                  Get Quote
+                </Link>
               </div>
             </div>
-          </FadeIn>
-        </div>
-      </section>
+
+            <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
+              <ContactCard label="Call" value="1800 210 2022" icon={<FaPhoneAlt />} />
+              <ContactCard label="Email" value="contact.ins@shareindia.co.in" icon={<FaEnvelope />} />
+              <ContactCard label="Location" value="Mumbai, India" icon={<FaMapMarkerAlt />} />
+            </div>
+          </div>
+        </FadeIn>
+      </PageSection>
     </div>
   );
 }

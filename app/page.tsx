@@ -16,16 +16,21 @@ const TopNewsCarousel = dynamic(() => import('@/components/top-news-carousel'), 
 
 function SectionBadge({ children }: { children: ReactNode }) {
   return (
-    <span className="text-si-primary border-si-primary/20 bg-si-primary/5 mb-4 inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-[11px] font-bold tracking-wider uppercase">
-      <span className="bg-si-primary h-1.5 w-1.5 rounded-full" />
-      {children}
+    <span className="badge-chip float-slow group mb-4 inline-flex items-center cursor-default shadow-sm ring-1 ring-si-primary/10">
+      <span className="bg-si-primary/40 relative flex h-2 w-2 items-center justify-center rounded-full mr-2">
+        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-si-primary opacity-75"></span>
+        <span className="relative inline-flex h-1 w-1 rounded-full bg-si-primary shadow-[0_0_8px_rgba(45,169,255,0.8)]"></span>
+      </span>
+      <span className="text-si-ink/80 text-[11px] font-bold tracking-[0.1em] uppercase group-hover:text-si-primary transition-colors duration-300">
+        {children}
+      </span>
     </span>
   );
 }
 
-function ArrowIcon() {
+function ArrowIcon({ className = 'h-4 w-4' }: { className?: string }) {
   return (
-    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden>
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden>
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -905,7 +910,13 @@ function AwardsTestimonialsSection() {
                 <article className="group hover:border-si-primary/20 flex h-full flex-col rounded-xl border border-gray-100 bg-white p-5 shadow-sm transition-all hover:shadow-md sm:p-6">
                   <div className="mb-4 flex items-center gap-3">
                     <div className="relative flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-gray-100 bg-white">
-                      <Image src={a.img} alt={`${a.year} award`} fill className="object-cover" />
+                      <Image
+                        src={a.img}
+                        alt={`${a.year} award`}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                        className="object-cover"
+                      />
                     </div>
                     <div>
                       <div className="accent-bar-gradient mb-1 h-1.5 w-10 rounded" />
@@ -945,6 +956,7 @@ function AwardsTestimonialsSection() {
                           src={t.avatar}
                           alt={`${t.name} logo`}
                           fill
+                          sizes="44px"
                           className="object-cover"
                         />
                       </div>
@@ -977,45 +989,52 @@ function AwardsTestimonialsSection() {
 
 function ConnectCTASection() {
   return (
-    <section id="connect-cta" aria-labelledby="connect-cta-title" className="isolate">
+    <section
+      id="connect-cta"
+      aria-labelledby="connect-cta-title"
+      className="bg-white py-16 transition-colors duration-500 md:py-24"
+    >
       <div className="mx-auto max-w-5xl px-4 text-center sm:px-6 md:px-8">
         <FadeUp>
           <h2
             id="connect-cta-title"
-            className="text-si-ink text-[clamp(22px,4.2vw,36px)] font-semibold"
+            className="text-si-ink text-[clamp(24px,4.5vw,42px)] font-bold tracking-tight"
           >
-            Let&apos;s Connect
+            Ready to <span className="text-gradient-primary">Get Started?</span>
           </h2>
-          <p className="text-si-ink/80 mx-auto mt-3 max-w-2xl text-[clamp(14px,2.6vw,18px)] leading-relaxed">
-            Ready to take the next step? Our team of experts is here to help you navigate your
-            journey with confidence.
+          <p className="text-si-ink/70 mx-auto mt-4 max-w-2xl text-lg leading-relaxed md:text-xl">
+            Whether you&apos;re an individual, a startup, or a large enterprise, our experts are
+            ready to build the perfect protection strategy for you.
           </p>
         </FadeUp>
 
         <Stagger delay={0.1} staggerChildren={0.1}>
-          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {CONNECT_CARDS.map(({ title, desc, href, accentCls, icon, iconBg }) => (
               <Item key={title}>
                 <Link
                   href={href}
                   className={[
-                    'group block rounded-xl p-5 text-left sm:p-6',
-                    'border border-gray-100 bg-white shadow-sm ring-1 ring-black/5',
-                    'transition-all hover:border-gray-200 hover:shadow-md',
+                    'group card-vibrant hover-glow-blue hover-lift block rounded-2xl p-6 text-left sm:p-8',
+                    'border border-white/50 shadow-md ring-1 ring-black/5',
+                    'transition-all duration-300',
                     'focus-visible:ring-si-primary/40 focus:outline-none focus-visible:ring-2',
                     accentCls,
                   ].join(' ')}
                   aria-label={title}
                 >
                   <div
-                    className={`mb-3 flex h-12 w-12 items-center justify-center rounded-full ${iconBg}`}
+                    className={`mb-4 flex h-14 w-14 items-center justify-center rounded-2xl shadow-sm transition-transform duration-300 group-hover:scale-110 ${iconBg}`}
                   >
                     {icon}
                   </div>
-                  <h3 className="text-si-ink text-[clamp(15px,3.2vw,17px)] font-semibold">
+                  <h3 className="text-si-ink text-xl font-bold tracking-tight">
                     {title}
                   </h3>
-                  <p className="text-si-ink/70 mt-1 text-[clamp(13px,2.8vw,14px)]">{desc}</p>
+                  <p className="text-si-ink/60 mt-2 text-sm leading-relaxed">{desc}</p>
+                  <div className="mt-6 flex items-center gap-2 text-xs font-bold tracking-wider text-si-primary uppercase opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                    Learn More <ArrowIcon className="h-3 w-3" />
+                  </div>
                 </Link>
               </Item>
             ))}
@@ -1023,13 +1042,13 @@ function ConnectCTASection() {
         </Stagger>
 
         <FadeUp delay={0.3}>
-          <div className="mt-8 flex justify-center">
+          <div className="mt-12 flex justify-center">
             <Link
               href="/contact"
-              className="btn-primary focus-visible:ring-si-primary/40 inline-flex items-center gap-2 rounded-xl px-8 py-4 text-[15px] font-semibold focus-visible:ring-2"
+              className="btn-primary hover-glow-blue inline-flex items-center gap-3 rounded-2xl px-10 py-5 text-base font-bold transition-all hover:scale-105 active:scale-95 focus:ring-4 focus:ring-si-primary/30"
             >
-              Connect With Our Team
-              <ArrowIcon />
+              Speak to a Consultant
+              <ArrowIcon className="h-5 w-5" />
             </Link>
           </div>
         </FadeUp>
