@@ -2,7 +2,7 @@
 
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Industry, CartItem, InsuranceCategory } from './interface';
 import {
   INDUSTRIES_DATA,
@@ -80,12 +80,14 @@ const InsuranceCalculator: React.FC = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [checkoutData, setCheckoutData] = useState({ name: '', email: '', phone: '', company: '' });
 
-  // Reset selections when industry changes
-  useEffect(() => {
+  // Reset selections when industry changes during render
+  const [prevIndustry, setPrevIndustry] = useState<Industry | null>(null);
+  if (selectedIndustry !== prevIndustry) {
+    setPrevIndustry(selectedIndustry);
     setSelectedCategories(new Set());
     setCartItems([]);
     setExpandedCategory(null);
-  }, [selectedIndustry]);
+  }
 
   const handleIndustryChange = (industryName: string) => {
     const industry = getIndustryByName(industryName);

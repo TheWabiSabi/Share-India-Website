@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaCalendar, FaClock, FaUser, FaTag, FaSearch } from 'react-icons/fa';
@@ -68,10 +68,13 @@ const BlogsPage = () => {
   const hasFeaturedMore = displayedFeaturedCount < filteredFeaturedBlogs.length;
   const hasRegularMore = displayedRegularCount < filteredRegularBlogs.length;
 
-  useEffect(() => {
+  // Reset pagination when filters change during render
+  const [prevFilters, setPrevFilters] = useState({ searchTerm, selectedCategory });
+  if (searchTerm !== prevFilters.searchTerm || selectedCategory !== prevFilters.selectedCategory) {
+    setPrevFilters({ searchTerm, selectedCategory });
     setDisplayedFeaturedCount(FEATURED_ITEMS_PER_PAGE);
     setDisplayedRegularCount(ITEMS_PER_PAGE);
-  }, [searchTerm, selectedCategory]);
+  }
 
   const loadMoreFeatured = useCallback(() => {
     if (loadingFeatured || !hasFeaturedMore) return;

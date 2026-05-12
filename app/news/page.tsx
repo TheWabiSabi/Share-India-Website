@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
@@ -16,6 +16,10 @@ import { TbTrendingUp } from 'react-icons/tb';
 import { BlogInterface } from '../blog/blog.interface';
 import { ListOfBreakingNews } from '../blog/list_of_breaking_news';
 
+const WEEK_IN_MS = 7 * 24 * 60 * 60 * 1000;
+// Calculate cutoff once outside the component to ensure purity during render
+const RECENT_CUTOFF = typeof window !== 'undefined' ? Date.now() - WEEK_IN_MS : 0;
+
 const NewsPage = () => {
   // Constants for pagination
   const ITEMS_PER_PAGE = 6;
@@ -26,9 +30,7 @@ const NewsPage = () => {
   const [selectedDateRange, setSelectedDateRange] = useState('');
 
   // State for lazy loading
-  const [displayedRegularNews, setDisplayedRegularNews] = useState<BlogInterface[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [hasMore, setHasMore] = useState(true);
   const [loading, setLoading] = useState(false);
 
   // Filter for news content and sort by date (newest first)
@@ -96,13 +98,25 @@ const NewsPage = () => {
     [filteredAllNews],
   );
 
-  // Reset pagination when filters change
-  useEffect(() => {
-    const initialNews = filteredRegularNews.slice(0, ITEMS_PER_PAGE);
-    setDisplayedRegularNews(initialNews);
+  // Derived pagination states
+  const displayedRegularNews = useMemo(
+    () => filteredRegularNews.slice(0, currentPage * ITEMS_PER_PAGE),
+    [filteredRegularNews, currentPage],
+  );
+
+  const hasMore = useMemo(
+    () => currentPage * ITEMS_PER_PAGE < filteredRegularNews.length,
+    [currentPage, filteredRegularNews.length],
+  );
+
+  const recentCutoff = RECENT_CUTOFF;
+
+  // Reset pagination when filters change during render
+  const [prevFilteredNews, setPrevFilteredNews] = useState<BlogInterface[]>([]);
+  if (filteredRegularNews !== prevFilteredNews) {
+    setPrevFilteredNews(filteredRegularNews);
     setCurrentPage(1);
-    setHasMore(filteredRegularNews.length > ITEMS_PER_PAGE);
-  }, [filteredRegularNews]);
+  }
 
   // Load more function
   const loadMore = useCallback(() => {
@@ -112,17 +126,10 @@ const NewsPage = () => {
 
     // Simulate loading delay for better UX
     setTimeout(() => {
-      const nextPage = currentPage + 1;
-      const startIndex = currentPage * ITEMS_PER_PAGE;
-      const endIndex = startIndex + ITEMS_PER_PAGE;
-      const newItems = filteredRegularNews.slice(startIndex, endIndex);
-
-      setDisplayedRegularNews((prev) => [...prev, ...newItems]);
-      setCurrentPage(nextPage);
-      setHasMore(endIndex < filteredRegularNews.length);
+      setCurrentPage((prev) => prev + 1);
       setLoading(false);
     }, 500);
-  }, [currentPage, loading, hasMore, filteredRegularNews]);
+  }, [loading, hasMore]);
 
   // Get unique categories for filter
   const categories = useMemo(
@@ -303,7 +310,12 @@ const NewsPage = () => {
             {filteredBreakingNews.length > 2 && (
               <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {filteredBreakingNews.slice(2).map((article) => (
-                  <RegularNewsCard key={article.slug} article={article} isBreaking={true} />
+                  <RegularNewsCard
+                    key={article.slug}
+                    article={article}
+                    isBreaking={true}
+                    recentCutoff={recentCutoff}
+                  />
                 ))}
               </div>
             )}
@@ -329,7 +341,11 @@ const NewsPage = () => {
             <>
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {displayedRegularNews.map((article) => (
-                  <RegularNewsCard key={article.slug} article={article} />
+                  <RegularNewsCard
+                    key={article.slug}
+                    article={article}
+                    recentCutoff={recentCutoff}
+                  />
                 ))}
               </div>
 
@@ -591,9 +607,11 @@ const FeaturedNewsCard = ({
 const RegularNewsCard = ({
   article,
   isBreaking = false,
+  recentCutoff,
 }: {
   article: BlogInterface;
   isBreaking?: boolean;
+  recentCutoff: number;
 }) => {
   const getCategoryColor = (category: string) => {
     switch (category) {
@@ -610,7 +628,7 @@ const RegularNewsCard = ({
     }
   };
 
-  const isRecent = new Date(article.date) > new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+  const isRecent = new Date(article.date).getTime() > recentCutoff;
 
   return (
     <article className="group overflow-hidden rounded-xl bg-white shadow-md transition-all duration-300 hover:shadow-lg">
