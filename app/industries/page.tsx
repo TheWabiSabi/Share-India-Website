@@ -1,231 +1,14 @@
 'use client';
+
 import React from 'react';
 import Image from 'next/image';
-import {
-  FaShieldAlt,
-  FaFileContract,
-  FaPhoneAlt,
-  FaEnvelope,
-  FaHeadset,
-  FaChevronRight,
-  FaPills,
-  FaRecycle,
-  FaRocket,
-  FaBuilding,
-  FaFlask,
-  FaTruck,
-  FaTshirt,
-  FaSolarPanel,
-} from 'react-icons/fa';
-import { MdEngineering } from 'react-icons/md';
+import { FaShieldAlt, FaFileContract, FaPhoneAlt, FaEnvelope, FaHeadset } from 'react-icons/fa';
 import { IMAGE_BASE_URL } from '@/consts/variables';
-
-// Industry Categories with Details
-const INDUSTRIES = [
-  {
-    name: 'Infrastructure Industry',
-    icon: <MdEngineering className="text-3xl text-blue-600" />,
-    description:
-      'Comprehensive insurance solutions for construction, roads, bridges, power projects, and large-scale infrastructure development.',
-    risks: [
-      'Contractor All Risks (CAR) insurance',
-      'Erection All Risks (EAR) coverage',
-      'Delay in Start-Up (DSU) insurance',
-      'Third-party liability protection',
-    ],
-    image: '/images/infrastructure.jpg',
-  },
-  {
-    name: 'Life Sciences & Pharma Industry',
-    icon: <FaPills className="text-3xl text-blue-600" />,
-    description:
-      'Specialized coverage for pharmaceutical manufacturing, biotech research, clinical trials, and drug development operations.',
-    risks: [
-      'Product liability insurance',
-      'Clinical trials liability',
-      'Research & development protection',
-      'Regulatory compliance coverage',
-    ],
-    image: '/images/pharma.jpg',
-  },
-  {
-    name: 'Plastic Industry',
-    icon: <FaRecycle className="text-3xl text-blue-600" />,
-    description:
-      'Tailored insurance for plastic manufacturing, injection molding, extrusion processes, and polymer production facilities.',
-    risks: [
-      'Machinery breakdown insurance',
-      'Fire and special perils coverage',
-      'Product liability protection',
-      'Business interruption insurance',
-    ],
-    image: '/images/plastic.jpg',
-  },
-  {
-    name: 'Startup Industry',
-    icon: <FaRocket className="text-3xl text-blue-600" />,
-    description:
-      'Flexible insurance solutions for tech startups, SaaS companies, and emerging businesses across all growth stages.',
-    risks: [
-      'Directors & Officers (D&O) liability',
-      'Errors & Omissions (E&O) insurance',
-      'Cyber liability coverage',
-      'Employment practices liability',
-    ],
-    image: '/images/startup.jpg',
-  },
-  {
-    name: 'Real Estate Industry',
-    icon: <FaBuilding className="text-3xl text-blue-600" />,
-    description:
-      'Complete protection for real estate developers, property management, construction projects, and commercial properties.',
-    risks: [
-      'Builders risk insurance',
-      'Property all-risk coverage',
-      'Professional indemnity insurance',
-      'Public liability protection',
-    ],
-    image: '/images/real-estate.jpg',
-  },
-  {
-    name: 'Chemical Industry',
-    icon: <FaFlask className="text-3xl text-blue-600" />,
-    description:
-      'Comprehensive coverage for chemical manufacturing, processing plants, storage facilities, and hazardous material handling.',
-    risks: [
-      'Pollution liability insurance',
-      'Stock and tank storage coverage',
-      'Process interruption insurance',
-      'Environmental liability protection',
-    ],
-    image: '/images/chemical.jpg',
-  },
-  {
-    name: 'Logistics Industry',
-    icon: <FaTruck className="text-3xl text-blue-600" />,
-    description:
-      'End-to-end insurance for logistics operations, fleet management, warehousing, and supply chain activities.',
-    risks: [
-      'Motor fleet insurance',
-      'Cargo in-transit coverage',
-      'Warehouse stock insurance',
-      'Carrier legal liability',
-    ],
-    image: '/images/logistics.jpg',
-  },
-  {
-    name: 'Textile Industry',
-    icon: <FaTshirt className="text-3xl text-blue-600" />,
-    description:
-      'Specialized insurance for textile manufacturing, garment production, dyeing units, and export-oriented facilities.',
-    risks: [
-      'Fire and allied perils insurance',
-      'Machinery breakdown coverage',
-      'Stock-in-process protection',
-      'Export credit insurance',
-    ],
-    image: '/images/textile.jpg',
-  },
-  {
-    name: 'Solar Industry',
-    icon: <FaSolarPanel className="text-3xl text-blue-600" />,
-    description:
-      'Renewable energy insurance for solar power plants, panel manufacturing, EPC projects, and O&M operations.',
-    risks: [
-      'Solar panel installation insurance',
-      'Performance warranty coverage',
-      'Business interruption protection',
-      'Equipment breakdown insurance',
-    ],
-    image: '/images/solar.jpg',
-  },
-];
-
-// Why Industry-Specific Insurance Matters
-const KEY_BENEFITS = [
-  'Specialized risk assessment tailored to industry dynamics',
-  'Compliance with sector-specific regulations and standards',
-  'Coverage for unique operational and technical risks',
-  'Expert claims handling with industry knowledge',
-  'Cost-effective premiums through sector expertise',
-  'Risk mitigation strategies aligned with business goals',
-];
-
-// What SIIB Offers
-const SIIB_OFFERINGS = [
-  {
-    title: 'Industry Expertise',
-    description:
-      'Deep understanding of sector-specific risks, regulatory requirements, and operational challenges across diverse industries.',
-  },
-  {
-    title: 'Customized Solutions',
-    description:
-      'Tailored insurance programs designed to address unique exposures and business models in your industry.',
-  },
-  {
-    title: 'End-to-End Support',
-    description:
-      'From risk assessment to claims settlement, comprehensive support at every stage of your insurance journey.',
-  },
-];
-
-// Contact Component
-const Contact = ({
-  label,
-  value,
-  icon,
-}: {
-  label: string;
-  value: string;
-  icon: React.ReactNode;
-}) => (
-  <div className="flex items-center gap-4 rounded-lg border border-gray-200 bg-white p-4">
-    <div className="text-2xl text-blue-600">{icon}</div>
-    <div>
-      <div className="text-sm text-gray-600">{label}</div>
-      <div className="font-semibold text-gray-900">{value}</div>
-    </div>
-  </div>
-);
-
-// Industry Card Component
-const IndustryCard = ({
-  icon,
-  name,
-  description,
-  risks,
-}: {
-  icon: React.ReactNode;
-  name: string;
-  description: string;
-  risks: string[];
-}) => (
-  <div className="group rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:border-blue-300 hover:shadow-lg">
-    <div className="mb-4 flex items-center gap-4">
-      <div className="transition-transform group-hover:scale-110">{icon}</div>
-      <h3 className="text-xl font-semibold text-gray-900">{name}</h3>
-    </div>
-    <p className="mb-4 text-gray-700">{description}</p>
-    <div className="mb-3 text-sm font-semibold text-gray-900">Key Coverage Areas:</div>
-    <ul className="space-y-2">
-      {risks.map((risk, index) => (
-        <li key={index} className="flex items-start text-sm text-gray-600">
-          <FaChevronRight className="mt-1 mr-2 text-blue-400" />
-          {risk}
-        </li>
-      ))}
-    </ul>
-    <div className="mt-5">
-      <a
-        href={`/industries/${name.toLowerCase().replace(/ /g, '-').replace(/&/g, 'and')}`}
-        className="inline-flex items-center text-sm font-semibold text-blue-600 transition-colors hover:text-blue-700"
-      >
-        Learn More <FaChevronRight className="ml-1 text-xs" />
-      </a>
-    </div>
-  </div>
-);
+import { FeatureCard } from '@/components/ui/feature-card';
+import { ContactCard } from '@/components/ui/contact-card';
+import { PageSection } from '@/components/ui/page-section';
+import { Bullet } from '@/components/ui/bullet';
+import { INDUSTRIES, KEY_BENEFITS, SIIB_OFFERINGS } from './data';
 
 const IndustriesPage = () => {
   return (
@@ -280,149 +63,149 @@ const IndustriesPage = () => {
       </section>
 
       {/* Why Industry-Specific Insurance Section */}
-      <section className="from-si-primary-200 w-full border-b border-gray-100 bg-gradient-to-b to-transparent lg:min-h-screen">
-        <div className="mx-auto max-w-[90vw] px-4 py-[10vh] sm:px-6 lg:max-w-[75vw] lg:px-8 lg:pt-[20vh]">
-          <h2 className="text-3xl font-bold md:text-4xl">
-            Why Industry-Specific Insurance Matters
-          </h2>
-          <p className="mt-[9vh] text-lg text-gray-700">
-            Every industry faces unique operational risks, regulatory requirements, and business
-            challenges. Generic insurance policies often leave critical exposures unaddressed.
-            Industry-specific insurance ensures comprehensive protection aligned with your
-            sector&#39;s distinct needs.
-          </p>
+      <PageSection className="from-si-primary-200 border-b border-gray-100 bg-gradient-to-b to-transparent">
+        <h2 className="text-si-ink text-3xl font-bold md:text-4xl">
+          Why Industry-Specific Insurance Matters
+        </h2>
+        <p className="text-si-ink/70 mt-6 text-lg">
+          Every industry faces unique operational risks, regulatory requirements, and business
+          challenges. Generic insurance policies often leave critical exposures unaddressed.
+          Industry-specific insurance ensures comprehensive protection aligned with your
+          sector&#39;s distinct needs.
+        </p>
 
-          <div className="mt-[10vh] grid grid-cols-1 gap-8 lg:grid-cols-2">
-            <div>
-              <h3 className="text-2xl font-semibold text-gray-900">Key Advantages</h3>
-              <ul className="mt-8 space-y-2 text-base text-gray-700">
-                {KEY_BENEFITS.map((benefit, index) => (
-                  <li key={index} className="mb-6 flex items-start">
-                    <FaChevronRight className="mt-1 mr-2 text-blue-400" />
-                    {benefit}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-2xl font-semibold text-gray-900">What SIIB Offers</h3>
-              <div className="mt-8 space-y-5">
-                {SIIB_OFFERINGS.map((offering, index) => (
-                  <div
-                    key={index}
-                    className="rounded-lg border border-gray-200 bg-white p-5 shadow-sm transition-all hover:shadow-md"
-                  >
-                    <div className="mb-2 text-lg font-semibold text-gray-900">{offering.title}</div>
-                    <div className="text-base text-gray-600">{offering.description}</div>
+        <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-2">
+          <div>
+            <h3 className="text-si-ink text-2xl font-semibold">Key Advantages</h3>
+            <ul className="mt-8 space-y-4 text-base">
+              {KEY_BENEFITS.map((benefit, index) => (
+                <li key={index} className="text-si-ink/70 flex items-start gap-2">
+                  <Bullet /> {benefit}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-si-ink text-2xl font-semibold">What SIIB Offers</h3>
+            <div className="mt-8 space-y-5">
+              {SIIB_OFFERINGS.map((offering, index) => (
+                <div
+                  key={index}
+                  className="card-vibrant hover-glow-blue hover-lift rounded-2xl border border-white/50 p-6 shadow-md ring-1 ring-black/5 transition-all duration-300"
+                >
+                  <div className="text-si-ink mb-2 text-lg font-bold">{offering.title}</div>
+                  <div className="text-si-ink/60 text-[15px] leading-relaxed">
+                    {offering.description}
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
-      </section>
+      </PageSection>
 
       {/* Industries We Serve Section */}
-      <section className="to-si-primary-200 w-full border-b border-gray-100 bg-gradient-to-b from-transparent lg:min-h-screen">
-        <div className="mx-auto max-w-[90vw] px-4 py-[10vh] sm:px-6 lg:max-w-[75vw] lg:px-8">
-          <h2 className="text-3xl font-bold md:text-4xl">Industries We Serve</h2>
-          <p className="mt-6 text-lg text-gray-700">
-            Comprehensive insurance solutions designed for the specific operational, technical, and
-            regulatory challenges of your industry.
-          </p>
+      <PageSection className="to-si-primary-200 border-b border-gray-100 bg-gradient-to-b from-transparent">
+        <h2 className="text-si-ink text-3xl font-bold md:text-4xl">Industries We Serve</h2>
+        <p className="text-si-ink/70 mt-6 text-lg">
+          Comprehensive insurance solutions designed for the specific operational, technical, and
+          regulatory challenges of your industry.
+        </p>
 
-          <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2">
-            {INDUSTRIES.map((industry, index) => (
-              <IndustryCard
-                key={index}
-                icon={industry.icon}
-                name={industry.name}
-                description={industry.description}
-                risks={industry.risks}
-              />
-            ))}
-          </div>
+        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
+          {INDUSTRIES.map((industry, index) => (
+            <FeatureCard
+              key={index}
+              icon={industry.icon}
+              title={industry.name}
+              description={industry.description}
+              listItems={industry.risks}
+              linkHref={`/industries/${industry.name.toLowerCase().replace(/ /g, '-').replace(/&/g, 'and')}`}
+            />
+          ))}
         </div>
-      </section>
+      </PageSection>
 
       {/* Our Approach Section */}
-      <section className="to-si-primary-200 w-full border-b border-gray-100 bg-gradient-to-t from-transparent">
-        <div className="mx-auto max-w-[90vw] px-4 py-14 sm:px-6 lg:max-w-[75vw] lg:px-8">
-          <h2 className="text-3xl font-bold md:text-4xl">Our Approach to Industry Insurance</h2>
-          <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-3">
-            <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-lg">
-              <div className="mb-3 text-2xl font-bold text-blue-600">01</div>
-              <h3 className="mb-3 text-xl font-semibold text-gray-900">Risk Assessment</h3>
-              <p className="text-gray-700">
-                In-depth analysis of your industry operations, identifying sector-specific risks,
-                compliance requirements, and potential exposures.
-              </p>
-            </div>
-            <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-lg">
-              <div className="mb-3 text-2xl font-bold text-blue-600">02</div>
-              <h3 className="mb-3 text-xl font-semibold text-gray-900">Solution Design</h3>
-              <p className="text-gray-700">
-                Customized insurance programs combining standard and specialized coverage to address
-                your unique business needs and risk profile.
-              </p>
-            </div>
-            <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-lg">
-              <div className="mb-3 text-2xl font-bold text-blue-600">03</div>
-              <h3 className="mb-3 text-xl font-semibold text-gray-900">Ongoing Support</h3>
-              <p className="text-gray-700">
-                Continuous risk monitoring, policy reviews, claims assistance, and advisory support
-                throughout your business lifecycle.
-              </p>
-            </div>
-          </div>
+      <PageSection className="to-si-primary-200 bg-gradient-to-t from-white">
+        <div className="mb-12 text-center">
+          <h2 className="text-si-ink text-3xl font-bold md:text-4xl">
+            Our <span className="text-gradient-primary">Approach</span> to Industry Insurance
+          </h2>
+          <p className="text-si-ink/70 mx-auto mt-4 max-w-2xl text-lg">
+            A disciplined, data-driven process designed to identify and mitigate sector-specific
+            risks.
+          </p>
         </div>
-      </section>
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+          {[
+            {
+              step: '01',
+              title: 'Risk Assessment',
+              desc: 'In-depth analysis of your industry operations, identifying sector-specific risks, compliance requirements, and potential exposures.',
+            },
+            {
+              step: '02',
+              title: 'Solution Design',
+              desc: 'Customized insurance programs combining standard and specialized coverage to address your unique business needs and risk profile.',
+            },
+            {
+              step: '03',
+              title: 'Ongoing Support',
+              desc: 'Continuous risk monitoring, policy reviews, claims assistance, and advisory support throughout your business lifecycle.',
+            },
+          ].map((item) => (
+            <div
+              key={item.step}
+              className="card-vibrant hover-glow-blue hover-lift group rounded-2xl border border-white/50 p-8 shadow-md ring-1 ring-black/5 transition-all duration-300"
+            >
+              <div className="text-si-primary mb-4 text-3xl font-black opacity-40 transition-opacity group-hover:opacity-100">
+                {item.step}
+              </div>
+              <h3 className="text-si-ink mb-3 text-xl font-bold">{item.title}</h3>
+              <p className="text-si-ink/60 leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </PageSection>
 
       {/* CTA Section */}
-      <section className="to-si-primary-200 w-full bg-gradient-to-b from-transparent">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <div className="bg-si-white rounded-2xl border border-blue-200 p-8">
-            <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-3">
-              <div className="lg:col-span-2">
-                <h3 className="text-2xl font-bold text-gray-900">
-                  Protect Your Industry. Secure Your Future.
-                </h3>
-                <p className="mt-2 text-gray-700">
-                  Partner with SIIB&apos;s industry insurance specialists for tailored coverage,
-                  expert risk management, and dedicated support designed for your sector.
-                </p>
-              </div>
-              <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-                <a
-                  href="/premium-estimator"
-                  className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-700"
-                >
-                  <FaShieldAlt className="mr-2" />
-                  Get Coverage Proposal
-                </a>
-                <a
-                  href="/contact"
-                  className="inline-flex items-center justify-center rounded-lg border border-blue-200 bg-white px-6 py-3 font-semibold text-blue-700 hover:bg-blue-100"
-                >
-                  <FaFileContract className="mr-2" />
-                  Book Risk Assessment
-                </a>
-              </div>
+      <PageSection className="to-si-primary-200 bg-gradient-to-b from-white">
+        <div className="border-si-primary/10 from-si-primary/5 overflow-hidden rounded-2xl border bg-gradient-to-br to-white p-8 md:p-10">
+          <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-3">
+            <div className="lg:col-span-2">
+              <h3 className="text-si-ink text-2xl font-bold">
+                Protect Your Industry. Secure Your Future.
+              </h3>
+              <p className="text-si-ink/70 mt-2">
+                Partner with SIIB&apos;s industry insurance specialists for tailored coverage,
+                expert risk management, and dedicated support designed for your sector.
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
+              <a
+                href="/premium-estimator"
+                className="btn-primary inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 font-semibold"
+              >
+                <FaShieldAlt /> Get Coverage Proposal
+              </a>
+              <a
+                href="/contact"
+                className="btn-ghost inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 font-semibold"
+              >
+                <FaFileContract /> Book Risk Assessment
+              </a>
             </div>
           </div>
-
-          {/* Contact Strip */}
-          <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
-            <Contact label="Call" value="1800 210 2022" icon={<FaPhoneAlt />} />
-            <Contact label="Email" value="contact.ins@shareindia.co.in" icon={<FaEnvelope />} />
-            <Contact
-              label="Advisory Desk"
-              value="Industry Insurance Specialists"
-              icon={<FaHeadset />}
-            />
-          </div>
         </div>
-      </section>
+
+        {/* Contact Strip */}
+        <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
+          <ContactCard label="Call" value="1800 210 2022" icon={<FaPhoneAlt />} />
+          <ContactCard label="Email" value="contact.ins@shareindia.co.in" icon={<FaEnvelope />} />
+          <ContactCard label="Advisory Desk" value="Industry Specialists" icon={<FaHeadset />} />
+        </div>
+      </PageSection>
     </div>
   );
 };

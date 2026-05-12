@@ -4,125 +4,21 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
-  FaChevronRight,
   FaShieldAlt,
-  FaHeart,
-  FaCar,
-  FaHome,
-  FaUmbrella,
-  FaMobileAlt,
-  FaDesktop,
-  FaUserMd,
-  FaCertificate,
-  FaPhoneAlt,
-  FaUsers,
-  FaHandHoldingHeart,
-  FaGraduationCap,
-  FaHeadset,
-  FaFire,
-  FaLock,
-  FaEnvelope,
   FaFileContract,
+  FaDesktop,
+  FaMobileAlt,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaHeadset,
 } from 'react-icons/fa';
 import { FadeUp, FadeIn, FlyIn, Stagger, Item } from '@/components/motion';
-
-function SectionBadge({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="text-si-primary border-si-primary/20 bg-si-primary/5 mb-4 inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-[11px] font-bold tracking-wider uppercase">
-      <span className="bg-si-primary h-1.5 w-1.5 rounded-full" />
-      {children}
-    </span>
-  );
-}
-
-function Bullet() {
-  return <FaChevronRight className="text-si-primary mt-1 h-3 w-3 shrink-0" />;
-}
-
-function Card({
-  icon,
-  title,
-  body,
-  bullets,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  body: string;
-  bullets: string[];
-}) {
-  return (
-    <div className="group hover:border-si-primary/20 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all hover:shadow-lg">
-      <div className="mb-4 flex items-center gap-3">
-        <div className="text-si-primary bg-si-primary/8 rounded-xl p-2.5 transition-transform group-hover:scale-105">
-          {icon}
-        </div>
-        <h3 className="text-si-ink text-lg font-bold">{title}</h3>
-      </div>
-      <p className="text-si-ink/70 text-sm leading-relaxed">{body}</p>
-      <ul className="mt-4 space-y-2">
-        {bullets.map((b) => (
-          <li key={b} className="text-si-ink/70 flex items-start gap-2 text-sm">
-            <Bullet /> {b}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
-function Tile({
-  icon,
-  title,
-  children,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <div className="group hover:border-si-primary/20 rounded-2xl border border-gray-100 bg-white p-5 shadow-sm transition-all hover:shadow-lg">
-      <div className="text-si-primary bg-si-primary/8 mb-4 inline-flex rounded-xl p-2.5 transition-transform group-hover:scale-105">
-        <span className="text-xl">{icon}</span>
-      </div>
-      <h3 className="text-si-ink mb-2 font-bold">{title}</h3>
-      <p className="text-si-ink/60 text-sm leading-relaxed">{children}</p>
-    </div>
-  );
-}
-
-function ContactInfo({
-  label,
-  value,
-  icon,
-}: {
-  label: string;
-  value: string;
-  icon: React.ReactNode;
-}) {
-  return (
-    <div className="flex items-center justify-between rounded-xl border border-gray-100 bg-white p-4 shadow-sm">
-      <div>
-        <div className="text-si-ink/40 text-xs font-bold uppercase">{label}</div>
-        <div className="text-si-ink text-sm font-semibold">{value}</div>
-      </div>
-      <div className="text-si-primary bg-si-primary/8 rounded-lg p-2 text-lg">{icon}</div>
-    </div>
-  );
-}
-
-const STATS = [
-  { icon: <FaCertificate />, title: 'IRDA Registered', desc: 'Licensed insurance broker' },
-  {
-    icon: <FaUsers />,
-    title: '30+ Years Experience',
-    desc: 'Group experience in financial services',
-  },
-  {
-    icon: <FaHandHoldingHeart />,
-    title: '100% Claims Assistance',
-    desc: 'Complete support throughout claims',
-  },
-];
+import { SectionBadge } from '@/components/ui/section-badge';
+import { Bullet } from '@/components/ui/bullet';
+import { FeatureCard } from '@/components/ui/feature-card';
+import { ContactCard } from '@/components/ui/contact-card';
+import { PageSection } from '@/components/ui/page-section';
+import { STATS, CORE_COVERAGE, SPECIALIZED_COVERAGE } from './data';
 
 export default function RetailInsurancePage() {
   return (
@@ -188,271 +84,197 @@ export default function RetailInsurancePage() {
       </section>
 
       {/* ── Understanding Retail Insurance ── */}
-      <section className="from-si-primary-200 border-b border-gray-100 bg-gradient-to-b to-white py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
-            <FlyIn dir="right" delay={0.04}>
-              <div>
-                <SectionBadge>About Retail Insurance</SectionBadge>
-                <h2 className="text-si-ink text-3xl font-bold md:text-4xl">
-                  Understanding Retail Insurance
-                </h2>
-                <p className="text-si-ink/70 mt-5 text-lg leading-relaxed">
-                  Retail insurance provides essential protection for individuals and families,
-                  covering life&apos;s uncertainties and helping secure your financial future.
-                </p>
-                <h3 className="text-si-ink mt-8 text-xl font-bold">Why It Matters</h3>
-                <p className="text-si-ink/70 mt-3 leading-relaxed">
-                  In today&apos;s unpredictable world, having the right insurance coverage is
-                  crucial for protecting your family&apos;s financial security. From health
-                  emergencies to vehicle accidents, the right insurance policy can make the
-                  difference between financial stability and hardship.
-                </p>
-                <ul className="mt-5 space-y-3">
-                  {[
-                    "Comprehensive protection for life's uncertainties",
-                    'Financial security for you and your family',
-                    'Peace of mind with expert guidance and support',
-                  ].map((item) => (
-                    <li key={item} className="text-si-ink/70 flex items-start gap-2">
-                      <Bullet /> {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </FlyIn>
+      <PageSection className="from-si-primary-200 border-b border-gray-100 bg-gradient-to-b to-white">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
+          <FlyIn dir="right" delay={0.04}>
+            <div>
+              <SectionBadge>About Retail Insurance</SectionBadge>
+              <h2 className="text-si-ink text-3xl font-bold md:text-4xl">
+                Understanding Retail Insurance
+              </h2>
+              <p className="text-si-ink/70 mt-5 text-lg leading-relaxed">
+                Retail insurance provides essential protection for individuals and families,
+                covering life&apos;s uncertainties and helping secure your financial future.
+              </p>
+              <h3 className="text-si-ink mt-8 text-xl font-bold">Why It Matters</h3>
+              <p className="text-si-ink/70 mt-3 leading-relaxed">
+                In today&apos;s unpredictable world, having the right insurance coverage is crucial
+                for protecting your family&apos;s financial security. From health emergencies to
+                vehicle accidents, the right insurance policy can make the difference between
+                financial stability and hardship.
+              </p>
+              <ul className="mt-5 space-y-3">
+                {[
+                  "Comprehensive protection for life's uncertainties",
+                  'Financial security for you and your family',
+                  'Peace of mind with expert guidance and support',
+                ].map((item) => (
+                  <li key={item} className="text-si-ink/70 flex items-start gap-2">
+                    <Bullet /> {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </FlyIn>
 
-            <FlyIn dir="left" delay={0.08}>
-              <div>
-                <h3 className="text-si-ink mb-6 text-xl font-bold">Our Key Statistics</h3>
-                <div className="space-y-4">
-                  {STATS.map(({ icon, title, desc }) => (
-                    <div
-                      key={title}
-                      className="hover:border-si-primary/20 flex items-center gap-4 rounded-2xl border border-gray-100 bg-white p-5 shadow-sm transition-all hover:shadow-md"
-                    >
-                      <div className="text-si-primary bg-si-primary/8 shrink-0 rounded-xl p-3 text-xl">
-                        {icon}
-                      </div>
-                      <div>
-                        <div className="text-si-ink font-bold">{title}</div>
-                        <div className="text-si-ink/60 text-sm">{desc}</div>
-                      </div>
+          <FlyIn dir="left" delay={0.08}>
+            <div>
+              <h3 className="text-si-ink mb-6 text-xl font-bold">Our Key Statistics</h3>
+              <div className="space-y-4">
+                {STATS.map(({ icon, title, desc }) => (
+                  <div
+                    key={title}
+                    className="card-vibrant hover-glow-blue hover-lift flex items-center gap-4 rounded-2xl border border-white/50 p-5 shadow-md ring-1 ring-black/5 transition-all duration-300"
+                  >
+                    <div className="text-si-primary bg-si-primary/8 shrink-0 rounded-xl p-3 text-xl transition-transform hover:scale-110">
+                      {icon}
                     </div>
-                  ))}
-                </div>
+                    <div>
+                      <div className="text-si-ink font-bold">{title}</div>
+                      <div className="text-si-ink/60 text-sm">{desc}</div>
+                    </div>
+                  </div>
+                ))}
               </div>
-            </FlyIn>
-          </div>
+            </div>
+          </FlyIn>
         </div>
-      </section>
+      </PageSection>
 
       {/* ── Core Coverage Suite ── */}
-      <section className="to-si-primary-200 border-b border-gray-100 bg-gradient-to-b from-white py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <FadeUp>
-            <div className="mb-12 text-center">
-              <SectionBadge>Core Coverage</SectionBadge>
-              <h2 className="text-si-ink text-3xl font-bold md:text-4xl">Core Coverage Suite</h2>
-              <p className="text-si-ink/70 mx-auto mt-4 max-w-2xl text-lg">
-                Comprehensive protection designed specifically for individuals and families.
-              </p>
-            </div>
-          </FadeUp>
+      <PageSection className="to-si-primary-200 border-b border-gray-100 bg-gradient-to-b from-white">
+        <FadeUp>
+          <div className="mb-12 text-center">
+            <SectionBadge>Core Coverage</SectionBadge>
+            <h2 className="text-si-ink text-3xl font-bold md:text-4xl">Core Coverage Suite</h2>
+            <p className="text-si-ink/70 mx-auto mt-4 max-w-2xl text-lg">
+              Comprehensive protection designed specifically for individuals and families.
+            </p>
+          </div>
+        </FadeUp>
 
-          <Stagger staggerChildren={0.08}>
-            <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-              {[
-                {
-                  icon: <FaHeart className="h-5 w-5" />,
-                  title: 'Life Insurance',
-                  body: "Secure your family's financial future with comprehensive life coverage plans.",
-                  bullets: [
-                    'Term Life Insurance for maximum coverage',
-                    'Endowment Plans with savings component',
-                    'ULIP Plans for investment and protection',
-                  ],
-                },
-                {
-                  icon: <FaUserMd className="h-5 w-5" />,
-                  title: 'Health Insurance',
-                  body: 'Comprehensive health coverage for you and your loved ones.',
-                  bullets: [
-                    'Individual Health Plans tailored for you',
-                    'Family Floater Plans for complete family',
-                    'Critical Illness Cover for major diseases',
-                  ],
-                },
-                {
-                  icon: <FaCar className="h-5 w-5" />,
-                  title: 'Motor Insurance',
-                  body: 'Complete protection for your vehicles with comprehensive coverage.',
-                  bullets: [
-                    'Car Insurance with comprehensive coverage',
-                    'Two Wheeler Insurance for bikes',
-                    'Commercial Vehicle insurance for business',
-                  ],
-                },
-                {
-                  icon: <FaHome className="h-5 w-5" />,
-                  title: 'Home Insurance',
-                  body: 'Protect your home against fire, theft, and natural disasters.',
-                  bullets: [
-                    'Structure Protection against damages',
-                    'Contents Coverage for belongings',
-                    'Liability Protection for third-party claims',
-                  ],
-                },
-              ].map((card) => (
-                <Item key={card.title}>
-                  <Card {...card} />
-                </Item>
-              ))}
-            </div>
-          </Stagger>
-        </div>
-      </section>
+        <Stagger staggerChildren={0.08}>
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+            {CORE_COVERAGE.map((card) => (
+              <Item key={card.title}>
+                <FeatureCard {...card} />
+              </Item>
+            ))}
+          </div>
+        </Stagger>
+      </PageSection>
 
       {/* ── Specialized Coverage ── */}
-      <section className="from-si-primary-200 border-b border-gray-100 bg-gradient-to-b to-white py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <FadeUp>
-            <div className="mb-10 text-center">
-              <SectionBadge>Specialized</SectionBadge>
-              <h2 className="text-si-ink text-2xl font-bold md:text-3xl">
-                Specialized Coverage Options
-              </h2>
-              <p className="text-si-ink/70 mx-auto mt-3 max-w-xl">
-                Additional protection options to complement your core insurance portfolio.
-              </p>
-            </div>
-          </FadeUp>
+      <PageSection className="from-si-primary-200 border-b border-gray-100 bg-gradient-to-b to-white">
+        <FadeUp>
+          <div className="mb-10 text-center">
+            <SectionBadge>Specialized</SectionBadge>
+            <h2 className="text-si-ink text-2xl font-bold md:text-3xl">
+              Specialized Coverage Options
+            </h2>
+            <p className="text-si-ink/70 mx-auto mt-3 max-w-xl">
+              Additional protection options to complement your core insurance portfolio.
+            </p>
+          </div>
+        </FadeUp>
 
-          <Stagger staggerChildren={0.07}>
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-              {[
-                {
-                  icon: <FaGraduationCap />,
-                  title: 'Child Education Plans',
-                  body: "Secure your child's educational future with dedicated savings and insurance plans.",
-                },
-                {
-                  icon: <FaUmbrella />,
-                  title: 'Personal Accident',
-                  body: 'Coverage against accidental injuries and disabilities for comprehensive protection.',
-                },
-                {
-                  icon: <FaLock />,
-                  title: 'Cyber Insurance',
-                  body: "Protection against cyber risks and digital threats in today's connected world.",
-                },
-                {
-                  icon: <FaFire />,
-                  title: 'Fire Insurance',
-                  body: 'Comprehensive fire damage coverage for your property and belongings.',
-                },
-              ].map((tile) => (
-                <Item key={tile.title}>
-                  <Tile icon={tile.icon} title={tile.title}>
-                    {tile.body}
-                  </Tile>
-                </Item>
-              ))}
-            </div>
-          </Stagger>
-        </div>
-      </section>
+        <Stagger staggerChildren={0.07}>
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {SPECIALIZED_COVERAGE.map((card) => (
+              <Item key={card.title}>
+                <FeatureCard {...card} />
+              </Item>
+            ))}
+          </div>
+        </Stagger>
+      </PageSection>
 
       {/* ── Digital Platforms ── */}
-      <section className="to-si-primary-200 border-b border-gray-100 bg-gradient-to-b from-white py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <FadeUp>
-            <div className="mb-10 text-center">
-              <SectionBadge>Digital</SectionBadge>
-              <h2 className="text-si-ink text-2xl font-bold md:text-3xl">Insurance Made Digital</h2>
-              <p className="text-si-ink/70 mx-auto mt-3 max-w-xl">
-                Easy policy management through our digital platforms with expert guidance.
-              </p>
-            </div>
-          </FadeUp>
+      <PageSection className="to-si-primary-200 border-b border-gray-100 bg-gradient-to-b from-white">
+        <FadeUp>
+          <div className="mb-10 text-center">
+            <SectionBadge>Digital</SectionBadge>
+            <h2 className="text-si-ink text-2xl font-bold md:text-3xl">Insurance Made Digital</h2>
+            <p className="text-si-ink/70 mx-auto mt-3 max-w-xl">
+              Easy policy management through our digital platforms with expert guidance.
+            </p>
+          </div>
+        </FadeUp>
 
-          <Stagger staggerChildren={0.08}>
-            <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-              {[
-                {
-                  icon: <FaDesktop className="h-5 w-5" />,
-                  title: 'Online Portal',
-                  body: 'Comprehensive web platform for policy comparison, purchase, and management.',
-                  bullets: [
-                    'Compare insurance plans from multiple insurers',
-                    'Instant policy quotes and online purchase',
-                    'Claims tracking and policy management',
-                  ],
-                },
-                {
-                  icon: <FaMobileAlt className="h-5 w-5" />,
-                  title: 'Mobile App',
-                  body: 'Manage your insurance policies on-the-go with our user-friendly mobile application.',
-                  bullets: [
-                    'Policy documents access anytime, anywhere',
-                    'Premium reminders and payment options',
-                    'Instant claims filing and status updates',
-                  ],
-                },
-              ].map((card) => (
-                <Item key={card.title}>
-                  <Card {...card} />
-                </Item>
-              ))}
-            </div>
-          </Stagger>
-        </div>
-      </section>
+        <Stagger staggerChildren={0.08}>
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+            {[
+              {
+                icon: <FaDesktop className="h-5 w-5" />,
+                title: 'Online Portal',
+                description:
+                  'Comprehensive web platform for policy comparison, purchase, and management.',
+                listItems: [
+                  'Compare insurance plans from multiple insurers',
+                  'Instant policy quotes and online purchase',
+                  'Claims tracking and policy management',
+                ],
+              },
+              {
+                icon: <FaMobileAlt className="h-5 w-5" />,
+                title: 'Mobile App',
+                description:
+                  'Manage your insurance policies on-the-go with our user-friendly mobile application.',
+                listItems: [
+                  'Policy documents access anytime, anywhere',
+                  'Premium reminders and payment options',
+                  'Instant claims filing and status updates',
+                ],
+              },
+            ].map((card) => (
+              <Item key={card.title}>
+                <FeatureCard {...card} />
+              </Item>
+            ))}
+          </div>
+        </Stagger>
+      </PageSection>
 
       {/* ── CTA ── */}
-      <section className="bg-si-primary-200 py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <FadeIn>
-            <div className="border-si-primary/10 from-si-primary/5 overflow-hidden rounded-2xl border bg-gradient-to-br to-white p-8 md:p-10">
-              <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-3">
-                <div className="lg:col-span-2">
-                  <h3 className="text-si-ink text-2xl font-bold">
-                    Protect What Matters Most Today
-                  </h3>
-                  <p className="text-si-ink/70 mt-2">
-                    Get personalized insurance solutions from India&apos;s trusted insurance brokers
-                    with 24/7 support.
-                  </p>
-                </div>
-                <div className="flex flex-col gap-3 sm:flex-row">
-                  <Link
-                    href="/premium-estimator"
-                    className="btn-primary inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 font-semibold"
-                  >
-                    <FaShieldAlt /> Get Coverage Proposal
-                  </Link>
-                  <Link
-                    href="/contact"
-                    className="btn-ghost inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 font-semibold"
-                  >
-                    <FaFileContract /> Book Assessment
-                  </Link>
-                </div>
+      <PageSection className="to-si-primary-200 bg-gradient-to-b from-white">
+        <FadeIn>
+          <div className="border-si-primary/10 from-si-primary/5 overflow-hidden rounded-2xl border bg-gradient-to-br to-white p-8 md:p-10">
+            <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-3">
+              <div className="lg:col-span-2">
+                <h3 className="text-si-ink text-2xl font-bold">Protect What Matters Most Today</h3>
+                <p className="text-si-ink/70 mt-2">
+                  Get personalized insurance solutions from India&apos;s trusted insurance brokers
+                  with 24/7 support.
+                </p>
               </div>
-
-              <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
-                <ContactInfo label="Call" value="1800 210 2022" icon={<FaPhoneAlt />} />
-                <ContactInfo
-                  label="Email"
-                  value="contact.ins@shareindia.co.in"
-                  icon={<FaEnvelope />}
-                />
-                <ContactInfo label="Support" value="24/7 Customer Service" icon={<FaHeadset />} />
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <Link
+                  href="/premium-estimator"
+                  className="btn-primary inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 font-semibold"
+                >
+                  <FaShieldAlt /> Get Coverage Proposal
+                </Link>
+                <Link
+                  href="/contact"
+                  className="btn-ghost inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 font-semibold"
+                >
+                  <FaFileContract /> Book Assessment
+                </Link>
               </div>
             </div>
-          </FadeIn>
-        </div>
-      </section>
+
+            <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
+              <ContactCard label="Call" value="1800 210 2022" icon={<FaPhoneAlt />} />
+              <ContactCard
+                label="Email"
+                value="contact.ins@shareindia.co.in"
+                icon={<FaEnvelope />}
+              />
+              <ContactCard label="Support" value="24/7 Customer Service" icon={<FaHeadset />} />
+            </div>
+          </div>
+        </FadeIn>
+      </PageSection>
     </div>
   );
 }

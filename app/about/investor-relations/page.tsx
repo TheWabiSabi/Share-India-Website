@@ -127,10 +127,8 @@ function DocumentCard({ doc }: { doc: Document }) {
           </svg>
         </div>
         <div>
-          <p className="text-si-ink font-semibold leading-snug">{doc.title}</p>
-          {doc.subtitle && (
-            <p className="text-si-ink/55 mt-0.5 text-sm">{doc.subtitle}</p>
-          )}
+          <p className="text-si-ink leading-snug font-semibold">{doc.title}</p>
+          {doc.subtitle && <p className="text-si-ink/55 mt-0.5 text-sm">{doc.subtitle}</p>}
           {doc.size && (
             <span className="mt-1.5 inline-flex items-center gap-1 rounded-full bg-gray-100 px-2 py-0.5 text-[11px] font-semibold text-gray-500">
               PDF · {doc.size}
@@ -282,7 +280,6 @@ export default function InvestorRelationsPage() {
       <section className="py-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-4">
-
             {/* ── Sidebar nav ── */}
             <aside className="lg:col-span-1">
               <FadeIn>
@@ -304,13 +301,11 @@ export default function InvestorRelationsPage() {
                           'flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold transition-all',
                           activeSection === s.id
                             ? 'text-si-primary bg-si-primary/8'
-                            : 'text-si-ink/70 hover:bg-gray-50 hover:text-si-ink',
+                            : 'text-si-ink/70 hover:text-si-ink hover:bg-gray-50',
                         ].join(' ')}
                       >
                         <span
-                          className={
-                            activeSection === s.id ? 'text-si-primary' : 'text-si-ink/40'
-                          }
+                          className={activeSection === s.id ? 'text-si-primary' : 'text-si-ink/40'}
                         >
                           {s.icon}
                         </span>
