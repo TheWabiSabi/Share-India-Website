@@ -992,7 +992,7 @@ function ConnectCTASection() {
     <section
       id="connect-cta"
       aria-labelledby="connect-cta-title"
-      className="bg-gradient-to-b from-white to-si-primary-200 py-16 transition-colors duration-500 md:py-24"
+      className="to-si-primary-200 bg-gradient-to-b from-white py-16 transition-colors duration-500 md:py-24"
     >
       <div className="mx-auto max-w-5xl px-4 text-center sm:px-6 md:px-8">
         <FadeUp>
