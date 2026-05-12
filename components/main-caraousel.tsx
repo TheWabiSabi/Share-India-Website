@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 
@@ -72,8 +72,8 @@ export default function MainCaraousel({
   layout,
   color,
 }: CaraouselProps) {
-  const prevRef = useRef<HTMLButtonElement | null>(null);
-  const nextRef = useRef<HTMLButtonElement | null>(null);
+  const [prevEl, setPrevEl] = useState<HTMLButtonElement | null>(null);
+  const [nextEl, setNextEl] = useState<HTMLButtonElement | null>(null);
 
   // Filter only featured articles and transform data
   let featuredData = blogPosts
@@ -112,7 +112,7 @@ export default function MainCaraousel({
       {/* Navigation arrows */}
       <div className="pointer-events-none absolute -top-12 right-0 z-10 hidden gap-2 sm:flex">
         <button
-          ref={prevRef}
+          ref={setPrevEl}
           aria-label="Previous insight"
           className="text-si-primary border-si-primary/20 shadow-vibrant-blue hover:bg-si-primary hover:border-si-primary hover-lift pointer-events-auto inline-flex h-10 w-10 items-center justify-center rounded-full border-2 bg-white/90 backdrop-blur-sm transition-all hover:text-white"
         >
@@ -126,7 +126,7 @@ export default function MainCaraousel({
           </svg>
         </button>
         <button
-          ref={nextRef}
+          ref={setNextEl}
           aria-label="Next insight"
           className="text-si-primary border-si-primary/20 shadow-vibrant-blue hover:bg-si-primary hover:border-si-primary hover-lift pointer-events-auto inline-flex h-10 w-10 items-center justify-center rounded-full border-2 bg-white/90 backdrop-blur-sm transition-all hover:text-white"
         >
@@ -148,8 +148,8 @@ export default function MainCaraousel({
           pagination={{ clickable: true }}
           // scrollbar={{ draggable: true }} // Disabled for cleaner look
           navigation={{
-            prevEl: prevRef.current,
-            nextEl: nextRef.current,
+            prevEl,
+            nextEl,
           }}
           a11y={{
             enabled: true,
@@ -158,11 +158,10 @@ export default function MainCaraousel({
             slideRole: 'group',
           }}
           onInit={(swiper) => {
-            // Wire navigation after refs exist
             // @ts-expect-error – Swiper types are a bit strict here
-            swiper.params.navigation.prevEl = prevRef.current;
+            swiper.params.navigation.prevEl = prevEl;
             // @ts-expect-error – Swiper types are a bit strict here
-            swiper.params.navigation.nextEl = nextRef.current;
+            swiper.params.navigation.nextEl = nextEl;
             swiper.navigation.init();
             swiper.navigation.update();
           }}

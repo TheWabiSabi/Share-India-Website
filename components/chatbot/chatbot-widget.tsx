@@ -92,12 +92,30 @@ const ChatbotWidget: React.FC = () => {
   }, [state.messages]);
 
   const toggleChatbot = (): void => {
-    setState((prev) => ({
-      ...prev,
-      isOpen: !prev.isOpen,
-      currentFlow: prev.isOpen ? 'welcome' : prev.currentFlow,
-      messages: prev.isOpen ? [] : prev.messages,
-    }));
+    setState((prev) => {
+      const isOpening = !prev.isOpen;
+
+      // Prepare initial message if opening
+      let initialMessages: ChatMessage[] = [];
+      if (isOpening) {
+        const welcomeFlow = data.chatbot_flows['welcome'];
+        initialMessages = [
+          {
+            type: 'bot',
+            message: welcomeFlow.message,
+            buttons: welcomeFlow.buttons,
+            timestamp: new Date(),
+          },
+        ];
+      }
+
+      return {
+        ...prev,
+        isOpen: isOpening,
+        currentFlow: 'welcome',
+        messages: initialMessages,
+      };
+    });
   };
 
   const handleButtonClick = (action: NavigationAction, url?: string): void => {
@@ -173,23 +191,7 @@ const ChatbotWidget: React.FC = () => {
     }
   };
 
-  // Initialize welcome message
-  useEffect(() => {
-    if (state.isOpen && state.messages.length === 0) {
-      const welcomeFlow = data.chatbot_flows[state.currentFlow];
-      const welcomeMessage: ChatMessage = {
-        type: 'bot',
-        message: welcomeFlow.message,
-        buttons: welcomeFlow.buttons,
-        timestamp: new Date(),
-      };
 
-      setState((prev) => ({
-        ...prev,
-        messages: [welcomeMessage],
-      }));
-    }
-  }, [state.isOpen, data.chatbot_flows, state.currentFlow, state.messages.length]);
 
   return (
     <>
