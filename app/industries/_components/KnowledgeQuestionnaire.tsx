@@ -106,11 +106,11 @@ const KnowledgeQuestionnaire: React.FC<KnowledgeQuestionnaireProps> = ({
           <div className="text-center">
             <FaChartLine className="mx-auto text-4xl text-blue-500" />
             <h2 className="mt-4 text-2xl font-bold">Quiz Results</h2>
-            <div className="mt-8 card-vibrant hover-glow-blue rounded-2xl border border-white/50 p-8 shadow-lg ring-1 ring-black/5 md:p-12">
-              <div className="text-5xl font-black tracking-tighter text-si-primary">
+            <div className="card-vibrant hover-glow-blue mt-8 rounded-2xl border border-white/50 p-8 shadow-lg ring-1 ring-black/5 md:p-12">
+              <div className="text-si-primary text-5xl font-black tracking-tighter">
                 {score}/{questions.length}
               </div>
-              <div className="mt-2 text-xl font-bold text-si-ink/80">
+              <div className="text-si-ink/80 mt-2 text-xl font-bold">
                 {Math.round((score / questions.length) * 100)}% Correct
               </div>
               <div className={`mt-6 text-lg font-semibold ${scoreMessage.color}`}>
@@ -118,15 +118,12 @@ const KnowledgeQuestionnaire: React.FC<KnowledgeQuestionnaireProps> = ({
               </div>
 
               <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:justify-center">
-                <button
-                  onClick={resetQuiz}
-                  className="btn-ghost rounded-xl px-8 py-4 font-bold"
-                >
+                <button onClick={resetQuiz} className="btn-ghost rounded-xl px-8 py-4 font-bold">
                   Retake Quiz
                 </button>
                 <a
                   href="/contact"
-                  className="btn-primary hover-glow-blue rounded-xl px-8 py-4 font-bold shadow-vibrant-blue"
+                  className="btn-primary hover-glow-blue shadow-vibrant-blue rounded-xl px-8 py-4 font-bold"
                 >
                   Book Risk Assessment
                 </a>
@@ -155,10 +152,10 @@ const KnowledgeQuestionnaire: React.FC<KnowledgeQuestionnaireProps> = ({
           </p>
         </div>
 
-        <div className="mt-12 card-vibrant hover-glow-blue rounded-2xl border border-white/50 p-6 shadow-xl ring-1 ring-black/5 sm:p-10">
-          <div className="mb-8 flex items-center justify-between border-b border-si-primary/10 pb-6">
+        <div className="card-vibrant hover-glow-blue mt-12 rounded-2xl border border-white/50 p-6 shadow-xl ring-1 ring-black/5 sm:p-10">
+          <div className="border-si-primary/10 mb-8 flex items-center justify-between border-b pb-6">
             <div className="flex items-center gap-3">
-              <span className="text-sm font-bold tracking-wide text-si-ink/40 uppercase">
+              <span className="text-si-ink/40 text-sm font-bold tracking-wide uppercase">
                 Question {currentQuestion + 1} <span className="mx-1">/</span> {questions.length}
               </span>
               <span
@@ -167,15 +164,17 @@ const KnowledgeQuestionnaire: React.FC<KnowledgeQuestionnaireProps> = ({
                 {question.difficulty}
               </span>
             </div>
-            <div className="h-2 w-32 rounded-full bg-si-primary/10 overflow-hidden">
+            <div className="bg-si-primary/10 h-2 w-32 overflow-hidden rounded-full">
               <div
-                className="h-2 rounded-full bg-si-primary shadow-[0_0_8px_rgba(45,169,255,0.5)] transition-all duration-500 ease-out"
+                className="bg-si-primary h-2 rounded-full shadow-[0_0_8px_rgba(45,169,255,0.5)] transition-all duration-500 ease-out"
                 style={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
               ></div>
             </div>
           </div>
 
-          <h3 className="text-xl font-bold leading-tight text-si-ink md:text-2xl">{question.question}</h3>
+          <h3 className="text-si-ink text-xl leading-tight font-bold md:text-2xl">
+            {question.question}
+          </h3>
 
           <div className="mt-8 space-y-3">
             {question.options.map((option, index) => {
@@ -191,7 +190,8 @@ const KnowledgeQuestionnaire: React.FC<KnowledgeQuestionnaireProps> = ({
                   buttonClass += ' border-transparent bg-si-muted/30 text-si-ink/40';
                 }
               } else {
-                buttonClass += ' border-si-primary/10 bg-white hover:border-si-primary/40 hover:bg-si-primary/5 hover:shadow-md hover:-translate-y-0.5';
+                buttonClass +=
+                  ' border-si-primary/10 bg-white hover:border-si-primary/40 hover:bg-si-primary/5 hover:shadow-md hover:-translate-y-0.5';
               }
 
               return (
@@ -206,7 +206,7 @@ const KnowledgeQuestionnaire: React.FC<KnowledgeQuestionnaireProps> = ({
                     {isAnswered && (
                       <span className="relative z-10">
                         {index === question.correctAnswer ? (
-                          <FaCheckCircle className="text-green-600 text-xl" />
+                          <FaCheckCircle className="text-xl text-green-600" />
                         ) : index === selectedAnswer ? (
                           <FaTimesCircle className="text-si-red-600 text-xl" />
                         ) : null}
@@ -219,14 +219,18 @@ const KnowledgeQuestionnaire: React.FC<KnowledgeQuestionnaireProps> = ({
           </div>
 
           {showExplanation && (
-            <div className="mt-8 rounded-xl bg-si-primary/5 border border-si-primary/10 p-6 animate-fadeInUp">
+            <div className="bg-si-primary/5 border-si-primary/10 animate-fadeInUp mt-8 rounded-xl border p-6">
               <div className="flex items-start gap-4">
-                <div className="bg-si-primary/20 rounded-lg p-2 mt-0.5">
+                <div className="bg-si-primary/20 mt-0.5 rounded-lg p-2">
                   <FaLightbulb className="text-si-primary" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-si-ink text-sm tracking-wide uppercase">Expert Insight:</h4>
-                  <p className="mt-2 text-[15px] leading-relaxed text-si-ink/80">{question.explanation}</p>
+                  <h4 className="text-si-ink text-sm font-bold tracking-wide uppercase">
+                    Expert Insight:
+                  </h4>
+                  <p className="text-si-ink/80 mt-2 text-[15px] leading-relaxed">
+                    {question.explanation}
+                  </p>
                 </div>
               </div>
             </div>
@@ -236,7 +240,7 @@ const KnowledgeQuestionnaire: React.FC<KnowledgeQuestionnaireProps> = ({
             <div className="mt-10 text-center">
               <button
                 onClick={nextQuestion}
-                className="btn-primary hover-glow-blue rounded-xl px-10 py-4 font-bold shadow-vibrant-blue transition-all active:scale-95"
+                className="btn-primary hover-glow-blue shadow-vibrant-blue rounded-xl px-10 py-4 font-bold transition-all active:scale-95"
               >
                 {currentQuestion < questions.length - 1 ? 'Next Challenge' : 'Discover Results'}
               </button>

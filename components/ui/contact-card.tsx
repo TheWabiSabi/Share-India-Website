@@ -16,7 +16,7 @@ export function ContactCard({
       </div>
       <div>
         <div className="text-si-ink/40 text-[10px] font-bold tracking-wider uppercase">{label}</div>
-        <div className="text-si-ink font-bold leading-tight">{value}</div>
+        <div className="text-si-ink leading-tight font-bold">{value}</div>
       </div>
     </div>
   );

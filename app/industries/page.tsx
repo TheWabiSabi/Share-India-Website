@@ -94,7 +94,9 @@ const IndustriesPage = () => {
                   className="card-vibrant hover-glow-blue hover-lift rounded-2xl border border-white/50 p-6 shadow-md ring-1 ring-black/5 transition-all duration-300"
                 >
                   <div className="text-si-ink mb-2 text-lg font-bold">{offering.title}</div>
-                  <div className="text-si-ink/60 text-[15px] leading-relaxed">{offering.description}</div>
+                  <div className="text-si-ink/60 text-[15px] leading-relaxed">
+                    {offering.description}
+                  </div>
                 </div>
               ))}
             </div>
@@ -125,13 +127,14 @@ const IndustriesPage = () => {
       </PageSection>
 
       {/* Our Approach Section */}
-      <PageSection className="bg-gradient-to-t from-white to-si-primary-200">
+      <PageSection className="to-si-primary-200 bg-gradient-to-t from-white">
         <div className="mb-12 text-center">
           <h2 className="text-si-ink text-3xl font-bold md:text-4xl">
             Our <span className="text-gradient-primary">Approach</span> to Industry Insurance
           </h2>
           <p className="text-si-ink/70 mx-auto mt-4 max-w-2xl text-lg">
-            A disciplined, data-driven process designed to identify and mitigate sector-specific risks.
+            A disciplined, data-driven process designed to identify and mitigate sector-specific
+            risks.
           </p>
         </div>
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
@@ -156,20 +159,18 @@ const IndustriesPage = () => {
               key={item.step}
               className="card-vibrant hover-glow-blue hover-lift group rounded-2xl border border-white/50 p-8 shadow-md ring-1 ring-black/5 transition-all duration-300"
             >
-              <div className="text-si-primary mb-4 text-3xl font-black opacity-40 group-hover:opacity-100 transition-opacity">
+              <div className="text-si-primary mb-4 text-3xl font-black opacity-40 transition-opacity group-hover:opacity-100">
                 {item.step}
               </div>
               <h3 className="text-si-ink mb-3 text-xl font-bold">{item.title}</h3>
-              <p className="text-si-ink/60 leading-relaxed">
-                {item.desc}
-              </p>
+              <p className="text-si-ink/60 leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>
       </PageSection>
 
       {/* CTA Section */}
-      <PageSection className="bg-gradient-to-b from-white to-si-primary-200">
+      <PageSection className="to-si-primary-200 bg-gradient-to-b from-white">
         <div className="border-si-primary/10 from-si-primary/5 overflow-hidden rounded-2xl border bg-gradient-to-br to-white p-8 md:p-10">
           <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-3">
             <div className="lg:col-span-2">
@@ -202,11 +203,7 @@ const IndustriesPage = () => {
         <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
           <ContactCard label="Call" value="1800 210 2022" icon={<FaPhoneAlt />} />
           <ContactCard label="Email" value="contact.ins@shareindia.co.in" icon={<FaEnvelope />} />
-          <ContactCard
-            label="Advisory Desk"
-            value="Industry Specialists"
-            icon={<FaHeadset />}
-          />
+          <ContactCard label="Advisory Desk" value="Industry Specialists" icon={<FaHeadset />} />
         </div>
       </PageSection>
     </div>

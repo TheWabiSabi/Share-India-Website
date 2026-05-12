@@ -28,11 +28,14 @@ export function FeatureCard({
       </div>
       <div className="accent-bar-gradient mb-4 h-1 w-10 rounded transition-all group-hover:w-16" />
       <p className="text-si-ink/60 mb-5 text-[15px] leading-relaxed">{description}</p>
-      
+
       {listItems && listItems.length > 0 && (
         <ul className="space-y-3">
           {listItems.map((item, index) => (
-            <li key={index} className="text-si-ink/70 flex items-start gap-2.5 text-[14px] leading-snug">
+            <li
+              key={index}
+              className="text-si-ink/70 flex items-start gap-2.5 text-[14px] leading-snug"
+            >
               <Bullet /> {item}
             </li>
           ))}

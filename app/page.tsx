@@ -16,12 +16,12 @@ const TopNewsCarousel = dynamic(() => import('@/components/top-news-carousel'), 
 
 function SectionBadge({ children }: { children: ReactNode }) {
   return (
-    <span className="badge-chip float-slow group mb-4 inline-flex items-center cursor-default shadow-sm ring-1 ring-si-primary/10">
-      <span className="bg-si-primary/40 relative flex h-2 w-2 items-center justify-center rounded-full mr-2">
-        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-si-primary opacity-75"></span>
-        <span className="relative inline-flex h-1 w-1 rounded-full bg-si-primary shadow-[0_0_8px_rgba(45,169,255,0.8)]"></span>
+    <span className="badge-chip float-slow group ring-si-primary/10 mb-4 inline-flex cursor-default items-center shadow-sm ring-1">
+      <span className="bg-si-primary/40 relative mr-2 flex h-2 w-2 items-center justify-center rounded-full">
+        <span className="bg-si-primary absolute inline-flex h-full w-full animate-ping rounded-full opacity-75"></span>
+        <span className="bg-si-primary relative inline-flex h-1 w-1 rounded-full shadow-[0_0_8px_rgba(45,169,255,0.8)]"></span>
       </span>
-      <span className="text-si-ink/80 text-[11px] font-bold tracking-[0.1em] uppercase group-hover:text-si-primary transition-colors duration-300">
+      <span className="text-si-ink/80 group-hover:text-si-primary text-[11px] font-bold tracking-[0.1em] uppercase transition-colors duration-300">
         {children}
       </span>
     </span>
@@ -992,7 +992,7 @@ function ConnectCTASection() {
     <section
       id="connect-cta"
       aria-labelledby="connect-cta-title"
-      className="bg-white py-16 transition-colors duration-500 md:py-24"
+      className="bg-gradient-to-b from-white to-si-primary-200 py-16 transition-colors duration-500 md:py-24"
     >
       <div className="mx-auto max-w-5xl px-4 text-center sm:px-6 md:px-8">
         <FadeUp>
@@ -1028,11 +1028,9 @@ function ConnectCTASection() {
                   >
                     {icon}
                   </div>
-                  <h3 className="text-si-ink text-xl font-bold tracking-tight">
-                    {title}
-                  </h3>
+                  <h3 className="text-si-ink text-xl font-bold tracking-tight">{title}</h3>
                   <p className="text-si-ink/60 mt-2 text-sm leading-relaxed">{desc}</p>
-                  <div className="mt-6 flex items-center gap-2 text-xs font-bold tracking-wider text-si-primary uppercase opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                  <div className="text-si-primary mt-6 flex items-center gap-2 text-xs font-bold tracking-wider uppercase opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
                     Learn More <ArrowIcon className="h-3 w-3" />
                   </div>
                 </Link>
@@ -1045,7 +1043,7 @@ function ConnectCTASection() {
           <div className="mt-12 flex justify-center">
             <Link
               href="/contact"
-              className="btn-primary hover-glow-blue inline-flex items-center gap-3 rounded-2xl px-10 py-5 text-base font-bold transition-all hover:scale-105 active:scale-95 focus:ring-4 focus:ring-si-primary/30"
+              className="btn-primary hover-glow-blue focus:ring-si-primary/30 inline-flex items-center gap-3 rounded-2xl px-10 py-5 text-base font-bold transition-all hover:scale-105 focus:ring-4 active:scale-95"
             >
               Speak to a Consultant
               <ArrowIcon className="h-5 w-5" />

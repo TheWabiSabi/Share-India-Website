@@ -74,12 +74,14 @@ export const SPECIALIZED_COVERAGE = [
   {
     icon: <FaGraduationCap />,
     title: 'Child Education Plans',
-    description: "Secure your child's educational future with dedicated savings and insurance plans.",
+    description:
+      "Secure your child's educational future with dedicated savings and insurance plans.",
   },
   {
     icon: <FaUmbrella />,
     title: 'Personal Accident',
-    description: 'Coverage against accidental injuries and disabilities for comprehensive protection.',
+    description:
+      'Coverage against accidental injuries and disabilities for comprehensive protection.',
   },
   {
     icon: <FaLock />,

@@ -2,7 +2,14 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { FaShieldAlt, FaFileContract, FaPhoneAlt, FaEnvelope, FaHeadset, FaIndustry } from 'react-icons/fa';
+import {
+  FaShieldAlt,
+  FaFileContract,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaHeadset,
+  FaIndustry,
+} from 'react-icons/fa';
 import { IMAGE_BASE_URL } from '@/consts/variables';
 import { FeatureCard } from '@/components/ui/feature-card';
 import { ContactCard } from '@/components/ui/contact-card';
@@ -64,12 +71,14 @@ const CorporateInsurancePage = () => {
       </section>
 
       {/* Overview Section */}
-      <PageSection className="bg-gradient-to-b from-si-primary-200 to-white">
-        <h2 className="text-si-ink text-3xl font-bold md:text-4xl">Why Corporate Insurance Matters</h2>
+      <PageSection className="from-si-primary-200 bg-gradient-to-b to-white">
+        <h2 className="text-si-ink text-3xl font-bold md:text-4xl">
+          Why Corporate Insurance Matters
+        </h2>
         <p className="text-si-ink/70 mt-6 text-lg">
-          In today&apos;s dynamic business environment, protecting your organization from
-          unforeseen risks is critical. Corporate insurance provides financial security, ensures
-          regulatory compliance, and enables business continuity during challenging times.
+          In today&apos;s dynamic business environment, protecting your organization from unforeseen
+          risks is critical. Corporate insurance provides financial security, ensures regulatory
+          compliance, and enables business continuity during challenging times.
         </p>
 
         <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-2">
@@ -103,8 +112,10 @@ const CorporateInsurancePage = () => {
       </PageSection>
 
       {/* Insurance Products Section */}
-      <PageSection className="bg-gradient-to-b from-white to-si-primary-200">
-        <h2 className="text-si-ink text-3xl font-bold md:text-4xl">Our Corporate Insurance Products</h2>
+      <PageSection className="to-si-primary-200 bg-gradient-to-b from-white">
+        <h2 className="text-si-ink text-3xl font-bold md:text-4xl">
+          Our Corporate Insurance Products
+        </h2>
         <p className="text-si-ink/70 mt-6 text-lg">
           Comprehensive coverage options designed to protect every aspect of your business
           operations.
@@ -124,7 +135,7 @@ const CorporateInsurancePage = () => {
       </PageSection>
 
       {/* Why Choose SIIB Section */}
-      <PageSection className="bg-gradient-to-t from-white to-si-primary-200">
+      <PageSection className="to-si-primary-200 bg-gradient-to-t from-white">
         <div className="mb-12 text-center">
           <h2 className="text-si-ink text-3xl font-bold md:text-4xl">
             Why Choose <span className="text-gradient-primary">SIIB</span>
@@ -154,25 +165,21 @@ const CorporateInsurancePage = () => {
             >
               <div className="accent-bar-gradient mb-6 h-1 w-12 rounded transition-all group-hover:w-20" />
               <h3 className="text-si-ink mb-3 text-xl font-bold">{item.title}</h3>
-              <p className="text-si-ink/60 leading-relaxed">
-                {item.desc}
-              </p>
+              <p className="text-si-ink/60 leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>
       </PageSection>
 
       {/* CTA Section */}
-      <PageSection className="bg-gradient-to-b from-white to-si-primary-200">
+      <PageSection className="to-si-primary-200 bg-gradient-to-b from-white">
         <div className="border-si-primary/10 from-si-primary/5 overflow-hidden rounded-2xl border bg-gradient-to-br to-white p-8 md:p-10">
           <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-3">
             <div className="lg:col-span-2">
-              <h3 className="text-si-ink text-2xl font-bold">
-                Ready to Protect Your Business?
-              </h3>
+              <h3 className="text-si-ink text-2xl font-bold">Ready to Protect Your Business?</h3>
               <p className="text-si-ink/70 mt-2">
-                Partner with SIIB&apos;s corporate insurance specialists for comprehensive
-                coverage, expert risk management, and seamless claims support.
+                Partner with SIIB&apos;s corporate insurance specialists for comprehensive coverage,
+                expert risk management, and seamless claims support.
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
@@ -196,11 +203,7 @@ const CorporateInsurancePage = () => {
         <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
           <ContactCard label="Call" value="1800 210 2022" icon={<FaPhoneAlt />} />
           <ContactCard label="Email" value="contact.ins@shareindia.co.in" icon={<FaEnvelope />} />
-          <ContactCard
-            label="Advisory Desk"
-            value="Corporate Specialists"
-            icon={<FaHeadset />}
-          />
+          <ContactCard label="Advisory Desk" value="Corporate Specialists" icon={<FaHeadset />} />
         </div>
       </PageSection>
     </div>

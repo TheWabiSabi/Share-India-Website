@@ -98,10 +98,10 @@ export default function RetailInsurancePage() {
               </p>
               <h3 className="text-si-ink mt-8 text-xl font-bold">Why It Matters</h3>
               <p className="text-si-ink/70 mt-3 leading-relaxed">
-                In today&apos;s unpredictable world, having the right insurance coverage is
-                crucial for protecting your family&apos;s financial security. From health
-                emergencies to vehicle accidents, the right insurance policy can make the
-                difference between financial stability and hardship.
+                In today&apos;s unpredictable world, having the right insurance coverage is crucial
+                for protecting your family&apos;s financial security. From health emergencies to
+                vehicle accidents, the right insurance policy can make the difference between
+                financial stability and hardship.
               </p>
               <ul className="mt-5 space-y-3">
                 {[
@@ -207,7 +207,8 @@ export default function RetailInsurancePage() {
               {
                 icon: <FaDesktop className="h-5 w-5" />,
                 title: 'Online Portal',
-                description: 'Comprehensive web platform for policy comparison, purchase, and management.',
+                description:
+                  'Comprehensive web platform for policy comparison, purchase, and management.',
                 listItems: [
                   'Compare insurance plans from multiple insurers',
                   'Instant policy quotes and online purchase',
@@ -217,7 +218,8 @@ export default function RetailInsurancePage() {
               {
                 icon: <FaMobileAlt className="h-5 w-5" />,
                 title: 'Mobile App',
-                description: 'Manage your insurance policies on-the-go with our user-friendly mobile application.',
+                description:
+                  'Manage your insurance policies on-the-go with our user-friendly mobile application.',
                 listItems: [
                   'Policy documents access anytime, anywhere',
                   'Premium reminders and payment options',
@@ -234,14 +236,12 @@ export default function RetailInsurancePage() {
       </PageSection>
 
       {/* ── CTA ── */}
-      <PageSection className="bg-gradient-to-b from-white to-si-primary-200">
+      <PageSection className="to-si-primary-200 bg-gradient-to-b from-white">
         <FadeIn>
           <div className="border-si-primary/10 from-si-primary/5 overflow-hidden rounded-2xl border bg-gradient-to-br to-white p-8 md:p-10">
             <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-3">
               <div className="lg:col-span-2">
-                <h3 className="text-si-ink text-2xl font-bold">
-                  Protect What Matters Most Today
-                </h3>
+                <h3 className="text-si-ink text-2xl font-bold">Protect What Matters Most Today</h3>
                 <p className="text-si-ink/70 mt-2">
                   Get personalized insurance solutions from India&apos;s trusted insurance brokers
                   with 24/7 support.
@@ -265,7 +265,11 @@ export default function RetailInsurancePage() {
 
             <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
               <ContactCard label="Call" value="1800 210 2022" icon={<FaPhoneAlt />} />
-              <ContactCard label="Email" value="contact.ins@shareindia.co.in" icon={<FaEnvelope />} />
+              <ContactCard
+                label="Email"
+                value="contact.ins@shareindia.co.in"
+                icon={<FaEnvelope />}
+              />
               <ContactCard label="Support" value="24/7 Customer Service" icon={<FaHeadset />} />
             </div>
           </div>

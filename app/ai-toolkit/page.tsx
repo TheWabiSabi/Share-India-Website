@@ -125,11 +125,7 @@ export default function AIToolkitPage() {
           : 'bg-gradient-to-b from-si-primary-200 to-white';
 
         return (
-          <PageSection
-            key={tool.id}
-            id={tool.id}
-            className={`${bg} border-b border-gray-100`}
-          >
+          <PageSection key={tool.id} id={tool.id} className={`${bg} border-b border-gray-100`}>
             <div
               className={`grid grid-cols-1 items-center gap-12 lg:grid-cols-2 ${isEven ? '' : 'lg:[&>*:first-child]:order-2'}`}
             >
@@ -176,7 +172,7 @@ export default function AIToolkitPage() {
                       href={tool.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn-primary inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold hover-lift"
+                      className="btn-primary hover-lift inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold"
                     >
                       {tool.cta}
                       <svg
@@ -199,7 +195,7 @@ export default function AIToolkitPage() {
 
               {/* Visual card */}
               <FlyIn dir={isEven ? 'left' : 'right'} delay={0.08}>
-                <div className="border-si-primary/10 flex flex-col gap-4 rounded-2xl border bg-white p-6 lg:p-8 hover-lift hover:shadow-md transition-all">
+                <div className="border-si-primary/10 hover-lift flex flex-col gap-4 rounded-2xl border bg-white p-6 transition-all hover:shadow-md lg:p-8">
                   {/* Icon header */}
                   <div className="flex items-center gap-4">
                     <div className="text-si-primary bg-si-primary/8 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl transition-transform hover:scale-105">

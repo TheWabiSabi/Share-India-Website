@@ -191,8 +191,6 @@ const ChatbotWidget: React.FC = () => {
     }
   };
 
-
-
   return (
     <>
       {/* Chatbot Button (refined) */}

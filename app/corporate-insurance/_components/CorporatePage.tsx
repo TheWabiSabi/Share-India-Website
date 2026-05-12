@@ -133,7 +133,9 @@ const CorporatePage = ({
                   </div>
                   <div>
                     <div className="text-si-ink font-bold">{type.title}</div>
-                    <div className="text-si-ink/60 mt-0.5 text-sm leading-relaxed">{type.description}</div>
+                    <div className="text-si-ink/60 mt-0.5 text-sm leading-relaxed">
+                      {type.description}
+                    </div>
                   </div>
                 </div>
               ))}
@@ -195,7 +197,7 @@ const CorporatePage = ({
     )}
 
     {/* ── CTA ── */}
-    <section className="bg-gradient-to-b from-white to-si-primary-200 py-16">
+    <section className="to-si-primary-200 bg-gradient-to-b from-white py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="border-si-primary/10 from-si-primary/5 overflow-hidden rounded-2xl border bg-gradient-to-br to-white p-8 md:p-10">
           <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-3">
