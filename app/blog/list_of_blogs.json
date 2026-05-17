@@ -10,7 +10,7 @@
     "readTime": "8 min read",
     "category": "Claims Analysis",
     "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/infra.jpg",
-    "featured": true
+    "featured": false
   },
   {
     "slug": "a16e6560-450a-4233-9c09-f7f03f1b4123",
@@ -36,7 +36,7 @@
     "readTime": "7 min read",
     "category": "Industry Insights",
     "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/office-working.jpg",
-    "featured": true
+    "featured": false
   },
   {
     "slug": "c7d8e9f0-56b4-4278-9012-3a4b5c6d7e8f",
@@ -49,7 +49,7 @@
     "readTime": "9 min read",
     "category": "Claims Analysis",
     "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/people.jpg",
-    "featured": true
+    "featured": false
   },
   {
     "slug": "d9e0f1a2-67c5-4389-0123-4b5c6d7e8f9a",
@@ -75,7 +75,7 @@
     "readTime": "10 min read",
     "category": "Industry Insights",
     "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/transport-cartons.jpg",
-    "featured": true
+    "featured": false
   },
   {
     "slug": "b2c3k4e5-f6a7-8b9c-0d1e-2f3a4b5c6d7e",
@@ -88,7 +88,7 @@
     "readTime": "12 min read",
     "category": "Regulatory Updates",
     "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/medicines.jpg",
-    "featured": true
+    "featured": false
   },
   {
     "slug": "c3d4e5f6-a7b8-9c0d-6e2f-3a4b5c6d7e8f",
@@ -114,7 +114,7 @@
     "readTime": "6 min read",
     "category": "Startup Guide",
     "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/bulb.jpg",
-    "featured": true
+    "featured": false
   },
   {
     "slug": "e5f6a7b8-c9d0-1e2f-3a4b-5c6d7e8f900b",
@@ -140,7 +140,7 @@
     "readTime": "9 min read",
     "category": "Claims Analysis",
     "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/chemical.jpg",
-    "featured": true
+    "featured": false
   },
   {
     "slug": "a7b8c9d0-e1f2-3a4b-5c6d-7e8f9a0b1c2d",
@@ -166,7 +166,7 @@
     "readTime": "10 min read",
     "category": "Renewable Energy",
     "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/solar-panel.jpg",
-    "featured": true
+    "featured": false
   },
   {
     "slug": "c9d0e1f2-a3b4-5c6d-7e8f-9a0b1c2d3e4f",
@@ -192,7 +192,7 @@
     "readTime": "7 min read",
     "category": "Claims Analysis",
     "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/contract.jpg",
-    "featured": true
+    "featured": false
   },
   {
     "slug": "e1f2a3b4-c5d6-7e8f-9a0b-1c2d3e4f5a6b",
@@ -218,7 +218,7 @@
     "readTime": "8 min read",
     "category": "Financial Protection",
     "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/wallstreet.jpg",
-    "featured": true
+    "featured": false
   },
   {
     "slug": "a3b4c5d6-e7f8-9a0b-1c2d-3e4f5a6b7c8d",
@@ -244,7 +244,7 @@
     "readTime": "10 min read",
     "category": "HR Insights",
     "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/stethoscope.jpg",
-    "featured": true
+    "featured": false
   },
   {
     "slug": "c5d6e7f8-a9b0-1c2d-3e4f-5a6b7c8d9e0f",
@@ -270,7 +270,7 @@
     "readTime": "9 min read",
     "category": "Retail Protection",
     "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/contract.jpg",
-    "featured": true
+    "featured": false
   },
   {
     "slug": "e7f8a9b0-c1d2-3e4f-5a6b-7c8d9e0f1a2b",
@@ -296,7 +296,7 @@
     "readTime": "6 min read",
     "category": "Government Initiatives",
     "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/city.jpg",
-    "featured": true
+    "featured": false
   },
   {
     "slug": "a9b0c1d2-e3f4-5a6b-7c8d-9e0f1a2b3c4d",
@@ -322,7 +322,7 @@
     "readTime": "9 min read",
     "category": "Environmental Coverage",
     "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/chemical2.jpg",
-    "featured": true
+    "featured": false
   },
   {
     "slug": "c1d2e3f4-a5b6-7c8d-9e0f-1a2b3c4d5e6f",
@@ -348,7 +348,7 @@
     "readTime": "8 min read",
     "category": "Business Continuity",
     "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/smoke.jpg",
-    "featured": true
+    "featured": false
   },
   {
     "slug": "e3f4a5b6-c7d8-9e0f-1a2b-3c4d5e6f7a8b",
@@ -374,7 +374,7 @@
     "readTime": "10 min read",
     "category": "Regulatory Compliance",
     "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/medical-lab.jpg",
-    "featured": true
+    "featured": false
   },
   {
     "slug": "a5b6c7d8-e9f0-1a2b-3c4d-5e6f7a8b9c0d",
@@ -400,7 +400,7 @@
     "readTime": "9 min read",
     "category": "Export Insurance",
     "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/women-work-factory.jpg",
-    "featured": true
+    "featured": false
   },
   {
     "slug": "c7d8e9f0-a1b2-3c4d-5e6f-7a8b9c0d1e2f",
@@ -426,7 +426,7 @@
     "readTime": "10 min read",
     "category": "Engineering Claims",
     "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/factory.jpg",
-    "featured": true
+    "featured": false
   },
   {
     "slug": "e9f0a1b2-c3d4-5e6f-7a8b-9c0d1e2f3a4b",
@@ -452,7 +452,7 @@
     "readTime": "9 min read",
     "category": "Marine Claims",
     "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/ships-transport.jpg",
-    "featured": true
+    "featured": false
   },
   {
     "slug": "a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d",
@@ -478,7 +478,7 @@
     "readTime": "7 min read",
     "category": "Digital Entertainment",
     "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/entertainment.jpg",
-    "featured": true
+    "featured": false
   },
   {
     "slug": "c3d4e5f6-a7b8-9c0d-1e2f-3a4b5c6d7e8f",
@@ -504,7 +504,7 @@
     "readTime": "9 min read",
     "category": "Electric Vehicles",
     "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/transport-cartons.jpg",
-    "featured": true
+    "featured": false
   },
   {
     "slug": "e5f6a7b8-c9d0-1e2f-3a4b-5c6d7e8f9a0b",
@@ -530,6 +530,188 @@
     "readTime": "8 min read",
     "category": "Security Claims",
     "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/contract.jpg",
+    "featured": false
+  },
+  {
+    "slug": "500-rs-policy-claim-story",
+    "topic": "employee_benefits_insurance",
+    "industry": "retail",
+    "type": "claims_story",
+    "title": "How a ₹500/Month Policy Saved a Family from Financial Crisis",
+    "author": "Retail Claims Desk",
+    "date": "2026-04-14",
+    "readTime": "4 min read",
+    "category": "Claim Story",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/stethoscope.jpg",
+    "featured": true
+  },
+  {
+    "slug": "5-minute-insurance-checkup",
+    "topic": "employee_benefits_insurance",
+    "industry": "retail",
+    "type": "blog",
+    "title": "A 5-Minute Insurance Checkup That Could Save Lakhs",
+    "author": "Retail Advisory Team",
+    "date": "2026-04-12",
+    "readTime": "3 min read",
+    "category": "Personal Finance",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/stethoscope.jpg",
+    "featured": true
+  },
+  {
+    "slug": "dont-wait-for-medical-emergency-health-insurance",
+    "topic": "employee_benefits_insurance",
+    "industry": "retail",
+    "type": "claims_story",
+    "title": "Don’t Wait for a Medical Emergency to Think About Health Insurance",
+    "author": "Health Insurance Advisory Team",
+    "date": "2026-04-15",
+    "readTime": "2 min read",
+    "category": "Claims Story",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/stethoscope.jpg",
+    "featured": true
+  },
+  {
+    "slug": "insurance-sector-performance-key-trends-fy-2025-26",
+    "topic": "employee_benefits_insurance",
+    "industry": "corporate",
+    "type": "blog",
+    "title": "Insurance Sector Performance & Key Trends in FY 2025–26",
+    "author": "Share India Insurance Insights Team",
+    "date": "2026-04-15",
+    "readTime": "4 min read",
+    "category": "Industry Trends",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/stethoscope.jpg",
+    "featured": true
+  },
+  {
+    "slug": "on-the-road-fleet-excess-clause",
+    "topic": "motor_fleet_insurance",
+    "industry": "corporate",
+    "type": "blog",
+    "title": "On the Road: A Deep Dive into the Fleet Excess Clause in Motor Fleet Insurance",
+    "author": "Fleet Risk Advisory Team",
+    "date": "2026-04-15",
+    "readTime": "4 min read",
+    "category": "Insurance Guide",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/transport-cartons.jpg",
+    "featured": true
+  },
+  {
+    "slug": "how-ai-transforming-insurance-underwriting-claims",
+    "topic": "employee_benefits_insurance",
+    "industry": "retail",
+    "type": "blog",
+    "title": "How AI Is Transforming Insurance Underwriting & Claims",
+    "author": "Technology & Innovation Team",
+    "date": "2026-04-15",
+    "readTime": "3 min read",
+    "category": "Technology Insights",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/stethoscope.jpg",
+    "featured": true
+  },
+  {
+    "slug": "insurance-love-in-action",
+    "topic": "employee_benefits_insurance",
+    "industry": "retail",
+    "type": "claims_story",
+    "title": "Insurance = Love in Action for Your Family",
+    "author": "Retail Life & Health Advisory Team",
+    "date": "2026-04-15",
+    "readTime": "1 min read",
+    "category": "Inspirational Story",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/bulb.jpg",
+    "featured": true
+  },
+  {
+    "slug": "new-riders-and-add-ons",
+    "topic": "employee_benefits_insurance",
+    "industry": "retail",
+    "type": "blog",
+    "title": "New Riders and Add-Ons Insurers Introduced Recently",
+    "author": "Insurance Advisory Team",
+    "date": "2026-04-15",
+    "readTime": "2 min read",
+    "category": "Industry Insights",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/office-work.jpg",
+    "featured": true
+  },
+  {
+    "slug": "impact-of-medical-inflation-on-health-insurance-planning",
+    "topic": "employee_benefits_insurance",
+    "industry": "retail",
+    "type": "blog",
+    "title": "Impact of Medical Inflation on Health Insurance Planning",
+    "author": "Health Insurance Advisory Team",
+    "date": "2026-04-15",
+    "readTime": "3 min read",
+    "category": "Health Insurance Insights",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/wallstreet.jpg",
+    "featured": true
+  },
+  {
+    "slug": "cashless-everywhere-expansion-of-hospital-networks-in-india",
+    "topic": "employee_benefits_insurance",
+    "industry": "retail",
+    "type": "blog",
+    "title": "Cashless Everywhere? Expansion of Hospital Networks in India",
+    "author": "Health Insurance Advisory Team",
+    "date": "2026-04-15",
+    "readTime": "3 min read",
+    "category": "Health Insurance Updates",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/stethoscope.jpg",
+    "featured": true
+  },
+  {
+    "slug": "irdai-latest-regulatory-changes-explained-simply",
+    "topic": "employee_benefits_insurance",
+    "industry": "retail",
+    "type": "blog",
+    "title": "IRDAI’s Latest Regulatory Changes Explained Simply",
+    "author": "Regulatory Advisory Team",
+    "date": "2026-05-12",
+    "readTime": "2 min read",
+    "category": "Regulatory Updates",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/stethoscope.jpg",
+    "featured": true
+  },
+  {
+    "slug": "rising-health-insurance-premiums-india",
+    "topic": "employee_benefits_insurance",
+    "industry": "retail",
+    "type": "blog",
+    "title": "Rising Health Insurance Premiums in India — What’s Driving Them?",
+    "author": "Retail Health Advisory Team",
+    "date": "2026-05-15",
+    "readTime": "3 min read",
+    "category": "Insurance Insights",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/stethoscope.jpg",
+    "featured": true
+  },
+  {
+    "slug": "why-young-indians-buying-more-term-plans",
+    "topic": "employee_benefits_insurance",
+    "industry": "retail",
+    "type": "blog",
+    "title": "Why Young Indians Are Buying More Term Plans Than Ever",
+    "author": "Life Insurance Advisory Team",
+    "date": "2026-05-15",
+    "readTime": "3 min read",
+    "category": "Financial Insights",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/contract.jpg",
+    "featured": true
+  },
+  {
+    "slug": "growth-of-digital-insurance-platforms-in-2025-26",
+    "topic": "startup_industry",
+    "industry": "retail",
+    "type": "blog",
+    "title": "Growth of Digital Insurance Platforms in 2025–26",
+    "author": "Digital Innovation Team",
+    "date": "2026-05-15",
+    "readTime": "3 min read",
+    "category": "Insurtech Trends",
+    "image": "https://minio-api.internal.wabisabitech.in/share-india/blog/bulb.jpg",
     "featured": true
   }
 ]
