@@ -528,7 +528,7 @@ export default function AboutPage() {
 
       {/* ── Awards & Testimonials ── */}
       <PageSection
-        id="awards-testimonials"
+        id="awards-recognition"
         className="to-si-primary-200 scroll-mt-20 border-b border-gray-100 bg-gradient-to-b from-white"
       >
         <FadeUp>
@@ -571,6 +571,7 @@ export default function AboutPage() {
           </div>
         </Stagger>
 
+        <div id="testimonials" className="scroll-mt-24" />
         <FadeUp>
           <h3 className="text-si-ink mb-7 text-center text-2xl font-bold">
             <span className="text-gradient-primary">What Our Clients Say</span>
