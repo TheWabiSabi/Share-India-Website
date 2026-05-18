@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 
@@ -56,13 +55,13 @@ interface CaraouselProps {
   color: 'blue' | 'white';
 }
 
-function getRandomElements<T>(array: T[], count: number = 10): T[] {
-  if (array.length <= count) return array;
+// function getRandomElements<T>(array: T[], count: number = 10): T[] {
+//   if (array.length <= count) return array;
 
-  // Create a copy to avoid modifying original array
-  const shuffled = [...array].sort(() => 0.5 - Math.random());
-  return shuffled.slice(0, count);
-}
+//   // Create a copy to avoid modifying original array
+//   const shuffled = [...array].sort(() => 0.5 - Math.random());
+//   return shuffled.slice(0, count);
+// }
 
 export default function MainCaraousel({
   type,
@@ -72,10 +71,9 @@ export default function MainCaraousel({
   layout,
   color,
 }: CaraouselProps) {
-  const [prevEl, setPrevEl] = useState<HTMLButtonElement | null>(null);
-  const [nextEl, setNextEl] = useState<HTMLButtonElement | null>(null);
+  // Notice we removed the useState hooks for prevEl and nextEl!
+  // CSS classes are much more reliable for Swiper in React.
 
-  // Filter only featured articles and transform data
   let featuredData = blogPosts
     .filter((post) => {
       if (featured && !post.featured) return false;
@@ -84,6 +82,7 @@ export default function MainCaraousel({
       if (industry && post.industry !== industry) return false;
       return true;
     })
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     .map((post) => ({
       title: post.title,
       author: post.author,
@@ -101,20 +100,20 @@ export default function MainCaraousel({
     }));
 
   if (featuredData.length > 10) {
-    featuredData = getRandomElements(featuredData, 10);
+    featuredData = featuredData.slice(0, 10);
   }
 
-  // Loop only if enough slides to make sense
   const enableLoop = featuredData.length > 2;
 
   return (
-    <div className="relative w-full">
-      {/* Navigation arrows */}
-      <div className="pointer-events-none absolute -top-12 right-0 z-10 hidden gap-2 sm:flex">
+    // 1. ADDED sm:pt-14 HERE to create a safe zone for the arrows
+    <div className="relative w-full sm:pt-14">
+      {/* 2. CHANGED -top-12 to top-0 so they sit inside the padded safe zone */}
+      <div className="pointer-events-none absolute top-0 right-0 z-10 hidden gap-2 sm:flex">
+        {/* 3. Added custom-prev-btn class */}
         <button
-          ref={setPrevEl}
           aria-label="Previous insight"
-          className="text-si-primary border-si-primary/20 shadow-vibrant-blue hover:bg-si-primary hover:border-si-primary hover-lift pointer-events-auto inline-flex h-10 w-10 items-center justify-center rounded-full border-2 bg-white/90 backdrop-blur-sm transition-all hover:text-white"
+          className="custom-prev-btn text-si-primary border-si-primary/20 shadow-vibrant-blue hover:bg-si-primary hover:border-si-primary hover-lift pointer-events-auto inline-flex h-10 w-10 items-center justify-center rounded-full border-2 bg-white/90 backdrop-blur-sm transition-all hover:text-white"
         >
           <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
             <path
@@ -125,10 +124,10 @@ export default function MainCaraousel({
             />
           </svg>
         </button>
+        {/* 3. Added custom-next-btn class */}
         <button
-          ref={setNextEl}
           aria-label="Next insight"
-          className="text-si-primary border-si-primary/20 shadow-vibrant-blue hover:bg-si-primary hover:border-si-primary hover-lift pointer-events-auto inline-flex h-10 w-10 items-center justify-center rounded-full border-2 bg-white/90 backdrop-blur-sm transition-all hover:text-white"
+          className="custom-next-btn text-si-primary border-si-primary/20 shadow-vibrant-blue hover:bg-si-primary hover:border-si-primary hover-lift pointer-events-auto inline-flex h-10 w-10 items-center justify-center rounded-full border-2 bg-white/90 backdrop-blur-sm transition-all hover:text-white"
         >
           <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -146,10 +145,10 @@ export default function MainCaraousel({
           loop={enableLoop}
           grabCursor
           pagination={{ clickable: true }}
-          // scrollbar={{ draggable: true }} // Disabled for cleaner look
+          // 4. Mapped navigation directly to the CSS classes we added to the buttons
           navigation={{
-            prevEl,
-            nextEl,
+            prevEl: '.custom-prev-btn',
+            nextEl: '.custom-next-btn',
           }}
           a11y={{
             enabled: true,
@@ -157,22 +156,13 @@ export default function MainCaraousel({
             nextSlideMessage: 'Next insight',
             slideRole: 'group',
           }}
-          onInit={(swiper) => {
-            // @ts-expect-error – Swiper types are a bit strict here
-            swiper.params.navigation.prevEl = prevEl;
-            // @ts-expect-error – Swiper types are a bit strict here
-            swiper.params.navigation.nextEl = nextEl;
-            swiper.navigation.init();
-            swiper.navigation.update();
-          }}
+          // 5. Removed the buggy onInit hack completely!
           breakpoints={getBreakpoints(layout)}
           className="!pb-2"
         >
           {featuredData.map((item, index) => (
             <SwiperSlide key={`${item.slug}-${index}`} aria-label={`Featured insight ${index + 1}`}>
               <div className={color == 'blue' ? 'h-64 md:h-72 lg:h-80' : 'h-full'}>
-                {' '}
-                {/* Fixed height for horizontal cards */}
                 {color === 'white' ? <WhiteBlogCard {...item} /> : <BlueBlogCard {...item} />}
               </div>
             </SwiperSlide>
