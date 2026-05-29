@@ -35,7 +35,7 @@ export default function AboutPage() {
       <section className="relative isolate flex min-h-[85dvh] items-end overflow-hidden pt-16">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/about/hero-background.jpg"
+            src="/images/about/hero-background.webp"
             alt="Share India Insurance Brokers — Professional team"
             fill
             priority
@@ -248,7 +248,7 @@ export default function AboutPage() {
               <div className="flex justify-center lg:col-span-2 lg:justify-start">
                 <div className="relative aspect-square w-full max-w-[280px] overflow-hidden rounded-2xl border-4 border-white sm:max-w-sm">
                   <Image
-                    src="/leadership/ajay-kumar.png"
+                    src="/leadership/ajay-kumar.webp"
                     alt="Mr. Ajay Kumar Patel — CEO & Principal Officer"
                     fill
                     className="object-cover"
