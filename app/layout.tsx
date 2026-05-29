@@ -2,22 +2,11 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
-import dynamic from 'next/dynamic';
 import Header from '@/components/header/header';
 import Footer from '@/components/footer/footer';
 import { Inter, Geist_Mono } from 'next/font/google';
 import { WebVitals } from '@/components/web-vitals';
-
-// Lazy load non-critical widgets (chatbot & floating button)
-const ChatbotWidget = dynamic(() => import('@/components/chatbot/chatbot-widget'), {
-  ssr: false,
-  loading: () => null,
-});
-
-const FloatingAgentButton = dynamic(() => import('@/components/FloatingAgentButton'), {
-  ssr: false,
-  loading: () => null,
-});
+import { ClientWidgets } from '@/components/client-widgets';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -114,8 +103,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main className="text-si-dark bg-white">{children}</main>
         <Footer />
-        <ChatbotWidget />
-        <FloatingAgentButton />
+        <ClientWidgets />
       </body>
     </html>
   );
