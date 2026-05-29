@@ -45,8 +45,8 @@ const slugify = (s: string) =>
     .replace(/\s+/g, '-')
     .replace(/[^a-z-]/g, '');
 
-const LOGO_PRIMARY = '/share-india-transparent_header.png';
-const LOGO_FALLBACK = '/logo.png';
+const LOGO_PRIMARY = '/share-india-transparent_header.webp';
+const LOGO_FALLBACK = '/logo.webp';
 
 function BrandLogo({ className }: { className?: string }) {
   const [src, setSrc] = useState(LOGO_PRIMARY);

@@ -124,7 +124,7 @@ const Footer: React.FC = () => {
             <div className="lg:col-span-2">
               <div className="mb-6">
                 <Image
-                  src="/share-india-transparent_header.png"
+                  src="/share-india-transparent_header.webp"
                   alt="Share India Insurance"
                   width={200}
                   height={60}
