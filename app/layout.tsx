@@ -6,6 +6,7 @@ import dynamic from 'next/dynamic';
 import Header from '@/components/header/header';
 import Footer from '@/components/footer/footer';
 import { Inter, Geist_Mono } from 'next/font/google';
+import { WebVitals } from '@/components/web-vitals';
 
 // Lazy load non-critical widgets (chatbot & floating button)
 const ChatbotWidget = dynamic(() => import('@/components/chatbot/chatbot-widget'), {
@@ -109,6 +110,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="dns-prefetch" href="https://minio-api.internal.wabisabitech.in" />
       </head>
       <body className="font-sans antialiased">
+        <WebVitals />
         <Header />
         <main className="text-si-dark bg-white">{children}</main>
         <Footer />
