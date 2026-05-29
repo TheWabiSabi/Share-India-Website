@@ -99,6 +99,15 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${geistMono.variable}`}>
+      <head>
+        {/* Preconnect to external domains */}
+        <link rel="preconnect" href="https://images.unsplash.com" />
+        <link rel="preconnect" href="https://minio-api.internal.wabisabitech.in" />
+        
+        {/* DNS prefetch for faster lookups */}
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
+        <link rel="dns-prefetch" href="https://minio-api.internal.wabisabitech.in" />
+      </head>
       <body className="font-sans antialiased">
         <Header />
         <main className="text-si-dark bg-white">{children}</main>
