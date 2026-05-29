@@ -2,11 +2,21 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
+import dynamic from 'next/dynamic';
 import Header from '@/components/header/header';
 import Footer from '@/components/footer/footer';
-import ChatbotWidget from '@/components/chatbot/chatbot-widget';
-import FloatingAgentButton from '@/components/FloatingAgentButton';
 import { Inter, Geist_Mono } from 'next/font/google';
+
+// Lazy load non-critical widgets (chatbot & floating button)
+const ChatbotWidget = dynamic(() => import('@/components/chatbot/chatbot-widget'), {
+  ssr: false,
+  loading: () => null,
+});
+
+const FloatingAgentButton = dynamic(() => import('@/components/FloatingAgentButton'), {
+  ssr: false,
+  loading: () => null,
+});
 
 const inter = Inter({
   subsets: ['latin'],
