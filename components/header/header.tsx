@@ -151,7 +151,7 @@ export default function Header() {
           href: '/insights/claim-stories',
           desc: 'Real journeys & learnings',
         },
-        { label: 'Blogs', href: '/blogs', desc: 'Expert takes, tips & trends' },
+        { label: 'Blogs', href: '/blog', desc: 'Expert takes, tips & trends' },
         { label: 'News', href: '/news', desc: 'Announcements & media coverage' },
         { label: 'Premium Estimator', href: '/premium-estimator', desc: 'Calculate your premium' },
       ],

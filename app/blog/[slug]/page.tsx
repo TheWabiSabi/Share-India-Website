@@ -78,7 +78,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               Home
             </Link>
             <span>/</span>
-            <Link href="/blogs" className="hover:text-si-bluegreen transition-colors">
+            <Link href="/blog" className="hover:text-si-bluegreen transition-colors">
               Blog
             </Link>
             <span>/</span>
@@ -310,7 +310,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               {/* Back to Blog */}
               <div className="rounded-lg bg-white p-6 shadow-sm">
                 <Link
-                  href="/blogs"
+                  href="/blog"
                   className="text-si-bluegreen hover:text-si-bluegreen/80 flex items-center text-sm font-medium transition-colors"
                 >
                   <svg
