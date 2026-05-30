@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState, useCallback, useMemo, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaCalendar, FaClock, FaUser, FaTag, FaSearch } from 'react-icons/fa';
@@ -8,7 +8,7 @@ import { BlogInterface } from '../blog/blog.interface';
 
 const BlogsPage = () => {
   // Constants for pagination
-  const ITEMS_PER_PAGE = 8;
+  const ITEMS_PER_PAGE = 7;
   const FEATURED_ITEMS_PER_PAGE = 4;
 
   // Filter states
@@ -20,7 +20,6 @@ const BlogsPage = () => {
   const [displayedFeaturedCount, setDisplayedFeaturedCount] = useState(FEATURED_ITEMS_PER_PAGE);
   const [displayedRegularCount, setDisplayedRegularCount] = useState(ITEMS_PER_PAGE);
   const [loadingFeatured, setLoadingFeatured] = useState(false);
-  const [loadingRegular, setLoadingRegular] = useState(false);
 
   // Sort blogs by date (newest first)
   const sortedBlogs = useMemo(
@@ -99,14 +98,32 @@ const BlogsPage = () => {
   }, [loadingFeatured, hasFeaturedMore]);
 
   const loadMoreRegular = useCallback(() => {
-    if (loadingRegular || !hasRegularMore) return;
+    if (!hasRegularMore) return;
+    setDisplayedRegularCount((prev) =>
+      Math.min(prev + ITEMS_PER_PAGE, filteredRegularBlogs.length),
+    );
+  }, [hasRegularMore, filteredRegularBlogs.length]);
 
-    setLoadingRegular(true);
-    setTimeout(() => {
-      setDisplayedRegularCount((prev) => prev + ITEMS_PER_PAGE);
-      setLoadingRegular(false);
-    }, 500);
-  }, [loadingRegular, hasRegularMore]);
+  // Infinite scroll: auto-load the next page once the user scrolls past blog #5
+  // of the current batch. The trigger is attached to the card two from the end
+  // of what's currently rendered, so the next page is fetched just before the
+  // user reaches the bottom.
+  const observerRef = useRef<IntersectionObserver | null>(null);
+  const loadMoreTriggerRef = useCallback(
+    (node: HTMLDivElement | null) => {
+      if (observerRef.current) observerRef.current.disconnect();
+      if (!node || !hasRegularMore) return;
+
+      observerRef.current = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) loadMoreRegular();
+        },
+        { rootMargin: '200px' },
+      );
+      observerRef.current.observe(node);
+    },
+    [hasRegularMore, loadMoreRegular],
+  );
 
   // Get unique categories and types for filters
   const categories = useMemo(() => [...new Set(blogPosts.map((blog) => blog.category))], []);
@@ -314,56 +331,34 @@ const BlogsPage = () => {
           {displayedRegularBlogs.length > 0 ? (
             <>
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-                {displayedRegularBlogs.map((blog) => (
-                  <RegularBlogCard key={blog.slug} blog={blog} />
-                ))}
+                {displayedRegularBlogs.map((blog, index) => {
+                  // Trigger lives two cards from the end of the current batch,
+                  // i.e. once the user scrolls beyond blog #5 of a 7-item page.
+                  const isTrigger = index === displayedRegularBlogs.length - 2;
+                  return (
+                    <div key={blog.slug} ref={isTrigger ? loadMoreTriggerRef : undefined}>
+                      <RegularBlogCard blog={blog} />
+                    </div>
+                  );
+                })}
               </div>
 
-              {/* Load More Regular Button */}
-              {hasRegularMore && (
-                <div className="mt-12 text-center">
+              {/* Pagination footer — auto-loads on scroll, with manual fallback */}
+              <div className="mt-12 flex flex-col items-center gap-3">
+                {hasRegularMore ? (
                   <button
                     onClick={loadMoreRegular}
-                    disabled={loadingRegular}
-                    className="rounded-lg bg-blue-600 px-8 py-3 font-semibold text-white transition-colors hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+                    className="rounded-lg bg-blue-600 px-8 py-3 font-semibold text-white transition-colors hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
                   >
-                    {loadingRegular ? (
-                      <span className="flex items-center gap-2">
-                        <svg className="h-4 w-4 animate-spin" fill="none" viewBox="0 0 24 24">
-                          <circle
-                            className="opacity-25"
-                            cx="12"
-                            cy="12"
-                            r="10"
-                            stroke="currentColor"
-                            strokeWidth="4"
-                          ></circle>
-                          <path
-                            className="opacity-75"
-                            fill="currentColor"
-                            d="m4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                          ></path>
-                        </svg>
-                        Loading...
-                      </span>
-                    ) : (
-                      `Load More Articles (${filteredRegularBlogs.length - displayedRegularCount} remaining)`
-                    )}
+                    Next Page →
                   </button>
-                </div>
-              )}
-
-              {/* End of results message */}
-              {!hasRegularMore && displayedRegularBlogs.length > 0 && (
-                <div className="mt-12 text-center">
-                  <p className="text-gray-600">
-                    You&#34;ve reached the end of the filtered results.
-                  </p>
-                  <p className="mt-2 text-sm text-gray-500">
-                    Showing all {filteredRegularBlogs.length} articles
-                  </p>
-                </div>
-              )}
+                ) : (
+                  <p className="text-gray-600">You&#39;ve reached the end of the results.</p>
+                )}
+                <p className="text-sm text-gray-500">
+                  Showing {displayedRegularBlogs.length} of {filteredRegularBlogs.length} articles
+                </p>
+              </div>
             </>
           ) : (
             /* No articles message */
