@@ -15,6 +15,7 @@ import MainCaraousel from '@/components/main-caraousel';
 import KnowledgeQuestionnaire from '../_components/KnowledgeQuestionnaire';
 import { quizQuestions as defaultQuizQuestions } from '../_data/questions/infra';
 import { InfrastructureInsuranceDetails } from '../main.interface';
+import { AllTopics } from '@/consts/topics';
 
 interface Question {
   id: string;
@@ -166,7 +167,7 @@ const IndustryPage = ({
             <MainCaraousel
               color="blue"
               layout={1}
-              topic={details.claim_story.topic}
+              topic={details.claim_story.topic as AllTopics}
               type="claims_story"
             />
           </div>
@@ -183,7 +184,7 @@ const IndustryPage = ({
             Stay updated with the latest trends, regulations, and best practices
           </p>
           <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
-            <MainCaraousel color="white" layout={3} topic={details.relevant.topic} />
+            <MainCaraousel color="white" layout={3} topic={details.relevant.topic as AllTopics} />
           </div>
         </div>
       </section>
