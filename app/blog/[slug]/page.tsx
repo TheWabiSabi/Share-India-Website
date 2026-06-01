@@ -20,8 +20,8 @@ async function readPostFile(slug: string) {
 
   try {
     await access(filePath);
-  } catch (err) {
-    return err;
+  } catch {
+    return null;
   }
 
   const fileContent = await readFile(filePath, { encoding: 'utf8' });

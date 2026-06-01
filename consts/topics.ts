@@ -8,9 +8,18 @@ export const industryTopics = [
   'Logistics Industry',
   'Textile Industry',
   'Solar Industry',
-];
+] as const;
 
-export const retailTopics = ['Retail'];
+export const retailTopics = [
+  'Retail',
+  'Retail Health',
+  'Retail Cyber',
+  'Retail Term',
+  'Retail Life',
+  'Retail Motor',
+  'Retail Travel',
+  'Retail Home',
+] as const;
 
 export const corporateTopics = [
   'Property & Engineering Insurance',
@@ -23,13 +32,7 @@ export const corporateTopics = [
   'Office Package Insurance',
   'Shopkeepers Package & Jewellers Block',
   'Group Travel Insurance Plans',
-];
+] as const;
 
 export const AllTopicsArray = [...industryTopics, ...retailTopics, ...corporateTopics];
 export type AllTopics = (typeof AllTopicsArray)[number];
-
-// type IndustryTopics = (typeof industryTopics)[number];
-// type RetailTopics = (typeof retailTopics)[number];
-// type CorporateTopics = (typeof corporateTopics)[number];
-
-// export type AllTopics = IndustryTopics | RetailTopics | CorporateTopics;
