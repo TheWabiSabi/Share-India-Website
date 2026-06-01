@@ -93,7 +93,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Preconnect to external domains */}
         <link rel="preconnect" href="https://images.unsplash.com" />
         <link rel="preconnect" href="https://minio-api.internal.wabisabitech.in" />
-        
+
         {/* DNS prefetch for faster lookups */}
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
         <link rel="dns-prefetch" href="https://minio-api.internal.wabisabitech.in" />

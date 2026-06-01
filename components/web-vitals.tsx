@@ -4,9 +4,9 @@ import { useReportWebVitals } from 'next/web-vitals';
 
 /**
  * Web Vitals Reporting Component
- * 
+ *
  * Sends Core Web Vitals metrics to console (dev) or analytics endpoint (production)
- * 
+ *
  * Core Web Vitals:
  * - CLS (Cumulative Layout Shift): < 0.1 good, < 0.25 needs improvement
  * - FID (First Input Delay): < 100ms good, < 300ms needs improvement
@@ -30,18 +30,18 @@ export function WebVitals() {
     // In production, send to analytics endpoint
     // TODO: Replace with your analytics endpoint (Google Analytics, Vercel Analytics, etc.)
     if (process.env.NODE_ENV === 'production') {
-      const body = JSON.stringify({
-        name: metric.name,
-        value: metric.value,
-        rating: metric.rating,
-        delta: metric.delta,
-        id: metric.id,
-        navigationType: metric.navigationType,
-      });
+      // const body = JSON.stringify({
+      //   name: metric.name,
+      //   value: metric.value,
+      //   rating: metric.rating,
+      //   delta: metric.delta,
+      //   id: metric.id,
+      //   navigationType: metric.navigationType,
+      // });
 
       // Example: Send to Google Analytics
       if (typeof window !== 'undefined' && 'gtag' in window) {
-        // @ts-ignore
+        // @ts-expect-error Something is here
         window.gtag('event', metric.name, {
           value: Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value),
           event_category: 'Web Vitals',
