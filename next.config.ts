@@ -3,7 +3,11 @@ import type { NextConfig } from 'next';
 const nextConfig: NextConfig = {
   /* config options here */
   output: 'standalone',
+  compress: true, // Enable gzip compression
+  poweredByHeader: false, // Remove X-Powered-By header for security
+  reactStrictMode: true, // Enable React strict mode
   images: {
+    formats: ['image/webp', 'image/avif'], // Prefer modern formats
     remotePatterns: [
       {
         protocol: 'https',
