@@ -14,6 +14,7 @@ import Contact from '@/app/industries/_components/Contact';
 import Card from '@/app/industries/_components/Card';
 import MainCaraousel from '@/components/main-caraousel';
 import KnowledgeQuestionnaire from '@/app/industries/_components/KnowledgeQuestionnaire';
+import { AllTopics } from '@/consts/topics';
 
 export interface CorporateInsuranceDetails {
   img: string;
@@ -169,7 +170,7 @@ const CorporatePage = ({
           <MainCaraousel
             color="blue"
             layout={1}
-            topic={details.claim_story.topic}
+            topic={details.claim_story.topic as AllTopics}
             type="claims_story"
           />
         </div>
@@ -186,7 +187,7 @@ const CorporatePage = ({
           Stay updated with the latest trends, regulations, and best practices
         </p>
         <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
-          <MainCaraousel color="white" layout={3} topic={details.relevant.topic} />
+          <MainCaraousel color="white" layout={3} topic={details.relevant.topic as AllTopics} />
         </div>
       </div>
     </section>
