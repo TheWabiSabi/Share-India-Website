@@ -87,14 +87,14 @@ const TOOLS = [
     ),
   },
   {
-    id: 'policysquare',
-    name: 'PolicySquare',
+    id: 'inspection-ai',
+    name: 'Inspection AI',
     tag: 'Commercial Risk Assessment',
     tagline: 'Commercial inspections, scored in one place.',
     description:
-      'PolicySquare powers commercial risk assessment inspections. Sign in, enter your company details, and the platform runs a structured risk assessment — producing a clear risk score you can act on.',
-    url: 'https://inspection.shareindiainsurance.com',
-    cta: 'Open PolicySquare',
+      'Inspection AI powers commercial risk assessment inspections. Sign in, enter your company details, and the platform runs a structured risk assessment — producing a clear risk score you can act on.',
+    url: 'https://inspection.shareindiainsurance.com/#/login',
+    cta: 'Open Inspection AI',
     features: [
       'Secure login and company onboarding',
       'Commercial risk inspection workflow',
