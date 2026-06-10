@@ -13,6 +13,7 @@ import {
 import Contact from '@/app/industries/_components/Contact';
 import Card from '@/app/industries/_components/Card';
 import MainCaraousel from '@/components/main-caraousel';
+import GhostTagStrip from '@/components/blog/ghost-tag-strip';
 import KnowledgeQuestionnaire from '@/app/industries/_components/KnowledgeQuestionnaire';
 
 export interface CorporateInsuranceDetails {
@@ -29,7 +30,7 @@ export interface CorporateInsuranceDetails {
     coverages: Array<{ title: string; icon: React.ReactNode; body: string; bullets: string[] }>;
   };
   claim_story: { description: string; topic: string };
-  relevant: { topic: string };
+  relevant: { tagSlug: string };
   knowledge: { industryName: string };
 }
 
@@ -185,8 +186,8 @@ const CorporatePage = ({
         <p className="text-si-ink/70 mb-8">
           Stay updated with the latest trends, regulations, and best practices
         </p>
-        <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
-          <MainCaraousel color="white" layout={3} topic={details.relevant.topic} />
+        <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
+          <GhostTagStrip tagSlug={details.relevant.tagSlug} />
         </div>
       </div>
     </section>

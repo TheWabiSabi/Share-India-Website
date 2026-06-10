@@ -93,7 +93,7 @@ export const details = {
     topic: 'real_estate_industry',
   },
   relevant: {
-    topic: 'real_estate_industry',
+    tagSlug: 'real-estate-industry',
   },
   knowledge: {
     industryName: 'Real Estate Industry',

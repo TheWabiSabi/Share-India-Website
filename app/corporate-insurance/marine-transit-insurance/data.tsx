@@ -92,7 +92,7 @@ export const details = {
     topic: 'marine_transit_insurance',
   },
   relevant: {
-    topic: 'marine_transit_insurance',
+    tagSlug: 'marine-transit-insurance',
   },
   knowledge: {
     industryName: 'Marine Transit Insurance',

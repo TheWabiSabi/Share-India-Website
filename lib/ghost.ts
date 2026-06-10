@@ -172,6 +172,21 @@ export async function getPostBySlug(slug: string): Promise<GhostPost | null> {
   }
 }
 
+/** Posts filtered by a specific tag slug — used by industry/product pages. */
+export async function getPostsByTag(tagSlug: string, limit = 6): Promise<GhostPost[]> {
+  try {
+    const result = await getClient().posts.browse({
+      filter: `tags:${tagSlug}`,
+      limit,
+      include: ['tags', 'authors'],
+      order: 'published_at DESC',
+    });
+    return result;
+  } catch {
+    return [];
+  }
+}
+
 /** Up to 2 related posts sharing the current post's primary tag. */
 export async function getRelatedPosts(post: GhostPost): Promise<GhostPost[]> {
   const primaryTagSlug = post.primary_tag?.slug;

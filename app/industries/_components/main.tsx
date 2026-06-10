@@ -12,6 +12,7 @@ import {
 import Contact from '@/app/industries/_components/Contact';
 import Card from '@/app/industries/_components/Card';
 import MainCaraousel from '@/components/main-caraousel';
+import GhostTagStrip from '@/components/blog/ghost-tag-strip';
 import KnowledgeQuestionnaire from '../_components/KnowledgeQuestionnaire';
 import { quizQuestions as defaultQuizQuestions } from '../_data/questions/infra';
 import { InfrastructureInsuranceDetails } from '../main.interface';
@@ -182,8 +183,8 @@ const IndustryPage = ({
           <p className="text-si-ink/70 mb-8">
             Stay updated with the latest trends, regulations, and best practices
           </p>
-          <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
-            <MainCaraousel color="white" layout={3} topic={details.relevant.topic} />
+          <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
+            <GhostTagStrip tagSlug={details.relevant.tagSlug} />
           </div>
         </div>
       </section>

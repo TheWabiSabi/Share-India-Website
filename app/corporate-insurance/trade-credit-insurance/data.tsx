@@ -91,7 +91,7 @@ export const details = {
     topic: 'trade_credit_insurance',
   },
   relevant: {
-    topic: 'trade_credit_insurance',
+    tagSlug: 'trade-credit-insurance',
   },
   knowledge: {
     industryName: 'Trade Credit Insurance',

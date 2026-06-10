@@ -83,7 +83,7 @@ export const details = {
     topic: 'liability_insurance',
   },
   relevant: {
-    topic: 'liability_insurance',
+    tagSlug: 'liability-insurance',
   },
   knowledge: {
     industryName: 'Liability Insurance',

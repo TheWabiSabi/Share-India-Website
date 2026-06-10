@@ -91,7 +91,7 @@ export const details = {
     topic: 'property_engineering_insurance',
   },
   relevant: {
-    topic: 'property_engineering_insurance',
+    tagSlug: 'property-engineering-insurance',
   },
   knowledge: {
     industryName: 'Property & Engineering Insurance',

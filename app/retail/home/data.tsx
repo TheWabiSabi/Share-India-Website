@@ -93,7 +93,7 @@ export const details = {
     topic: 'home_retail',
   },
   relevant: {
-    topic: 'home_retail',
+    tagSlug: 'home-insurance',
   },
   knowledge: {
     industryName: 'Retail Home Insurance',

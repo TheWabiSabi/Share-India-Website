@@ -100,7 +100,7 @@ export const details = {
     topic: 'retail_cyber',
   },
   relevant: {
-    topic: 'retail_cyber',
+    tagSlug: 'retail-cyber',
   },
   knowledge: {
     industryName: 'Retail Cyber Insurance',

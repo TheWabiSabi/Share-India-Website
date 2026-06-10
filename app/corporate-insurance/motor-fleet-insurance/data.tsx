@@ -91,7 +91,7 @@ export const details = {
     topic: 'motor_fleet_insurance',
   },
   relevant: {
-    topic: 'motor_fleet_insurance',
+    tagSlug: 'motor-fleet-insurance',
   },
   knowledge: {
     industryName: 'Motor Fleet Insurance',

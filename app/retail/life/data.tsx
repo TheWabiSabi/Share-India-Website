@@ -99,7 +99,7 @@ export const details = {
     topic: 'retail_life',
   },
   relevant: {
-    topic: 'retail_life',
+    tagSlug: 'retail-life',
   },
   knowledge: {
     industryName: 'Retail Life Insurance',
