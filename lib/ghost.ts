@@ -103,15 +103,21 @@ export async function getFeaturedPosts(limit = 6): Promise<GhostPost[]> {
 export async function getLatestPosts(
   page = 1,
 ): Promise<{ posts: GhostPost[]; pagination: Pagination }> {
-  const result = await getClient().posts.browse({
-    filter: 'featured:false',
-    limit: POSTS_PER_PAGE,
-    page,
-    include: ['tags', 'authors'],
-    order: 'published_at DESC',
-  });
-
-  return { posts: result, pagination: result.meta.pagination };
+  try {
+    const result = await getClient().posts.browse({
+      filter: 'featured:false',
+      limit: POSTS_PER_PAGE,
+      page,
+      include: ['tags', 'authors'],
+      order: 'published_at DESC',
+    });
+    return { posts: result, pagination: result.meta.pagination };
+  } catch {
+    return {
+      posts: [],
+      pagination: { page: 1, pages: 1, total: 0, limit: POSTS_PER_PAGE, prev: null, next: null },
+    };
+  }
 }
 
 export interface TocItem {
