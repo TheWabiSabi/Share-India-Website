@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import IndustryPage from '../_components/main';
 import { details } from './data';
 import { quizQuestions } from '../_data/questions/education-training';
@@ -7,6 +8,9 @@ const industriesServed = [
   { detail: 'Education and Health Services', type: 'Service' },
   { detail: 'Educational Services (NAICS 61)', type: 'Service' },
 ];
+
+const getPremiumEstimatorHref = (industryDetail: string) =>
+  `/premium-estimator?industry=${encodeURIComponent(industryDetail)}`;
 
 export const metadata: Metadata = {
   title: 'Education & Training Institution Insurance | SIIB',
@@ -24,9 +28,22 @@ export default function EducationTrainingPage() {
           <h2 className="text-si-ink text-2xl font-bold md:text-3xl">Industries We Serve</h2>
           <ul className="mt-5 divide-y divide-gray-100 rounded-xl border border-gray-100 bg-white">
             {industriesServed.map((industry) => (
-              <li key={industry.detail} className="flex flex-col gap-1 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
-                <span className="text-si-ink text-sm font-medium">{industry.detail}</span>
-                <span className="text-si-primary text-xs font-bold uppercase">{industry.type}</span>
+              <li
+                key={industry.detail}
+                className="flex items-center justify-between gap-4 px-4 py-3"
+              >
+                <div className="min-w-0">
+                  <span className="text-si-ink block text-sm font-medium">{industry.detail}</span>
+                  <span className="mt-1 inline-flex rounded-full bg-gray-100 px-2 py-0.5 text-[11px] font-semibold text-gray-600 uppercase">
+                    {industry.type}
+                  </span>
+                </div>
+                <Link
+                  href={getPremiumEstimatorHref(industry.detail)}
+                  className="border-si-primary/30 text-si-primary hover:bg-si-primary/5 shrink-0 rounded-full border px-3 py-1.5 text-xs font-semibold transition-colors"
+                >
+                  Premium Estimator
+                </Link>
               </li>
             ))}
           </ul>
