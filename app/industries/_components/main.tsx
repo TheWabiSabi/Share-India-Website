@@ -29,9 +29,11 @@ interface Question {
 const IndustryPage = ({
   details,
   questions,
+  beforeCoverage,
 }: {
   details: InfrastructureInsuranceDetails;
   questions?: Question[];
+  beforeCoverage?: React.ReactNode;
 }) => {
   const quizQuestions = questions || defaultQuizQuestions;
 
@@ -136,6 +138,8 @@ const IndustryPage = ({
           </div>
         </div>
       </section>
+
+      {beforeCoverage}
 
       {/* ── Core Coverage ── */}
       <section className="to-si-primary-200 border-b border-gray-100 bg-gradient-to-b from-white py-16">
