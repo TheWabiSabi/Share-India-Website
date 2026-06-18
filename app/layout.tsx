@@ -4,21 +4,8 @@ import './globals.css';
 
 import Header from '@/components/header/header';
 import Footer from '@/components/footer/footer';
-import { Inter, Geist_Mono } from 'next/font/google';
 import { WebVitals } from '@/components/web-vitals';
 import { ClientWidgets } from '@/components/client-widgets';
-
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
-});
-
-const geistMono = Geist_Mono({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-geist-mono',
-});
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -88,7 +75,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${geistMono.variable}`}>
+    <html lang="en">
       <head>
         {/* Preconnect to external domains */}
         <link rel="preconnect" href="https://images.unsplash.com" />
