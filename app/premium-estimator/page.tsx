@@ -2,7 +2,8 @@
 
 'use client';
 
-import React, { useState } from 'react';
+import React, { Suspense, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { Industry, CartItem, InsuranceCategory } from './interface';
 import {
   INDUSTRIES_DATA,
@@ -69,8 +70,33 @@ const formatRateDisplay = (rate: string | number): string => {
   return rateStr;
 };
 
-const InsuranceCalculator: React.FC = () => {
-  const [selectedIndustry, setSelectedIndustry] = useState<Industry | null>(null);
+const normalizeIndustryName = (value: string): string => {
+  return value
+    .replace(/\s*\((?:NAICS|NACE)[^)]+\)\s*$/i, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toLowerCase();
+};
+
+const getIndustryByParam = (industryParam: string | null): Industry | undefined => {
+  if (!industryParam) return undefined;
+
+  const normalizedParam = normalizeIndustryName(industryParam);
+
+  return INDUSTRIES_DATA.find((industry) => {
+    const industryWithCode = `${industry.industryType} (${industry.industryCode})`;
+
+    return (
+      normalizeIndustryName(industry.industryType) === normalizedParam ||
+      normalizeIndustryName(industryWithCode) === normalizedParam
+    );
+  });
+};
+
+const InsuranceCalculatorContent: React.FC = () => {
+  const searchParams = useSearchParams();
+  const initialIndustry = getIndustryByParam(searchParams.get('industry'));
+  const [selectedIndustry, setSelectedIndustry] = useState<Industry | null>(initialIndustry || null);
   const [selectedCategories, setSelectedCategories] = useState<Set<InsuranceCategory>>(new Set());
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [expandedCategory, setExpandedCategory] = useState<InsuranceCategory | null>(null);
@@ -697,6 +723,18 @@ const InsuranceCalculator: React.FC = () => {
         />
       )}
     </div>
+  );
+};
+
+const InsuranceCalculator: React.FC = () => {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-cyan-50 pt-20 pb-12" />
+      }
+    >
+      <InsuranceCalculatorContent />
+    </Suspense>
   );
 };
 
