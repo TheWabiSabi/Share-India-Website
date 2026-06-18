@@ -1,0 +1,42 @@
+export const quizQuestions = [
+  {
+    id: '1',
+    question: 'Which cover protects manufacturing plants against fire and allied perils?',
+    options: ['Industrial all-risk / fire and allied perils', 'Student accident only', 'Liquor liability', 'Travel insurance only'],
+    correctAnswer: 0,
+    explanation: 'Industrial property or fire policies protect manufacturing assets from covered physical damage events.',
+    difficulty: 'easy' as const,
+  },
+  {
+    id: '2',
+    question: 'Which cover is important for sudden failure of production equipment?',
+    options: ['Machinery breakdown insurance', 'Public liability only', 'Motor third-party only', 'D&O only'],
+    correctAnswer: 0,
+    explanation: 'Machinery breakdown insurance helps cover repair or replacement costs after covered equipment breakdown.',
+    difficulty: 'medium' as const,
+  },
+  {
+    id: '3',
+    question: 'What does product liability insurance address for manufacturers?',
+    options: ['Claims from defective products causing injury or damage', 'Employee commute time only', 'Website design only', 'School campus accidents'],
+    correctAnswer: 0,
+    explanation: 'Product liability responds to covered claims alleging injury or property damage caused by manufactured products.',
+    difficulty: 'medium' as const,
+  },
+  {
+    id: '4',
+    question: 'Which cover protects goods moving from plant to customer?',
+    options: ['Marine / cargo insurance for goods in transit', 'Clinical malpractice', 'Student accident', 'Liquor liability'],
+    correctAnswer: 0,
+    explanation: 'Marine or cargo insurance protects goods while they are transported through the supply chain.',
+    difficulty: 'easy' as const,
+  },
+  {
+    id: '5',
+    question: 'Which detail helps assess machinery exposure?',
+    options: ['Value of machinery and equipment', 'Office wall colour', 'Menu item count', 'Classroom board type'],
+    correctAnswer: 0,
+    explanation: 'Machinery value helps insurers estimate replacement cost, breakdown exposure, and required limits.',
+    difficulty: 'hard' as const,
+  },
+];

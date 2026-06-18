@@ -1,0 +1,42 @@
+export const quizQuestions = [
+  {
+    id: '1',
+    question: 'Which cover is important for customer illness claims linked to food service?',
+    options: ['Public liability / food liability insurance', 'Motor fleet only', 'Erection all risks', 'Student accident only'],
+    correctAnswer: 0,
+    explanation: 'Food liability can respond to covered claims involving contamination, illness, or injury linked to served food.',
+    difficulty: 'easy' as const,
+  },
+  {
+    id: '2',
+    question: 'Which cover helps replace lost income after an insured fire closes a restaurant?',
+    options: ['Business interruption insurance', 'Only plate glass insurance', 'Only personal accident', 'Only marine cargo'],
+    correctAnswer: 0,
+    explanation: 'Business interruption insurance can support lost income and extra expenses after covered property damage.',
+    difficulty: 'medium' as const,
+  },
+  {
+    id: '3',
+    question: 'Which additional liability may be relevant when a business serves alcohol?',
+    options: ['Liquor liability', 'Student accident cover', 'Carrier legal liability', 'Professional indemnity for engineers'],
+    correctAnswer: 0,
+    explanation: 'Liquor liability may be relevant for claims associated with serving alcohol, depending on the operation and policy.',
+    difficulty: 'medium' as const,
+  },
+  {
+    id: '4',
+    question: 'Which equipment risk is common in hospitality and food businesses?',
+    options: ['Kitchen machinery breakdown', 'Bridge collapse only', 'Patient data breach only', 'Cargo theft only'],
+    correctAnswer: 0,
+    explanation: 'Kitchen equipment failures can interrupt operations and create repair or replacement costs.',
+    difficulty: 'easy' as const,
+  },
+  {
+    id: '5',
+    question: 'Which detail helps assess hospitality business scale?',
+    options: ['Number of seats or rooms', 'Preferred music playlist', 'Menu font size', 'Tablecloth colour only'],
+    correctAnswer: 0,
+    explanation: 'Seats or rooms help estimate footfall, guest exposure, property scale, and revenue risk.',
+    difficulty: 'easy' as const,
+  },
+];
