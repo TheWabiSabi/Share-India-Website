@@ -120,6 +120,103 @@ export async function getLatestPosts(
   }
 }
 
+// ---------------------------------------------------------------------------
+// Tag-scoped helpers
+// These use Ghost's internal tag convention: content is categorised by a
+// tag whose slug matches the content type, e.g. "news", "claims-story",
+// "insights". Adjust the tag slugs below if your Ghost setup differs.
+// ---------------------------------------------------------------------------
+
+/**
+ * Featured posts scoped to a tag — used by section hero carousels.
+ * e.g. getFeaturedByTag('news') for the news hero.
+ */
+export async function getFeaturedByTag(tagSlug: string, limit = 10): Promise<GhostPost[]> {
+  try {
+    return await getClient().posts.browse({
+      filter: `featured:true+tags:${tagSlug}`,
+      limit,
+      include: ['tags', 'authors'],
+      order: 'published_at DESC',
+    });
+  } catch {
+    return [];
+  }
+}
+
+/**
+ * Paginated posts scoped to a tag — used by section listing pages.
+ * e.g. getPostsByTag('news', 1) for the news listing page.
+ *
+ * NOTE: getPostsByTag already exists below for a simple non-paginated variant.
+ * This replaces the old JSON `.filter(p => p.type === 'news')` pattern.
+ */
+export async function getPaginatedPostsByTag(
+  tagSlug: string,
+  page = 1,
+  limit = POSTS_PER_PAGE,
+): Promise<{ posts: GhostPost[]; pagination: Pagination }> {
+  try {
+    const result = await getClient().posts.browse({
+      filter: `tags:${tagSlug}`,
+      limit,
+      page,
+      include: ['tags', 'authors'],
+      order: 'published_at DESC',
+    });
+    return { posts: result, pagination: result.meta.pagination };
+  } catch {
+    return {
+      posts: [],
+      pagination: { page: 1, pages: 1, total: 0, limit, prev: null, next: null },
+    };
+  }
+}
+
+/**
+ * Featured + non-featured split for a tag — used by listing pages that
+ * show a featured hero section and a regular grid below it.
+ */
+export async function getFeaturedAndLatestByTag(
+  tagSlug: string,
+  featuredLimit = 6,
+  latestPage = 1,
+  latestLimit = POSTS_PER_PAGE,
+): Promise<{
+  featured: GhostPost[];
+  latest: GhostPost[];
+  pagination: Pagination;
+}> {
+  try {
+    const [featuredResult, latestResult] = await Promise.all([
+      getClient().posts.browse({
+        filter: `featured:true+tags:${tagSlug}`,
+        limit: featuredLimit,
+        include: ['tags', 'authors'],
+        order: 'published_at DESC',
+      }),
+      getClient().posts.browse({
+        filter: `featured:false+tags:${tagSlug}`,
+        limit: latestLimit,
+        page: latestPage,
+        include: ['tags', 'authors'],
+        order: 'published_at DESC',
+      }),
+    ]);
+    return {
+      featured: featuredResult,
+      latest: latestResult,
+      pagination: latestResult.meta.pagination,
+    };
+  } catch {
+    return {
+      featured: [],
+      latest: [],
+      pagination: { page: 1, pages: 1, total: 0, limit: latestLimit, prev: null, next: null },
+    };
+  }
+}
+
 export interface TocItem {
   id: string;
   text: string;

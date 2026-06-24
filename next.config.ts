@@ -24,6 +24,12 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
       {
+        protocol: 'https',
+        hostname: 'ghost.shareindiainsurance.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
         // Ghost CMS (local dev) serves feature images from /content/images/**
         protocol: 'http',
         hostname: 'localhost',
