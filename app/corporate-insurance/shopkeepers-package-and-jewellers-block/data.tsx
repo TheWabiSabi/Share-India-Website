@@ -91,7 +91,7 @@ export const details = {
     topic: 'shopkeepers_jewellers_insurance',
   },
   relevant: {
-    topic: 'shopkeepers_jewellers_insurance',
+    tagSlug: 'shopkeepers-package-jewellers-block',
   },
   knowledge: {
     industryName: 'Shopkeepers & Jewellers Insurance',

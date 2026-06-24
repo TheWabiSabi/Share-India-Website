@@ -101,7 +101,7 @@ export const details = {
     topic: 'retail_travel',
   },
   relevant: {
-    topic: 'retail_travel',
+    tagSlug: 'retail-travel',
   },
   knowledge: {
     industryName: 'Retail Travel Insurance',

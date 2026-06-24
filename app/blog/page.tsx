@@ -1,145 +1,39 @@
-'use client';
-import React, { useState, useCallback, useMemo, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaCalendar, FaClock, FaUser, FaTag, FaSearch } from 'react-icons/fa';
-import blogPosts from '../blog/list_of_blogs.json';
-import { BlogInterface } from '../blog/blog.interface';
+import { FaCalendar, FaClock, FaTag, FaUser } from 'react-icons/fa';
+import { getFeaturedPosts, getLatestPosts, toArticle, toCard, type BlogCard } from '@/lib/ghost';
+import LatestAccordion from '@/components/blog/latest-accordion';
 
-const BlogsPage = () => {
-  // Constants for pagination
-  const ITEMS_PER_PAGE = 7;
-  const FEATURED_ITEMS_PER_PAGE = 4;
+interface BlogsPageProps {
+  searchParams: Promise<{ page?: string }>;
+}
 
-  // Filter states
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('');
-  const [selectedType, setSelectedType] = useState('');
+export const metadata = {
+  title: 'Insurance Insights & Stories',
+  description: 'The latest trends, claim stories, and expert insights from the insurance industry.',
+};
 
-  // State for lazy loading
-  const [displayedFeaturedCount, setDisplayedFeaturedCount] = useState(FEATURED_ITEMS_PER_PAGE);
-  const [displayedRegularCount, setDisplayedRegularCount] = useState(ITEMS_PER_PAGE);
-  const [loadingFeatured, setLoadingFeatured] = useState(false);
+function parsePage(raw: string | undefined): number {
+  const n = Number.parseInt(raw ?? '1', 10);
+  return Number.isFinite(n) && n > 0 ? n : 1;
+}
 
-  // Sort blogs by date (newest first)
-  const sortedBlogs = useMemo(
-    () => [...blogPosts].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()),
-    [],
-  );
+export default async function BlogsPage({ searchParams }: BlogsPageProps) {
+  const page = parsePage((await searchParams).page);
 
-  // Apply filters to all blogs
-  const filteredBlogs = useMemo(() => {
-    let filtered = sortedBlogs;
+  const [featuredPosts, latest] = await Promise.all([
+    page === 1 ? getFeaturedPosts() : Promise.resolve([]),
+    getLatestPosts(page),
+  ]);
 
-    // Search filter
-    if (searchTerm.trim()) {
-      filtered = filtered.filter(
-        (blog) =>
-          blog.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          blog.author.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          blog.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          blog.type.toLowerCase().includes(searchTerm.toLowerCase()),
-      );
-    }
-
-    // Category filter
-    if (selectedCategory) {
-      filtered = filtered.filter((blog) => blog.category === selectedCategory);
-    }
-
-    // Type filter
-    if (selectedType) {
-      filtered = filtered.filter((blog) => blog.type === selectedType);
-    }
-
-    return filtered;
-  }, [sortedBlogs, searchTerm, selectedCategory, selectedType]);
-
-  // Separate featured from regular after filtering
-  const filteredFeaturedBlogs = useMemo(
-    () => filteredBlogs.filter((blog) => blog.featured),
-    [filteredBlogs],
-  );
-
-  const filteredRegularBlogs = useMemo(
-    () => filteredBlogs.filter((blog) => !blog.featured),
-    [filteredBlogs],
-  );
-
-  // Get displayed blogs
-  const displayedFeaturedBlogs = filteredFeaturedBlogs.slice(0, displayedFeaturedCount);
-  const displayedRegularBlogs = filteredRegularBlogs.slice(0, displayedRegularCount);
-
-  // Check if more items available
-  const hasFeaturedMore = displayedFeaturedCount < filteredFeaturedBlogs.length;
-  const hasRegularMore = displayedRegularCount < filteredRegularBlogs.length;
-
-  // Reset pagination when filters change during render
-  const [prevFilters, setPrevFilters] = useState({ searchTerm, selectedCategory, selectedType });
-  if (
-    searchTerm !== prevFilters.searchTerm ||
-    selectedCategory !== prevFilters.selectedCategory ||
-    selectedType !== prevFilters.selectedType
-  ) {
-    setPrevFilters({ searchTerm, selectedCategory, selectedType });
-    setDisplayedFeaturedCount(FEATURED_ITEMS_PER_PAGE);
-    setDisplayedRegularCount(ITEMS_PER_PAGE);
-  }
-
-  // Load more functions
-  const loadMoreFeatured = useCallback(() => {
-    if (loadingFeatured || !hasFeaturedMore) return;
-
-    setLoadingFeatured(true);
-    setTimeout(() => {
-      setDisplayedFeaturedCount((prev) => prev + FEATURED_ITEMS_PER_PAGE);
-      setLoadingFeatured(false);
-    }, 500);
-  }, [loadingFeatured, hasFeaturedMore]);
-
-  const loadMoreRegular = useCallback(() => {
-    if (!hasRegularMore) return;
-    setDisplayedRegularCount((prev) =>
-      Math.min(prev + ITEMS_PER_PAGE, filteredRegularBlogs.length),
-    );
-  }, [hasRegularMore, filteredRegularBlogs.length]);
-
-  // Infinite scroll: auto-load the next page once the user scrolls past blog #5
-  // of the current batch. The trigger is attached to the card two from the end
-  // of what's currently rendered, so the next page is fetched just before the
-  // user reaches the bottom.
-  const observerRef = useRef<IntersectionObserver | null>(null);
-  const loadMoreTriggerRef = useCallback(
-    (node: HTMLDivElement | null) => {
-      if (observerRef.current) observerRef.current.disconnect();
-      if (!node || !hasRegularMore) return;
-
-      observerRef.current = new IntersectionObserver(
-        (entries) => {
-          if (entries[0].isIntersecting) loadMoreRegular();
-        },
-        { rootMargin: '200px' },
-      );
-      observerRef.current.observe(node);
-    },
-    [hasRegularMore, loadMoreRegular],
-  );
-
-  // Get unique categories and types for filters
-  const categories = useMemo(() => [...new Set(blogPosts.map((blog) => blog.category))], []);
-  const types = useMemo(() => [...new Set(blogPosts.map((blog) => blog.type))], []);
-
-  // Clear all filters
-  const clearFilters = () => {
-    setSearchTerm('');
-    setSelectedCategory('');
-    setSelectedType('');
-  };
+  const recommended = featuredPosts.map(toCard);
+  const articles = latest.posts.map(toArticle);
+  const { pagination } = latest;
 
   return (
     <div className="min-h-screen bg-white pt-[8vh]">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-16">
+      <section className="from-si-primary-50 to-si-lightblue bg-gradient-to-br py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl font-extrabold text-gray-900 md:text-5xl lg:text-6xl">
@@ -149,245 +43,78 @@ const BlogsPage = () => {
               Stay informed with the latest trends, claim stories, and expert insights from the
               insurance industry. Discover how we&#39;re protecting businesses across India.
             </p>
-
-            {/* Search and Filter Bar */}
-            <div className="mx-auto mt-8 max-w-4xl">
-              <div className="flex flex-col gap-4 rounded-lg bg-white p-6 shadow-lg sm:flex-row">
-                <div className="flex-1">
-                  <div className="relative">
-                    <FaSearch className="absolute top-1/2 left-3 -translate-y-1/2 text-gray-400" />
-                    <input
-                      type="text"
-                      placeholder="Search articles, insights, and stories..."
-                      value={searchTerm}
-                      onChange={(e) => setSearchTerm(e.target.value)}
-                      className="w-full rounded-lg border border-gray-300 py-3 pr-4 pl-10 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none"
-                    />
-                  </div>
-                </div>
-                <div className="flex gap-3">
-                  <select
-                    value={selectedCategory}
-                    onChange={(e) => setSelectedCategory(e.target.value)}
-                    className="rounded-lg border border-gray-300 px-4 py-3 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none"
-                  >
-                    <option value="">All Categories</option>
-                    {categories.map((category) => (
-                      <option key={category} value={category}>
-                        {category}
-                      </option>
-                    ))}
-                  </select>
-                  <select
-                    value={selectedType}
-                    onChange={(e) => setSelectedType(e.target.value)}
-                    className="rounded-lg border border-gray-300 px-4 py-3 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:outline-none"
-                  >
-                    <option value="">All Types</option>
-                    {types.map((type) => (
-                      <option key={type} value={type}>
-                        {type.replace('_', ' ').toUpperCase()}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
-              {/* Active filters and results count */}
-              <div className="mt-4 flex flex-wrap items-center gap-4">
-                <div className="flex items-center gap-2 text-sm text-gray-600">
-                  <span>Results: {filteredBlogs.length} articles</span>
-                  {filteredFeaturedBlogs.length > 0 && (
-                    <span className="text-blue-600">({filteredFeaturedBlogs.length} featured)</span>
-                  )}
-                </div>
-
-                {/* Active filter badges */}
-                <div className="flex flex-wrap gap-2">
-                  {searchTerm && (
-                    <span className="inline-flex items-center gap-1 rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-blue-800">
-                      Search: &#34;{searchTerm}&#34;
-                      <button
-                        onClick={() => setSearchTerm('')}
-                        className="ml-1 hover:text-blue-600"
-                      >
-                        ×
-                      </button>
-                    </span>
-                  )}
-                  {selectedCategory && (
-                    <span className="inline-flex items-center gap-1 rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-800">
-                      Category: {selectedCategory}
-                      <button
-                        onClick={() => setSelectedCategory('')}
-                        className="ml-1 hover:text-green-600"
-                      >
-                        ×
-                      </button>
-                    </span>
-                  )}
-                  {selectedType && (
-                    <span className="inline-flex items-center gap-1 rounded-full bg-purple-100 px-3 py-1 text-xs font-medium text-purple-800">
-                      Type: {selectedType.replace('_', ' ').toUpperCase()}
-                      <button
-                        onClick={() => setSelectedType('')}
-                        className="ml-1 hover:text-purple-600"
-                      >
-                        ×
-                      </button>
-                    </span>
-                  )}
-                  {(searchTerm || selectedCategory || selectedType) && (
-                    <button
-                      onClick={clearFilters}
-                      className="text-xs text-gray-500 underline hover:text-gray-700"
-                    >
-                      Clear all filters
-                    </button>
-                  )}
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Featured Articles */}
-      {filteredFeaturedBlogs.length > 0 && (
+      {/* Recommended (featured) — page 1 only */}
+      {recommended.length > 0 && (
         <section className="py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="mb-12 text-center">
-              <h2 className="text-3xl font-bold text-gray-900 md:text-4xl">Featured Stories</h2>
-              <p className="mt-4 text-lg text-gray-600">
-                Our most impactful insights and trending topics in insurance
+            <div className="mb-10">
+              <h2 className="text-3xl font-bold text-gray-900 md:text-4xl">Recommended</h2>
+              <p className="mt-3 text-lg text-gray-600">
+                Hand-picked reads our team thinks you shouldn&#39;t miss
               </p>
             </div>
-
-            <div className="grid gap-8 lg:grid-cols-2">
-              {displayedFeaturedBlogs.slice(0, 2).map((blog, index) => (
-                <FeaturedBlogCard key={blog.slug} blog={blog} isLarge={index === 0} />
-              ))}
-            </div>
-
-            {displayedFeaturedBlogs.length > 2 && (
-              <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {displayedFeaturedBlogs.slice(2).map((blog) => (
-                  <RegularBlogCard key={blog.slug} blog={blog} />
+            {/* First recommended = large banner card; the rest as a grid. */}
+            <FeaturedBannerCard blog={recommended[0]} />
+            {recommended.length > 1 && (
+              <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {recommended.slice(1).map((blog) => (
+                  <BlogPostCard key={blog.id} blog={blog} />
                 ))}
-              </div>
-            )}
-
-            {/* Load More Featured Button */}
-            {hasFeaturedMore && (
-              <div className="mt-12 text-center">
-                <button
-                  onClick={loadMoreFeatured}
-                  disabled={loadingFeatured}
-                  className="rounded-lg bg-blue-600 px-8 py-3 font-semibold text-white transition-colors hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
-                >
-                  {loadingFeatured ? (
-                    <span className="flex items-center gap-2">
-                      <svg className="h-4 w-4 animate-spin" fill="none" viewBox="0 0 24 24">
-                        <circle
-                          className="opacity-25"
-                          cx="12"
-                          cy="12"
-                          r="10"
-                          stroke="currentColor"
-                          strokeWidth="4"
-                        ></circle>
-                        <path
-                          className="opacity-75"
-                          fill="currentColor"
-                          d="m4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                        ></path>
-                      </svg>
-                      Loading...
-                    </span>
-                  ) : (
-                    `Load More Featured (${filteredFeaturedBlogs.length - displayedFeaturedCount} remaining)`
-                  )}
-                </button>
               </div>
             )}
           </div>
         </section>
       )}
 
-      {/* All Articles */}
+      {/* Latest — inline accordion */}
       <section className="bg-gray-50 py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-12">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-10">
             <h2 className="text-3xl font-bold text-gray-900 md:text-4xl">
-              {filteredRegularBlogs.length === 0 ? 'No Articles Found' : 'Latest Articles'}
+              {articles.length === 0 ? 'No Articles Found' : 'Latest Articles'}
             </h2>
-            <p className="mt-4 text-lg text-gray-600">
-              {filteredRegularBlogs.length === 0
-                ? 'Try adjusting your filters to see more results'
-                : 'Explore our complete collection of insurance insights and industry updates'}
+            <p className="mt-3 text-lg text-gray-600">
+              {articles.length === 0
+                ? 'There are no published articles on this page yet.'
+                : 'Expand any story to read it right here — one opens at a time'}
             </p>
           </div>
 
-          {displayedRegularBlogs.length > 0 ? (
+          {articles.length > 0 ? (
             <>
-              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-                {displayedRegularBlogs.map((blog, index) => {
-                  // Trigger lives two cards from the end of the current batch,
-                  // i.e. once the user scrolls beyond blog #5 of a 7-item page.
-                  const isTrigger = index === displayedRegularBlogs.length - 2;
-                  return (
-                    <div key={blog.slug} ref={isTrigger ? loadMoreTriggerRef : undefined}>
-                      <RegularBlogCard blog={blog} />
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* Pagination footer — auto-loads on scroll, with manual fallback */}
-              <div className="mt-12 flex flex-col items-center gap-3">
-                {hasRegularMore ? (
-                  <button
-                    onClick={loadMoreRegular}
-                    className="rounded-lg bg-blue-600 px-8 py-3 font-semibold text-white transition-colors hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
-                  >
-                    Next Page →
-                  </button>
-                ) : (
-                  <p className="text-gray-600">You&#39;ve reached the end of the results.</p>
-                )}
-                <p className="text-sm text-gray-500">
-                  Showing {displayedRegularBlogs.length} of {filteredRegularBlogs.length} articles
-                </p>
-              </div>
+              <LatestAccordion articles={articles} />
+              <Pager pagination={pagination} />
             </>
           ) : (
-            /* No articles message */
             <div className="py-12 text-center">
-              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gray-100">
-                <FaSearch className="text-2xl text-gray-400" />
-              </div>
               <h3 className="mb-2 text-lg font-medium text-gray-900">No articles found</h3>
               <p className="mb-4 text-gray-500">
-                Try adjusting your search terms or filters to find what you&#34;re looking for.
+                Once posts are published in Ghost they&#39;ll appear here.
               </p>
-              <button
-                onClick={clearFilters}
-                className="font-medium text-blue-600 hover:text-blue-700"
-              >
-                Clear all filters
-              </button>
+              {page > 1 && (
+                <Link
+                  href="/blogs"
+                  className="text-si-primary-600 hover:text-si-primary-700 font-medium"
+                >
+                  Back to first page
+                </Link>
+              )}
             </div>
           )}
         </div>
       </section>
 
       {/* Newsletter Signup */}
-      <section className="bg-blue-600 py-16">
+      <section className="bg-si-primary-600 py-16">
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-white md:text-4xl">
             Stay Updated with Insurance Insights
           </h2>
-          <p className="mt-4 text-lg text-blue-100">
+          <p className="text-si-primary-100 mt-4 text-lg">
             Get the latest articles, claim stories, and industry trends delivered to your inbox
           </p>
           <div className="mx-auto mt-8 max-w-md">
@@ -395,9 +122,9 @@ const BlogsPage = () => {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-300 focus:outline-none"
+                className="focus:ring-si-primary-300 flex-1 rounded-lg px-4 py-3 focus:ring-2 focus:outline-none"
               />
-              <button className="rounded-lg bg-white px-6 py-3 font-semibold text-blue-600 transition-colors hover:bg-gray-100">
+              <button className="text-si-primary-600 rounded-lg bg-white px-6 py-3 font-semibold transition-colors hover:bg-gray-100">
                 Subscribe
               </button>
             </div>
@@ -406,115 +133,152 @@ const BlogsPage = () => {
       </section>
     </div>
   );
-};
+}
 
-// Featured Blog Card Component (unchanged)
-const FeaturedBlogCard = ({
-  blog,
-  isLarge = false,
+function pageHref(page: number) {
+  return page <= 1 ? '/blogs' : `/blogs?page=${page}`;
+}
+
+function Pager({
+  pagination,
 }: {
-  blog: BlogInterface;
-  isLarge?: boolean;
-}) => {
-  const getTypeColor = (type: string) => {
-    switch (type) {
-      case 'claims_story':
-        return 'bg-red-100 text-red-800';
-      case 'news':
-        return 'bg-green-100 text-green-800';
-      case 'blog':
-        return 'bg-blue-100 text-blue-800';
-      default:
-        return 'bg-gray-100 text-gray-800';
-    }
+  pagination: {
+    page: number;
+    pages: number;
+    total: number;
+    prev: number | null;
+    next: number | null;
   };
+}) {
+  const { page, pages, total, prev, next } = pagination;
 
   return (
-    <article
-      className={`group relative overflow-hidden rounded-xl bg-white shadow-lg transition-all duration-300 hover:shadow-xl ${isLarge ? 'lg:row-span-2' : ''}`}
-    >
-      <div className={`relative ${isLarge ? 'h-64 lg:h-80' : 'h-48'}`}>
+    <div className="mt-12 flex flex-col items-center gap-4">
+      {pages > 1 && (
+        <nav className="flex items-center gap-2">
+          {prev ? (
+            <Link
+              href={pageHref(prev)}
+              className="rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100"
+            >
+              ← Prev
+            </Link>
+          ) : (
+            <span className="cursor-not-allowed rounded-lg border border-gray-200 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-400">
+              ← Prev
+            </span>
+          )}
+
+          {Array.from({ length: pages }, (_, i) => i + 1).map((n) => (
+            <Link
+              key={n}
+              href={pageHref(n)}
+              aria-current={n === page ? 'page' : undefined}
+              className={`rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
+                n === page
+                  ? 'bg-si-primary-600 text-white'
+                  : 'border border-gray-300 bg-white text-gray-700 hover:bg-gray-100'
+              }`}
+            >
+              {n}
+            </Link>
+          ))}
+
+          {next ? (
+            <Link
+              href={pageHref(next)}
+              className="rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100"
+            >
+              Next →
+            </Link>
+          ) : (
+            <span className="cursor-not-allowed rounded-lg border border-gray-200 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-400">
+              Next →
+            </span>
+          )}
+        </nav>
+      )}
+      <p className="text-sm text-gray-500">
+        Page {page} of {pages} · {total} {total === 1 ? 'article' : 'articles'}
+      </p>
+    </div>
+  );
+}
+
+function FeaturedBannerCard({ blog }: { blog: BlogCard }) {
+  return (
+    <article className="group relative h-80 overflow-hidden rounded-2xl bg-gray-900 shadow-lg md:h-96">
+      {blog.image && (
         <Image
           src={blog.image}
           alt={blog.title}
           fill
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
+          unoptimized={blog.image.startsWith('http://localhost')}
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          sizes="(min-width: 1280px) 1280px, 100vw"
+          priority
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+      )}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 
-        {/* Badges */}
-        <div className="absolute top-4 left-4 flex gap-2">
-          <span
-            className={`rounded-full px-3 py-1 text-xs font-semibold ${getTypeColor(blog.type)}`}
-          >
-            {blog.type.replace('_', ' ').toUpperCase()}
+      <div className="absolute top-4 left-4 flex flex-wrap gap-2">
+        <span className="bg-si-primary rounded-full px-3 py-1 text-xs font-semibold text-white">
+          {blog.category}
+        </span>
+        <span className="rounded-full bg-yellow-400 px-3 py-1 text-xs font-semibold text-yellow-900">
+          FEATURED
+        </span>
+      </div>
+
+      <div className="absolute right-0 bottom-0 left-0 p-6 text-white lg:p-8">
+        <div className="mb-3 flex flex-wrap items-center gap-4 text-sm text-white/80">
+          <span className="flex items-center gap-1">
+            <FaUser className="text-xs" />
+            {blog.author}
           </span>
-          {blog.featured && (
-            <span className="rounded-full bg-yellow-400 px-3 py-1 text-xs font-semibold text-yellow-900">
-              FEATURED
-            </span>
-          )}
-        </div>
-
-        {/* Content Overlay */}
-        <div className="absolute right-0 bottom-0 left-0 p-6 text-white">
-          <div className="mb-2 flex items-center gap-4 text-sm">
-            <span className="flex items-center gap-1">
-              <FaUser className="text-xs" />
-              {blog.author}
-            </span>
+          {blog.dateLabel && (
             <span className="flex items-center gap-1">
               <FaCalendar className="text-xs" />
-              {new Date(blog.date).toLocaleDateString()}
+              {blog.dateLabel}
             </span>
+          )}
+          {blog.readTime && (
             <span className="flex items-center gap-1">
               <FaClock className="text-xs" />
               {blog.readTime}
             </span>
-          </div>
-          <h3 className={`leading-tight font-bold ${isLarge ? 'text-xl lg:text-2xl' : 'text-lg'}`}>
-            <Link href={`/blog/${blog.slug}`} className="hover:underline">
-              {blog.title}
-            </Link>
-          </h3>
-          <span className="mt-2 inline-block rounded-full bg-white/20 px-3 py-1 text-xs font-medium backdrop-blur-sm">
-            {blog.category}
-          </span>
+          )}
         </div>
+        <h3 className="max-w-3xl text-2xl leading-tight font-bold lg:text-3xl">
+          <Link href={`/blog/${blog.slug}`} className="hover:underline">
+            {blog.title}
+          </Link>
+        </h3>
+        {blog.excerpt && (
+          <p className="mt-3 line-clamp-2 max-w-2xl text-sm text-white/85">{blog.excerpt}</p>
+        )}
       </div>
     </article>
   );
-};
+}
 
-// Regular Blog Card Component (unchanged)
-const RegularBlogCard = ({ blog }: { blog: BlogInterface }) => {
-  const getTypeColor = (type: string) => {
-    switch (type) {
-      case 'claims_story':
-        return 'bg-red-100 text-red-800';
-      case 'news':
-        return 'bg-green-100 text-green-800';
-      case 'blog':
-        return 'bg-blue-100 text-blue-800';
-      default:
-        return 'bg-gray-100 text-gray-800';
-    }
-  };
-
+function BlogPostCard({ blog }: { blog: BlogCard }) {
   return (
     <article className="group overflow-hidden rounded-xl bg-white shadow-md transition-all duration-300 hover:shadow-lg">
-      <div className="relative h-48">
-        <Image
-          src={blog.image}
-          alt={blog.title}
-          fill
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
-        />
+      <div className="relative h-48 bg-gray-200">
+        {blog.image && (
+          <Image
+            src={blog.image}
+            alt={blog.title}
+            fill
+            // Next's optimizer rejects http://localhost (loopback) in dev; load it directly.
+            unoptimized={blog.image.startsWith('http://localhost')}
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+        )}
         <div className="absolute top-3 left-3">
-          <span
-            className={`rounded-full px-3 py-1 text-xs font-semibold ${getTypeColor(blog.type)}`}
-          >
-            {blog.type.replace('_', ' ').toUpperCase()}
+          <span className="bg-si-primary-100 text-si-primary-800 rounded-full px-3 py-1 text-xs font-semibold">
+            {blog.category}
           </span>
         </div>
       </div>
@@ -525,33 +289,39 @@ const RegularBlogCard = ({ blog }: { blog: BlogInterface }) => {
             <FaUser className="text-xs" />
             {blog.author}
           </span>
-          <span className="flex items-center gap-1">
-            <FaCalendar className="text-xs" />
-            {new Date(blog.date).toLocaleDateString()}
-          </span>
+          {blog.dateLabel && (
+            <span className="flex items-center gap-1">
+              <FaCalendar className="text-xs" />
+              {blog.dateLabel}
+            </span>
+          )}
         </div>
 
         <h3 className="mb-3 line-clamp-2 text-lg font-bold text-gray-900">
-          <Link href={`/blog/${blog.slug}`} className="hover:text-blue-600">
+          <Link href={`/blog/${blog.slug}`} className="hover:text-si-primary-600">
             {blog.title}
           </Link>
         </h3>
+
+        {blog.excerpt && <p className="mb-4 line-clamp-2 text-sm text-gray-600">{blog.excerpt}</p>}
 
         <div className="flex items-center justify-between">
           <span className="flex items-center gap-1 text-sm text-gray-500">
             <FaTag className="text-xs" />
             {blog.category}
           </span>
-          <span className="flex items-center gap-1 text-sm text-gray-500">
-            <FaClock className="text-xs" />
-            {blog.readTime}
-          </span>
+          {blog.readTime && (
+            <span className="flex items-center gap-1 text-sm text-gray-500">
+              <FaClock className="text-xs" />
+              {blog.readTime}
+            </span>
+          )}
         </div>
 
         <div className="mt-4">
           <Link
             href={`/blog/${blog.slug}`}
-            className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-800"
+            className="text-si-primary-600 hover:text-si-primary-800 inline-flex items-center gap-2 text-sm font-semibold"
           >
             Read More
             <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -567,6 +337,4 @@ const RegularBlogCard = ({ blog }: { blog: BlogInterface }) => {
       </div>
     </article>
   );
-};
-
-export default BlogsPage;
+}

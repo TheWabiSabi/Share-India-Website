@@ -91,7 +91,7 @@ export const details = {
     topic: 'office_package_insurance',
   },
   relevant: {
-    topic: 'office_package_insurance',
+    tagSlug: 'office-package-insurance',
   },
   knowledge: {
     industryName: 'Office Package Insurance',

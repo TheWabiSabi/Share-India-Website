@@ -1,0 +1,63 @@
+# Local-only Ghost CMS + MySQL 8 stack for the blog.
+#
+#   docker compose -f docker-compose.cms.yml up -d
+#
+# Ghost admin:  http://localhost:2368/ghost
+# Content API:  http://localhost:2368  (key from Settings -> Integrations)
+#
+# Values below are dev defaults; override via a .env file next to this compose
+# file if desired. Do NOT use these credentials in staging/prod.
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: ghost-db
+    # Ghost's MySQL client expects the legacy auth plugin.
+    command: --default-authentication-plugin=mysql_native_password
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-ghost_root}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-ghost}
+      MYSQL_USER: ${MYSQL_USER:-ghost}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-ghost_password}
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - cms
+    healthcheck:
+      test: ['CMD', 'mysqladmin', 'ping', '-h', 'localhost', '-p${MYSQL_ROOT_PASSWORD:-ghost_root}']
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+  ghost:
+    image: ghost:5-alpine
+    container_name: ghost-cms
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - '2368:2368'
+    environment:
+      NODE_ENV: development
+      url: http://localhost:2368
+      database__client: mysql
+      database__connection__host: db
+      database__connection__user: ${MYSQL_USER:-ghost}
+      database__connection__password: ${MYSQL_PASSWORD:-ghost_password}
+      database__connection__database: ${MYSQL_DATABASE:-ghost}
+    volumes:
+      # Themes, settings, and uploaded images live here — persist across rebuilds.
+      - ghost_content:/var/lib/ghost/content
+    networks:
+      - cms
+
+networks:
+  cms:
+    driver: bridge
+
+volumes:
+  mysql_data:
+  ghost_content:

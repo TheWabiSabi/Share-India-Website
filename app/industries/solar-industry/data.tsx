@@ -100,7 +100,7 @@ export const details = {
     topic: 'solar_industry',
   },
   relevant: {
-    topic: 'solar_industry',
+    tagSlug: 'solar-industry',
   },
   knowledge: {
     industryName: 'Solar Industry',

@@ -91,7 +91,7 @@ export const details = {
     topic: 'employee_benefits_insurance',
   },
   relevant: {
-    topic: 'employee_benefits_insurance',
+    tagSlug: 'employee-benefits-insurance',
   },
   knowledge: {
     industryName: 'Employee Benefits Insurance',

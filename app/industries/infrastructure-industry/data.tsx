@@ -101,7 +101,7 @@ export const details = {
     topic: 'infrastructure_industry',
   },
   relevant: {
-    topic: 'infrastructure_industry',
+    tagSlug: 'infrastructure-industry',
   },
   knowledge: {
     industryName: 'Infrastructure Industry',

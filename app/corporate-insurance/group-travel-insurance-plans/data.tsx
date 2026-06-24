@@ -91,7 +91,7 @@ export const details = {
     topic: 'group_travel_insurance',
   },
   relevant: {
-    topic: 'group_travel_insurance',
+    tagSlug: 'group-travel-insurance',
   },
   knowledge: {
     industryName: 'Group Travel Insurance',

@@ -101,7 +101,7 @@ export const details = {
     topic: 'chemical_industry',
   },
   relevant: {
-    topic: 'chemical_industry',
+    tagSlug: 'chemical-industry',
   },
   knowledge: {
     industryName: 'Chemical Industry',

@@ -92,7 +92,7 @@ export const details = {
     topic: 'life_sciences_pharma_industry',
   },
   relevant: {
-    topic: 'life_sciences_pharma_industry',
+    tagSlug: 'life-sciences-pharma-industry',
   },
   knowledge: {
     industryName: 'Life Sciences & Pharma',
