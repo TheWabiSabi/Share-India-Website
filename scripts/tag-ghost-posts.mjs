@@ -65,11 +65,7 @@ async function main() {
     const existingTagNames = new Set((existing.tags ?? []).map((t) => t.name?.toLowerCase()));
 
     // Tags we want to ensure are present
-    const wantedTags = [
-      category,
-      humanize(type),
-      humanize(topic),
-    ].filter(Boolean);
+    const wantedTags = [category, humanize(type), humanize(topic)].filter(Boolean);
 
     const missingTags = wantedTags.filter((name) => !existingTagNames.has(name.toLowerCase()));
 
@@ -91,9 +87,7 @@ async function main() {
     }
 
     try {
-      await api.posts.edit(
-        { id: existing.id, updated_at: existing.updated_at, tags: mergedTags },
-      );
+      await api.posts.edit({ id: existing.id, updated_at: existing.updated_at, tags: mergedTags });
       console.log(`~ ${slug}: added [${missingTags.join(', ')}]`);
       stats.updated++;
     } catch (err) {

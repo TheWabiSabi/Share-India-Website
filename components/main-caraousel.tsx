@@ -42,12 +42,12 @@ const getBreakpoints = (layout: 1 | 2 | 3) => {
 };
 
 interface MainCarouselProps {
-  posts: BlogCard[];
+  posts?: BlogCard[];
   layout: 1 | 2 | 3;
   color: 'blue' | 'white';
 }
 
-export default function MainCarousel({ posts, layout, color }: MainCarouselProps) {
+export default function MainCarousel({ posts = [], layout, color }: MainCarouselProps) {
   const enableLoop = posts.length > 2;
 
   // Map BlogCard to the shape the existing card components expect

@@ -1,6 +1,6 @@
-import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Suspense } from 'react';
 import {
   FaChevronRight,
   FaShieldAlt,
@@ -11,7 +11,7 @@ import {
 } from 'react-icons/fa';
 import Contact from '@/app/industries/_components/Contact';
 import Card from '@/app/industries/_components/Card';
-import MainCaraousel from '@/components/main-caraousel';
+import MainCarouselServer from '@/components/main-caraousel-server';
 import GhostTagStrip from '@/components/blog/ghost-tag-strip';
 import KnowledgeQuestionnaire from '../_components/KnowledgeQuestionnaire';
 import { quizQuestions as defaultQuizQuestions } from '../_data/questions/infra';
@@ -26,6 +26,25 @@ interface Question {
   difficulty: 'easy' | 'medium' | 'hard';
 }
 
+/**
+ * Convert the old topic slug format (e.g. "textile_industry") to a Ghost tag
+ * slug (e.g. "textile-industry"). Ghost slugs use hyphens not underscores.
+ */
+function topicToTagSlug(topic: string): string {
+  return topic.replace(/_/g, '-');
+}
+
+/** Skeleton shown while Ghost fetches */
+function CarouselSkeleton() {
+  return (
+    <div className="flex h-64 animate-pulse items-center gap-4 overflow-hidden rounded-xl">
+      {[0, 1].map((i) => (
+        <div key={i} className="h-full w-full shrink-0 rounded-xl bg-gray-100" />
+      ))}
+    </div>
+  );
+}
+
 const IndustryPage = ({
   details,
   questions,
@@ -34,6 +53,10 @@ const IndustryPage = ({
   questions?: Question[];
 }) => {
   const quizQuestions = questions || defaultQuizQuestions;
+
+  // Build the tag slugs for the claim story carousel:
+  // posts must be tagged with both 'claims-story' AND the industry topic tag
+  const claimStoryTagSlugs = ['claims-story', topicToTagSlug(details.claim_story.topic)];
 
   return (
     <div className="min-h-screen bg-white text-gray-900">
@@ -164,12 +187,9 @@ const IndustryPage = ({
           <h2 className="text-si-ink mb-3 text-2xl font-bold md:text-3xl">Claim Stories</h2>
           <p className="text-si-ink/70 mb-8">{details.claim_story.description}</p>
           <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
-            <MainCaraousel
-              color="blue"
-              layout={1}
-              topic={details.claim_story.topic}
-              type="claims_story"
-            />
+            <Suspense fallback={<CarouselSkeleton />}>
+              <MainCarouselServer color="blue" layout={1} tagSlugs={claimStoryTagSlugs} />
+            </Suspense>
           </div>
         </div>
       </section>

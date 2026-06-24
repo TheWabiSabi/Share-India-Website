@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaCalendar, FaClock, FaUser, FaTag, FaSearch } from 'react-icons/fa';
@@ -38,31 +38,29 @@ export default function ClaimsClient({
 
   const categories = useMemo(() => [...new Set(allPosts.map((p) => p.category))], [allPosts]);
 
-  const applyFilters = (posts: BlogCard[]) => {
-    let filtered = posts;
-    if (searchTerm.trim()) {
-      const q = searchTerm.toLowerCase();
-      filtered = filtered.filter(
-        (p) =>
+  const filteredFeatured = useMemo(() => {
+    const q = searchTerm.trim().toLowerCase();
+    return featuredPosts.filter(
+      (p) =>
+        (!q ||
           p.title.toLowerCase().includes(q) ||
           p.author.toLowerCase().includes(q) ||
-          p.category.toLowerCase().includes(q),
-      );
-    }
-    if (selectedCategory) {
-      filtered = filtered.filter((p) => p.category === selectedCategory);
-    }
-    return filtered;
-  };
+          p.category.toLowerCase().includes(q)) &&
+        (!selectedCategory || p.category === selectedCategory),
+    );
+  }, [featuredPosts, searchTerm, selectedCategory]);
 
-  const filteredFeatured = useMemo(
-    () => applyFilters(featuredPosts),
-    [featuredPosts, searchTerm, selectedCategory],
-  );
-  const filteredRegular = useMemo(
-    () => applyFilters(regularPosts),
-    [regularPosts, searchTerm, selectedCategory],
-  );
+  const filteredRegular = useMemo(() => {
+    const q = searchTerm.trim().toLowerCase();
+    return regularPosts.filter(
+      (p) =>
+        (!q ||
+          p.title.toLowerCase().includes(q) ||
+          p.author.toLowerCase().includes(q) ||
+          p.category.toLowerCase().includes(q)) &&
+        (!selectedCategory || p.category === selectedCategory),
+    );
+  }, [regularPosts, searchTerm, selectedCategory]);
 
   const displayedFeatured = filteredFeatured.slice(0, displayedFeaturedCount);
   const displayedRegular = filteredRegular.slice(0, displayedRegularCount);

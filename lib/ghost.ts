@@ -307,3 +307,25 @@ export async function getRelatedPosts(post: GhostPost): Promise<GhostPost[]> {
     return [];
   }
 }
+
+/**
+ * Posts matching ALL of the provided tag slugs (AND logic).
+ * e.g. getPostsByTags(['claims-story', 'textile-industry']) returns posts
+ * tagged with both — used by industry claim-story carousels.
+ */
+export async function getPostsByTags(tagSlugs: string[], limit = 10): Promise<GhostPost[]> {
+  if (tagSlugs.length === 0) return [];
+  try {
+    // Ghost filter syntax: tags:a+tags:b means the post must have both tags
+    const filter = tagSlugs.map((s) => `tags:${s}`).join('+');
+    const result = await getClient().posts.browse({
+      filter,
+      limit,
+      include: ['tags', 'authors'],
+      order: 'published_at DESC',
+    });
+    return result;
+  } catch {
+    return [];
+  }
+}

@@ -35,16 +35,16 @@ file next to `docker-compose.cms.yml` with `MYSQL_*` values.
 
 When writing posts in Ghost Admin, the app maps Ghost fields as follows:
 
-| App field   | Ghost field                                  |
-| ----------- | -------------------------------------------- |
-| category    | **primary tag** (first tag on the post)      |
-| type/topic/industry | additional tags                       |
-| author      | primary author                               |
-| date        | published date                               |
-| read time   | Ghost's auto-computed reading time           |
-| image       | feature image                                |
-| featured    | the post's **Feature this post** toggle      |
-| body        | the post content (rendered HTML)             |
+| App field           | Ghost field                             |
+| ------------------- | --------------------------------------- |
+| category            | **primary tag** (first tag on the post) |
+| type/topic/industry | additional tags                         |
+| author              | primary author                          |
+| date                | published date                          |
+| read time           | Ghost's auto-computed reading time      |
+| image               | feature image                           |
+| featured            | the post's **Feature this post** toggle |
+| body                | the post content (rendered HTML)        |
 
 To verify pagination, publish at least 8 posts (2 pages).
 

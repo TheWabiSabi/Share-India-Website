@@ -24,24 +24,24 @@ never sees Ghost's own theme — they see our Next.js app.
    Public  ──────────▶  Next.js app  /blogs , /blog/[slug]   ← what users see
 ```
 
-| Surface | URL (local) | Who | Notes |
-|---|---|---|---|
-| Ghost Admin | `localhost:2368/ghost` | Team (login) | Writing app, settings, integrations |
-| Ghost theme | `localhost:2368` | nobody | Bypassed; lock down via "Make site private" |
-| Public blog | `localhost:3000/blogs` | Everyone | Next.js, server-rendered, no login |
+| Surface     | URL (local)            | Who          | Notes                                       |
+| ----------- | ---------------------- | ------------ | ------------------------------------------- |
+| Ghost Admin | `localhost:2368/ghost` | Team (login) | Writing app, settings, integrations         |
+| Ghost theme | `localhost:2368`       | nobody       | Bypassed; lock down via "Make site private" |
+| Public blog | `localhost:3000/blogs` | Everyone     | Next.js, server-rendered, no login          |
 
 **Key components in this repo**
 
-| Path | Purpose |
-|---|---|
-| `docker-compose.cms.yml` | Local Ghost 5 + MySQL 8 stack |
-| `lib/ghost.ts` | Content API client + mappers (`toCard`/`toArticle`), queries, `extractToc` |
-| `app/blogs/page.tsx` | Public list: **Recommended** (featured) banner + **Latest** accordion + pager |
-| `app/blog/[slug]/page.tsx` | Single post: TOC, tags, related, share |
-| `components/blog/post-body.tsx` | Renders Ghost HTML + Prism highlight + copy buttons |
-| `components/blog/latest-accordion.tsx` | One-open-at-a-time inline reader |
-| `components/blog/share-buttons.tsx` | Twitter/LinkedIn/WhatsApp/Copy-link |
-| `scripts/migrate-to-ghost.mjs` | One-off importer (legacy MDX → Ghost) |
+| Path                                   | Purpose                                                                       |
+| -------------------------------------- | ----------------------------------------------------------------------------- |
+| `docker-compose.cms.yml`               | Local Ghost 5 + MySQL 8 stack                                                 |
+| `lib/ghost.ts`                         | Content API client + mappers (`toCard`/`toArticle`), queries, `extractToc`    |
+| `app/blogs/page.tsx`                   | Public list: **Recommended** (featured) banner + **Latest** accordion + pager |
+| `app/blog/[slug]/page.tsx`             | Single post: TOC, tags, related, share                                        |
+| `components/blog/post-body.tsx`        | Renders Ghost HTML + Prism highlight + copy buttons                           |
+| `components/blog/latest-accordion.tsx` | One-open-at-a-time inline reader                                              |
+| `components/blog/share-buttons.tsx`    | Twitter/LinkedIn/WhatsApp/Copy-link                                           |
+| `scripts/migrate-to-ghost.mjs`         | One-off importer (legacy MDX → Ghost)                                         |
 
 ---
 
@@ -124,16 +124,16 @@ Everything below is **native to Ghost** — no code needed.
 
 ### Field mapping (Ghost → site)
 
-| Ghost field | Shown as |
-|---|---|
-| Feature this post | Recommended strip |
-| Reading time | "x min read" |
-| Primary author | Byline |
-| Published date | Date (rendered deterministically as "3 Jun 2026") |
-| Feature image | Card/hero image |
-| First tag | Category badge |
-| Other tags | Tag chips |
-| Post body | Article HTML |
+| Ghost field       | Shown as                                          |
+| ----------------- | ------------------------------------------------- |
+| Feature this post | Recommended strip                                 |
+| Reading time      | "x min read"                                      |
+| Primary author    | Byline                                            |
+| Published date    | Date (rendered deterministically as "3 Jun 2026") |
+| Feature image     | Card/hero image                                   |
+| First tag         | Category badge                                    |
+| Other tags        | Tag chips                                         |
+| Post body         | Article HTML                                      |
 
 ---
 
@@ -166,6 +166,7 @@ The local compose file is **local-only** (`NODE_ENV=development`,
 `url=http://localhost:2368`). For staging/prod:
 
 ### 7.1 Run Ghost as its own service
+
 - Host Ghost on its own subdomain, e.g. `cms.yourdomain.com`, behind HTTPS
   (Ghost in `NODE_ENV=production` **requires** an `https://` `url` and a working
   mail config for staff invites/password resets).
@@ -174,12 +175,14 @@ The local compose file is **local-only** (`NODE_ENV=development`,
   `--default-authentication-plugin=mysql_native_password` (Ghost 5 needs it).
 
 ### 7.2 Persist media on object storage
+
 Ghost stores uploaded images on the local `content/images` volume by default. For
 horizontal scaling / durability, use a **Ghost storage adapter** (S3/MinIO/GCS) so
 images don't live on a single container disk. You already run MinIO — an S3 adapter
 pointed at MinIO keeps the existing image domain.
 
 ### 7.3 Wire the Next.js app to prod Ghost
+
 - Set per-environment env vars (don't commit them):
   - `GHOST_API_URL=https://cms.yourdomain.com`
   - `GHOST_CONTENT_API_KEY=<prod content key>`
@@ -189,6 +192,7 @@ pointed at MinIO keeps the existing image domain.
   in the cards means prod images are always optimized.
 
 ### 7.4 Caching & performance
+
 - The blog pages are dynamic server components. For higher traffic, add
   **ISR/revalidation** (e.g. `export const revalidate = 300`) or tag-based
   revalidation, and/or a Ghost **webhook** (post published/updated) that triggers
@@ -196,6 +200,7 @@ pointed at MinIO keeps the existing image domain.
 - Put a CDN in front of both the Next.js app and Ghost's image domain.
 
 ### 7.5 Operations
+
 - **Backups**: dump MySQL regularly + back up the `content/` volume (or rely on
   object storage versioning for images). Ghost Admin → Settings → Export also
   produces a JSON content export.
@@ -208,15 +213,15 @@ pointed at MinIO keeps the existing image domain.
 
 ## 8. Troubleshooting
 
-| Symptom | Cause / fix |
-|---|---|
-| `/blogs` throws "Missing GHOST_API_URL or GHOST_CONTENT_API_KEY" | `.env.local` not set or app not restarted after editing it. |
-| `/blogs` 500: `"url" parameter is not allowed` (image) | A feature image host isn't in `next.config.ts` `remotePatterns`. Add it. Local Ghost uploads (`http://localhost:2368`) are served directly via the `unoptimized` guard. |
-| Hydration mismatch on dates | Don't format dates with `toLocaleDateString` in client components — use the server-computed `dateLabel` from `toCard`. |
-| Migration: "GHOST_ADMIN_API_KEY looks wrong" | You used the Content key. Use the **Admin** key (`id:secret`). |
-| Migration reports everything "missing" | Wrong working dir / old Node. Run from repo root on Node ≥ 20.11. |
-| Recommended/TOC not showing | No featured posts / post has no `h2`/`h3` headings. Both sections hide gracefully when empty. |
-| Ghost admin won't load | `docker compose -f docker-compose.cms.yml ps` — check `ghost-db` is healthy; Ghost waits for it. |
+| Symptom                                                          | Cause / fix                                                                                                                                                             |
+| ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `/blogs` throws "Missing GHOST_API_URL or GHOST_CONTENT_API_KEY" | `.env.local` not set or app not restarted after editing it.                                                                                                             |
+| `/blogs` 500: `"url" parameter is not allowed` (image)           | A feature image host isn't in `next.config.ts` `remotePatterns`. Add it. Local Ghost uploads (`http://localhost:2368`) are served directly via the `unoptimized` guard. |
+| Hydration mismatch on dates                                      | Don't format dates with `toLocaleDateString` in client components — use the server-computed `dateLabel` from `toCard`.                                                  |
+| Migration: "GHOST_ADMIN_API_KEY looks wrong"                     | You used the Content key. Use the **Admin** key (`id:secret`).                                                                                                          |
+| Migration reports everything "missing"                           | Wrong working dir / old Node. Run from repo root on Node ≥ 20.11.                                                                                                       |
+| Recommended/TOC not showing                                      | No featured posts / post has no `h2`/`h3` headings. Both sections hide gracefully when empty.                                                                           |
+| Ghost admin won't load                                           | `docker compose -f docker-compose.cms.yml ps` — check `ghost-db` is healthy; Ghost waits for it.                                                                        |
 
 ```bash
 # Reset everything (DESTROYS all Ghost data + images)
