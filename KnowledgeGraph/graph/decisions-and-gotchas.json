@@ -64,7 +64,7 @@
     },
     {
       "decision": "AI Toolkit page replaces /services-by-shareindia at route /ai-toolkit",
-      "reason": "Rebranding — the page showcases 3 AI tools (PolicyWise, Cyrus, InsureBot). The old route still exists as a legacy page.",
+      "reason": "Rebranding — the page showcases 4 AI tools (PolicyWise, Cyrus, InsureBot, Inspection AI). The old route still exists as a legacy page.",
       "implication": "All internal links to /services-by-shareindia should point to /ai-toolkit instead. Header button also updated."
     },
     {

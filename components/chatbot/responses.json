@@ -547,7 +547,7 @@
         {
           "text": "📝 Blog & Articles",
           "action": "redirect",
-          "url": "/blogs",
+          "url": "/blog",
           "type": "redirect"
         },
         {

@@ -4,21 +4,8 @@ import './globals.css';
 
 import Header from '@/components/header/header';
 import Footer from '@/components/footer/footer';
-import ChatbotWidget from '@/components/chatbot/chatbot-widget';
-import FloatingAgentButton from '@/components/FloatingAgentButton';
-import { Inter, Geist_Mono } from 'next/font/google';
-
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
-});
-
-const geistMono = Geist_Mono({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-geist-mono',
-});
+import { WebVitals } from '@/components/web-vitals';
+import { ClientWidgets } from '@/components/client-widgets';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -88,13 +75,22 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${geistMono.variable}`}>
+    <html lang="en">
+      <head>
+        {/* Preconnect to external domains */}
+        <link rel="preconnect" href="https://images.unsplash.com" />
+        <link rel="preconnect" href="https://minio-api.internal.wabisabitech.in" />
+
+        {/* DNS prefetch for faster lookups */}
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
+        <link rel="dns-prefetch" href="https://minio-api.internal.wabisabitech.in" />
+      </head>
       <body className="font-sans antialiased">
+        <WebVitals />
         <Header />
         <main className="text-si-dark bg-white">{children}</main>
         <Footer />
-        <ChatbotWidget />
-        <FloatingAgentButton />
+        <ClientWidgets />
       </body>
     </html>
   );

@@ -35,7 +35,7 @@ export default function AboutPage() {
       <section className="relative isolate flex min-h-[85dvh] items-end overflow-hidden pt-16">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/about/hero-background.jpg"
+            src="/images/about/hero-background.webp"
             alt="Share India Insurance Brokers — Professional team"
             fill
             priority
@@ -248,7 +248,7 @@ export default function AboutPage() {
               <div className="flex justify-center lg:col-span-2 lg:justify-start">
                 <div className="relative aspect-square w-full max-w-[280px] overflow-hidden rounded-2xl border-4 border-white sm:max-w-sm">
                   <Image
-                    src="/leadership/ajay-kumar.png"
+                    src="/leadership/ajay-kumar.webp"
                     alt="Mr. Ajay Kumar Patel — CEO & Principal Officer"
                     fill
                     className="object-cover"
@@ -343,7 +343,7 @@ export default function AboutPage() {
               <div className="flex justify-center md:col-span-1">
                 <div className="relative aspect-square w-56 overflow-hidden rounded-xl border-4 border-white">
                   <Image
-                    src="/team/sonam-gupta.png"
+                    src="/team/sonam-gupta.webp"
                     alt="Ms. Sonam Gupta — President"
                     fill
                     className="object-cover"
@@ -402,7 +402,7 @@ export default function AboutPage() {
                   <div className="group card-vibrant hover-glow-blue hover-lift overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-black/5 transition-all duration-300">
                     <div className="relative aspect-square overflow-hidden bg-gray-50">
                       <Image
-                        src={`/team/${getTeamSlug(m.name)}.png`}
+                        src={`/team/${getTeamSlug(m.name)}.webp`}
                         alt={`${m.name} — ${m.role}`}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -441,7 +441,7 @@ export default function AboutPage() {
                   <div className="group card-vibrant hover-glow-blue hover-lift overflow-hidden rounded-xl bg-white shadow-md ring-1 ring-black/5 transition-all duration-300">
                     <div className="relative aspect-square overflow-hidden bg-gray-50">
                       <Image
-                        src={`/team/${getTeamSlug(m.name)}.png`}
+                        src={`/team/${getTeamSlug(m.name)}.webp`}
                         alt={`${m.name} — ${m.role}`}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -473,7 +473,7 @@ export default function AboutPage() {
                     <div className="grid grid-cols-3 gap-0">
                       <div className="relative aspect-square overflow-hidden bg-gray-50">
                         <Image
-                          src={`/team/${getTeamSlug(m.name)}.png`}
+                          src={`/team/${getTeamSlug(m.name)}.webp`}
                           alt={`${m.name} — ${m.role}`}
                           fill
                           className="object-cover transition-transform duration-500 group-hover:scale-105"

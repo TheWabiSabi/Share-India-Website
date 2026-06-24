@@ -157,7 +157,7 @@ export default function BeAPOSPPage() {
             <div className="relative">
               <div className="rounded-2xl border border-white/20 bg-white/10 p-8 backdrop-blur-sm">
                 <Image
-                  src="/be-a-posp/img2.jpg"
+                  src="/be-a-posp/img2.webp"
                   alt="POSP Agent Success"
                   width={600}
                   height={400}
@@ -234,7 +234,7 @@ export default function BeAPOSPPage() {
 
             <div className="shadow-vibrant-blue rounded-2xl bg-white p-8">
               <Image
-                src="/be-a-posp/img4.jpg"
+                src="/be-a-posp/img4.webp"
                 alt="POSP Requirements"
                 width={500}
                 height={400}

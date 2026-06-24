@@ -16,6 +16,7 @@ import GhostTagStrip from '@/components/blog/ghost-tag-strip';
 import KnowledgeQuestionnaire from '../_components/KnowledgeQuestionnaire';
 import { quizQuestions as defaultQuizQuestions } from '../_data/questions/infra';
 import { InfrastructureInsuranceDetails } from '../main.interface';
+import { AllTopics } from '@/consts/topics';
 
 interface Question {
   id: string;
@@ -48,9 +49,11 @@ function CarouselSkeleton() {
 const IndustryPage = ({
   details,
   questions,
+  beforeCoverage,
 }: {
   details: InfrastructureInsuranceDetails;
   questions?: Question[];
+  beforeCoverage?: React.ReactNode;
 }) => {
   const quizQuestions = questions || defaultQuizQuestions;
 
@@ -159,6 +162,8 @@ const IndustryPage = ({
           </div>
         </div>
       </section>
+
+      {beforeCoverage}
 
       {/* ── Core Coverage ── */}
       <section className="to-si-primary-200 border-b border-gray-100 bg-gradient-to-b from-white py-16">

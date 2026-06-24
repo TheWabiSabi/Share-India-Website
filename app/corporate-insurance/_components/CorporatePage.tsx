@@ -14,6 +14,7 @@ import Card from '@/app/industries/_components/Card';
 import MainCarouselServer from '@/components/main-caraousel-server';
 import GhostTagStrip from '@/components/blog/ghost-tag-strip';
 import KnowledgeQuestionnaire from '@/app/industries/_components/KnowledgeQuestionnaire';
+import { AllTopics } from '@/consts/topics';
 
 export interface CorporateInsuranceDetails {
   img: string;

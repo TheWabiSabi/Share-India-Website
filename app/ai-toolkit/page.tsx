@@ -86,6 +86,32 @@ const TOOLS = [
       </svg>
     ),
   },
+  {
+    id: 'inspection-ai',
+    name: 'Inspection AI',
+    tag: 'Commercial Risk Assessment',
+    tagline: 'Commercial inspections, scored in one place.',
+    description:
+      'Inspection AI powers commercial risk assessment inspections. Sign in, enter your company details, and the platform runs a structured risk assessment — producing a clear risk score you can act on.',
+    url: 'https://inspection.shareindiainsurance.com/#/login',
+    cta: 'Open Inspection AI',
+    features: [
+      'Secure login and company onboarding',
+      'Commercial risk inspection workflow',
+      'Automated risk assessment',
+      'Generated risk score reports',
+    ],
+    icon: (
+      <svg className="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          strokeWidth={1.6}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
+        />
+      </svg>
+    ),
+  },
 ];
 
 // ─── Alternating section backgrounds ──────────────────────────────────────────
@@ -110,7 +136,7 @@ export default function AIToolkitPage() {
           </FadeUp>
           <FadeUp delay={0.12}>
             <p className="text-si-ink/60 mx-auto mt-4 max-w-xl text-lg leading-relaxed">
-              Three intelligent tools built to simplify insurance — for advisors, businesses, and
+              Four intelligent tools built to simplify insurance — for advisors, businesses, and
               individuals alike.
             </p>
           </FadeUp>
