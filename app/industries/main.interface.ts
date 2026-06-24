@@ -45,7 +45,7 @@ interface ClaimStorySection {
 }
 
 interface RelevantSection {
-  topic: string;
+  tagSlug: string;
 }
 
 interface KnowledgeSection {

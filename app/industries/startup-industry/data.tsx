@@ -93,7 +93,7 @@ export const details = {
     topic: 'startup_industry',
   },
   relevant: {
-    topic: 'startup_industry',
+    tagSlug: 'startup-industry',
   },
   knowledge: {
     industryName: 'Startup Industry',

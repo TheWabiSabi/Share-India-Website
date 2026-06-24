@@ -1,16 +1,16 @@
-'use client';
+// 'use client';
 
 import Link from 'next/link';
 import Image from 'next/image';
-import dynamic from 'next/dynamic';
 import './style.css';
-import { ReactNode } from 'react';
+import { ReactNode, Suspense } from 'react';
 import { IMAGE_BASE_URL } from '@/consts/variables';
 import { FadeUp, FadeIn, Stagger, Item, FlyIn } from '@/components/motion';
 
-// Dynamic imports for carousels (client-only)
-const MainCaraousel = dynamic(() => import('@/components/main-caraousel'), { ssr: false });
-const TopNewsCarousel = dynamic(() => import('@/components/top-news-carousel'), { ssr: false });
+// Server wrappers handle data-fetching; these are NOT dynamic imports,
+// so Next.js can SSR them correctly even inside a 'use client' page.
+import MainCarouselServer from '@/components/main-caraousel-server';
+import TopNewsCarouselServer from '@/components/top-news-caraousel-server';
 
 // ─── Reusable primitives ──────────────────────────────────────────────────────
 
@@ -763,7 +763,10 @@ function FeaturedInsightsSection() {
             aria-label="Featured insights carousel"
           >
             <div className="min-h-[280px] sm:min-h-[320px]">
-              <MainCaraousel color="blue" layout={1} />
+              {/* Suspense gives a skeleton while Ghost fetches */}
+              <Suspense fallback={<CarouselSkeleton />}>
+                <MainCarouselServer color="blue" layout={1} />
+              </Suspense>
             </div>
           </div>
         </FadeIn>
@@ -849,7 +852,10 @@ function TopNewsSection() {
         <FadeIn delay={0.18}>
           <div className="mt-8 sm:mt-10">
             <div className="min-h-[260px] sm:min-h-[300px]">
-              <TopNewsCarousel />
+              {/* Suspense gives a skeleton while Ghost fetches */}
+              <Suspense fallback={<CarouselSkeleton />}>
+                <TopNewsCarouselServer limit={10} />
+              </Suspense>
             </div>
           </div>
         </FadeIn>
@@ -1052,6 +1058,21 @@ function ConnectCTASection() {
         </FadeUp>
       </div>
     </section>
+  );
+}
+
+// ─── Skeleton fallback ────────────────────────────────────────────────────────
+
+function CarouselSkeleton() {
+  return (
+    <div className="flex h-full min-h-[280px] animate-pulse items-center gap-4 overflow-hidden sm:min-h-[320px]">
+      {[0, 1, 2].map((i) => (
+        <div
+          key={i}
+          className="h-full min-h-[260px] w-full shrink-0 rounded-xl bg-gray-100 sm:min-h-[300px]"
+        />
+      ))}
+    </div>
   );
 }
 

@@ -101,7 +101,7 @@ export const details = {
     topic: 'term_insurance',
   },
   relevant: {
-    topic: 'term_insurance',
+    tagSlug: 'term-insurance',
   },
   knowledge: {
     industryName: 'Term Insurance',

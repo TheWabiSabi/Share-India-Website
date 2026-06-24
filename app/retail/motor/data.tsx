@@ -93,7 +93,7 @@ export const details = {
     topic: 'motor_retail',
   },
   relevant: {
-    topic: 'motor_retail',
+    tagSlug: 'motor-insurance',
   },
   knowledge: {
     industryName: 'Retail Motor Insurance',

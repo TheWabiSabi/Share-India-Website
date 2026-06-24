@@ -101,7 +101,7 @@ export const details = {
     topic: 'retail_health',
   },
   relevant: {
-    topic: 'retail_health',
+    tagSlug: 'retail-health',
   },
   knowledge: {
     industryName: 'Retail Health Insurance',

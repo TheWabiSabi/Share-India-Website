@@ -93,7 +93,7 @@ export const details = {
     topic: 'logistics_industry',
   },
   relevant: {
-    topic: 'logistics_industry',
+    tagSlug: 'logistics-industry',
   },
   knowledge: {
     industryName: 'Logistics Industry',
