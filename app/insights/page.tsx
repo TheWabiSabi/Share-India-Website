@@ -1,6 +1,6 @@
-import InsightsFilterBar from './_components/insights-filter';
+// import InsightsFilterBar from './_components/insights-filter';
 import { getFeaturedPosts, getLatestPosts, toCard } from '@/lib/ghost';
-import MainCarousel from '@/components/main-carousel';
+import MainCarousel from '@/components/main-caraousel';
 import InsightsGrid from './_components/insights-grid';
 
 export const metadata = {
@@ -37,11 +37,6 @@ export default async function InsightsPage() {
         <div className="mt-16 lg:w-[64vw]">
           <MainCarousel posts={carouselPosts} color="blue" layout={1} />
         </div>
-      </div>
-
-      {/* Filter Bar + Results Grid (client island) */}
-      <div className="relative mt-10 mb-10">
-        <InsightsFilterBar />
       </div>
 
       {/* Results Section */}
