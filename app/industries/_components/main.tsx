@@ -209,7 +209,10 @@ const IndustryPage = ({
             Stay updated with the latest trends, regulations, and best practices
           </p>
           <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
-            <GhostTagStrip tagSlug={details.relevant.tagSlug} />
+            <GhostTagStrip
+              primary={details.relevant.primary}
+              sections={details.relevant.insights}
+            />
           </div>
         </div>
       </section>

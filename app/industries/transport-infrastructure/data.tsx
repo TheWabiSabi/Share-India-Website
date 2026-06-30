@@ -92,6 +92,10 @@ export const details = {
       'Stay updated with how SIIB helped transport and infrastructure clients handle vehicle, cargo, liability, and project claims.',
     topic: 'transport_infrastructure',
   },
-  relevant: { tagSlug: 'transport_infrastructure' },
+  relevant: {
+    primary: 'transport-infrastructure',
+    insights: ['blog', 'news'],
+    claimStories: ['claims-story'],
+  },
   knowledge: { industryName: 'Transport & Infrastructure' },
 };

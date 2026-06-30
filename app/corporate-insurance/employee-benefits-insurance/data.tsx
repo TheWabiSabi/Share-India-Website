@@ -91,7 +91,9 @@ export const details = {
     topic: 'employee_benefits_insurance',
   },
   relevant: {
-    tagSlug: 'employee-benefits-insurance',
+    primary: 'employee-benefits-insurance',
+    insights: ['blog', 'news'],
+    claimStories: ['claims-story'],
   },
   knowledge: {
     industryName: 'Employee Benefits Insurance',

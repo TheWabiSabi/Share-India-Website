@@ -99,6 +99,10 @@ export const details = {
       'Stay updated with how SIIB helped healthcare clients respond to malpractice, equipment, property, and cyber claims.',
     topic: 'healthcare',
   },
-  relevant: { tagSlug: 'healthcare' },
+  relevant: {
+    primary: 'healthcare',
+    insights: ['blog', 'news'],
+    claimStories: ['claims-story'],
+  },
   knowledge: { industryName: 'Healthcare Industry' },
 };

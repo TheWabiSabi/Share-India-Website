@@ -91,7 +91,9 @@ export const details = {
     topic: 'office_package_insurance',
   },
   relevant: {
-    tagSlug: 'office-package-insurance',
+    primary: 'office-package-insurance',
+    insights: ['blog', 'news'],
+    claimStories: ['claims-story'],
   },
   knowledge: {
     industryName: 'Office Package Insurance',

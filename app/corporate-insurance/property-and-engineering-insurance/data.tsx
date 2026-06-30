@@ -91,7 +91,9 @@ export const details = {
     topic: 'property_engineering_insurance',
   },
   relevant: {
-    tagSlug: 'property-engineering-insurance',
+    primary: 'property-engineering-insurance',
+    insights: ['blog', 'news'],
+    claimStories: ['claims-story'],
   },
   knowledge: {
     industryName: 'Property & Engineering Insurance',

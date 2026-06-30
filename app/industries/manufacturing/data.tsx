@@ -92,6 +92,10 @@ export const details = {
       'Stay updated with how SIIB helped manufacturing clients recover from fire, machinery, product liability, and cargo claims.',
     topic: 'manufacturing',
   },
-  relevant: { tagSlug: 'manufacturing' },
+  relevant: {
+    primary: 'manufacturing',
+    insights: ['blog', 'news'],
+    claimStories: ['claims-story'],
+  },
   knowledge: { industryName: 'Manufacturing Industry' },
 };

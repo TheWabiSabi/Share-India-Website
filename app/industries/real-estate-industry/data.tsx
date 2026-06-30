@@ -93,7 +93,9 @@ export const details = {
     topic: 'real_estate_industry',
   },
   relevant: {
-    tagSlug: 'real-estate-industry',
+    primary: 'real-estate-industry',
+    insights: ['blog', 'news'],
+    claimStories: ['claims-story'],
   },
   knowledge: {
     industryName: 'Real Estate Industry',

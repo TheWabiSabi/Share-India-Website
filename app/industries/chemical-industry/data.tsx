@@ -101,7 +101,9 @@ export const details = {
     topic: 'chemical_industry',
   },
   relevant: {
-    tagSlug: 'chemical-industry',
+    primary: 'chemical-industry',
+    insights: ['blog', 'news'],
+    claimStories: ['claims-story'],
   },
   knowledge: {
     industryName: 'Chemical Industry',

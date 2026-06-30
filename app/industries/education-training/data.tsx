@@ -99,6 +99,10 @@ export const details = {
       'Stay updated with how SIIB helped education clients manage property, accident, cyber, and liability claims.',
     topic: 'education_training',
   },
-  relevant: { tagSlug: 'education_training' },
+  relevant: {
+    primary: 'education-training',
+    insights: ['blog', 'news'],
+    claimStories: ['claims-story'],
+  },
   knowledge: { industryName: 'Education & Training' },
 };

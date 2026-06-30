@@ -50,7 +50,6 @@ interface MainCarouselProps {
 export default function MainCarousel({ posts = [], layout, color }: MainCarouselProps) {
   const enableLoop = posts.length > 2;
 
-  // Map BlogCard to the shape the existing card components expect
   const slides = posts.map((post) => ({
     title: post.title,
     author: post.author,
