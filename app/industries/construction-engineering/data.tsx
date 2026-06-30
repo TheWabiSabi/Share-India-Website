@@ -42,7 +42,6 @@ export const details = {
   relevant: {
     primary: 'construction-engineering',
     insights: ['blog', 'news'],
-    claimStories: ['claims-story'],
   },
   knowledge: { industryName: 'Construction & Engineering' },
 };

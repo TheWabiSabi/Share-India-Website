@@ -38,7 +38,6 @@ export const details = {
   relevant: {
     primary: 'it-offices',
     insights: ['blog', 'news'],
-    claimStories: ['claims-story'],
   },
   knowledge: { industryName: 'IT & Office Business' },
 };

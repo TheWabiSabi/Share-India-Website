@@ -204,7 +204,7 @@ export default function ClaimsClient({
                 <div className="mt-12 flex justify-center gap-2">
                   {pagination.prev && (
                     <Link
-                      href={`/claims-stories?page=${pagination.prev}`}
+                      href={`/insights/claim-stories?page=${pagination.prev}`}
                       className="rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
                     >
                       ← Prev
@@ -212,7 +212,7 @@ export default function ClaimsClient({
                   )}
                   {pagination.next && (
                     <Link
-                      href={`/claims-stories?page=${pagination.next}`}
+                      href={`/insights/claim-stories?page=${pagination.next}`}
                       className="rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
                     >
                       Next →

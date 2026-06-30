@@ -103,7 +103,6 @@ export const details = {
   relevant: {
     primary: 'infrastructure-industry',
     insights: ['blog', 'news'],
-    claimStories: ['claims-story'],
   },
   knowledge: {
     industryName: 'Infrastructure Industry',

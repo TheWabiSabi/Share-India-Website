@@ -27,11 +27,9 @@ export default async function NewsPage({
   const [newsData, breakingPosts] = await Promise.all([
     getFeaturedAndLatestByTag(NEWS_TAG, 6, page, 6),
     // Breaking news is a subset — fetch by its own tag
-    (async () => {
-      const { getFeaturedAndLatestByTag: f } = await import('@/lib/ghost');
-      const { featured, latest } = await f(BREAKING_TAG, 10, 1, 20);
-      return [...featured, ...latest].map(toCard);
-    })(),
+    getFeaturedAndLatestByTag(BREAKING_TAG, 10, 1, 20).then(({ featured, latest }) =>
+      [...featured, ...latest].map(toCard),
+    ),
   ]);
 
   const featuredNews = newsData.featured.map(toCard);

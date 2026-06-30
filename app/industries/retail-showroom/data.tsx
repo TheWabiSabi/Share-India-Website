@@ -38,7 +38,6 @@ export const details = {
   relevant: {
     primary: 'retail-showroom',
     insights: ['blog', 'news'],
-    claimStories: ['claims-story'],
   },
   knowledge: { industryName: 'Retail & Showroom' },
 };

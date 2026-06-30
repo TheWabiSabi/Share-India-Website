@@ -49,8 +49,6 @@ interface RelevantSection {
   primary: string;
   /** Secondary tags for the "Industry Insights & Articles" section (OR-ed). */
   insights: string[];
-  /** Secondary tags for the "Claim Stories" section (OR-ed). */
-  claimStories: string[];
 }
 
 interface KnowledgeSection {

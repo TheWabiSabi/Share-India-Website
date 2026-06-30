@@ -38,7 +38,6 @@ export const details = {
   relevant: {
     primary: 'hospitality-food',
     insights: ['blog', 'news'],
-    claimStories: ['claims-story'],
   },
   knowledge: { industryName: 'Hospitality & Food Business' },
 };

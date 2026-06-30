@@ -38,7 +38,6 @@ export const details = {
   relevant: {
     primary: 'miscellaneous-commercial',
     insights: ['blog', 'news'],
-    claimStories: ['claims-story'],
   },
   knowledge: { industryName: 'Commercial Business' },
 };
