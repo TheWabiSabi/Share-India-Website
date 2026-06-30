@@ -3,12 +3,48 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
+<<<<<<< HEAD
 import { type BlogCard } from '@/lib/ghost';
 
 export default function TopNewsCarousel({ posts }: { posts: BlogCard[] }) {
+=======
+import type { BlogRow } from '@/lib/ghost';
+
+function formatString(str: string) {
+  return str.replace(/_/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
+}
+
+function formatDate(d: string) {
+  try {
+    return new Date(d).toLocaleDateString(undefined, {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+    });
+  } catch {
+    return d;
+  }
+}
+
+export default function TopNewsCarousel() {
+>>>>>>> ac6720d (updates)
   const trackRef = useRef<HTMLDivElement>(null);
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(true);
+  const [items, setItems] = useState<BlogRow[]>([]);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch('/api/ghost/posts?section=news')
+      .then((r) => r.json())
+      .then((data: BlogRow[]) => {
+        if (!cancelled) setItems(Array.isArray(data) ? data : []);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const cardWidth = 360;
   const scrollBy = cardWidth * 2;
@@ -39,7 +75,11 @@ export default function TopNewsCarousel({ posts }: { posts: BlogCard[] }) {
         className="scrollbar-hide flex snap-x snap-mandatory gap-5 overflow-x-auto px-1"
         aria-label="Top news carousel"
       >
+<<<<<<< HEAD
         {posts.map((post) => (
+=======
+        {items.map((item) => (
+>>>>>>> ac6720d (updates)
           <article
             key={post.slug}
             className="group relative w-[320px] shrink-0 snap-start rounded-xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md sm:w-[360px]"

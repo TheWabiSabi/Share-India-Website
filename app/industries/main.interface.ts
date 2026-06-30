@@ -45,7 +45,12 @@ interface ClaimStorySection {
 }
 
 interface RelevantSection {
-  tagSlug: string;
+  /** Ghost primary tag = which website page these posts belong to. */
+  primary: string;
+  /** Secondary tags for the "Industry Insights & Articles" section (OR-ed). */
+  insights: string[];
+  /** Secondary tags for the "Claim Stories" section (OR-ed). */
+  claimStories: string[];
 }
 
 interface KnowledgeSection {

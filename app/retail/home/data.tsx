@@ -93,7 +93,9 @@ export const details = {
     topic: 'home_retail',
   },
   relevant: {
-    tagSlug: 'home-insurance',
+    primary: 'home-insurance',
+    insights: ['blog', 'news'],
+    claimStories: ['claims-story'],
   },
   knowledge: {
     industryName: 'Retail Home Insurance',

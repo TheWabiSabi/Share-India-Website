@@ -83,7 +83,9 @@ export const details = {
     topic: 'liability_insurance',
   },
   relevant: {
-    tagSlug: 'liability-insurance',
+    primary: 'liability-insurance',
+    insights: ['blog', 'news'],
+    claimStories: ['claims-story'],
   },
   knowledge: {
     industryName: 'Liability Insurance',

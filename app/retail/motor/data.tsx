@@ -93,7 +93,9 @@ export const details = {
     topic: 'motor_retail',
   },
   relevant: {
-    tagSlug: 'motor-insurance',
+    primary: 'motor-insurance',
+    insights: ['blog', 'news'],
+    claimStories: ['claims-story'],
   },
   knowledge: {
     industryName: 'Retail Motor Insurance',

@@ -1,7 +1,8 @@
 import GhostContentAPI, { type PostOrPage, type Pagination } from '@tryghost/content-api';
+import { cleanTagName } from '@/consts/tags';
 
-/** Posts shown per page on the /blogs list — fixed by product requirement. */
-export const POSTS_PER_PAGE = 7;
+/** Posts shown per page on the /blogs list. */
+export const POSTS_PER_PAGE = 5;
 
 /** A Ghost post with tags + authors expanded (we always request them). */
 export type GhostPost = PostOrPage;
@@ -67,13 +68,13 @@ export function toCard(post: GhostPost): BlogCard {
     date: post.published_at ?? post.created_at ?? '',
     dateLabel: formatDate(post.published_at ?? post.created_at ?? ''),
     readTime: post.reading_time ? `${post.reading_time} min read` : '',
-    category: post.primary_tag?.name ?? 'Insights',
+    category: cleanTagName(post.primary_tag?.name ?? 'Insights'),
     image: post.feature_image ?? '',
     featured: post.featured ?? false,
     // Ghost marks internal tags with a leading '#'; hide those from the public.
     tags: (post.tags ?? [])
       .filter((t) => t.slug && t.name && !t.name.startsWith('#'))
-      .map((t) => ({ name: t.name as string, slug: t.slug })),
+      .map((t) => ({ name: cleanTagName(t.name as string), slug: t.slug })),
   };
 }
 
@@ -82,11 +83,112 @@ export function toArticle(post: GhostPost): BlogArticle {
   return { ...toCard(post), html: post.html ?? '' };
 }
 
-/** Featured posts for the "Recommended" strip (the old site's recommendation signal). */
-export async function getFeaturedPosts(limit = 6): Promise<GhostPost[]> {
+/** Secondary "section" tags, mapped to the legacy `type` strings the UI uses. */
+const TYPE_BY_TAG: Record<string, string> = {
+  news: 'news',
+  blog: 'blog',
+  'claims-story': 'claims_story',
+};
+
+/** Retail primary tags — used to classify a post's `industry` (else "corporate"). */
+const RETAIL_PRIMARIES = new Set([
+  'retail-cyber',
+  'retail-health',
+  'home-insurance',
+  'retail-life',
+  'motor-insurance',
+  'term-insurance',
+  'retail-travel',
+  'retail',
+]);
+
+/**
+ * Flat row matching the legacy `list_of_blogs.json` shape, sourced from Ghost.
+ * Lets the news / insights / claim-stories pages keep their filtering logic.
+ */
+export interface BlogRow {
+  slug: string;
+  title: string;
+  author: string;
+  date: string;
+  dateLabel: string;
+  readTime: string;
+  category: string;
+  image: string;
+  excerpt: string;
+  featured: boolean;
+  /** Legacy-style type: 'news' | 'blog' | 'claims_story' | '' (from a section tag). */
+  type: string;
+  /** 'retail' | 'corporate' (derived from the primary tag). */
+  industry: string;
+  /** Primary tag slug (which page). */
+  topic: string;
+  /** Whether the post is "breaking" — driven by Ghost's native featured flag. */
+  breaking: boolean;
+}
+
+export function toRow(post: GhostPost): BlogRow {
+  const tagSlugs = (post.tags ?? []).map((t) => t.slug);
+  const typeTag = tagSlugs.find((s) => s in TYPE_BY_TAG);
+  const topic = tagSlugs.find((s) => RETAIL_PRIMARIES.has(s)) ?? post.primary_tag?.slug ?? '';
+  return {
+    slug: post.slug,
+    title: post.title ?? 'Untitled',
+    author: post.primary_author?.name ?? 'Share India',
+    date: post.published_at ?? post.created_at ?? '',
+    dateLabel: formatDate(post.published_at ?? post.created_at ?? ''),
+    readTime: post.reading_time ? `${post.reading_time} min read` : '',
+    category: cleanTagName(post.primary_tag?.name ?? 'Insights'),
+    image: post.feature_image ?? '',
+    excerpt: post.excerpt ?? '',
+    featured: post.featured ?? false,
+    type: typeTag ? TYPE_BY_TAG[typeTag] : '',
+    industry: RETAIL_PRIMARIES.has(topic) ? 'retail' : 'corporate',
+    topic,
+    // No dedicated breaking tag (only 3 secondary tags); featured news = breaking.
+    breaking: post.featured ?? false,
+  };
+}
+
+/**
+ * Flexible post browse used by carousels and the news/insights/claim-stories
+ * pages. Combines an optional primary tag, an OR-set of section tags, and an
+ * optional `featured` flag. Defaults to newest-first.
+ */
+export async function getPosts(opts: {
+  primary?: string;
+  sections?: string[];
+  featured?: boolean;
+  limit?: number;
+} = {}): Promise<GhostPost[]> {
+  const { primary, sections = [], featured, limit = 'all' } = opts;
+
+  const clauses: string[] = [];
+  if (primary) clauses.push(`tags:${primary}`);
+  const secondary = sections.filter(Boolean);
+  if (secondary.length) clauses.push(`tags:[${secondary.join(',')}]`);
+  if (featured) clauses.push('featured:true');
+
   try {
     return await getClient().posts.browse({
-      filter: 'featured:true',
+      ...(clauses.length ? { filter: clauses.join('+') } : {}),
+      limit,
+      include: ['tags', 'authors'],
+      order: 'published_at DESC',
+    });
+  } catch {
+    return [];
+  }
+}
+
+/**
+ * Featured posts for the "Recommended" strip. Pass `section` (a secondary tag,
+ * e.g. 'blog') to scope a section-only page to that tag.
+ */
+export async function getFeaturedPosts(limit = 6, section?: string): Promise<GhostPost[]> {
+  try {
+    return await getClient().posts.browse({
+      filter: section ? `featured:true+tags:${section}` : 'featured:true',
       limit,
       include: ['tags', 'authors'],
       order: 'published_at DESC',
@@ -102,10 +204,11 @@ export async function getFeaturedPosts(limit = 6): Promise<GhostPost[]> {
  */
 export async function getLatestPosts(
   page = 1,
+  section?: string,
 ): Promise<{ posts: GhostPost[]; pagination: Pagination }> {
   try {
     const result = await getClient().posts.browse({
-      filter: 'featured:false',
+      filter: section ? `featured:false+tags:${section}` : 'featured:false',
       limit: POSTS_PER_PAGE,
       page,
       include: ['tags', 'authors'],
@@ -275,16 +378,34 @@ export async function getPostBySlug(slug: string): Promise<GhostPost | null> {
   }
 }
 
-/** Posts filtered by a specific tag slug — used by industry/product pages. */
-export async function getPostsByTag(tagSlug: string, limit = 6): Promise<GhostPost[]> {
+/**
+ * Posts for one page section: a **primary** tag (which website page) AND any of
+ * the section's **secondary** tags (which in-page section). Both must match.
+ *
+ * Ghost NQL: `tags:<primary>+tags:[a,b]` — `+` is AND, `[a,b]` is an OR-set.
+ * Passing no secondary tags falls back to the primary tag alone.
+ */
+export async function getPostsBySection(
+  primary: string,
+  sections: string[] = [],
+  limit = 5,
+  page = 1,
+): Promise<GhostPost[]> {
+  if (!primary) return [];
+
+  const secondary = sections.filter(Boolean);
+  const filter = secondary.length
+    ? `tags:${primary}+tags:[${secondary.join(',')}]`
+    : `tags:${primary}`;
+
   try {
-    const result = await getClient().posts.browse({
-      filter: `tags:${tagSlug}`,
+    return await getClient().posts.browse({
+      filter,
       limit,
+      page,
       include: ['tags', 'authors'],
       order: 'published_at DESC',
     });
-    return result;
   } catch {
     return [];
   }

@@ -100,7 +100,9 @@ export const details = {
     topic: 'solar_industry',
   },
   relevant: {
-    tagSlug: 'solar-industry',
+    primary: 'solar-industry',
+    insights: ['blog', 'news'],
+    claimStories: ['claims-story'],
   },
   knowledge: {
     industryName: 'Solar Industry',

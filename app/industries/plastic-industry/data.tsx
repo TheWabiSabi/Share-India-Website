@@ -101,7 +101,9 @@ export const details = {
     topic: 'plastic_industry',
   },
   relevant: {
-    tagSlug: 'plastic-industry',
+    primary: 'plastic-industry',
+    insights: ['blog', 'news'],
+    claimStories: ['claims-story'],
   },
   knowledge: {
     industryName: 'Plastic Industry',

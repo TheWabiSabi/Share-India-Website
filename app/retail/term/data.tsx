@@ -101,7 +101,9 @@ export const details = {
     topic: 'term_insurance',
   },
   relevant: {
-    tagSlug: 'term-insurance',
+    primary: 'term-insurance',
+    insights: ['blog', 'news'],
+    claimStories: ['claims-story'],
   },
   knowledge: {
     industryName: 'Term Insurance',
