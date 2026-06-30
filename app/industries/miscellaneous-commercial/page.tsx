@@ -7,7 +7,8 @@ export const metadata: Metadata = {
   title: 'Commercial Business Insurance Solutions | SIIB',
   description:
     'Flexible insurance coverage for diverse commercial establishments protecting property, people, and operations across sectors.',
-  keywords: 'commercial business insurance, commercial property insurance, public liability, business interruption',
+  keywords:
+    'commercial business insurance, commercial property insurance, public liability, business interruption',
 };
 
 export default function MiscellaneousCommercialPage() {

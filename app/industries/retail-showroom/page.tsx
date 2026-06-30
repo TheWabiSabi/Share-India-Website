@@ -14,7 +14,8 @@ export const metadata: Metadata = {
   title: 'Retail & Showroom Insurance Solutions | SIIB',
   description:
     'Complete insurance for retail stores, showrooms, and consumer businesses covering stock, property, customers, and staff.',
-  keywords: 'retail insurance, showroom insurance, stock insurance, shop insurance, burglary insurance',
+  keywords:
+    'retail insurance, showroom insurance, stock insurance, shop insurance, burglary insurance',
 };
 
 export default function RetailShowroomPage() {

@@ -37,8 +37,8 @@ services:
     container_name: ghost-mailpit
     restart: unless-stopped
     ports:
-      - '8025:8025'  # web UI
-      - '1025:1025'  # SMTP
+      - '8025:8025' # web UI
+      - '1025:1025' # SMTP
     networks:
       - cms
 

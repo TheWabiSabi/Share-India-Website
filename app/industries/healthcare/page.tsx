@@ -10,7 +10,8 @@ export const metadata: Metadata = {
   title: 'Healthcare Industry Insurance Solutions | SIIB',
   description:
     'Specialized coverage for hospitals, clinics, diagnostic centres, and healthcare professionals protecting patients, staff, and assets.',
-  keywords: 'healthcare insurance, hospital insurance, clinic insurance, medical malpractice, professional indemnity',
+  keywords:
+    'healthcare insurance, hospital insurance, clinic insurance, medical malpractice, professional indemnity',
 };
 
 export default function HealthcarePage() {

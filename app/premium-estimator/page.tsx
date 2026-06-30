@@ -96,7 +96,9 @@ const getIndustryByParam = (industryParam: string | null): Industry | undefined 
 const InsuranceCalculatorContent: React.FC = () => {
   const searchParams = useSearchParams();
   const initialIndustry = getIndustryByParam(searchParams.get('industry'));
-  const [selectedIndustry, setSelectedIndustry] = useState<Industry | null>(initialIndustry || null);
+  const [selectedIndustry, setSelectedIndustry] = useState<Industry | null>(
+    initialIndustry || null,
+  );
   const [selectedCategories, setSelectedCategories] = useState<Set<InsuranceCategory>>(new Set());
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [expandedCategory, setExpandedCategory] = useState<InsuranceCategory | null>(null);

@@ -155,12 +155,14 @@ export function toRow(post: GhostPost): BlogRow {
  * pages. Combines an optional primary tag, an OR-set of section tags, and an
  * optional `featured` flag. Defaults to newest-first.
  */
-export async function getPosts(opts: {
-  primary?: string;
-  sections?: string[];
-  featured?: boolean;
-  limit?: number;
-} = {}): Promise<GhostPost[]> {
+export async function getPosts(
+  opts: {
+    primary?: string;
+    sections?: string[];
+    featured?: boolean;
+    limit?: number;
+  } = {},
+): Promise<GhostPost[]> {
   const { primary, sections = [], featured, limit = 'all' } = opts;
 
   const clauses: string[] = [];

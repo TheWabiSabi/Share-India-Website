@@ -2,17 +2,29 @@ export const quizQuestions = [
   {
     id: '1',
     question: 'Which cover helps protect students against accidental injury?',
-    options: ['Student personal accident cover', 'Motor fleet insurance', 'Cargo insurance', 'Liquor liability'],
+    options: [
+      'Student personal accident cover',
+      'Motor fleet insurance',
+      'Cargo insurance',
+      'Liquor liability',
+    ],
     correctAnswer: 0,
-    explanation: 'Student personal accident cover is designed to provide benefits after covered student accidents.',
+    explanation:
+      'Student personal accident cover is designed to provide benefits after covered student accidents.',
     difficulty: 'easy' as const,
   },
   {
     id: '2',
     question: 'Why do educational institutions need public liability insurance?',
-    options: ['For visitor and third-party injury claims on campus', 'For only vehicle fuel costs', 'For only product exports', 'For only cargo storage'],
+    options: [
+      'For visitor and third-party injury claims on campus',
+      'For only vehicle fuel costs',
+      'For only product exports',
+      'For only cargo storage',
+    ],
     correctAnswer: 0,
-    explanation: 'Schools and colleges have regular student, parent, vendor, and visitor footfall, creating public liability exposure.',
+    explanation:
+      'Schools and colleges have regular student, parent, vendor, and visitor footfall, creating public liability exposure.',
     difficulty: 'medium' as const,
   },
   {
@@ -20,15 +32,22 @@ export const quizQuestions = [
     question: 'Which cover is relevant for online or hybrid learning platforms?',
     options: ['Cyber liability', 'Plate glass only', 'Marine cargo only', 'Contractor plant only'],
     correctAnswer: 0,
-    explanation: 'Cyber liability helps address data breach, digital platform, and online learning technology risks.',
+    explanation:
+      'Cyber liability helps address data breach, digital platform, and online learning technology risks.',
     difficulty: 'medium' as const,
   },
   {
     id: '4',
     question: 'Which policy can protect institutional leaders from management liability claims?',
-    options: ['Directors & Officers (D&O) liability', 'Personal accident for students only', 'Shop stock cover only', 'Travel delay only'],
+    options: [
+      'Directors & Officers (D&O) liability',
+      'Personal accident for students only',
+      'Shop stock cover only',
+      'Travel delay only',
+    ],
     correctAnswer: 0,
-    explanation: 'D&O liability protects directors and officers against covered claims linked to management decisions.',
+    explanation:
+      'D&O liability protects directors and officers against covered claims linked to management decisions.',
     difficulty: 'hard' as const,
   },
   {

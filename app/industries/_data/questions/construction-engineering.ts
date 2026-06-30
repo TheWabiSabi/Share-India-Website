@@ -2,41 +2,71 @@ export const quizQuestions = [
   {
     id: '1',
     question: 'Which cover is commonly used for civil construction project risks?',
-    options: ['Contractor All Risks (CAR) insurance', 'Only motor insurance', 'Only travel insurance', 'Only term insurance'],
+    options: [
+      'Contractor All Risks (CAR) insurance',
+      'Only motor insurance',
+      'Only travel insurance',
+      'Only term insurance',
+    ],
     correctAnswer: 0,
-    explanation: 'CAR insurance is designed for civil works and can cover material damage and third-party liability during construction.',
+    explanation:
+      'CAR insurance is designed for civil works and can cover material damage and third-party liability during construction.',
     difficulty: 'easy' as const,
   },
   {
     id: '2',
     question: 'Which policy is most relevant for installation, erection, and commissioning work?',
-    options: ['Erection All Risks (EAR) coverage', 'Student accident cover', 'Plate glass only', 'Marine hull only'],
+    options: [
+      'Erection All Risks (EAR) coverage',
+      'Student accident cover',
+      'Plate glass only',
+      'Marine hull only',
+    ],
     correctAnswer: 0,
-    explanation: 'EAR coverage is used for machinery erection, installation, testing, and commissioning exposures.',
+    explanation:
+      'EAR coverage is used for machinery erection, installation, testing, and commissioning exposures.',
     difficulty: 'medium' as const,
   },
   {
     id: '3',
     question: 'Why is third-party public liability important on construction sites?',
-    options: ['It covers claims from third parties injured or damaged by site activity', 'It replaces payroll software', 'It insures only personal cars', 'It covers only employee resignations'],
+    options: [
+      'It covers claims from third parties injured or damaged by site activity',
+      'It replaces payroll software',
+      'It insures only personal cars',
+      'It covers only employee resignations',
+    ],
     correctAnswer: 0,
-    explanation: 'Construction sites can affect visitors, neighbours, and public property, making third-party liability a key protection.',
+    explanation:
+      'Construction sites can affect visitors, neighbours, and public property, making third-party liability a key protection.',
     difficulty: 'medium' as const,
   },
   {
     id: '4',
     question: 'Which detail helps assess worker injury exposure on a project?',
-    options: ['Number of workers on site', 'Brand colour of the contractor', 'Office stationery count', 'Website traffic only'],
+    options: [
+      'Number of workers on site',
+      'Brand colour of the contractor',
+      'Office stationery count',
+      'Website traffic only',
+    ],
     correctAnswer: 0,
-    explanation: 'The number of workers on site directly influences workmen compensation and safety exposure.',
+    explanation:
+      'The number of workers on site directly influences workmen compensation and safety exposure.',
     difficulty: 'easy' as const,
   },
   {
     id: '5',
     question: 'Which cover supports engineers against professional error claims?',
-    options: ['Professional indemnity for engineers', 'Burglary cover only', 'Personal travel cover', 'Pet insurance'],
+    options: [
+      'Professional indemnity for engineers',
+      'Burglary cover only',
+      'Personal travel cover',
+      'Pet insurance',
+    ],
     correctAnswer: 0,
-    explanation: 'Professional indemnity responds to claims alleging design, advice, or professional service errors.',
+    explanation:
+      'Professional indemnity responds to claims alleging design, advice, or professional service errors.',
     difficulty: 'hard' as const,
   },
 ];

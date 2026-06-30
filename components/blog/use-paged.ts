@@ -35,10 +35,7 @@ export function usePagedArray<T>(items: T[], perPage = POSTS_PER_WINDOW): Paged<
   const safePage = Math.min(page, pageCount);
   const start = (safePage - 1) * perPage;
 
-  const pageItems = useMemo(
-    () => items.slice(start, start + perPage),
-    [items, start, perPage],
-  );
+  const pageItems = useMemo(() => items.slice(start, start + perPage), [items, start, perPage]);
 
   return {
     pageItems,
