@@ -35,6 +35,10 @@ export const details = {
     ],
   },
   claim_story: { description: 'Stay updated with how SIIB helped commercial businesses manage property, theft, liability, and interruption claims.', topic: 'miscellaneous_commercial' },
-  relevant: { topic: 'miscellaneous_commercial' },
+  relevant: {
+    primary: 'miscellaneous-commercial',
+    insights: ['blog', 'news'],
+    claimStories: ['claims-story'],
+  },
   knowledge: { industryName: 'Commercial Business' },
 };

@@ -31,9 +31,9 @@ const corporateTopics = [
 ];
 
 export default function InsightsFilterBar({
-  onFiltersChange,
+  onFiltersChange = () => {},
 }: {
-  onFiltersChange: (filters: { industry: string; type: string; topic: string }) => void;
+  onFiltersChange?: (filters: { industry: string; type: string; topic: string }) => void;
 }) {
   const [selectedIndustry, setSelectedIndustry] = useState('All Industries');
   const [selectedType, setSelectedType] = useState('All Types');

@@ -35,6 +35,10 @@ export const details = {
     ],
   },
   claim_story: { description: 'Stay updated with how SIIB helped warehousing and logistics clients recover from stock, fire, theft, liability, and machinery claims.', topic: 'warehousing_logistics' },
-  relevant: { topic: 'warehousing_logistics' },
+  relevant: {
+    primary: 'warehousing-logistics',
+    insights: ['blog', 'news'],
+    claimStories: ['claims-story'],
+  },
   knowledge: { industryName: 'Warehousing & Logistics' },
 };

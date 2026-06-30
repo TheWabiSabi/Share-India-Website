@@ -35,6 +35,10 @@ export const details = {
     ],
   },
   claim_story: { description: 'Stay updated with how SIIB helped IT and office clients respond to cyber, liability, employee, and property claims.', topic: 'it_offices' },
-  relevant: { topic: 'it_offices' },
+  relevant: {
+    primary: 'it-offices',
+    insights: ['blog', 'news'],
+    claimStories: ['claims-story'],
+  },
   knowledge: { industryName: 'IT & Office Business' },
 };

@@ -35,6 +35,10 @@ export const details = {
     ],
   },
   claim_story: { description: 'Stay updated with how SIIB helped hospitality and food clients recover from fire, food liability, and business interruption claims.', topic: 'hospitality_food' },
-  relevant: { topic: 'hospitality_food' },
+  relevant: {
+    primary: 'hospitality-food',
+    insights: ['blog', 'news'],
+    claimStories: ['claims-story'],
+  },
   knowledge: { industryName: 'Hospitality & Food Business' },
 };

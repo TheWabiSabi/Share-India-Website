@@ -39,6 +39,10 @@ export const details = {
     ],
   },
   claim_story: { description: 'Stay updated with how SIIB helped construction and engineering clients recover from worksite losses, equipment damage, and liability claims.', topic: 'construction_engineering' },
-  relevant: { topic: 'construction_engineering' },
+  relevant: {
+    primary: 'construction-engineering',
+    insights: ['blog', 'news'],
+    claimStories: ['claims-story'],
+  },
   knowledge: { industryName: 'Construction & Engineering' },
 };
