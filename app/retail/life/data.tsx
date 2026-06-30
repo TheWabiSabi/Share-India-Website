@@ -99,7 +99,9 @@ export const details = {
     topic: 'retail_life',
   },
   relevant: {
-    tagSlug: 'retail-life',
+    primary: 'retail-life',
+    insights: ['blog', 'news'],
+    claimStories: ['claims-story'],
   },
   knowledge: {
     industryName: 'Retail Life Insurance',

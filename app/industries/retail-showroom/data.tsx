@@ -95,6 +95,10 @@ export const details = {
       'Stay updated with how SIIB helped retail and showroom clients recover from stock loss, theft, fire, and liability claims.',
     topic: 'retail_showroom',
   },
-  relevant: { tagSlug: 'retail_showroom' },
+  relevant: {
+    primary: 'retail-showroom',
+    insights: ['blog', 'news'],
+    claimStories: ['claims-story'],
+  },
   knowledge: { industryName: 'Retail & Showroom' },
 };

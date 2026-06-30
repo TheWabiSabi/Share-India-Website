@@ -87,7 +87,9 @@ export const details = {
     topic: 'media_entertainment_insurance',
   },
   relevant: {
-    tagSlug: 'media-entertainment-insurance',
+    primary: 'media-entertainment-insurance',
+    insights: ['blog', 'news'],
+    claimStories: ['claims-story'],
   },
   knowledge: {
     industryName: 'Media & Entertainment Insurance',

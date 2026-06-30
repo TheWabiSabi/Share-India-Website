@@ -101,7 +101,9 @@ export const details = {
     topic: 'textile_industry',
   },
   relevant: {
-    tagSlug: 'textile-industry',
+    primary: 'textile-industry',
+    insights: ['blog', 'news'],
+    claimStories: ['claims-story'],
   },
   knowledge: {
     industryName: 'Textile Industry',

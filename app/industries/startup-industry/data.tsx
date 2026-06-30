@@ -93,7 +93,9 @@ export const details = {
     topic: 'startup_industry',
   },
   relevant: {
-    tagSlug: 'startup-industry',
+    primary: 'startup-industry',
+    insights: ['blog', 'news'],
+    claimStories: ['claims-story'],
   },
   knowledge: {
     industryName: 'Startup Industry',

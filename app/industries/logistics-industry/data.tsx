@@ -93,7 +93,9 @@ export const details = {
     topic: 'logistics_industry',
   },
   relevant: {
-    tagSlug: 'logistics-industry',
+    primary: 'logistics-industry',
+    insights: ['blog', 'news'],
+    claimStories: ['claims-story'],
   },
   knowledge: {
     industryName: 'Logistics Industry',

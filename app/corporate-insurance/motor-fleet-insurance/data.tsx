@@ -91,7 +91,9 @@ export const details = {
     topic: 'motor_fleet_insurance',
   },
   relevant: {
-    tagSlug: 'motor-fleet-insurance',
+    primary: 'motor-fleet-insurance',
+    insights: ['blog', 'news'],
+    claimStories: ['claims-story'],
   },
   knowledge: {
     industryName: 'Motor Fleet Insurance',

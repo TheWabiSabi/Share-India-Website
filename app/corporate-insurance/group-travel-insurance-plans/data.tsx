@@ -91,7 +91,9 @@ export const details = {
     topic: 'group_travel_insurance',
   },
   relevant: {
-    tagSlug: 'group-travel-insurance',
+    primary: 'group-travel-insurance',
+    insights: ['blog', 'news'],
+    claimStories: ['claims-story'],
   },
   knowledge: {
     industryName: 'Group Travel Insurance',

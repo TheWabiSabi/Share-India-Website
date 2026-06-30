@@ -9,7 +9,7 @@ export const metadata = {
 
 /**
  * Ghost tag convention used by this section:
- *   - "news"         → all news posts
+ *   - "news"          → all news posts
  *   - "breaking-news" → posts that appear in the breaking news strip
  *
  * Adjust the slugs if your Ghost taxonomy differs.

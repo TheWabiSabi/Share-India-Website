@@ -21,9 +21,10 @@ function parsePage(raw: string | undefined): number {
 export default async function BlogsPage({ searchParams }: BlogsPageProps) {
   const page = parsePage((await searchParams).page);
 
+  // Dedicated "blogs" page — follows the secondary `blog` tag only (any primary).
   const [featuredPosts, latest] = await Promise.all([
-    page === 1 ? getFeaturedPosts() : Promise.resolve([]),
-    getLatestPosts(page),
+    page === 1 ? getFeaturedPosts(6, 'blog') : Promise.resolve([]),
+    getLatestPosts(page, 'blog'),
   ]);
 
   const recommended = featuredPosts.map(toCard);

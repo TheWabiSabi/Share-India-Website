@@ -30,7 +30,7 @@ export interface CorporateInsuranceDetails {
     coverages: Array<{ title: string; icon: React.ReactNode; body: string; bullets: string[] }>;
   };
   claim_story: { description: string; topic: string };
-  relevant: { tagSlug: string };
+  relevant: { primary: string; insights: string[]; claimStories: string[] };
   knowledge: { industryName: string };
 }
 
@@ -203,7 +203,7 @@ const CorporatePage = ({
             Stay updated with the latest trends, regulations, and best practices
           </p>
           <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
-            <GhostTagStrip tagSlug={details.relevant.tagSlug} />
+            <GhostTagStrip primary={details.relevant.primary} sections={details.relevant.insights} />
           </div>
         </div>
       </section>
