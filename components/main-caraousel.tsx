@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 
@@ -12,11 +11,7 @@ import 'swiper/css/scrollbar';
 import './swiper.css';
 import WhiteBlogCard from './cards/white-blog-card';
 import BlueBlogCard from './cards/blue-blog-card';
-<<<<<<< HEAD
 import { type BlogCard } from '@/lib/ghost';
-=======
-import type { BlogRow } from '@/lib/ghost';
->>>>>>> ac6720d (updates)
 
 const getBreakpoints = (layout: 1 | 2 | 3) => {
   if (layout === 1) {
@@ -46,27 +41,15 @@ const getBreakpoints = (layout: 1 | 2 | 3) => {
   }
 };
 
-<<<<<<< HEAD
 interface MainCarouselProps {
   posts?: BlogCard[];
-=======
-interface CaraouselProps {
-  /** Primary tag (which page) — e.g. for a page's Claim Stories carousel. */
-  primary?: string;
-  /** Section (secondary) tags — e.g. ['claims-story']. */
-  sections?: string[];
-  /** Only featured posts. */
-  featured?: boolean;
->>>>>>> ac6720d (updates)
   layout: 1 | 2 | 3;
   color: 'blue' | 'white';
 }
 
-<<<<<<< HEAD
 export default function MainCarousel({ posts = [], layout, color }: MainCarouselProps) {
   const enableLoop = posts.length > 2;
 
-  // Map BlogCard to the shape the existing card components expect
   const slides = posts.map((post) => ({
     title: post.title,
     author: post.author,
@@ -76,51 +59,6 @@ export default function MainCarousel({ posts = [], layout, color }: MainCarousel
     imageUrl: post.image,
     slug: post.slug,
   }));
-=======
-export default function MainCaraousel({
-  primary,
-  sections = [],
-  featured,
-  layout,
-  color,
-}: CaraouselProps) {
-  const [rows, setRows] = useState<BlogRow[] | null>(null);
-
-  const sectionKey = sections.join(',');
-
-  useEffect(() => {
-    let cancelled = false;
-    const params = new URLSearchParams();
-    if (primary) params.set('primary', primary);
-    for (const s of sectionKey ? sectionKey.split(',') : []) params.append('section', s);
-    if (featured) params.set('featured', 'true');
-    fetch(`/api/ghost/posts?${params.toString()}`)
-      .then((r) => r.json())
-      .then((data: BlogRow[]) => {
-        if (!cancelled) setRows(Array.isArray(data) ? data : []);
-      })
-      .catch(() => {
-        if (!cancelled) setRows([]);
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, [primary, sectionKey, featured]);
-
-  const items = (rows ?? []).slice(0, 10).map((post) => ({
-    title: post.title,
-    author: post.author,
-    date: post.dateLabel,
-    description: post.excerpt || post.readTime,
-    category: post.category,
-    imageUrl: post.image,
-    slug: post.slug,
-    type: post.type,
-    industry: post.industry,
-  }));
-
-  const enableLoop = items.length > 2;
->>>>>>> ac6720d (updates)
 
   return (
     <div className="relative w-full sm:pt-14">
@@ -148,11 +86,7 @@ export default function MainCaraousel({
         </button>
       </div>
 
-<<<<<<< HEAD
       {slides.length > 0 ? (
-=======
-      {items.length > 0 ? (
->>>>>>> ac6720d (updates)
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y]}
           spaceBetween={24}
@@ -175,15 +109,9 @@ export default function MainCaraousel({
           breakpoints={getBreakpoints(layout)}
           className="!pb-2"
         >
-<<<<<<< HEAD
           {slides.map((item, index) => (
             <SwiperSlide key={`${item.slug}-${index}`} aria-label={`Insight ${index + 1}`}>
               <div className={color === 'blue' ? 'h-64 md:h-72 lg:h-80' : 'h-full'}>
-=======
-          {items.map((item, index) => (
-            <SwiperSlide key={`${item.slug}-${index}`} aria-label={`Featured insight ${index + 1}`}>
-              <div className={color == 'blue' ? 'h-64 md:h-72 lg:h-80' : 'h-full'}>
->>>>>>> ac6720d (updates)
                 {color === 'white' ? <WhiteBlogCard {...item} /> : <BlueBlogCard {...item} />}
               </div>
             </SwiperSlide>

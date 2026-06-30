@@ -192,18 +192,9 @@ const IndustryPage = ({
           <h2 className="text-si-ink mb-3 text-2xl font-bold md:text-3xl">Claim Stories</h2>
           <p className="text-si-ink/70 mb-8">{details.claim_story.description}</p>
           <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
-<<<<<<< HEAD
             <Suspense fallback={<CarouselSkeleton />}>
               <MainCarouselServer color="blue" layout={1} tagSlugs={claimStoryTagSlugs} />
             </Suspense>
-=======
-            <MainCaraousel
-              color="blue"
-              layout={1}
-              primary={details.relevant.primary}
-              sections={details.relevant.claimStories}
-            />
->>>>>>> ac6720d (updates)
           </div>
         </div>
       </section>

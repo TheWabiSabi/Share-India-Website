@@ -2,9 +2,6 @@ import { NextResponse } from 'next/server';
 import { getPostsBySection, toCard } from '@/lib/ghost';
 import { assertValidSection, TagValidationError } from '@/consts/tags';
 
-<<<<<<< HEAD
-export async function GET(_req: Request, { params }: { params: Promise<{ slug: string }> }) {
-=======
 /**
  * Posts for a page section.
  *   /api/ghost/tag/<primary>?section=blog&section=news&page=1&limit=5
@@ -13,7 +10,6 @@ export async function GET(_req: Request, { params }: { params: Promise<{ slug: s
  * at least one of the sections. Returns 400 if a section doesn't fit the primary.
  */
 export async function GET(req: Request, { params }: { params: Promise<{ slug: string }> }) {
->>>>>>> ac6720d (updates)
   const { slug } = await params;
   const { searchParams } = new URL(req.url);
   const sections = searchParams.getAll('section').filter(Boolean);
