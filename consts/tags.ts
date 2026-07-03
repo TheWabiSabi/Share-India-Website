@@ -8,27 +8,23 @@
  * the SLUGS below are the stable identifiers used for filtering (never renamed).
  */
 
-/** Website (primary) tag slugs. */
+/**
+ * Website (primary) tag slugs — one per real website page. 26 total:
+ * 9 industries + 10 corporate-insurance + 7 retail. Kept in exact sync with the
+ * live nav (see list.md); adding a page ⇒ add its slug here and a Ghost tag.
+ */
 export const PRIMARY_TAGS = [
+  // Industries (9)
   'chemical-industry',
-  'construction-engineering',
-  'education-training',
-  'healthcare',
-  'hospitality-food',
   'infrastructure-industry',
-  'it-offices',
   'life-sciences-pharma-industry',
   'logistics-industry',
-  'manufacturing',
-  'miscellaneous-commercial',
   'plastic-industry',
   'real-estate-industry',
-  'retail-showroom',
   'solar-industry',
   'startup-industry',
   'textile-industry',
-  'transport-infrastructure',
-  'warehousing-logistics',
+  // Corporate insurance (10)
   'employee-benefits-insurance',
   'group-travel-insurance',
   'liability-insurance',
@@ -39,6 +35,7 @@ export const PRIMARY_TAGS = [
   'property-engineering-insurance',
   'shopkeepers-package-jewellers-block',
   'trade-credit-insurance',
+  // Retail (7)
   'retail-cyber',
   'retail-health',
   'home-insurance',
@@ -46,7 +43,6 @@ export const PRIMARY_TAGS = [
   'motor-insurance',
   'term-insurance',
   'retail-travel',
-  'retail',
 ] as const;
 
 /** Section (secondary) tag slugs. Exactly three. */

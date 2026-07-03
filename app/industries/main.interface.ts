@@ -49,6 +49,8 @@ interface RelevantSection {
   primary: string;
   /** Secondary tags for the "Industry Insights & Articles" section (OR-ed). */
   insights: string[];
+  /** Secondary tag(s) for the Claim Stories carousel. Defaults to ['claims-story']. */
+  claimStories?: string[];
 }
 
 interface KnowledgeSection {
