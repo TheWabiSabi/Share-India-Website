@@ -13,7 +13,7 @@
      `infrastructure-industry`).
    - **Secondary tag = WHICH section on that page** it renders in (e.g.
      `claims-story`, `news`). Primary loads first, then secondary.
-2. **Secondary vocabulary is per-primary.** Each primary tag carries its *own*
+2. **Secondary vocabulary is per-primary.** Each primary tag carries its _own_
    list of secondary tags = exactly the post-loading sections that page has.
    See the master map in §4.
 3. **WIPE ALL LEGACY.** The old flat-file blog system (`list_of_blogs.json`,
@@ -22,7 +22,7 @@
    in §5.
 4. **DO NOT redesign page sections.** The section layouts were built by senior
    devs for the client and stay exactly as-is. My only job re: pages is to
-   *read* what post-loading sections each page already has and assign primary +
+   _read_ what post-loading sections each page already has and assign primary +
    secondary tags to match. We only swap each section's **data source** from
    legacy → Ghost; we never add/remove/restyle sections.
 
@@ -42,10 +42,10 @@
 Two post-like sections exist on the section-page templates, and today they pull
 from **different** sources — this is what we're unifying onto Ghost:
 
-| Section label (UI)              | Component                            | Source (today) | Source (after) |
-| ------------------------------- | ------------------------------------ | -------------- | -------------- |
-| "Claim Stories"                 | `MainCaraousel type="claims_story"`  | legacy JSON    | **Ghost** `primary + claims-story` |
-| "Industry Insights & Articles"  | `GhostTagStrip tagSlug=…`            | Ghost (1 tag)  | **Ghost** `primary + news` |
+| Section label (UI)             | Component                           | Source (today) | Source (after)                     |
+| ------------------------------ | ----------------------------------- | -------------- | ---------------------------------- |
+| "Claim Stories"                | `MainCaraousel type="claims_story"` | legacy JSON    | **Ghost** `primary + claims-story` |
+| "Industry Insights & Articles" | `GhostTagStrip tagSlug=…`           | Ghost (1 tag)  | **Ghost** `primary + news`         |
 
 Legacy taxonomy that already mirrors the secondary idea (`consts/types.ts`):
 `types = ['news', 'blogs', 'claims_story']`.
@@ -57,18 +57,22 @@ Legacy taxonomy that already mirrors the secondary idea (`consts/types.ts`):
 **3 templates + 3 landing pages.** Section layouts are FROZEN (read-only).
 
 ### Template A — `app/industries/_components/main.tsx` (`IndustryPage`)
+
 Used by **all 9 industry pages AND all 7 retail sub-pages**.
 Post-loading sections (in order): **Claim Stories**, **Industry Insights & Articles**.
 
 ### Template B — `app/corporate-insurance/_components/CorporatePage.tsx`
+
 Used by **all 10 corporate sub-pages**.
 Post-loading sections: **Claim Stories**, **Industry Insights & Articles**.
 
 ### Landing pages — NO post-loading sections
+
 - `app/industries/page.tsx`, `app/corporate-insurance/page.tsx`,
   `app/retail/page.tsx` → no posts. **No primary tag needed.**
 
 ### Site-wide post pages (not primary-scoped — global feeds)
+
 - `app/blogs/page.tsx` — featured + latest (already Ghost). Keep.
 - `app/blog/[slug]/page.tsx` — single post + related (already Ghost). Keep.
 - `app/page.tsx` (home) — `MainCaraousel` legacy → migrate to Ghost latest.
@@ -90,47 +94,51 @@ later without touching others.
 > The existing `scripts/tag-ghost-posts.mjs` already tags Ghost posts from the
 > legacy `type` field → Ghost slugs `news`, `claims-story`, `blogs`. We reuse
 > those so already-tagged posts light up immediately (no retag needed):
+>
 > - "Claim Stories" section → **`claims-story`**
 > - "Industry Insights & Articles" section → **`news`**
 > - (`blogs` exists as a 3rd option if an Articles section is ever split out.)
 
 ### Industries (Template A) — primary slug → secondaries
-| Page | Primary tag | Secondary tags |
-| ---- | ----------- | -------------- |
-| Chemical | `chemical-industry` | `claims-story`, `news` |
-| Infrastructure | `infrastructure-industry` | `claims-story`, `news` |
+
+| Page                   | Primary tag                     | Secondary tags         |
+| ---------------------- | ------------------------------- | ---------------------- |
+| Chemical               | `chemical-industry`             | `claims-story`, `news` |
+| Infrastructure         | `infrastructure-industry`       | `claims-story`, `news` |
 | Life Sciences & Pharma | `life-sciences-pharma-industry` | `claims-story`, `news` |
-| Logistics | `logistics-industry` | `claims-story`, `news` |
-| Plastic | `plastic-industry` | `claims-story`, `news` |
-| Real Estate | `real-estate-industry` | `claims-story`, `news` |
-| Solar | `solar-industry` | `claims-story`, `news` |
-| Startup | `startup-industry` | `claims-story`, `news` |
-| Textile | `textile-industry` | `claims-story`, `news` |
+| Logistics              | `logistics-industry`            | `claims-story`, `news` |
+| Plastic                | `plastic-industry`              | `claims-story`, `news` |
+| Real Estate            | `real-estate-industry`          | `claims-story`, `news` |
+| Solar                  | `solar-industry`                | `claims-story`, `news` |
+| Startup                | `startup-industry`              | `claims-story`, `news` |
+| Textile                | `textile-industry`              | `claims-story`, `news` |
 
 ### Corporate (Template B) — primary slug → secondaries
-| Page | Primary tag | Secondary tags |
-| ---- | ----------- | -------------- |
-| Employee Benefits | `employee-benefits-insurance` | `claims-story`, `news` |
-| Group Travel | `group-travel-insurance` | `claims-story`, `news` |
-| Liability | `liability-insurance` | `claims-story`, `news` |
-| Marine Transit | `marine-transit-insurance` | `claims-story`, `news` |
-| Media & Entertainment | `media-entertainment-insurance` | `claims-story`, `news` |
-| Motor Fleet | `motor-fleet-insurance` | `claims-story`, `news` |
-| Office Package | `office-package-insurance` | `claims-story`, `news` |
-| Property & Engineering | `property-engineering-insurance` | `claims-story`, `news` |
+
+| Page                    | Primary tag                           | Secondary tags         |
+| ----------------------- | ------------------------------------- | ---------------------- |
+| Employee Benefits       | `employee-benefits-insurance`         | `claims-story`, `news` |
+| Group Travel            | `group-travel-insurance`              | `claims-story`, `news` |
+| Liability               | `liability-insurance`                 | `claims-story`, `news` |
+| Marine Transit          | `marine-transit-insurance`            | `claims-story`, `news` |
+| Media & Entertainment   | `media-entertainment-insurance`       | `claims-story`, `news` |
+| Motor Fleet             | `motor-fleet-insurance`               | `claims-story`, `news` |
+| Office Package          | `office-package-insurance`            | `claims-story`, `news` |
+| Property & Engineering  | `property-engineering-insurance`      | `claims-story`, `news` |
 | Shopkeepers & Jewellers | `shopkeepers-package-jewellers-block` | `claims-story`, `news` |
-| Trade Credit | `trade-credit-insurance` | `claims-story`, `news` |
+| Trade Credit            | `trade-credit-insurance`              | `claims-story`, `news` |
 
 ### Retail sub-pages (Template A) — primary slug → secondaries
-| Page | Primary tag | Secondary tags |
-| ---- | ----------- | -------------- |
-| Cyber | `retail-cyber` | `claims-story`, `news` |
-| Health | `retail-health` | `claims-story`, `news` |
-| Home | `home-insurance` | `claims-story`, `news` |
-| Life | `retail-life` | `claims-story`, `news` |
-| Motor | `motor-insurance` | `claims-story`, `news` |
-| Term | `term-insurance` | `claims-story`, `news` |
-| Travel | `retail-travel` | `claims-story`, `news` |
+
+| Page   | Primary tag       | Secondary tags         |
+| ------ | ----------------- | ---------------------- |
+| Cyber  | `retail-cyber`    | `claims-story`, `news` |
+| Health | `retail-health`   | `claims-story`, `news` |
+| Home   | `home-insurance`  | `claims-story`, `news` |
+| Life   | `retail-life`     | `claims-story`, `news` |
+| Motor  | `motor-insurance` | `claims-story`, `news` |
+| Term   | `term-insurance`  | `claims-story`, `news` |
+| Travel | `retail-travel`   | `claims-story`, `news` |
 
 > ⚠️ Retail primary slugs are inconsistent (`retail-*` vs `*-insurance`). These
 > are the slugs currently hardcoded in each `data.tsx` and must match what's
@@ -145,6 +153,7 @@ later without touching others.
 ## 5. Legacy wipe inventory (decision #3)
 
 **Files to delete:**
+
 - `app/blog/list_of_blogs.json`
 - `app/blog/list_of_breaking_news.ts`
 - `app/blog/blog.interface.ts`
@@ -157,16 +166,18 @@ later without touching others.
 **IMPORTANT — the existing tagging pipeline (the origin of our tags):**
 `scripts/tag-ghost-posts.mjs` reads `list_of_blogs.json` and ensures each Ghost
 post carries: `category`, `humanize(type)`, `humanize(topic)`.
+
 - `topic` → **primary tag** (e.g. `infrastructure_industry` → "Infrastructure
   Industry" → Ghost slug `infrastructure-industry`). Matches §4 primaries. ✓
 - `type` → **secondary tag** (`news`/`blogs`/`claims_story` → slugs `news`,
   `blogs`, `claims-story`). This is where our secondary vocab comes from.
-Once content writers tag manually in Ghost Admin (the new model), this auto-tagger
-is obsolete — but deleting it loses the only record of the tag scheme, hence it's
-captured here in §4 + this section before removal.
+  Once content writers tag manually in Ghost Admin (the new model), this auto-tagger
+  is obsolete — but deleting it loses the only record of the tag scheme, hence it's
+  captured here in §4 + this section before removal.
 
 **Code that imports legacy `list_of_blogs.json` / breaking-news (must migrate to
 Ghost BEFORE deleting, keeping each section's UI unchanged):**
+
 - `components/main-caraousel.tsx` — reads JSON. Consumers: home `app/page.tsx`,
   `app/insights/page.tsx`, Template A Claim Stories, Template B Claim Stories.
 - `app/insights/claim-stories/page.tsx` — reads JSON + `blog.interface`.
@@ -204,7 +215,7 @@ Ghost. Sections/markup unchanged.
 - **Q1 — RESOLVED.** Secondary slugs named from what's in the code = the existing
   Ghost tags: `claims-story` (Claim Stories section) + `news` (Insights & Articles
   section). See §4 / §5.
-- **Q2 — global feeds: RESOLVED in scope.** Wiping legacy *forces* migrating
+- **Q2 — global feeds: RESOLVED in scope.** Wiping legacy _forces_ migrating
   home / insights / news / claim-stories / top-news to Ghost (they import the JSON).
 - **Q3 — retail slug normalisation:** keep mixed `retail-*` / `*-insurance`, or
   standardise? (Changing requires retagging in production Ghost.) Still open.
@@ -216,6 +227,7 @@ Ghost. Sections/markup unchanged.
 ---
 
 ## 8. Decisions log
+
 - **D1:** Two-level primary/secondary tagging, AND-filtered in Ghost. (§0.1)
 - **D2:** Secondary vocab is per-primary; mapped in §4. (§0.2)
 - **D3:** Wipe all legacy flat-file blog system. (§0.3, inventory §5)
@@ -237,6 +249,7 @@ Ghost. Sections/markup unchanged.
 ## 10. PHASE 1 — DONE (2026-06-30)
 
 Section feature implemented + verified live (tsc clean, eslint clean):
+
 - `lib/ghost.ts`: `getPostsByTag` → **`getPostsBySection(primary, sections[], limit)`**
   building `tags:<primary>+tags:[a,b]`.
 - `app/api/ghost/tag/[slug]/route.ts`: accepts repeatable `?section=` + honors
@@ -271,6 +284,7 @@ flexible `getPosts({primary, sections, featured, limit})`.
 
 **`MainCaraousel`** rewritten as a Ghost client fetcher (same Swiper markup); props
 `type/topic/industry` → `primary/sections/featured`. Consumers updated:
+
 - Home `app/page.tsx` (latest) and `app/insights/page.tsx` (featured) — unchanged calls.
 - Templates A & B Claim Stories → `primary + claimStories` ([claims-story]).
 
@@ -320,8 +334,9 @@ prefer the post's PRIMARY_TAGS tag over Ghost's `primary_tag`.
 
 ---
 
-## 13. Plan change — 3 
- tags only (2026-06-30)
+## 13. Plan change — 3
+
+tags only (2026-06-30)
 
 Client simplified to **exactly 3 secondary tags: `news`, `blog`, `claims-story`**.
 Verified the plan against the code; it's coherent and simpler. Changes made:
@@ -356,6 +371,7 @@ in-memory array; resets to page 1 on filter change via render-time pattern — n
 setState-in-effect).
 
 **Two strategies (per the filtered-page decision = keep filters, window render):**
+
 - **Server-paged + prefetch** (no client filter): in-page **Insights sections**
   (`GhostTagStrip`) now fetch 5/page via `?page=N&limit=5`, prefetch page N+1 so
   Next is instant, cache pages so Prev is instant. `getPostsBySection` +
@@ -382,6 +398,7 @@ the right posts. Examples: `infrastructure-industry + news` = 1,
 
 **Secondary vocab on real posts (from legacy `type`):**
 `claims-story` = 16, `blog` = 31, `news` = 8.
+
 - Claim Stories section → **`claims-story`** ✓ (NOT `claim-story` — that's a stray
   1-post duplicate tag to ignore/clean).
 - "Insights & Articles" section → the bulk is **`blog`** (31), with **`news`** (8).

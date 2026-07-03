@@ -2,41 +2,71 @@ export const quizQuestions = [
   {
     id: '1',
     question: 'Which cover responds to data breach and cyber incident costs?',
-    options: ['Cyber liability and data breach insurance', 'Warehouse stock insurance', 'Liquor liability', 'Plate glass only'],
+    options: [
+      'Cyber liability and data breach insurance',
+      'Warehouse stock insurance',
+      'Liquor liability',
+      'Plate glass only',
+    ],
     correctAnswer: 0,
-    explanation: 'Cyber liability helps with covered breach response, data exposure, and cyber incident costs.',
+    explanation:
+      'Cyber liability helps with covered breach response, data exposure, and cyber incident costs.',
     difficulty: 'easy' as const,
   },
   {
     id: '2',
     question: 'Which cover protects IT service providers from service error claims?',
-    options: ['Errors & Omissions (E&O) / Professional indemnity', 'Student personal accident', 'Cargo in-transit only', 'Fire insurance only'],
+    options: [
+      'Errors & Omissions (E&O) / Professional indemnity',
+      'Student personal accident',
+      'Cargo in-transit only',
+      'Fire insurance only',
+    ],
     correctAnswer: 0,
-    explanation: 'E&O or professional indemnity covers eligible claims alleging errors in professional services or advice.',
+    explanation:
+      'E&O or professional indemnity covers eligible claims alleging errors in professional services or advice.',
     difficulty: 'medium' as const,
   },
   {
     id: '3',
     question: 'Why does handling client data affect office insurance needs?',
-    options: ['It increases privacy, breach, and contractual exposure', 'It eliminates cyber risk', 'It only affects vehicle colour', 'It applies only to restaurants'],
+    options: [
+      'It increases privacy, breach, and contractual exposure',
+      'It eliminates cyber risk',
+      'It only affects vehicle colour',
+      'It applies only to restaurants',
+    ],
     correctAnswer: 0,
-    explanation: 'Client data creates cyber, confidentiality, and contractual risk that should be reflected in coverage.',
+    explanation:
+      'Client data creates cyber, confidentiality, and contractual risk that should be reflected in coverage.',
     difficulty: 'medium' as const,
   },
   {
     id: '4',
     question: 'Which cover protects directors and officers from management claims?',
-    options: ['Directors & Officers (D&O) liability', 'Machinery breakdown for forklifts', 'Cargo insurance only', 'Student accident cover'],
+    options: [
+      'Directors & Officers (D&O) liability',
+      'Machinery breakdown for forklifts',
+      'Cargo insurance only',
+      'Student accident cover',
+    ],
     correctAnswer: 0,
-    explanation: 'D&O liability protects leaders against covered claims tied to management decisions.',
+    explanation:
+      'D&O liability protects leaders against covered claims tied to management decisions.',
     difficulty: 'hard' as const,
   },
   {
     id: '5',
     question: 'Which cover protects laptops, servers, and office equipment?',
-    options: ['Office contents and equipment insurance', 'Liquor liability', 'Clinical malpractice only', 'Carrier legal liability'],
+    options: [
+      'Office contents and equipment insurance',
+      'Liquor liability',
+      'Clinical malpractice only',
+      'Carrier legal liability',
+    ],
     correctAnswer: 0,
-    explanation: 'Office contents and equipment insurance protects business assets such as computers, furniture, and electronics.',
+    explanation:
+      'Office contents and equipment insurance protects business assets such as computers, furniture, and electronics.',
     difficulty: 'easy' as const,
   },
 ];
