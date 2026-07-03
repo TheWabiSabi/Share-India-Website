@@ -9,13 +9,15 @@ export const metadata = {
 
 /**
  * Ghost tag convention used by this section:
- *   - "news"          → all news posts
- *   - "breaking-news" → posts that appear in the breaking news strip
+ *   - "news" → all news posts
  *
- * Adjust the slugs if your Ghost taxonomy differs.
+ * "Breaking" is not a separate tag: a news post is "breaking" when it's marked
+ * "Feature this post" in Ghost (the native `featured` flag). The `breaking-news`
+ * tag was removed in the 3-tag consolidation — see notes.md §13. So the featured
+ * split from `getFeaturedAndLatestByTag('news', …)` feeds the Breaking section
+ * directly; no second query and no deleted tag.
  */
 const NEWS_TAG = 'news';
-const BREAKING_TAG = 'breaking-news';
 
 export default async function NewsPage({
   searchParams,
@@ -24,25 +26,16 @@ export default async function NewsPage({
 }) {
   const page = Math.max(1, Number((await searchParams).page ?? 1) || 1);
 
-  const [newsData, breakingPosts] = await Promise.all([
-    getFeaturedAndLatestByTag(NEWS_TAG, 6, page, 6),
-    // Breaking news is a subset — fetch by its own tag
-    (async () => {
-      const { getFeaturedAndLatestByTag: f } = await import('@/lib/ghost');
-      const { featured, latest } = await f(BREAKING_TAG, 10, 1, 20);
-      return [...featured, ...latest].map(toCard);
-    })(),
-  ]);
+  const newsData = await getFeaturedAndLatestByTag(NEWS_TAG, 6, page, 6);
 
-  const featuredNews = newsData.featured.map(toCard);
+  const breakingNews = newsData.featured.map(toCard); // featured news = "breaking"
   const regularNews = newsData.latest.map(toCard);
   const { pagination } = newsData;
 
   return (
     <NewsClient
-      featuredNews={featuredNews}
       regularNews={regularNews}
-      breakingNews={breakingPosts}
+      breakingNews={breakingNews}
       pagination={pagination}
       currentPage={page}
     />

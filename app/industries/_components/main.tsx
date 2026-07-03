@@ -17,6 +17,7 @@ import KnowledgeQuestionnaire from '../_components/KnowledgeQuestionnaire';
 import { quizQuestions as defaultQuizQuestions } from '../_data/questions/infra';
 import { InfrastructureInsuranceDetails } from '../main.interface';
 import { AllTopics } from '@/consts/topics';
+import { isPrimaryTag } from '@/consts/tags';
 
 interface Question {
   id: string;
@@ -25,14 +26,6 @@ interface Question {
   correctAnswer: number;
   explanation: string;
   difficulty: 'easy' | 'medium' | 'hard';
-}
-
-/**
- * Convert the old topic slug format (e.g. "textile_industry") to a Ghost tag
- * slug (e.g. "textile-industry"). Ghost slugs use hyphens not underscores.
- */
-function topicToTagSlug(topic: string): string {
-  return topic.replace(/_/g, '-');
 }
 
 /** Skeleton shown while Ghost fetches */
@@ -57,9 +50,24 @@ const IndustryPage = ({
 }) => {
   const quizQuestions = questions || defaultQuizQuestions;
 
-  // Build the tag slugs for the claim story carousel:
-  // posts must be tagged with both 'claims-story' AND the industry topic tag
-  const claimStoryTagSlugs = ['claims-story', topicToTagSlug(details.claim_story.topic)];
+  // Runs once per page during static generation (these pages prerender) — flags
+  // a page whose relevant.primary isn't a real Ghost primary tag, so a typo'd
+  // or stale tag surfaces as a build-log warning instead of a silently empty
+  // Insights strip / Claim Stories carousel.
+  if (!isPrimaryTag(details.relevant.primary)) {
+    console.warn(
+      `[ghost-tags] relevant.primary "${details.relevant.primary}" is not a known PRIMARY_TAG (consts/tags.ts). Insights and Claim Stories will return no posts for this page.`,
+    );
+  }
+
+  // Build the tag slugs for the claim story carousel: posts must be tagged
+  // with both a section tag (default 'claims-story') AND the page's primary
+  // tag. Sourced from `relevant` — the same field the Insights strip uses —
+  // so the two blocks can never drift onto different page tags.
+  const claimStoryTagSlugs = [
+    ...(details.relevant.claimStories ?? ['claims-story']),
+    details.relevant.primary,
+  ];
 
   return (
     <div className="min-h-screen bg-white text-gray-900">

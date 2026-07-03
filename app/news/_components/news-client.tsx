@@ -17,8 +17,8 @@ import { type BlogCard } from '@/lib/ghost';
 import type { Pagination } from '@tryghost/content-api';
 
 interface NewsClientProps {
-  featuredNews: BlogCard[];
   regularNews: BlogCard[];
+  /** Featured news posts — rendered as the prominent "Breaking" section. */
   breakingNews: BlogCard[];
   pagination: Pagination;
   currentPage: number;
@@ -27,7 +27,6 @@ interface NewsClientProps {
 const ITEMS_PER_PAGE = 6;
 
 export default function NewsClient({
-  featuredNews,
   regularNews,
   breakingNews,
   pagination,
@@ -39,8 +38,8 @@ export default function NewsClient({
   const [loading, setLoading] = useState(false);
 
   const allPosts = useMemo(
-    () => [...featuredNews, ...regularNews, ...breakingNews],
-    [featuredNews, regularNews, breakingNews],
+    () => [...regularNews, ...breakingNews],
+    [regularNews, breakingNews],
   );
 
   const categories = useMemo(() => [...new Set(allPosts.map((p) => p.category))], [allPosts]);
@@ -244,20 +243,6 @@ export default function NewsClient({
                 ))}
               </div>
             )}
-          </div>
-        </section>
-      )}
-
-      {/* Featured news (non-breaking) */}
-      {featuredNews.length > 0 && (
-        <section className="py-16">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="mb-8 text-3xl font-bold text-gray-900">Featured Stories</h2>
-            <div className="grid gap-8 lg:grid-cols-2">
-              {featuredNews.slice(0, 2).map((article, i) => (
-                <FeaturedNewsCard key={article.slug} article={article} isLarge={i === 0} />
-              ))}
-            </div>
           </div>
         </section>
       )}

@@ -95,7 +95,6 @@ export const details = {
   relevant: {
     primary: 'startup-industry',
     insights: ['blog', 'news'],
-    claimStories: ['claims-story'],
   },
   knowledge: {
     industryName: 'Startup Industry',

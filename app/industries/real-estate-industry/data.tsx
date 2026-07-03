@@ -95,7 +95,6 @@ export const details = {
   relevant: {
     primary: 'real-estate-industry',
     insights: ['blog', 'news'],
-    claimStories: ['claims-story'],
   },
   knowledge: {
     industryName: 'Real Estate Industry',

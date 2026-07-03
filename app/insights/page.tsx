@@ -1,7 +1,6 @@
-// import InsightsFilterBar from './_components/insights-filter';
 import { getFeaturedPosts, getLatestPosts, toCard } from '@/lib/ghost';
 import MainCarousel from '@/components/main-caraousel';
-import InsightsGrid from './_components/insights-grid';
+import InsightsContent from './_components/insights-content';
 
 export const metadata = {
   title: 'Expert Insights',
@@ -10,10 +9,24 @@ export const metadata = {
 };
 
 export default async function InsightsPage() {
-  const [featuredPosts, latest] = await Promise.all([getFeaturedPosts(10), getLatestPosts(1)]);
+  const [featuredPosts, p1, p2, p3, p4] = await Promise.all([
+    getFeaturedPosts(10),
+    getLatestPosts(1),
+    getLatestPosts(2),
+    getLatestPosts(3),
+    getLatestPosts(4),
+  ]);
 
   const carouselPosts = featuredPosts.map(toCard);
-  const allPosts = [...featuredPosts, ...latest.posts].map(toCard);
+  const latestPosts = [...p1.posts, ...p2.posts, ...p3.posts, ...p4.posts];
+  const seen = new Set<string>();
+  const allPosts = [...featuredPosts, ...latestPosts]
+    .filter((p) => {
+      if (seen.has(p.id)) return false;
+      seen.add(p.id);
+      return true;
+    })
+    .map(toCard);
 
   return (
     <div className="section-vibrant-blue from-si-primary-200 w-screen bg-gradient-to-b to-transparent px-2 py-5 pt-[10vh] sm:px-4 md:px-6 lg:px-8 lg:pt-[15vh]">
@@ -39,8 +52,8 @@ export default async function InsightsPage() {
         </div>
       </div>
 
-      {/* Results Section */}
-      <InsightsGrid initialPosts={allPosts} />
+      {/* Filter Bar + Results Grid (shared client island) */}
+      <InsightsContent initialPosts={allPosts} />
     </div>
   );
 }
