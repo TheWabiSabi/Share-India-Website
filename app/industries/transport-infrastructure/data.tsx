@@ -95,7 +95,6 @@ export const details = {
   relevant: {
     primary: 'transport-infrastructure',
     insights: ['blog', 'news'],
-    claimStories: ['claims-story'],
   },
   knowledge: { industryName: 'Transport & Infrastructure' },
 };

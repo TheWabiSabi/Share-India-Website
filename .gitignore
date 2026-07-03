@@ -40,3 +40,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# claude working docs / local scratch (not part of the codebase)
+CLAUDE.md
+diagnostic.md
+plan.md
+code-review.md
+graphify-out/
+image.png

@@ -15,6 +15,7 @@ import MainCarouselServer from '@/components/main-caraousel-server';
 import GhostTagStrip from '@/components/blog/ghost-tag-strip';
 import KnowledgeQuestionnaire from '@/app/industries/_components/KnowledgeQuestionnaire';
 import { AllTopics } from '@/consts/topics';
+import { isPrimaryTag } from '@/consts/tags';
 
 export interface CorporateInsuranceDetails {
   img: string;
@@ -30,7 +31,7 @@ export interface CorporateInsuranceDetails {
     coverages: Array<{ title: string; icon: React.ReactNode; body: string; bullets: string[] }>;
   };
   claim_story: { description: string; topic: string };
-  relevant: { primary: string; insights: string[]; claimStories: string[] };
+  relevant: { primary: string; insights: string[]; claimStories?: string[] };
   knowledge: { industryName: string };
 }
 
@@ -41,10 +42,6 @@ interface Question {
   correctAnswer: number;
   explanation: string;
   difficulty: 'easy' | 'medium' | 'hard';
-}
-
-function topicToTagSlug(topic: string): string {
-  return topic.replace(/_/g, '-');
 }
 
 function CarouselSkeleton() {
@@ -64,7 +61,22 @@ const CorporatePage = ({
   details: CorporateInsuranceDetails;
   questions?: Question[];
 }) => {
-  const claimStoryTagSlugs = ['claims-story', topicToTagSlug(details.claim_story.topic)];
+  // Runs once per page during static generation (these pages prerender) — flags
+  // a page whose relevant.primary isn't a real Ghost primary tag, so a typo'd
+  // or stale tag surfaces as a build-log warning instead of a silently empty
+  // Insights strip / Claim Stories carousel.
+  if (!isPrimaryTag(details.relevant.primary)) {
+    console.warn(
+      `[ghost-tags] relevant.primary "${details.relevant.primary}" is not a known PRIMARY_TAG (consts/tags.ts). Insights and Claim Stories will return no posts for this page.`,
+    );
+  }
+
+  // Sourced from `relevant` — the same field the Insights strip uses — so the
+  // two blocks can never drift onto different page tags.
+  const claimStoryTagSlugs = [
+    ...(details.relevant.claimStories ?? ['claims-story']),
+    details.relevant.primary,
+  ];
 
   return (
     <div className="min-h-screen bg-white text-gray-900">

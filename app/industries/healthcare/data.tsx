@@ -102,7 +102,6 @@ export const details = {
   relevant: {
     primary: 'healthcare',
     insights: ['blog', 'news'],
-    claimStories: ['claims-story'],
   },
   knowledge: { industryName: 'Healthcare Industry' },
 };

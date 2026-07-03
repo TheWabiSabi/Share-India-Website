@@ -95,7 +95,6 @@ export const details = {
   relevant: {
     primary: 'warehousing-logistics',
     insights: ['blog', 'news'],
-    claimStories: ['claims-story'],
   },
   knowledge: { industryName: 'Warehousing & Logistics' },
 };
