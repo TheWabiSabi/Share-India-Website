@@ -4,7 +4,9 @@ import {
   FaRecycle,
   FaRocket,
   FaBuilding,
+  FaBriefcase,
   FaFlask,
+  FaIndustry,
   FaTruck,
   FaTshirt,
   FaSolarPanel,
@@ -128,6 +130,32 @@ export const INDUSTRIES = [
       'Equipment breakdown insurance',
     ],
     image: '/images/solar.jpg',
+  },
+  {
+    name: 'Manufacturing',
+    icon: <FaIndustry className="text-3xl text-blue-600" />,
+    description:
+      'Comprehensive protection for factories, production units, machinery-driven operations, stock, workers, and product liability exposure.',
+    risks: [
+      'Industrial all-risk / fire and allied perils',
+      'Machinery breakdown insurance',
+      'Product liability protection',
+      'Business interruption insurance',
+    ],
+    image: '/images/manufacturing.jpg',
+  },
+  {
+    name: 'Miscellaneous Commercial',
+    icon: <FaBriefcase className="text-3xl text-blue-600" />,
+    description:
+      'Flexible commercial insurance for diverse service, trade, entertainment, real estate, mining, and local business operations.',
+    risks: [
+      'Commercial property all-risk insurance',
+      'Public liability insurance',
+      'Business interruption coverage',
+      'Burglary and theft protection',
+    ],
+    image: '/images/commercial.jpg',
   },
 ];
 
