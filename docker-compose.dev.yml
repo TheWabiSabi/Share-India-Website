@@ -2,10 +2,10 @@ services:
   web:
     build:
       context: .
-    image: nextjs-app
-    container_name: nextjs-app
+    image: siib-website-dev-img
+    container_name: siib-website-dev
     ports:
-      - '3000:3000'
+      - '3001:3000'
     environment:
       - NODE_ENV=production
       - PORT=3000
