@@ -8,6 +8,9 @@ const nextConfig: NextConfig = {
   reactStrictMode: true, // Enable React strict mode
   images: {
     formats: ['image/webp', 'image/avif'], // Prefer modern formats
+    // Next.js 16 blocks optimizing remote images that resolve to a private IP
+    // (SSRF hardening). The local Ghost dev server runs on localhost, so allow it.
+    dangerouslyAllowLocalIP: true,
     remotePatterns: [
       {
         protocol: 'https',
