@@ -11,7 +11,7 @@ import {
 } from 'react-icons/fa';
 import Contact from '@/app/industries/_components/Contact';
 import Card from '@/app/industries/_components/Card';
-import MainCarouselServer from '@/components/main-caraousel-server';
+import ClaimStoriesCarousel from '@/components/blog/claim-stories-carousel';
 import GhostTagStrip from '@/components/blog/ghost-tag-strip';
 import KnowledgeQuestionnaire from '@/app/industries/_components/KnowledgeQuestionnaire';
 import { AllTopics } from '@/consts/topics';
@@ -70,13 +70,6 @@ const CorporatePage = ({
       `[ghost-tags] relevant.primary "${details.relevant.primary}" is not a known PRIMARY_TAG (consts/tags.ts). Insights and Claim Stories will return no posts for this page.`,
     );
   }
-
-  // Sourced from `relevant` — the same field the Insights strip uses — so the
-  // two blocks can never drift onto different page tags.
-  const claimStoryTagSlugs = [
-    ...(details.relevant.claimStories ?? ['claims-story']),
-    details.relevant.primary,
-  ];
 
   return (
     <div className="min-h-screen bg-white text-gray-900">
@@ -199,7 +192,12 @@ const CorporatePage = ({
           <p className="text-si-ink/70 mb-8">{details.claim_story.description}</p>
           <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
             <Suspense fallback={<CarouselSkeleton />}>
-              <MainCarouselServer color="blue" layout={1} tagSlugs={claimStoryTagSlugs} />
+              <ClaimStoriesCarousel
+                color="blue"
+                layout={1}
+                primary={details.relevant.primary}
+                sections={details.relevant.claimStories}
+              />
             </Suspense>
           </div>
         </div>
