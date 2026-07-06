@@ -14,7 +14,6 @@ import Card from '@/app/industries/_components/Card';
 import ClaimStoriesCarousel from '@/components/blog/claim-stories-carousel';
 import GhostTagStrip from '@/components/blog/ghost-tag-strip';
 import KnowledgeQuestionnaire from '@/app/industries/_components/KnowledgeQuestionnaire';
-import { AllTopics } from '@/consts/topics';
 import { isPrimaryTag } from '@/consts/tags';
 
 export interface CorporateInsuranceDetails {
