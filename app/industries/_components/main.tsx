@@ -16,7 +16,6 @@ import GhostTagStrip from '@/components/blog/ghost-tag-strip';
 import KnowledgeQuestionnaire from '../_components/KnowledgeQuestionnaire';
 import { quizQuestions as defaultQuizQuestions } from '../_data/questions/infra';
 import { InfrastructureInsuranceDetails } from '../main.interface';
-import { AllTopics } from '@/consts/topics';
 import { isPrimaryTag } from '@/consts/tags';
 
 interface Question {

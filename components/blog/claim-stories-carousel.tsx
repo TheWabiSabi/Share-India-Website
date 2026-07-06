@@ -39,9 +39,7 @@ export default function ClaimStoriesCarousel({
     for (const s of sectionKey ? sectionKey.split(',') : []) params.append('section', s);
     (async () => {
       try {
-        const r = await fetch(
-          `/api/ghost/tag/${encodeURIComponent(primary)}?${params.toString()}`,
-        );
+        const r = await fetch(`/api/ghost/tag/${encodeURIComponent(primary)}?${params.toString()}`);
         const data = await r.json();
         if (!cancelled) setPosts(Array.isArray(data) ? data : []);
       } catch {

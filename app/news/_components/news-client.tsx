@@ -37,10 +37,7 @@ export default function NewsClient({
   const [displayedCount, setDisplayedCount] = useState(ITEMS_PER_PAGE);
   const [loading, setLoading] = useState(false);
 
-  const allPosts = useMemo(
-    () => [...regularNews, ...breakingNews],
-    [regularNews, breakingNews],
-  );
+  const allPosts = useMemo(() => [...regularNews, ...breakingNews], [regularNews, breakingNews]);
 
   const categories = useMemo(() => [...new Set(allPosts.map((p) => p.category))], [allPosts]);
 
