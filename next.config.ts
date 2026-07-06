@@ -44,6 +44,13 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
       {
+        // Ghost CMS prod serves feature images from /content/images/**
+        protocol: 'http',
+        hostname: 'ghost-cms',
+        port: '2368',
+        pathname: '/**',
+      },
+      {
         // Ghost default/sample post images
         protocol: 'https',
         hostname: 'static.ghost.org',
