@@ -87,14 +87,14 @@ const TOOLS = [
     ),
   },
   {
-    id: 'inspection-ai',
-    name: 'Inspection AI',
+    id: 'riskgo',
+    name: 'RiskGo',
     tag: 'Commercial Risk Assessment',
     tagline: 'Commercial inspections, scored in one place.',
     description:
-      'Inspection AI powers commercial risk assessment inspections. Sign in, enter your company details, and the platform runs a structured risk assessment — producing a clear risk score you can act on.',
-    url: 'https://inspection.shareindiainsurance.com/#/login',
-    cta: 'Open Inspection AI',
+      'RiskGo powers commercial risk assessment inspections. Sign in, enter your company details, and the platform runs a structured risk assessment — producing a clear risk score you can act on.',
+    url: 'https://riskgo.shareindiainsurance.com',
+    cta: 'Open RiskGo',
     features: [
       'Secure login and company onboarding',
       'Commercial risk inspection workflow',
