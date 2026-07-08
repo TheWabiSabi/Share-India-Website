@@ -48,6 +48,7 @@ export default function TopNewsCarousel({ posts }: { posts: BlogCard[] }) {
               <div className="relative h-44 w-full overflow-hidden rounded-t-xl">
                 <Image
                   src={post.image}
+                  quality={75}
                   alt={post.title}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"

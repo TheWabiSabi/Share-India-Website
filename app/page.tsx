@@ -431,7 +431,7 @@ function HeroSection() {
                 width={1200}
                 height={900}
                 priority
-                quality={70}
+                quality={75}
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 48vw, 520px"
                 className="aspect-[4/3] h-auto w-full rounded-xl object-cover object-center"
               />
@@ -732,6 +732,213 @@ function InsurAISection() {
   );
 }
 
+/**
+ * Drop this into the same file as HeroSection / WhatWeDoSection / InsurAISection.
+ * It assumes the following are already available in that file's scope (same as
+ * the other sections use): `Link` (next/link), `FadeIn`, `FadeUp`, `FlyIn`,
+ * `Stagger`, `Item`, `Bullet`, `ArrowIcon`, `ChevronIcon`, and the shared
+ * Tailwind tokens `text-si-ink`, `shadow-elevate-vibrant`, `btn-ghost`,
+ * `hover-lift`.
+ *
+ * Placement suggestion: right after <InsurAISection /> (or right before it) —
+ * it's a peer "integrated service" announcement, same tier as InsurAI.
+ */
+
+function InfomericsPartnershipSection() {
+  const RATING_COVERAGE = [
+    'Bank Loan Ratings',
+    'Bonds & NCDs',
+    'NBFC / ARC Ratings',
+    'IPO Grading',
+  ];
+
+  const RATING_FACTS = [
+    { value: 'SEBI', label: 'Registered with' },
+    { value: 'RBI', label: 'Accredited by' },
+    { value: '1986', label: 'Operating since' },
+    { value: 'Pan-India', label: 'Presence' },
+  ];
+
+  // Light blue (safest) fading to dark navy (riskiest) — one continuous
+  // blue family, no red/amber semantics.
+  const RATING_SCALE_TONES = [
+    'bg-sky-300',
+    'bg-sky-400',
+    'bg-blue-400',
+    'bg-blue-500',
+    'bg-blue-600',
+    'bg-blue-700',
+    'bg-blue-800',
+    'bg-blue-900',
+  ];
+
+  return (
+    <section aria-labelledby="infomerics-title" className="isolate">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+          {/* Left — content */}
+          <div>
+            <FadeIn>
+              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-300/40 bg-blue-500/10 px-4 py-2">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-600 opacity-60" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-blue-600" />
+                </span>
+                <span className="text-sm font-semibold text-blue-900">
+                  In Partnership with Infomerics
+                </span>
+              </div>
+            </FadeIn>
+
+            <FadeUp delay={0.06}>
+              <h2
+                id="infomerics-title"
+                className="text-si-ink text-4xl leading-tight font-bold md:text-5xl"
+              >
+                Know Your{' '}
+                <span className="bg-gradient-to-r from-blue-900 to-blue-600 bg-clip-text text-transparent">
+                  Credit Rating
+                </span>
+              </h2>
+            </FadeUp>
+
+            <FadeUp delay={0.12}>
+              <p className="text-si-ink/80 mt-5 text-lg leading-relaxed">
+                Share India has partnered with{' '}
+                <strong className="text-si-ink">Infomerics Valuation and Rating Ltd.</strong>, a
+                SEBI-registered and RBI-accredited credit rating agency, to give the businesses we
+                work with an independent read on their creditworthiness — a factor that increasingly
+                shapes underwriting, pricing, and financing terms.
+              </p>
+            </FadeUp>
+
+            <Stagger delay={0.2} staggerChildren={0.07}>
+              <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
+                {RATING_COVERAGE.map((c) => (
+                  <Item key={c}>
+                    <div className="flex h-full items-center gap-2 rounded-xl border border-blue-900/10 bg-white p-3 text-sm transition-colors hover:border-blue-900/25">
+                      <Bullet />
+                      <span className="text-si-ink/80">{c}</span>
+                    </div>
+                  </Item>
+                ))}
+              </div>
+            </Stagger>
+
+            <FadeUp delay={0.3}>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <a
+                  href="https://www.infomerics.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Know your rating — opens Infomerics website in a new tab"
+                  className="group inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-900 to-blue-600 px-7 py-3.5 font-semibold text-white shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl"
+                >
+                  Know Your Rating
+                  <span className="transition-transform duration-200 group-hover:translate-x-0.5 motion-reduce:transform-none">
+                    <ArrowIcon />
+                  </span>
+                </a>
+                <Link
+                  href="/contact"
+                  aria-label="Book an appointment"
+                  className="btn-ghost hover-lift inline-flex items-center justify-center gap-2 rounded-xl px-7 py-3.5 font-semibold"
+                >
+                  Book an Appointment
+                  <ChevronIcon />
+                </Link>
+              </div>
+            </FadeUp>
+          </div>
+
+          {/* Right — rating scale visual */}
+          <FlyIn dir="left" delay={0.1}>
+            <div className="relative">
+              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-r from-blue-900/15 to-blue-400/15 blur-2xl" />
+              <div className="shadow-elevate-vibrant relative overflow-hidden rounded-2xl border border-white bg-gradient-to-br from-white to-blue-50/60 p-6 sm:p-8">
+                {/* Header */}
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-blue-900 to-blue-600 shadow-sm">
+                    <svg
+                      className="h-5 w-5 text-white"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      aria-hidden
+                    >
+                      <path
+                        strokeWidth={1.8}
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M12 3l7 3v5c0 5-3.5 9-7 10-3.5-1-7-5-7-10V6l7-3z"
+                      />
+                      <path
+                        strokeWidth={1.8}
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M9 12l2 2 4-4"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <div className="text-si-ink font-semibold">Infomerics Rating Report</div>
+                    <div className="text-si-ink/60 text-xs">Illustrative sample</div>
+                  </div>
+                </div>
+
+                {/* Rating scale */}
+                <div className="mt-6 rounded-xl bg-white p-4 shadow-md transition-shadow hover:shadow-lg">
+                  <div className="text-si-ink/50 flex items-center justify-between text-[11px] font-medium tracking-wide uppercase">
+                    <span>Highest Safety</span>
+                    <span>Highest Risk</span>
+                  </div>
+
+                  <div className="mt-2 flex h-2.5 w-full overflow-hidden rounded-full">
+                    {RATING_SCALE_TONES.map((tone, i) => (
+                      <div
+                        key={i}
+                        className={`h-full flex-1 ${tone} first:rounded-l-full last:rounded-r-full`}
+                      />
+                    ))}
+                  </div>
+
+                  {/* Marker pointing at the first (safest) segment */}
+                  <div className="relative h-3">
+                    <div
+                      className="bg-si-ink absolute top-0 h-2 w-2 -translate-x-1/2 rotate-45 border border-white shadow-sm"
+                      style={{ left: '6.25%' }}
+                    />
+                  </div>
+
+                  <div className="mt-2 flex flex-wrap items-center justify-between gap-2">
+                    <span className="rounded-full bg-blue-50 px-3 py-1 text-sm font-bold text-blue-800 ring-1 ring-blue-200">
+                      AAA · Stable
+                    </span>
+                    <span className="text-si-ink/40 text-xs">Sample outcome, not a guarantee</span>
+                  </div>
+                </div>
+
+                {/* Facts mini-grid */}
+                <div className="mt-4 grid grid-cols-2 gap-3">
+                  {RATING_FACTS.map(({ value, label }) => (
+                    <div
+                      key={label}
+                      className="rounded-lg bg-white p-3 text-center shadow-sm ring-1 ring-black/5 transition-transform hover:-translate-y-0.5"
+                    >
+                      <div className="text-lg font-bold text-blue-700">{value}</div>
+                      <div className="text-si-ink/60 mt-0.5 text-xs">{label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </FlyIn>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function FeaturedInsightsSection() {
   return (
     <section id="featured-insights" aria-labelledby="featured-insights-title" className="isolate">
@@ -919,6 +1126,7 @@ function AwardsTestimonialsSection() {
                       <Image
                         src={a.img}
                         alt={`${a.year} award`}
+                        quality={25}
                         fill
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                         className="object-cover"
@@ -961,6 +1169,7 @@ function AwardsTestimonialsSection() {
                         <Image
                           src={t.avatar}
                           alt={`${t.name} logo`}
+                          quality={75}
                           fill
                           sizes="44px"
                           className="object-cover"
@@ -1089,7 +1298,9 @@ export default function HomePage() {
         <HeroSection />
       </CardScreen>
 
-      <div className="py-6" />
+      <CardScreen id="hero">
+        <InfomericsPartnershipSection />
+      </CardScreen>
 
       <CardScreen id="insurai">
         <InsurAISection />

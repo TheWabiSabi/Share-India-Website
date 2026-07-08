@@ -85,7 +85,13 @@ export default function InsightsGrid({ initialPosts }: InsightsGridProps) {
             >
               <div className="from-si-primary/20 via-si-primary/10 to-si-red/5 relative flex h-48 items-center justify-center bg-gradient-to-br">
                 {post.image && (
-                  <Image fill src={post.image} alt={post.title} className="object-cover" />
+                  <Image
+                    fill
+                    src={post.image}
+                    quality={50}
+                    alt={post.title}
+                    className="object-cover"
+                  />
                 )}
                 <div className="absolute top-4 left-4">
                   <span className="from-si-primary to-si-primary-600 rounded-full bg-gradient-to-r px-3 py-1.5 text-sm font-semibold text-white shadow-lg backdrop-blur-sm">
