@@ -37,6 +37,7 @@ const BlueBlogCard: React.FC<BlueBlogCardProps> = ({
           fill
           src={imageUrl}
           alt={title}
+          quality={50}
           className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 40vw, 30vw"
           priority={false}
