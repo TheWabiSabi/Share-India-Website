@@ -1298,9 +1298,11 @@ export default function HomePage() {
         <HeroSection />
       </CardScreen>
 
+      {/*
       <CardScreen id="hero">
         <InfomericsPartnershipSection />
       </CardScreen>
+      */}
 
       <CardScreen id="insurai">
         <InsurAISection />
