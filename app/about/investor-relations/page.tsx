@@ -48,6 +48,19 @@ const SECTIONS: Section[] = [
     ),
     tabs: [
       {
+        id: 'fy2025-26',
+        label: 'F.Y. 2025–26',
+        documents: [
+          {
+            title: 'Annual Return for the Financial Year 2025–26',
+            subtitle: 'Draft Form MGT-7',
+            filename: 'annual-return-mgt7-fy2025-26.pdf',
+            label: 'Download MGT-7',
+            size: '5.75 MB',
+          },
+        ],
+      },
+      {
         id: 'fy2024-25',
         label: 'F.Y. 2024–25',
         documents: [
@@ -87,7 +100,7 @@ const SECTIONS: Section[] = [
             subtitle: 'F.Y. 2025–26',
             filename: 'notice-7th-agm-fy2025-26.pdf',
             label: 'Download Notice',
-            size: '2.24 MB',
+            size: '1.56 MB',
           },
           {
             title: 'Notice of the 1st Extra-Ordinary General Meeting',
