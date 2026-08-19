@@ -1,7 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { extractToc, getPostBySlug, getRelatedPosts, toCard } from '@/lib/ghost';
+import {
+  extractToc,
+  getPostBySlug,
+  getRelatedPosts,
+  polishEditorialCopy,
+  toCard,
+} from '@/lib/ghost';
 import PostBody from '@/components/blog/post-body';
 import ShareButtons from '@/components/blog/share-buttons';
 
@@ -23,7 +29,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   // Tags shown alongside the primary category badge (deduped against it).
   const secondaryTags = blogPost.tags.filter((t) => t.name !== blogPost.category);
   // Build a real table of contents and ensure headings have anchor ids.
-  const { html: bodyHtml, toc } = extractToc(post.html ?? '');
+  const { html: bodyHtml, toc } = extractToc(polishEditorialCopy(post.html ?? ''));
   const relatedArticles = (await getRelatedPosts(post)).map(toCard);
 
   return (
@@ -171,7 +177,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           {/* Right Sidebar - Related & Navigation */}
           <div className="lg:col-span-3">
             <div className="sticky top-8 space-y-6">
-              {/* Table of Contents — generated from the post's headings */}
+              {/* Table of contents generated from the post headings */}
               {toc.length > 0 && (
                 <div className="rounded-lg bg-white p-6 shadow-sm">
                   <h3 className="mb-4 font-semibold text-gray-900">In this article</h3>

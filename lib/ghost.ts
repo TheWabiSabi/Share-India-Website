@@ -1,5 +1,6 @@
 import GhostContentAPI, { type PostOrPage, type Pagination } from '@tryghost/content-api';
 import { cleanTagName } from '@/consts/tags';
+import { CURATED_BLOG_POSTS } from '@/lib/curated-blog-posts';
 
 /** Posts shown per page on the /blogs list. */
 export const POSTS_PER_PAGE = 5;
@@ -39,6 +40,28 @@ export interface BlogArticle extends BlogCard {
   html: string;
 }
 
+/**
+ * Smooth out the most noticeable machine-written habits in legacy CMS copy.
+ * This intentionally stays conservative so policy language and HTML structure
+ * are not rewritten into a different meaning.
+ */
+export function polishEditorialCopy(value: string): string {
+  return value
+    .replace(/&mdash;|&#8212;/gi, ', ')
+    .replace(/&ndash;|&#8211;/gi, '-')
+    .replace(/\s*—\s*/g, ', ')
+    .replace(/(\d)–(\d)/g, '$1-$2')
+    .replace(/\s+–\s+/g, ', ')
+    .replace(/\bIn today(?:'|’)s rapidly evolving\b/gi, 'In')
+    .replace(/\bIn the rapidly evolving landscape of\b/gi, 'In')
+    .replace(/\bnavigate the complexities of\b/gi, 'work through')
+    .replace(/\bdelve into\b/gi, 'look at')
+    .replace(/\bThe Final Word\b/g, 'What to remember')
+    .replace(/\bIn conclusion,?\s*/gi, '')
+    .replace(/,\s*,/g, ',')
+    .trim();
+}
+
 let client: ReturnType<typeof GhostContentAPI> | null = null;
 
 function getClient() {
@@ -62,8 +85,8 @@ export function toCard(post: GhostPost): BlogCard {
   return {
     id: post.id,
     slug: post.slug,
-    title: post.title ?? 'Untitled',
-    excerpt: post.excerpt ?? '',
+    title: polishEditorialCopy(post.title ?? 'Untitled'),
+    excerpt: polishEditorialCopy(post.excerpt ?? ''),
     author: post.primary_author?.name ?? 'Share India',
     date: post.published_at ?? post.created_at ?? '',
     dateLabel: formatDate(post.published_at ?? post.created_at ?? ''),
@@ -80,7 +103,7 @@ export function toCard(post: GhostPost): BlogCard {
 
 /** A card plus rendered HTML, for inline reading. */
 export function toArticle(post: GhostPost): BlogArticle {
-  return { ...toCard(post), html: post.html ?? '' };
+  return { ...toCard(post), html: polishEditorialCopy(post.html ?? '') };
 }
 
 /**
@@ -108,19 +131,57 @@ export async function getLatestPosts(
   page = 1,
   section?: string,
 ): Promise<{ posts: GhostPost[]; pagination: Pagination }> {
+  // The curated additions belong to the dedicated /blogs feed. Keeping them
+  // out of the unscoped feed preserves the existing image-led /insights grid.
+  const localPosts =
+    section === 'blog'
+      ? CURATED_BLOG_POSTS.filter((post) => post.tags?.some((tag) => tag.slug === section))
+      : [];
+  const localPages = Math.ceil(localPosts.length / POSTS_PER_PAGE);
+  const remotePage = Math.max(1, page - localPages);
+
   try {
     const result = await getClient().posts.browse({
       filter: section ? `featured:false+tags:${section}` : 'featured:false',
       limit: POSTS_PER_PAGE,
-      page,
+      page: remotePage,
       include: ['tags', 'authors'],
       order: 'published_at DESC',
     });
-    return { posts: result, pagination: result.meta.pagination };
-  } catch {
+
+    const total = localPosts.length + result.meta.pagination.total;
+    const pages = Math.max(1, localPages + result.meta.pagination.pages);
+    const posts =
+      page <= localPages
+        ? localPosts.slice((page - 1) * POSTS_PER_PAGE, page * POSTS_PER_PAGE)
+        : result;
+
     return {
-      posts: [],
-      pagination: { page: 1, pages: 1, total: 0, limit: POSTS_PER_PAGE, prev: null, next: null },
+      posts,
+      pagination: {
+        page,
+        pages,
+        total,
+        limit: POSTS_PER_PAGE,
+        prev: page > 1 ? page - 1 : null,
+        next: page < pages ? page + 1 : null,
+      },
+    };
+  } catch {
+    const pages = Math.max(1, localPages);
+    return {
+      posts:
+        page <= localPages
+          ? localPosts.slice((page - 1) * POSTS_PER_PAGE, page * POSTS_PER_PAGE)
+          : [],
+      pagination: {
+        page,
+        pages,
+        total: localPosts.length,
+        limit: POSTS_PER_PAGE,
+        prev: page > 1 && page <= pages ? page - 1 : null,
+        next: page < pages ? page + 1 : null,
+      },
     };
   }
 }
@@ -272,6 +333,9 @@ export function extractToc(html: string): { html: string; toc: TocItem[] } {
 
 /** Fetch one post by slug; returns null when it doesn't exist. */
 export async function getPostBySlug(slug: string): Promise<GhostPost | null> {
+  const curated = CURATED_BLOG_POSTS.find((post) => post.slug === slug);
+  if (curated) return curated;
+
   try {
     return await getClient().posts.read({ slug }, { include: ['tags', 'authors'] });
   } catch {
@@ -318,16 +382,25 @@ export async function getRelatedPosts(post: GhostPost): Promise<GhostPost[]> {
   const primaryTagSlug = post.primary_tag?.slug;
   if (!primaryTagSlug) return [];
 
+  const localRelated = CURATED_BLOG_POSTS.filter(
+    (candidate) =>
+      candidate.slug !== post.slug && candidate.tags?.some((tag) => tag.slug === primaryTagSlug),
+  ).slice(0, 2);
+
+  if (localRelated.length === 2) return localRelated;
+
   try {
     const result = await getClient().posts.browse({
-      filter: `tags:${primaryTagSlug}+id:-${post.id}`,
-      limit: 2,
+      filter: post.id.startsWith('curated-blog-')
+        ? `tags:${primaryTagSlug}`
+        : `tags:${primaryTagSlug}+id:-${post.id}`,
+      limit: 2 - localRelated.length,
       include: ['tags', 'authors'],
       order: 'published_at DESC',
     });
-    return result;
+    return [...localRelated, ...result].slice(0, 2);
   } catch {
-    return [];
+    return localRelated;
   }
 }
 
