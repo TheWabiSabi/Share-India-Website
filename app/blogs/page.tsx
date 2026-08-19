@@ -1,16 +1,15 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaCalendar, FaClock, FaTag, FaUser } from 'react-icons/fa';
-import { getFeaturedPosts, getLatestPosts, toArticle, toCard, type BlogCard } from '@/lib/ghost';
-import LatestAccordion from '@/components/blog/latest-accordion';
+import { getFeaturedPosts, getLatestPosts, toCard, type BlogCard } from '@/lib/ghost';
 
 interface BlogsPageProps {
   searchParams: Promise<{ page?: string }>;
 }
 
 export const metadata = {
-  title: 'Insurance Insights & Stories',
-  description: 'The latest trends, claim stories, and expert insights from the insurance industry.',
+  title: 'Insurance Blogs',
+  description: 'Plain-English insurance blogs, claim lessons and practical risk checklists.',
 };
 
 function parsePage(raw: string | undefined): number {
@@ -21,15 +20,17 @@ function parsePage(raw: string | undefined): number {
 export default async function BlogsPage({ searchParams }: BlogsPageProps) {
   const page = parsePage((await searchParams).page);
 
-  // Dedicated "blogs" page — follows the secondary `blog` tag only (any primary).
-  const [featuredPosts, latest] = await Promise.all([
+  // Dedicated "blogs" page follows the secondary `blog` tag only (any primary).
+  const [featuredPosts, latestBlogs, latestArticles] = await Promise.all([
     page === 1 ? getFeaturedPosts(6, 'blog') : Promise.resolve([]),
     getLatestPosts(page, 'blog'),
+    getLatestPosts(1),
   ]);
 
   const recommended = featuredPosts.map(toCard);
-  const articles = latest.posts.map(toArticle);
-  const { pagination } = latest;
+  const blogs = latestBlogs.posts.map(toCard);
+  const articles = latestArticles.posts.map(toCard);
+  const { pagination } = latestBlogs;
 
   return (
     <div className="min-h-screen bg-white pt-[8vh]">
@@ -38,17 +39,17 @@ export default async function BlogsPage({ searchParams }: BlogsPageProps) {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl font-extrabold text-gray-900 md:text-5xl lg:text-6xl">
-              Insurance Insights & Stories
+              Insurance Blogs
             </h1>
             <p className="mx-auto mt-6 max-w-3xl text-lg text-gray-700 md:text-xl">
-              Stay informed with the latest trends, claim stories, and expert insights from the
-              insurance industry. Discover how we&#39;re protecting businesses across India.
+              Insurance gets complicated quickly. Our team breaks it down with practical advice,
+              honest claim lessons and checklists you can actually use.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Recommended (featured) — page 1 only */}
+      {/* Recommended (featured), page 1 only */}
       {recommended.length > 0 && (
         <section className="py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -71,30 +72,34 @@ export default async function BlogsPage({ searchParams }: BlogsPageProps) {
         </section>
       )}
 
-      {/* Latest — inline accordion */}
+      {/* Latest article grid */}
       <section className="bg-gray-50 py-16">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10">
             <h2 className="text-3xl font-bold text-gray-900 md:text-4xl">
-              {articles.length === 0 ? 'No Articles Found' : 'Latest Articles'}
+              {blogs.length === 0 ? 'No Blogs Found' : 'Latest Blogs'}
             </h2>
             <p className="mt-3 text-lg text-gray-600">
-              {articles.length === 0
-                ? 'There are no published articles on this page yet.'
-                : 'Expand any story to read it right here — one opens at a time'}
+              {blogs.length === 0
+                ? 'There are no published blogs on this page yet.'
+                : 'Browse practical blogs, claim lessons and stories from our team.'}
             </p>
           </div>
 
-          {articles.length > 0 ? (
+          {blogs.length > 0 ? (
             <>
-              <LatestAccordion articles={articles} />
+              <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                {blogs.map((blog) => (
+                  <BlogPostCard key={blog.id} blog={blog} />
+                ))}
+              </div>
               <Pager pagination={pagination} />
             </>
           ) : (
             <div className="py-12 text-center">
-              <h3 className="mb-2 text-lg font-medium text-gray-900">No articles found</h3>
+              <h3 className="mb-2 text-lg font-medium text-gray-900">No blogs found</h3>
               <p className="mb-4 text-gray-500">
-                Once posts are published in Ghost they&#39;ll appear here.
+                Once blogs are published in Ghost they&#39;ll appear here.
               </p>
               {page > 1 && (
                 <Link
@@ -109,14 +114,33 @@ export default async function BlogsPage({ searchParams }: BlogsPageProps) {
         </div>
       </section>
 
+      {/* Original Ghost-powered article feed */}
+      {articles.length > 0 && (
+        <section className="bg-white py-16">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-10">
+              <h2 className="text-3xl font-bold text-gray-900 md:text-4xl">Latest Articles</h2>
+              <p className="mt-3 text-lg text-gray-600">
+                News, industry explainers and claim stories from across insurance.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {articles.map((article) => (
+                <BlogPostCard key={article.id} blog={article} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Newsletter Signup */}
       <section className="bg-si-primary-600 py-16">
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-white md:text-4xl">
-            Stay Updated with Insurance Insights
+            Useful insurance reads, without the noise
           </h2>
           <p className="text-si-primary-100 mt-4 text-lg">
-            Get the latest articles, claim stories, and industry trends delivered to your inbox
+            Get new articles and claim lessons delivered to your inbox.
           </p>
           <div className="mx-auto mt-8 max-w-md">
             <div className="flex gap-3">
@@ -200,7 +224,7 @@ function Pager({
         </nav>
       )}
       <p className="text-sm text-gray-500">
-        Page {page} of {pages} · {total} {total === 1 ? 'article' : 'articles'}
+        Page {page} of {pages} · {total} {total === 1 ? 'blog' : 'blogs'}
       </p>
     </div>
   );

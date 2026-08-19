@@ -9,7 +9,8 @@ import { FadeUp, FadeIn } from '@/components/motion';
 interface Document {
   title: string;
   subtitle?: string;
-  filename: string;
+  filename?: string;
+  url?: string;
   label: string;
   size?: string;
 }
@@ -54,9 +55,8 @@ const SECTIONS: Section[] = [
           {
             title: 'Annual Return for the Financial Year 2025–26',
             subtitle: 'Draft Form MGT-7',
-            filename: 'annual-return-mgt7-fy2025-26.pdf',
-            label: 'Download MGT-7',
-            size: '5.75 MB',
+            url: 'https://drive.google.com/drive/folders/10QtSGpf1prDucy7C5ei9gcjKyhN8PVbB?usp=drive_link',
+            label: 'View in Google Drive',
           },
         ],
       },
@@ -98,9 +98,8 @@ const SECTIONS: Section[] = [
           {
             title: 'Notice of the 7th Annual General Meeting',
             subtitle: 'F.Y. 2025–26',
-            filename: 'notice-7th-agm-fy2025-26.pdf',
-            label: 'Download Notice',
-            size: '1.56 MB',
+            url: 'https://drive.google.com/drive/folders/10QtSGpf1prDucy7C5ei9gcjKyhN8PVbB?usp=drive_link',
+            label: 'View in Google Drive',
           },
           {
             title: 'Notice of the 1st Extra-Ordinary General Meeting',
@@ -152,10 +151,10 @@ function DocumentCard({ doc }: { doc: Document }) {
 
       {/* Download CTA */}
       <a
-        href={`/pdfs/${doc.filename}`}
+        href={doc.url ?? `/pdfs/${doc.filename}`}
         target="_blank"
         rel="noopener noreferrer"
-        download
+        download={doc.url ? undefined : true}
         className="bg-si-primary hover:bg-si-primary-600 inline-flex shrink-0 items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-bold text-white transition-all hover:shadow-md"
       >
         <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -221,7 +220,7 @@ function SectionPanel({ section }: { section: Section }) {
       {/* Documents */}
       <div className="space-y-4">
         {currentTab.documents.map((doc) => (
-          <DocumentCard key={doc.filename} doc={doc} />
+          <DocumentCard key={doc.url ?? doc.filename} doc={doc} />
         ))}
       </div>
     </div>
